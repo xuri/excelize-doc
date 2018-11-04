@@ -1,0 +1,18 @@
+{
+    "title": "Excelize Document",
+    "author": "xuri",
+    "language": "en",
+    "plugins": [
+        "sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "language-picker"
+    ],
+    "pluginsConfig":
+    {},
+    "styles":
+    {
+        "website": "styles/website.css"
+    }
+}

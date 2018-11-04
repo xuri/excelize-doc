@@ -1,0 +1,25 @@
+{
+    "title": "Excelize",
+    "author": "xuri",
+    "language": "en",
+    "plugins": ["-sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "scripts",
+        "sitemap-general",
+        "language-picker"
+    ],
+    "pluginsConfig":
+    {
+        "sitemap-general":
+        {
+            "prefix": "https://xuri.me/excelize/"
+        },
+        "scripts": {
+            "files": [
+                "./myscript.js"
+            ]
+        }
+    }
+}

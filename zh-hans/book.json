@@ -1,0 +1,19 @@
+{
+    "title": "Excelize 中文文档",
+    "author": "xuri",
+    "language": "zh-hans",
+    "plugins": [
+        "sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "language-picker"
+    ],
+    "pluginsConfig":
+    {
+    },
+    "styles":
+    {
+        "website": "styles/website.css"
+    }
+}
