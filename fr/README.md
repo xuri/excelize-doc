@@ -1,6 +1,15 @@
 # Introduction
 
-![Excelize](../images/excelize.png)
+<p align="center"><img width="650" src="../images/excelize.png" alt="Excelize logo"></p>
+
+<p align="center">
+    <a href="https://travis-ci.org/360EntSecGroup-Skylar/excelize"><img src="https://travis-ci.org/360EntSecGroup-Skylar/excelize.svg?branch=master" alt="Build Status"></a>
+    <a href="https://codecov.io/gh/360EntSecGroup-Skylar/excelize"><img src="https://codecov.io/gh/360EntSecGroup-Skylar/excelize/branch/master/graph/badge.svg" alt="Code Coverage"></a>
+    <a href="https://goreportcard.com/report/github.com/360EntSecGroup-Skylar/excelize"><img src="https://goreportcard.com/badge/github.com/360EntSecGroup-Skylar/excelize" alt="Go Report Card"></a>
+    <a href="https://godoc.org/github.com/360EntSecGroup-Skylar/excelize"><img src="https://godoc.org/github.com/360EntSecGroup-Skylar/excelize?status.svg" alt="GoDoc"></a>
+    <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/license-bsd-orange.svg" alt="Licenses"></a>
+    <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
+</p>
 
 Excelize est une bibliothèque écrite en pur Go et fournissant un ensemble de fonctions qui vous permettent d'écrire et de lire des fichiers XLSX. La prise en charge lit et écrit le fichier XLSX généré par Microsoft Excel™ 2007 et versions ultérieures. Soutenez le dossier de sauvegarde sans perdre les diagrammes originaux de XLSX. Cette bibliothèque a besoin de Go version 1.8 ou ultérieure.
 
@@ -9,7 +18,7 @@ Excelize est une bibliothèque écrite en pur Go et fournissant un ensemble de f
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Dernière version: [v1.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Heure de mise à jour du document: 4 Novembre 2018
+- Heure de mise à jour du document: 5 Décembre 2018
 
 ## Mission du projet
 

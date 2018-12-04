@@ -12,6 +12,7 @@ La version Microsoft Excel ™ 2007 prend en charge le format de document XML OO
 * [Open XML SDK 2.5 for Microsoft Office (only works on the Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)
 * [2007 Office Document: Open XML Markup Explained](https://www.microsoft.com/en-us/download/details.aspx?id=15359)
 * [Google Chrome Extensions: OOXML Tools](https://chrome.google.com/webstore/detail/ooxml-tools/bjmmjfdegplhkefakjkccocjanekbapn)
+* [[MS-OFFCRYPTO]: Office Document Cryptography Structure Specification](http://msdn.microsoft.com/en-us/library/cc313071.aspx)
 
 ## Traduction de documents
 
