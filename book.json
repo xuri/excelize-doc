@@ -16,7 +16,8 @@
         {
             "prefix": "https://xuri.me/excelize/"
         },
-        "scripts": {
+        "scripts":
+        {
             "files": [
                 "./myscript.js"
             ]
