@@ -148,6 +148,7 @@ GetSheetPrOptions provides a function to gets worksheet properties.
 |Published|bool|
 |FitToPage|bool|
 |AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
 
 For example:
 
@@ -161,6 +162,7 @@ var (
     published                         excelize.Published
     fitToPage                         excelize.FitToPage
     autoPageBreaks                    excelize.AutoPageBreaks
+    outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
 
 if err := xl.GetSheetPrOptions(sheet,
@@ -169,6 +171,7 @@ if err := xl.GetSheetPrOptions(sheet,
     &published,
     &fitToPage,
     &autoPageBreaks,
+    &outlineSummaryBelow,
 ); err != nil {
     panic(err)
 }
@@ -178,6 +181,7 @@ fmt.Println("- enableFormatConditionsCalculation:", enableFormatConditionsCalcul
 fmt.Println("- published:", published)
 fmt.Println("- fitToPage:", fitToPage)
 fmt.Println("- autoPageBreaks:", autoPageBreaks)
+fmt.Println("- outlineSummaryBelow:", outlineSummaryBelow)
 ```
 
 Output:
@@ -189,6 +193,7 @@ Defaults:
 - published: true
 - fitToPage: false
 - autoPageBreaks: false
+- outlineSummaryBelow: true
 ```
 
 ## Insert column {#InsertCol}
