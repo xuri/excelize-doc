@@ -28,6 +28,12 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 在一些情况下我们需要通过程序操作 Excel 文档，例如：打开读取已有 Excel 文档内容、创建新的 Excel 文档、基于已有文档（模版）生成新的 Excel 文档、向 Excel 文档中插入图片、图表和表格等元素，有时还需要跨平台实现这些操作。使用 Excelize 可以方便的满足上述需求。
 
+## 项目荣誉
+
+入选 2018 年开源中国码云最有价值开源项目 ([Gitee Most Valuable Project](https://gitee.com/xurime/excelize))
+
+<p align="center"><img width="300" src="../images/gvp2018.jpg" alt="2018 年开源中国码云最有价值开源项目"></p>
+
 ## 知名用户
 
 [![360 企业安全](../images/vendor/360.png)](http://360.net) [![百度](../images/vendor/baidu.png)](https://www.baidu.com) [![合合信息](../images/vendor/ccint.com.png)](https://www.ccint.com) [![映客直播](../images/vendor/inke.png)](https://www.inke.cn) [![美团点评](../images/vendor/meituan.png)](https://www.meituan.com) [![网易](../images/vendor/netease.png)](https://www.163.com)
