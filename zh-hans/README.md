@@ -32,7 +32,7 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 入选 2018 年开源中国码云最有价值开源项目 ([Gitee Most Valuable Project](https://gitee.com/xurime/excelize))
 
-<p align="center"><img width="300" src="../images/gvp2018.jpg" alt="2018 年开源中国码云最有价值开源项目"></p>
+<p align="center"><img width="330" src="../images/gvp2018.jpg" alt="2018 年开源中国码云最有价值开源项目"></p>
 
 ## 知名用户
 

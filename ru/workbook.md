@@ -122,6 +122,8 @@ var (
     showFormulas      excelize.ShowFormulas
     showGridLines     excelize.ShowGridLines
     showRowColHeaders excelize.ShowRowColHeaders
+    zoomScale         excelize.ZoomScale
+    topLeftCell       excelize.TopLeftCell
 )
 
 if err := xl.GetSheetViewOptions(sheet, 0,
@@ -130,6 +132,8 @@ if err := xl.GetSheetViewOptions(sheet, 0,
     &showFormulas,
     &showGridLines,
     &showRowColHeaders,
+    &zoomScale,
+    &topLeftCell,
 ); err != nil {
     panic(err)
 }
@@ -140,6 +144,16 @@ fmt.Println("- rightToLeft:", rightToLeft)
 fmt.Println("- showFormulas:", showFormulas)
 fmt.Println("- showGridLines:", showGridLines)
 fmt.Println("- showRowColHeaders:", showRowColHeaders)
+fmt.Println("- zoomScale:", zoomScale)
+fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
+
+if err := xl.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
+    panic(err)
+}
+
+if err := xl.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
+    panic(err)
+}
 
 if err := xl.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
     panic(err)
@@ -151,6 +165,7 @@ if err := xl.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
 
 fmt.Println("After change:")
 fmt.Println("- showGridLines:", showGridLines)
+fmt.Println("- topLeftCell:", topLeftCell)
 ```
 
 вывод:
@@ -162,6 +177,9 @@ Default:
 - showFormulas: false
 - showGridLines: true
 - showRowColHeaders: true
+- zoomScale: 0
+- topLeftCell: ""
 After change:
 - showGridLines: false
+- topLeftCell: B2
 ```
