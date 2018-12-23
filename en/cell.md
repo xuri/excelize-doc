@@ -251,6 +251,14 @@ xlsx.MergeCell("Sheet1", "D3", "E9")
 
 If the given cell coordinate area overlaps with other existing merged cells, the existing merged cells will be deleted.
 
+## Get merge cells {#GetMergeCells}
+
+GetMergeCells provides a function to get all merged cells from a worksheet currently.
+
+```go
+func (f *File) GetMergeCells(sheet string) []MergeCell
+```
+
 ## Add comment {#AddComment}
 
 ```go

@@ -18,7 +18,7 @@ Excelize 是 Go 语言编写的一个用来操作 Office Excel 文档类库，�
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v1.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 文档更新: 2018年12月16日
+- 文档更新: 2018年12月22日
 
 ## 项目使命
 

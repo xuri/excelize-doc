@@ -251,6 +251,14 @@ xlsx.MergeCell("Sheet1", "D3", "E9")
 
 Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusionnées existantes, les cellules fusionnées existantes seront supprimées.
 
+## Obtenir les cellules fusionnées {#GetMergeCells}
+
+GetMergeCells fournit une fonction pour obtenir toutes les cellules fusionnées à partir d'une feuille de calcul.
+
+```go
+func (f *File) GetMergeCells(sheet string) []MergeCell
+```
+
 ## Ajouter un commentaire {#AddComment}
 
 ```go

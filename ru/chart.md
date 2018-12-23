@@ -12,25 +12,31 @@ AddChart предоставляет метод добавления диагра
 
 Тип|Диаграмма
 ---|---
-bar                 | 2D кластерная гистограмма
-barStacked          | 2D Двухстрочная гистограмма
-barPercentStacked   | 2D 100% сложная гистограмма
-bar3DClustered      | 3D кластерная гистограмма
-bar3DStacked        | 3D гистограмма
-bar3DPercentStacked | 3D 100% сложная гистограмма
-col                 | 2D группированная диаграмма столбцов
-colStacked          | 2D сложены диаграммы колонки
-colPercentStacked   | 2D 100% сложены диаграммы колонки
-col3DClustered      | 3D группированная диаграмма столбцов
-col3D               | 3D диаграмма столбца
-col3DStacked        | 3D сложены диаграммы колонки
-col3DPercentStacked | 3D 100% сложены диаграммы колонки
-doughnut            | диаграмма пончика
-line                | линейный график
-pie                 | круговая диаграмма
-pie3D               | 3D круговая диаграмма
-radar               | радиолокационная карта
-scatter             | Точечная диаграмма
+area                 | 2D диаграмма области
+areaStacked          | 2D диаграмма области с накоплением
+areaPercentStacked   | 2D 100% диаграмма области с накоплением
+area3D               | 3D диаграмма области
+area3DStacked        | 3D диаграмма области с накоплением
+area3DPercentStacked | 3D 100% диаграмма области с накоплением
+bar                  | 2D кластерная гистограмма
+barStacked           | 2D Двухстрочная гистограмма
+barPercentStacked    | 2D 100% сложная гистограмма
+bar3DClustered       | 3D кластерная гистограмма
+bar3DStacked         | 3D гистограмма
+bar3DPercentStacked  | 3D 100% сложная гистограмма
+col                  | 2D группированная диаграмма столбцов
+colStacked           | 2D сложены диаграммы колонки
+colPercentStacked    | 2D 100% сложены диаграммы колонки
+col3DClustered       | 3D группированная диаграмма столбцов
+col3D                | 3D диаграмма столбца
+col3DStacked         | 3D сложены диаграммы колонки
+col3DPercentStacked  | 3D 100% сложены диаграммы колонки
+doughnut             | диаграмма пончика
+line                 | линейный график
+pie                  | круговая диаграмма
+pie3D                | 3D круговая диаграмма
+radar                | радиолокационная карта
+scatter              | Точечная диаграмма
 
 В области данных диаграммы Office Excel `series` определяет набор информации, для которой данные рисовать, легенда пункт (серии), и горизонтальной (категория) метки оси.
 
@@ -100,6 +106,88 @@ minimum|int|`0`|Указывает, что фиксированный миним
 ---|---|---|---
 height|int|290|Высота
 width|int|480|Ширина
+
+### 2D диаграмма области {#area}
+
+Например, добавьте диаграмму, подобную этой:
+
+!["создать 2D диаграмма области с Excelize с помощью Go"](./images/2d_area_chart.png "создать 2D диаграмма области с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 7, "C2": 7, "D2": 8, "B3": 5, "C3": 4, "D3": 4, "B4": 2, "C4": 3, "D4": 3}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 2D Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
+### 2D диаграмма области с накоплением {#areaStacked}
+
+### 2D 100% диаграмма области с накоплением {#areaPercentStacked}
+
+### 3D диаграмма области {#area3D}
+
+Например, добавьте диаграмму, подобную этой:
+
+!["создать 3D диаграмма области с Excelize с помощью Go"](./images/3d_area_chart.png "создать 3D диаграмма области с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 7, "C2": 7, "D2": 8, "B3": 5, "C3": 4, "D3": 4, "B4": 2, "C4": 3, "D4": 3}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area3D","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
+### 3D диаграмма области с накоплением {#area3DStacked}
+
+### 3D 100% диаграмма области с накоплением {#area3DPercentStacked}
 
 ### 2D кластерная гистограмма {#bar}
 

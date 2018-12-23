@@ -12,25 +12,31 @@ The following shows the `type` of chart supported by excelize:
 
 Type|Chart
 ---|---
-bar                 | 2D clustered bar chart
-barStacked          | 2D stacked bar chart
-barPercentStacked   | 2D 100% stacked bar chart
-bar3DClustered      | 3D clustered bar chart
-bar3DStacked        | 3D stacked bar chart
-bar3DPercentStacked | 3D 100% stacked bar chart
-col                 | 2D clustered column chart
-colStacked          | 2D stacked column chart
-colPercentStacked   | 2D 100% stacked column chart
-col3DClustered      | 3D clustered column chart
-col3D               | 3D column chart
-col3DStacked        | 3D stacked column chart
-col3DPercentStacked | 3D 100% stacked column chart
-doughnut            | doughnut chart
-line                | line chart
-pie                 | pie chart
-pie3D               | 3D pie chart
-radar               | radar chart
-scatter             | scatter chart
+area                 | 2D area chart
+areaStacked          | 2D stacked area chart
+areaPercentStacked   | 2D 100% stacked area chart
+area3D               | 3D area chart
+area3DStacked        | 3D stacked area chart
+area3DPercentStacked | 3D 100% stacked area chart
+bar                  | 2D clustered bar chart
+barStacked           | 2D stacked bar chart
+barPercentStacked    | 2D 100% stacked bar chart
+bar3DClustered       | 3D clustered bar chart
+bar3DStacked         | 3D stacked bar chart
+bar3DPercentStacked  | 3D 100% stacked bar chart
+col                  | 2D clustered column chart
+colStacked           | 2D stacked column chart
+colPercentStacked    | 2D 100% stacked column chart
+col3DClustered       | 3D clustered column chart
+col3D                | 3D column chart
+col3DStacked         | 3D stacked column chart
+col3DPercentStacked  | 3D 100% stacked column chart
+doughnut             | doughnut chart
+line                 | line chart
+pie                  | pie chart
+pie3D                | 3D pie chart
+radar                | radar chart
+scatter              | scatter chart
 
 In the Office Excel chart data area `series` specifies the set of information for which data to draw, the legend item (series), and the horizontal (category) axis label.
 
@@ -98,6 +104,88 @@ Parameter|Type|Default|Explanation
 ---|---|---|---
 height|int|290|Height
 width|int|480|Width
+
+### 2D area chart {#area}
+
+For example, add a chart that like the this:
+
+!["create 2D area chart with excelize using Go"](./images/2d_area_chart.png "create 2D area chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"bar","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"title":{"name":"Fruit 2D Clustered Bar Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
+### 2D stacked area chart {#areaStacked}
+
+### 2D 100% stacked area chart {#areaPercentStacked}
+
+### 3D area chart {#area3D}
+
+For example, add a chart that like the this:
+
+!["create 3D area chart with excelize using Go"](./images/3d_area_chart.png "create 3D area chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 7, "C2": 7, "D2": 8, "B3": 5, "C3": 4, "D3": 4, "B4": 2, "C4": 3, "D4": 3}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area3D","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
+### 3D stacked area chart {#area3DStacked}
+
+### 3D 100% stacked area chart {#area3DPercentStacked}
 
 ### 2D clustered bar chart {#bar}
 
