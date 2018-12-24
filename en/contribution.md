@@ -2,7 +2,7 @@
 
 ## Contributing to Excelize
 
-The Microsoft Excel™ 2007 release supports the XML-based document format OOXML (Office Open XML), a new document format based on XML and ZIP technologies. The following is a list of reference materials that include document standards, document validation comparison tools, and browser plug-ins to develop a format that conforms to this document.
+The Microsoft Excel&trade; 2007 release supports the XML-based document format OOXML (Office Open XML), a new document format based on XML and ZIP technologies. The following is a list of reference materials that include document standards, document validation comparison tools, and browser plug-ins to develop a format that conforms to this document.
 
 ### Reference
 
@@ -16,7 +16,7 @@ The Microsoft Excel™ 2007 release supports the XML-based document format OOXML
 
 ## Document Translation
 
-The documentation is built on [GitBook](https://www.gitbook.com) in the format of Markdown and is welcome to participate in the translation.
+The documentation is built on [GitBook](https://www.gitbook.com) in the format of Markdown and is welcome to participate in the translation. Documentation repository: [gitlab.com/xuri/excelize-doc](https://gitlab.com/xuri/excelize-doc)
 
 ## Create Issue {#Issue}
 
@@ -55,7 +55,7 @@ Briefly describe the problem you are having in a few paragraphs.
 (paste here)
 ```
 
-** Environment details (OS, Microsoft Excel™ version, physical, etc.): **
+** Environment details (OS, Microsoft Excel&trade; version, physical, etc.): **
 
 ## Sponsor Excelize Development
 

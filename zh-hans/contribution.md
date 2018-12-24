@@ -2,7 +2,7 @@
 
 ## 如何参与贡献
 
-Microsoft Excel™ 2007 版本后支持基于 XML 的文档格式 OOXML (Office Open XML)，是一种基于 XML 和 ZIP 技术的新的文档格式。下面列出了包括文档标准、文档验证对比工具和浏览器插件等在内的开发符合该文档格式的相关参考资料。
+Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Office Open XML)，是一种基于 XML 和 ZIP 技术的新的文档格式。下面列出了包括文档标准、文档验证对比工具和浏览器插件等在内的开发符合该文档格式的相关参考资料。
 
 ### 参考资料
 
@@ -14,9 +14,9 @@ Microsoft Excel™ 2007 版本后支持基于 XML 的文档格式 OOXML (Office 
 * [Google Chrome Extensions: OOXML Tools](https://chrome.google.com/webstore/detail/ooxml-tools/bjmmjfdegplhkefakjkccocjanekbapn)
 * [[MS-OFFCRYPTO]: Office Document Cryptography Structure Specification](http://msdn.microsoft.com/en-us/library/cc313071.aspx)
 
-## 参与文档翻译
+## 参与贡献文档
 
-文档基于 [GitBook](https://www.gitbook.com) 构建，格式为 Markdown，欢迎参与翻译。
+文档基于 [GitBook](https://www.gitbook.com) 构建，格式为 Markdown，源文件仓库地址：[gitlab.com/xuri/excelize-doc](https://gitlab.com/xuri/excelize-doc)，欢迎参与撰写、纠错与翻译。
 
 ## 报告问题 {#Issue}
 
@@ -52,7 +52,7 @@ Microsoft Excel™ 2007 版本后支持基于 XML 的文档格式 OOXML (Office 
 （粘贴在此即可）
 ```
 
-** 运行环境详情 (操作系统, Microsoft Excel™ 版本, 物理机器配置等)：**
+** 运行环境详情 (操作系统, Microsoft Excel&trade; 版本, 物理机器配置等)：**
 
 ### 赞助 Excelize 开发
 

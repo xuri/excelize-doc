@@ -146,6 +146,41 @@ func main() {
 
 ### 2D диаграмма области с накоплением {#areaStacked}
 
+Например, добавьте диаграмму, подобную этой:
+
+!["создать 2D диаграмма области с накоплением с Excelize с помощью Go"](./images/2d_stacked_area_chart.png "создать 2D диаграмма области с накоплением с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"areaStacked","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 2D Stacked Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### 2D 100% диаграмма области с накоплением {#areaPercentStacked}
 
 ### 3D диаграмма области {#area3D}
@@ -187,7 +222,77 @@ func main() {
 
 ### 3D диаграмма области с накоплением {#area3DStacked}
 
+Например, добавьте диаграмму, подобную этой:
+
+!["создать 3D диаграмма области с накоплением с накоплением с Excelize с помощью Go"](./images/3d_stacked_area_chart.png "создать 3D диаграмма области с накоплением с накоплением с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area3DStacked","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D Stacked Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### 3D 100% диаграмма области с накоплением {#area3DPercentStacked}
+
+Например, добавьте диаграмму, подобную этой:
+
+!["создать 3D 100% диаграмма области с накоплением с Excelize с помощью Go"](./images/3d_percent_stacked_area_chart.png "создать 3D 100% диаграмма области с накоплением с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area3DPercentStacked","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D 100% Stacked Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
 
 ### 2D кластерная гистограмма {#bar}
 
@@ -498,6 +603,41 @@ func main() {
 
 ### диаграмма пончика {#doughnut}
 
+Например, добавьте диаграмму, подобную этой:
+
+!["создать диаграмма пончика с Excelize с помощью Go"](./images/doughnut_chart.png "создать диаграмма пончика с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A1": "Apple", "B1": "Orange", "C1": "Pear"}
+    values := map[string]int{"A2": 2, "B2": 3, "C2": 3}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"doughnut","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$A$1:$C$1","values":"Sheet1!$A$2:$C$2"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"right","show_legend_key":false},"title":{"name":"Fruit Doughnut Chart"},"plotarea":{"show_bubble_size":false,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":false,"show_val":false},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### линейный график {#line}
 
 ### круговая диаграмма {#pie}
@@ -537,7 +677,42 @@ func main() {
 
 ### 3D круговая диаграмма {#pie3D}
 
-### радиолокационная карта {#radar}
+### Pадиолокационная карта {#radar}
+
+Например, добавьте диаграмму, подобную этой:
+
+!["создать Pадиолокационная карта с Excelize с помощью Go"](./images/radar_chart.png "создать Pадиолокационная карта с Excelize с помощью Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"radar","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"top","show_legend_key":false},"title":{"name":"Fruit Radar Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":false,"show_val":false},"show_blanks_as":"span"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Сохранить workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
 
 ### Точечная диаграмма {#scatter}
 

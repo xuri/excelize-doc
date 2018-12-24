@@ -410,7 +410,7 @@ Index|Type
 
 ### Format de devise
 
-Les formats de devises Excelize intégrés sont indiqués dans le tableau suivant, seuls les types suivants sont pris en charge (le numéro d'index est utilisé uniquement pour le balisage et n'est pas utilisé dans un fichier Excel et la valeur ne peut pas être formatée par la fonction `GetCellValue`) actuellement:
+Les formats de devises Excelize intégrés sont indiqués dans le tableau suivant, seuls les types suivants sont pris en charge (le numéro d'index est utilisé uniquement pour le balisage et n'est pas utilisé dans un fichier Excel et la valeur ne peut pas être formatée par la fonction [`GetCellValue`](cell.md#GetCellValue)) actuellement:
 
 Index|Format de devise
 ---|---

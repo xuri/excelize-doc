@@ -410,7 +410,7 @@ Index|Type
 
 ### Currency format
 
-Excelize built-in currency formats are shown in the following table, only support these types in the following table (Index number is used only for markup and is not used inside an Excel file and you can't get formatted value by the function `GetCellValue`) currently:
+Excelize built-in currency formats are shown in the following table, only support these types in the following table (Index number is used only for markup and is not used inside an Excel file and you can't get formatted value by the function [`GetCellValue`](cell.md#GetCellValue)) currently:
 
 Index|Currency format
 ---|---

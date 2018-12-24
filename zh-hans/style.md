@@ -410,7 +410,7 @@ double|双线
 
 ### 货币格式
 
-Excelize 目前支持的货币格式索引如下表所示，索引号仅用于标记，不在 Office Excel 文件中使用，目前无法通过函数 `GetCellValue` 获取格式化值后的值。
+Excelize 目前支持的货币格式索引如下表所示，索引号仅用于标记，不在 Office Excel 文件中使用，目前无法通过函数 [`GetCellValue`](cell.md#GetCellValue) 获取格式化值后的值。
 
 索引|货币格式
 ---|---

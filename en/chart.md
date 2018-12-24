@@ -107,7 +107,7 @@ width|int|480|Width
 
 ### 2D area chart {#area}
 
-For example, add a chart that like the this:
+For example, add a 2D area chart that like the this:
 
 !["create 2D area chart with excelize using Go"](./images/2d_area_chart.png "create 2D area chart with excelize using Go")
 
@@ -144,11 +144,46 @@ func main() {
 
 ### 2D stacked area chart {#areaStacked}
 
+For example, add a 2D stacked area chart that like the this:
+
+!["create 2D stacked area chart with excelize using Go"](./images/2d_stacked_area_chart.png "create 2D stacked area chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"areaStacked","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 2D Stacked Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### 2D 100% stacked area chart {#areaPercentStacked}
 
 ### 3D area chart {#area3D}
 
-For example, add a chart that like the this:
+For example, add a 3D area chart that like the this:
 
 !["create 3D area chart with excelize using Go"](./images/3d_area_chart.png "create 3D area chart with excelize using Go")
 
@@ -185,11 +220,81 @@ func main() {
 
 ### 3D stacked area chart {#area3DStacked}
 
+For example, add a 3D stacked area chart that like the this:
+
+!["create 3D stacked area chart with excelize using Go"](./images/3d_stacked_area_chart.png "create 3D stacked area chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area3DStacked","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D Stacked Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### 3D 100% stacked area chart {#area3DPercentStacked}
+
+For example, add a 3D 100% stacked area chart that like the this:
+
+!["create 3D 100% stacked area chart with excelize using Go"](./images/3d_percent_stacked_area_chart.png "create 3D 100% stacked area chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"area3DPercentStacked","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D 100% Stacked Area Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
 
 ### 2D clustered bar chart {#bar}
 
-For example, add a chart that like the this:
+For example, add a 2D clustered bar chart that like the this:
 
 !["create 2D clustered bar chart with excelize using Go"](./images/2d_clustered_bar_chart.png "create 2D clustered bar chart with excelize using Go")
 
@@ -226,7 +331,7 @@ func main() {
 
 ### 2D stacked bar chart {#barStacked}
 
-For example, add a chart that like the this:
+For example, add a 2D stacked bar chart that like the this:
 
 !["create 2D stacked bar chart with excelize using Go"](./images/2d_stacked_bar_chart.png "create 2D stacked bar chart with excelize using Go")
 
@@ -263,7 +368,7 @@ func main() {
 
 ### 2D 100% stacked bar chart {#barPercentStacked}
 
-For example, add a chart that like the this:
+For example, add a 2D 100% stacked bar chart that like the this:
 
 !["create 2D 100% stacked bar chart with excelize using Go"](./images/2d_percent_stacked_bar_chart.png "create 2D 100% stacked bar chart with excelize using Go")
 
@@ -300,7 +405,7 @@ func main() {
 
 ### 3D clustered bar chart {#bar3DClustered}
 
-For example, add a chart that like the this:
+For example, add a 3D clustered bar chart that like the this:
 
 !["create 3D clustered bar chart with excelize using Go"](./images/3d_clustered_bar_chart.png "create 3D clustered bar chart with excelize using Go")
 
@@ -337,7 +442,7 @@ func main() {
 
 ### 3D stacked bar chart {#bar3DStacked}
 
-For example, add a chart that like the this:
+For example, add a 3D stacked bar chart that like the this:
 
 !["create 3D stacked bar chart with excelize using Go"](./images/3d_stacked_bar_chart.png "create 3D stacked bar chart with excelize using Go")
 
@@ -374,7 +479,7 @@ func main() {
 
 ### 3D 100% stacked bar chart {#bar3DPercentStacked}
 
-For example, add a chart that like the this:
+For example, add a 3D 100% stacked bar chart that like the this:
 
 !["create 3D 100% stacked bar chart with excelize using Go"](./images/3d_percent_stacked_bar_chart.png "create 3D 100% stacked bar chart with excelize using Go")
 
@@ -411,7 +516,7 @@ func main() {
 
 ### 2D clustered column chart {#col}
 
-For example, add a chart that like the this:
+For example, add a 2D clustered column chart that like the this:
 
 !["create 2D clustered column chart with excelize using Go"](./images/2d_clustered_column_chart.png "create 2D clustered column chart with excelize using Go")
 
@@ -452,7 +557,7 @@ func main() {
 
 ### 3D clustered column chart {#col3DClustered}
 
-For example, add a chart that like the this:
+For example, add a 3D clustered column chart that like the this:
 
 !["create 3D clustered column chart with excelize using Go"](./images/3d_clustered_column_chart.png "create 3D clustered column chart with excelize using Go")
 
@@ -495,6 +600,41 @@ func main() {
 
 ### Doughnut chart {#doughnut}
 
+For example, add a pie chart that like the this:
+
+!["create doughnut chart with excelize using Go"](./images/doughnut_chart.png "create doughnut chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A1": "Apple", "B1": "Orange", "C1": "Pear"}
+    values := map[string]int{"A2": 2, "B2": 3, "C2": 3}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"doughnut","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$A$1:$C$1","values":"Sheet1!$A$2:$C$2"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"right","show_legend_key":false},"title":{"name":"Fruit Doughnut Chart"},"plotarea":{"show_bubble_size":false,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":false,"show_val":false},"show_blanks_as":"zero"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### Line chart {#line}
 
 ### Pie chart {#pie}
@@ -536,9 +676,44 @@ func main() {
 
 ### Radar chart {#radar}
 
+For example, add a radar chart that like the this:
+
+!["create radar chart with excelize using Go"](./images/radar_chart.png "create radar chart with excelize using Go")
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    err := xlsx.AddChart("Sheet1", "E1", `{"type":"radar","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"top","show_legend_key":false},"title":{"name":"Fruit Radar Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":false,"show_val":false},"show_blanks_as":"span"}`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    // Save workbook
+    err = xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### Scatter chart {#scatter}
 
-For example, add a pie chart that like the this:
+For example, add a scatter chart that like the this:
 
 !["create scatter chart with excelize using Go"](./images/scatter_chart.png "create scatter chart with excelize using Go")
 
