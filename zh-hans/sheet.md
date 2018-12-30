@@ -315,13 +315,21 @@ func (rows *Rows) Error() error
 ## 在工作表中搜索 {#SearchSheet}
 
 ```go
-func (f *File) SearchSheet(sheet, value string) []string
+func (f *File) SearchSheet(sheet, value string, reg ...bool) []string
 ```
 
-根据给定的工作表名称（大小写敏感）和单元格值来获取坐标。此函数仅支持字符串和数字的完全匹配，不支持公式计算后的结果、格式化数字和条件搜索。如果搜索结果是合并的单元格，将返回合并区域左上角的坐标。例如，在名为 `Sheet1` 的工作表中搜索值 `100` 的坐标:
+根据给定的工作表名称（大小写敏感），单元格值或正则表达式来获取坐标。此函数仅支持字符串和数字的完全匹配，不支持公式计算后的结果、格式化数字和条件搜索。如果搜索结果是合并的单元格，将返回合并区域左上角的坐标。
+
+例如，在名为 `Sheet1` 的工作表中搜索值 `100` 的坐标:
 
 ```go
 xlsx.SearchSheet("Sheet1", "100")
+```
+
+例如，在名为 `Sheet1` 的工作表中搜索 `0-9` 范围内数值的坐标:
+
+```go
+xlsx.SearchSheet("Sheet1", "[0-9]", true)
 ```
 
 ## 保护工作表 {#ProtectSheet}

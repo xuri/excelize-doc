@@ -113,7 +113,7 @@ func (f *File) GetSheetIndex(name string) int
 
 GetSheetIndex fournit une fonction pour obtenir l'index de feuille de calcul de XLSX par nom de feuille donné. Si le nom de feuille de calcul donné est invalide, retournera une valeur de type entier `0`.
 
-L'index obtenu peut être utilisé comme paramètre pour appeler la fonction [`SetActiveSheet()`](classeur.md # SetActiveSheet) lors de la définition de la feuille de calcul par défaut du classeur.
+L'index obtenu peut être utilisé comme paramètre pour appeler la fonction [`SetActiveSheet()`](workbook.md#SetActiveSheet) lors de la définition de la feuille de calcul par défaut du classeur.
 
 ## Obtenir la liste des feuilles de calcul {#GetSheetMap}
 
@@ -317,13 +317,21 @@ L'erreur retournera le `error` lorsque l'élément de ligne suivant sera trouvé
 ## Rechercher dans la fiche de calcul {#SearchSheet}
 
 ```go
-func (f *File) SearchSheet(sheet, value string) []string
+func (f *File) SearchSheet(sheet, value string, reg ...bool) []string
 ```
 
-SearchSheet fournit une fonction permettant d'obtenir les coordonnées en fonction du nom de la feuille de calcul et de la valeur de la cellule. Cette fonction ne prend en charge que la correspondance exacte des chaînes et des nombres, mais ne prend pas en charge le résultat calculé, les nombres mis en forme et la recherche conditionnelle. S'il s'agit d'une cellule fusionnée, les coordonnées du coin supérieur gauche de la zone fusionnée seront renvoyées. Par exemple, recherchez les coordonnées de la valeur `100` sur `Sheet1`:
+SearchSheet fournit une fonction permettant d'obtenir les coordonnées en fonction du nom de la feuille de calcul et de la valeur de la cellule. Cette fonction ne prend en charge que la correspondance exacte des chaînes et des nombres, mais ne prend pas en charge le résultat calculé, les nombres mis en forme et la recherche conditionnelle. S'il s'agit d'une cellule fusionnée, les coordonnées du coin supérieur gauche de la zone fusionnée seront renvoyées.
+
+Par exemple, recherchez les coordonnées de la valeur `100` sur `Sheet1`:
 
 ```go
 xlsx.SearchSheet("Sheet1", "100")
+```
+
+Par exemple, recherchez les coordonnées d’une valeur comprise entre `0-9` dans une feuille de calcul nommée `Sheet1`:
+
+```go
+xlsx.SearchSheet("Sheet1", "[0-9]", true)
 ```
 
 ## Protéger la feuille {#ProtectSheet}

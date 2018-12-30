@@ -317,13 +317,21 @@ Error will return the `error` when the find next row element.
 ## Search Sheet {#SearchSheet}
 
 ```go
-func (f *File) SearchSheet(sheet, value string) []string
+func (f *File) SearchSheet(sheet, value string, reg ...bool) []string
 ```
 
-SearchSheet provides a function to get coordinates by given worksheet name and cell value. This function only supports exact match of strings and numbers, doesn't support the calculated result, formatted numbers and conditional lookup currently. If it is a merged cell, it will return the coordinates of the upper left corner of the merged area. For example, search the coordinates of the value of `100` on `Sheet1`:
+SearchSheet provides a function to get coordinates by given worksheet name, cell value, and regular expression. The function doesn't support searching on the calculated result, formatted numbers and conditional lookup currently. If it is a merged cell, it will return the coordinates of the upper left corner of the merged area.
+
+For example, search the coordinates of the value of `100` on `Sheet1`:
 
 ```go
 xlsx.SearchSheet("Sheet1", "100")
+```
+
+For example, search the coordinates where the numerical value in the range of `0-9` of `Sheet1` is described:
+
+```go
+xlsx.SearchSheet("Sheet1", "[0-9]", true)
 ```
 
 ## Protect Sheet {#ProtectSheet}
