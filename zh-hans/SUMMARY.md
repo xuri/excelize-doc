@@ -35,6 +35,7 @@
   * [获取工作表属性](sheet.md#GetSheetPrOptions)
   * [插入列](sheet.md#InsertCol)
   * [插入行](sheet.md#InsertRow)
+  * [复制行](sheet.md#DuplicateRow)
   * [创建行的分级显示](sheet.md#SetRowOutlineLevel)
   * [创建列的分级显示](sheet.md#SetColOutlineLevel)
   * [获取行的分级显示](sheet.md#GetRowOutlineLevel)

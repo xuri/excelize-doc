@@ -35,6 +35,7 @@
   * [Получить свойства листа](sheet.md#GetSheetPrOptions)
   * [Вставить столбец](sheet.md#InsertCol)
   * [Вставить строку](sheet.md#InsertRow)
+  * [Дублирующая строка](sheet.md#DuplicateRow)
   * [Создать схему строки](sheet.md#SetRowOutlineLevel)
   * [Создать контур столбца](sheet.md#SetColOutlineLevel)
   * [Получить контур линии](sheet.md#GetRowOutlineLevel)

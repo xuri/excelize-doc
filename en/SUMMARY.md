@@ -35,6 +35,7 @@
   * [Get worksheet properties](sheet.md#GetSheetPrOptions)
   * [Insert column](sheet.md#InsertCol)
   * [Insert row](sheet.md#InsertRow)
+  * [Duplicate Row](sheet.md#DuplicateRow)
   * [Create row outline](sheet.md#SetRowOutlineLevel)
   * [Create column outline](sheet.md#SetColOutlineLevel)
   * [Get row outline](sheet.md#GetRowOutlineLevel)

@@ -35,6 +35,7 @@
   * [Obtenir les propriétés de la feuille de calcul](sheet.md#GetSheetPrOptions)
   * [Insérer une colonne](sheet.md#InsertCol)
   * [Insérer une ligne](sheet.md#InsertRow)
+  * [Ligne en double](sheet.md#DuplicateRow)
   * [Créer un contour de ligne](sheet.md#SetRowOutlineLevel)
   * [Créer un plan de colonne](sheet.md#SetColOutlineLevel)
   * [Obtenir le contour de la ligne](sheet.md#GetRowOutlineLevel)

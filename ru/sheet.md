@@ -220,6 +220,18 @@ InsertRow предоставляет функцию для вставки нов
 xlsx.InsertRow("Sheet1", 2)
 ```
 
+## Дублирующая строка {#DuplicateRow}
+
+```go
+func (f *File) DuplicateRow(sheet string, row int)
+```
+
+DuplicateRow вставляет копию указанной строки ниже указанной, например:
+
+```go
+xlsx.DuplicateRow("Sheet1", 2)
+```
+
 ## Создать схему строки {#SetRowOutlineLevel}
 
 ```go

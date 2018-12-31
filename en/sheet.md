@@ -220,6 +220,18 @@ InsertRow provides a function to insert a new row before given row index. For ex
 xlsx.InsertRow("Sheet1", 2)
 ```
 
+## Duplicate Row {#DuplicateRow}
+
+```go
+func (f *File) DuplicateRow(sheet string, row int)
+```
+
+DuplicateRow inserts a copy of specified row below specified, for example:
+
+```go
+xlsx.DuplicateRow("Sheet1", 2)
+```
+
 ## Create row outline {#SetRowOutlineLevel}
 
 ```go

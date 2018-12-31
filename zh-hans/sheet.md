@@ -218,6 +218,18 @@ func (f *File) InsertRow(sheet string, row int)
 xlsx.InsertRow("Sheet1", 2)
 ```
 
+## 复制行 {#DuplicateRow}
+
+```go
+func (f *File) DuplicateRow(sheet string, row int)
+```
+
+根据给定的工作表名称（大小写敏感）和行索引，在指定行后复制该行。例如，将名为 `Sheet1` 的工作表的第 3 行后复制到第 4 行：
+
+```go
+xlsx.DuplicateRow("Sheet1", 2)
+```
+
 ## 创建行的分级显示 {#SetRowOutlineLevel}
 
 ```go
