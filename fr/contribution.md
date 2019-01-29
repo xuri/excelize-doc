@@ -61,4 +61,4 @@ Décrivez brièvement le problème que vous rencontrez en quelques paragraphes.
 
 Si vous êtes un utilisateur individuel et que vous avez apprécié la productivité de l'utilisation d'Excelize, considérez le don comme un signe d'appréciation - comme l'achat de café de temps en temps.
 
-[![Faire un don avec Paypal](../images/donate.png)](https://www.paypal.me/xuri)
+<a href="https://www.paypal.me/xuri" title="Faire un don avec Paypal" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Faire un don avec Paypal"></a>
