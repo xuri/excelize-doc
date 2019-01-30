@@ -85,7 +85,7 @@ func main() {
 
 Avec Excelize, la génération et la gestion des graphiques est aussi simple que quelques lignes de code. Vous pouvez créer des graphiques basés sur des données dans votre feuille de calcul ou générer des graphiques sans aucune donnée dans votre feuille de calcul.
 
-<img width="770" src="../images/base.png" alt="Ajouter un graphique au document Excel">
+<p align="center"><img width="770" src="../images/base.png" alt="Ajouter un graphique au document Excel"></p>
 
 ```go
 package main

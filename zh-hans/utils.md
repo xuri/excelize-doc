@@ -10,7 +10,7 @@ func (f *File) AddTable(sheet, hcell, vcell, format string) error
 
 - 例1，在名为 `Sheet1` 的工作表 `A1:D5` 区域创建表格：
 
-!["创建表格"](./images/addtable_01.png "创建表格")
+<p align="center"><img width="612" src="./images/addtable_01.png" alt="创建表格"></p>
 
 ```go
 xlsx.AddTable("Sheet1", "A1", "D5", ``)
@@ -18,7 +18,7 @@ xlsx.AddTable("Sheet1", "A1", "D5", ``)
 
 - 例2，在名为 `Sheet2` 的工作表 `F2:H6` 区域创建带有条件格式的表格：
 
-!["创建带有条件格式的表格"](./images/addtable_02.png "创建带有条件格式的表格")
+<p align="center"><img width="612" src="./images/addtable_02.png" alt="创建带有条件格式的表格"></p>
 
 ```go
 xlsx.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
@@ -46,7 +46,7 @@ func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
 
 例1，在名称为 `Sheet1` 的工作表 `A1:D4` 区域创建自动过滤器：
 
-!["创建自动过滤器"](./images/autofilter_01.png "创建自动过滤器")
+<p align="center"><img width="612" src="./images/autofilter_01.png" alt="创建自动过滤器"></p>
 
 ```go
 err = xlsx.AutoFilter("Sheet1", "A1", "D4", "")

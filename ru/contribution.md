@@ -16,7 +16,7 @@
 
 ## Перевод документов
 
-Документация построена на [GitBook](https://www.gitbook.com) в формате Markdown и может участвовать в переводе. Хранилище документации: [gitlab.com/xuri/excelize-doc](https://gitlab.com/xuri/excelize-doc)
+Документация построена на [GitBook](https://www.gitbook.com) в формате Markdown и может участвовать в переводе. Хранилище документации: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
 
 ## Создать проблему {#Issue}
 

@@ -10,7 +10,7 @@ AddTable provides the method to add table in a worksheet by given worksheet name
 
 - Example 1, create a table of `A1:D5` on `Sheet1`:
 
-!["Add table"](./images/addtable_01.png "Add table")
+<p align="center"><img width="612" src="./images/addtable_01.png" alt="Add table"></p>
 
 ```go
 xlsx.AddTable("Sheet1", "A1", "D5", ``)
@@ -18,7 +18,7 @@ xlsx.AddTable("Sheet1", "A1", "D5", ``)
 
 - Example 2, create a table of `F2:H6` on `Sheet2` with format set:
 
-!["Add table with format set"](./images/addtable_02.png "Add table with format set")
+<p align="center"><img width="612" src="./images/addtable_02.png" alt="Add table with format set"></p>
 
 ```go
 xlsx.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
@@ -46,7 +46,7 @@ AutoFilter provides the method to add auto filter in a worksheet by given worksh
 
 Example 1, applying an autofilter to a cell range `A1:D4` in the `Sheet1`:
 
-!["Add auto filter"](./images/autofilter_01.png "Add auto filter")
+<p align="center"><img width="612" src="./images/autofilter_01.png" alt="Add auto filter"></p>
 
 ```go
 err = xlsx.AutoFilter("Sheet1", "A1", "D4", "")

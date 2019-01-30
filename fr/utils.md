@@ -10,7 +10,7 @@ AddTable fournit la méthode pour ajouter une table dans une feuille de calcul p
 
 - Exemple 1, créer une table de `A1:D5` sur `Sheet1`:
 
-!["Add table"](./images/addtable_01.png "Add table")
+<p align="center"><img width="612" src="./images/addtable_01.png" alt="Créer une table"></p>
 
 ```go
 xlsx.AddTable("Sheet1", "A1", "D5", ``)
@@ -18,7 +18,7 @@ xlsx.AddTable("Sheet1", "A1", "D5", ``)
 
 - Exemple 2, créer une table de `F2: H6` sur `Sheet2` avec le jeu de format:
 
-!["Ajouter une table avec le jeu de formats"](./images/addtable_02.png "Ajouter une table avec le jeu de formats")
+<p align="center"><img width="612" src="./images/addtable_02.png" alt="Ajouter une table avec le jeu de formats"></p>
 
 ```go
 xlsx.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
@@ -46,7 +46,7 @@ AutoFilter fournit la méthode pour ajouter un filtre automatique dans une feuil
 
 Exemple 1, application d'un autofiltre à une plage de cellules `A1:D4` dans `Sheet1`:
 
-!["Ajouter un filtre automatique"](./images/autofilter_01.png "Ajouter un filtre automatique")
+<p align="center"><img width="612" src="./images/autofilter_01.png" alt="Ajouter un filtre automatique"></p>
 
 ```go
 err = xlsx.AutoFilter("Sheet1", "A1", "D4", "")

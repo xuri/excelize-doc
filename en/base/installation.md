@@ -85,7 +85,7 @@ func main() {
 
 With Excelize chart generation and management is as easy as a few lines of code. You can build charts based off data in your worksheet or generate charts without any data in your worksheet at all.
 
-<img width="770" src="../images/base.png" alt="Add chart to Excel document">
+<p align="center"><img width="770" src="../images/base.png" alt="Add chart to Excel document"></p>
 
 ```go
 package main
