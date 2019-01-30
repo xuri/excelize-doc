@@ -85,7 +85,7 @@ func main() {
 
 使用 Excelize 生成图表十分简单，仅需几行代码。您可以根据工作表中的已有数据构建图表，或向工作表中添加数据并创建图表。
 
-!["在 Excel 文档中创建图表"](../images/base.png "在 Excel 文档中创建图表")
+<img width="769" src="../images/base.png" alt="在 Excel 文档中创建图表">
 
 ```go
 package main
