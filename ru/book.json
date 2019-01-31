@@ -1,0 +1,31 @@
+{
+    "title": "Excelize документация",
+    "author": "xuri",
+    "language": "ru",
+    "plugins": [
+        "sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "language-picker",
+        "favicon"
+    ],
+    "pluginsConfig":
+    {
+        "favicon":
+        {
+            "shortcut": "../images/favicon.ico",
+            "bookmark": "../images/favicon.ico",
+            "appleTouch": "../images/logo_trans_300x300.png",
+            "appleTouchMore":
+            {
+                "120x120": "../images/apple-touch-icon-120x120.png",
+                "180x180": "../images/apple-touch-icon-180x180.png"
+            }
+        }
+    },
+    "styles":
+    {
+        "website": "styles/website.css"
+    }
+}

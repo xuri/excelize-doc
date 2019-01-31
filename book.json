@@ -1,0 +1,38 @@
+{
+    "title": "Excelize",
+    "author": "xuri",
+    "language": "en",
+    "plugins": ["-sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "scripts",
+        "sitemap-general",
+        "language-picker",
+        "favicon"
+    ],
+    "pluginsConfig":
+    {
+        "favicon":
+        {
+            "shortcut": "./images/favicon.ico",
+            "bookmark": "./images/favicon.ico",
+            "appleTouch": "./images/logo_trans_300x300.png",
+            "appleTouchMore":
+            {
+                "120x120": "./images/apple-touch-icon-120x120.png",
+                "180x180": "./images/apple-touch-icon-180x180.png"
+            }
+        },
+        "sitemap-general":
+        {
+            "prefix": "https://xuri.me/excelize/"
+        },
+        "scripts":
+        {
+            "files": [
+                "./myscript.js"
+            ]
+        }
+    }
+}
