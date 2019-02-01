@@ -20,6 +20,8 @@
   * [设置默认工作表](workbook.md#SetActiveSheet)
   * [获取默认工作表索引](workbook.md#GetActiveSheetIndex)
   * [获取工作表视图属性](workbook.md#GetSheetViewOptions)
+  * [设置工作表页面布局](workbook.md#SetPageLayout)
+  * [获取工作表页面布局](workbook.md#GetPageLayout)
 * [工作表](sheet.md)
   * [设置列可见性](sheet.md#SetColVisible)
   * [设置列宽度](sheet.md#SetColWidth)

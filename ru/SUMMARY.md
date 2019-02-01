@@ -20,6 +20,8 @@
   * [Установить рабочий лист по умолчанию](workbook.md#SetActiveSheet)
   * [Получить активный индекс листа](workbook.md#GetActiveSheetIndex)
   * [Получить свойства вида листа](workbook.md#GetSheetViewOptions)
+  * [Установить макет страницы листа](workbook.md#SetPageLayout)
+  * [Получить макет страницы листа](workbook.md#GetPageLayout)
 * [Рабочий лист](sheet.md)
   * [Установить видимость столбца](sheet.md#SetColVisible)
   * [Установить ширину столбца](sheet.md#SetColWidth)

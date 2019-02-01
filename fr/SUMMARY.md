@@ -20,6 +20,8 @@
   * [Définir la feuille de calcul par défaut](workbook.md#SetActiveSheet)
   * [Obtenir l'index de feuille actif](workbook.md#GetActiveSheetIndex)
   * [Obtenir les propriétés d'affichage de la feuille de calcul](workbook.md#GetSheetViewOptions)
+  * [Définir la mise en page de feuille de calcul](workbook.md#SetPageLayout)
+  * [Obtenir la mise en page de feuille de calcul](workbook.md#GetPageLayout)
 * [Feuille de travail](sheet.md)
   * [Définir la visibilité de la colonne](sheet.md#SetColVisible)
   * [Définir la largeur de la colonne](sheet.md#SetColWidth)

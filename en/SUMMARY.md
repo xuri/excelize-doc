@@ -20,6 +20,8 @@
   * [Set default worksheet](workbook.md#SetActiveSheet)
   * [Get active sheet index](workbook.md#GetActiveSheetIndex)
   * [Get worksheet view properties](workbook.md#GetSheetViewOptions)
+  * [Set worksheet page layout](workbook.md#SetPageLayout)
+  * [Get worksheet page layout](workbook.md#GetPageLayout)
 * [Worksheet](sheet.md)
   * [Set column visibility](sheet.md#SetColVisible)
   * [Set column width](sheet.md#SetColWidth)
