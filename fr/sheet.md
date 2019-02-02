@@ -220,7 +220,7 @@ InsertRow fournit une fonction pour insérer une nouvelle ligne avant l'index de
 xlsx.InsertRow("Sheet1", 2)
 ```
 
-## Ligne en double {#DuplicateRow}
+## Ajouter une ligne en double {#DuplicateRow}
 
 ```go
 func (f *File) DuplicateRow(sheet string, row int)
@@ -230,6 +230,18 @@ DuplicateRow insère une copie de la ligne spécifiée ci-dessous, par exemple:
 
 ```go
 xlsx.DuplicateRow("Sheet1", 2)
+```
+
+## Ligne en double {#DuplicateRowTo}
+
+```go
+func (f *File) DuplicateRowTo(sheet string, row, row2 int)
+```
+
+DuplicateRowTo insère une copie de la ligne spécifiée à la position indiquée, en descendant les lignes existantes après la position cible, par exemple:
+
+```go
+xlsx.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
 ## Créer un contour de ligne {#SetRowOutlineLevel}

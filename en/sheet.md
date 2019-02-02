@@ -220,7 +220,7 @@ InsertRow provides a function to insert a new row before given row index. For ex
 xlsx.InsertRow("Sheet1", 2)
 ```
 
-## Duplicate Row {#DuplicateRow}
+## Append duplicate row {#DuplicateRow}
 
 ```go
 func (f *File) DuplicateRow(sheet string, row int)
@@ -230,6 +230,18 @@ DuplicateRow inserts a copy of specified row below specified, for example:
 
 ```go
 xlsx.DuplicateRow("Sheet1", 2)
+```
+
+## Duplicate row {#DuplicateRowTo}
+
+```go
+func (f *File) DuplicateRowTo(sheet string, row, row2 int)
+```
+
+DuplicateRowTo inserts a copy of specified row at specified row position moving down exists rows after target position, for example:
+
+```go
+xlsx.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
 ## Create row outline {#SetRowOutlineLevel}
