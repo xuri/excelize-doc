@@ -266,7 +266,7 @@ func (f *File) SetColOutlineLevel(sheet, column string, level uint8)
 
 SetColOutlineLevel предоставляет функцию для установки уровня контуров одного столбца с помощью имени рабочего листа и имени столбца. Например, установите уровень контуров столбца `D` в `Sheet1` равным 2:
 
-!["Создать контур столбца"](./images/col_outline_level.png "Создать контур столбца")
+<p align="center"><img width="612" src="./images/col_outline_level.png" alt="Создать контур столбца"></p>
 
 ```go
 xlsx.SetColOutlineLevel("Sheet1", "D", 2)

@@ -264,7 +264,7 @@ func (f *File) SetColOutlineLevel(sheet, column string, level uint8)
 
 根据给定的工作表名称（大小写敏感）、列名称和分级参数创建组。例如，在名为 `Sheet1` 的工作表的 `D` 列创建 2 级分组。
 
-!["创建列的分级显示"](./images/col_outline_level.png "创建列的分级显示")
+<p align="center"><img width="612" src="./images/col_outline_level.png" alt="创建列的分级显示"></p>
 
 ```go
 xlsx.SetColOutlineLevel("Sheet1", "D", 2)

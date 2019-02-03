@@ -266,7 +266,7 @@ func (f *File) SetColOutlineLevel(sheet, column string, level uint8)
 
 SetColOutlineLevel fournit une fonction permettant de définir le niveau hiérarchique d'une seule colonne par nom de feuille de calcul et nom de colonne donnés. Par exemple, définissez le niveau hiérarchique de la colonne `D` dans `Sheet1` sur 2:
 
-!["Créer un plan de colonne"](./images/col_outline_level.png "Créer un plan de colonne")
+<p align="center"><img width="612" src="./images/col_outline_level.png" alt="Créer un plan de colonne"></p>
 
 ```go
 xlsx.SetColOutlineLevel("Sheet1", "D", 2)

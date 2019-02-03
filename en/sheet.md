@@ -266,7 +266,7 @@ func (f *File) SetColOutlineLevel(sheet, column string, level uint8)
 
 SetColOutlineLevel provides a function to set outline level of a single column by given worksheet name and column name. For example, set outline level of column `D` in `Sheet1` to 2:
 
-!["Create column outline"](./images/col_outline_level.png "Create column outline")
+<p align="center"><img width="612" src="./images/col_outline_level.png" alt="Create column outline"></p>
 
 ```go
 xlsx.SetColOutlineLevel("Sheet1", "D", 2)

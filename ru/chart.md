@@ -640,6 +640,39 @@ func main() {
 
 ### линейный график {#line}
 
+Например, добавьте диаграмму, подобную этой:
+
+<p align="center"><img width="770" src="./images/3d_pie_chart.png" alt="создать линейный график с Excelize с помощью Go"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+
+    xlsx.AddChart("Sheet1", "E1", `{"type":"pie3D","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D Pie Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":false,"show_val":false},"show_blanks_as":"zero"}`)
+    // Сохранить workbook
+    err := xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ### круговая диаграмма {#pie}
 
 Например, добавьте диаграмму, подобную этой:
@@ -676,6 +709,39 @@ func main() {
 ```
 
 ### 3D круговая диаграмма {#pie3D}
+
+Например, добавьте диаграмму, подобную этой:
+
+<p align="center"><img width="769" src="./images/3d_pie_chart.png" alt="создать 3D круговая диаграмма с Excelize с помощью Go"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    xlsx := excelize.NewFile()
+    for k, v := range categories {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        xlsx.SetCellValue("Sheet1", k, v)
+    }
+
+    xlsx.AddChart("Sheet1", "E1", `{"type":"pie3D","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"bottom","show_legend_key":false},"title":{"name":"Fruit 3D Pie Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":false,"show_val":false},"show_blanks_as":"zero"}`)
+    // Сохранить workbook
+    err := xlsx.SaveAs("./Book1.xlsx")
+    if err != nil {
+        fmt.Println(err)
+    }
+}
+```
 
 ### Pадиолокационная карта {#radar}
 
