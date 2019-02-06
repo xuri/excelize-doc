@@ -888,7 +888,7 @@ Excelize 目前支持的货币格式索引如下表所示，索引号仅用于�
 
 Excelize 支持为单元格设置自定义数字格式。例如，将 `Sheet1` 工作表的 `A6` 单元格 设置为乌拉圭（西班牙）格式的日期类型：
 
-!["设置自定义数字格式"](./images/number_format_01.png "设置自定义数字格式")
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="设置自定义数字格式"></p>
 
 ```go
 xlsx := excelize.NewFile()

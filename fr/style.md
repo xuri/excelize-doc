@@ -888,7 +888,7 @@ Index|Format de devise
 
 Excelize prend en charge le format de nombre personnalisé pour la cellule. Par exemple, définissez le numéro comme type de date au format Uruguay (espagnol) pour `Sheet1!A6`:
 
-!["Définir le format du nombre"](./images/number_format_01.png "Définir le format du nombre")
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="Définir le format du nombre"></p>
 
 ```go
 xlsx := excelize.NewFile()

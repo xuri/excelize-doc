@@ -888,7 +888,7 @@ Index|Currency format
 
 Excelize support set custom number format for cell. For example, set number as date type in Uruguay (Spanish) format for `Sheet1!A6`:
 
-!["Set number format"](./images/number_format_01.png "Set number format")
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="Set number format"></p>
 
 ```go
 xlsx := excelize.NewFile()
