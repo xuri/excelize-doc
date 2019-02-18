@@ -30,6 +30,8 @@ to the existing issue instead.
 Use the commands below to provide key information from your environment:
 You do NOT have to include this information if this is a FEATURE REQUEST
 
+---
+
 ** Description **
 
 Briefly describe the problem you are having in a few paragraphs.
@@ -56,6 +58,8 @@ Briefly describe the problem you are having in a few paragraphs.
 ```
 
 ** Environment details (OS, Microsoft Excel&trade; version, physical, etc.): **
+
+---
 
 ## Sponsor Excelize Development
 

@@ -24,6 +24,8 @@ Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Off
 
 下面是提问所需要的信息（如果是新功能请求则不需要这些）：
 
+---
+
 ** 问题描述 **
 
 简要描述您在使用中所遇到的问题。
@@ -53,6 +55,8 @@ Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Off
 ```
 
 ** 运行环境详情 (操作系统, Microsoft Excel&trade; 版本, 物理机器配置等)：**
+
+---
 
 ### 赞助 Excelize 开发
 

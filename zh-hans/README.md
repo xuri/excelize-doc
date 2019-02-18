@@ -18,7 +18,7 @@ Excelize 是 Go 语言编写的一个用来操作 Office Excel 文档类库，�
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v1.4.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 文档更新: 2019年2月1日
+- 文档更新: 2019年2月18日
 
 ## 项目使命
 
@@ -36,6 +36,6 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 ## 知名用户
 
-[![360 企业安全](../images/vendor/360.png)](http://360.net) <a href="https://www.baidu.com" title="百度" target="_blank"><img width="165" src="../images/vendor/baidu@2x.png" alt="百度"></a> [![合合信息](../images/vendor/ccint.com.png)](https://www.ccint.com) <a href="https://www.inke.cn" title="映客直播" target="_blank"><img width="165" src="../images/vendor/inke@2x.png" alt="映客直播"></a> <a href="https://www.meituan.com" title="美团点评" target="_blank"><img width="165" src="../images/vendor/meituan@2x.png" alt="美团点评"></a> <a href="https://www.163.com" title="网易" target="_blank"><img width="165" src="../images/vendor/netease@2x.png" alt="网易"></a>
+<a href="https://360.net" title="360 企业安全" target="_blank"><img width="165" src="../images/vendor/360@2x.png" alt="360 企业安全"></a> <a href="https://www.baidu.com" title="百度" target="_blank"><img width="165" src="../images/vendor/baidu@2x.png" alt="百度"></a> [![合合信息](../images/vendor/ccint.com.png)](https://www.ccint.com) <a href="https://www.inke.cn" title="映客直播" target="_blank"><img width="165" src="../images/vendor/inke@2x.png" alt="映客直播"></a> <a href="https://www.meituan.com" title="美团点评" target="_blank"><img width="165" src="../images/vendor/meituan@2x.png" alt="美团点评"></a> <a href="https://www.163.com" title="网易" target="_blank"><img width="165" src="../images/vendor/netease@2x.png" alt="网易"></a>
 
 如果您的公司或产品也在使用 Excelize，欢迎 [发送 Logo](mailto: xuri.me@gmail.com?Subject=Please add our company in Excelize Introduction page&amp;Body=Hello%2C%20this%20is%20%3Cyour%20name%3E%20from%20%3Cyour%20company%20name%3E.%0AWe%20are%20using%20Excelize%20and%20will%20be%20proud%20to%20add%20our%20company%20name%20to%20Excelize%20Introduction%20page.%0APlease%20see%20attachment%20for%20our%20logo.%20%3CBe%20sure%20to%20include%20logo%20in%20attachment%3E%0A%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%98%AF%E3%80%90%E5%85%AC%E5%8F%B8%E5%90%8D%E7%A7%B0%E3%80%91%E7%9A%84%E3%80%90%E6%82%A8%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%91%E3%80%82%0A%E6%88%91%E4%BB%AC%E5%85%AC%E5%8F%B8%E4%BD%BF%E7%94%A8%E4%BA%86%20Excelize%20%E5%B9%B6%E4%B8%94%E5%BE%88%E4%B9%90%E6%84%8F%E5%9C%A8%20Excelize%20%E7%9A%84%E2%80%9C%E4%BB%8B%E7%BB%8D%E2%80%9D%E9%A1%B5%E9%9D%A2%E5%8A%A0%E4%B8%8A%E6%88%91%E4%BB%AC%E5%85%AC%E5%8F%B8%E7%9A%84%20logo%E3%80%82%0A%E8%AF%B7%E5%9C%A8%E9%99%84%E4%BB%B6%E4%B8%AD%E6%9F%A5%E9%98%85%20logo%E3%80%82%E3%80%90%E8%AF%B7%E9%99%84%E4%B8%8A%20logo%20%E5%B9%B6%E5%8F%91%E9%80%81%E7%BB%99%20Excelize%E3%80%91) 给我们。

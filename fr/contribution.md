@@ -30,6 +30,8 @@ dépôt. S'il y a un doublon, veuillez fermer votre problème et ajouter un comm
 Utilisez les commandes ci-dessous pour fournir des informations clés de votre environnement:
 Vous n'avez PAS besoin d'inclure cette information s'il s'agit d'une FEATURE REQUEST
 
+---
+
 ** La description **
 
 Décrivez brièvement le problème que vous rencontrez en quelques paragraphes.
@@ -56,6 +58,8 @@ Décrivez brièvement le problème que vous rencontrez en quelques paragraphes.
 ```
 
 ** Détails de l'environnement (OS, version Microsoft Excel&trade;, physique, etc.): **
+
+---
 
 ## Parrainer Excelize Development
 
