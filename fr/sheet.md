@@ -232,6 +232,8 @@ DuplicateRow insère une copie de la ligne spécifiée ci-dessous, par exemple:
 xlsx.DuplicateRow("Sheet1", 2)
 ```
 
+Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, cela provoquera une erreur de fichier lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
+
 ## Ligne en double {#DuplicateRowTo}
 
 ```go
@@ -243,6 +245,8 @@ DuplicateRowTo insère une copie de la ligne spécifiée à la position indiqué
 ```go
 xlsx.DuplicateRowTo("Sheet1", 2, 7)
 ```
+
+Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, cela provoquera une erreur de fichier lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
 
 ## Créer un contour de ligne {#SetRowOutlineLevel}
 

@@ -232,6 +232,8 @@ DuplicateRow inserts a copy of specified row below specified, for example:
 xlsx.DuplicateRow("Sheet1", 2)
 ```
 
+Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
+
 ## Duplicate row {#DuplicateRowTo}
 
 ```go
@@ -243,6 +245,8 @@ DuplicateRowTo inserts a copy of specified row at specified row position moving 
 ```go
 xlsx.DuplicateRowTo("Sheet1", 2, 7)
 ```
+
+Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
 
 ## Create row outline {#SetRowOutlineLevel}
 

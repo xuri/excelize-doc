@@ -230,6 +230,8 @@ func (f *File) DuplicateRow(sheet string, row int)
 xlsx.DuplicateRow("Sheet1", 2)
 ```
 
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用对更新。
+
 ## 复制行 {#DuplicateRowTo}
 
 ```go
@@ -241,6 +243,8 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int)
 ```go
 xlsx.DuplicateRowTo("Sheet1", 2, 7)
 ```
+
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用对更新。
 
 ## 创建行的分级显示 {#SetRowOutlineLevel}
 
