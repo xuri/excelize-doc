@@ -93,7 +93,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
-根据给定的工作表名称、视图索引获和视图参数取工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。
+根据给定的工作表名称、视图索引和视图参数获取工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。
 
 可选视图参数|类型
 ---|---

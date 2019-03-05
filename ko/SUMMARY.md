@@ -1,10 +1,10 @@
 # 내용
 
 * [소개](README.md)
-* [기본 사용](base/installation.md)
+* [빠르게 시작 하기](base/installation.md)
   * [설치](base/installation.md#install)
-  * [업그레이드](base/installation.md#update)
-  * [Excel 문서 작성](base/installation.md#NewFile)
+  * [업데이트](base/installation.md#update)
+  * [Excel 문서 만들기](base/installation.md#NewFile)
   * [Excel 문서 읽기](기본/installation.md#read)
   * [Excel 문서에 차트 추가](base/installation.md#chart)
   * [Excel 문서에 그림 추가](base/installation.md#image)
