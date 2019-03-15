@@ -534,7 +534,7 @@ split (Split)|窗格被分裂，但并不冻结。在此状态下，用户可以
 
 例1，在名为 `Sheet1` 的工作表上冻结列 `A` 并设置活动单元格 `Sheet1!K16`：
 
-!["冻结列"](./images/setpans_01.png "冻结列")
+<p align="center"><img width="770" src="./images/setpans_01.png" alt="冻结列"></p>
 
 ```go
 xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
@@ -542,7 +542,7 @@ xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"t
 
 例2，在名为 `Sheet1` 的工作表上冻结第 1 到第 9 行，并设置活动单元格区域 `Sheet1!A11:XFD11`：
 
-!["冻结列并设置活动单元格区域"](./images/setpans_02.png "冻结列并设置活动单元格区域")
+<p align="center"><img width="770" src="./images/setpans_02.png" alt="冻结列并设置活动单元格区域"></p>
 
 ```go
 xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
@@ -550,7 +550,7 @@ xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"t
 
 例3，在名为 `Sheet1` 的工作表上创建拆分窗格，并设置活动单元格 `Sheet1!J60`：
 
-!["创建拆分窗格"](./images/setpans_03.png "创建拆分窗格")
+<p align="center"><img width="754" src="./images/setpans_03.png" alt="创建拆分窗格"></p>
 
 ```go
 xlsx.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)

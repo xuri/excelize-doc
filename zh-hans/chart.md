@@ -109,7 +109,7 @@ width|int|480|宽度
 
 例如，创建如下效果的二维面积图：
 
-!["使用 Go 语言在 Excel 文档中创建二维面积图"](./images/2d_area_chart.png "使用 Go 语言在 Excel 文档中创建二维面积图")
+<p align="center"><img width="770" src="./images/2d_area_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维面积图"></p>
 
 ```go
 package main
@@ -146,7 +146,7 @@ func main() {
 
 例如，创建如下效果的二维堆积面积图：
 
-!["使用 Go 语言在 Excel 文档中创建二维堆积面积图"](./images/2d_stacked_area_chart.png "使用 Go 语言在 Excel 文档中创建二维堆积面积图")
+<p align="center"><img width="770" src="./images/2d_stacked_area_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维堆积面积图"></p>
 
 ```go
 package main
@@ -185,7 +185,7 @@ func main() {
 
 例如，创建如下效果的三维面积图：
 
-!["使用 Go 语言在 Excel 文档中创建三维面积图"](./images/3d_area_chart.png "使用 Go 语言在 Excel 文档中创建三维面积图")
+<p align="center"><img width="770" src="./images/3d_area_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维面积图"></p>
 
 ```go
 package main
@@ -222,7 +222,7 @@ func main() {
 
 例如，创建如下效果的三维堆积面积图：
 
-!["使用 Go 语言在 Excel 文档中创建三维堆积面积图"](./images/3d_stacked_area_chart.png "使用 Go 语言在 Excel 文档中创建三维堆积面积图")
+<p align="center"><img width="770" src="./images/3d_stacked_area_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积面积图"></p>
 
 ```go
 package main
@@ -259,7 +259,7 @@ func main() {
 
 例如，创建如下效果的三维百分比堆积面积图：
 
-!["使用 Go 语言在 Excel 文档中创建三维百分比堆积面积图"](./images/3d_percent_stacked_area_chart.png "使用 Go 语言在 Excel 文档中创建三维百分比堆积面积图")
+<p align="center"><img width="770" src="./images/3d_percent_stacked_area_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维百分比堆积面积图"></p>
 
 ```go
 package main
@@ -296,7 +296,7 @@ func main() {
 
 例如，创建如下效果的二维簇状条形图：
 
-!["使用 Go 语言在 Excel 文档中创建二维簇状条形图"](./images/2d_clustered_bar_chart.png "使用 Go 语言在 Excel 文档中创建二维簇状条形图")
+<p align="center"><img width="769" src="./images/2d_clustered_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维簇状条形图"></p>
 
 ```go
 package main
@@ -333,7 +333,7 @@ func main() {
 
 例如，创建如下效果的二维堆积条形图：
 
-!["使用 Go 语言在 Excel 文档中创建二维堆积条形图"](./images/2d_stacked_bar_chart.png "使用 Go 语言在 Excel 文档中创建二维堆积条形图")
+<p align="center"><img width="770" src="./images/2d_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维堆积条形图"></p>
 
 ```go
 package main
@@ -370,7 +370,7 @@ func main() {
 
 例如，创建如下效果的二维百分比堆积条形图：
 
-!["使用 Go 语言在 Excel 文档中创建二维百分比堆积条形图"](./images/2d_percent_stacked_bar_chart.png "使用 Go 语言在 Excel 文档中创建二维百分比堆积条形图")
+<p align="center"><img width="769" src="./images/2d_percent_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维百分比堆积条形图"></p>
 
 ```go
 package main
@@ -407,7 +407,7 @@ func main() {
 
 例如，创建如下效果的三维簇状条形图：
 
-!["使用 Go 语言在 Excel 文档中创建三维簇状条形图"](./images/3d_clustered_bar_chart.png "使用 Go 语言在 Excel 文档中创建三维簇状条形图")
+<p align="center"><img width="770" src="./images/3d_clustered_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维簇状条形图"></p>
 
 ```go
 package main
@@ -444,7 +444,7 @@ func main() {
 
 例如，创建如下效果的三维堆积条形图：
 
-!["使用 Go 语言在 Excel 文档中创建三维堆积条形图"](./images/3d_stacked_bar_chart.png "使用 Go 语言在 Excel 文档中创建三维堆积条形图")
+<p align="center"><img width="770" src="./images/3d_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积条形图"></p>
 
 ```go
 package main
@@ -481,7 +481,7 @@ func main() {
 
 例如，创建如下效果的三维百分比堆积条形图：
 
-!["使用 Go 语言在 Excel 文档中创建三维百分比堆积条形图"](./images/3d_percent_stacked_bar_chart.png "使用 Go 语言在 Excel 文档中创建三维百分比堆积条形图")
+<p align="center"><img width="769" src="./images/3d_percent_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维百分比堆积条形图"></p>
 
 ```go
 package main
@@ -518,7 +518,7 @@ func main() {
 
 例如，创建如下效果的二维簇状柱形图：
 
-!["使用 Go 语言在 Excel 文档中创建二维簇状柱形图"](./images/2d_clustered_column_chart.png "使用 Go 语言在 Excel 文档中创建二维簇状柱形图")
+<p align="center"><img width="768" src="./images/2d_clustered_column_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维簇状柱形图"></p>
 
 ```go
 package main
@@ -559,7 +559,7 @@ func main() {
 
 例如，创建如下效果的三维簇状柱形图：
 
-!["使用 Go 语言在 Excel 文档中创建三维簇状柱形图"](./images/3d_clustered_column_chart.png "使用 Go 语言在 Excel 文档中创建三维簇状柱形图")
+<p align="center"><img width="770" src="./images/3d_clustered_column_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维簇状柱形图"></p>
 
 ```go
 package main
@@ -602,7 +602,7 @@ func main() {
 
 例如，创建如下效果的圆环图：
 
-!["使用 Go 语言在 Excel 文档中创建圆环图"](./images/doughnut_chart.png "使用 Go 语言在 Excel 文档中创建圆环图")
+<p align="center"><img width="770" src="./images/doughnut_chart.png" alt="使用 Go 语言在 Excel 文档中创建圆环图"></p>
 
 ```go
 package main
@@ -639,7 +639,7 @@ func main() {
 
 例如，创建如下效果的折线图：
 
-<p align="center"><img width="769" src="./images/line_chart.png" alt="使用 Go 语言在 Excel 文档中创建折线图"></p>
+<p align="center"><img width="770" src="./images/line_chart.png" alt="使用 Go 语言在 Excel 文档中创建折线图"></p>
 
 ```go
 package main
@@ -674,7 +674,7 @@ func main() {
 
 例如，创建如下效果的饼图：
 
-!["使用 Go 语言在 Excel 文档中创建饼图"](./images/pie_chart.png "使用 Go 语言在 Excel 文档中创建饼图")
+<p align="center"><img width="770" src="./images/pie_chart.png" alt="使用 Go 语言在 Excel 文档中创建饼图"></p>
 
 ```go
 package main
@@ -744,7 +744,7 @@ func main() {
 
 例如，创建如下效果的雷达图：
 
-!["使用 Go 语言在 Excel 文档中创建雷达图"](./images/radar_chart.png "使用 Go 语言在 Excel 文档中创建雷达图")
+<p align="center"><img width="769" src="./images/radar_chart.png" alt="使用 Go 语言在 Excel 文档中创建雷达图"></p>
 
 ```go
 package main
@@ -781,7 +781,7 @@ func main() {
 
 例如，创建如下效果的散点图：
 
-!["使用 Go 语言在 Excel 文档中创建散点图"](./images/scatter_chart.png "使用 Go 语言在 Excel 文档中创建散点图")
+<p align="center"><img width="769" src="./images/scatter_chart.png" alt="使用 Go 语言在 Excel 文档中创建散点图"></p>
 
 ```go
 package main

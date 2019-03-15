@@ -79,7 +79,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["为单元格设置边框样式"](./images/SetCellStyle_01.png "为单元格设置边框样式")
+<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="为单元格设置边框样式"></p>
 
 单元格 `D7` 的四个边框被设置了不同的样式和颜色，这与调用 `NewStyle` 函数时的参数有关，需要设置不同的样式可参考该章节的文档。
 
@@ -93,7 +93,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["为单元格设置渐变样式"](./images/SetCellStyle_02.png "为单元格设置渐变样式")
+<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="为单元格设置渐变样式"></p>
 
 单元格 `D7` 被设置了渐变效果的颜色填充，渐变填充效果与调用 `NewStyle` 函数时的参数有关，需要设置不同的样式可参考该章节的文档。
 
@@ -107,7 +107,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["为单元格设置纯色填充"](./images/SetCellStyle_03.png "为单元格设置纯色填充")
+<p align="center"><img width="612" src="./images/SetCellStyle_03.png" alt="为单元格设置纯色填充"></p>
 
 单元格 `D7` 被设置了纯色填充。
 
@@ -122,7 +122,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["设置字符间距与旋转角度"](./images/SetCellStyle_04.png "设置字符间距与旋转角度")
+<p align="center"><img width="612" src="./images/SetCellStyle_04.png" alt="设置字符间距与旋转角度"></p>
 
 - 例5，Excel 中的日期和时间用实数表示，例如 `2017/7/4  12:00:00 PM` 可以用数字 `42920.5` 来表示。为名为 `Sheet1` 的工作表 `D7` 单元格设置时间格式：
 
@@ -136,7 +136,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["为单元格设置时间格式"](./images/SetCellStyle_05.png "为单元格设置时间格式")
+<p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="为单元格设置时间格式"></p>
 
 单元格 `D7` 被设置了时间格式。注意，当应用了时间格式的单元格宽度过窄无法完整展示时会显示为 `####`，可以拖拽调整列宽或者通过调用 `SetColWidth` 函数设置列款到合适的大小使其正常显示。
 
@@ -151,7 +151,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["为单元格设置字体、字号、颜色和倾斜样式"](./images/SetCellStyle_06.png "为单元格设置字体、字号、颜色和倾斜样式")
+<p align="center"><img width="612" src="./images/SetCellStyle_06.png" alt="为单元格设置字体、字号、颜色和倾斜样式"></p>
 
 - 例7，锁定并隐藏名为 `Sheet1` 的工作表 `D7` 单元格：
 
@@ -267,7 +267,7 @@ func (f *File) AddComment(sheet, cell, format string) error
 
 根据给定的工作表名称、单元格坐标和样式参数（作者与文本信息）添加批注。作者信息最大长度为 255 个字符，最大文本内容长度为 32512 个字符，超出该范围的字符将会被忽略。例如，为 `Sheet1!$A$3` 单元格添加批注：
 
-!["在 Excel 文档中添加批注"](./images/comment.png "在 Excel 文档中添加批注")
+<p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 文档中添加批注"></p>
 
 ```go
 xlsx.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)

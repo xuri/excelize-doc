@@ -254,7 +254,7 @@ func (f *File) SetRowOutlineLevel(sheet string, rowIndex int, level uint8)
 
 根据给定的工作表名称（大小写敏感）、行索引和分级参数创建组。例如，在名为 `Sheet1` 的工作表的第 2 行创建 1 级分组。
 
-!["创建行的分级显示"](./images/row_outline_level.png "创建行的分级显示")
+<p align="center"><img width="612" src="./images/row_outline_level.png" alt="创建行的分级显示"></p>
 
 ```go
 xlsx.SetRowOutlineLevel("Sheet1", 2, 1)
@@ -368,7 +368,7 @@ func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection)
 
 防止其他用户意外或有意更改、移动或删除工作表中的数据。例如，为名为 `Sheet1` 的工作表设置密码保护，但是允许选择锁定的单元格、选择未锁定的单元格、编辑方案：
 
-!["保护工作表"](./images/protect_sheet.png "保护工作表")
+<p align="center"><img width="790" src="./images/protect_sheet.png" alt="保护工作表"></p>
 
 ```go
 xlsx.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
