@@ -6,7 +6,7 @@
 
 - 安装命令
 
-```go
+```bash
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
@@ -14,7 +14,7 @@ go get github.com/360EntSecGroup-Skylar/excelize
 
 - 更新命令
 
-```go
+```bash
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 

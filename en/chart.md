@@ -109,7 +109,7 @@ width|int|480|Width
 
 For example, add a 2D area chart that like the this:
 
-!["create 2D area chart with excelize using Go"](./images/2d_area_chart.png "create 2D area chart with excelize using Go")
+<p align="center"><img width="770" src="./images/2d_area_chart.png" alt="create 2D area chart with excelize using Go"></p>
 
 ```go
 package main
@@ -146,7 +146,7 @@ func main() {
 
 For example, add a 2D stacked area chart that like the this:
 
-!["create 2D stacked area chart with excelize using Go"](./images/2d_stacked_area_chart.png "create 2D stacked area chart with excelize using Go")
+<p align="center"><img width="770" src="./images/2d_stacked_area_chart.png" alt="create 2D stacked area chart with excelize using Go"></p>
 
 ```go
 package main
@@ -185,7 +185,7 @@ func main() {
 
 For example, add a 3D area chart that like the this:
 
-!["create 3D area chart with excelize using Go"](./images/3d_area_chart.png "create 3D area chart with excelize using Go")
+<p align="center"><img width="770" src="./images/3d_area_chart.png" alt="create 3D area chart with excelize using Go"></p>
 
 ```go
 package main
@@ -222,7 +222,7 @@ func main() {
 
 For example, add a 3D stacked area chart that like the this:
 
-!["create 3D stacked area chart with excelize using Go"](./images/3d_stacked_area_chart.png "create 3D stacked area chart with excelize using Go")
+<p align="center"><img width="770" src="./images/3d_stacked_area_chart.png" alt="create 3D stacked area chart with excelize using Go"></p>
 
 ```go
 package main
@@ -259,7 +259,7 @@ func main() {
 
 For example, add a 3D 100% stacked area chart that like the this:
 
-!["create 3D 100% stacked area chart with excelize using Go"](./images/3d_percent_stacked_area_chart.png "create 3D 100% stacked area chart with excelize using Go")
+<p align="center"><img width="770" src="./images/3d_percent_stacked_area_chart.png" alt="create 3D 100% stacked area chart with excelize using Go"></p>
 
 ```go
 package main
@@ -296,7 +296,7 @@ func main() {
 
 For example, add a 2D clustered bar chart that like the this:
 
-!["create 2D clustered bar chart with excelize using Go"](./images/2d_clustered_bar_chart.png "create 2D clustered bar chart with excelize using Go")
+<p align="center"><img width="770" src="./images/2d_clustered_bar_chart.png" alt="create 2D clustered bar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -333,7 +333,7 @@ func main() {
 
 For example, add a 2D stacked bar chart that like the this:
 
-!["create 2D stacked bar chart with excelize using Go"](./images/2d_stacked_bar_chart.png "create 2D stacked bar chart with excelize using Go")
+<p align="center"><img width="770" src="./images/2d_stacked_bar_chart.png" alt="create 2D stacked bar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -370,7 +370,7 @@ func main() {
 
 For example, add a 2D 100% stacked bar chart that like the this:
 
-!["create 2D 100% stacked bar chart with excelize using Go"](./images/2d_percent_stacked_bar_chart.png "create 2D 100% stacked bar chart with excelize using Go")
+<p align="center"><img width="770" src="./images/2d_percent_stacked_bar_chart.png" alt="create 2D 100% stacked bar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -407,7 +407,7 @@ func main() {
 
 For example, add a 3D clustered bar chart that like the this:
 
-!["create 3D clustered bar chart with excelize using Go"](./images/3d_clustered_bar_chart.png "create 3D clustered bar chart with excelize using Go")
+<p align="center"><img width="770" src="./images/3d_clustered_bar_chart.png" alt="create 3D clustered bar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -444,7 +444,7 @@ func main() {
 
 For example, add a 3D stacked bar chart that like the this:
 
-!["create 3D stacked bar chart with excelize using Go"](./images/3d_stacked_bar_chart.png "create 3D stacked bar chart with excelize using Go")
+<p align="center"><img width="770" src="./images/3d_stacked_bar_chart.png" alt="create 3D stacked bar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -481,7 +481,7 @@ func main() {
 
 For example, add a 3D 100% stacked bar chart that like the this:
 
-!["create 3D 100% stacked bar chart with excelize using Go"](./images/3d_percent_stacked_bar_chart.png "create 3D 100% stacked bar chart with excelize using Go")
+<p align="center"><img width="769" src="./images/3d_percent_stacked_bar_chart.png" alt="create 3D 100% stacked bar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -518,7 +518,7 @@ func main() {
 
 For example, add a 2D clustered column chart that like the this:
 
-!["create 2D clustered column chart with excelize using Go"](./images/2d_clustered_column_chart.png "create 2D clustered column chart with excelize using Go")
+<p align="center"><img width="769" src="./images/2d_clustered_column_chart.png" alt="create 2D clustered column chart with excelize using Go"></p>
 
 ```go
 package main
@@ -559,7 +559,7 @@ func main() {
 
 For example, add a 3D clustered column chart that like the this:
 
-!["create 3D clustered column chart with excelize using Go"](./images/3d_clustered_column_chart.png "create 3D clustered column chart with excelize using Go")
+<p align="center"><img width="770" src="./images/3d_clustered_column_chart.png" alt="create 3D clustered column chart with excelize using Go"></p>
 
 ```go
 package main
@@ -602,7 +602,7 @@ func main() {
 
 For example, add a pie chart that like the this:
 
-!["create doughnut chart with excelize using Go"](./images/doughnut_chart.png "create doughnut chart with excelize using Go")
+<p align="center"><img width="770" src="./images/doughnut_chart.png" alt="create doughnut chart with excelize using Go"></p>
 
 ```go
 package main
@@ -674,7 +674,7 @@ func main() {
 
 For example, add a pie chart that like the this:
 
-!["create pie chart with excelize using Go"](./images/pie_chart.png "create pie chart with excelize using Go")
+<p align="center"><img width="770" src="./images/pie_chart.png" alt="create pie chart with excelize using Go"></p>
 
 ```go
 package main
@@ -744,7 +744,7 @@ func main() {
 
 For example, add a radar chart that like the this:
 
-!["create radar chart with excelize using Go"](./images/radar_chart.png "create radar chart with excelize using Go")
+<p align="center"><img width="770" src="./images/radar_chart.png" alt="create radar chart with excelize using Go"></p>
 
 ```go
 package main
@@ -781,7 +781,7 @@ func main() {
 
 For example, add a scatter chart that like the this:
 
-!["create scatter chart with excelize using Go"](./images/scatter_chart.png "create scatter chart with excelize using Go")
+<p align="center"><img width="770" src="./images/scatter_chart.png" alt="create scatter chart with excelize using Go"></p>
 
 ```go
 package main

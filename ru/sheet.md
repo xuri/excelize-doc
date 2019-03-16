@@ -217,7 +217,7 @@ func (f *File) InsertRow(sheet string, row int)
 InsertRow предоставляет функцию для вставки новой строки перед указателем строки. Например, создайте новую строку перед строкой `3` в `Sheet1`:
 
 ```go
-xlsx.InsertRow("Sheet1", 2)
+xlsx.InsertRow("Sheet1", 3)
 ```
 
 ## Добавить дубликат строки {#DuplicateRow}

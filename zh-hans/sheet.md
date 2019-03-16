@@ -212,10 +212,10 @@ xlsx.InsertCol("Sheet1", "C")
 func (f *File) InsertRow(sheet string, row int)
 ```
 
-根据给定的工作表名称（大小写敏感）和行索引，在指定行前插入空白行。例如，在名为 `Sheet1` 的工作表的第 3 行前插入空白行：
+根据给定的工作表名称（大小写敏感）和行号，在指定行前插入空白行。例如，在名为 `Sheet1` 的工作表的第 3 行前插入空白行：
 
 ```go
-xlsx.InsertRow("Sheet1", 2)
+xlsx.InsertRow("Sheet1", 3)
 ```
 
 ## 追加复制行 {#DuplicateRow}
@@ -252,7 +252,7 @@ xlsx.DuplicateRowTo("Sheet1", 2, 7)
 func (f *File) SetRowOutlineLevel(sheet string, rowIndex int, level uint8)
 ```
 
-根据给定的工作表名称（大小写敏感）、行索引和分级参数创建组。例如，在名为 `Sheet1` 的工作表的第 2 行创建 1 级分组。
+根据给定的工作表名称（大小写敏感）、行号和分级参数创建组。例如，在名为 `Sheet1` 的工作表的第 2 行创建 1 级分组。
 
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="创建行的分级显示"></p>
 
@@ -280,7 +280,7 @@ xlsx.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, rowIndex int) uint8
 ```
 
-根据给定的工作表名称（大小写敏感）和行索引获取分组级别。例如，获取名为 `Sheet1` 的工作表第 2 行的分组级别。
+根据给定的工作表名称（大小写敏感）和行号获取分组级别。例如，获取名为 `Sheet1` 的工作表第 2 行的分组级别。
 
 ```go
 xlsx.GetRowOutlineLevel("Sheet1", 2)

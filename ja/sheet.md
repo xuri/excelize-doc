@@ -212,10 +212,10 @@ xlsx.InsertCol("Sheet1", "C")
 func (f *File) InsertRow(sheet string, row int)
 ```
 
-指定されたシート名（大文字と小文字を区別）と行インデックスに基づいて、指定された行の前に空白行を挿入します。例えば、`Sheet1` という名前のワークシートの 3 行目の前に空白行を挿入します。
+指定されたシート名（大文字と小文字を区別）と行インデックスに基づいて、指定された行の前に空白行を挿入します。例えば、`Sheet1` という名前のワークシートの `3` 行目の前に空白行を挿入します。
 
 ```go
-xlsx.InsertRow("Sheet1", 2)
+xlsx.InsertRow("Sheet1", 3)
 ```
 
 ## 重複行を追加 {#DuplicateRow}

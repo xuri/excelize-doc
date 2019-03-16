@@ -217,7 +217,7 @@ func (f *File) InsertRow(sheet string, row int)
 InsertRow fournit une fonction pour insérer une nouvelle ligne avant l'index de ligne donné. Par exemple, créez une nouvelle ligne avant la ligne `3` dans `Sheet1`:
 
 ```go
-xlsx.InsertRow("Sheet1", 2)
+xlsx.InsertRow("Sheet1", 3)
 ```
 
 ## Ajouter une ligne en double {#DuplicateRow}

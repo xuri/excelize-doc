@@ -214,10 +214,10 @@ xlsx.InsertCol("Sheet1", "C")
 func (f *File) InsertRow(sheet string, row int)
 ```
 
-InsertRow provides a function to insert a new row before given row index. For example, create a new row before row `3` in `Sheet1`:
+InsertRow provides a function to insert a new row after given Excel row number starting from 1. For example, create a new row before row `3` in `Sheet1`:
 
 ```go
-xlsx.InsertRow("Sheet1", 2)
+xlsx.InsertRow("Sheet1", 3)
 ```
 
 ## Append duplicate row {#DuplicateRow}
@@ -240,7 +240,7 @@ Use this method with caution, which will affect changes in references such as fo
 func (f *File) DuplicateRowTo(sheet string, row, row2 int)
 ```
 
-DuplicateRowTo inserts a copy of specified row at specified row position moving down exists rows after target position, for example:
+DuplicateRowTo inserts a copy of specified row by it Excel number to specified row position moving down exists rows after target position, for example:
 
 ```go
 xlsx.DuplicateRowTo("Sheet1", 2, 7)
@@ -254,9 +254,9 @@ Use this method with caution, which will affect changes in references such as fo
 func (f *File) SetRowOutlineLevel(sheet string, rowIndex int, level uint8)
 ```
 
-SetRowOutlineLevel provides a function to set outline level number of a single row by given worksheet name and row index. For example, outline row 2 in `Sheet1` to level 1:
+SetRowOutlineLevel provides a function to set outline level number of a single row by given worksheet name and Excel row number. For example, outline row 2 in `Sheet1` to level 1:
 
-!["Create row outline"](./images/row_outline_level.png "Create row outline")
+<p align="center"><img width="612" src="./images/row_outline_level.png" alt="Create row outline"></p>
 
 ```go
 xlsx.SetRowOutlineLevel("Sheet1", 2, 1)
@@ -282,7 +282,7 @@ xlsx.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, rowIndex int) uint8
 ```
 
-GetRowOutlineLevel provides a function to get outline level number of a single row by given worksheet name and row index. For example, get outline number of row 2 in `Sheet1`:
+GetRowOutlineLevel provides a function to get outline level number of a single row by given worksheet name and Excel row number. For example, get outline number of row 2 in `Sheet1`:
 
 ```go
 xlsx.GetRowOutlineLevel("Sheet1", 2)
@@ -370,7 +370,7 @@ func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection)
 
 ProtectSheet provides a function to prevent other users from accidentally or deliberately changing, moving, or deleting data in a worksheet. For example, protect `Sheet1` with protection settings:
 
-!["Protect Sheet"](./images/protect_sheet.png "Protect Sheet")
+<p align="center"><img width="896" src="./images/protect_sheet.png" alt="Protect Sheet"></p>
 
 ```go
 xlsx.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{

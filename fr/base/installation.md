@@ -6,7 +6,7 @@ Utiliser la bibliothèque Excelize nécessite Go version 1.8 ou ultérieure.
 
 - Installation
 
-```go
+```bash
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
@@ -14,7 +14,7 @@ go get github.com/360EntSecGroup-Skylar/excelize
 
 - Mise à niveau
 
-```go
+```bash
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 

@@ -6,7 +6,7 @@ Excelize 를 사용 하는 데 필요한 Go 언어는 1.8 이상입니다.
 
 - 설치 명령
 
-```go
+```bash
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
@@ -14,7 +14,7 @@ go get github.com/360EntSecGroup-Skylar/excelize
 
 - 업데이트 명령
 
-```go
+```bash
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 

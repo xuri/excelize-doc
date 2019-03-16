@@ -79,7 +79,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Set a border style for a cell"](./images/SetCellStyle_01.png "Set a border style for a cell")
+<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="Set a border style for a cell"></p>
 
 The four borders of the cell `D7` are set with different styles and colors. This is related to the parameters when calling the `NewStyle` function. You need to set different styles to refer to the documentation for that chapter.
 
@@ -93,7 +93,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Set a gradient style for the cell"](./images/SetCellStyle_02.png "Set a gradient style for the cell")
+<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="Set a gradient style for the cell"></p>
 
 The cell `D7` is set with the color fill of the gradient effect. The gradient fill effect is related to the parameter when the `NewStyle` function is called. You need to set different styles to refer to the documentation of this chapter.
 
@@ -107,7 +107,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Set a solid fill for the cell"](./images/SetCellStyle_03.png "Set a solid fill for the cell")
+<p align="center"><img width="612" src="./images/SetCellStyle_03.png" alt="Set a solid fill for the cell"></p>
 
 The cell `D7` is set with a solid fill.
 
@@ -122,7 +122,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Set the character spacing and rotation angle"](./images/SetCellStyle_04.png "Set the character spacing and rotation angle")
+<p align="center"><img width="612" src="./images/SetCellStyle_04.png" alt="Set the character spacing and rotation angle"></p>
 
 - Example 5, the date and time in Excel are represented by real numbers, for example `2017/7/4  12:00:00 PM` can be represented by the number `42920.5`. Set the time format for the worksheet `D7` cell named `Sheet1`:
 
@@ -136,7 +136,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Set the time format for the cell"](./images/SetCellStyle_05.png "Set the time format for the cell")
+<p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Set the time format for the cell"></p>
 
 The cell `D7` is set to the time format. Note that when the cell width with the time format applied is too narrow to be fully displayed, it will be displayed as `####`, you can drag and drop the column width or set the column to the appropriate size by calling the `SetColWidth` function to make it normal. display.
 
@@ -151,7 +151,7 @@ if err != nil {
 xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Set font, font size, color, and skew style for cells"](./images/SetCellStyle_06.png "Set font, font size, color, and skew style for cells")
+<p align="center"><img width="612" src="./images/SetCellStyle_06.png" alt="Set font, font size, color, and skew style for cells"></p>
 
 - Example 7, locking and hiding the worksheet `D7` cell named `Sheet1`:
 
@@ -267,7 +267,7 @@ func (f *File) AddComment(sheet, cell, format string) error
 
 AddComment provides the method to add comment in a sheet by given worksheet index, cell and format set (such as author and text). Note that the max author length is 255 and the max text length is 32512. For example, add a comment in `Sheet1!$A$3`:
 
-!["Add a comment to an Excel document"](./images/comment.png "Add a comment to an Excel document")
+<p align="center"><img width="612" src="./images/comment.png" alt="Add a comment to an Excel document"></p>
 
 ```go
 xlsx.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)

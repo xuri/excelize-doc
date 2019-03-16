@@ -6,7 +6,7 @@
 
 - Установка
 
-```go
+```bash
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
@@ -14,7 +14,7 @@ go get github.com/360EntSecGroup-Skylar/excelize
 
 - Обновление
 
-```go
+```bash
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 
