@@ -23,23 +23,23 @@ import (
 )
 
 func main() {
-    xlsx := excelize.NewFile()
+    f := excelize.NewFile()
     // 插入图片
-    err := xlsx.AddPicture("Sheet1", "A2", "./image1.jpg", "")
+    err := f.AddPicture("Sheet1", "A2", "./image1.jpg", "")
     if err != nil {
         fmt.Println(err)
     }
     // 插入带有缩放比例和超链接的图片
-    err = xlsx.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
+    err = f.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
     if err != nil {
         fmt.Println(err)
     }
     // 插入图片，并设置图片的外部超链接、打印和位置属性
-    err = xlsx.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
+    err = f.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.SaveAs("./Book1.xlsx")
+    err = f.SaveAs("./Book1.xlsx")
     if err != nil {
         fmt.Println(err)
     }
@@ -70,17 +70,17 @@ import (
 )
 
 func main() {
-    xlsx := excelize.NewFile()
+    f := excelize.NewFile()
 
     file, err := ioutil.ReadFile("./image1.jpg")
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
+    err = f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.SaveAs("./Book1.xlsx")
+    err = f.SaveAs("./Book1.xlsx")
     if err != nil {
         fmt.Println(err)
     }
@@ -90,22 +90,23 @@ func main() {
 ## 获取图片 {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte)
+func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
 根据给定的工作表名称（大小写敏感）和单元格坐标获取工作簿上的图片，将以 `[]byte` 类型返回嵌入在 Excel 文档中的图片。例如，获取名为 `Sheet1` 的工作表上 `A2` 单元格上的图片：
 
 ```go
-xlsx, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("./Book1.xlsx")
 if err != nil {
     fmt.Println(err)
     return
 }
-file, raw := xlsx.GetPicture("Sheet1", "A2")
-if file == "" {
+file, raw, err := f.GetPicture("Sheet1", "A2")
+if err != nil {
+    fmt.Println(err)
     return
 }
-err := ioutil.WriteFile(file, raw, 0644)
+err = ioutil.WriteFile(file, raw, 0644)
 if err != nil {
     fmt.Println(err)
 }

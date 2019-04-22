@@ -3,7 +3,7 @@
 ## Définir la valeur de la cellule {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{})
+func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
 SetCellValue fournit une fonction pour définir la valeur d'une cellule. Voici les types de données pris en charge:
@@ -32,7 +32,7 @@ SetCellValue fournit une fonction pour définir la valeur d'une cellule. Voici l
 ## Définir la valeur booléenne {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool)
+func (f *File) SetCellBool(sheet, axis string, value bool) error
 ```
 
 SetCellBool fournit une fonction pour définir la valeur du type booléen d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
@@ -40,7 +40,7 @@ SetCellBool fournit une fonction pour définir la valeur du type booléen d'une 
 ## Définir la valeur RAW {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string)
+func (f *File) SetCellDefault(sheet, axis, value string) error
 ```
 
 SetCellDefault fournit une fonction pour définir la valeur de type chaîne d'une cellule comme format par défaut sans échapper à la cellule.
@@ -48,7 +48,7 @@ SetCellDefault fournit une fonction pour définir la valeur de type chaîne d'un
 ## Définir la valeur entière {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int)
+func (f *File) SetCellInt(sheet, axis string, value int) error
 ```
 
 SetCellInt fournit une fonction pour définir la valeur de type int d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
@@ -56,7 +56,7 @@ SetCellInt fournit une fonction pour définir la valeur de type int d'une cellul
 ## Définir la valeur de chaîne {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string)
+func (f *File) SetCellStr(sheet, axis, value string) error
 ```
 
 SetCellStr fournit une fonction pour définir la valeur du type de chaîne d'une cellule. Nombre total de caractères qu'une cellule peut contenir `32767`.
@@ -64,7 +64,7 @@ SetCellStr fournit une fonction pour définir la valeur du type de chaîne d'une
 ## Définir le style de cellule {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int)
+func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
 SetCellStyle fournit la fonction pour ajouter l'attribut de style pour les cellules par nom de feuille de calcul donné, zone de coordonnées et ID de style. Les index de style peuvent être obtenus avec la fonction `NewStyle`. Notez que les bordures de type `diagonalDown` et` diagonalUp` doivent utiliser la même couleur dans la même zone de coordonnées.
@@ -72,11 +72,11 @@ SetCellStyle fournit la fonction pour ajouter l'attribut de style pour les cellu
 - Exemple 1, créez une bordure de la cellule `D7` sur `Sheet1`:
 
 ```go
-style, err := xlsx.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
+style, err := f.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 !["Définir un style de bordure pour une cellule"](./images/SetCellStyle_01.png "Définir un style de bordure pour une cellule")
@@ -86,11 +86,11 @@ Les quatre bordures de la cellule `D7` sont définies avec des styles et des cou
 - Exemple 2, définition du style de dégradé pour la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-style, err := xlsx.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
+style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 !["Définir un style de dégradé pour la cellule"](./images/SetCellStyle_02.png "Définir un style de dégradé pour la cellule")
@@ -100,11 +100,11 @@ La cellule `D7` est définie avec le remplissage de couleur de l'effet de dégra
 - Exemple 3, définissez un remplissage solide pour la cellule `D7` nommée `Sheet1`:
 
 ```go
-style, err := xlsx.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
+style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 !["Définir un remplissage solide pour la cellule"](./images/SetCellStyle_03.png "Définir un remplissage solide pour la cellule")
@@ -114,12 +114,12 @@ La cellule `D7` est définie avec un remplissage solide.
 - Exemple 4, définissez l'espacement des caractères et l'angle de rotation pour la cellule `D7` nommée `Sheet1`:
 
 ```go
-xlsx.SetCellValue("Sheet1", "D7", "样式")
-style, err := xlsx.NewStyle(`{"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"text_rotation":45,"vertical":"","wrap_text":true}}`)
+f.SetCellValue("Sheet1", "D7", "Style")
+style, err := f.NewStyle(`{"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"text_rotation":45,"vertical":"","wrap_text":true}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 !["Définir l'espacement des caractères et l'angle de rotation"](./images/SetCellStyle_04.png "Définir l'espacement des caractères et l'angle de rotation")
@@ -127,13 +127,13 @@ xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 - Exemple 5, la date et l'heure dans Excel sont représentées par des nombres réels, par exemple, `2017/7/4 12:00:00 PM` peut être représenté par le nombre `42920.5`. Définissez le format d'heure pour la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-xlsx.SetCellValue("Sheet1", "D7", 42920.5)
-xlsx.SetColWidth("Sheet1", "D", "D", 13)
-style, err := xlsx.NewStyle(`{"number_format": 22}`)
+f.SetCellValue("Sheet1", "D7", 42920.5)
+f.SetColWidth("Sheet1", "D", "D", 13)
+style, err := f.NewStyle(`{"number_format": 22}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 !["Définir le format de l'heure pour la cellule"](./images/SetCellStyle_05.png "Définir le format de l'heure pour la cellule")
@@ -143,12 +143,12 @@ La cellule `D7` est définie sur le format de l'heure. Notez que lorsque la larg
 - Exemple 6, définition de la police, de la taille de police, de la couleur et du style de décalage pour la cellule de la feuille de calcul `D7` nommée `Sheet1`:
 
 ```go
-xlsx.SetCellValue("Sheet1", "D7", "Excel")
-style, err := xlsx.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777"}}`)
+f.SetCellValue("Sheet1", "D7", "Excel")
+style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777"}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 !["Définir la police, la taille de la police, la couleur et le style de biais pour les cellules"](./images/SetCellStyle_06.png "Définir la police, la taille de la police, la couleur et le style de biais pour les cellules")
@@ -156,11 +156,11 @@ xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
 - Exemple 7, verrouillage et masquage de la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-style, err := xlsx.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
+style, err := f.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetCellStyle("Sheet1", "D7", "D7", style)
+err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
 Pour verrouiller une cellule ou masquer une formule, protégez la feuille de calcul. Dans l'onglet "La revue", cliquez sur "Protéger la feuille de travail".
@@ -168,30 +168,30 @@ Pour verrouiller une cellule ou masquer une formule, protégez la feuille de cal
 ## Définir un lien hypertexte {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string)
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellule par nom de feuille de calcul donné et adresse URL de lien. LinkType définit deux types d'hyperliens `External` pour site Web ou `Location` pour passer à l'une des cellules de ce classeur. Ce qui suit est un exemple de lien externe.
+SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellule par nom de feuille de calcul donné et adresse URL de lien. LinkType définit deux types d'hyperliens `External` pour site Web ou `Location` pour passer à l'une des cellules de ce classeur. Le nombre maximal d’hyperliens de limite dans une feuille de calcul est `65530`. Ce qui suit est un exemple de lien externe.
 
 - Exemple 1, ajout d'un lien externe à la cellule `A3` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-xlsx.SetCellHyperLink("Sheet1", "A3", "https://github.com/360EntSecGroup-Skylar/excelize", "External")
+err := f.SetCellHyperLink("Sheet1", "A3", "https://github.com/360EntSecGroup-Skylar/excelize", "External")
 // Définir le style de police et de soulignement pour la cellule
-style, _ := xlsx.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
-xlsx.SetCellStyle("Sheet1", "A3", "A3", style)
+style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
+err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 ```
 
 - Exemple 2, ajout d'un lien d'emplacement interne à la cellule `A3` nommée `Sheet1`:
 
 ```go
-xlsx.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
+err := f.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
 ```
 
 ## Obtenir la valeur de la cellule {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) string
+func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
 La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée.
@@ -199,7 +199,7 @@ La valeur de la cellule est récupérée en fonction de la feuille de calcul et 
 ## Obtenir toute la valeur de la cellule {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) [][]string
+func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
 Obtient la valeur de toutes les cellules de la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type chaîne. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
@@ -207,7 +207,8 @@ Obtient la valeur de toutes les cellules de la feuille de calcul en fonction du 
 Par exemple, obtenez et parcourez la valeur de toutes les cellules d'une feuille de calcul appelée `Sheet1`:
 
 ```go
-for _, row := range xlsx.GetRows("Sheet1") {
+rows, err := f.GetRows("Sheet1")
+for _, row := range rows {
     for _, colCell := range row {
         fmt.Print(colCell, "\t")
     }
@@ -218,7 +219,7 @@ for _, row := range xlsx.GetRows("Sheet1") {
 ## Obtenir un lien hypertexte {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string)
+func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
 Obtient un lien hypertexte de cellule basé sur le nom de feuille de calcul donné (sensible à la casse) et les coordonnées de cellule. Si la cellule a un lien hypertexte, elle retournera `true` et l'adresse du lien, sinon elle retournera `false` et une adresse de lien vide.
@@ -226,13 +227,13 @@ Obtient un lien hypertexte de cellule basé sur le nom de feuille de calcul donn
 Par exemple, obtenez un lien hypertexte vers une cellule `H6` sur une feuille de calcul nommée `Sheet1`:
 
 ```go
-link, target := xlsx.GetCellHyperLink("Sheet1", "H6")
+link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ```
 
 ## Obtenir l'index de style {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) int
+func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
 L'index de style de cellule est obtenu à partir du nom de feuille de calcul donné (sensible à la casse) et des coordonnées de cellule, et l'index obtenu peut être utilisé comme paramètre pour appeler la fonction `SetCellValue` lors de la copie du style de cellule.
@@ -240,13 +241,13 @@ L'index de style de cellule est obtenu à partir du nom de feuille de calcul don
 ## Fusionner les cellules {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string)
+func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
 Fusionner des cellules en fonction du nom de feuille de calcul donné (sensible à la casse) et des régions de coordonnées de cellule. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Sheet1`:
 
 ```go
-xlsx.MergeCell("Sheet1", "D3", "E9")
+err := f.MergeCell("Sheet1", "D3", "E9")
 ```
 
 Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusionnées existantes, les cellules fusionnées existantes seront supprimées.
@@ -256,7 +257,7 @@ Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusion
 GetMergeCells fournit une fonction pour obtenir toutes les cellules fusionnées à partir d'une feuille de calcul.
 
 ```go
-func (f *File) GetMergeCells(sheet string) []MergeCell
+func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
 ## Ajouter un commentaire {#AddComment}
@@ -270,7 +271,7 @@ AddComment fournit la méthode pour ajouter un commentaire dans une feuille par 
 !["Ajouter un commentaire à un document Excel"](./images/comment.png "Ajouter un commentaire à un document Excel")
 
 ```go
-xlsx.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)
+err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)
 ```
 
 ## Obtenir un commentaire {#GetComments}
@@ -292,7 +293,7 @@ La formule sur la cellule est prise en fonction du nom de feuille de calcul donn
 ## Obtenir la formule cellulaire {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) string
+func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
 Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné (sensible à la casse) et des coordonnées de cellule.

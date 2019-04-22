@@ -17,7 +17,7 @@ dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A1:B2"
 dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
 dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 Exemple 2, définissez la validation des données sur `Sheet1!A3:B4` avec les paramètres de validation et affichez le message lorsque la cellule est sélectionnée:
@@ -29,7 +29,7 @@ dvRange = excelize.NewDataValidation(true)
 dvRange.Sqref = "A3:B4"
 dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
 dvRange.SetInput("input title", "input body")
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 Exemple 3, définissez la validation des données sur `Sheet1!A5:B6` avec les paramètres de validation, créez un menu déroulant dans la cellule en autorisant la source de liste:
@@ -40,7 +40,7 @@ Exemple 3, définissez la validation des données sur `Sheet1!A5:B6` avec les pa
 dvRange = excelize.NewDataValidation(true)
 dvRange.Sqref = "A5:B6"
 dvRange.SetDropList([]string{"1", "2", "3"})
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 Example 4，définir la validation des données sur `Sheet1!A7:B8` avec la source des critères de validation `Sheet1!E1:E3`, créer un menu déroulant dans la cellule en autorisant la source de liste:
@@ -51,5 +51,5 @@ Example 4，définir la validation des données sur `Sheet1!A7:B8` avec la sourc
 dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("E1:E3", true)
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```

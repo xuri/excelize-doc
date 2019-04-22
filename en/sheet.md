@@ -3,54 +3,50 @@
 ## Set column visibility {#SetColVisible}
 
 ```go
-func (f *File) SetColVisible(sheet, column string, visible bool)
+func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
 SetColVisible provides a function to set visible of a single column by given worksheet name and column name. For example, hide column `D` in `Sheet1`:
 
 ```go
-xlsx.SetColVisible("Sheet1", "D", false)
+err := f.SetColVisible("Sheet1", "D", false)
 ```
 
 ## Set column width {#SetColWidth}
 
 ```go
-func (f *File) SetColWidth(sheet, startcol, endcol string, width float64)
+func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
 ```
 
 SetColWidth provides a function to set the width of a single column or multiple columns. For example:
 
 ```go
-xlsx := excelize.NewFile()
-xlsx.SetColWidth("Sheet1", "A", "H", 20)
-err := xlsx.Save()
-if err != nil {
-    fmt.Println(err)
-}
+f := excelize.NewFile()
+err := f.SetColWidth("Sheet1", "A", "H", 20)
 ```
 
 ## Set row height {#SetRowHeight}
 
 ```go
-func (f *File) SetRowHeight(sheet string, row int, height float64)
+func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
 SetRowHeight provides a function to set the height of a single row. For example, set the height of the first row in `Sheet1`:
 
 ```go
-xlsx.SetRowHeight("Sheet1", 1, 50)
+err := f.SetRowHeight("Sheet1", 1, 50)
 ```
 
 ## Set row visibility {#SetRowVisible}
 
 ```go
-func (f *File) SetRowVisible(sheet string, rowIndex int, visible bool)
+func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
 SetRowVisible provides a function to set visible of a single row by given worksheet name and row index. For example, hide row `2` in `Sheet1`:
 
 ```go
-xlsx.SetRowVisible("Sheet1", 2, false)
+err := f.SetRowVisible("Sheet1", 2, false)
 ```
 
 ## Get worksheet name {#GetSheetName}
@@ -64,19 +60,19 @@ GetSheetName provides a function to get worksheet name of XLSX by given workshee
 ## Get column visibility {#GetColVisible}
 
 ```go
-func (f *File) GetColVisible(sheet, column string) bool
+func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
 GetColVisible provides a function to get visible of a single column by given worksheet name and column name. For example, get visible state of column `D` in `Sheet1`:
 
 ```go
-xlsx.GetColVisible("Sheet1", "D")
+visible, err := f.GetColVisible("Sheet1", "D")
 ```
 
 ## Get column width {#GetColWidth}
 
 ```go
-func (f *File) GetColWidth(sheet, column string) float64
+func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
 GetColWidth provides a function to get column width by given worksheet name and column index.
@@ -84,25 +80,25 @@ GetColWidth provides a function to get column width by given worksheet name and 
 ## Get row height {#GetRowHeight}
 
 ```go
-func (f *File) GetRowHeight(sheet string, row int) float64
+func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
 GetRowHeight provides a function to get row height by given worksheet name and row index. For example, get the height of the first row in `Sheet1`:
 
 ```go
-xlsx.GetRowHeight("Sheet1", 1)
+height, err := f.GetRowHeight("Sheet1", 1)
 ```
 
 ## Get row visibility {#GetRowVisible}
 
 ```go
-func (f *File) GetRowVisible(sheet string, rowIndex int) bool
+func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
 GetRowVisible provides a function to get visible of a single row by given worksheet name and row index. For example, get visible state of row `2` in `Sheet1`:
 
 ```go
-xlsx.GetRowVisible("Sheet1", 2)
+err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Get worksheet index {#GetSheetIndex}
@@ -124,11 +120,11 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap provides a function to get worksheet name and index map of XLSX. For example:
 
 ```go
-xlsx, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("./Book1.xlsx")
 if err != nil {
     return
 }
-for index, name := range xlsx.GetSheetMap() {
+for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
 ```
@@ -199,37 +195,37 @@ Defaults:
 ## Insert column {#InsertCol}
 
 ```go
-func (f *File) InsertCol(sheet, column string)
+func (f *File) InsertCol(sheet, column string) error
 ```
 
 InsertCol provides a function to insert a new column before given column index. For example, create a new column before column `C` in `Sheet1`:
 
 ```go
-xlsx.InsertCol("Sheet1", "C")
+err := f.InsertCol("Sheet1", "C")
 ```
 
 ## Insert row {#InsertRow}
 
 ```go
-func (f *File) InsertRow(sheet string, row int)
+func (f *File) InsertRow(sheet string, row int) error
 ```
 
 InsertRow provides a function to insert a new row after given Excel row number starting from 1. For example, create a new row before row `3` in `Sheet1`:
 
 ```go
-xlsx.InsertRow("Sheet1", 3)
+err := f.InsertRow("Sheet1", 3)
 ```
 
 ## Append duplicate row {#DuplicateRow}
 
 ```go
-func (f *File) DuplicateRow(sheet string, row int)
+func (f *File) DuplicateRow(sheet string, row int) error
 ```
 
 DuplicateRow inserts a copy of specified row below specified, for example:
 
 ```go
-xlsx.DuplicateRow("Sheet1", 2)
+err := f.DuplicateRow("Sheet1", 2)
 ```
 
 Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
@@ -237,13 +233,13 @@ Use this method with caution, which will affect changes in references such as fo
 ## Duplicate row {#DuplicateRowTo}
 
 ```go
-func (f *File) DuplicateRowTo(sheet string, row, row2 int)
+func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 ```
 
 DuplicateRowTo inserts a copy of specified row by it Excel number to specified row position moving down exists rows after target position, for example:
 
 ```go
-xlsx.DuplicateRowTo("Sheet1", 2, 7)
+err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
 Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
@@ -251,7 +247,7 @@ Use this method with caution, which will affect changes in references such as fo
 ## Create row outline {#SetRowOutlineLevel}
 
 ```go
-func (f *File) SetRowOutlineLevel(sheet string, rowIndex int, level uint8)
+func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
 SetRowOutlineLevel provides a function to set outline level number of a single row by given worksheet name and Excel row number. For example, outline row 2 in `Sheet1` to level 1:
@@ -259,13 +255,13 @@ SetRowOutlineLevel provides a function to set outline level number of a single r
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="Create row outline"></p>
 
 ```go
-xlsx.SetRowOutlineLevel("Sheet1", 2, 1)
+err := f.SetRowOutlineLevel("Sheet1", 2, 1)
 ```
 
 ## Create column outline {#SetColOutlineLevel}
 
 ```go
-func (f *File) SetColOutlineLevel(sheet, column string, level uint8)
+func (f *File) SetColOutlineLevel(sheet, col string, level uint8) error
 ```
 
 SetColOutlineLevel provides a function to set outline level of a single column by given worksheet name and column name. For example, set outline level of column `D` in `Sheet1` to 2:
@@ -273,31 +269,31 @@ SetColOutlineLevel provides a function to set outline level of a single column b
 <p align="center"><img width="612" src="./images/col_outline_level.png" alt="Create column outline"></p>
 
 ```go
-xlsx.SetColOutlineLevel("Sheet1", "D", 2)
+err := f.SetColOutlineLevel("Sheet1", "D", 2)
 ```
 
 ## Get row outline {#GetRowOutlineLevel}
 
 ```go
-func (f *File) GetRowOutlineLevel(sheet string, rowIndex int) uint8
+func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
 GetRowOutlineLevel provides a function to get outline level number of a single row by given worksheet name and Excel row number. For example, get outline number of row 2 in `Sheet1`:
 
 ```go
-xlsx.GetRowOutlineLevel("Sheet1", 2)
+err := f.GetRowOutlineLevel("Sheet1", 2)
 ```
 
 ## Get column outline {#GetColOutlineLevel}
 
 ```go
-func (f *File) GetColOutlineLevel(sheet, column string) uint8
+func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
 GetColOutlineLevel provides a function to get outline level of a single column by given worksheet name and column name. For example, get outline level of column `D` in `Sheet1`:
 
 ```go
-xlsx.GetColOutlineLevel("Sheet1", "D")
+level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
 ## Row iterator {#Rows}
@@ -309,19 +305,20 @@ func (f *File) Rows(sheet string) (*Rows, error)
 Rows return a rows iterator. For example:
 
 ```go
-rows, err := xlsx.Rows("Sheet1")
+rows, err := f.Rows("Sheet1")
 for rows.Next() {
-    for _, colCell := range rows.Columns() {
-        fmt.Print(colCell, "\t")
-    }
-    fmt.Println()
+   row, err := rows.Columns()
+   for _, colCell := range row {
+       fmt.Print(colCell, "\t")
+   }
+   fmt.Println()
 }
 ```
 
 ### Row iterator - Columns
 
 ```go
-func (rows *Rows) Columns() []string
+func (rows *Rows) Columns() ([]string, error)
 ```
 
 Columns return the current row's column values.
@@ -345,7 +342,7 @@ Error will return the `error` when the find next row element.
 ## Search Sheet {#SearchSheet}
 
 ```go
-func (f *File) SearchSheet(sheet, value string, reg ...bool) []string
+func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
 SearchSheet provides a function to get coordinates by given worksheet name, cell value, and regular expression. The function doesn't support searching on the calculated result, formatted numbers and conditional lookup currently. If it is a merged cell, it will return the coordinates of the upper left corner of the merged area.
@@ -353,19 +350,19 @@ SearchSheet provides a function to get coordinates by given worksheet name, cell
 For example, search the coordinates of the value of `100` on `Sheet1`:
 
 ```go
-xlsx.SearchSheet("Sheet1", "100")
+result, err := f.SearchSheet("Sheet1", "100")
 ```
 
 For example, search the coordinates where the numerical value in the range of `0-9` of `Sheet1` is described:
 
 ```go
-xlsx.SearchSheet("Sheet1", "[0-9]", true)
+result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ```
 
 ## Protect Sheet {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection)
+func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
 ProtectSheet provides a function to prevent other users from accidentally or deliberately changing, moving, or deleting data in a worksheet. For example, protect `Sheet1` with protection settings:
@@ -373,7 +370,7 @@ ProtectSheet provides a function to prevent other users from accidentally or del
 <p align="center"><img width="896" src="./images/protect_sheet.png" alt="Protect Sheet"></p>
 
 ```go
-xlsx.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
     Password:      "password",
     EditScenarios: false,
 })
@@ -382,7 +379,7 @@ xlsx.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 ## Unprotect Sheet {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string)
+func (f *File) UnprotectSheet(sheet string) error
 ```
 
 UnprotectSheet provides a function to unprotect an Excel worksheet.

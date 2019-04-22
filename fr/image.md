@@ -23,23 +23,23 @@ import (
 )
 
 func main() {
-    xlsx := excelize.NewFile()
+    f := excelize.NewFile()
     // Ajouter une image.
-    err := xlsx.AddPicture("Sheet1", "A2", "./image1.jpg", "")
+    err := f.AddPicture("Sheet1", "A2", "./image1.jpg", "")
     if err != nil {
         fmt.Println(err)
     }
     // Insérer une mise à l'échelle de l'image dans la cellule avec un lien hypertexte.
-    err = xlsx.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
+    err = f.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
     if err != nil {
         fmt.Println(err)
     }
     // Insérer un décalage d'image dans la cellule avec un lien hypertexte externe, un support d'impression et de positionnement.
-    err = xlsx.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
+    err = f.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.SaveAs("./Book1.xlsx")
+    err = f.SaveAs("./Book1.xlsx")
     if err != nil {
         fmt.Println(err)
     }
@@ -70,17 +70,17 @@ import (
 )
 
 func main() {
-    xlsx := excelize.NewFile()
+    f := excelize.NewFile()
 
     file, err := ioutil.ReadFile("./image1.jpg")
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
+    err = f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.SaveAs("./Book1.xlsx")
+    err = f.SaveAs("./Book1.xlsx")
     if err != nil {
         fmt.Println(err)
     }
@@ -90,7 +90,7 @@ func main() {
 ## Obtenir une image {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte)
+func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
 GetPicture fournit une fonction permettant d'incorporer le nom de la base de l'image et le contenu brut dans XLSX en fonction de la feuille de calcul et du nom de la cellule. Cette fonction renvoie le nom du fichier dans XLSX et le contenu des fichiers sous la forme de types de données `[]byte`.
@@ -98,16 +98,17 @@ GetPicture fournit une fonction permettant d'incorporer le nom de la base de l'i
 Par exemple:
 
 ```go
-xlsx, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("./Book1.xlsx")
 if err != nil {
     fmt.Println(err)
     return
 }
-file, raw := xlsx.GetPicture("Sheet1", "A2")
-if file == "" {
+file, raw, err := f.GetPicture("Sheet1", "A2")
+if err != nil {
+    fmt.Println(err)
     return
 }
-err := ioutil.WriteFile(file, raw, 0644)
+err = ioutil.WriteFile(file, raw, 0644)
 if err != nil {
     fmt.Println(err)
 }

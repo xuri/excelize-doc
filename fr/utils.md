@@ -13,7 +13,7 @@ AddTable fournit la méthode pour ajouter une table dans une feuille de calcul p
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="Créer une table"></p>
 
 ```go
-xlsx.AddTable("Sheet1", "A1", "D5", ``)
+err := f.AddTable("Sheet1", "A1", "D5", ``)
 ```
 
 - Exemple 2, créer une table de `F2: H6` sur `Sheet2` avec le jeu de format:
@@ -21,7 +21,7 @@ xlsx.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="Ajouter une table avec le jeu de formats"></p>
 
 ```go
-xlsx.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
+err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
 Notez que la table au moins deux lignes incluent l'en-tête de type chaîne. Les zones de coordonnées de plusieurs tables ne peuvent pas avoir d'intersection.
@@ -49,13 +49,13 @@ Exemple 1, application d'un autofiltre à une plage de cellules `A1:D4` dans `Sh
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="Ajouter un filtre automatique"></p>
 
 ```go
-err = xlsx.AutoFilter("Sheet1", "A1", "D4", "")
+err := f.AutoFilter("Sheet1", "A1", "D4", "")
 ```
 
 Exemple 2, filtrez les données dans un autofiltre:
 
 ```go
-err = xlsx.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
+err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
 `column` définit les colonnes de filtre dans une gamme de filtre automatique basée sur des critères simples
@@ -118,7 +118,7 @@ Price < 2000
 ## Mettre à jour la valeur liée {#UpdateLinkedValue}
 
 ```go
-func (f *File) UpdateLinkedValue()
+func (f *File) UpdateLinkedValue() error
 ```
 
 Les valeurs liées au correctif UpdateLinkedValue dans une feuille de calcul ne sont pas mises à jour dans Office Excel 2007 et 2010. Cette fonction supprime la balise de valeur lorsqu'une cellule est associée à une valeur liée. Référence[https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel) Avis: après ouverture du fichier XLSX, Excel mettra à jour la valeur liée et génèrera une nouvelle valeur et demandera l'enregistrement du fichier ou non.
@@ -144,29 +144,73 @@ Après avoir effacé le cache de la cellule:
 </row>
 ```
 
-## Convertir la colonne en index {#TitleToNumber}
+## Nom de la cellule divisée {#SplitCellName}
 
 ```go
-func TitleToNumber(s string) int
+func SplitCellName(cell string) (string, int, error)
 ```
 
-TitleToNumber fournit une fonction permettant de convertir le titre d'une colonne Excel en int (cette fonction ne vérifie pas la valeur actuellement). Par exemple, convertissez `AK` et `ak` dans le titre de colonne `36`:
+SplitCellName divise le nom de cellule en nom de colonne et numéro de ligne. Par exemple:
 
 ```go
-excelize.TitleToNumber("AK")
-excelize.TitleToNumber("ak")
+excelize.SplitCellName("AK74") // return "AK", 74, nil
 ```
 
-## Convertir l'index en colonne {#ToAlphaString}
+## Rejoindre le nom de la cellule {#JoinCellName}
 
 ```go
-func ToAlphaString(value int) string
+func JoinCellName(col string, row int) (string, error)
 ```
 
-ToAlphaString fournit une fonction permettant de convertir un nombre entier en titre de colonne de feuille Excel. Par exemple, convertir `36` dans le titre de la colonne `AK`
+JoinCellName joint le nom de la cellule à partir du nom de la colonne et du numéro de ligne.
+
+## Nom de la colonne au numéro {#ColumnNameToNumber}
 
 ```go
-excelize.ToAlphaString(36)
+func ColumnNameToNumber(name string) (int, error)
+```
+
+ColumnNameToNumber fournit une fonction permettant de convertir le nom de colonne d'une feuille Excel en `int`. Le nom de la colonne est insensible à la casse. La fonction renvoie une erreur si le nom de la colonne est incorrect. Par exemple:
+
+```go
+excelize.ColumnNameToNumber("AK") // returns 37, nil
+```
+
+## Numéro de colonne au nom {#ColumnNumberToName}
+
+```go
+func ColumnNumberToName(num int) (string, error)
+```
+
+ColumnNumberToName fournit une fonction permettant de convertir un entier en titre de colonne de feuille Excel. Par exemple:
+
+```go
+excelize.ColumnNumberToName(37) // returns "AK", nil
+```
+
+## Nom de la cellule aux coordonnées {#CellNameToCoordinates}
+
+```go
+func CellNameToCoordinates(cell string) (int, int, error)
+```
+
+CellNameToCoordinates convertit le nom de cellule alphanumérique en coordonnées `[X, Y]` ou renvoie une erreur. Par exemple:
+
+```go
+CellCoordinates("A1") // returns 1, 1, nil
+CellCoordinates("Z3") // returns 26, 3, nil
+```
+
+## Coordonnées au nom de la cellule {#CoordinatesToCellName}
+
+```go
+func CoordinatesToCellName(col, row int) (string, error)
+```
+
+CoordinatesToCellName convertit les coordonnées `[X, Y]` en nom de cellule alphanumérique ou renvoie une erreur. Par exemple:
+
+```go
+CoordinatesToCellName(1, 1) // returns "A1", nil
 ```
 
 ## Style de condition {#NewConditionalStyle}
@@ -364,23 +408,23 @@ Des critères supplémentaires spécifiques aux autres types de formats conditio
 `value`: La valeur est généralement utilisée avec le paramètre `criteria` pour définir la règle selon laquelle les données de la cellule seront évaluées:
 
 ```go
-xlsx.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
 
 La propriété `value` peut également être une référence de cellule:
 
 ```go
-xlsx.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
 ```
 
 type: `format` - Le paramètre `format` est utilisé pour spécifier le format qui sera appliqué à la cellule lorsque le critère de mise en forme conditionnelle est satisfait. Le format est créé en utilisant [`NewConditionalStyle()`](utils.md#NewConditionalStyle) une méthode de la même manière que les formats de cellule:
 
 ```go
-format, err = xlsx.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
 
 Remarque: Dans Excel, un format conditionnel est superposé au format de cellule existant et toutes les propriétés de format de cellule ne peuvent pas être modifiées. Les propriétés qui ne peuvent pas être modifiées dans un format conditionnel sont le nom de la police, la taille de la police, l'exposant et l'indice, les bordures diagonales, toutes les propriétés d'alignement et toutes les propriétés de protection.
@@ -389,20 +433,20 @@ Excel spécifie certains formats par défaut à utiliser avec la mise en forme c
 
 ```go
 // Format rose pour mauvais conditionnel.
-format1, err = xlsx.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format1, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 
 // Format jaune clair pour neutre conditionnel.
-format2, err = xlsx.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
+format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
 
 // Le format vert clair pour le bon conditionnel.
-format3, err = xlsx.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
+format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
 ```
 
 type: `minimum` - Le paramètre minimum est utilisé pour définir la valeur limite inférieure lorsque le `critère` est entre `between` ou `not between`.
 
 ```go
 // Highlight cells rules: between...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
 ```
 
 type: `maximum` - Le paramètre `maximum` est utilisé pour définir la valeur limite supérieure lorsque les critères sont entre `between` ou `not between`. Voir l'exemple précédent.
@@ -411,44 +455,44 @@ type: `average` - Le type `average` est utilisé pour spécifier le format condi
 
 ```go
 // Haut/Bas règles: Au-dessus de la moyenne ...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
 
 // THaut/Bas règles: Au-dessous de la moyenne ...
-xlsx.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
+f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
 ```
 
 type: `duplicate` - The `duplicate` type is used to highlight duplicate cells in a range:
 
 ```go
 // Mettez en surbrillance les règles relatives aux cellules: Valeurs en double ...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
 ```
 
 type: `unique` - Le type unique est utilisé pour mettre en évidence des cellules individuelles dans une gamme:
 
 ```go
 // Mettez en surbrillance les règles des cellules: pas égal à ...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
 ```
 
 type: `top` - Le type `top` est utilisé pour spécifier les n premières valeurs en nombre ou en pourcentage dans une plage:
 
 ```go
 // THaut/Bas règles: Top 10.
-xlsx.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
 ```
 
 Les critères peuvent être utilisés pour indiquer qu'une condition de pourcentage est requise:
 
 ```go
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
 ```
 
 type: `2_color_scale` - Le type `2_color_scale` est utilisé pour spécifier le format conditionnel de style Excel "2 Color Scale":
 
 ```go
 // Échelles de couleurs: 2 couleurs.
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
 ```
 
 Ce type conditionnel peut être modifié avec `min_type`, `max_type`, `min_value`, `max_value`, `min_color` et `max_color`, voir ci-dessous.
@@ -457,7 +501,7 @@ type: `3_color_scale` - Le type `3_color_scale` est utilisé pour spécifier le 
 
 ```go
 // Échelles de couleurs: 3 couleurs.
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
 ```
 
 Ce type conditionnel peut être modifié avec `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` et `max_color`, voir ci-dessous.
@@ -468,7 +512,7 @@ type: `data_bar` - Le type `data_bar` est utilisé pour spécifier le format con
 
 ```go
 // Barres de données: Remplissage dégradé.
-xlsx.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
+f.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
 ```
 
 Les types `min/mid/max` disponibles sont:
@@ -496,7 +540,7 @@ max|Maximum (for `max_type` only)
 
 ```go
 // Échelles de couleurs: 3 couleurs.
-xlsx.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
 ```
 
 `mid_color` - Utilisé pour `3_color_scale`. Pareil que `min_color`, voir au dessus.
@@ -542,7 +586,7 @@ Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!
 !["Colonne gelée"](./images/setpans_01.png "Colonne gelée")
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
+f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
 ```
 
 Exemple 2: geler les lignes 1 à 9 dans la feuille Sheet1 et définir les plages de cellules actives sur `Sheet1!A11:XFD11`:
@@ -550,7 +594,7 @@ Exemple 2: geler les lignes 1 à 9 dans la feuille Sheet1 et définir les plages
 !["Geler les colonnes et définir les plages de cellules actives"](./images/setpans_02.png "Geler les colonnes et définir les plages de cellules actives")
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
+f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
 ```
 
 Exemple 3: créer des volets fractionnés dans `Sheet1` et définir la cellule active sur  `Sheet1!J60`:
@@ -558,13 +602,13 @@ Exemple 3: créer des volets fractionnés dans `Sheet1` et définir la cellule a
 !["Créer des volets divisés"](./images/setpans_03.png "Créer des volets divisés")
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
+f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
 ```
 
 Exemple 4, dégeler et supprimer tous les volets sur `Sheet1`:
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
+f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
 ```
 
 ## Couleur {#ThemeColor}
@@ -585,16 +629,16 @@ import (
 )
 
 func main() {
-    xlsx, _ := excelize.OpenFile("Book1.xlsx")
-    fmt.Println(getCellBgColor(xlsx, "Sheet1", "C1"))
+    f, _ := excelize.OpenFile("Book1.xlsx")
+    fmt.Println(getCellBgColor(f, "Sheet1", "C1"))
 }
 
-func getCellBgColor(xlsx *excelize.File, sheet, axix string) string {
-    styleID := xlsx.GetCellStyle(sheet, axix)
-    fillID := xlsx.Styles.CellXfs.Xf[styleID].FillID
-    fgColor := xlsx.Styles.Fills.Fill[fillID].PatternFill.FgColor
+func getCellBgColor(f *excelize.File, sheet, axix string) string {
+    styleID := f.GetCellStyle(sheet, axix)
+    fillID := f.Styles.CellXfs.Xf[styleID].FillID
+    fgColor := f.Styles.Fills.Fill[fillID].PatternFill.FgColor
     if fgColor.Theme != nil {
-        srgbClr := xlsx.Theme.ThemeElements.ClrScheme.Children[*fgColor.Theme].SrgbClr.Val
+        srgbClr := f.Theme.ThemeElements.ClrScheme.Children[*fgColor.Theme].SrgbClr.Val
         return excelize.ThemeColor(srgbClr, fgColor.Tint)
     }
     return fgColor.RGB

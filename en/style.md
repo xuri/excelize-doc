@@ -891,10 +891,10 @@ Excelize support set custom number format for cell. For example, set number as d
 <p align="center"><img width="612" src="./images/number_format_01.png" alt="Set number format"></p>
 
 ```go
-xlsx := excelize.NewFile()
-xlsx.SetCellValue("Sheet1", "A6", 42920.5)
-style, _ := xlsx.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
-xlsx.SetCellStyle("Sheet1", "A6", "A6", style)
+f := excelize.NewFile()
+f.SetCellValue("Sheet1", "A6", 42920.5)
+style, err := f.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
+err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 Cell `Sheet1!A6` in the Excel Application: `martes, 04 de Julio de 2017`

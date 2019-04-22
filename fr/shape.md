@@ -9,7 +9,7 @@ func (f *File) AddShape(sheet, cell, format string) error
 AddShape fournit la méthode permettant d'ajouter une forme dans une feuille en fonction d'un index de feuille de calcul donné, d'un ensemble de formats de forme (tels que décalage, échelle, paramètres de format et paramètres d'impression) et de propriétés. Par exemple, ajoutez une zone de texte (forme rectale) dans `Sheet1`:
 
 ```go
-xlsx.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fill":"#8eb9ff"},"paragraph":[{"text":"Rectangle Shape","font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777","underline":"sng"}}],"width":180,"height": 90}`)
+err := f.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fill":"#8eb9ff"},"paragraph":[{"text":"Rectangle Shape","font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777","underline":"sng"}}],"width":180,"height": 90}`)
 ```
 
 Ce qui suit montre le type de forme supporté par excelize:

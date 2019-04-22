@@ -17,7 +17,7 @@ Excelize - это библиотека, написанная на чистом G
 - вопрос: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Последняя версия: [v1.4.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Последняя версия: [v2.0.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
 - Время обновления документа: 16 марш 2019 г.
 
 ## Миссия проекта

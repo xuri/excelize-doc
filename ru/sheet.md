@@ -3,54 +3,50 @@
 ## Установить видимость столбца {#SetColVisible}
 
 ```go
-func (f *File) SetColVisible(sheet, column string, visible bool)
+func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
 SetColVisible предоставляет функцию для установки видимости одного столбца с помощью имени рабочего листа и имени столбца. Например, скройте столбец `D` в `Sheet1`:
 
 ```go
-xlsx.SetColVisible("Sheet1", "D", false)
+err := f.SetColVisible("Sheet1", "D", false)
 ```
 
 ## Установить ширину столбца {#SetColWidth}
 
 ```go
-func (f *File) SetColWidth(sheet, startcol, endcol string, width float64)
+func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
 ```
 
 SetColWidth предоставляет функцию для установки ширины одного столбца или нескольких столбцов. Например:
 
 ```go
-xlsx := excelize.NewFile()
-xlsx.SetColWidth("Sheet1", "A", "H", 20)
-err := xlsx.Save()
-if err != nil {
-    fmt.Println(err)
-}
+f := excelize.NewFile()
+err := f.SetColWidth("Sheet1", "A", "H", 20)
 ```
 
 ## Установить высоту строки {#SetRowHeight}
 
 ```go
-func (f *File) SetRowHeight(sheet string, row int, height float64)
+func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
 SetRowHeight предоставляет функцию для установки высоты одной строки. Например, установите высоту первой строки в `Sheet1`:
 
 ```go
-xlsx.SetRowHeight("Sheet1", 1, 50)
+err := f.SetRowHeight("Sheet1", 1, 50)
 ```
 
 ## Установить видимость линии {#SetRowVisible}
 
 ```go
-func (f *File) SetRowVisible(sheet string, rowIndex int, visible bool)
+func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
 SetRowVisible предоставляет функцию для отображения видимости одной строки с помощью заданного имени листа и индекса строки. Например, скройте строку `2` в `Sheet1`:
 
 ```go
-xlsx.SetRowVisible("Sheet1", 2, false)
+err := f.SetRowVisible("Sheet1", 2, false)
 ```
 
 ## Получить имя листа {#GetSheetName}
@@ -64,19 +60,19 @@ GetSheetName предоставляет функцию для получения
 ## Получить видимость столбца {#GetColVisible}
 
 ```go
-func (f *File) GetColVisible(sheet, column string) bool
+func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
 GetColVisible предоставляет функцию, чтобы получить видимость одного столбца с помощью имени рабочего листа и имени столбца. Например, получите видимое состояние столбца `D` в `Sheet1`:
 
 ```go
-xlsx.GetColVisible("Sheet1", "D")
+visible, err := f.GetColVisible("Sheet1", "D")
 ```
 
 ## Получить ширину столбц {#GetColWidth}
 
 ```go
-func (f *File) GetColWidth(sheet, column string) float64
+func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
 GetColWidth предоставляет функцию для получения ширины столбца с помощью имени рабочего листа и индекса столбца.
@@ -84,25 +80,25 @@ GetColWidth предоставляет функцию для получения 
 ## Получить высоту строки {#GetRowHeight}
 
 ```go
-func (f *File) GetRowHeight(sheet string, row int) float64
+func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
 GetRowHeight предоставляет функцию для получения высоты строки с помощью заданного имени листа и индекса строки. Например, получить высоту первой строки в `Sheet1`:
 
 ```go
-xlsx.GetRowHeight("Sheet1", 1)
+height, err := f.GetRowHeight("Sheet1", 1)
 ```
 
 ## Получить видимость строки {#GetRowVisible}
 
 ```go
-func (f *File) GetRowVisible(sheet string, rowIndex int) bool
+func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
 GetRowVisible предоставляет функцию, чтобы получить видимость одной строки, указав имя листа и индекс строки. Например, получить видимое состояние строки `2` в `Sheet1`:
 
 ```go
-xlsx.GetRowVisible("Sheet1", 2)
+err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Получить индекс рабочего листа {#GetSheetIndex}
@@ -124,11 +120,11 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap предоставляет функцию для получения имени рабочего листа и индексной карты XLSX. Например:
 
 ```go
-xlsx, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("./Book1.xlsx")
 if err != nil {
     return
 }
-for index, name := range xlsx.GetSheetMap() {
+for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
 ```
@@ -199,37 +195,37 @@ Defaults:
 ## Вставить столбец {#InsertCol}
 
 ```go
-func (f *File) InsertCol(sheet, column string)
+func (f *File) InsertCol(sheet, column string) error
 ```
 
 InsertCol предоставляет функцию для вставки нового столбца перед указателем столбца. Например, создайте новый столбец перед столбцом `C` в `Sheet1`:
 
 ```go
-xlsx.InsertCol("Sheet1", "C")
+err := f.InsertCol("Sheet1", "C")
 ```
 
 ## Вставить строку {#InsertRow}
 
 ```go
-func (f *File) InsertRow(sheet string, row int)
+func (f *File) InsertRow(sheet string, row int) error
 ```
 
 InsertRow предоставляет функцию для вставки новой строки перед указателем строки. Например, создайте новую строку перед строкой `3` в `Sheet1`:
 
 ```go
-xlsx.InsertRow("Sheet1", 3)
+err := f.InsertRow("Sheet1", 3)
 ```
 
 ## Добавить дубликат строки {#DuplicateRow}
 
 ```go
-func (f *File) DuplicateRow(sheet string, row int)
+func (f *File) DuplicateRow(sheet string, row int) error
 ```
 
 DuplicateRow вставляет копию указанной строки ниже указанной, например:
 
 ```go
-xlsx.DuplicateRow("Sheet1", 2)
+err := f.DuplicateRow("Sheet1", 2)
 ```
 
 Используйте этот метод с осторожностью, что повлияет на изменения в ссылках, таких как формулы, диаграммы и т. Д. Если на листе есть какое-либо ссылочное значение, это приведет к ошибке файла при его открытии. Excelize лишь частично обновляет эти ссылки в настоящее время.
@@ -237,13 +233,13 @@ xlsx.DuplicateRow("Sheet1", 2)
 ## Дублирующая строка {#DuplicateRowTo}
 
 ```go
-func (f *File) DuplicateRowTo(sheet string, row, row2 int)
+func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 ```
 
 DuplicateRowTo вставляет копию указанной строки в указанную позицию строки, перемещаясь вниз на существующие строки после целевой позиции, например:
 
 ```go
-xlsx.DuplicateRowTo("Sheet1", 2, 7)
+err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
 Используйте этот метод с осторожностью, что повлияет на изменения в ссылках, таких как формулы, диаграммы и т. Д. Если на листе есть какое-либо ссылочное значение, это приведет к ошибке файла при его открытии. Excelize лишь частично обновляет эти ссылки в настоящее время.
@@ -251,7 +247,7 @@ xlsx.DuplicateRowTo("Sheet1", 2, 7)
 ## Создать схему строки {#SetRowOutlineLevel}
 
 ```go
-func (f *File) SetRowOutlineLevel(sheet string, rowIndex int, level uint8)
+func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
 SetRowOutlineLevel предоставляет функцию для установки уровня уровня строки в одной строке с помощью заданного имени листа и индекса строки. Например, контур 2 строки в `Sheet1` до уровня 1:
@@ -259,13 +255,13 @@ SetRowOutlineLevel предоставляет функцию для устано
 !["Создать схему строки"](./images/row_outline_level.png "Создать схему строки")
 
 ```go
-xlsx.SetRowOutlineLevel("Sheet1", 2, 1)
+err := f.SetRowOutlineLevel("Sheet1", 2, 1)
 ```
 
 ## Создать контур столбца {#SetColOutlineLevel}
 
 ```go
-func (f *File) SetColOutlineLevel(sheet, column string, level uint8)
+func (f *File) SetColOutlineLevel(sheet, col string, level uint8) error
 ```
 
 SetColOutlineLevel предоставляет функцию для установки уровня контуров одного столбца с помощью имени рабочего листа и имени столбца. Например, установите уровень контуров столбца `D` в `Sheet1` равным 2:
@@ -273,31 +269,31 @@ SetColOutlineLevel предоставляет функцию для устано
 <p align="center"><img width="612" src="./images/col_outline_level.png" alt="Создать контур столбца"></p>
 
 ```go
-xlsx.SetColOutlineLevel("Sheet1", "D", 2)
+err := f.SetColOutlineLevel("Sheet1", "D", 2)
 ```
 
 ## Получить контур линии {#GetRowOutlineLevel}
 
 ```go
-func (f *File) GetRowOutlineLevel(sheet string, rowIndex int) uint8
+func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
 GetRowOutlineLevel предоставляет функцию, позволяющую получить общий уровень уровня одной строки с помощью заданного имени листа и индекса строки. Например, получите количество строк строки 2 в `Sheet1`:
 
 ```go
-xlsx.GetRowOutlineLevel("Sheet1", 2)
+err := f.GetRowOutlineLevel("Sheet1", 2)
 ```
 
 ## Получить контур колонны {#GetColOutlineLevel}
 
 ```go
-func (f *File) GetColOutlineLevel(sheet, column string) uint8
+func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
 GetColOutlineLevel предоставляет функцию для получения уровня контуров одного столбца с указанием имени рабочего листа и имени столбца. Например, получите уровень контуров столбца `D` в `Sheet1`:
 
 ```go
-xlsx.GetColOutlineLevel("Sheet1", "D")
+level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
 ## Ряд итератора {#Rows}
@@ -309,19 +305,20 @@ func (f *File) Rows(sheet string) (*Rows, error)
 Строки возвращают итератор строк. Например:
 
 ```go
-rows, err := xlsx.Rows("Sheet1")
+rows, err := f.Rows("Sheet1")
 for rows.Next() {
-    for _, colCell := range rows.Columns() {
-        fmt.Print(colCell, "\t")
-    }
-    fmt.Println()
+   row, err := rows.Columns()
+   for _, colCell := range row {
+       fmt.Print(colCell, "\t")
+   }
+   fmt.Println()
 }
 ```
 
 ### Итератор строк - Столбцы
 
 ```go
-func (rows *Rows) Columns() []string
+func (rows *Rows) Columns() ([]string, error)
 ```
 
 Columns возвращают значения столбцов текущей строки.
@@ -345,7 +342,7 @@ Error вернет `error`, когда найдет следующий элем�
 ## Поиск на листе {#SearchSheet}
 
 ```go
-func (f *File) SearchSheet(sheet, value string, reg ...bool) []string
+func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
 SearchSheet предоставляет функцию для получения координат с помощью заданного имени листа и значения ячейки. Эта функция поддерживает только точное соответствие строк и чисел, не поддерживает вычисляемый результат, отформатированные числа и условный поиск в настоящее время. Если это объединенная ячейка, она вернет координаты верхнего левого угла объединенной области.
@@ -353,19 +350,19 @@ SearchSheet предоставляет функцию для получения 
 Например, найдите координаты значения `100` на `Sheet1`:
 
 ```go
-xlsx.SearchSheet("Sheet1", "100")
+result, err := f.SearchSheet("Sheet1", "100")
 ```
 
 Например, найдите координаты значения в диапазоне `0-9` на листе с именем `Sheet1`:
 
 ```go
-xlsx.SearchSheet("Sheet1", "[0-9]", true)
+result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ```
 
 ## Защитить лист {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection)
+func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
 ProtectSheet предоставляет функцию предотвращения случайного или преднамеренного изменения других пользователей, перемещения или удаления данных на листе. Например, защитите `Sheet1` с настройками защиты:
@@ -373,7 +370,7 @@ ProtectSheet предоставляет функцию предотвращен�
 !["Защитить лист"](./images/protect_sheet.png "Защитить лист")
 
 ```go
-xlsx.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
     Password:      "password",
     EditScenarios: false,
 })
@@ -382,7 +379,7 @@ xlsx.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 ## Снять защиту листа {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string)
+func (f *File) UnprotectSheet(sheet string) error
 ```
 
 UnprotectSheet предоставляет функцию для снятия защиты листа Excel.

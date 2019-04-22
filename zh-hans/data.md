@@ -17,7 +17,7 @@ dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A1:B2"
 dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
 dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 例2，为 `Sheet1!A3:B4` 设置包含验证条件为允许大于整数 10 的数据验证规则，选定单元格时显示输入信息，输入信息为: "input body":
@@ -29,7 +29,7 @@ dvRange = excelize.NewDataValidation(true)
 dvRange.Sqref = "A3:B4"
 dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
 dvRange.SetInput("input title", "input body")
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 例3，为 `Sheet1!A5:B6` 设置验证条件为序列的数据验证规则，忽略空值并提供下拉箭头:
@@ -40,7 +40,7 @@ xlsx.AddDataValidation("Sheet1", dvRange)
 dvRange = excelize.NewDataValidation(true)
 dvRange.Sqref = "A5:B6"
 dvRange.SetDropList([]string{"1", "2", "3"})
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 例4，为 `Sheet1!A7:B8` 设置以 `Sheet1!E1:E3` 为来源的验证条件，忽略空值并提供下拉箭头:
@@ -51,5 +51,5 @@ xlsx.AddDataValidation("Sheet1", dvRange)
 dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("E1:E3", true)
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```

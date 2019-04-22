@@ -17,7 +17,7 @@ dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A1:B2"
 dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
 dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 例2、`Sheet1!A3:B4` の設定には、整数 10 より大きくすることができるデータ検証の検証規則が含まれており、セルが選択されたときに入力情報を表示し、入力情報は次のとおりです: "input body":
@@ -29,7 +29,7 @@ dvRange = excelize.NewDataValidation(true)
 dvRange.Sqref = "A3:B4"
 dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
 dvRange.SetInput("input title", "input body")
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 例3、`Sheet1!A5:B6` 検証条件のデータ入力規則をシーケンスとして設定し、空の値を無視してドロップダウン矢印を表示します:
@@ -40,7 +40,7 @@ xlsx.AddDataValidation("Sheet1", dvRange)
 dvRange = excelize.NewDataValidation(true)
 dvRange.Sqref = "A5:B6"
 dvRange.SetDropList([]string{"1", "2", "3"})
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```
 
 例4、`Sheet1!A7:B8` に設定されています。`Sheet1!E1:E3` はソースの検証条件であり、空の値を無視してドロップダウン矢印を表示します:
@@ -51,5 +51,5 @@ xlsx.AddDataValidation("Sheet1", dvRange)
 dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("E1:E3", true)
-xlsx.AddDataValidation("Sheet1", dvRange)
+f.AddDataValidation("Sheet1", dvRange)
 ```

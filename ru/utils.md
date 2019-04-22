@@ -13,7 +13,7 @@ AddTable предоставляет метод для добавления та�
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="Добавить таблицу"></p>
 
 ```go
-xlsx.AddTable("Sheet1", "A1", "D5", ``)
+err := f.AddTable("Sheet1", "A1", "D5", ``)
 ```
 
 - Пример 2, создайте таблицу `F2:H6` на `Sheet2` с установленным форматом:
@@ -21,7 +21,7 @@ xlsx.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="Добавить таблицу с установленным форматом"></p>
 
 ```go
-xlsx.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
+err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
 Обратите внимание, что таблица не менее двух строк включает заголовок типа строки. Множество координатных областей таблиц не может иметь пересечения.
@@ -49,13 +49,13 @@ AutoFilter предоставляет метод добавления автом
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="Добавить автоматический фильтр"></p>
 
 ```go
-err = xlsx.AutoFilter("Sheet1", "A1", "D4", "")
+err := f.AutoFilter("Sheet1", "A1", "D4", "")
 ```
 
 Пример 2, данные фильтра в автофильтре:
 
 ```go
-err = xlsx.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
+err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
 `column` определяет столбцы фильтра в диапазоне автоматического фильтра на основе простых критериев
@@ -118,7 +118,7 @@ Price < 2000
 ## Обновить связанное значение {#UpdateLinkedValue}
 
 ```go
-func (f *File) UpdateLinkedValue()
+func (f *File) UpdateLinkedValue() error
 ```
 
 UpdateLinkedValue фиксирует связанные значения в электронной таблице, не обновляется в Office Excel 2007 и 2010. Эта функция будет удалять тег значения, когда встречная ячейка имеет связанное значение. Справка [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel) Обратите внимание: после открытия XLSX-файла Excel будет обновлять связанное значение и генерировать новое значение и вызывать файл сохранения или нет.
@@ -144,29 +144,73 @@ UpdateLinkedValue фиксирует связанные значения в эл
 </row>
 ```
 
-## Преобразование столбца в индекс {#TitleToNumber}
+## Разделить имя ячейки {#SplitCellName}
 
 ```go
-func TitleToNumber(s string) int
+func SplitCellName(cell string) (string, int, error)
 ```
 
-TitleToNumber предоставляет функцию преобразования заголовка столбца листа Excel в int (эта функция не выполняет проверку значения в настоящее время). Например, преобразуйте `AK` и` ak` в заголовок колонки `36`:
+SplitCellName разделяет имя ячейки на имя столбца и номер строки. Например:
 
 ```go
-excelize.TitleToNumber("AK")
-excelize.TitleToNumber("ak")
+excelize.SplitCellName("AK74") // return "AK", 74, nil
 ```
 
-## Преобразовать индекс в столбец {#ToAlphaString}
+## Присоединиться к имени ячейки {#JoinCellName}
 
 ```go
-func ToAlphaString(value int) string
+func JoinCellName(col string, row int) (string, error)
 ```
 
-ToAlphaString предоставляет функцию для преобразования целого числа в заголовок столбца листа Excel. Например, преобразуйте `36` в заголовок` AK`:
+JoinCellName объединяет имя ячейки из имени столбца и номера строки.
+
+## Имя столбца в номер {#ColumnNameToNumber}
 
 ```go
-excelize.ToAlphaString(36)
+func ColumnNameToNumber(name string) (int, error)
+```
+
+ColumnNameToNumber предоставляет функцию для преобразования имени столбца листа Excel в `int`. Имя столбца нечувствительно к регистру. Функция возвращает ошибку, если имя столбца неверно. Например:
+
+```go
+excelize.ColumnNameToNumber("AK") // returns 37, nil
+```
+
+## Номер столбца к имени {#ColumnNumberToName}
+
+```go
+func ColumnNumberToName(num int) (string, error)
+```
+
+ColumnNumberToName предоставляет функцию для преобразования целого числа в заголовок столбца листа Excel. Например:
+
+```go
+excelize.ColumnNumberToName(37) // returns "AK", nil
+```
+
+## Имя ячейки для координат {#CellNameToCoordinates}
+
+```go
+func CellNameToCoordinates(cell string) (int, int, error)
+```
+
+CellNameToCoordinates преобразует буквенно-цифровое имя ячейки в координаты `[X, Y]` или возвращает ошибку. Например:
+
+```go
+CellCoordinates("A1") // returns 1, 1, nil
+CellCoordinates("Z3") // returns 26, 3, nil
+```
+
+## Координаты на имя ячейки {#CoordinatesToCellName}
+
+```go
+func CoordinatesToCellName(col, row int) (string, error)
+```
+
+CoordinatesToCellName преобразует `[X, Y]` координаты в буквенно-цифровое имя ячейки или возвращает ошибку. Например:
+
+```go
+CoordinatesToCellName(1, 1) // returns "A1", nil
 ```
 
 ## Стиль стиля {#NewConditionalStyle}
@@ -364,23 +408,23 @@ less than or equal to|<=
 `value`: значение обычно используется вместе с параметром `criteria` для установки правила, по которому будут оцениваться данные ячейки:
 
 ```go
-xlsx.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
 
 Свойство `value` также может быть ссылкой на ячейку:
 
 ```go
-xlsx.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
 ```
 
 Тип: `format` - The `format` параметр используется для указания формата, который будет применен к клетке, когда условное форматирование критерия. Формат создается с помощью метода [`NewConditionalStyle()`](utils.md#NewConditionalStyle) таким же образом, как и форматы ячеек:
 
 ```go
-format, err = xlsx.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 if err != nil {
     fmt.Println(err)
 }
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
 
 Примечание. В Excel условный формат накладывается поверх существующего формата ячейки, и не все свойства формата ячейки могут быть изменены. Свойства, которые не могут быть изменены в условном формате имя шрифта, размер шрифта, верхние и нижние индексы, диагональные границы, все свойства выравнивания и все защитные свойства.
@@ -389,20 +433,20 @@ Excel указывает некоторые стандартные формат�
 
 ```go
 // Розовый формат для плохих условных.
-format1, err = xlsx.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format1, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 
 // Светло-желтый формат для нейтральных условных.
-format2, err = xlsx.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
+format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
 
 // Светло-зеленый формат для хорошего условного.
-format3, err = xlsx.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
+format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
 ```
 
 Тип: `minimum` - Минимальный параметр используется для установки нижнего предельного значения, когда `criteria` либо `between`или `not between`.
 
 ```go
 // Выделяйте правила ячеек: между...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
 ```
 
 Тип: `maximum` - `maximum` параметр используется для задания верхнего предельного значения, когда критерии являются либо `between` или `not between`. См. Предыдущий пример.
@@ -411,44 +455,44 @@ xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","crit
 
 ```go
 // Правила сверху / снизу: выше среднего...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
 
 // Правила сверху / снизу: ниже среднего...
-xlsx.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
+f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
 ```
 
 Тип: `duplicate` - Тип `duplicate` используется для выделения повторяющихся ячеек в диапазоне:
 
 ```go
 // Выделять правила ячеек: повторяющиеся значения...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
 ```
 
 Тип: `unique` - Уникальный тип используется для выделения уникальных ячеек в диапазоне:
 
 ```go
 // Выделить правила ячеек: не равно...
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
 ```
 
 Тип: `top` - Тип `top` используется для указания верхних n значений по числу или проценту в диапазоне:
 
 ```go
 // Верх / Низ правила: Топ 10.
-xlsx.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
 ```
 
 Критерии могут использоваться, чтобы указать, что требуется процентное условие:
 
 ```go
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
 ```
 
 Тип: `2_color_scale` - Тип `2_color_scale` используется для указания условного формата стиля Excel «2 Цветные весы»:
 
 ```go
 // Цветные весы: 2 цвета.
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
 ```
 
 Этот условный тип может быть изменен с помощью `min_type`, `max_type`, `min_value`, `max_value`, `min_color` и `max_color`, Смотри ниже.
@@ -457,7 +501,7 @@ xlsx.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteri
 
 ```go
 // Цветные весы: 3 цвета.
-xlsx.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
 ```
 
 Этот условный тип может быть изменен с помощью `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` и `max_color`, Смотри ниже.
@@ -468,7 +512,7 @@ xlsx.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteri
 
 ```go
 // Панель данных: Градиентная заливка.
-xlsx.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
+f.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
 ```
 
 Доступные типы `min/mid/max`:
@@ -496,7 +540,7 @@ max|Максимум (только для `max_type`)
 
 ```go
 // Цветные весы: 3 цвета.
-xlsx.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
 ```
 
 `mid_color` - Используется для `3_color_scale`. То же, что и `min_color`, см. Выше.
@@ -542,7 +586,7 @@ split (Split)|Панели разделены, но не заморожены. �
 !["Замороженная колонна"](./images/setpans_01.png "Замороженная колонна")
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
+f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
 ```
 
 Пример 2: заморозить строки с 1 по 9 в Листе 1 и установить диапазоны активных ячеек на `Sheet1!A11:XFD11`:
@@ -550,7 +594,7 @@ xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"t
 !["Зафиксировать столбцы и установить диапазоны активных ячеек"](./images/setpans_02.png "Зафиксировать столбцы и установить диапазоны активных ячеек")
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
+f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
 ```
 
 Пример 3: создать разделенные панели в `Sheet1` и установить активную ячейку на `Sheet1!J60`:
@@ -559,13 +603,13 @@ xlsx.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"t
 !["Создание разделенных стекол"](./images/setpans_03.png "Создание разделенных стекол")
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
+f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
 ```
 
 Пример 4, разморозить и удалить все панели на `Sheet1`:
 
 ```go
-xlsx.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
+f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
 ```
 
 ## Цвет {#ThemeColor}
@@ -586,16 +630,16 @@ import (
 )
 
 func main() {
-    xlsx, _ := excelize.OpenFile("Book1.xlsx")
-    fmt.Println(getCellBgColor(xlsx, "Sheet1", "C1"))
+    f, _ := excelize.OpenFile("Book1.xlsx")
+    fmt.Println(getCellBgColor(f, "Sheet1", "C1"))
 }
 
-func getCellBgColor(xlsx *excelize.File, sheet, axix string) string {
-    styleID := xlsx.GetCellStyle(sheet, axix)
-    fillID := xlsx.Styles.CellXfs.Xf[styleID].FillID
-    fgColor := xlsx.Styles.Fills.Fill[fillID].PatternFill.FgColor
+func getCellBgColor(f *excelize.File, sheet, axix string) string {
+    styleID := f.GetCellStyle(sheet, axix)
+    fillID := f.Styles.CellXfs.Xf[styleID].FillID
+    fgColor := f.Styles.Fills.Fill[fillID].PatternFill.FgColor
     if fgColor.Theme != nil {
-        srgbClr := xlsx.Theme.ThemeElements.ClrScheme.Children[*fgColor.Theme].SrgbClr.Val
+        srgbClr := f.Theme.ThemeElements.ClrScheme.Children[*fgColor.Theme].SrgbClr.Val
         return excelize.ThemeColor(srgbClr, fgColor.Tint)
     }
     return fgColor.RGB

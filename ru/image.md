@@ -23,23 +23,23 @@ import (
 )
 
 func main() {
-    xlsx := excelize.NewFile()
+    f := excelize.NewFile()
     // Вставьте снимок.
-    err := xlsx.AddPicture("Sheet1", "A2", "./image1.jpg", "")
+    err := f.AddPicture("Sheet1", "A2", "./image1.jpg", "")
     if err != nil {
         fmt.Println(err)
     }
     // Вставьте масштабирование изображения в ячейку с гиперссылкой местоположения.
-    err = xlsx.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
+    err = f.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
     if err != nil {
         fmt.Println(err)
     }
     // Вставьте смещение изображения в ячейку с внешней гиперссылкой, поддержкой печати и позиционирования.
-    err = xlsx.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
+    err = f.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.SaveAs("./Book1.xlsx")
+    err = f.SaveAs("./Book1.xlsx")
     if err != nil {
         fmt.Println(err)
     }
@@ -70,17 +70,17 @@ import (
 )
 
 func main() {
-    xlsx := excelize.NewFile()
+    f := excelize.NewFile()
 
     file, err := ioutil.ReadFile("./image1.jpg")
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
+    err = f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
     if err != nil {
         fmt.Println(err)
     }
-    err = xlsx.SaveAs("./Book1.xlsx")
+    err = f.SaveAs("./Book1.xlsx")
     if err != nil {
         fmt.Println(err)
     }
@@ -90,7 +90,7 @@ func main() {
 ## Получить изображение {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte)
+func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
 GetPicture предоставляет функцию для получения базового имени изображения и необработанного содержимого в XLSX с помощью заданного рабочего листа и имени ячейки. Эта функция возвращает имя файла в XLSX и файлы содержимого в `[] byte` типов данных.
@@ -98,16 +98,17 @@ GetPicture предоставляет функцию для получения �
 Например:
 
 ```go
-xlsx, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("./Book1.xlsx")
 if err != nil {
     fmt.Println(err)
     return
 }
-file, raw := xlsx.GetPicture("Sheet1", "A2")
-if file == "" {
+file, raw, err := f.GetPicture("Sheet1", "A2")
+if err != nil {
+    fmt.Println(err)
     return
 }
-err := ioutil.WriteFile(file, raw, 0644)
+err = ioutil.WriteFile(file, raw, 0644)
 if err != nil {
     fmt.Println(err)
 }

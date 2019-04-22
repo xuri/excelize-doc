@@ -891,10 +891,10 @@ Excelize встроенные форматы валют показаны в сл
 <p align="center"><img width="612" src="./images/number_format_01.png" alt="Установить формат номера"></p>
 
 ```go
-xlsx := excelize.NewFile()
-xlsx.SetCellValue("Sheet1", "A6", 42920.5)
-style, _ := xlsx.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
-xlsx.SetCellStyle("Sheet1", "A6", "A6", style)
+f := excelize.NewFile()
+f.SetCellValue("Sheet1", "A6", 42920.5)
+style, err := f.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
+err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 клетка `Sheet1!A6` в приложении Excel: `martes, 04 de Julio de 2017`

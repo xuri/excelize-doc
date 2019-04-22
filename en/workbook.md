@@ -58,8 +58,8 @@ CopySheet provides a function to duplicate a worksheet by gave source and target
 
 ```go
 // Sheet1 already exists...
-index := xlsx.NewSheet("Sheet2")
-err := xlsx.CopySheet(1, index)
+index := f.NewSheet("Sheet2")
+err := f.CopySheet(1, index)
 return err
 ```
 

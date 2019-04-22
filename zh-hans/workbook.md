@@ -58,8 +58,8 @@ func (f *File) CopySheet(from, to int) error
 
 ```go
 // 名称为 Sheet1 的工作表已经存在 ...
-index := xlsx.NewSheet("Sheet2")
-err := xlsx.CopySheet(1, index)
+index := f.NewSheet("Sheet2")
+err := f.CopySheet(1, index)
 return err
 ```
 

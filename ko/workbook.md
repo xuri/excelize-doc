@@ -58,8 +58,8 @@ func (f *File) CopySheet(from, to int) error
 
 ```go
 // Sheet1 이름이 있는 워크시트가 이미 있습니다 ...
-index := xlsx.NewSheet("Sheet2")
-err := xlsx.CopySheet(1, index)
+index := f.NewSheet("Sheet2")
+err := f.CopySheet(1, index)
 return err
 ```
 

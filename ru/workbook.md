@@ -58,8 +58,8 @@ CopySheet предоставляет функцию для дублирован�
 
 ```go
 // Sheet1 уже существует...
-index := xlsx.NewSheet("Sheet2")
-err := xlsx.CopySheet(1, index)
+index := f.NewSheet("Sheet2")
+err := f.CopySheet(1, index)
 return err
 ```
 

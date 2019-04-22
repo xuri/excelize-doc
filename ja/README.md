@@ -17,7 +17,7 @@ Excelize は、ECMA-376 Office OpenXML 標準に基づいて Office Excel ドキ
 - 問題: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- 現在のバージョン: [v1.4.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- 現在のバージョン: [v2.0.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
 - ドキュメントの更新：2019年3月16日
 
 ## プロジェクトミッション
