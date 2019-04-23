@@ -68,7 +68,11 @@ func main() {
         return
     }
     // ワークシート内の指定されたセルの値を取得します
-    cell := f.GetCellValue("Sheet1", "B2")
+    cell, err := f.GetCellValue("Sheet1", "B2")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
     fmt.Println(cell)
     // Sheet1 のすべてのセルを取得
     rows, err := f.GetRows("Sheet1")

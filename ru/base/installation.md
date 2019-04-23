@@ -68,7 +68,11 @@ func main() {
         return
     }
     // Получить значение из ячейки по заданному имени и оси листа.
-    cell := f.GetCellValue("Sheet1", "B2")
+    cell, err := f.GetCellValue("Sheet1", "B2")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
     fmt.Println(cell)
     // Получить все строки в Sheet1.
     rows, err := f.GetRows("Sheet1")

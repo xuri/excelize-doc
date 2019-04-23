@@ -68,7 +68,11 @@ func main() {
         return
     }
     // Obtenir la valeur de la cellule par nom de feuille de calcul donné et axe.
-    cell := f.GetCellValue("Sheet1", "B2")
+    cell, err := f.GetCellValue("Sheet1", "B2")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
     fmt.Println(cell)
     // Obtenez toutes les lignes de la feuille Sheet1.
     rows, err := f.GetRows("Sheet1")
