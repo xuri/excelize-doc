@@ -149,7 +149,7 @@ GetSheetPrOptions provides a function to gets worksheet properties.
 For example:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -161,7 +161,7 @@ var (
     outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
 
-if err := xl.GetSheetPrOptions(sheet,
+if err := f.GetSheetPrOptions(sheet,
     &codeName,
     &enableFormatConditionsCalculation,
     &published,
@@ -383,3 +383,45 @@ func (f *File) UnprotectSheet(sheet string) error
 ```
 
 UnprotectSheet provides a function to unprotect an Excel worksheet.
+
+## Remove column {#RemoveCol}
+
+```go
+func (f *File) RemoveCol(sheet, col string) error
+```
+
+RemoveCol provides a function to remove single column by given worksheet
+name and column index. For example, remove column `C` in `Sheet1`:
+
+```go
+err := f.RemoveCol("Sheet1", "C")
+```
+
+Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
+
+## Remove row {#RemoveRow}
+
+```go
+func (f *File) RemoveRow(sheet string, row int) error
+```
+
+RemoveRow provides a function to remove single row by given worksheet name and Excel row number. For example, remove row `3` in `Sheet1`:
+
+```go
+err := f.RemoveRow("Sheet1", 3)
+```
+
+Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
+
+## Set row values {#SetSheetRow}
+
+```go
+func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+```
+
+SetSheetRow writes an array to row by given worksheet name, starting coordinate and a pointer to array type `slice`. For example, writes an array to row `6` start with the cell `B6` on `Sheet1`:
+
+
+```go
+err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```

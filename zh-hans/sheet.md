@@ -147,7 +147,7 @@ func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
 例如：
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -159,7 +159,7 @@ var (
     outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
 
-if err := xl.GetSheetPrOptions(sheet,
+if err := f.GetSheetPrOptions(sheet,
     &codeName,
     &enableFormatConditionsCalculation,
     &published,

@@ -87,6 +87,38 @@ func (f *File) GetActiveSheetIndex() int
 
 获取默认工作表的索引，如果没有找到默认工作表将返回 `0`。
 
+## 设置工作表可见性 {#SetSheetVisible}
+
+```go
+func (f *File) SetSheetVisible(name string, visible bool) error
+```
+
+根据给定的工作表名称和可见性参数设置工作表的可见性。 一个工作簿中至少包含一个可见工作表。如果给定的工作表为默认工作表，则对其可见性设置无效。工作表可见性状态可参考[工作表状态枚举](http://msdn.microsoft.com/en-us/library/office/documentformat.openxml.spreadsheet.sheetstatevalues.aspx):
+
+|Sheet State Values|
+|---|
+|visible|
+|hidden|
+|veryHidden|
+
+例如，隐藏名为 `Sheet1` 的工作表:
+
+```go
+err := f.SetSheetVisible("Sheet1", false)
+```
+
+## 获取工作表可见性 {#GetSheetVisible}
+
+```go
+func (f *File) GetSheetVisible(name string) bool
+```
+
+根据给定的工作表名称获取工作表可见性设置。例如，获取名为 `Sheet1` 的工作表可见性设置:
+
+```go
+f.GetSheetVisible("Sheet1")
+```
+
 ## 获取工作表视图属性 {#GetSheetViewOptions}
 
 ```go
@@ -113,7 +145,7 @@ err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
 - 例2：
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -126,7 +158,7 @@ var (
     topLeftCell       excelize.TopLeftCell
 )
 
-if err := xl.GetSheetViewOptions(sheet, 0,
+if err := f.GetSheetViewOptions(sheet, 0,
     &defaultGridColor,
     &rightToLeft,
     &showFormulas,
@@ -147,19 +179,19 @@ fmt.Println("- showRowColHeaders:", showRowColHeaders)
 fmt.Println("- zoomScale:", zoomScale)
 fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
 
-if err := xl.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
+if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
     panic(err)
 }
 
-if err := xl.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
+if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
     panic(err)
 }
 
-if err := xl.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
     panic(err)
 }
 
-if err := xl.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
+if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
     panic(err)
 }
 
@@ -323,16 +355,16 @@ OrientationLandscape | 横向
 - 例如，将名为 `Sheet1` 的工作表页面布局设置为横向并使用 A4(小) 210 × 297 毫米纸张：
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
-if err := xl.SetPageLayout(
+if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
 ); err != nil {
     panic(err)
 }
-if err := xl.SetPageLayout(
+if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutPaperSize(10),
 ); err != nil {
@@ -354,16 +386,16 @@ func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
 例如，获取名为 `Sheet1` 的工作表页面布局设置：
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 var (
     orientation excelize.PageLayoutOrientation
     paperSize   excelize.PageLayoutPaperSize
 )
-if err := xl.GetPageLayout("Sheet1", &orientation); err != nil {
+if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
     panic(err)
 }
-if err := xl.GetPageLayout("Sheet1", &paperSize); err != nil {
+if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
     panic(err)
 }
 fmt.Println("Defaults:")
@@ -374,3 +406,166 @@ fmt.Printf("- paper size: %d\n", paperSize)
 // - orientation: "portrait"
 // - paper size: 1
 ```
+
+
+## 设置页眉和页脚 {#SetHeaderFooter}
+
+```go
+func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+```
+
+根据给定的工作表名称和控制字符设置工作表的页眉和页脚。页眉和页脚包含如下字段：
+
+Headers and footers are specified using the following settings fields:
+
+字段           | 描述
+---|---
+AlignWithMargins | 设定页眉页脚页边距与页边距对齐
+DifferentFirst   | 设定第一页页眉和页脚
+DifferentOddEven | 设定奇数和偶数页页眉和页脚
+ScaleWithDoc     | 设定页眉和页脚跟随文档缩放
+OddFooter        | 奇数页页脚控制字符
+OddHeader        | 奇数页页眉控制字符
+EvenFooter       | 偶数页页脚控制字符
+EvenHeader       | 偶数页页眉控制字符
+FirstFooter      | 首页页脚控制字符
+FirstHeader      | 首页页眉控制字符
+
+下表中的格式代码可用于 6 个字符串类型字段: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
+
+<table>
+    <thead>
+        <tr>
+            <th>格式代码</th>
+            <th>描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&amp;&amp;</code></td>
+            <td>字符 &quot;&amp;&quot;</td>
+        </tr>
+        <tr>
+            <td><code>&amp;font-size</code></td>
+            <td>文本字体的大小, 其中字体大小为以磅为单位的十进制字体大小</td>
+        </tr>
+        <tr>
+            <td><code>&amp;&quot;font name,font type&quot;</code></td>
+            <td>文本字体名字符串、字体名称和文本字体类型字符串、字体类型</td>
+        </tr>
+        <tr>
+            <td><code>&amp;&quot;-,Regular&quot;</code></td>
+            <td>常规文本格式。关闭粗体和斜体模式</td>
+        </tr>
+        <tr>
+            <td><code>&amp;A</code></td>
+            <td>当前工作表名称</td>
+        </tr>
+        <tr>
+            <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
+            <td>粗体文本格式, 关闭或打开，默认关闭。</td>
+        </tr>
+        <tr>
+            <td><code>&amp;D</code></td>
+            <td>当前日期</td>
+        </tr>
+        <tr>
+            <td><code>&amp;C</code></td>
+            <td>中间部分</td>
+        </tr>
+        <tr>
+            <td><code>&amp;E</code></td>
+            <td>对文本使用双下划线</td>
+        </tr>
+        <tr>
+            <td><code>&amp;F</code></td>
+            <td>当前工作簿文件名称</td>
+        </tr>
+        <tr>
+            <td><code>&amp;G</code></td>
+            <td>将指定对象做为背景</td>
+        </tr>
+        <tr>
+            <td><code>&amp;H</code></td>
+            <td>文字阴影</td>
+        </tr>
+        <tr>
+            <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
+            <td>文字倾斜</td>
+        </tr>
+        <tr>
+            <td><code>&amp;K</code></td>
+            <td>字体颜色<br>格式为 RRGGBB 的 RGB 颜色<br>主题颜色被指定为 TTSNNN, 其中 TT 是主题颜色 id, S 是色调或阴影的 &quot;+&quot; 或者 &quot;-&quot;, 是色调或阴影的值</td>
+        </tr>
+        <tr>
+            <td><code>&amp;L</code></td>
+            <td>左侧部分</td>
+        </tr>
+        <tr>
+            <td><code>&amp;N</code></td>
+            <td>总页数</td>
+        </tr>
+        <tr>
+            <td><code>&amp;O</code></td>
+            <td>大纲文本格式</td>
+        </tr>
+        <tr>
+            <td><code>&amp;P[[+\|-]n]</code></td>
+            <td>如果没有可选的后缀, 当前页码 (十进制)</td>
+        </tr>
+        <tr>
+            <td><code>&amp;R</code></td>
+            <td>右侧部分</td>
+        </tr>
+        <tr>
+            <td><code>&amp;S</code></td>
+            <td>文本删除线</td>
+        </tr>
+        <tr>
+            <td><code>&amp;T</code></td>
+            <td>当前时间</td>
+        </tr>
+        <tr>
+            <td><code>&amp;U</code></td>
+            <td>为文本添加单下划线。默认模式处于关闭状态</td>
+        </tr>
+        <tr>
+            <td><code>&amp;X</code></td>
+            <td>上标格式</td>
+        </tr>
+        <tr>
+            <td><code>&amp;Y</code></td>
+            <td>下标格式</td>
+        </tr>
+        <tr>
+            <td><code>&amp;Z</code></td>
+            <td>当前工作簿文件路径</td>
+        </tr>
+    </tbody>
+</table>
+
+例如：
+
+```go
+err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+    DifferentFirst:   true,
+    DifferentOddEven: true,
+    OddHeader:        "&R&P",
+    OddFooter:        "&C&F",
+    EvenHeader:       "&L&P",
+    EvenFooter:       "&L&D&R&T",
+    FirstHeader:      `&CCenter &"-,Bold"Bold&"-,Regular"HeaderU+000A&D`,
+})
+```
+
+上面的例子蕴含如下格式：
+
+- 第一页有自己的页眉和页脚
+- 奇数和偶数页具有不同的页眉和页脚
+- 奇数页标题右侧部分为当前页码
+- 奇数页页脚中心部分为当前工作簿的文件名
+- 偶数页标题左侧部分为当前页码
+- 左侧部分为当前日期，偶数页页脚右侧部分为当前时间
+- 第一页中心部分的第一行上的文本为“Center Bold Header”, 第二行为日期
+- 第一页上没有页脚
+
