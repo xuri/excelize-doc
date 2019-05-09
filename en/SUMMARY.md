@@ -19,7 +19,7 @@
   * [Worksheet background](workbook.md#SetSheetBackground)
   * [Set default worksheet](workbook.md#SetActiveSheet)
   * [Get active sheet index](workbook.md#GetActiveSheetIndex)
-  * [Set workdheet visible](workbook.md#SetSheetVisible)
+  * [Set worksheet visible](workbook.md#SetSheetVisible)
   * [Get worksheet visible](workbook.md#GetSheetVisible)
   * [Get worksheet view properties](workbook.md#GetSheetViewOptions)
   * [Set worksheet page layout](workbook.md#SetPageLayout)

@@ -87,7 +87,7 @@ func (f *File) GetActiveSheetIndex() int
 
 GetActiveSheetIndex provides a function to get an active sheet of XLSX. If not found the active sheet will return integer `0`.
 
-## Set workdheet visible {#SetSheetVisible}
+## Set worksheet visible {#SetSheetVisible}
 
 ```go
 func (f *File) SetSheetVisible(name string, visible bool) error
@@ -113,7 +113,7 @@ err := f.SetSheetVisible("Sheet1", false)
 func (f *File) GetSheetVisible(name string) bool
 ```
 
-GetSheetVisible provides a function to get worksheet visible by given worksheet name. For example, get visible state of Sheet1:
+GetSheetVisible provides a function to get worksheet visible by given worksheet name. For example, get the visible state of `Sheet1`:
 
 ```go
 f.GetSheetVisible("Sheet1")

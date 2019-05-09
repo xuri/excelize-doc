@@ -147,7 +147,7 @@ func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
 例えば、
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -159,7 +159,7 @@ var (
     outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
 
-if err := xl.GetSheetPrOptions(sheet,
+if err := f.GetSheetPrOptions(sheet,
     &codeName,
     &enableFormatConditionsCalculation,
     &published,
@@ -377,3 +377,44 @@ func (f *File) UnprotectSheet(sheet string) error
 ```
 
 指定されたワークシート名に基づいてワークシートの保護を解除します（大文字と小文字を区別）。
+
+## 列を削除 {#RemoveCol}
+
+```go
+func (f *File) RemoveCol(sheet, col string) error
+```
+
+RemoveColは、与えられたワークシート名と列インデックスによって単一の列を削除する機能を提供します。 たとえば、`Sheet1`の `C` 列を削除します。
+
+```go
+err := f.RemoveCol("Sheet1", "C")
+```
+
+この方法は慎重に使用してください。式、グラフなどの参照の変更に影響します。 ワークシートの参照値がある場合は、開くとファイルエラーが発生します。excelize は現在これらの参照を部分的にしか更新しません。
+
+## 行を削除 {#RemoveRow}
+
+```go
+func (f *File) RemoveRow(sheet string, row int) error
+```
+
+RemoveRow は、与えられたワークシート名とExcelの行番号で単一行を削除する機能を提供します。 例えば、`Sheet1` の `3`行を削除する：
+
+```go
+err := f.RemoveRow("Sheet1", 3)
+```
+
+この方法は慎重に使用してください。式、グラフなどの参照の変更に影響します。 ワークシートの参照値がある場合は、開くとファイルエラーが発生します。 excelize は現在これらの参照を部分的にしか更新しません。
+
+## 行の値を設定 {#SetSheetRow}
+
+```go
+func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+```
+
+SetSheetRow は与えられたワークシート名、開始座標、配列型 `slice` へのポインタで配列を行に書き込みます。例えば、 `Sheet1` の `B6`のセルから始まる行 `6` の配列を書き込みます。
+
+
+```go
+err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```

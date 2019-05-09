@@ -87,6 +87,38 @@ func (f *File) GetActiveSheetIndex() int
 
 기본 워크시트의 인덱스를 가져오고 기본 워크시트를 찾을 수 없는 경우 `0` 을 반환 합니다.
 
+## 워크 시트 가시성 설정 {#SetSheetVisible}
+
+```go
+func (f *File) SetSheetVisible(name string, visible bool) error
+```
+
+SetSheetVisible 은 지정된 워크 시트 이름으로 표시되는 워크 시트를 설정하는 함수를 제공합니다. 통합 문서에는 최소한 하나의 보이는 워크 시트가 있어야합니다. 지정된 워크 시트가 활성화 된 경우이 설정은 무효화됩니다. [SheetStateValues Enum](http://msdn.microsoft.com/en-us/library/office/documentformat.openxml.spreadsheet.sheetstatevalues.aspx) 에 정의 된 시트 상태 값:
+
+|워크 시트 상태 값|
+|---|
+|visible|
+|hidden|
+|veryHidden|
+
+예를 들어,`Sheet1` 을 숨 깁니다.
+
+```go
+err := f.SetSheetVisible("Sheet1", false)
+```
+
+## 워크 시트 가시성 확보 {#GetSheetVisible}
+
+```go
+func (f *File) GetSheetVisible(name string) bool
+```
+
+GetSheetVisible 은 주어진 워크 시트 이름으로 볼 수있는 워크 시트를 가져 오는 기능을 제공합니다. 예를 들어, `Sheet1` 의 표시 상태 가져 오기:
+
+```go
+f.GetSheetVisible("Sheet1")
+```
+
 ## 워크 시트 뷰 속성 가져 오기 {#GetSheetViewOptions}
 
 ```go
@@ -113,7 +145,7 @@ err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
 - 예 2:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -126,7 +158,7 @@ var (
     topLeftCell       excelize.TopLeftCell
 )
 
-if err := xl.GetSheetViewOptions(sheet, 0,
+if err := f.GetSheetViewOptions(sheet, 0,
     &defaultGridColor,
     &rightToLeft,
     &showFormulas,
@@ -147,19 +179,19 @@ fmt.Println("- showRowColHeaders:", showRowColHeaders)
 fmt.Println("- zoomScale:", zoomScale)
 fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
 
-if err := xl.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
+if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
     panic(err)
 }
 
-if err := xl.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
+if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
     panic(err)
 }
 
-if err := xl.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
     panic(err)
 }
 
-if err := xl.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
+if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
     panic(err)
 }
 
@@ -323,16 +355,16 @@ OrientationLandscape | 가로
 - 예를 들어 `Sheet1` 이라는 워크시트 페이지 레이아웃을 가로로 설정 하 고 A4 small paper (210 mm by 297 mm) 용지를 사용 합니다:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
-if err := xl.SetPageLayout(
+if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
 ); err != nil {
     panic(err)
 }
-if err := xl.SetPageLayout(
+if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutPaperSize(10),
 ); err != nil {
@@ -354,16 +386,16 @@ func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
 예를 들어 `Sheet1` 이라는 워크시트 페이지 레이아웃 설정을 가져옵니다:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 var (
     orientation excelize.PageLayoutOrientation
     paperSize   excelize.PageLayoutPaperSize
 )
-if err := xl.GetPageLayout("Sheet1", &orientation); err != nil {
+if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
     panic(err)
 }
-if err := xl.GetPageLayout("Sheet1", &paperSize); err != nil {
+if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
     panic(err)
 }
 fmt.Println("Defaults:")
@@ -374,3 +406,165 @@ fmt.Printf("- paper size: %d\n", paperSize)
 // - orientation: "portrait"
 // - paper size: 1
 ```
+
+## 머리글 및 바닥 글 설정 {#SetHeaderFooter}
+
+```go
+func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+```
+
+SetHeaderFooter 는 주어진 워크 시트 이름과 제어 문자로 머리글과 바닥 글을 설정하는 기능을 제공합니다.
+
+머리글과 바닥 글은 다음 설정 필드를 사용하여 지정됩니다.
+
+Fields           | Description
+---|---
+AlignWithMargins | Align header footer margins with page margins
+DifferentFirst   | Different first-page header and footer indicator
+DifferentOddEven | Different odd and even page headers and footers indicator
+ScaleWithDoc     | Scale header and footer with document scaling
+OddFooter        | Odd Page Footer
+OddHeader        | Odd Header
+EvenFooter       | Even Page Footer
+EvenHeader       | Even Page Header
+FirstFooter      | First Page Footer
+FirstHeader      | First Page Header
+
+다음 형식 코드는 6 개의 문자열 형식 필드에서 사용할 수 있습니다: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
+
+<table>
+    <thead>
+        <tr>
+            <th>Formatting Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&amp;&amp;</code></td>
+            <td>The character &quot;&amp;&quot;</td>
+        </tr>
+        <tr>
+            <td><code>&amp;font-size</code></td>
+            <td>Size of the text font, where font-size is a decimal font size in points</td>
+        </tr>
+        <tr>
+            <td><code>&amp;&quot;font name,font type&quot;</code></td>
+            <td>A text font-name string, font name, and a text font-type string, font type</td>
+        </tr>
+        <tr>
+            <td><code>&amp;&quot;-,Regular&quot;</code></td>
+            <td>Regular text format. Toggles bold and italic modes to off</td>
+        </tr>
+        <tr>
+            <td><code>&amp;A</code></td>
+            <td>Current worksheet&#39;s tab name</td>
+        </tr>
+        <tr>
+            <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
+            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+        </tr>
+        <tr>
+            <td><code>&amp;D</code></td>
+            <td>Current date</td>
+        </tr>
+        <tr>
+            <td><code>&amp;C</code></td>
+            <td>Center section</td>
+        </tr>
+        <tr>
+            <td><code>&amp;E</code></td>
+            <td>Double-underline text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;F</code></td>
+            <td>Current workbook&#39;s file name</td>
+        </tr>
+        <tr>
+            <td><code>&amp;G</code></td>
+            <td>Drawing object as background</td>
+        </tr>
+        <tr>
+            <td><code>&amp;H</code></td>
+            <td>Shadow text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
+            <td>Italic text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;K</code></td>
+            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+        </tr>
+        <tr>
+            <td><code>&amp;L</code></td>
+            <td>Left section</td>
+        </tr>
+        <tr>
+            <td><code>&amp;N</code></td>
+            <td>Total number of pages</td>
+        </tr>
+        <tr>
+            <td><code>&amp;O</code></td>
+            <td>Outline text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;P[[+\|-]n]</code></td>
+            <td>Without the optional suffix, the current page number in decimal</td>
+        </tr>
+        <tr>
+            <td><code>&amp;R</code></td>
+            <td>Right section</td>
+        </tr>
+        <tr>
+            <td><code>&amp;S</code></td>
+            <td>Strikethrough text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;T</code></td>
+            <td>Current time</td>
+        </tr>
+        <tr>
+            <td><code>&amp;U</code></td>
+            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+        </tr>
+        <tr>
+            <td><code>&amp;X</code></td>
+            <td>Superscript text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;Y</code></td>
+            <td>Subscript text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;Z</code></td>
+            <td>Current workbook&#39;s file path</td>
+        </tr>
+    </tbody>
+</table>
+
+예:
+
+```go
+err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+    DifferentFirst:   true,
+    DifferentOddEven: true,
+    OddHeader:        "&R&P",
+    OddFooter:        "&C&F",
+    EvenHeader:       "&L&P",
+    EvenFooter:       "&L&D&R&T",
+    FirstHeader:      `&CCenter &"-,Bold"Bold&"-,Regular"HeaderU+000A&D`,
+})
+```
+
+이 예는 다음과 같습니다:
+
+- 첫 페이지에는 고유 한 머리말과 꼬리말이 있습니다.
+- 홀수 페이지와 짝수 페이지는 서로 다른 머리글과 바닥 글을 가지고 있습니다.
+- 홀수 페이지 헤더의 오른쪽 섹션에있는 현재 페이지 번호
+홀수 페이지 바닥 글의 가운데 섹션에있는 현재 통합 문서의 파일 이름
+- 짝수 페이지 헤더의 왼쪽 섹션에있는 현재 페이지 번호
+- 왼쪽 섹션의 현재 날짜와 짝수 페이지 바닥 글의 오른쪽 섹션의 현재 시간
+- 첫 번째 페이지의 가운데 섹션의 첫 번째 줄에있는 텍스트 "Center Bold Header"과 같은 페이지의 가운데 섹션의 두 번째 줄에있는 날짜
+- 첫 페이지에 꼬리말 없음
+

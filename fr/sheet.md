@@ -149,7 +149,7 @@ GetSheetPrOptions fournit une fonction pour obtenir des propriétés de feuille 
 Par exemple:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -161,7 +161,7 @@ var (
     outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
 
-if err := xl.GetSheetPrOptions(sheet,
+if err := f.GetSheetPrOptions(sheet,
     &codeName,
     &enableFormatConditionsCalculation,
     &published,
@@ -383,3 +383,44 @@ func (f *File) UnprotectSheet(sheet string) error
 ```
 
 UnprotectSheet fournit une fonction permettant de ôter la protection de la feuille.
+
+## Supprimer la colonne {#RemoveCol}
+
+```go
+func (f *File) RemoveCol(sheet, col string) error
+```
+
+RemoveCol fournit une fonction permettant de supprimer une colonne unique par un nom de feuille de calcul et un index de colonne donnés. Par exemple, supprimez la colonne `C` dans `Sheet1`:
+
+```go
+err := f.RemoveCol("Sheet1", "C")
+```
+
+Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, une erreur de fichier se produira lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
+
+## Supprimer la ligne {#RemoveRow}
+
+```go
+func (f *File) RemoveRow(sheet string, row int) error
+```
+
+RemoveRow fournit une fonction permettant de supprimer une seule ligne par un nom de feuille de calcul et un numéro de ligne Excel donnés. Par exemple, supprimez la ligne `3` dans `Sheet1`:
+
+```go
+err := f.RemoveRow("Sheet1", 3)
+```
+
+Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, une erreur de fichier se produira lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
+
+## Définir les valeurs de ligne {#SetSheetRow}
+
+```go
+func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+```
+
+SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice` Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Sheet1`:
+
+
+```go
+err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```

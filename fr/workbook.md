@@ -87,6 +87,38 @@ func (f *File) GetActiveSheetIndex() int
 
 GetActiveSheetIndex fournit une fonction pour obtenir une feuille active de XLSX. S'il n'est pas trouvé, la feuille active retournera l'entier `0`.
 
+## Définir la feuille de calcul visible {#SetSheetVisible}
+
+```go
+func (f *File) SetSheetVisible(name string, visible bool) error
+```
+
+SetSheetVisible fournit une fonction permettant de définir une feuille de calcul visible par son nom. Un classeur doit contenir au moins une feuille de calcul visible. Si la feuille de calcul donnée a été activée, ce paramètre sera invalidé. Valeurs d'état de la feuille telles que définies par [SheetStateValues Enum](http://msdn.microsoft.com/en-us/library/office/documentformat.openxml.spreadsheet.sheetstatevalues.aspx):
+
+|Sheet State Values|
+|---|
+|visible|
+|hidden|
+|veryHidden|
+
+Par exemple, masquer `Sheet1`:
+
+```go
+err := f.SetSheetVisible("Sheet1", false)
+```
+
+## Obtenir la feuille de calcul visible {#GetSheetVisible}
+
+```go
+func (f *File) GetSheetVisible(name string) bool
+```
+
+GetSheetVisible fournit une fonction permettant d’obtenir une feuille de calcul visible par son nom. Par exemple, obtenez l'état visible de `Sheet1`:
+
+```go
+f.GetSheetVisible("Sheet1")
+```
+
 ## Obtenir les propriétés d'affichage de la feuille de calcul {#GetSheetViewOptions}
 
 ```go
@@ -113,7 +145,7 @@ err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
 - Example 2:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
 var (
@@ -126,7 +158,7 @@ var (
     topLeftCell       excelize.TopLeftCell
 )
 
-if err := xl.GetSheetViewOptions(sheet, 0,
+if err := f.GetSheetViewOptions(sheet, 0,
     &defaultGridColor,
     &rightToLeft,
     &showFormulas,
@@ -147,19 +179,19 @@ fmt.Println("- showRowColHeaders:", showRowColHeaders)
 fmt.Println("- zoomScale:", zoomScale)
 fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
 
-if err := xl.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
+if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
     panic(err)
 }
 
-if err := xl.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
+if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
     panic(err)
 }
 
-if err := xl.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
     panic(err)
 }
 
-if err := xl.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
+if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
     panic(err)
 }
 
@@ -323,16 +355,16 @@ Index | Taille de papier
 - Par exemple, définissez la mise en page pour `Sheet1` avec du papier format Petit A4 (210 × 297 mm):
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 
-if err := xl.SetPageLayout(
+if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
 ); err != nil {
     panic(err)
 }
-if err := xl.SetPageLayout(
+if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutPaperSize(10),
 ); err != nil {
@@ -354,16 +386,16 @@ GetPageLayout fournit une fonction pour obtenir la mise en page de la feuille de
 - Par exemple, obtenez la mise en page de `Sheet1`:
 
 ```go
-xl := excelize.NewFile()
+f := excelize.NewFile()
 const sheet = "Sheet1"
 var (
     orientation excelize.PageLayoutOrientation
     paperSize   excelize.PageLayoutPaperSize
 )
-if err := xl.GetPageLayout("Sheet1", &orientation); err != nil {
+if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
     panic(err)
 }
-if err := xl.GetPageLayout("Sheet1", &paperSize); err != nil {
+if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
     panic(err)
 }
 fmt.Println("Defaults:")
@@ -374,3 +406,164 @@ fmt.Printf("- paper size: %d\n", paperSize)
 // - orientation: "portrait"
 // - paper size: 1
 ```
+
+## Définir l'en-tête et le pied de page {#SetHeaderFooter}
+
+```go
+func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+```
+
+SetHeaderFooter fournit une fonction permettant de définir les en-têtes et les pieds de page en fonction du nom de la feuille de calcul et des caractères de contrôle.
+
+Les en-têtes et les pieds de page sont spécifiés à l'aide des champs de paramètres suivants:
+
+Fields           | Description
+---|---
+AlignWithMargins | Align header footer margins with page margins
+DifferentFirst   | Different first-page header and footer indicator
+DifferentOddEven | Different odd and even page headers and footers indicator
+ScaleWithDoc     | Scale header and footer with document scaling
+OddFooter        | Odd Page Footer
+OddHeader        | Odd Header
+EvenFooter       | Even Page Footer
+EvenHeader       | Even Page Header
+FirstFooter      | First Page Footer
+FirstHeader      | First Page Header
+
+Les codes de formatage suivants peuvent être utilisés dans 6 champs de type chaîne: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
+
+<table>
+    <thead>
+        <tr>
+            <th>Formatting Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&amp;&amp;</code></td>
+            <td>The character &quot;&amp;&quot;</td>
+        </tr>
+        <tr>
+            <td><code>&amp;font-size</code></td>
+            <td>Size of the text font, where font-size is a decimal font size in points</td>
+        </tr>
+        <tr>
+            <td><code>&amp;&quot;font name,font type&quot;</code></td>
+            <td>A text font-name string, font name, and a text font-type string, font type</td>
+        </tr>
+        <tr>
+            <td><code>&amp;&quot;-,Regular&quot;</code></td>
+            <td>Regular text format. Toggles bold and italic modes to off</td>
+        </tr>
+        <tr>
+            <td><code>&amp;A</code></td>
+            <td>Current worksheet&#39;s tab name</td>
+        </tr>
+        <tr>
+            <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
+            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+        </tr>
+        <tr>
+            <td><code>&amp;D</code></td>
+            <td>Current date</td>
+        </tr>
+        <tr>
+            <td><code>&amp;C</code></td>
+            <td>Center section</td>
+        </tr>
+        <tr>
+            <td><code>&amp;E</code></td>
+            <td>Double-underline text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;F</code></td>
+            <td>Current workbook&#39;s file name</td>
+        </tr>
+        <tr>
+            <td><code>&amp;G</code></td>
+            <td>Drawing object as background</td>
+        </tr>
+        <tr>
+            <td><code>&amp;H</code></td>
+            <td>Shadow text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
+            <td>Italic text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;K</code></td>
+            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+        </tr>
+        <tr>
+            <td><code>&amp;L</code></td>
+            <td>Left section</td>
+        </tr>
+        <tr>
+            <td><code>&amp;N</code></td>
+            <td>Total number of pages</td>
+        </tr>
+        <tr>
+            <td><code>&amp;O</code></td>
+            <td>Outline text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;P[[+\|-]n]</code></td>
+            <td>Without the optional suffix, the current page number in decimal</td>
+        </tr>
+        <tr>
+            <td><code>&amp;R</code></td>
+            <td>Right section</td>
+        </tr>
+        <tr>
+            <td><code>&amp;S</code></td>
+            <td>Strikethrough text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;T</code></td>
+            <td>Current time</td>
+        </tr>
+        <tr>
+            <td><code>&amp;U</code></td>
+            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+        </tr>
+        <tr>
+            <td><code>&amp;X</code></td>
+            <td>Superscript text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;Y</code></td>
+            <td>Subscript text format</td>
+        </tr>
+        <tr>
+            <td><code>&amp;Z</code></td>
+            <td>Current workbook&#39;s file path</td>
+        </tr>
+    </tbody>
+</table>
+
+Par exemple:
+
+```go
+err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+    DifferentFirst:   true,
+    DifferentOddEven: true,
+    OddHeader:        "&R&P",
+    OddFooter:        "&C&F",
+    EvenHeader:       "&L&P",
+    EvenFooter:       "&L&D&R&T",
+    FirstHeader:      `&CCenter &"-,Bold"Bold&"-,Regular"HeaderU+000A&D`,
+})
+```
+
+Cet exemple montre:
+
+- La première page a son propre en-tête et pied de page
+- Les pages impaires et paires ont des en-têtes et des pieds de page différents
+- Numéro de page actuel dans la partie droite des en-têtes de pages impaires
+- Nom du fichier du classeur actuel dans la section centrale des pieds de page impairs
+- Numéro de page actuel dans la partie gauche des en-têtes de pages paires
+- La date actuelle dans la partie gauche et l'heure actuelle dans la partie droite du pied de page pair
+- Le texte "Center Bold Header" sur la première ligne de la section centrale de la première page et la date sur la deuxième ligne de la section centrale de cette page
+- Pas de pied de page sur la première page

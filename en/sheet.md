@@ -390,8 +390,7 @@ UnprotectSheet provides a function to unprotect an Excel worksheet.
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-RemoveCol provides a function to remove single column by given worksheet
-name and column index. For example, remove column `C` in `Sheet1`:
+RemoveCol provides a function to remove a single column by given worksheet name and column index. For example, remove column `C` in `Sheet1`:
 
 ```go
 err := f.RemoveCol("Sheet1", "C")
@@ -405,7 +404,7 @@ Use this method with caution, which will affect changes in references such as fo
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-RemoveRow provides a function to remove single row by given worksheet name and Excel row number. For example, remove row `3` in `Sheet1`:
+RemoveRow provides a function to remove a single row by given worksheet name and Excel row number. For example, remove row `3` in `Sheet1`:
 
 ```go
 err := f.RemoveRow("Sheet1", 3)
