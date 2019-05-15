@@ -244,7 +244,7 @@ err := f.DuplicateRowTo("Sheet1", 2, 7)
 func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
-指定されたワークシート名（大文字と小文字を区別）、行インデックス、および評価パラメータに基づいてグループを作成します。たとえば、`Sheet1`という名前のワークシートの 2 行目にレベル 1 のグループを作成します。
+指定されたワークシート名（大文字と小文字を区別）、行インデックス、および評価パラメータに基づいてグループを作成します。たとえば、`Sheet1` という名前のワークシートの 2 行目にレベル 1 のグループを作成します。
 
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="行のアウトラインを作成する"></p>
 

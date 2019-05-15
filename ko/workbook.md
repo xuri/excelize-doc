@@ -567,4 +567,3 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 - 왼쪽 섹션의 현재 날짜와 짝수 페이지 바닥 글의 오른쪽 섹션의 현재 시간
 - 첫 번째 페이지의 가운데 섹션의 첫 번째 줄에있는 텍스트 "Center Bold Header"과 같은 페이지의 가운데 섹션의 두 번째 줄에있는 날짜
 - 첫 페이지에 꼬리말 없음
-

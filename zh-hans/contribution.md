@@ -62,4 +62,4 @@ Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Off
 
 项目的发展离不开你的支持，请作者喝杯咖啡吧！Excelize 通过以下方式接受赞助：
 
-[![赞助 Excelize 开发](./images/donate.png)](https://www.paypal.me/xuri)
+<a href="https://www.paypal.me/xuri" title="赞助 Excelize 开发" target="_blank"><img width="710" src="./images/donate@2x.png" alt="赞助 Excelize 开发"></a>

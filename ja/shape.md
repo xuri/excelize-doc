@@ -14,7 +14,7 @@ err := f.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fil
 
 Excelize でサポートされているすべての図形を次に示します：
 
-名称|形状
+名前|形状
 ---|---
 accentBorderCallout1 | Callout 1 with Border and Accent Shape
 accentBorderCallout2 | Callout 2 with Border and Accent Shape
