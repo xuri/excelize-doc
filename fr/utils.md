@@ -145,7 +145,7 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-Les valeurs liées au correctif UpdateLinkedValue dans une feuille de calcul ne sont pas mises à jour dans Office Excel 2007 et 2010. Cette fonction supprime la balise de valeur lorsqu'une cellule est associée à une valeur liée. Référence[https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel) Avis: après ouverture du fichier XLSX, Excel mettra à jour la valeur liée et génèrera une nouvelle valeur et demandera l'enregistrement du fichier ou non.
+Les valeurs liées au correctif UpdateLinkedValue dans une feuille de calcul ne sont pas mises à jour dans Office Excel 2007 et 2010. Cette fonction supprime la balise de valeur lorsqu'une cellule est associée à une valeur liée. Référence[https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Avis: après ouverture du fichier XLSX, Excel mettra à jour la valeur liée et génèrera une nouvelle valeur et demandera l'enregistrement du fichier ou non.
 
 L'effet de l'effacement du cache de cellules sur le classeur apparaît sous la forme d'une modification de la balise `<v>`, par exemple, le cache de la cellule avant l'effacement:
 

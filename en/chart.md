@@ -12,31 +12,58 @@ The following shows the `type` of chart supported by excelize:
 
 Type|Chart
 ---|---
-area                 | 2D area chart
-areaStacked          | 2D stacked area chart
-areaPercentStacked   | 2D 100% stacked area chart
-area3D               | 3D area chart
-area3DStacked        | 3D stacked area chart
-area3DPercentStacked | 3D 100% stacked area chart
-bar                  | 2D clustered bar chart
-barStacked           | 2D stacked bar chart
-barPercentStacked    | 2D 100% stacked bar chart
-bar3DClustered       | 3D clustered bar chart
-bar3DStacked         | 3D stacked bar chart
-bar3DPercentStacked  | 3D 100% stacked bar chart
-col                  | 2D clustered column chart
-colStacked           | 2D stacked column chart
-colPercentStacked    | 2D 100% stacked column chart
-col3DClustered       | 3D clustered column chart
-col3D                | 3D column chart
-col3DStacked         | 3D stacked column chart
-col3DPercentStacked  | 3D 100% stacked column chart
-doughnut             | doughnut chart
-line                 | line chart
-pie                  | pie chart
-pie3D                | 3D pie chart
-radar                | radar chart
-scatter              | scatter chart
+area                        | 2D area chart
+areaStacked                 | 2D stacked area chart
+areaPercentStacked          | 2D 100% stacked area chart
+area3D                      | 3D area chart
+area3DStacked               | 3D stacked area chart
+area3DPercentStacked        | 3D 100% stacked area chart
+bar                         | 2D clustered bar chart
+barStacked                  | 2D stacked bar chart
+barPercentStacked           | 2D 100% stacked bar chart
+bar3DClustered              | 3D clustered bar chart
+bar3DStacked                | 3D stacked bar chart
+bar3DPercentStacked         | 3D 100% stacked bar chart
+bar3DConeClustered          | 3D cone clustered bar chart
+bar3DConeStacked            | 3D cone stacked bar chart
+bar3DConePercentStacked     | 3D 100% cone bar chart
+bar3DPyramidClustered       | 3D pyramid clustered bar chart
+bar3DPyramidStacked         | 3D pyramid stacked bar chart
+bar3DPyramidPercentStacked  | 3D 100% pyramid stacked bar chart
+bar3DCylinderClustered      | 3D cylinder clustered bar chart
+bar3DCylinderStacked        | 3D cylinder stacked bar chart
+bar3DCylinderPercentStacked | 3D 100% cylinder stacked bar chart
+col                         | 2D clustered column chart
+colStacked                  | 2D stacked column chart
+colPercentStacked           | 2D 100% stacked column chart
+col3DClustered              | 3D clustered column chart
+col3D                       | 3D column chart
+col3DStacked                | 3D stacked column chart
+col3DPercentStacked         | 3D 100% stacked column chart
+col3DCone                   | 3D cone column chart
+col3DConeClustered          | 3D cone clustered column chart
+col3DConeStacked            | 3D cone stacked column chart
+col3DConePercentStacked     | 3D 100% cone stacked column chart
+col3DPyramid                | 3D pyramid column chart
+col3DPyramidClustered       | 3D pyramid clustered column chart
+col3DPyramidStacked         | 3D pyramid stacked column chart
+col3DPyramidPercentStacked  | 3D 100% pyramid stacked column chart
+col3DCylinder               | 3D cylinder column chart
+col3DCylinderClustered      | 3D cylinder clustered column chart
+col3DCylinderStacked        | 3D cylinder stacked column chart
+col3DCylinderPercentStacked | 3D 100% cylinder stacked column chart
+doughnut                    | doughnut chart
+line                        | line chart
+pie                         | pie chart
+pie3D                       | 3D pie chart
+radar                       | radar chart
+scatter                     | scatter chart
+surface3D                   | 3D surface chart
+wireframeSurface3D          | 3D wireframe surface chart
+contour                     | contour chart
+wireframeContour            | wireframe contour chart
+bubble                      | bubble chart
+bubble3D                    | 3D bubble chart
 
 In the Office Excel chart data area `series` specifies the set of information for which data to draw, the legend item (series), and the horizontal (category) axis label.
 
@@ -514,6 +541,24 @@ func main() {
 }
 ```
 
+### 3D cone clustered bar chart {#bar3DConeClustered}
+
+### 3D cone stacked bar chart {#bar3DConeStacked}
+
+### 3D 100% cone bar chart {#bar3DConePercentStacked}
+
+### 3D pyramid clustered bar chart {#bar3DPyramidClustered}
+
+### 3D pyramid stacked bar chart {#bar3DPyramidStacked}
+
+### 3D 100% pyramid stacked bar chart {#bar3DPyramidPercentStacked}
+
+### 3D cylinder clustered bar chart {#bar3DCylinderClustered}
+
+### 3D cylinder stacked bar chart {#bar3DCylinderStacked}
+
+### 3D 100% cylinder stacked bar chart {#bar3DCylinderPercentStacked}
+
 ### 2D clustered column chart {#col}
 
 For example, add a 2D clustered column chart that like the this:
@@ -597,6 +642,30 @@ func main() {
 ### 3D stacked column chart {#col3DStacked}
 
 ### 3D 100% stacked column chart {#col3DPercentStacked}
+
+### 3D cone column chart {#col3DCone}
+
+### 3D cone clustered column chart {#col3DConeClustered}
+
+### 3D cone stacked column chart {#col3DConeStacked}
+
+### 3D 100% cone stacked column chart {#col3DConePercentStacked}
+
+### 3D pyramid column chart {#col3DPyramid}
+
+### 3D pyramid clustered column chart {#col3DPyramidClustered}
+
+### 3D pyramid stacked column chart {#col3DPyramidStacked}
+
+### 3D 100% pyramid stacked column chart {#col3DPyramidPercentStacked}
+
+### 3D cylinder column chart {#col3DCylinder}
+
+### 3D cylinder clustered column chart {#col3DCylinderClustered}
+
+### 3D cylinder stacked column chart {#col3DCylinderStacked}
+
+### 3D 100% cylinder stacked column chart {#col3DCylinderPercentStacked}
 
 ### Doughnut chart {#doughnut}
 
@@ -813,3 +882,15 @@ func main() {
     }
 }
 ```
+
+### 3D surface chart {#surface3D}
+
+### 3D wireframe surface chart {#wireframeSurface3D}
+
+### contour chart {#contour}
+
+### wireframe contour chart {#wireframeContour}
+
+### bubble chart {#bubble}
+
+### 3D bubble chart {#bubble3D}

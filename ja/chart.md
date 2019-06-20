@@ -13,31 +13,58 @@ func (f *File) AddChart(sheet, cell, format string) error
 
 名前 | グラフの種類
 ---|---
-area                 | 2D エリアチャート
-areaStacked          | 2D 積層型エリアチャート
-areaPercentStacked   | 2D 100% 積み上げ面グラフ
-area3D               | 3D エリアチャート
-area3DStacked        | 3D 積み上げ面グラフ
-area3DPercentStacked | 3D 100% 積み上げ面グラフ
-bar                  | 2D クラスタ棒グラフ
-barStacked           | 2D 積み上げ棒グラフ
-barPercentStacked    | 2D 100% 積み上げ棒グラフ
-bar3DClustered       | 3D クラスター棒グラフ
-bar3DStacked         | 3D 積み上げ棒グラフ
-bar3DPercentStacked  | 3D 100% 積み上げ棒グラフ
-col                  | 2D クラスター縦棒グラフ
-colStacked           | 2D 積み上げ縦棒グラフ
-colPercentStacked    | 2D 100% 積み上げ縦棒グラフ
-col3DClustered       | 3D クラスター縦棒グラフ
-col3D                | 3D 縦棒グラフ
-col3DStacked         | 3D 積み上げ縦棒グラフ
-col3DPercentStacked  | 3D 100％ 積み上げ縦棒グラフ
-doughnut             | ドーナツチャート
-line                 | 折れ線グラフ
-pie                  | 円グラフ
-pie3D                | 3D 円グラフ
-radar                | レーダーチャート
-scatter              | 散布図
+area                        | 2D エリアチャート
+areaStacked                 | 2D 積層型エリアチャート
+areaPercentStacked          | 2D 100% 積み上げ面グラフ
+area3D                      | 3D エリアチャート
+area3DStacked               | 3D 積み上げ面グラフ
+area3DPercentStacked        | 3D 100% 積み上げ面グラフ
+bar                         | 2D クラスタ棒グラフ
+barStacked                  | 2D 積み上げ棒グラフ
+barPercentStacked           | 2D 100% 積み上げ棒グラフ
+bar3DClustered              | 3D クラスター棒グラフ
+bar3DStacked                | 3D 積み上げ棒グラフ
+bar3DPercentStacked         | 3D 100% 積み上げ棒グラフ
+bar3DConeClustered          | 3D 円グラフクラスタ付き棒グラフ
+bar3DConeStacked            | 3D 円グラフ積み上げ棒グラフ
+bar3DConePercentStacked     | 3D 100% 円グラフグラフ
+bar3DPyramidClustered       | 3D ピラミッド クラスタ化棒グラフ
+bar3DPyramidStacked         | 3D ピラミッド積み上げ棒グラフ
+bar3DPyramidPercentStacked  | 3D 100% ピラミッド積み上げ棒グラフ
+bar3DCylinderClustered      | 3D 円柱クラスタ化棒グラフ
+bar3DCylinderStacked        | 3D 円柱積み上げ棒グラフ
+bar3DCylinderPercentStacked | 3D 100% 円柱積み上げ棒グラフ
+col                         | 2D クラスター縦棒グラフ
+colStacked                  | 2D 積み上げ縦棒グラフ
+colPercentStacked           | 2D 100% 積み上げ縦棒グラフ
+col3D                       | 3D 縦棒グラフ
+col3DClustered              | 3D クラスター縦棒グラフ
+col3DStacked                | 3D 積み上げ縦棒グラフ
+col3DPercentStacked         | 3D 100％ 積み上げ縦棒グラフ
+col3DCone                   | 3D 円グラフグラフ
+col3DConeClustered          | 3D 円グラフクラスタ化縦棒グラフ
+col3DConeStacked            | 3D 円グラフ積み上げ縦棒グラフ
+col3DConePercentStacked     | 3D 100% 円グラフ積み上げ縦棒グラフ
+col3DPyramid                | 3D ピラミッド縦棒グラフ
+col3DPyramidClustered       | 3D ピラミッド クラスタ化縦棒グラフ
+col3DPyramidStacked         | 3D ピラミッド積み上げ縦棒グラフ
+col3DPyramidPercentStacked  | 3D 100% ピラミッド積み上げ縦棒グラフ
+col3DCylinder               | 3D 円柱縦棒グラフ
+col3DCylinderClustered      | 3D 円柱クラスタ化縦棒グラフ
+col3DCylinderStacked        | 3D 円柱積み上げ縦棒グラフ
+col3DCylinderPercentStacked | 3D 100% 円柱積み上げ縦棒グラフ
+doughnut                    | ドーナツチャート
+line                        | 折れ線グラフ
+pie                         | 円グラフ
+pie3D                       | 3D 円グラフ
+radar                       | レーダーチャート
+scatter                     | 散布図
+surface3D                   | 3D サーフェス チャート
+wireframeSurface3D          | 3D ワイヤフレーム サーフェス チャート
+contour                     | 輪郭グラフ
+wireframeContour            | ワイヤフレーム輪郭グラフ
+bubble                      | バブルチャート
+bubble3D                    | 3D バブル チャート
 
 Office Excel では、グラフデータ領域 `series` は、データが描画される情報のセット、凡例項目 (系列)、および水平 (分類) 軸ラベルを指定します。
 
@@ -515,6 +542,24 @@ func main() {
 }
 ```
 
+### 3D 円グラフクラスタ付き棒グラフ {#bar3DConeClustered}
+
+### 3D 円グラフ積み上げ棒グラフ {#bar3DConeStacked}
+
+### 3D 100% 円グラフグラフ {#bar3DConePercentStacked}
+
+### 3D ピラミッド クラスタ化棒グラフ {#bar3DPyramidClustered}
+
+### 3D ピラミッド積み上げ棒グラフ {#bar3DPyramidStacked}
+
+### 3D 100% ピラミッド積み上げ棒グラフ {#bar3DPyramidPercentStacked}
+
+### 3D 円柱クラスタ化棒グラフ {#bar3DCylinderClustered}
+
+### 3D 円柱積み上げ棒グラフ {#bar3DCylinderStacked}
+
+### 3D 100% 円柱積み上げ棒グラフ {#bar3DCylinderPercentStacked}
+
 ### 2D クラスター縦棒グラフ {#col}
 
 例えば、次のような効果を持つ 2D クラスター縦棒グラフ 作成します:
@@ -598,6 +643,30 @@ func main() {
 ### 3D 積み上げ縦棒グラフ {#col3DStacked}
 
 ### 3D 100% 積み上げ縦棒グラフ {#col3DPercentStacked}
+
+### 3D 円グラフグラフ {#col3DCone}
+
+### 3D 円グラフクラスタ化縦棒グラフ {#col3DConeClustered}
+
+### 3D 円グラフ積み上げ縦棒グラフ {#col3DConeStacked}
+
+### 3D 100% 円グラフ積み上げ縦棒グラフ {#col3DConePercentStacked}
+
+### 3D ピラミッド縦棒グラフ {#col3DPyramid}
+
+### 3D ピラミッド クラスタ化縦棒グラフ {#col3DPyramidClustered}
+
+### 3D ピラミッド積み上げ縦棒グラフ {#col3DPyramidStacked}
+
+### 3D 100% ピラミッド積み上げ縦棒グラフ {#col3DPyramidPercentStacked}
+
+### 3D 円柱縦棒グラフ {#col3DCylinder}
+
+### 3D 円柱クラスタ化縦棒グラフ {#col3DCylinderClustered}
+
+### 3D 円柱積み上げ縦棒グラフ {#col3DCylinderStacked}
+
+### 3D 100% 円柱積み上げ縦棒グラフ {#col3DCylinderPercentStacked}
 
 ### ドーナツチャート {#doughnut}
 
@@ -814,3 +883,15 @@ func main() {
     }
 }
 ```
+
+### 3D サーフェス チャート {#surface3D}
+
+### 3D ワイヤフレーム サーフェス チャート {#wireframeSurface3D}
+
+### 輪郭グラフ {#contour}
+
+### ワイヤフレーム輪郭グラフ {#wireframeContour}
+
+### バブルチャート {#bubble}
+
+### 3D バブル チャート {#bubble3D}

@@ -12,31 +12,58 @@ func (f *File) AddChart(sheet, cell, format string) error
 
 名称|图表类型
 ---|---
-area                 | 二维面积图
-areaStacked          | 二维堆积面积图
-areaPercentStacked   | 二维百分比堆积面积图
-area3D               | 三维面积图
-area3DStacked        | 三维堆积面积图
-area3DPercentStacked | 三维百分比堆积面积图
-bar                  | 二维簇状条形图
-barStacked           | 二维堆积条形图
-barPercentStacked    | 二维百分比堆积条形图
-bar3DClustered       | 三维簇状条形图
-bar3DStacked         | 三维堆积条形图
-bar3DPercentStacked  | 三维百分比堆积条形图
-col                  | 二维簇状柱形图
-colStacked           | 二维堆积柱形图
-colPercentStacked    | 二维百分比堆积柱形图
-col3DClustered       | 三维簇状柱形图
-col3D                | 三维柱形图
-col3DStacked         | 三维堆积柱形图
-col3DPercentStacked  | 三维百分比堆积柱形图
-doughnut             | 圆环图
-line                 | 折线图
-pie                  | 饼图
-pie3D                | 三维饼图
-radar                | 雷达图
-scatter              | 散点图
+area                        | 二维面积图
+areaStacked                 | 二维堆积面积图
+areaPercentStacked          | 二维百分比堆积面积图
+area3D                      | 三维面积图
+area3DStacked               | 三维堆积面积图
+area3DPercentStacked        | 三维百分比堆积面积图
+bar                         | 二维簇状条形图
+barStacked                  | 二维堆积条形图
+barPercentStacked           | 二维百分比堆积条形图
+bar3DClustered              | 三维簇状条形图
+bar3DStacked                | 三维堆积条形图
+bar3DPercentStacked         | 三维百分比堆积条形图
+bar3DConeClustered          | 三维簇状水平圆锥图
+bar3DConeStacked            | 三维堆积水平圆锥图
+bar3DConePercentStacked     | 三维堆积百分比水平圆锥图
+bar3DPyramidClustered       | 三维簇状水平棱锥图
+bar3DPyramidStacked         | 三维堆积水平棱锥图
+bar3DPyramidPercentStacked  | 三维堆积百分比水平棱锥图
+bar3DCylinderClustered      | 三维簇状水平圆柱图
+bar3DCylinderStacked        | 三维堆积水平圆柱图
+bar3DCylinderPercentStacked | 三维堆积百分比水平圆柱图
+col                         | 二维簇状柱形图
+colStacked                  | 二维堆积柱形图
+colPercentStacked           | 二维百分比堆积柱形图
+col3D                       | 三维柱形图
+col3DClustered              | 三维簇状柱形图
+col3DStacked                | 三维堆积柱形图
+col3DPercentStacked         | 三维百分比堆积柱形图
+col3DCone                   | 三维圆锥图
+col3DConeClustered          | 三维簇状圆锥图
+col3DConeStacked            | 三维堆积圆锥图
+col3DConePercentStacked     | 三维百分比堆积圆锥图
+col3DPyramid                | 三维棱锥图
+col3DPyramidClustered       | 三维簇状棱锥图
+col3DPyramidStacked         | 三维堆积棱锥图
+col3DPyramidPercentStacked  | 三维百分比堆积棱锥图
+col3DCylinder               | 三维柱形图
+col3DCylinderClustered      | 三维簇状柱形图
+col3DCylinderStacked        | 三维堆积柱形图
+col3DCylinderPercentStacked | 三维百分比堆积柱形图
+doughnut                    | 圆环图
+line                        | 折线图
+pie                         | 饼图
+pie3D                       | 三维饼图
+radar                       | 雷达图
+scatter                     | 散点图
+surface3D                   | 三维曲面图
+wireframeSurface3D          | 三维曲面图（框架图）
+contour                     | 曲面图
+wireframeContour            | 曲面图（俯视框架图）
+bubble                      | 气泡图
+bubble3D                    | 三维气泡图
 
 在 Office Excel 中图表数据区域 `series` 指定了绘制哪些数据的信息集合、图例项（系列）和水平（分类）轴标签。
 
@@ -444,7 +471,7 @@ func main() {
 
 例如，创建如下效果的三维堆积条形图：
 
-<p align="center"><img width="770" src="./images/3d_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积条形图"></p>
+<p align="center"><img width="769" src="./images/3d_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积条形图"></p>
 
 ```go
 package main
@@ -513,6 +540,24 @@ func main() {
     }
 }
 ```
+
+### 三维簇状水平圆锥图 {#bar3DConeClustered}
+
+### 三维堆积水平圆锥图 {#bar3DConeStacked}
+
+### 三维堆积百分比水平圆锥图 {#bar3DConePercentStacked}
+
+### 三维簇状水平棱锥图 {#bar3DPyramidClustered}
+
+### 三维堆积水平棱锥图 {#bar3DPyramidStacked}
+
+### 三维堆积百分比水平棱锥图 {#bar3DPyramidPercentStacked}
+
+### 三维簇状水平圆柱图 {#bar3DCylinderClustered}
+
+### 三维堆积水平圆柱图 {#bar3DCylinderStacked}
+
+### 三维堆积百分比水平圆柱图 {#bar3DCylinderPercentStacked}
 
 ### 二维簇状柱形图 {#col}
 
@@ -597,6 +642,30 @@ func main() {
 ### 三维堆积柱形图 {#col3DStacked}
 
 ### 三维百分比堆积柱形图 {#col3DPercentStacked}
+
+### 三维圆锥图 {#col3DCone}
+
+### 三维簇状圆锥图 {#col3DConeClustered}
+
+### 三维堆积圆锥图 {#col3DConeStacked}
+
+### 三维百分比堆积圆锥图 {#col3DConePercentStacked}
+
+### 三维棱锥图 {#col3DPyramid}
+
+### 三维簇状棱锥图 {#col3DPyramidClustered}
+
+### 三维堆积棱锥图 {#col3DPyramidStacked}
+
+### 三维百分比堆积棱锥图 {#col3DPyramidPercentStacked}
+
+### 三维柱形图 {#col3DCylinder}
+
+### 三维簇状柱形图 {#col3DCylinderClustered}
+
+### 三维堆积柱形图 {#col3DCylinderStacked}
+
+### 三维百分比堆积柱形图 {#col3DCylinderPercentStacked}
 
 ### 圆环图 {#doughnut}
 
@@ -813,3 +882,15 @@ func main() {
     }
 }
 ```
+
+### 三维曲面图 {#surface3D}
+
+### 三维曲面图（框架图） {#wireframeSurface3D}
+
+### 曲面图 {#contour}
+
+### 曲面图（俯视框架图） {#wireframeContour}
+
+### 气泡图 {#bubble}
+
+### 三维气泡图 {#bubble3D}

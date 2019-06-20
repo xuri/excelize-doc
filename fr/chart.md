@@ -12,31 +12,58 @@ Voici le `type` de graphique supporté par excelize:
 
 Type|Graphique
 ---|---
-area                 | 2D graphique à aires
-areaStacked          | 2D graphique à aires empilées
-areaPercentStacked   | 2D 100% graphique à aires empilées
-area3D               | 3D graphique à aires
-area3DStacked        | 3D graphique à aires empilées
-area3DPercentStacked | 3D 100% graphique à aires empilées
-bar                  | 2D graphique à barres en cluster
-barStacked           | 2D graphique à barres empilées
-barPercentStacked    | 2D 100% graphique à barres empilées
-bar3DClustered       | 3D graphique à barres en cluster
-bar3DStacked         | 3D graphique à barres empilées
-bar3DPercentStacked  | 3D 100% graphique à barres empilées
-col                  | 2D tableau à colonnes groupées
-colStacked           | 2D graphique à colonnes empilées
-colPercentStacked    | 2D 100% graphique à colonnes empilées
-col3DClustered       | 3D tableau à colonnes groupées
-col3D                | 3D graphique à colonnes
-col3DStacked         | 3D graphique à colonnes empilées
-col3DPercentStacked  | 3D 100% graphique à colonnes empilées
-doughnut             | tableau de donut
-line                 | graphique en ligne
-pie                  | graphique tarte
-pie3D                | 3D graphique tarte
-radar                | graphique radar
-scatter              | graphique de dispersion
+area                        | 2D graphique à aires
+areaStacked                 | 2D graphique à aires empilées
+areaPercentStacked          | 2D 100% graphique à aires empilées
+area3D                      | 3D graphique à aires
+area3DStacked               | 3D graphique à aires empilées
+area3DPercentStacked        | 3D 100% graphique à aires empilées
+bar                         | 2D graphique à barres en cluster
+barStacked                  | 2D graphique à barres empilées
+barPercentStacked           | 2D 100% graphique à barres empilées
+bar3DClustered              | 3D graphique à barres en cluster
+bar3DStacked                | 3D graphique à barres empilées
+bar3DPercentStacked         | 3D 100% graphique à barres empilées
+bar3DConeClustered          | 3D graphique à barres groupée de cône
+bar3DConeStacked            | 3D graphique à barres empilés de cône
+bar3DConePercentStacked     | 3D graphique à barres cône
+bar3DPyramidClustered       | 3D graphique à barres groupée pyramide
+bar3DPyramidStacked         | 3D graphique de barre empilé de pyramide
+bar3DPyramidPercentStacked  | 3D 100% graphique à barres empilées pyramide
+bar3DCylinderClustered      | 3D graphique à barres groupée de cylindres
+bar3DCylinderStacked        | 3D graphique à barres empilés de cylindre
+bar3DCylinderPercentStacked | 3D 100% graphique à barres cylindre empilées
+col                         | 2D tableau à colonnes groupées
+colStacked                  | 2D graphique à colonnes empilées
+colPercentStacked           | 2D 100% graphique à colonnes empilées
+col3D                       | 3D graphique à colonnes
+col3DClustered              | 3D tableau à colonnes groupées
+col3DStacked                | 3D graphique à colonnes empilées
+col3DPercentStacked         | 3D 100% graphique à colonnes empilées
+col3DCone                   | 3D graphique de colonne de cône
+col3DConeClustered          | 3D graphique de colonne groupé de cône
+col3DConeStacked            | 3D graphique de colonne empilé de cône
+col3DConePercentStacked     | 3D 100% graphique de colonne empilé cône empilé
+col3DPyramid                | 3D graphique de colonne de pyramide
+col3DPyramidClustered       | 3D graphique de colonne groupé de pyramide
+col3DPyramidStacked         | 3D graphique de colonne empilé de pyramide
+col3DPyramidPercentStacked  | 3D 100% graphique de colonne empilée pyramide
+col3DCylinder               | 3D graphique de colonne de cylindre
+col3DCylinderClustered      | 3D graphique de colonne groupé de cylindre
+col3DCylinderStacked        | 3D graphique de colonne empilé de cylindre
+col3DCylinderPercentStacked | 3D 100 graphique de colonne cylindre empilé
+doughnut                    | tableau de donut
+line                        | graphique en ligne
+pie                         | graphique tarte
+pie3D                       | 3D graphique tarte
+radar                       | graphique radar
+scatter                     | graphique de dispersion
+surface3D                   | 3D graphique de surface
+wireframeSurface3D          | 3D graphique de surface de fil
+contour                     | graphique de contour
+wireframeContour            | graphique de contour de trame de fil
+bubble                      | graphique à bulles
+bubble3D                    | 3D graphique à bulles
 
 Dans la zone de données de graphique Office Excel `series` spécifie l'ensemble des informations pour lesquelles les données doivent être dessinées, l'élément de légende (série) et l'étiquette d'axe horizontal (catégorie).
 
@@ -553,6 +580,24 @@ func main() {
 }
 ```
 
+### 3D graphique à barres groupée de cône {#bar3DConeClustered}
+
+### 3D graphique à barres empilés de cône {#bar3DConeStacked}
+
+### 3D graphique à barres cône {#bar3DConePercentStacked}
+
+### 3D graphique à barres groupée pyramide {#bar3DPyramidClustered}
+
+### 3D graphique de barre empilé de pyramide {#bar3DPyramidStacked}
+
+### 3D 100% graphique à barres empilées pyramide {#bar3DPyramidPercentStacked}
+
+### 3D graphique à barres groupée de cylindres {#bar3DCylinderClustered}
+
+### 3D graphique à barres empilés de cylindre {#bar3DCylinderStacked}
+
+### 3D 100% graphique à barres cylindre empilées {#bar3DCylinderPercentStacked}
+
 ### 2D graphique à colonnes empilées {#colStacked}
 
 ### 2D 100% graphique à colonnes empilées {#colPercentStacked}
@@ -599,6 +644,30 @@ func main() {
 ### 3D graphique à colonnes empilées {#col3DStacked}
 
 ### 3D 100% graphique à colonnes empilées {#col3DPercentStacked}
+
+### 3D graphique de colonne de cône {#col3DCone}
+
+### 3D graphique de colonne groupé de cône {#col3DConeClustered}
+
+### 3D graphique de colonne empilé de cône {#col3DConeStacked}
+
+### 3D 100% graphique de colonne empilé cône empilé {#col3DConePercentStacked}
+
+### 3D graphique de colonne de pyramide {#col3DPyramid}
+
+### 3D graphique de colonne groupé de pyramide {#col3DPyramidClustered}
+
+### 3D graphique de colonne empilé de pyramide {#col3DPyramidStacked}
+
+### 3D 100% graphique de colonne empilée pyramide {#col3DPyramidPercentStacked}
+
+### 3D graphique de colonne de cylindre {#col3DCylinder}
+
+### 3D graphique de colonne groupé de cylindre {#col3DCylinderClustered}
+
+### 3D graphique de colonne empilé de cylindre {#col3DCylinderStacked}
+
+### 3D 100 graphique de colonne cylindre empilé {#col3DCylinderPercentStacked}
 
 ### Tableau de donut {#doughnut}
 
@@ -815,3 +884,15 @@ func main() {
     }
 }
 ```
+
+### 3D graphique de surface {#surface3D}
+
+### 3D graphique de surface de fil {#wireframeSurface3D}
+
+### graphique de contour {#contour}
+
+### graphique de contour de trame de fil {#wireframeContour}
+
+### graphique à bulles {#bubble}
+
+### 3D graphique à bulles {#bubble3D}

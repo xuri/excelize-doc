@@ -145,7 +145,7 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue фиксирует связанные значения в электронной таблице, не обновляется в Office Excel 2007 и 2010. Эта функция будет удалять тег значения, когда встречная ячейка имеет связанное значение. Справка [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating?forum=excel) Обратите внимание: после открытия XLSX-файла Excel будет обновлять связанное значение и генерировать новое значение и вызывать файл сохранения или нет.
+UpdateLinkedValue фиксирует связанные значения в электронной таблице, не обновляется в Office Excel 2007 и 2010. Эта функция будет удалять тег значения, когда встречная ячейка имеет связанное значение. Справка [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Обратите внимание: после открытия XLSX-файла Excel будет обновлять связанное значение и генерировать новое значение и вызывать файл сохранения или нет.
 
 Эффект очистки кеша ячейки в рабочей книге появляется как модификация тега `<v>`, например кеш ячейки перед очисткой:
 
