@@ -407,7 +407,6 @@ fmt.Printf("- paper size: %d\n", paperSize)
 // - paper size: 1
 ```
 
-
 ## 设置页眉和页脚 {#SetHeaderFooter}
 
 ```go
@@ -569,3 +568,6 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 - 第一页中心部分的第一行上的文本为“Center Bold Header”, 第二行为日期
 - 第一页上没有页脚
 
+## 设置名称 {#SetDefinedName}
+
+## 获取名称 {#GetDefinedName}

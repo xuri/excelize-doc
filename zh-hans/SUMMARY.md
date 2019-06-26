@@ -71,6 +71,8 @@
   * [获取批注](cell.md#GetComments)
   * [设置公式](cell.md#SetCellFormula)
   * [获取公式](cell.md#GetCellFormula)
+  * [设置名称](cell.md#SetDefinedName)
+  * [获取名称](cell.md#GetDefinedName)
 * [图表](chart.md)
   * [二维面积图](chart.md#area)
   * [二维堆积面积图](chart.md#areaStacked)
