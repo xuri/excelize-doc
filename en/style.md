@@ -898,3 +898,31 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 Cell `Sheet1!A6` in the Excel Application: `martes, 04 de Julio de 2017`
+
+## Set column style {#SetColStyle}
+
+```go
+func (f *File) SetColStyle(sheet, columns string, styleID int) error
+```
+
+SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID.
+
+For example set style of column `H` on `Sheet1`:
+
+```go
+err = f.SetColStyle("Sheet1", "H", style)
+```
+
+Set style of columns `C:F` on `Sheet1`:
+
+```go
+err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## Set default font {#SetDefaultFont}
+
+```go
+func (f *File) SetDefaultFont(fontName string)
+```
+
+SetDefaultFont changes the default font in the workbook.

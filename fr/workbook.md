@@ -567,3 +567,80 @@ Cet exemple montre:
 - La date actuelle dans la partie gauche et l'heure actuelle dans la partie droite du pied de page pair
 - Le texte "Center Bold Header" sur la première ligne de la section centrale de la première page et la date sur la deuxième ligne de la section centrale de cette page
 - Pas de pied de page sur la première page
+
+## Définir le nom défini {#SetDefinedName}
+
+```go
+func (f *File) SetDefinedName(definedName *DefinedName) error
+```
+
+SetDefinedName fournit une fonction permettant de définir les noms définis du classeur ou de la feuille de calcul. S'il n'est pas spécifié scopr, l'étendue par défaut est classeur. Par exemple:
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    RefersTo: "Sheet1!$A$2:$D$5",
+    Comment:  "defined name comment",
+    Scope:    "Sheet2",
+})
+```
+
+## Obtenir le nom défini {#GetDefinedName}
+
+```go
+func (f *File) GetDefinedName() []DefinedName
+```
+
+GetDefinedName fournit une fonction pour obtenir les noms définis du classeur ou de la feuille de calcul.
+
+## Définir les propriétés du document {#SetDocProps}
+
+```go
+func (f *File) SetDocProps(docProperties *DocProperties) error
+```
+
+SetDocProps fournit une fonction permettant de définir les propriétés principales du document. Les propriétés pouvant être définies sont:
+
+Propriété | La description
+---|---
+Title          | Le nom donné à la ressource.
+Subject        | Le sujet du contenu de la ressource.
+Creator        | Une entité principalement responsable de la création du contenu de la ressource.
+Keywords       | Un ensemble de mots-clés délimités pour prendre en charge la recherche et l'indexation. Il s'agit généralement d'une liste de termes qui ne sont pas disponibles ailleurs dans les propriétés.
+Description    | Une explication du contenu de la ressource.
+LastModifiedBy | L'utilisateur qui a effectué la dernière modification. L'identification est spécifique à l'environnement.
+Language       | La langue du contenu intellectuel de la ressource.
+Identifier     | Une référence non ambiguë à la ressource dans un contexte donné.
+Revision       | Le sujet du contenu de la ressource.
+ContentStatus  | Le statut du contenu. Par exemple: les valeurs peuvent inclure "Draft", "Reviewed" et "Final"
+Category       | Une catégorisation du contenu de ce paquet.
+Version        | Le numéro de version. Cette valeur est définie par l'utilisateur ou par l'application.
+
+Par exemple:
+
+```go
+err := f.SetDocProps(&excelize.DocProperties{
+    Category:       "category",
+    ContentStatus:  "Draft",
+    Created:        "2019-06-04T22:00:10Z",
+    Creator:        "Go Excelize",
+    Description:    "This file created by Go Excelize",
+    Identifier:     "xlsx",
+    Keywords:       "Spreadsheet",
+    LastModifiedBy: "Go Author",
+    Modified:       "2019-06-04T22:00:10Z",
+    Revision:       "0",
+    Subject:        "Test Subject",
+    Title:          "Test Title",
+    Language:       "en-US",
+    Version:        "1.0.0",
+})
+```
+
+## Obtenir les propriétés du document {#GetDocProps}
+
+```go
+func (f *File) GetDocProps() (*DocProperties, error)
+```
+
+GetDocProps fournit une fonction pour obtenir les propriétés de base du document.

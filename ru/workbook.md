@@ -568,3 +568,79 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 - текст «Center Bold Header» в первой строке центральной части первой страницы и дата во второй строке центральной части той же страницы
 - Нет нижнего колонтитула на первой странице
 
+## Установить определенное имя {#SetDefinedName}
+
+```go
+func (f *File) SetDefinedName(definedName *DefinedName) error
+```
+
+SetDefinedName предоставляет функцию для установки определенных имен рабочей книги или рабочего листа. Если не указано scopr, областью по умолчанию является книга. Например:
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    RefersTo: "Sheet1!$A$2:$D$5",
+    Comment:  "defined name comment",
+    Scope:    "Sheet2",
+})
+```
+
+## Получить определенное имя {#GetDefinedName}
+
+```go
+func (f *File) GetDefinedName() []DefinedName
+```
+
+GetDefinedName предоставляет функцию для получения определенных имен рабочей книги или рабочего листа.
+
+## Установить свойства документа {#SetDocProps}
+
+```go
+func (f *File) SetDocProps(docProperties *DocProperties) error
+```
+
+SetDocProps предоставляет функцию для установки основных свойств документа. Свойства, которые можно установить:
+
+Недвижимость   | Описание
+---|---
+Title          | Название, данное ресурсу.
+Subject        | Тема о содержании ресурса.
+Creator        | Сущность, в первую очередь ответственная за создание контента ресурса.
+Keywords       | Набор ключевых слов с разделителями для поддержки поиска и индексации. Обычно это список терминов, которые недоступны в других местах свойств.
+Description    | Разъяснение содержания ресурса.
+LastModifiedBy | Пользователь, который выполнил последнюю модификацию. Идентификация зависит от окружающей среды.
+Language       | Язык интеллектуального содержания ресурса.
+Identifier     | Однозначная ссылка на ресурс в данном контексте.
+Revision       | Тема о содержании ресурса.
+ContentStatus  | Статус контента. Например: значения могут включать «Draft», «Reviewed» и «Final»
+Category       | Категоризация содержимого этого пакета.
+Version        | Номер версии. Это значение задается пользователем или приложением.
+
+Например:
+
+```go
+err := f.SetDocProps(&excelize.DocProperties{
+    Category:       "category",
+    ContentStatus:  "Draft",
+    Created:        "2019-06-04T22:00:10Z",
+    Creator:        "Go Excelize",
+    Description:    "This file created by Go Excelize",
+    Identifier:     "xlsx",
+    Keywords:       "Spreadsheet",
+    LastModifiedBy: "Go Author",
+    Modified:       "2019-06-04T22:00:10Z",
+    Revision:       "0",
+    Subject:        "Test Subject",
+    Title:          "Test Title",
+    Language:       "en-US",
+    Version:        "1.0.0",
+})
+```
+
+## Получить свойства документа {#GetDocProps}
+
+```go
+func (f *File) GetDocProps() (*DocProperties, error)
+```
+
+GetDocProps предоставляет функцию для получения основных свойств документа.

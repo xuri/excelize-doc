@@ -898,3 +898,31 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 Cellule `Sheet1!A6` dans l'application Excel: `martes, 04 de Julio de 2017`
+
+## Définir le style de colonne {#SetColStyle}
+
+```go
+func (f *File) SetColStyle(sheet, columns string, styleID int) error
+```
+
+SetColStyle fournit une fonction permettant de définir le style des colonnes en fonction du nom de la feuille de calcul, de la plage de colonnes et de l'ID de style.
+
+Par exemple, définissez le style de la colonne `H` sur `Sheet1`:
+
+```go
+err = f.SetColStyle("Sheet1", "H", style)
+```
+
+Set style of columns `C:F` on `Sheet1`:
+
+```go
+err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## Définir la police par défaut {#SetDefaultFont}
+
+```go
+func (f *File) SetDefaultFont(fontName string)
+```
+
+SetDefaultFont modifie la police par défaut du classeur.

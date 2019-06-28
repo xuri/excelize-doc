@@ -567,3 +567,82 @@ This example shows:
 - Current date in the left section and the current time in the right section of even-page footers
 - The text "Center Bold Header" on the first line of the center section of the first page, and the date on the second line of the center section of that same page
 - No footer on the first page
+
+## Set defined name {#SetDefinedName}
+
+```go
+func (f *File) SetDefinedName(definedName *DefinedName) error
+```
+
+SetDefinedName provides a function to set the defined names of the workbook or worksheet. If not specified scopr, the default scope is workbook.
+
+For example:
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    RefersTo: "Sheet1!$A$2:$D$5",
+    Comment:  "defined name comment",
+    Scope:    "Sheet2",
+})
+```
+
+## Get defined name {#GetDefinedName}
+
+```go
+func (f *File) GetDefinedName() []DefinedName
+```
+
+GetDefinedName provides a function to get the defined names of the workbook or worksheet.
+
+## Set document properties {#SetDocProps}
+
+```go
+func (f *File) SetDocProps(docProperties *DocProperties) error
+```
+
+SetDocProps provides a function to set document core properties. The properties that can be set are:
+
+Property       | Description
+---|---
+Title          | The name given to the resource.
+Subject        | The topic of the content of the resource.
+Creator        | An entity primarily responsible for making the content of the resource.
+Keywords       | A delimited set of keywords to support searching and indexing. This is typically a list of terms that are not available elsewhere in the properties.
+Description    | An explanation of the content of the resource.
+LastModifiedBy | The user who performed the last modification. The identification is environment-specific.
+Language       | The language of the intellectual content of the resource.
+Identifier     | An unambiguous reference to the resource within a given context.
+Revision       | The topic of the content of the resource.
+ContentStatus  | The status of the content. For example: Values might include "Draft", "Reviewed" and "Final"
+Category       | A categorization of the content of this package.
+Version        | The version number. This value is set by the user or by the application.
+
+For example:
+
+```go
+err := f.SetDocProps(&excelize.DocProperties{
+    Category:       "category",
+    ContentStatus:  "Draft",
+    Created:        "2019-06-04T22:00:10Z",
+    Creator:        "Go Excelize",
+    Description:    "This file created by Go Excelize",
+    Identifier:     "xlsx",
+    Keywords:       "Spreadsheet",
+    LastModifiedBy: "Go Author",
+    Modified:       "2019-06-04T22:00:10Z",
+    Revision:       "0",
+    Subject:        "Test Subject",
+    Title:          "Test Title",
+    Language:       "en-US",
+    Version:        "1.0.0",
+})
+```
+
+## Get document properties {#GetDocProps}
+
+```go
+func (f *File) GetDocProps() (*DocProperties, error)
+```
+
+GetDocProps provides a function to get document core properties.

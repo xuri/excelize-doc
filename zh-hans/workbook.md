@@ -570,4 +570,77 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 
 ## 设置名称 {#SetDefinedName}
 
+```go
+func (f *File) SetDefinedName(definedName *DefinedName) error
+```
+
+根据给定的名称和作范围设置名称，默认范围是工作簿。例如：
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    RefersTo: "Sheet1!$A$2:$D$5",
+    Comment:  "defined name comment",
+    Scope:    "Sheet2",
+})
+```
+
 ## 获取名称 {#GetDefinedName}
+
+```go
+func (f *File) GetDefinedName() []DefinedName
+```
+
+获取作用范围内的工作簿和工作表的名称列表。
+
+## 设置工作簿属性 {#SetDocProps}
+
+```go
+func (f *File) SetDocProps(docProperties *DocProperties) error
+```
+
+设置工作簿的核心属性。 可以设置的属性包括:
+
+属性           | 描述
+---|---
+Title          | 文档标题
+Subject        | 文档主题
+Creator        | 创作者
+Keywords       | 文档关键词
+Description    | 资源内容的说明
+LastModifiedBy | 执行上次修改的用户
+Language       | 文档内容的主要语言
+Identifier     | 对给定上下文中的资源的明确引用
+Revision       | 文档修订版本
+ContentStatus  | 文档内容的状态。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
+Category       | 文档内容的分类
+Version        | 版本号，该值由用户或应用程序设置
+
+例如：
+
+```go
+err := f.SetDocProps(&excelize.DocProperties{
+    Category:       "category",
+    ContentStatus:  "Draft",
+    Created:        "2019-06-04T22:00:10Z",
+    Creator:        "Go Excelize",
+    Description:    "This file created by Go Excelize",
+    Identifier:     "xlsx",
+    Keywords:       "Spreadsheet",
+    LastModifiedBy: "Go Author",
+    Modified:       "2019-06-04T22:00:10Z",
+    Revision:       "0",
+    Subject:        "Test Subject",
+    Title:          "Test Title",
+    Language:       "en-US",
+    Version:        "1.0.0",
+})
+```
+
+## 获取工作簿属性 {#GetDocProps}
+
+```go
+func (f *File) GetDocProps() (*DocProperties, error)
+```
+
+获取工作簿的核心属性。

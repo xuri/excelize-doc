@@ -898,3 +898,31 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 单元格 `Sheet1!A6` 在 Office Excel 应用程序中将会被格式化为：`martes, 04 de Julio de 2017`
+
+## 设置列样式 {#SetColStyle}
+
+```go
+func (f *File) SetColStyle(sheet, columns string, styleID int) error
+```
+
+根据给定的工作表名称、列区域和样式索引设置列样式。
+
+例1，为名称为 `Sheet1` 的工作表中的 `H` 列设置样式：
+
+```go
+err = f.SetColStyle("Sheet1", "H", style)
+```
+
+例2，为名称为 `Sheet1` 的工作表中的 `C:F` 列设置样式：
+
+```go
+err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## 设置默认字体 {#SetDefaultFont}
+
+```go
+func (f *File) SetDefaultFont(fontName string)
+```
+
+根据给定的字体名称为工作簿设置默认字体。

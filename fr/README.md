@@ -17,8 +17,8 @@ Excelize est une bibliothèque écrite en pur Go et fournissant un ensemble de f
 - Problème: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Dernière version: [v2.0.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Heure de mise à jour du document: 26 Juin 2019
+- Dernière version: [v2.0.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Heure de mise à jour du document: 1 Juillet 2019
 
 ## Mission du projet
 

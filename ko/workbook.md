@@ -567,3 +567,80 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 - 왼쪽 섹션의 현재 날짜와 짝수 페이지 바닥 글의 오른쪽 섹션의 현재 시간
 - 첫 번째 페이지의 가운데 섹션의 첫 번째 줄에있는 텍스트 "Center Bold Header"과 같은 페이지의 가운데 섹션의 두 번째 줄에있는 날짜
 - 첫 페이지에 꼬리말 없음
+
+## 이름 설정 {#SetDefinedName}
+
+```go
+func (f *File) SetDefinedName(definedName *DefinedName) error
+```
+
+지정된 이름과 범위를 기반으로 이름을 설정합니다. 기본 범위는 통합 문서입니다. 예:
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    RefersTo: "Sheet1!$A$2:$D$5",
+    Comment:  "defined name comment",
+    Scope:    "Sheet2",
+})
+```
+
+## 이름 가져 오기 {#GetDefinedName}
+
+```go
+func (f *File) GetDefinedName() []DefinedName
+```
+
+범위에있는 통합 문서 및 워크 시트의 이름 목록을 얻습니다.
+
+## 통합 문서 속성 설정 {#SetDocProps}
+
+```go
+func (f *File) SetDocProps(docProperties *DocProperties) error
+```
+
+통합 문서의 핵심 속성을 설정합니다. 설정할 수있는 속성은 다음과 같습니다:
+
+속성            | 기술
+---|---
+Title          | 리소스에 지정된 이름입니다.
+Subject        | 자원 내용의 주제.
+Creator        | 자원의 내용을 만드는 일을 주로 담당하는 주체.
+Keywords       | 검색 및 색인 생성을 지원하는 구분 된 키워드 집합입니다. 일반적으로 속성의 다른 곳에서는 사용할 수없는 용어 목록입니다.
+Description    | 자원의 내용에 대한 설명.
+LastModifiedBy | 마지막 수정을 수행 한 사용자입니다. 식별은 환경에 따라 다릅니다.
+Language       | 자원의 지적 내용의 언어.
+Identifier     | 지정된 컨텍스트 내의 리소스에 대한 모호하지 않은 참조입니다.
+Revision       | 자원 내용의 주제.
+ContentStatus  | 내용의 상태. 예: "Draft", "Reviewed" 및 "Final"
+Category       | 이 패키지의 내용을 분류합니다.
+Version        | 버전 번호. 이 값은 사용자 또는 응용 프로그램에 의해 설정됩니다.
+
+예:
+
+```go
+err := f.SetDocProps(&excelize.DocProperties{
+    Category:       "category",
+    ContentStatus:  "Draft",
+    Created:        "2019-06-04T22:00:10Z",
+    Creator:        "Go Excelize",
+    Description:    "This file created by Go Excelize",
+    Identifier:     "xlsx",
+    Keywords:       "Spreadsheet",
+    LastModifiedBy: "Go Author",
+    Modified:       "2019-06-04T22:00:10Z",
+    Revision:       "0",
+    Subject:        "Test Subject",
+    Title:          "Test Title",
+    Language:       "en-US",
+    Version:        "1.0.0",
+})
+```
+
+## 통합 문서 속성 가져 오기 {#GetDocProps}
+
+```go
+func (f *File) GetDocProps() (*DocProperties, error)
+```
+
+통합 문서의 핵심 속성을 가져옵니다.

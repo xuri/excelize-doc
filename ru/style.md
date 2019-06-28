@@ -898,3 +898,31 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 клетка `Sheet1!A6` в приложении Excel: `martes, 04 de Julio de 2017`
+
+## Установить стиль столбца {#SetColStyle}
+
+```go
+func (f *File) SetColStyle(sheet, columns string, styleID int) error
+```
+
+SetColStyle предоставляет функцию для установки стиля столбцов по заданному имени рабочего листа, диапазону столбцов и идентификатору стиля.
+
+Например, установите стиль столбца `H` на `Sheet1`:
+
+```go
+err = f.SetColStyle("Sheet1", "H", style)
+```
+
+Установить стиль столбцов `C:F` на `Sheet1`:
+
+```go
+err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## Установить шрифт по умолчанию {#SetDefaultFont}
+
+```go
+func (f *File) SetDefaultFont(fontName string)
+```
+
+SetDefaultFont изменяет шрифт по умолчанию в книге.

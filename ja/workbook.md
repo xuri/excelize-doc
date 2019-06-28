@@ -561,3 +561,80 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 - 偶数ページのフッターの左側のセクションに現在の日付と右側のセクションに現在の時刻
 - 最初のページの中央セクションの1行目のテキスト "Center Bold Header"、および同じページの中央セクションの2行目の日付
 - 最初のページにフッターなし
+
+### 名前を設定する {#SetDefinedName}
+
+```go
+func (f *File) SetDefinedName(definedName *DefinedName) error
+```
+
+与えられた名前とスコープに基づいて名前を設定しますデフォルトのスコープはワークブックです。例えば、
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    RefersTo: "Sheet1!$A$2:$D$5",
+    Comment:  "defined name comment",
+    Scope:    "Sheet2",
+})
+```
+
+## 名前を取得する {#GetDefinedName}
+
+```go
+func (f *File) GetDefinedName() []DefinedName
+```
+
+範囲内のワークブックとワークシートの名前のリストを取得します。
+
+## ブックのプロパティを設定する {#SetDocProps}
+
+```go
+func (f *File) SetDocProps(docProperties *DocProperties) error
+```
+
+ワークブックのコアプロパティを設定します。設定できるプロパティは次のとおりです:
+
+プロパティ      | 説明
+---|---
+Title          | リソースに指定された名前。
+Subject        | リソースのコンテンツのトピック。
+Creator        | 主にリソースのコンテンツを作成するエンティティ。
+Keywords       | 検索とインデックス作成をサポートするキーワードの区切られたセット。これは通常、プロパティ内の他の場所では使用できない用語の一覧です。
+Description    | リソースの内容の説明。
+LastModifiedBy | 最後の変更を実行したユーザー。識別は環境固有です。
+Language       | リソースの知的コンテンツの言語。
+Identifier     | 特定のコンテキスト内のリソースへの明確な参照。
+Revision       | リソースのコンテンツのトピック。
+ContentStatus  | コンテンツの状態。たとえば、値には "Draft"、"Reviewed"、および "Final" が含まれる場合があります。
+Category       | このパッケージの内容の分類。
+Version        | バージョン番号。この値は、ユーザーまたはアプリケーションによって設定されます。
+
+例えば、
+
+```go
+err := f.SetDocProps(&excelize.DocProperties{
+    Category:       "category",
+    ContentStatus:  "Draft",
+    Created:        "2019-06-04T22:00:10Z",
+    Creator:        "Go Excelize",
+    Description:    "This file created by Go Excelize",
+    Identifier:     "xlsx",
+    Keywords:       "Spreadsheet",
+    LastModifiedBy: "Go Author",
+    Modified:       "2019-06-04T22:00:10Z",
+    Revision:       "0",
+    Subject:        "Test Subject",
+    Title:          "Test Title",
+    Language:       "en-US",
+    Version:        "1.0.0",
+})
+```
+
+## ブックのプロパティを取得する {#GetDocProps}
+
+```go
+func (f *File) GetDocProps() (*DocProperties, error)
+```
+
+ワークブックのコアとなるプロパティを取得してください。
