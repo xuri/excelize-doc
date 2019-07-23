@@ -710,3 +710,26 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 ```
 
 WriteToBuffer provides a function to get `*bytes.Buffer` from the saved file.
+
+## Add VBA Project {#AddVBAProject}
+
+```go
+func (f *File) AddVBAProject(bin string) error
+```
+
+AddVBAProject provides the method to add `vbaProject.bin` file which contains functions and/or macros. The file extension should be `.xlsm`. For example:
+
+```go
+err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1"))
+if err != nil {
+    fmt.Println(err)
+}
+err = f.AddVBAProject("vbaProject.bin")
+if err != nil {
+    fmt.Println(err)
+}
+err = f.SaveAs("macros.xlsm")
+if err != nil {
+    fmt.Println(err)
+}
+```

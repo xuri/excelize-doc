@@ -705,3 +705,26 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 ```
 
 该函数提供获取当前文件内容 `*bytes.Buffer` 的方法。
+
+## 嵌入 VBA 项目 {#AddVBAProject}
+
+```go
+func (f *File) AddVBAProject(bin string) error
+```
+
+该函数提供方法将包含函数和/或宏的 `vbaProject.bin` 文件嵌入到 Excel 文档中，文件扩展名应为 `.xlsm`。例如:
+
+```go
+err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1"))
+if err != nil {
+    fmt.Println(err)
+}
+err = f.AddVBAProject("vbaProject.bin")
+if err != nil {
+    fmt.Println(err)
+}
+err = f.SaveAs("macros.xlsm")
+if err != nil {
+    fmt.Println(err)
+}
+```

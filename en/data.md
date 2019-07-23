@@ -50,6 +50,6 @@ Example 4，set data validation on `Sheet1!A7:B8` with validation criteria sourc
 ```go
 dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("E1:E3", true)
+dvRange.SetSqrefDropList("$E$1:$E$3", true)
 f.AddDataValidation("Sheet1", dvRange)
 ```

@@ -161,6 +161,7 @@
   * [Преобразование RGB в HSL](utils.md#RGBToHSL)
   * [Конвертировать HSL в RGB](utils.md#HSLToRGB)
   * [Файловый писатель](utils.md#FileWriter)
+  * [Добавить проект VBA](utils.md#AddVBAProject)
 * [Константы](constants.md)
 * [Производительность](performance.md)
 * [Вклад](contribution.md)

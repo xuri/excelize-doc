@@ -161,6 +161,7 @@
   * [Convert RGB to HSL](utils.md#RGBToHSL)
   * [Convert HSL to RGB](utils.md#HSLToRGB)
   * [File Writer](utils.md#FileWriter)
+  * [Add VBA Project](utils.md#AddVBAProject)
 * [Constants](constants.md)
 * [Performance](performance.md)
 * [Contribution](contribution.md)

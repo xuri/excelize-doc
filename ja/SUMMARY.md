@@ -161,6 +161,7 @@
   * [RGBおよびHSLカラースペースカラー値変換](utils.md#RGBToHSL)
   * [HSLとRGBカラースペースカラー値変換](utils.md#HSLToRGB)
   * [ファイルライター](utils.md#FileWriter)
+  * [VBA プロジェクトの追加](utils.md#AddVBAProject)
 * [定数](constants.md)
 * [パフォーマンスデータ](performance.md)
 * [参加貢献](contribution.md)
