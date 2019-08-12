@@ -11,14 +11,14 @@
     <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
 </p>
 
-Excelize - это библиотека, написанная на чистом Go и предоставляющая набор функций, которые позволяют вам писать и читать из файлов XLSX. Поддержка чтения и записи файла XLSX, созданного Microsoft Excel&trade; 2007 и более поздних версий. Поддержка сохранения файла без потери оригинальных графиков XLSX. Эта библиотека нуждается в версии 1.8 или более поздней.
+Excelize - это библиотека, написанная на чистом Go и предоставляющая набор функций, которые позволяют вам писать и читать из файлов XLSX. Поддержка чтения и записи файла XLSX, созданного Microsoft Excel&trade; 2007 и более поздних версий. Поддержка сохранения файла без потери оригинальных графиков XLSX. Эта библиотека нуждается в версии 1.10 или более поздней.
 
 - Исходный код: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - вопрос: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Последняя версия: [v2.0.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Время обновления документа: 23 Июля 2019 г.
+- Время обновления документа: 12 Августа 2019 г.
 
 ## Миссия проекта
 

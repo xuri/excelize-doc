@@ -132,6 +132,7 @@
   * [図を挿入する](image.md#AddPicture)
   * [画像を取得](image.md#GetPicture)
 * [形状](shape.md)
+* [スパークライン](sparklines.md)
 * [スタイル](style.md)
   * [スタイルの作成](style.md#NewStyle)
   * [枠](style.md#border)

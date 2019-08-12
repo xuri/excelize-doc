@@ -132,6 +132,7 @@
   * [Ajouter une image](image.md#AddPicture)
   * [Obtenir l'image](image.md#GetPicture)
 * [Forme](shape.md)
+* [Sparklines](sparklines.md)
 * [Style](style.md)
   * [Créer un style](style.md#NewStyle)
   * [Border](style.md#border)

@@ -11,14 +11,14 @@
     <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
 </p>
 
-Excelize 는 순수 Go 로 작성되고 XLSX 파일에 쓰고 읽을 수있는 함수 세트를 제공하는 라이브러리입니다. 지원은 Microsoft Excel&trade; 2007 이후 버전에서 생성 된 XLSX 파일을 읽고 씁니다. XLSX 의 원본 차트를 잃지 않고 파일 저장을 지원합니다. 이 라이브러리에는 Go 버전 1.8 이상이 필요합니다.
+Excelize 는 순수 Go 로 작성되고 XLSX 파일에 쓰고 읽을 수있는 함수 세트를 제공하는 라이브러리입니다. 지원은 Microsoft Excel&trade; 2007 이후 버전에서 생성 된 XLSX 파일을 읽고 씁니다. XLSX 의 원본 차트를 잃지 않고 파일 저장을 지원합니다. 이 라이브러리에는 Go 버전 1.10 이상이 필요합니다.
 
 - 소스 코드: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - 발행물: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.0.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 문서 업데이트 시간: 2019 년 7 월 23 일
+- 문서 업데이트 시간: 2019 년 8 월 12 일
 
 ## 프로젝트 미션
 

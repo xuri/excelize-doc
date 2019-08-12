@@ -132,6 +132,7 @@
   * [Добавить изображение](image.md#AddPicture)
   * [Получить изображение](image.md#GetPicture)
 * [форма](shape.md)
+* [Спарклайнов](sparklines.md)
 * [Стиль](style.md)
   * [Создать стиль](style.md#NewStyle)
   * [бордюр](style.md#border)

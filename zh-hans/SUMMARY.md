@@ -132,6 +132,7 @@
   * [插入图片](image.md#AddPicture)
   * [获取图片](image.md#GetPicture)
 * [形状](shape.md)
+* [迷你图](sparklines.md)
 * [样式](style.md)
   * [创建样式](style.md#NewStyle)
   * [边框](style.md#border)
