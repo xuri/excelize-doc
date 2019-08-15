@@ -124,7 +124,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_04.png" alt="Set the character spacing and rotation angle"></p>
 
-- Example 5, the date and time in Excel are represented by real numbers, for example `2017/7/4  12:00:00 PM` can be represented by the number `42920.5`. Set the time format for the worksheet `D7` cell named `Sheet1`:
+- Example 5, the date and time in Excel are represented by real numbers, for example `2017/7/4 12:00:00 PM` can be represented by the number `42920.5`. Set the time format for the worksheet `D7` cell named `Sheet1`:
 
 ```go
 f.SetCellValue("Sheet1", "D7", 42920.5)
@@ -138,7 +138,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Set the time format for the cell"></p>
 
-The cell `D7` is set to the time format. Note that when the cell width with the time format applied is too narrow to be fully displayed, it will be displayed as `####`, you can drag and drop the column width or set the column to the appropriate size by calling the `SetColWidth` function to make it normal. display.
+The cell `D7` is set to the time format. Note that when the cell width with the time format applied is too narrow to be fully displayed, it will be displayed as `####`, you can drag and drop the column width or set the column to the appropriate size by calling the `SetColWidth` function to make it normal display.
 
 - Example 6, setting the font, font size, color, and skew style for the worksheet `D7` cell named `Sheet1`:
 

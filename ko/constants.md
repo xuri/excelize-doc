@@ -1,6 +1,6 @@
-# Constants
+# 상수
 
-Cette section définit les types de graphiques actuellement pris en charge:
+이 섹션에서는 현재 지원되는 차트 유형을 정의합니다:
 
 ```go
 const (
@@ -59,7 +59,7 @@ const (
 )
 ```
 
-Relation source et espace de noms:
+소스 관계 및 네임스페이스:
 
 ```go
 const (
@@ -98,7 +98,7 @@ const (
 )
 ```
 
-Définir la taille de cellule par défaut et l'unité de mesure EMU (Unités métriques anglaises):
+기본 셀 크기 및 EMU(영어 메트릭 단위) 측정 단위 정의:
 
 ```go
 const (
@@ -106,13 +106,13 @@ const (
 )
 ```
 
-XMLHeader définir une déclaration XML peut également contenir une déclaration autonome:
+XMLHeader 정의 XML 선언에는 독립 실행형 선언도 포함될 수 있습니다:
 
 ```go
 const XMLHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
 ```
 
-Cette section définit les types de validation des données.
+이 섹션에서는 데이터 유효성 검사 형식을 정의합니다.
 
 ```go
 const (
@@ -125,7 +125,7 @@ const (
 )
 ```
 
-Cette section définit les opérateurs de validation de données.
+이 섹션에서는 데이터 유효성 검사 연산자.
 
 ```go
 const (
