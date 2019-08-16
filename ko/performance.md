@@ -1,14 +1,14 @@
-# Performance
+# 성능
 
-Les performances indiquées ci-dessous indiquent le temps d'exécution et l'utilisation de la mémoire pour les feuilles de calcul de taille `N` lignes x `50` colonnes avec un mélange 50/50 de chaînes et de nombres. Les chiffres proviennent d'une machine de milieu de gamme arbitraire (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.12.4 darwin/amd64`, Commit: [`0660f30`](https://github.com/360EntSecGroup-Skylar/excelize/tree/0660f30cddc06de7883d40eb4f8e4945c18a0252)). Les chiffres spécifiques varient d'une machine à l'autre, mais les tendances devraient être les mêmes.
+아래 성능 수치는 문자열과 숫자가 50/50으로 혼합된 크기 `N` 행 x `50` 열의 워크시트에 대한 실행 시간 및 메모리 사용량을 보여 준다. 수치는 임의의 미드 레인지, 기계에서 가져온 (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.12.4 darwin/amd64`, Commit: [`0660f30`](https://github.com/360EntSecGroup-Skylar/excelize/tree/0660f30cddc06de7883d40eb4f8e4945c18a0252)). 특정 수치는 기계마다 다르지만 추세는 동일해야 합니다.
 
 <table>
     <tr>
-        <th>Type</th>
-        <th>Lignes</th>
-        <th>Colonnes</th>
-        <th>Temps (s)</th>
-        <th>Mémoire (MB)</th>
+        <th>형식</th>
+        <th>행</th>
+        <th>열</th>
+        <th>시간 (s)</th>
+        <th>메모리 (MB)</th>
     </tr>
     <tr>
         <td rowspan="10">Set Cell Value</td>
@@ -166,9 +166,8 @@ Les performances indiquées ci-dessous indiquent le temps d'exécution et l'util
     </tr>
 </table>
 
-## Comparaison des performances de bibliothèques similaires
+## 유사한 라이브러리의 성능 비교
 
-Le graphique ci-dessous compare les performances de la matrice en texte brut de la génération `12800*50` avec les principales bibliothèques Excel open source sous un ordinateur personnel (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB), including Go, Python, Java, PHP and NodeJS.
-) y compris Go, Python, Java, PHP et NodeJS.
+다음 그래프는 Go, Python, Java, PHP 와 NodeJS 를 포함한 개인용 컴퓨터의 주요 오픈 소스 Excel libs 에 의한 세대 `12800*50` 일반 텍스트 매트릭스의 성능 비교를 보여줍니다 (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB).
 
-<p align="center"><img width="721" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Comparaison des performances de bibliothèques similaires"></p>
+<p align="center"><img width="721" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Excel 유사한 라이브러리의 성능 비교"></p>

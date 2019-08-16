@@ -22,7 +22,7 @@ err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
 })
 ```
 
-<p align="center"><img width="651" src="./images/sparkline_02.png" alt="create sparkline with excelize using Go"></p>
+<p align="center"><img width="652" src="./images/sparkline_02.png" alt="create sparkline with excelize using Go"></p>
 
 The following shows the formatting options of sparkline supported by excelize:
 
