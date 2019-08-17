@@ -466,7 +466,7 @@ format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type"
 format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
 ```
 
-type: `minimum` - The minimum parameter is used to set the lower limiting value when the `criteria` is either `between` or `not between`.
+type: `minimum` - The `minimum` parameter is used to set the lower limiting value when the `criteria` is either `between` or `not between`.
 
 ```go
 // Highlight cells rules: between...
@@ -492,7 +492,7 @@ type: `duplicate` - The `duplicate` type is used to highlight duplicate cells in
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
 ```
 
-type: `unique` - The unique type is used to highlight unique cells in a range:
+type: `unique` - The `unique` type is used to highlight unique cells in a range:
 
 ```go
 // Highlight cells rules: Not Equal To...
