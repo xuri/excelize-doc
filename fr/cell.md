@@ -79,7 +79,7 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Définir un style de bordure pour une cellule"](./images/SetCellStyle_01.png "Définir un style de bordure pour une cellule")
+<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="Définir un style de bordure pour une cellule"></p>
 
 Les quatre bordures de la cellule `D7` sont définies avec des styles et des couleurs différents. Ceci est lié aux paramètres lors de l'appel de la fonction `NewStyle`. Vous devez définir différents styles pour faire référence à la documentation de ce chapitre.
 
@@ -93,7 +93,7 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Définir un style de dégradé pour la cellule"](./images/SetCellStyle_02.png "Définir un style de dégradé pour la cellule")
+<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="Définir un style de dégradé pour la cellule"></p>
 
 La cellule `D7` est définie avec le remplissage de couleur de l'effet de dégradé. L'effet de remplissage de dégradé est lié au paramètre lorsque la fonction `NewStyle` est appelée. Vous devez définir différents styles pour vous référer à la documentation de ce chapitre.
 
@@ -107,7 +107,7 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Définir un remplissage solide pour la cellule"](./images/SetCellStyle_03.png "Définir un remplissage solide pour la cellule")
+<p align="center"><img width="612" src="./images/SetCellStyle_03.png" alt="Définir un remplissage solide pour la cellule"></p>
 
 La cellule `D7` est définie avec un remplissage solide.
 
@@ -122,7 +122,7 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Définir l'espacement des caractères et l'angle de rotation"](./images/SetCellStyle_04.png "Définir l'espacement des caractères et l'angle de rotation")
+<p align="center"><img width="612" src="./images/SetCellStyle_04.png" alt="Définir l'espacement des caractères et l'angle de rotation"></p>
 
 - Exemple 5, la date et l'heure dans Excel sont représentées par des nombres réels, par exemple, `2017/7/4 12:00:00 PM` peut être représenté par le nombre `42920.5`. Définissez le format d'heure pour la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 
@@ -136,7 +136,7 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Définir le format de l'heure pour la cellule"](./images/SetCellStyle_05.png "Définir le format de l'heure pour la cellule")
+<p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Définir le format de l'heure pour la cellule"></p>
 
 La cellule `D7` est définie sur le format de l'heure. Notez que lorsque la largeur de la cellule avec le format d'heure appliqué est trop étroite pour être entièrement affichée, elle sera affichée comme `####`, vous pouvez faire glisser et déposer la largeur de colonne ou définir la taille appropriée de la colonne en appelant le Fonction `SetColWidth` pour le rendre normal. afficher.
 
@@ -144,14 +144,14 @@ La cellule `D7` est définie sur le format de l'heure. Notez que lorsque la larg
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777"}}`)
+style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
 if err != nil {
     fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Définir la police, la taille de la police, la couleur et le style de biais pour les cellules"](./images/SetCellStyle_06.png "Définir la police, la taille de la police, la couleur et le style de biais pour les cellules")
+<p align="center"><img width="612" src="./images/SetCellStyle_06.png" alt="Définir la police, la taille de la police, la couleur et le style de biais pour les cellules"></p>
 
 - Exemple 7, verrouillage et masquage de la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 

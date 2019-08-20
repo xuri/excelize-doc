@@ -144,14 +144,14 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777"}}`)
+style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
 if err != nil {
     fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-!["Установите шрифт, размер шрифта, цвет и стиль перекоса для ячеек"](./images/SetCellStyle_06.png "Установите шрифт, размер шрифта, цвет и стиль перекоса для ячеек")
+<p align="center"><img width="612" src="./images/SetCellStyle_06.png" alt="Установите шрифт, размер шрифта, цвет и стиль перекоса для ячеек"></p>
 
 - Пример 7, блокировка и скрытие ячейки `D7` с именем `Sheet1`:
 

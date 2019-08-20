@@ -137,7 +137,7 @@ width|int|480|Largeur
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 2D graphique à aires avec excelize en utilisant Go"](./images/2d_area_chart.png "créer 2D graphique à aires avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/2d_area_chart.png" alt="créer 2D graphique à aires avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -174,7 +174,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 2D graphique à aires empilées avec excelize en utilisant Go"](./images/2d_stacked_area_chart.png "créer 2D graphique à aires empilées avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/2d_stacked_area_chart.png" alt="créer 2D graphique à aires empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -213,7 +213,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D graphique à aires avec excelize en utilisant Go"](./images/3d_area_chart.png "créer 3D graphique à aires avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/3d_area_chart.png" alt="créer 3D graphique à aires avec excelize en utilisant Go"></p>
 
 ```go
 
@@ -251,7 +251,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D graphique à aires empilées avec excelize en utilisant Go"](./images/3d_stacked_area_chart.png "créer 3D graphique à aires empilées avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/3d_stacked_area_chart.png" alt="créer 3D graphique à aires empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -288,7 +288,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D 100% graphique à aires empilées avec excelize en utilisant Go"](./images/3d_percent_stacked_area_chart.png "créer 3D 100% graphique à aires empilées avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/3d_percent_stacked_area_chart.png" alt="créer 3D 100% graphique à aires empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -325,7 +325,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 2D graphique à barres en cluster avec excelize en utilisant Go"](./images/2d_clustered_bar_chart.png "créer 2D graphique à barres en cluster avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/2d_clustered_bar_chart.png" alt="créer 2D graphique à barres en cluster avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -362,7 +362,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 2D graphique à barres empilées avec excelize en utilisant Go"](./images/2d_stacked_bar_chart.png "créer 2D graphique à barres empilées avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/2d_stacked_bar_chart.png" alt="créer 2D graphique à barres empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -399,7 +399,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 2D 100% graphique à barres empilées avec excelize en utilisant Go"](./images/2d_percent_stacked_bar_chart.png "créer 2D 100% graphique à barres empilées avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/2d_percent_stacked_bar_chart.png" alt="créer 2D 100% graphique à barres empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -436,7 +436,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D graphique à barres en cluster avec excelize en utilisant Go"](./images/3d_clustered_bar_chart.png "créer 3D graphique à barres en cluster avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/3d_clustered_bar_chart.png" alt="créer 3D graphique à barres en cluster avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -473,7 +473,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D graphique à barres empilées avec excelize en utilisant Go"](./images/3d_stacked_bar_chart.png "créer 3D graphique à barres empilées avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/3d_stacked_bar_chart.png" alt="créer 3D graphique à barres empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -510,7 +510,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D 100% graphique à barres empilées avec excelize en utilisant Go"](./images/3d_percent_stacked_bar_chart.png "créer 3D 100% graphique à barres empilées avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/3d_percent_stacked_bar_chart.png" alt="créer 3D 100% graphique à barres empilées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -547,7 +547,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 2D tableau à colonnes groupées avec excelize en utilisant Go"](./images/2d_clustered_column_chart.png "créer 2D tableau à colonnes groupées avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/2d_clustered_column_chart.png" alt="créer 2D tableau à colonnes groupées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -606,7 +606,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer 3D tableau à colonnes groupées avec excelize en utilisant Go"](./images/3d_clustered_column_chart.png "créer 3D tableau à colonnes groupées avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/3d_clustered_column_chart.png" alt="créer 3D tableau à colonnes groupées avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -673,7 +673,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer tableau de donut avec excelize en utilisant Go"](./images/doughnut_chart.png "créer tableau de donut avec excelize en utilisant Go")
+<p align="center"><img width="769" src="./images/doughnut_chart.png" alt="créer tableau de donut avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -745,7 +745,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer graphique tarte avec excelize en utilisant Go"](./images/pie_chart.png "créer graphique tarte avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/pie_chart.png" alt="créer graphique tarte avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -780,7 +780,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-<p align="center"><img width="770" src="./images/3d_pie_chart.png" alt="créer 3D graphique tarte avec excelize en utilisant Go"></p>
+<p align="center"><img width="769" src="./images/3d_pie_chart.png" alt="créer 3D graphique tarte avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -815,7 +815,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer graphique radar avec excelize en utilisant Go"](./images/radar_chart.png "créer graphique radar avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/radar_chart.png" alt="créer graphique radar avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -852,7 +852,7 @@ func main() {
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-!["créer graphique de dispersion avec excelize en utilisant Go"](./images/scatter_chart.png "créer graphique de dispersion avec excelize en utilisant Go")
+<p align="center"><img width="770" src="./images/scatter_chart.png" alt="créer graphique de dispersion avec excelize en utilisant Go"></p>
 
 ```go
 package main

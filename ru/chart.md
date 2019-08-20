@@ -138,7 +138,7 @@ width|int|480|Ширина
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 2D диаграмма области с Excelize с помощью Go"](./images/2d_area_chart.png "создать 2D диаграмма области с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/2d_area_chart.png" alt="создать 2D диаграмма области с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -175,7 +175,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 2D диаграмма области с накоплением с Excelize с помощью Go"](./images/2d_stacked_area_chart.png "создать 2D диаграмма области с накоплением с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/2d_stacked_area_chart.png" alt="создать 2D диаграмма области с накоплением с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -214,7 +214,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D диаграмма области с Excelize с помощью Go"](./images/3d_area_chart.png "создать 3D диаграмма области с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/3d_area_chart.png" alt="создать 3D диаграмма области с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -251,7 +251,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D диаграмма области с накоплением с накоплением с Excelize с помощью Go"](./images/3d_stacked_area_chart.png "создать 3D диаграмма области с накоплением с накоплением с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/3d_stacked_area_chart.png" alt="создать 3D диаграмма области с накоплением с накоплением с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -288,7 +288,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D 100% диаграмма области с накоплением с Excelize с помощью Go"](./images/3d_percent_stacked_area_chart.png "создать 3D 100% диаграмма области с накоплением с Excelize с помощью Go")
+<p align="center"><img width="769" src="./images/3d_percent_stacked_area_chart.png" alt="создать 3D 100% диаграмма области с накоплением с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -325,7 +325,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 2D кластерная гистограмма с Excelize с помощью Go"](./images/2d_clustered_bar_chart.png "создать 2D кластерная гистограмма с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/2d_clustered_bar_chart.png" alt="создать 2D кластерная гистограмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -362,7 +362,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 2D Двухстрочная гистограмма с Excelize с помощью Go"](./images/2d_stacked_bar_chart.png "создать 2D Двухстрочная гистограмма с Excelize с помощью Go")
+<p align="center"><img width="769" src="./images/2d_stacked_bar_chart.png" alt="создать 2D Двухстрочная гистограмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -399,7 +399,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 2D 100% сложная гистограмма с Excelize с помощью Go"](./images/2d_percent_stacked_bar_chart.png "создать 2D 100% сложная гистограмма с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/2d_percent_stacked_bar_chart.png" alt="создать 2D 100% сложная гистограмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -436,7 +436,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D кластерная гистограмма с Excelize с помощью Go"](./images/3d_clustered_bar_chart.png "создать 3D кластерная гистограмма с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/3d_clustered_bar_chart.png" alt="создать 3D кластерная гистограмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -473,7 +473,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D гистограмма с Excelize с помощью Go"](./images/3d_stacked_bar_chart.png "создать 3D гистограмма с Excelize с помощью Go")
+<p align="center"><img width="768" src="./images/3d_stacked_bar_chart.png" alt="создать 3D гистограмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -510,7 +510,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D 100% сложная гистограмма с Excelize с помощью Go"](./images/3d_percent_stacked_bar_chart.png "создать 3D 100% сложная гистограмма с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/3d_percent_stacked_bar_chart.png" alt="создать 3D 100% сложная гистограмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -547,7 +547,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 2D группированная диаграмма столбцов с Excelize с помощью Go"](./images/2d_clustered_column_chart.png "создать 2D группированная диаграмма столбцов с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/2d_clustered_column_chart.png" alt="создать 2D группированная диаграмма столбцов с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -606,8 +606,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать 3D группированная диаграмма столбцов с Excelize с помощью Go"](./images/3d_clustered_column_chart.png "создать 3D группированная диаграмма столбцов с Excelize с помощью Go")
-
+<p align="center"><img width="770" src="./images/3d_clustered_column_chart.png" alt="создать 3D группированная диаграмма столбцов с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -674,7 +673,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать диаграмма пончика с Excelize с помощью Go"](./images/doughnut_chart.png "создать диаграмма пончика с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/doughnut_chart.png" alt="создать диаграмма пончика с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -711,7 +710,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-<p align="center"><img width="770" src="./images/3d_pie_chart.png" alt="создать линейный график с Excelize с помощью Go"></p>
+<p align="center"><img width="770" src="./images/line_chart.png" alt="создать линейный график с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -746,7 +745,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать круговая диаграмма с Excelize с помощью Go"](./images/pie_chart.png "создать круговая диаграмма с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/pie_chart.png" alt="создать круговая диаграмма с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -816,7 +815,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать Pадиолокационная карта с Excelize с помощью Go"](./images/radar_chart.png "создать Pадиолокационная карта с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/radar_chart.png" alt="создать Pадиолокационная карта с Excelize с помощью Go"></p>
 
 ```go
 package main
@@ -853,7 +852,7 @@ func main() {
 
 Например, добавьте диаграмму, подобную этой:
 
-!["создать диаграмма рассеяния с Excelize с помощью Go"](./images/scatter_chart.png "создать диаграмма рассеяния с Excelize с помощью Go")
+<p align="center"><img width="770" src="./images/scatter_chart.png" alt="создать диаграмма рассеяния с Excelize с помощью Go"></p>
 
 ```go
 package main

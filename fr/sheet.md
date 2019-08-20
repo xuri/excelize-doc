@@ -252,7 +252,7 @@ func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 
 SetRowOutlineLevel fournit une fonction pour définir le numéro de niveau hiérarchique d'une seule ligne par nom de feuille de calcul donné et index de ligne. Par exemple, définissez la ligne 2 dans `Sheet1` au niveau 1:
 
-!["Créer un contour de ligne"](./images/row_outline_level.png "Créer un contour de ligne")
+<p align="center"><img width="612" src="./images/row_outline_level.png" alt="Créer un contour de ligne"></p>
 
 ```go
 err := f.SetRowOutlineLevel("Sheet1", 2, 1)
@@ -367,7 +367,7 @@ func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 
 ProtectSheet fournit une fonction permettant d'empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans une feuille de calcul. Par exemple, protégez `Sheet1` avec les paramètres de protection:
 
-!["Protéger la feuille"](./images/protect_sheet.png "Protéger la feuille")
+<p align="center"><img width="914" src="./images/protect_sheet.png" alt="Protéger la feuille"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{

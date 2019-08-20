@@ -9,7 +9,7 @@ func (f *File) AddShape(sheet, cell, format string) error
 AddShape предоставляет метод добавления фигуры на листе с помощью заданного индекса рабочего листа, формата формы (например, смещения, масштаба, настройки соотношения сторон и параметров печати) и свойств. Например, добавьте текстовое поле (прямая форма) в `Sheet1`:
 
 ```go
-err := f.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fill":"#8eb9ff"},"paragraph":[{"text":"Rectangle Shape","font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777","underline":"sng"}}],"width":180,"height": 90}`)
+err := f.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fill":"#8eb9ff"},"paragraph":[{"text":"Rectangle Shape","font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777","underline":"sng"}}],"width":180,"height": 90}`)
 ```
 
 Ниже показан тип формы, поддерживаемый excelize:

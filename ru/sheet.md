@@ -252,7 +252,7 @@ func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 
 SetRowOutlineLevel предоставляет функцию для установки уровня уровня строки в одной строке с помощью заданного имени листа и индекса строки. Например, контур 2 строки в `Sheet1` до уровня 1:
 
-!["Создать схему строки"](./images/row_outline_level.png "Создать схему строки")
+<p align="center"><img width="612" src="./images/row_outline_level.png" alt="Создать схему строки"></p>
 
 ```go
 err := f.SetRowOutlineLevel("Sheet1", 2, 1)
@@ -367,7 +367,7 @@ func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 
 ProtectSheet предоставляет функцию предотвращения случайного или преднамеренного изменения других пользователей, перемещения или удаления данных на листе. Например, защитите `Sheet1` с настройками защиты:
 
-!["Защитить лист"](./images/protect_sheet.png "Защитить лист")
+<p align="center"><img width="914" src="./images/protect_sheet.png" alt="Защитить лист"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{

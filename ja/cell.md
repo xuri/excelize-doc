@@ -144,7 +144,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777"}}`)
+style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
 if err != nil {
     fmt.Println(err)
 }

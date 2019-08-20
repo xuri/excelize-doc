@@ -144,7 +144,7 @@ The cell `D7` is set to the time format. Note that when the cell width with the 
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777"}}`)
+style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
 if err != nil {
     fmt.Println(err)
 }

@@ -607,7 +607,7 @@ split (Split)|Les volets sont divisés, mais pas gelés. Dans cet état, les bar
 
 Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!K16`:
 
-!["Colonne gelée"](./images/setpans_01.png "Colonne gelée")
+<p align="center"><img width="770" src="./images/setpans_01.png" alt="Colonne gelée"></p>
 
 ```go
 f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
@@ -615,7 +615,7 @@ f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_
 
 Exemple 2: geler les lignes 1 à 9 dans la feuille Sheet1 et définir les plages de cellules actives sur `Sheet1!A11:XFD11`:
 
-!["Geler les colonnes et définir les plages de cellules actives"](./images/setpans_02.png "Geler les colonnes et définir les plages de cellules actives")
+<p align="center"><img width="769" src="./images/setpans_02.png" alt="Geler les colonnes et définir les plages de cellules actives"></p>
 
 ```go
 f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
@@ -623,7 +623,7 @@ f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_
 
 Exemple 3: créer des volets fractionnés dans `Sheet1` et définir la cellule active sur  `Sheet1!J60`:
 
-!["Créer des volets divisés"](./images/setpans_03.png "Créer des volets divisés")
+<p align="center"><img width="737" src="./images/setpans_03.png" alt="Créer des volets divisés"></p>
 
 ```go
 f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)

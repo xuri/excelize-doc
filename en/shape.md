@@ -9,7 +9,7 @@ func (f *File) AddShape(sheet, cell, format string) error
 AddShape provides the method to add shape in a sheet by given worksheet index, shape format set (such as offset, scale, aspect ratio setting and print settings) and properties set. For example, add text box (rect shape) in `Sheet1`:
 
 ```go
-err := f.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fill":"#8eb9ff"},"paragraph":[{"text":"Rectangle Shape","font":{"bold":true,"italic":true,"family":"Berlin Sans FB Demi","size":36,"color":"#777777","underline":"sng"}}],"width":180,"height": 90}`)
+err := f.AddShape("Sheet1", "G6", `{"type":"rect","color":{"line":"#4286F4","fill":"#8eb9ff"},"paragraph":[{"text":"Rectangle Shape","font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777","underline":"sng"}}],"width":180,"height": 90}`)
 ```
 
 The following shows the type of shape supported by excelize:
