@@ -145,6 +145,8 @@
   * [Définir la police par défaut](style.md#SetDefaultFont)
 * [Données](data.md)
   * [Validation des données](data.md#AddDataValidation)
+* [Tableau croisé dynamique](pivot.md#PivotTable)
+  * [Créer un tableau croisé dynamique](pivot.md#AddPivotTable)
 * [Utilitaire](utils.md)
   * [Table](utils.md#AddTable)
   * [Filtre autor](utils.md#AutoFilter)

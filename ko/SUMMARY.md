@@ -145,6 +145,8 @@
   * [기본 글꼴 설정](style.md#SetDefaultFont)
 * [데이터](data.md)
   * [데이터 유효성 검사](data.md#AddDataValidation)
+* [피벗 테이블](pivot.md#PivotTable)
+  * [피벗 테이블 만들기](pivot.md#AddPivotTable)
 * [유틸리티 기능](utils.md)
   * [양식 만들기](utils.md#AddTable)
   * [자동 필터](utils.md#AutoFilter)

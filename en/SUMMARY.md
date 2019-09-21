@@ -145,6 +145,8 @@
   * [Set default font](style.md#SetDefaultFont)
 * [Data](data.md)
   * [Data validation](data.md#AddDataValidation)
+* [Pivot Table](pivot.md#PivotTable)
+  * [Create Pivot Table](pivot.md#AddPivotTable)
 * [Utils](utils.md)
   * [Table](utils.md#AddTable)
   * [Autor filter](utils.md#AutoFilter)

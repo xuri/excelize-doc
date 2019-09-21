@@ -145,6 +145,8 @@
   * [Установить шрифт по умолчанию](style.md#SetDefaultFont)
 * [Данные](data.md)
   * [Проверка данных](data.md#AddDataValidation)
+* [Сводная таблица](pivot.md#PivotTable)
+  * [Создать сводную таблицу](pivot.md#AddPivotTable)
 * [Функция инструмента](utils.md)
   * [Таблица](utils.md#AddTable)
   * [Авто фильтр](utils.md#AutoFilter)

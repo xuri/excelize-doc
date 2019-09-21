@@ -145,6 +145,8 @@
   * [既定のフォントを設定する](style.md#SetDefaultFont)
 * [データ](data.md)
   * [データ検証](data.md#AddDataValidation)
+* [ピボットテーブル](pivot.md#PivotTable)
+  * [ピボットテーブルを作成する](pivot.md#AddPivotTable)
 * [ツール機能](utils.md)
   * [テーブル作成](utils.md#AddTable)
   * [自動フィルタ](utils.md#AutoFilter)

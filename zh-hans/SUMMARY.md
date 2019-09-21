@@ -145,6 +145,8 @@
   * [设置默认字体](style.md#SetDefaultFont)
 * [数据](data.md)
   * [数据验证](data.md#AddDataValidation)
+* [数据透视表](pivot.md#PivotTable)
+  * [创建数据透视表](pivot.md#AddPivotTable)
 * [工具函数](utils.md)
   * [创建表格](utils.md#AddTable)
   * [自动过滤器](utils.md#AutoFilter)
