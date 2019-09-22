@@ -285,7 +285,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 ## 设置公式 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string)
+func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
 根据给定的工作表名（大小写敏感）和单元格坐设置取该单元格上的公式。公式的结果会在工作表被 Office Excel 应用程序打开时计算，Excelize 目前不提供公式计算引擎，所以无法计算公式结果。

@@ -285,7 +285,7 @@ GetComments récupère tous les commentaires et renvoie une carte de nom de feui
 ## Formule de définition de cellule {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string)
+func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
 La formule sur la cellule est prise en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la formule est calculé lorsque la feuille de calcul est ouverte par l'application Office Excel et que Excelize ne fournit pas actuellement de moteur de calcul de formule. Les résultats de formule ne peuvent donc pas être calculés.

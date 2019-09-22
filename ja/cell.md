@@ -285,7 +285,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 ## セル式の設定 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string)
+func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
 指定されたワークシート名 (大文字小文字の区別) とセルの設定に基づいて、セルの数式を設定します。 数式の結果は、ワークシートが Office Excel アプリケーションによって開かれたときに計算され、Excelize は現在、数式計算エンジンを提供していないため、数式の結果を計算できません。

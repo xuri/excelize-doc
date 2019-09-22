@@ -285,7 +285,7 @@ GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크�
 ## 셀 수식 설정 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string)
+func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
 셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식의 결과는 Office Excel 응용 프로그램에서 워크시트를 열 때 계산되며 Excelize는 현재 수식 계산 엔진을 제공하지 않으므로 수식 결과를 계산할 수 없습니다.

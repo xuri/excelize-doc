@@ -285,7 +285,7 @@ GetComments retrieves all comments and returns a map of worksheet name to the wo
 ## Set cell formula {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string)
+func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
 The formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula is calculated when the worksheet is opened by the Office Excel application, and Excelize does not currently provide a formula calculation engine, so the formula results cannot be calculated.
