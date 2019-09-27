@@ -6,7 +6,7 @@
 
 [迷你图](https://en.wikipedia.org/wiki/Sparklines) 是由 [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte) 发明的。
 
-## Add Sparkline
+## 添加迷你图
 
 ```go
 func (f *File) AddSparkline(sheet string, opt *SparklineOption) error
