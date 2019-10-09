@@ -134,6 +134,8 @@ RightToLeft|bool
 ShowFormulas|bool
 ShowGridLines|bool
 ShowRowColHeaders|bool
+ZoomScale|float64
+TopLeftCell|string
 
 - Exemple 1, pour obtenir les paramètres de la propriété gridline pour la dernière vue de la feuille de calcul nommée `Sheet1`:
 
@@ -153,6 +155,7 @@ var (
     rightToLeft       excelize.RightToLeft
     showFormulas      excelize.ShowFormulas
     showGridLines     excelize.ShowGridLines
+    showZeros         excelize.ShowZeros
     showRowColHeaders excelize.ShowRowColHeaders
     zoomScale         excelize.ZoomScale
     topLeftCell       excelize.TopLeftCell
@@ -163,6 +166,7 @@ if err := f.GetSheetViewOptions(sheet, 0,
     &rightToLeft,
     &showFormulas,
     &showGridLines,
+    &showZeros,
     &showRowColHeaders,
     &zoomScale,
     &topLeftCell,
@@ -175,6 +179,7 @@ fmt.Println("- defaultGridColor:", defaultGridColor)
 fmt.Println("- rightToLeft:", rightToLeft)
 fmt.Println("- showFormulas:", showFormulas)
 fmt.Println("- showGridLines:", showGridLines)
+fmt.Println("- showZeros:", showZeros)
 fmt.Println("- showRowColHeaders:", showRowColHeaders)
 fmt.Println("- zoomScale:", zoomScale)
 fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
@@ -195,8 +200,17 @@ if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
     panic(err)
 }
 
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
+    panic(err)
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
+    panic(err)
+}
+
 fmt.Println("After change:")
 fmt.Println("- showGridLines:", showGridLines)
+fmt.Println("- showZeros:", showZeros)
 fmt.Println("- topLeftCell:", topLeftCell)
 ```
 
@@ -208,11 +222,13 @@ Default:
 - rightToLeft: false
 - showFormulas: false
 - showGridLines: true
+- showZeros: true
 - showRowColHeaders: true
 - zoomScale: 0
 - topLeftCell: ""
 After change:
 - showGridLines: false
+- showZeros: false
 - topLeftCell: B2
 ```
 
