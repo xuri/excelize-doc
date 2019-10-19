@@ -24,6 +24,8 @@
   * [Obtenir les propriétés d'affichage de la feuille de calcul](workbook.md#GetSheetViewOptions)
   * [Définir la mise en page de feuille de calcul](workbook.md#SetPageLayout)
   * [Obtenir la mise en page de feuille de calcul](workbook.md#GetPageLayout)
+  * [Définissez les marges de page de feuille de calcul](workbook.md#SetPageMargins)
+  * [Obtenir les marges des pages de la feuille de calcul](workbook.md#GetPageMargins)
   * [Définir l'en-tête et le pied de page](workbook.md#SetHeaderFooter)
   * [Définir le nom défini](workbook.md#SetDefinedName)
   * [Obtenir le nom défini](workbook.md#GetDefinedName)

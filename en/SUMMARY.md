@@ -24,6 +24,8 @@
   * [Get worksheet view properties](workbook.md#GetSheetViewOptions)
   * [Set worksheet page layout](workbook.md#SetPageLayout)
   * [Get worksheet page layout](workbook.md#GetPageLayout)
+  * [Set worksheet page margins](workbook.md#SetPageMargins)
+  * [Get worksheet page margins](workbook.md#GetPageMargins)
   * [Set header and footer](workbook.md#SetHeaderFooter)
   * [Set defined name](workbook.md#SetDefinedName)
   * [Get defined name](workbook.md#GetDefinedName)

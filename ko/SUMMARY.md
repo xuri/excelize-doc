@@ -24,6 +24,8 @@
   * [워크 시트 뷰 속성 가져 오기](workbook.md#GetSheetViewOptions)
   * [워크 시트 페이지 레이아웃 설정](workbook.md#SetPageLayout)
   * [워크 시트 페이지 레이아웃 가져 오기](workbook.md#GetPageLayout)
+  * [워크 시트 페이지 여백 설정](workbook.md#SetPageMargins)
+  * [워크 시트 페이지 여백 가져 오기](workbook.md#GetPageMargins)
   * [머리글 및 바닥 글 설정](workbook.md#SetHeaderFooter)
   * [이름 설정](workbook.md#SetDefinedName)
   * [이름 가져 오기](workbook.md#GetDefinedName)

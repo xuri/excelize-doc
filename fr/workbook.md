@@ -417,10 +417,104 @@ if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
 fmt.Println("Defaults:")
 fmt.Printf("- orientation: %q\n", orientation)
 fmt.Printf("- paper size: %d\n", paperSize)
-// Output:
-// Defaults:
-// - orientation: "portrait"
-// - paper size: 1
+```
+
+Résultat:
+
+```text
+Defaults:
+- orientation: "portrait"
+- paper size: 1
+```
+
+## Définissez les marges de page de feuille de calcul {#SetPageMargins}
+
+SetPageMargins fournit une fonction permettant de définir les marges des pages de la feuille de calcul. Options disponibles:
+
+Options|Type
+---|---
+PageMarginBotom|float64
+PageMarginFooter|float64
+PageMarginHeader|float64
+PageMarginLeft|float64
+PageMarginRight|float64
+PageMarginTop|float64
+
+- Par exemple, définissez les marges de page de `Sheet1`:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetPageMargins(sheet,
+    excelize.PageMarginBottom(1.0),
+    excelize.PageMarginFooter(1.0),
+    excelize.PageMarginHeader(1.0),
+    excelize.PageMarginLeft(1.0),
+    excelize.PageMarginRight(1.0),
+    excelize.PageMarginTop(1.0),
+); err != nil {
+    panic(err)
+}
+```
+
+## Obtenir les marges des pages de la feuille de calcul {#GetPageMargins}
+
+GetPageMargins fournit une fonction pour obtenir les marges des pages de la feuille de calcul. Options disponibles:
+
+Options|Type
+---|---
+PageMarginBotom|float64
+PageMarginFooter|float64
+PageMarginHeader|float64
+PageMarginLeft|float64
+PageMarginRight|float64
+PageMarginTop|float64
+
+- Par exemple, obtenez les marges de page de `Sheet1`:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    marginBottom excelize.PageMarginBottom
+    marginFooter excelize.PageMarginFooter
+    marginHeader excelize.PageMarginHeader
+    marginLeft   excelize.PageMarginLeft
+    marginRight  excelize.PageMarginRight
+    marginTop    excelize.PageMarginTop
+)
+
+if err := f.GetPageMargins(sheet,
+    &marginBottom,
+    &marginFooter,
+    &marginHeader,
+    &marginLeft,
+    &marginRight,
+    &marginTop,
+); err != nil {
+    panic(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- marginBottom:", marginBottom)
+fmt.Println("- marginFooter:", marginFooter)
+fmt.Println("- marginHeader:", marginHeader)
+fmt.Println("- marginLeft:", marginLeft)
+fmt.Println("- marginRight:", marginRight)
+fmt.Println("- marginTop:", marginTop)
+```
+
+Résultat:
+
+```text
+Defaults:
+- marginBottom: 0.75
+- marginFooter: 0.3
+- marginHeader: 0.3
+- marginLeft: 0.7
+- marginRight: 0.7
+- marginTop: 0.75
 ```
 
 ## Définir l'en-tête et le pied de page {#SetHeaderFooter}

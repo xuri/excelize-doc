@@ -417,10 +417,104 @@ if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
 fmt.Println("Defaults:")
 fmt.Printf("- orientation: %q\n", orientation)
 fmt.Printf("- paper size: %d\n", paperSize)
-// Output:
-// Defaults:
-// - orientation: "portrait"
-// - paper size: 1
+```
+
+Output:
+
+```text
+Defaults:
+- orientation: "portrait"
+- paper size: 1
+```
+
+## Set worksheet page margins {#SetPageMargins}
+
+SetPageMargins provides a function to set worksheet page margins. Available options:
+
+Options|Type
+---|---
+PageMarginBotom|float64
+PageMarginFooter|float64
+PageMarginHeader|float64
+PageMarginLeft|float64
+PageMarginRight|float64
+PageMarginTop|float64
+
+- For example, set page margins of `Sheet1`:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetPageMargins(sheet,
+    excelize.PageMarginBottom(1.0),
+    excelize.PageMarginFooter(1.0),
+    excelize.PageMarginHeader(1.0),
+    excelize.PageMarginLeft(1.0),
+    excelize.PageMarginRight(1.0),
+    excelize.PageMarginTop(1.0),
+); err != nil {
+    panic(err)
+}
+```
+
+## Get worksheet page margins {#GetPageMargins}
+
+GetPageMargins provides a function to get worksheet page margins. Available options:
+
+Options|Type
+---|---
+PageMarginBotom|float64
+PageMarginFooter|float64
+PageMarginHeader|float64
+PageMarginLeft|float64
+PageMarginRight|float64
+PageMarginTop|float64
+
+- For example, get page margins of `Sheet1`:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    marginBottom excelize.PageMarginBottom
+    marginFooter excelize.PageMarginFooter
+    marginHeader excelize.PageMarginHeader
+    marginLeft   excelize.PageMarginLeft
+    marginRight  excelize.PageMarginRight
+    marginTop    excelize.PageMarginTop
+)
+
+if err := f.GetPageMargins(sheet,
+    &marginBottom,
+    &marginFooter,
+    &marginHeader,
+    &marginLeft,
+    &marginRight,
+    &marginTop,
+); err != nil {
+    panic(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- marginBottom:", marginBottom)
+fmt.Println("- marginFooter:", marginFooter)
+fmt.Println("- marginHeader:", marginHeader)
+fmt.Println("- marginLeft:", marginLeft)
+fmt.Println("- marginRight:", marginRight)
+fmt.Println("- marginTop:", marginTop)
+```
+
+Output:
+
+```text
+Defaults:
+- marginBottom: 0.75
+- marginFooter: 0.3
+- marginHeader: 0.3
+- marginLeft: 0.7
+- marginRight: 0.7
+- marginTop: 0.75
 ```
 
 ## Set header and footer {#SetHeaderFooter}

@@ -24,6 +24,8 @@
   * [ワークシートビュープロパティを取得する](workbook.md#GetSheetViewOptions)
   * [ワークシートのページレイアウトを設定する](workbook.md#SetPageLayout)
   * [ワークシートのページレイアウトを取得する](workbook.md#GetPageLayout)
+  * [ワークシートのページ余白を設定する](workbook.md#SetPageMargins)
+  * [ワークシートのページ余白を取得する](workbook.md#GetPageMargins)
   * [ヘッダとフッタを設定する](workbook.md#SetHeaderFooter)
   * [名前を設定する](workbook.md#SetDefinedName)
   * [名前を取得する](workbook.md#GetDefinedName)

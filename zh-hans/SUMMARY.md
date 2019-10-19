@@ -24,6 +24,8 @@
   * [获取工作表视图属性](workbook.md#GetSheetViewOptions)
   * [设置工作表页面布局](workbook.md#SetPageLayout)
   * [获取工作表页面布局](workbook.md#GetPageLayout)
+  * [设置工作表页边距](workbook.md#SetPageMargins)
+  * [获取工作表页边距](workbook.md#GetPageMargins)
   * [设置页眉和页脚](workbook.md#SetHeaderFooter)
   * [设置名称](workbook.md#SetDefinedName)
   * [获取名称](workbook.md#GetDefinedName)

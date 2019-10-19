@@ -24,6 +24,8 @@
   * [Получить свойства вида листа](workbook.md#GetSheetViewOptions)
   * [Установить макет страницы листа](workbook.md#SetPageLayout)
   * [Получить макет страницы листа](workbook.md#GetPageLayout)
+  * [Задать поля страницы листа](workbook.md#SetPageMargins)
+  * [Получить поля страницы листа](workbook.md#GetPageMargins)
   * [Установить верхний и нижний колонтитулы](workbook.md#SetHeaderFooter)
   * [Установить определенное имя](workbook.md#SetDefinedName)
   * [Получить определенное имя](workbook.md#GetDefinedName)
