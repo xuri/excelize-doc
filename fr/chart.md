@@ -74,6 +74,7 @@ Paramètre|Explication
 name|Élément de légende (série), affiché dans la légende du graphique et la barre de formule. Le paramètre `name` est facultatif. Si vous ne spécifiez pas cette valeur, la valeur par défaut sera `Series 1 .. n`. Support `name` pour la représentation de la formule, par exemple: `Sheet1!$A$1`.
 categories|Etiquette d'axe horizontal (catégorie). Le paramètre `categories` est facultatif dans la plupart des types de graphiques, la valeur par défaut est une séquence contiguë de la forme `1..n`.
 values|La zone de données de graphique, qui est le paramètre le plus important dans `series`, est également le seul paramètre requis lors de la création d'un graphique. Cette option lie le graphique aux données de la feuille de calcul qu'il affiche.
+line|Ceci définit le format de ligne du graphique en courbes. La propriété line est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `width`. La plage de `width` est comprise entre 0,25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
 
 Définir les propriétés de la légende du graphique. Les options qui peuvent être définies sont:
 
@@ -97,7 +98,6 @@ Le paramètre `show_legend_key` défini les clés de légende doit être affich�
 Le titre du graphique est défini en sélectionnant le paramètre `name` de l'objet `title` et le titre sera affiché au-dessus du graphique. Le paramètre `name` prend en charge l'utilisation de représentations de formules, telles que `Sheet1!$A$1`, si vous ne spécifiez pas de titre d'icône, la valeur par défaut est null.
 
 Le paramètre `show_blanks_as` fournit le paramètre "Hide and empty cells". La valeur par défaut est: `gap`. Dans l'application Excel "cellule vide est affiché comme": "espace". Les valeurs suivantes sont des valeurs facultatives pour ce paramètre:
-
 
 Paramètre|Explication
 ---|---
