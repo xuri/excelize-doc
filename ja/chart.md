@@ -123,6 +123,8 @@ show_val|bool|`false`|値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
+major_grid_lines｜bool|`false`|主グリッド線を指定します
+minor_grid_lines｜bool|`false`|副グリッド線を指定します
 reverse_order|bool|`false`|逆シーケンススケール値
 maximum|int|`0`|最大値、`0` は自動
 minimum|int|`0`|最小値、`0` は自動

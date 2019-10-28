@@ -122,6 +122,8 @@ Définissez les options de l'axe horizontal et vertical principal par `x_axis` e
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
+major_grid_lines｜bool|`false`|Spécifie les lignes de grille principales.
+minor_grid_lines｜bool|`false`|Spécifie les lignes de grille mineures.
 reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
 maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
 minimum|int|`0`|Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
