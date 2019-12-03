@@ -1,1 +1,1 @@
-# 3D пирамида кластерных диаграмма бара {#bar3DPyramidClustered}
+# 3D пирамиды сложены диаграммы бар {#bar3DPyramidStacked}

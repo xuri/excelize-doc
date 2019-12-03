@@ -1,1 +1,1 @@
-# 3D 100% диаграмма конусной панели {#bar3DConePercentStacked}
+# 3D пирамида кластерных диаграмма бара {#bar3DPyramidClustered}

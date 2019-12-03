@@ -1,1 +1,1 @@
-# 3D цилиндр штабелироваться бар диаграммы {#bar3DCylinderStacked}
+# 3D 100% цилиндр штабелироваться бар диаграммы {#bar3DCylinderPercentStacked}

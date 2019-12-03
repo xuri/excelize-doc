@@ -1,1 +1,1 @@
-# 3D конус штабелироваться диаграммы бар {#bar3DConeStacked}
+# 3D 100% диаграмма конусной панели {#bar3DConePercentStacked}

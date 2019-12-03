@@ -1,1 +1,1 @@
-# 3D цилиндровый кластерный бар диаграммы {#bar3DCylinderClustered}
+# 3D цилиндр штабелироваться бар диаграммы {#bar3DCylinderStacked}

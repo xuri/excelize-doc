@@ -1,1 +1,1 @@
-# 3D пирамиды сложены диаграммы бар {#bar3DPyramidStacked}
+# 3D 100% пирамиды сложены диаграммы бар {#bar3DPyramidPercentStacked}
