@@ -8,7 +8,7 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 
 指定されたワークシート名とセル座標に基づいて、セルの値を設定します。
 
-|支持的数据类型|
+|サポートされているデータ型|
 |---|
 |int|
 |int8|
