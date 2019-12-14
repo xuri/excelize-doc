@@ -2,7 +2,7 @@
 
 例如，创建如下效果的三维堆积水平圆锥图：
 
-<p align="center"><img width="770" src="../images/3d_clustered_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积水平圆锥图"></p>
+<p align="center"><img width="770" src="../images/3d_cone_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积水平圆锥图"></p>
 
 ```go
 package main
