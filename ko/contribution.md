@@ -6,13 +6,13 @@ Microsoft Excel&trade; 2007 릴리스는 XML 및 ZIP 기술을 기반으로 하�
 
 ### 참조
 
-* [표준 ECMA-376 사무실 열기 XML 파일 형식](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
-* [Office 개발자 설명서](https://msdn.microsoft.com/en-us/library/office/)
-* [스프레드시트ML 문서의 구조 (Open XML SDK)](https://msdn.microsoft.com/en-us/library/office/gg278316.aspx)
-* [Microsoft Office 용 Open XML SDK 2.5 (Windows 에서만 작동)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)
-* [2007 Office Document: Open XML Markup Explained](https://www.microsoft.com/en-us/download/details.aspx?id=15359)
+* [Standard ECMA-376 Office Open XML File Formats](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
+* [Office developer documentation](https://developer.microsoft.com/en-us/office/docs)
+* [Structure of a SpreadsheetML document (Open XML SDK)](https://docs.microsoft.com/en-us/office/open-xml/structure-of-a-spreadsheetml-document)
+* [Open XML SDK 2.5 for Microsoft Office (only works on the Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)
+* [Understanding the Open XML file formats](https://docs.microsoft.com/en-us/office/open-xml/understanding-the-open-xml-file-formats)
 * [Google Chrome Extensions: OOXML Tools](https://chrome.google.com/webstore/detail/ooxml-tools/bjmmjfdegplhkefakjkccocjanekbapn)
-* [[MS-OFFCRYPTO]: Office Document Cryptography Structure Specification](http://msdn.microsoft.com/en-us/library/cc313071.aspx)
+* [[MS-OFFCRYPTO]: Office Document Cryptography Structure Specification](https://docs.microsoft.com/en-us/openspecs/office_file_formats/ms-offcrypto/3c34d72a-1a61-4b52-a893-196f9157f083)
 
 ## 문서 번역
 

@@ -93,7 +93,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) SetSheetVisible(name string, visible bool) error
 ```
 
-根据给定的工作表名称和可见性参数设置工作表的可见性。 一个工作簿中至少包含一个可见工作表。如果给定的工作表为默认工作表，则对其可见性设置无效。工作表可见性状态可参考[工作表状态枚举](http://msdn.microsoft.com/en-us/library/office/documentformat.openxml.spreadsheet.sheetstatevalues.aspx):
+根据给定的工作表名称和可见性参数设置工作表的可见性。 一个工作簿中至少包含一个可见工作表。如果给定的工作表为默认工作表，则对其可见性设置无效。工作表可见性状态可参考[工作表状态枚举](https://docs.microsoft.com/zh-cn/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
 
 |工作表状态枚举|
 |---|

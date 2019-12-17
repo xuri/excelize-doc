@@ -7,12 +7,12 @@ Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Off
 ### 参考资料
 
 * [Standard ECMA-376 Office Open XML File Formats](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
-* [Office developer documentation](https://msdn.microsoft.com/en-us/library/office/)
-* [Structure of a SpreadsheetML document (Open XML SDK)](https://msdn.microsoft.com/en-us/library/office/gg278316.aspx)
+* [Office 开发人员文档](https://developer.microsoft.com/zh-cn/office/docs)
+* [SpreadsheetML 文档的结构 (Open XML SDK)](https://docs.microsoft.com/zh-cn/office/open-xml/structure-of-a-spreadsheetml-document)
 * [Open XML SDK 2.5 for Microsoft Office (only works on the Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)
-* [2007 Office Document: Open XML Markup Explained](https://www.microsoft.com/en-us/download/details.aspx?id=15359)
+* [了解 Open XML 文件格式](https://docs.microsoft.com/zh-cn/office/open-xml/understanding-the-open-xml-file-formats)
 * [Google Chrome Extensions: OOXML Tools](https://chrome.google.com/webstore/detail/ooxml-tools/bjmmjfdegplhkefakjkccocjanekbapn)
-* [[MS-OFFCRYPTO]: Office Document Cryptography Structure Specification](http://msdn.microsoft.com/en-us/library/cc313071.aspx)
+* [[MS-OFFCRYPTO]: Office Document Cryptography Structure Specification](https://docs.microsoft.com/zh-cn/openspecs/office_file_formats/ms-offcrypto/3c34d72a-1a61-4b52-a893-196f9157f083)
 
 ## 参与贡献文档
 

@@ -93,7 +93,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) SetSheetVisible(name string, visible bool) error
 ```
 
-SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。 ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。 指定したワークシートがアクティブになっている場合、この設定は無効になります。[SheetStateValues Enum](http://msdn.microsoft.com/en-us/library/office/documentformat.openxml.spreadsheet.sheetstatevalues.aspx) で定義されているシート状態値:
+SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。 ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。 指定したワークシートがアクティブになっている場合、この設定は無効になります。[SheetStateValues Enum](https://docs.microsoft.com/ja-jp/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) で定義されているシート状態値:
 
 |ワークシート状態値|
 |---|
