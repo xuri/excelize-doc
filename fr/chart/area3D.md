@@ -5,7 +5,6 @@ Par exemple, ajoutez un graphique qui ressemble à ceci:
 <p align="center"><img width="770" src="../images/3d_area_chart.png" alt="créer 3D graphique à aires avec excelize en utilisant Go"></p>
 
 ```go
-
 package main
 
 import (
