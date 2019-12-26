@@ -118,12 +118,27 @@ show_percent|bool|`false`|百分比
 show_series_name|bool|`false`|系列名称
 show_val|bool|`false`|值
 
-通过参数 `x_axis` 和 `y_axis` 参数设置坐标轴选项。下面是该参数的可选值：
+通过参数 `x_axis` 和 `y_axis` 参数设置坐标轴选项。
+
+下面是 `x_axis` 参数的可选值：
 
 参数|类型|默认值|含义
 ---|---|---|---
 major_grid_lines｜bool|`false`|主要网格线
 minor_grid_lines｜bool|`false`|次要网格线
+major_unit|float64|`0`|
+reverse_order|bool|`false`|逆序刻度值
+maximum|int|`0`|最大值，`0` 代表自动
+minimum|int|`0`|最小值，`0` 代表自动
+
+下面是 `y_axis` 参数的可选值：
+
+参数|类型|默认值|含义
+---|---|---|---
+major_grid_lines｜bool|`false`|主要网格线
+minor_grid_lines｜bool|`false`|次要网格线
+major_unit|float64|`0`|坐标轴主要刻度单位
+tick_label_skip|int|`1`|指定标签间隔单位
 reverse_order|bool|`false`|逆序刻度值
 maximum|int|`0`|最大值，`0` 代表自动
 minimum|int|`0`|最小值，`0` 代表自动

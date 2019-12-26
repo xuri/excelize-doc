@@ -6,7 +6,7 @@
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-SetCellValue provides a function to set the value of a cell. The following shows the supported data types:
+SetCellValue provides a function to set the value of a cell. The specified coordinates should not be in the first row of the table. The following shows the supported data types:
 
 |Supported data types|
 |---|

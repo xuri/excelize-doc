@@ -129,6 +129,43 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## Définir les propriétés d'une feuille de calcul {#SetSheetPrOptions}
+
+```go
+func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+```
+
+SetSheetPrOptions fournit une fonction pour définir les propriétés de feuille de calcul.
+
+Options disponibles:
+
+|Attribut facultatif|Type|
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+Par exemple:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetPrOptions(sheet,
+    excelize.CodeName("code"),
+    excelize.EnableFormatConditionsCalculation(false),
+    excelize.Published(false),
+    excelize.FitToPage(true),
+    excelize.AutoPageBreaks(true),
+    excelize.OutlineSummaryBelow(false),
+); err != nil {
+    panic(err)
+}
+```
+
 ## Obtenir les propriétés de la feuille de calcul {#GetSheetPrOptions}
 
 ```go

@@ -129,6 +129,43 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## Set worksheet properties {#SetSheetPrOptions}
+
+```go
+func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+```
+
+SetSheetPrOptions provides a function to sets worksheet properties.
+
+Available options:
+
+|Optional Attribute|Type|
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+For example:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetPrOptions(sheet,
+    excelize.CodeName("code"),
+    excelize.EnableFormatConditionsCalculation(false),
+    excelize.Published(false),
+    excelize.FitToPage(true),
+    excelize.AutoPageBreaks(true),
+    excelize.OutlineSummaryBelow(false),
+); err != nil {
+    panic(err)
+}
+```
+
 ## Get worksheet properties {#GetSheetPrOptions}
 
 ```go

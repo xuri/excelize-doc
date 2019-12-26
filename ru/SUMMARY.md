@@ -43,6 +43,7 @@
   * [Получить видимость строки](sheet.md#GetRowVisible)
   * [Получить индекс рабочего листа](sheet.md#GetSheetIndex)
   * [Получить список рабочих листов](sheet.md#GetSheetMap)
+  * [Установить свойства листа](sheet.md#SetSheetPrOptions)
   * [Получить свойства листа](sheet.md#GetSheetPrOptions)
   * [Вставить столбец](sheet.md#InsertCol)
   * [Вставить строку](sheet.md#InsertRow)

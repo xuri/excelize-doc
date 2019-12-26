@@ -43,6 +43,7 @@
   * [行の可視性を取得する](sheet.md#GetRowVisible)
   * [ワークシートインデックスを取得](sheet.md#GetSheetIndex)
   * [ワークシート一覧を取得する](sheet.md#GetSheetMap)
+  * [ワークシートのプロパティを設定する](sheet.md#SetSheetPrOptions)
   * [ワークシートのプロパティを取得する](sheet.md#GetSheetPrOptions)
   * [列を挿入](sheet.md#InsertCol)
   * [行挿入](sheet.md#InsertRow)

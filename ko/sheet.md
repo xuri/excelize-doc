@@ -129,6 +129,43 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## 워크 시트 속성 설정 {#SetSheetPrOptions}
+
+```go
+func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+```
+
+SetSheetPrOptions 는 워크 시트 속성을 설정하는 기능을 제공합니다.
+
+사용 가능한 옵션:
+
+| 선택적 속성 | 유형 |
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+예를 들어:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetPrOptions(sheet,
+    excelize.CodeName("code"),
+    excelize.EnableFormatConditionsCalculation(false),
+    excelize.Published(false),
+    excelize.FitToPage(true),
+    excelize.AutoPageBreaks(true),
+    excelize.OutlineSummaryBelow(false),
+); err != nil {
+    panic(err)
+}
+```
+
 ## 워크 시트 속성 가져 오기 {#GetSheetPrOptions}
 
 ```go

@@ -118,12 +118,27 @@ show_percent|bool|`false`|Indique que le pourcentage doit être indiqué dans un
 show_series_name|bool|`false`|Indique que le nom de la série doit apparaître dans une étiquette de données.
 show_val|bool|`false`|Indique que la valeur doit apparaître dans une étiquette de données.
 
-Définissez les options de l'axe horizontal et vertical principal par `x_axis` et `y_axis`. Les propriétés qui peuvent être définies sont:
+Définissez les options de l'axe horizontal et vertical principal par `x_axis` et `y_axis`.
+
+Les propriétés de `x_axis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
 major_grid_lines｜bool|`false`|Spécifie les lignes de grille principales.
 minor_grid_lines｜bool|`false`|Spécifie les lignes de grille mineures.
+major_unit|float64|`0`|Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété major_unit est facultative. La valeur par défaut est auto.
+reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
+maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
+minimum|int|`0`|Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+
+Les propriétés de `y_axis` qui peuvent être définies sont:
+
+Paramètre|Type|Défaut|Explication
+---|---|---|---
+major_grid_lines｜bool|`false`|Spécifie les lignes de grille principales.
+minor_grid_lines｜bool|`false`|Spécifie les lignes de grille mineures.
+major_unit|float64|`0`|Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété major_unit est facultative. La valeur par défaut est auto.
+tick_label_skip|int|`1`|Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété tick_label_skip est facultative. La valeur par défaut est auto.
 reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
 maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
 minimum|int|`0`|Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.

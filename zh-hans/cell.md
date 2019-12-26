@@ -6,7 +6,7 @@
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-根据给定的工作表名和单元格坐标设置单元格的值。
+根据给定的工作表名和单元格坐标设置单元格的值。指定的坐标不应在表格的第一行范围。
 
 |支持的数据类型|
 |---|

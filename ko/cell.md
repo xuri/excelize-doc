@@ -6,7 +6,7 @@
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-SetCellValue 셀값을 설정하는 함수를 제공합니다. 다음은 지원되는 데이터 형식을 보여 주며:
+SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표는 테이블의 첫 번째 행에 없어야합니다. 다음은 지원되는 데이터 형식을 보여 주며:
 
 |지원되는 데이터 유형|
 |---|

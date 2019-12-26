@@ -129,6 +129,43 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## Установить свойства листа {#SetSheetPrOptions}
+
+```go
+func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+```
+
+SetSheetPrOptions предоставляет функцию для установки свойств листа.
+
+Доступные Варианты:
+
+|Необязательный атрибут|Тип|
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+Например:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetPrOptions(sheet,
+    excelize.CodeName("code"),
+    excelize.EnableFormatConditionsCalculation(false),
+    excelize.Published(false),
+    excelize.FitToPage(true),
+    excelize.AutoPageBreaks(true),
+    excelize.OutlineSummaryBelow(false),
+); err != nil {
+    panic(err)
+}
+```
+
 ## Получить свойства листа {#GetSheetPrOptions}
 
 ```go

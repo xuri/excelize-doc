@@ -118,12 +118,27 @@ show_percent|bool|`false`|Specifies that the percentage shall be shown in a data
 show_series_name|bool|`false`|Specifies that the series name shall be shown in a data label.
 show_val|bool|`false`|Specifies that the value shall be shown in a data label.
 
-Set the primary horizontal and vertical axis options by `x_axis` and `y_axis`. The properties that can be set are:
+Set the primary horizontal and vertical axis options by `x_axis` and `y_axis`.
+
+The properties of `x_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
 major_grid_lines｜bool|`false`|Specifies major gridlines.
 minor_grid_lines｜bool|`false`|Specifies minor gridlines.
+major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The major_unit property is optional. The default value is auto.
+reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
+maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+minimum|int|`0`| Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+
+The properties of `y_axis` that can be set are:
+
+Parameter|Type|Default|Explanation
+---|---|---|---
+major_grid_lines｜bool|`false`|Specifies major gridlines.
+minor_grid_lines｜bool|`false`|Specifies minor gridlines.
+major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The major_unit property is optional. The default value is auto.
+tick_label_skip|int|`1`|Specifies how many tick labels to skip between label that is drawn. The tick_label_skip property is optional. The default value is auto.
 reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
 minimum|int|`0`| Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.

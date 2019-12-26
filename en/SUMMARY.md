@@ -43,6 +43,7 @@
   * [Get row visibility](sheet.md#GetRowVisible)
   * [Get worksheet index](sheet.md#GetSheetIndex)
   * [Get worksheets list](sheet.md#GetSheetMap)
+  * [Set worksheet properties](sheet.md#SetSheetPrOptions)
   * [Get worksheet properties](sheet.md#GetSheetPrOptions)
   * [Insert column](sheet.md#InsertCol)
   * [Insert row](sheet.md#InsertRow)

@@ -127,13 +127,50 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## 设置工作表属性 {#SetSheetPrOptions}
+
+```go
+func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+```
+
+根据给定的工作表名称（大小写敏感）和筛选项设置工作表属性。
+
+可选属性列表：
+
+|可选属性|类型|
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+例如：
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetPrOptions(sheet,
+    excelize.CodeName("code"),
+    excelize.EnableFormatConditionsCalculation(false),
+    excelize.Published(false),
+    excelize.FitToPage(true),
+    excelize.AutoPageBreaks(true),
+    excelize.OutlineSummaryBelow(false),
+); err != nil {
+    panic(err)
+}
+```
+
 ## 获取工作表属性 {#GetSheetPrOptions}
 
 ```go
 func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
 ```
 
-根据给定的工作表名称（大小写敏感）和筛选想获取工作表属性。
+根据给定的工作表名称（大小写敏感）和筛选项获取工作表属性。
 
 |可选属性|类型|
 |---|---|
