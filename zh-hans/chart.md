@@ -97,7 +97,7 @@ top_right|右上
 
 通过可选 `title` 对象的 `name` 参数设置图表标题，标题将会在图表上方显示。参数 `name` 支持使用公式表示，例如 `Sheet1!$A$1`，如果不指定图标标题默认值为空。
 
-参数 `show_blanks_as` 提供“隐藏和清空单元格”设置，默认值为： `gap` 即“空单元格显示为”：“空距”。下面是该参数的可选值：
+参数 `show_blanks_as` 提供“隐藏和清空单元格”设置，默认值为：`gap` 即“空单元格显示为”：“空距”。下面是该参数的可选值：
 
 值|含义
 ---|---
@@ -126,7 +126,7 @@ show_val|bool|`false`|值
 ---|---|---|---
 major_grid_lines｜bool|`false`|主要网格线
 minor_grid_lines｜bool|`false`|次要网格线
-major_unit|float64|`0`|
+tick_label_skip|int|`1`|指定标签间隔单位
 reverse_order|bool|`false`|逆序刻度值
 maximum|int|`0`|最大值，`0` 代表自动
 minimum|int|`0`|最小值，`0` 代表自动
@@ -138,7 +138,6 @@ minimum|int|`0`|最小值，`0` 代表自动
 major_grid_lines｜bool|`false`|主要网格线
 minor_grid_lines｜bool|`false`|次要网格线
 major_unit|float64|`0`|坐标轴主要刻度单位
-tick_label_skip|int|`1`|指定标签间隔单位
 reverse_order|bool|`false`|逆序刻度值
 maximum|int|`0`|最大值，`0` 代表自动
 minimum|int|`0`|最小值，`0` 代表自动

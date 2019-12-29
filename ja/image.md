@@ -14,7 +14,6 @@ func (f *File) AddPicture(sheet, cell, picture, format string) error
 package main
 
 import (
-    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"
@@ -25,23 +24,19 @@ import (
 func main() {
     f := excelize.NewFile()
     // 図を挿入する
-    err := f.AddPicture("Sheet1", "A2", "./image1.jpg", "")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "A2", "image.jpg", ""); err != nil {
+        println(err.Error())
     }
     // ズーム倍率とハイパーリンクを使用して図を挿入する
-    err = f.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "D2", "image.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`); err != nil {
+        println(err.Error())
     }
     // 図を挿入し、図の外部ハイパーリンク、印刷、および場所のプロパティを設定する
-    err = f.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
+        println(err.Error())
     }
-    err = f.SaveAs("./Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
     }
 }
 ```
@@ -62,7 +57,6 @@ func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, 
 package main
 
 import (
-    "fmt"
     _ "image/jpeg"
     "io/ioutil"
 
@@ -72,17 +66,15 @@ import (
 func main() {
     f := excelize.NewFile()
 
-    file, err := ioutil.ReadFile("./image1.jpg")
+    file, err := ioutil.ReadFile("image.jpg")
     if err != nil {
-        fmt.Println(err)
+        println(err.Error())
     }
-    err = f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file); err != nil {
+        println(err.Error())
     }
-    err = f.SaveAs("./Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
     }
 }
 ```
@@ -96,18 +88,17 @@ func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 指定されたワークシート名 (大文字小文字を区別する) とセルの座標に基づいてブックのピクチャを取得し、Excel ドキュメントに埋め込まれているピクチャを `[]byte` 型で返します。たとえば、`Sheet1` という名前のワークシートの `A2`セルにピクチャを取得します。
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
     return
 }
 file, raw, err := f.GetPicture("Sheet1", "A2")
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
     return
 }
-err = ioutil.WriteFile(file, raw, 0644)
-if err != nil {
-    fmt.Println(err)
+if err := ioutil.WriteFile(file, raw, 0644); err != nil {
+    println(err.Error())
 }
 ```

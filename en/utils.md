@@ -446,7 +446,7 @@ type: `format` - The `format` parameter is used to specify the format that will 
 ```go
 format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
@@ -647,7 +647,6 @@ ThemeColor applied the color with tint value:
 package main
 
 import (
-    "fmt"
     "strings"
 
     "github.com/360EntSecGroup-Skylar/excelize"
@@ -656,10 +655,10 @@ import (
 func main() {
     f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        fmt.Println(err)
+        println(err.Error())
         return
     }
-    fmt.Println(getCellBgColor(f, "Sheet1", "A1"))
+    println(getCellBgColor(f, "Sheet1", "A1"))
 }
 
 func getCellBgColor(f *excelize.File, sheet, axix string) string {
@@ -738,16 +737,13 @@ func (f *File) AddVBAProject(bin string) error
 AddVBAProject provides the method to add `vbaProject.bin` file which contains functions and/or macros. The file extension should be `.xlsm`. For example:
 
 ```go
-err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1"))
-if err != nil {
-    fmt.Println(err)
+if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
+    println(err.Error())
 }
-err = f.AddVBAProject("vbaProject.bin")
-if err != nil {
-    fmt.Println(err)
+if err := f.AddVBAProject("vbaProject.bin"); err != nil {
+    println(err.Error())
 }
-err = f.SaveAs("macros.xlsm")
-if err != nil {
-    fmt.Println(err)
+if err := f.SaveAs("macros.xlsm"); err != nil {
+    println(err.Error())
 }
 ```

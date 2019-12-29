@@ -14,7 +14,6 @@ Par exemple:
 package main
 
 import (
-    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"
@@ -25,23 +24,19 @@ import (
 func main() {
     f := excelize.NewFile()
     // Ajouter une image.
-    err := f.AddPicture("Sheet1", "A2", "./image1.jpg", "")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "A2", "image.jpg", ""); err != nil {
+        println(err.Error())
     }
     // Insérer une mise à l'échelle de l'image dans la cellule avec un lien hypertexte.
-    err = f.AddPicture("Sheet1", "D2", "./image1.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "D2", "image.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`); err != nil {
+        println(err.Error())
     }
     // Insérer un décalage d'image dans la cellule avec un lien hypertexte externe, un support d'impression et de positionnement.
-    err = f.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
+        println(err.Error())
     }
-    err = f.SaveAs("./Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
     }
 }
 ```
@@ -62,7 +57,6 @@ Par exemple:
 package main
 
 import (
-    "fmt"
     _ "image/jpeg"
     "io/ioutil"
 
@@ -72,17 +66,15 @@ import (
 func main() {
     f := excelize.NewFile()
 
-    file, err := ioutil.ReadFile("./image1.jpg")
+    file, err := ioutil.ReadFile("image.jpg")
     if err != nil {
-        fmt.Println(err)
+        println(err.Error())
     }
-    err = f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file); err != nil {
+        println(err.Error())
     }
-    err = f.SaveAs("./Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
     }
 }
 ```
@@ -98,18 +90,17 @@ GetPicture fournit une fonction permettant d'incorporer le nom de la base de l'i
 Par exemple:
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
     return
 }
 file, raw, err := f.GetPicture("Sheet1", "A2")
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
     return
 }
-err = ioutil.WriteFile(file, raw, 0644)
-if err != nil {
-    fmt.Println(err)
+if err := ioutil.WriteFile(file, raw, 0644); err != nil {
+    println(err.Error())
 }
 ```

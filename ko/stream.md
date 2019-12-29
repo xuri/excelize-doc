@@ -4,10 +4,9 @@ StreamWriter 는 스트림 작성기 유형을 정의했습니다.
 
 ```go
 type StreamWriter struct {
-    File      *File
-    Sheet     string
-    SheetID   int
-    SheetData bytes.Buffer
+    File    *File
+    Sheet   string
+    SheetID int
     // 필터링되거나 내 보내지 않은 필드를 포함합니다
 }
 ```
@@ -24,23 +23,30 @@ NewStreamWriter 는 주어진 워크 시트 이름으로 스트림 기록기를 
 file := excelize.NewFile()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
-    panic(err)
+    println(err.Error())
 }
-for rowID := 1; rowID <= 102400; rowID++ {
+styleID, err := file.NewStyle(`{"font":{"color":"#777777"}}`)
+if err != nil {
+    println(err.Error())
+}
+if err := streamWriter.SetRow("A1", []interface{}{excelize.Cell{StyleID: styleID, Value: "Data"}}); err != nil {
+    println(err.Error())
+}
+for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, &row); err != nil {
-        panic(err)
+    if err := streamWriter.SetRow(cell, row); err != nil {
+        println(err.Error())
     }
 }
 if err := streamWriter.Flush(); err != nil {
-    panic(err)
+    println(err.Error())
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
-    panic(err)
+    println(err.Error())
 }
 ```
 
@@ -50,12 +56,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow 는 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행을 스트림에 배열을 기록합니다. 스타일이있는 셀 설정은 현재 및 설정된 행 이후에 지원되지 않으며 스트리밍 쓰기 프로세스를 종료하려면 [`Flush`](stream.md#Flush) 메서드를 호출해야합니다. 다음은 지원되는 데이터 유형을 보여줍니다:
-
-|지원되는 데이터 유형|
-|---|
-|int|
-|string|
+SetRow 는 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행을 스트림에 배열을 기록합니다. 스타일이있는 셀 설정은 현재 및 설정된 행 이후에 지원되지 않으며 스트리밍 쓰기 프로세스를 종료하려면 [`Flush`](stream.md#Flush) 메서드를 호출해야합니다.
 
 ## 플러시 스트림 {#Flush}
 

@@ -4,10 +4,9 @@ StreamWriter a défini le type d'écrivain de flux.
 
 ```go
 type StreamWriter struct {
-    File      *File
-    Sheet     string
-    SheetID   int
-    SheetData bytes.Buffer
+    File    *File
+    Sheet   string
+    SheetID int
     // contient des champs filtrés ou non exportés
 }
 ```
@@ -24,23 +23,30 @@ NewStreamWriter renvoie la structure de l'écrivain de flux par un nom de feuill
 file := excelize.NewFile()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
-    panic(err)
+    println(err.Error())
 }
-for rowID := 1; rowID <= 102400; rowID++ {
+styleID, err := file.NewStyle(`{"font":{"color":"#777777"}}`)
+if err != nil {
+    println(err.Error())
+}
+if err := streamWriter.SetRow("A1", []interface{}{excelize.Cell{StyleID: styleID, Value: "Data"}}); err != nil {
+    println(err.Error())
+}
+for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, &row); err != nil {
-        panic(err)
+    if err := streamWriter.SetRow(cell, row); err != nil {
+        println(err.Error())
     }
 }
 if err := streamWriter.Flush(); err != nil {
-    panic(err)
+    println(err.Error())
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
-    panic(err)
+    println(err.Error())
 }
 ```
 
@@ -50,12 +56,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow écrit un tableau sur une ligne de flux par un nom de feuille de calcul donné, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Notez que les paramètres de cellule avec des styles ne sont pas pris en charge actuellement et après les lignes définies, vous devez appeler la méthode [`Flush`](stream.md#Flush) pour mettre fin au processus d'écriture en continu. Voici les types de données pris en charge:
-
-|Types de données pris en charge|
-|---|
-|int|
-|string|
+SetRow écrit un tableau sur une ligne de flux par un nom de feuille de calcul donné, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Notez que les paramètres de cellule avec des styles ne sont pas pris en charge actuellement et après les lignes définies, vous devez appeler la méthode [`Flush`](stream.md#Flush) pour mettre fin au processus d'écriture en continu.
 
 ## Flush le flux {#Flush}
 

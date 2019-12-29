@@ -127,7 +127,7 @@ show_val|bool|`false`|値
 ---|---|---|---
 major_grid_lines｜bool|`false`|主グリッド線を指定します
 minor_grid_lines｜bool|`false`|副グリッド線を指定します
-major_unit|float64|`0`|大目盛り間の距離を指定します。 正の浮動小数点数を含める必要があります。 major_unitプロパティはオプションです。 デフォルト値はautoです
+tick_label_skip|int|`1`|描画されるラベル間でスキップする目盛りラベルの数を指定します。`tick_label_skip` プロパティはオプションです。 デフォルト値は auto です
 reverse_order|bool|`false`|逆シーケンススケール値
 maximum|int|`0`|最大値、`0` は自動
 minimum|int|`0`|最小値、`0` は自動
@@ -138,8 +138,7 @@ minimum|int|`0`|最小値、`0` は自動
 ---|---|---|---
 major_grid_lines｜bool|`false`|主グリッド線を指定します
 minor_grid_lines｜bool|`false`|副グリッド線を指定します
-major_unit|float64|`0`|大目盛り間の距離を指定します。 正の浮動小数点数を含める必要があります。major_unit プロパティはオプションです。 デフォルト値は auto です
-tick_label_skip|int|`1`|描画されるラベル間でスキップする目盛りラベルの数を指定します。tick_label_skip プロパティはオプションです。 デフォルト値は auto です
+major_unit|float64|`0`|大目盛り間の距離を指定します。 正の浮動小数点数を含める必要があります。`major_unit` プロパティはオプションです。 デフォルト値は auto です
 reverse_order|bool|`false`|逆シーケンススケール値
 maximum|int|`0`|最大値、`0` は自動
 minimum|int|`0`|最小値、`0` は自動

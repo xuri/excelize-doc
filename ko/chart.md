@@ -127,7 +127,7 @@ show_val|bool|`false`|값이 데이터 레이블에 표시되도록 지정합니
 ---|---|---|---
 major_grid_lines｜bool|`false`|주요 눈금 선을 지정합니다.
 minor_grid_lines｜bool|`false`|작은 눈금 선을 지정합니다.
-major_unit|float64|`0`|주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. major_unit 속성은 선택 사항입니다. 기본값은 auto 입니다.
+tick_label_skip|int|`1`|그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `tick_label_skip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
 reverse_order|bool|`false`|역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
 maximum|int|`0`|고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
 minimum|int|`0`| 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
@@ -139,7 +139,6 @@ minimum|int|`0`| 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성
 major_grid_lines｜bool|`false`|주요 눈금 선을 지정합니다.
 minor_grid_lines｜bool|`false`|작은 눈금 선을 지정합니다.
 major_unit|float64|`0`|주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. major_unit 속성은 선택 사항입니다. 기본값은 auto 입니다.
-tick_label_skip|int|`1`|그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. tick_label_skip 속성은 선택 사항입니다. 기본값은 auto 입니다.
 reverse_order|bool|`false`|역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
 maximum|int|`0`|고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
 minimum|int|`0`| 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.

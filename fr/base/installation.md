@@ -25,11 +25,7 @@ Voici un exemple d'utilisation minimale qui créera le fichier XLSX:
 ```go
 package main
 
-import (
-    "fmt"
-
-    "github.com/360EntSecGroup-Skylar/excelize"
-)
+import "github.com/360EntSecGroup-Skylar/excelize"
 
 func main() {
     f := excelize.NewFile()
@@ -41,9 +37,8 @@ func main() {
     // Définir la feuille active du classeur.
     f.SetActiveSheet(index)
     // Enregistrer le fichier xlsx par le chemin donné.
-    err := f.SaveAs("./Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
     }
 }
 ```
@@ -55,32 +50,28 @@ Ce qui suit constitue le seul à lire un document XLSX:
 ```go
 package main
 
-import (
-    "fmt"
-
-    "github.com/360EntSecGroup-Skylar/excelize"
-)
+import "github.com/360EntSecGroup-Skylar/excelize"
 
 func main() {
-    f, err := excelize.OpenFile("./Book1.xlsx")
+    f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        fmt.Println(err)
+        println(err.Error())
         return
     }
     // Obtenir la valeur de la cellule par nom de feuille de calcul donné et axe.
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
-        fmt.Println(err)
+        println(err.Error())
         return
     }
-    fmt.Println(cell)
+    println(cell)
     // Obtenez toutes les lignes de la feuille Sheet1.
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
         for _, colCell := range row {
-            fmt.Print(colCell, "\t")
+            print(colCell, "\t")
         }
-        fmt.Println()
+        println()
     }
 }
 ```
@@ -94,11 +85,7 @@ Avec Excelize, la génération et la gestion des graphiques est aussi simple que
 ```go
 package main
 
-import (
-    "fmt"
-
-    "github.com/360EntSecGroup-Skylar/excelize"
-)
+import "github.com/360EntSecGroup-Skylar/excelize"
 
 func main() {
     categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
@@ -110,15 +97,13 @@ func main() {
     for k, v := range values {
         f.SetCellValue("Sheet1", k, v)
     }
-    err := f.AddChart("Sheet1", "E1", `{"type":"col3DClustered","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"title":{"name":"Fruit 3D Clustered Column Chart"}}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddChart("Sheet1", "E1", `{"type":"col3DClustered","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"title":{"name":"Fruit 3D Clustered Column Chart"}}`); err != nil {
+        println(err.Error())
         return
     }
     // Enregistrez le fichier xlsx par le chemin donné.
-    err = f.SaveAs("./Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
     }
 }
 ```
@@ -129,7 +114,6 @@ func main() {
 package main
 
 import (
-    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"
@@ -138,30 +122,26 @@ import (
 )
 
 func main() {
-    f, err := excelize.OpenFile("./Book1.xlsx")
+    f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        fmt.Println(err)
+        println(err.Error())
         return
     }
     // Insérer une image.
-    err = f.AddPicture("Sheet1", "A2", "./image1.png", "")
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
+        println(err.Error())
     }
     // Insérer une image dans une feuille de calcul avec mise à l'échelle.
-    err = f.AddPicture("Sheet1", "D2", "./image2.jpg", `{"x_scale": 0.5, "y_scale": 0.5}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{"x_scale": 0.5, "y_scale": 0.5}`); err != nil {
+        println(err.Error())
     }
     // Insérer un décalage d'image dans la cellule avec support d'impression.
-    err = f.AddPicture("Sheet1", "H2", "./image3.gif", `{"x_offset": 15, "y_offset": 10, "print_obj": true, "lock_aspect_ratio": false, "locked": false}`)
-    if err != nil {
-        fmt.Println(err)
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "print_obj": true, "lock_aspect_ratio": false, "locked": false}`); err != nil {
+        println(err.Error())
     }
     // Enregistrez le fichier xlsx avec le chemin d'origine.
-    err = f.Save()
-    if err != nil {
-        fmt.Println(err)
+    if err = f.Save(); err != nil {
+        println(err.Error())
     }
 }
 ```

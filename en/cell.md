@@ -74,7 +74,7 @@ SetCellStyle provides a function to add style attribute for cells by given works
 ```go
 style, err := f.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -88,7 +88,7 @@ The four borders of the cell `D7` are set with different styles and colors. This
 ```go
 style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -102,7 +102,7 @@ The cell `D7` is set with the color fill of the gradient effect. The gradient fi
 ```go
 style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -117,7 +117,7 @@ The cell `D7` is set with a solid fill.
 f.SetCellValue("Sheet1", "D7", "Style")
 style, err := f.NewStyle(`{"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"text_rotation":45,"vertical":"","wrap_text":true}}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -131,7 +131,7 @@ f.SetCellValue("Sheet1", "D7", 42920.5)
 f.SetColWidth("Sheet1", "D", "D", 13)
 style, err := f.NewStyle(`{"number_format": 22}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -146,7 +146,7 @@ The cell `D7` is set to the time format. Note that when the cell width with the 
 f.SetCellValue("Sheet1", "D7", "Excel")
 style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -158,7 +158,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 style, err := f.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
 if err != nil {
-    fmt.Println(err)
+    println(err.Error())
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -210,9 +210,9 @@ For example, get and traverse the value of all cells on a worksheet named `Sheet
 rows, err := f.GetRows("Sheet1")
 for _, row := range rows {
     for _, colCell := range row {
-        fmt.Print(colCell, "\t")
+        print(colCell, "\t")
     }
-    fmt.Println()
+    println()
 }
 ```
 
