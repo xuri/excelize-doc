@@ -343,12 +343,19 @@ func (f *File) Rows(sheet string) (*Rows, error)
 
 ```go
 rows, err := f.Rows("Sheet1")
+if err != nil {
+    println(err.Error())
+    return
+}
 for rows.Next() {
-   row, err := rows.Columns()
-   for _, colCell := range row {
-       fmt.Print(colCell, "\t")
-   }
-   fmt.Println()
+    row, err := rows.Columns()
+    if err != nil {
+        println(err.Error())
+    }
+    for _, colCell := range row {
+        print(colCell, "\t")
+    }
+    println()
 }
 ```
 
