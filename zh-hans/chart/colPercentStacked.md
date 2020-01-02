@@ -1,5 +1,7 @@
 # 二维百分比堆积柱形图 {#colPercentStacked}
 
+例如，创建如下效果的二维百分比堆积柱形图：
+
 <p align="center"><img width="770" src="../images/2d_percent_stacked_column_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维百分比堆积柱形图"></p>
 
 ```go
