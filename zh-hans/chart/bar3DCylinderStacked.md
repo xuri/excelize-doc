@@ -1,5 +1,7 @@
 # 三维堆积水平圆柱图 {#bar3DCylinderStacked}
 
+例如，创建如下效果的三维堆积水平圆柱图：
+
 <p align="center"><img width="770" src="../images/3d_cylinder_stacked_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维堆积水平圆柱图"></p>
 
 ```go

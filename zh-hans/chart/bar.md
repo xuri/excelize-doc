@@ -1,5 +1,7 @@
 # 二维簇状条形图 {#bar}
 
+例如，创建如下效果的二维簇状条形图：
+
 <p align="center"><img width="770" src="../images/2d_clustered_bar_chart.png" alt="使用 Go 语言在 Excel 文档中创建二维簇状条形图"></p>
 
 ```go

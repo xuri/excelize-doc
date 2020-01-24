@@ -1,5 +1,7 @@
 # 三维柱形图 {#col3D}
 
+例如，创建如下效果的三维柱形图：
+
 <p align="center"><img width="770" src="../images/3d_column_chart.png" alt="使用 Go 语言在 Excel 文档中创建三维柱形图"></p>
 
 ```go
