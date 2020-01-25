@@ -24,7 +24,7 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
-注意，表格坐标区域至少需要覆盖两行：字符型的标题行和内容行。多个表格的坐标区域不能有交集。
+注意，表格坐标区域至少需要覆盖两行：字符型的标题行和内容行。每列标题行的字符需保证是唯一的，并且必须在调用 AddTable 函数前设置表格的标题行数据。多个表格的坐标区域不能有交集。
 
 可选参数 `table_name` 用以设置自定义表格名称，同一个工作表内的表格名称应该是唯一的。
 

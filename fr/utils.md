@@ -24,7 +24,7 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
-Notez que la table au moins deux lignes incluent l'en-tête de type chaîne. Les zones de coordonnées de plusieurs tables ne peuvent pas avoir d'intersection.
+Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques et doivent définir les données de ligne d'en-tête de la table avant d'appeler la fonction AddTable. Plusieurs tables coordonnent des zones qui ne peuvent pas avoir d'intersection.
 
 `table_name`: Le nom de la table, dans le même nom de feuille de calcul de la table, doit être unique.
 

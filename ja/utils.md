@@ -24,7 +24,7 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
-テーブルには、少なくとも 2 行の行に文字列型ヘッダーが含まれていることに注意してください。複数のテーブル座標領域に交差を持つ場合。
+テーブルは、ヘッダーを含む少なくとも2行でなければならないことに注意してください。 ヘッダーセルには文字列が含まれ、一意である必要があり、AddTable 関数を呼び出す前にテーブルのヘッダー行データを設定する必要があります。複数のテーブルは、交差できないエリアを調整します。
 
 `table_name`: テーブルの同じワークシート名のテーブルの名前は一意である必要があります。
 

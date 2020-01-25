@@ -24,7 +24,7 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
-테이블에 는 두 줄 이상 문자열 유형 헤더가 포함됩니다. 여러 테이블 좌표 영역은 교차를 가질 수 없습니다.
+표는 머리글을 포함하여 두 줄 이상이어야합니다. 헤더 셀은 문자열을 포함해야하며 고유해야하며 AddTable 함수를 호출하기 전에 테이블의 헤더 행 데이터를 설정해야합니다. 여러 테이블은 교차점이없는 영역을 조정합니다.
 
 `table_name`: 테이블의 이름은 테이블의 동일한 워크시트 이름에서 고유해야 합니다.
 
