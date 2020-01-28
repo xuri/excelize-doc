@@ -136,6 +136,7 @@
 * [Picture](image.md)
   * [Add picture](image.md#AddPicture)
   * [Get picture](image.md#GetPicture)
+  * [Delete picture](image.md#DeletePicture)
 * [Shape](shape.md)
 * [Sparklines](sparklines.md)
 * [Style](style.md)

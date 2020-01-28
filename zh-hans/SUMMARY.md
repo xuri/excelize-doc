@@ -136,6 +136,7 @@
 * [图片](image.md)
   * [插入图片](image.md#AddPicture)
   * [获取图片](image.md#GetPicture)
+  * [删除图片](image.md#DeletePicture)
 * [形状](shape.md)
 * [迷你图](sparklines.md)
 * [样式](style.md)

@@ -102,3 +102,11 @@ if err := ioutil.WriteFile(file, raw, 0644); err != nil {
     println(err.Error())
 }
 ```
+
+## 删除图片 {#DeletePicture}
+
+```go
+func (f *File) DeletePicture(sheet, cell string) (err error)
+```
+
+根据给定的工作表名称和单元格坐标，删除对应单元格上的图片。

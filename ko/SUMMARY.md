@@ -136,6 +136,7 @@
 * [그림](image.md)
   * [그림 추가](image.md#AddPicture)
   * [사진 가져 오기](image.md#GetPicture)
+  * [삭제 이미지](image.md#DeletePicture)
 * [도형](shape.md)
 * [스파크라인](sparklines.md)
 * [스타일](style.md)

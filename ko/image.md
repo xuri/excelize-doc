@@ -104,3 +104,11 @@ if err := ioutil.WriteFile(file, raw, 0644); err != nil {
     println(err.Error())
 }
 ```
+
+## 삭제 이미지 {#DeletePicture}
+
+```go
+func (f *File) DeletePicture(sheet, cell string) (err error)
+```
+
+DeletePicture 는 주어진 워크 시트와 셀 이름으로 XLSX 에서 차트를 삭제하는 기능을 제공합니다. 이미지 파일은 현재 문서에서 삭제되지 않습니다.

@@ -104,3 +104,11 @@ if err := ioutil.WriteFile(file, raw, 0644); err != nil {
     println(err.Error())
 }
 ```
+
+## Delete Picture {#DeletePicture}
+
+```go
+func (f *File) DeletePicture(sheet, cell string) (err error)
+```
+
+DeletePicture provides a function to delete charts in XLSX by given worksheet and cell name. Note that the image file won't be deleted from the document currently.

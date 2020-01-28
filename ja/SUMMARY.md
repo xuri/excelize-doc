@@ -136,6 +136,7 @@
 * [イメージ](image.md)
   * [図を挿入する](image.md#AddPicture)
   * [画像を取得](image.md#GetPicture)
+  * [画像を削除](image.md#DeletePicture)
 * [形状](shape.md)
 * [スパークライン](sparklines.md)
 * [スタイル](style.md)

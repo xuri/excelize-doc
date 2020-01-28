@@ -102,3 +102,11 @@ if err := ioutil.WriteFile(file, raw, 0644); err != nil {
     println(err.Error())
 }
 ```
+
+## 画像を削除 {#DeletePicture}
+
+```go
+func (f *File) DeletePicture(sheet, cell string) (err error)
+```
+
+DeletePicture は、指定されたワークシートとセル名で XLSX のチャートを削除する機能を提供します。 現在、画像ファイルはドキュメントから削除されないことに注意してください。

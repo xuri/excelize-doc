@@ -136,6 +136,7 @@
 * [Изображение](image.md)
   * [Добавить изображение](image.md#AddPicture)
   * [Получить изображение](image.md#GetPicture)
+  * [Удалить картинку](image.md#DeletePicture)
 * [форма](shape.md)
 * [Спарклайнов](sparklines.md)
 * [Стиль](style.md)

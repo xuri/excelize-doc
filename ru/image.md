@@ -104,3 +104,11 @@ if err = ioutil.WriteFile(file, raw, 0644); err != nil {
     println(err.Error())
 }
 ```
+
+## Удалить картинку {#DeletePicture}
+
+```go
+func (f *File) DeletePicture(sheet, cell string) (err error)
+```
+
+DeletePicture предоставляет функцию для удаления диаграмм в XLSX по заданному рабочему листу и имени ячейки. Обратите внимание, что файл изображения не будет удален из документа в настоящее время.
