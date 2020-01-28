@@ -1,6 +1,6 @@
 # グラフ
 
-## グラフを追加する
+## グラフを追加する {#AddChart}
 
 ```go
 func (f *File) AddChart(sheet, cell, format string) error
@@ -125,8 +125,8 @@ show_val|bool|`false`|値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-major_grid_lines｜bool|`false`|主グリッド線を指定します
-minor_grid_lines｜bool|`false`|副グリッド線を指定します
+major_grid_lines|bool|`false`|主グリッド線を指定します
+minor_grid_lines|bool|`false`|副グリッド線を指定します
 tick_label_skip|int|`1`|描画されるラベル間でスキップする目盛りラベルの数を指定します。`tick_label_skip` プロパティはオプションです。 デフォルト値は auto です
 reverse_order|bool|`false`|逆シーケンススケール値
 maximum|int|`0`|最大値、`0` は自動
@@ -136,8 +136,8 @@ minimum|int|`0`|最小値、`0` は自動
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-major_grid_lines｜bool|`false`|主グリッド線を指定します
-minor_grid_lines｜bool|`false`|副グリッド線を指定します
+major_grid_lines|bool|`false`|主グリッド線を指定します
+minor_grid_lines|bool|`false`|副グリッド線を指定します
 major_unit|float64|`0`|大目盛り間の距離を指定します。 正の浮動小数点数を含める必要があります。`major_unit` プロパティはオプションです。 デフォルト値は auto です
 reverse_order|bool|`false`|逆シーケンススケール値
 maximum|int|`0`|最大値、`0` は自動
@@ -149,3 +149,11 @@ minimum|int|`0`|最小値、`0` は自動
 ---|---|---|---
 height|int|290|高さ
 width|int|480|幅
+
+## チャートを削除 {#DeleteChart}
+
+```go
+func (f *File) DeleteChart(sheet, cell string) (err error)
+```
+
+DeleteChart は、指定されたワークシートとセル名でXLSXのグラフを削除する機能を提供します。

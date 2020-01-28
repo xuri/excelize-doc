@@ -12,6 +12,12 @@ SetColVisible provides a function to set visible of a single column by given wor
 err := f.SetColVisible("Sheet1", "D", false)
 ```
 
+Hide the columns from `D` to `F` (included):
+
+```go
+err := f.SetColVisible("Sheet1", "D:F", false)
+```
+
 ## Set column width {#SetColWidth}
 
 ```go

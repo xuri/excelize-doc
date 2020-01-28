@@ -12,6 +12,12 @@ func (f *File) SetColVisible(sheet, col string, visible bool) error
 err := f.SetColVisible("Sheet1", "D", false)
 ```
 
+隐藏名称为 `Sheet1` 的工作表中的 `D` 至 `F` 列：
+
+```go
+err := f.SetColVisible("Sheet1", "D:F", false)
+```
+
 ## 设置列宽度 {#SetColWidth}
 
 ```go

@@ -12,6 +12,12 @@ SetColVisible fournit une fonction pour définir visible d'une seule colonne par
 err := f.SetColVisible("Sheet1", "D", false)
 ```
 
+Masquez les colonnes de `D` à `F` (incluses):
+
+```go
+err := f.SetColVisible("Sheet1", "D:F", false)
+```
+
 ## Définir la largeur de la colonne {#SetColWidth}
 
 ```go

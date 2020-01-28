@@ -1,6 +1,6 @@
 # Chart
 
-## Add chart
+## Add chart {#AddChart}
 
 ```go
 func (f *File) AddChart(sheet, cell, format string) error
@@ -124,8 +124,8 @@ The properties of `x_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-major_grid_lines｜bool|`false`|Specifies major gridlines.
-minor_grid_lines｜bool|`false`|Specifies minor gridlines.
+major_grid_lines|bool|`false`|Specifies major gridlines.
+minor_grid_lines|bool|`false`|Specifies minor gridlines.
 tick_label_skip|int|`1`|Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
 reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
@@ -135,8 +135,8 @@ The properties of `y_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-major_grid_lines｜bool|`false`|Specifies major gridlines.
-minor_grid_lines｜bool|`false`|Specifies minor gridlines.
+major_grid_lines|bool|`false`|Specifies major gridlines.
+minor_grid_lines|bool|`false`|Specifies minor gridlines.
 major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The major_unit property is optional. The default value is auto.
 reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
@@ -148,3 +148,11 @@ Parameter|Type|Default|Explanation
 ---|---|---|---
 height|int|290|Height
 width|int|480|Width
+
+## Delete chart {#DeleteChart}
+
+```go
+func (f *File) DeleteChart(sheet, cell string) (err error)
+```
+
+DeleteChart provides a function to delete chart in XLSX by given worksheet and cell name.

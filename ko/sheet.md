@@ -12,6 +12,12 @@ SetColVisible 지정된 워크 시트 이름과 열 이름으로 단일 열의 �
 err := f.SetColVisible("Sheet1", "D", false)
 ```
 
+`D` 에서 `F` (포함) 까지의 열을 숨 깁니다:
+
+```go
+err := f.SetColVisible("Sheet1", "D:F", false)
+```
+
 ## 열 너비 설정 {#SetColWidth}
 
 ```go

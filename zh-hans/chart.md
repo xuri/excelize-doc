@@ -1,6 +1,6 @@
 # 图表
 
-## 添加图表
+## 添加图表 {#AddChart}
 
 ```go
 func (f *File) AddChart(sheet, cell, format string) error
@@ -124,8 +124,8 @@ show_val|bool|`false`|值
 
 参数|类型|默认值|含义
 ---|---|---|---
-major_grid_lines｜bool|`false`|主要网格线
-minor_grid_lines｜bool|`false`|次要网格线
+major_grid_lines|bool|`false`|主要网格线
+minor_grid_lines|bool|`false`|次要网格线
 tick_label_skip|int|`1`|指定标签间隔单位
 reverse_order|bool|`false`|逆序刻度值
 maximum|int|`0`|最大值，`0` 代表自动
@@ -135,8 +135,8 @@ minimum|int|`0`|最小值，`0` 代表自动
 
 参数|类型|默认值|含义
 ---|---|---|---
-major_grid_lines｜bool|`false`|主要网格线
-minor_grid_lines｜bool|`false`|次要网格线
+major_grid_lines|bool|`false`|主要网格线
+minor_grid_lines|bool|`false`|次要网格线
 major_unit|float64|`0`|坐标轴主要刻度单位
 reverse_order|bool|`false`|逆序刻度值
 maximum|int|`0`|最大值，`0` 代表自动
@@ -148,3 +148,11 @@ minimum|int|`0`|最小值，`0` 代表自动
 ---|---|---|---
 height|int|290|高度
 width|int|480|宽度
+
+## 删除图表 {#DeleteChart}
+
+```go
+func (f *File) DeleteChart(sheet, cell string) (err error)
+```
+
+根据给定的工作表名称和单元格坐标删除图表。

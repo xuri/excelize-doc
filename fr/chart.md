@@ -1,6 +1,6 @@
 # Graphique
 
-## Ajouter un graphique
+## Ajouter un graphique {#AddChart}
 
 ```go
 func (f *File) AddChart(sheet, cell, format string) error
@@ -124,8 +124,8 @@ Les propriétés de `x_axis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-major_grid_lines｜bool|`false`|Spécifie les lignes de grille principales.
-minor_grid_lines｜bool|`false`|Spécifie les lignes de grille mineures.
+major_grid_lines|bool|`false`|Spécifie les lignes de grille principales.
+minor_grid_lines|bool|`false`|Spécifie les lignes de grille mineures.
 tick_label_skip|int|`1`|Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété `tick_label_skip` est facultative. La valeur par défaut est auto.
 reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
 maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
@@ -135,8 +135,8 @@ Les propriétés de `y_axis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-major_grid_lines｜bool|`false`|Spécifie les lignes de grille principales.
-minor_grid_lines｜bool|`false`|Spécifie les lignes de grille mineures.
+major_grid_lines|bool|`false`|Spécifie les lignes de grille principales.
+minor_grid_lines|bool|`false`|Spécifie les lignes de grille mineures.
 major_unit|float64|`0`|Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété major_unit est facultative. La valeur par défaut est auto.
 reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
 maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
@@ -148,3 +148,11 @@ Paramètre|Type|Défaut|Explication
 ---|---|---|---
 height|int|290|Hauteur
 width|int|480|Largeur
+
+## Supprimer le graphique {#DeleteChart}
+
+```go
+func (f *File) DeleteChart(sheet, cell string) (err error)
+```
+
+DeleteChart fournit une fonction pour supprimer le graphique dans XLSX par feuille de calcul et nom de cellule donnés.

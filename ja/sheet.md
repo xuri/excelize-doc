@@ -12,6 +12,12 @@ func (f *File) SetColVisible(sheet, col string, visible bool) error
 err := f.SetColVisible("Sheet1", "D", false)
 ```
 
+`D` から `F`（含まれる）の列を非表示にします：
+
+```go
+err := f.SetColVisible("Sheet1", "D:F", false)
+```
+
 ## 列幅の設定 {#SetColWidth}
 
 ```go
