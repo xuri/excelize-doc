@@ -56,7 +56,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow écrit un tableau sur une ligne de flux par un nom de feuille de calcul donné, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Notez que les paramètres de cellule avec des styles ne sont pas pris en charge actuellement et après les lignes définies, vous devez appeler la méthode [`Flush`](stream.md#Flush) pour mettre fin au processus d'écriture en continu.
+SetRow écrit un tableau sur une ligne de flux par un nom de feuille de calcul donné, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Notez que vous devez appeler la méthode [`Flush`](stream.md#Flush) pour terminer le processus d'écriture en continu.
 
 ## Flush le flux {#Flush}
 

@@ -56,7 +56,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow writes an array to stream row by given worksheet name, starting coordinate and a pointer to array type `slice`. Note that, cell settings with styles are not supported currently and after set rows, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process.
+SetRow writes an array to stream row by given worksheet name, starting coordinate and a pointer to array type `slice`. Note that, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process.
 
 ## Flush stream {#Flush}
 

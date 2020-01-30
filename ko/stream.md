@@ -56,7 +56,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow 는 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행을 스트림에 배열을 기록합니다. 스타일이있는 셀 설정은 현재 및 설정된 행 이후에 지원되지 않으며 스트리밍 쓰기 프로세스를 종료하려면 [`Flush`](stream.md#Flush) 메서드를 호출해야합니다.
+SetRow 는 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행을 스트림에 배열을 기록합니다. 스트리밍 쓰기 프로세스를 끝내려면 [`Flush`](stream.md#Flush) 메소드를 호출해야합니다.
 
 ## 플러시 스트림 {#Flush}
 

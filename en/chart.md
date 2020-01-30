@@ -3,7 +3,7 @@
 ## Add chart {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string) error
+func (f *File) AddChart(sheet, cell, format string, combo ...string) error
 ```
 
 AddChart provides the method to add chart in a sheet by given chart format set (such as offset, scale, aspect ratio setting and print settings) and properties set.
@@ -129,7 +129,7 @@ minor_grid_lines|bool|`false`|Specifies minor gridlines.
 tick_label_skip|int|`1`|Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
 reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-minimum|int|`0`| Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+minimum|int|`0`|Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
 
 The properties of `y_axis` that can be set are:
 
@@ -140,7 +140,7 @@ minor_grid_lines|bool|`false`|Specifies minor gridlines.
 major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The major_unit property is optional. The default value is auto.
 reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-minimum|int|`0`| Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+minimum|int|`0`|Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
 
 Set the chart size by `dimension` property. The dimension property is optional. The properties that can be set are:
 
@@ -148,6 +148,34 @@ Parameter|Type|Default|Explanation
 ---|---|---|---
 height|int|290|Height
 width|int|480|Width
+
+The parameter `combo` specifies the create a chart that combines two or more chart types in a single chart. For example, create a clustered column - line chart with data `Sheet1!$E$1:$L$15`:
+
+```go
+package main
+
+import "github.com/360EntSecGroup-Skylar/excelize"
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    f := excelize.NewFile()
+    for k, v := range categories {
+        f.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        f.SetCellValue("Sheet1", k, v)
+    }
+    if err := f.AddChart("Sheet1", "E1", `{"type":"col","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"title":{"name":"Clustered Column - Line Chart"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`, `{"type":"line","series":[{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`); err != nil {
+        println(err.Error())
+        return
+    }
+    // Save xlsx file by the given path.
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
+    }
+}
+```
 
 ## Delete chart {#DeleteChart}
 

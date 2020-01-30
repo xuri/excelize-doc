@@ -56,7 +56,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow 通过给定的工作表名称、起始坐标和指向数组类型“切片”的指针将数据按行流式写入工作表中。 请注意，当前不支持具有样式的单元格设置，并且在设置行之后，必须调用 [`Flush`](stream.md#Flush) 函数来结束流式写入过程，并需要确所保写入的行号是递增的。
+SetRow 通过给定的工作表名称、起始坐标和指向数组类型“切片”的指针将数据按行流式写入工作表中。请注意，在设置行之后，必须调用 [`Flush`](stream.md#Flush) 函数来结束流式写入过程，并需要确所保写入的行号是递增的。
 
 ## 结束流式写入 {#Flush}
 

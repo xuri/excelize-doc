@@ -3,7 +3,7 @@
 ## 차트 추가 {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string) error
+func (f *File) AddChart(sheet, cell, format string, combo ...string) error
 ```
 
 AddChart 는 지정된 차트 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정) 및 속성 집합을 사용하여 시트에 차트를 추가하는 방법을 제공합니다.
@@ -149,6 +149,34 @@ minimum|int|`0`| 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성
 ---|---|---|---
 height|int|290|높이
 width|int|480|너비
+
+`combo` 매개 변수는 단일 차트에서 둘 이상의 차트 유형을 결합하는 차트 작성을 지정합니다. 예를 들어, `Sheet1!$E$1:$L$15` 데이터가 포함 된 군집 기둥 형 꺾은 선형 차트를 만듭니다:
+
+```go
+package main
+
+import "github.com/360EntSecGroup-Skylar/excelize"
+
+func main() {
+    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    f := excelize.NewFile()
+    for k, v := range categories {
+        f.SetCellValue("Sheet1", k, v)
+    }
+    for k, v := range values {
+        f.SetCellValue("Sheet1", k, v)
+    }
+    if err := f.AddChart("Sheet1", "E1", `{"type":"col","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"title":{"name":"2D 클러스터형 세로 막 대형 차트 - 꺾은 선형 차트"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`, `{"type":"line","series":[{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`); err != nil {
+        println(err.Error())
+        return
+    }
+    // 통합 문서 저장
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        println(err.Error())
+    }
+}
+```
 
 ## 차트 삭제 {#DeleteChart}
 
