@@ -705,6 +705,21 @@ func (f *File) GetDefinedName() []DefinedName
 
 GetDefinedName provides a function to get the defined names of the workbook or worksheet.
 
+# Delete defined name {#DeleteDefinedName}
+
+```go
+func (f *File) DeleteDefinedName(definedName *DefinedName) error
+```
+
+DeleteDefinedName provides a function to delete the defined names of the workbook or worksheet. If not specified scope, the default scope is workbook. For example:
+
+```go
+f.DeleteDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    Scope:    "Sheet2",
+})
+```
+
 ## Set document properties {#SetDocProps}
 
 ```go

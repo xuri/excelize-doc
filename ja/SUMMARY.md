@@ -29,6 +29,7 @@
   * [ヘッダとフッタを設定する](workbook.md#SetHeaderFooter)
   * [名前を設定する](workbook.md#SetDefinedName)
   * [名前を取得する](workbook.md#GetDefinedName)
+  * [定義された名前を削除](workbook.md#DeleteDefinedName)
   * [ブックのプロパティを設定する](workbook.md#SetDocProps)
   * [ブックのプロパティを取得する](workbook.md#GetDocProps)
 * [ワークシート](sheet.md)

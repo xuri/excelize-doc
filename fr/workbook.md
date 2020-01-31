@@ -703,6 +703,21 @@ func (f *File) GetDefinedName() []DefinedName
 
 GetDefinedName fournit une fonction pour obtenir les noms définis du classeur ou de la feuille de calcul.
 
+# Supprimer le nom défini {#DeleteDefinedName}
+
+```go
+func (f *File) DeleteDefinedName(definedName *DefinedName) error
+```
+
+DeleteDefinedName fournit une fonction pour supprimer les noms définis du classeur ou de la feuille de calcul. Si la portée n'est pas spécifiée, la portée par défaut est classeur. Par exemple:
+
+```go
+f.DeleteDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    Scope:    "Sheet2",
+})
+```
+
 ## Définir les propriétés du document {#SetDocProps}
 
 ```go

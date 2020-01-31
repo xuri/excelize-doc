@@ -703,6 +703,21 @@ func (f *File) GetDefinedName() []DefinedName
 
 GetDefinedName предоставляет функцию для получения определенных имен рабочей книги или рабочего листа.
 
+# Удалить определенное имя {#DeleteDefinedName}
+
+```go
+func (f *File) DeleteDefinedName(definedName *DefinedName) error
+```
+
+DeleteDefinedName предоставляет функцию для удаления определенных имен рабочей книги или рабочего листа. Если не указана область, областью по умолчанию является рабочая книга. Например:
+
+```go
+f.DeleteDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    Scope:    "Sheet2",
+})
+```
+
 ## Установить свойства документа {#SetDocProps}
 
 ```go

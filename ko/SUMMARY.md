@@ -29,6 +29,7 @@
   * [머리글 및 바닥 글 설정](workbook.md#SetHeaderFooter)
   * [이름 설정](workbook.md#SetDefinedName)
   * [이름 가져 오기](workbook.md#GetDefinedName)
+  * [정의 된 이름 삭제](workbook.md#DeleteDefinedName)
   * [통합 문서 속성 설정](workbook.md#SetDocProps)
   * [통합 문서 속성 가져 오기](workbook.md#GetDocProps)
 * [워크 시트](sheet.md)

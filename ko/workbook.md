@@ -703,6 +703,21 @@ func (f *File) GetDefinedName() []DefinedName
 
 범위에있는 통합 문서 및 워크 시트의 이름 목록을 얻습니다.
 
+# 정의 된 이름 삭제 {#DeleteDefinedName}
+
+```go
+func (f *File) DeleteDefinedName(definedName *DefinedName) error
+```
+
+DeleteDefinedName 은 통합 문서 또는 워크 시트의 정의 된 이름을 삭제하는 기능을 제공합니다. 범위를 지정하지 않으면 기본 범위는 통합 문서입니다. 예를 들면 다음과 같습니다:
+
+```go
+f.DeleteDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    Scope:    "Sheet2",
+})
+```
+
 ## 통합 문서 속성 설정 {#SetDocProps}
 
 ```go

@@ -29,6 +29,7 @@
   * [Set header and footer](workbook.md#SetHeaderFooter)
   * [Set defined name](workbook.md#SetDefinedName)
   * [Get defined name](workbook.md#GetDefinedName)
+  * [Delete defined name](workbook.md#DeleteDefinedName)
   * [Set document properties](workbook.md#SetDocProps)
   * [Get document properties](workbook.md#GetDocProps)
 * [Worksheet](sheet.md)

@@ -697,6 +697,21 @@ func (f *File) GetDefinedName() []DefinedName
 
 範囲内のワークブックとワークシートの名前のリストを取得します。
 
+# 定義された名前を削除 {#DeleteDefinedName}
+
+```go
+func (f *File) DeleteDefinedName(definedName *DefinedName) error
+```
+
+DeleteDefinedName は、ワークブックまたはワークシートの定義名を削除する機能を提供します。スコープが指定されていない場合、デフォルトのスコープはワークブックです。例えば：
+
+```go
+f.DeleteDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    Scope:    "Sheet2",
+})
+```
+
 ## ブックのプロパティを設定する {#SetDocProps}
 
 ```go

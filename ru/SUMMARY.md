@@ -29,6 +29,7 @@
   * [Установить верхний и нижний колонтитулы](workbook.md#SetHeaderFooter)
   * [Установить определенное имя](workbook.md#SetDefinedName)
   * [Получить определенное имя](workbook.md#GetDefinedName)
+  * [Удалить определенное имя](workbook.md#DeleteDefinedName)
   * [Установить свойства документа](workbook.md#SetDocProps)
   * [Получить свойства документа](workbook.md#GetDocProps)
 * [Рабочий лист](sheet.md)

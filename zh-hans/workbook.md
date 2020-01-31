@@ -703,6 +703,21 @@ func (f *File) GetDefinedName() []DefinedName
 
 获取作用范围内的工作簿和工作表的名称列表。
 
+# 删除名称 {#DeleteDefinedName}
+
+```go
+func (f *File) DeleteDefinedName(definedName *DefinedName) error
+```
+
+根据给定的名称和名称作用范围删除已定义的名称，默认名称的作用范围为工作簿。例如：
+
+```go
+f.DeleteDefinedName(&excelize.DefinedName{
+    Name:     "Amount",
+    Scope:    "Sheet2",
+})
+```
+
 ## 设置工作簿属性 {#SetDocProps}
 
 ```go

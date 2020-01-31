@@ -29,6 +29,7 @@
   * [Définir l'en-tête et le pied de page](workbook.md#SetHeaderFooter)
   * [Définir le nom défini](workbook.md#SetDefinedName)
   * [Obtenir le nom défini](workbook.md#GetDefinedName)
+  * [Supprimer le nom défini](workbook.md#DeleteDefinedName)
   * [Définir les propriétés du document](workbook.md#SetDocProps)
   * [Obtenir les propriétés du document](workbook.md#GetDocProps)
 * [Feuille de travail](sheet.md)
