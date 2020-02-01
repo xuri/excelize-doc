@@ -252,6 +252,20 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 If the given cell coordinate area overlaps with other existing merged cells, the existing merged cells will be deleted.
 
+##  Unmerge cells {#UnmergeCell}
+
+```go
+func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+```
+
+UnmergeCell provides a function to unmerge a given coordinate area. For example unmerge area `D3:E9` on `Sheet1`:
+
+```go
+err := f.UnmergeCell("Sheet1", "D3", "E9")
+```
+
+Attention: overlapped areas will also be unmerged.
+
 ## Get merge cells {#GetMergeCells}
 
 GetMergeCells provides a function to get all merged cells from a worksheet currently.

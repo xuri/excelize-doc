@@ -74,6 +74,7 @@
   * [Get hyperlink](cell.md#GetCellHyperLink)
   * [Get style index](cell.md#GetCellStyle)
   * [Merge cells](cell.md#MergeCell)
+  * [Unmerge cells](cell.md#UnmergeCell)
   * [Get merge cells](cell.md#GetMergeCells)
   * [Add comment](cell.md#AddComment)
   * [Get comment](cell.md#GetComments)

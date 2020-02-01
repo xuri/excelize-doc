@@ -74,6 +74,7 @@
   * [하이퍼 링크 가져 오기](cell.md#GetCellHyperLink)
   * [스타일 색인 가져 오기](cell.md#GetCellStyle)
   * [셀 병합](cell.md#MergeCell)
+  * [셀 병합 취소](cell.md#UnmergeCell)
   * [병합 셀 가져 오기](cell.md#GetMergeCells)
   * [의견 추가](cell.md#AddComment)
   * [의견 가져 오기](cell.md#GetComments)

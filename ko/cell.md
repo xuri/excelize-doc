@@ -252,6 +252,20 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 지정된 셀 좌표 영역이 다른 기존 병합셀과 겹치면 기존 병합된 셀이 삭제됩니다.
 
+##  셀 병합 취소 {#UnmergeCell}
+
+```go
+func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+```
+
+UnmergeCell 은 주어진 좌표 영역을 병합 해제하는 기능을 제공합니다. 예를 들어 `Sheet1` 의 `D3:E9` 영역 병합 해제:
+
+```go
+err := f.UnmergeCell("Sheet1", "D3", "E9")
+```
+
+주의: 겹쳐진 영역도 병합되지 않습니다.
+
 ## 병합 셀 가져 오기 {#GetMergeCells}
 
 GetMergeCells 는 현재 워크 시트에서 병합 된 모든 셀을 얻을 수 있는 함수를 제공합니다.

@@ -252,6 +252,20 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 如果给定的单元格坐标区域与已有的其他合并单元格相重叠，已有的合并单元格将会被删除。
 
+##  取消合并单元格 {#UnmergeCell}
+
+```go
+func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+```
+
+根据给定的工作表名（大小写敏感）和单元格坐标区域取消合并单元格。例如，取消合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
+
+```go
+err := f.UnmergeCell("Sheet1", "D3", "E9")
+```
+
+如果给定的单元格坐标区域包含多个合并单元格，则全部合并单元格都将被取消合并。
+
 ## 获取合并单元格 {#GetMergeCells}
 
 根据给定的工作表名（大小写敏感）获取全部合并单元格的坐标区域和值。

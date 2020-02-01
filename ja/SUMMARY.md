@@ -74,6 +74,7 @@
   * [ハイパーリンクを取得](cell.md#GetCellHyperLink)
   * [スタイルインデックスの取得](cell.md#GetCellStyle)
   * [セルを結合](cell.md#MergeCell)
+  * [セルの結合を解除](cell.md#UnmergeCell)
   * [セルを結合する](cell.md#GetMergeCells)
   * [コメント追加](cell.md#AddComment)
   * [コメントを得る](cell.md#GetComments)

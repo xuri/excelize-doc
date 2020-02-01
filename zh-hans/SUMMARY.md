@@ -74,6 +74,7 @@
   * [获取超链接](cell.md#GetCellHyperLink)
   * [获取样式索引](cell.md#GetCellStyle)
   * [合并单元格](cell.md#MergeCell)
+  * [取消合并单元格](cell.md#UnmergeCell)
   * [获取合并单元格](cell.md#GetMergeCells)
   * [添加批注](cell.md#AddComment)
   * [获取批注](cell.md#GetComments)

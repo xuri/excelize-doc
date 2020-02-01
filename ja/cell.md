@@ -252,6 +252,20 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 指定したセルの座標領域が既に存在する他の結合セルと重なっている場合、既存の結合セルは削除されます。
 
+##  セルの結合を解除 {#UnmergeCell}
+
+```go
+func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+```
+
+UnmergeCell は、指定された座標領域の結合を解除する機能を提供します。たとえば、`Sheet1` の領域 `D3E9` のマージを解除します:
+
+```go
+err := f.UnmergeCell("Sheet1", "D3", "E9")
+```
+
+重要：重複した領域もマージされません。
+
 ## セルを結合する {#GetMergeCells}
 
 指定されたワークシート名 (大文字小文字の区別) に基づいて、すべての結合セルの座標領域と値を取得します。

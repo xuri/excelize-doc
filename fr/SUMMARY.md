@@ -74,6 +74,7 @@
   * [Obtenir un lien hypertexte](cell.md#GetCellHyperLink)
   * [Obtenir l'index de style](cell.md#GetCellStyle)
   * [Fusionner les cellules](cell.md#MergeCell)
+  * [Dissocier les cellules](cell.md#UnmergeCell)
   * [Obtenir les cellules fusionnées](cell.md#GetMergeCells)
   * [Ajouter un commentaire](cell.md#AddComment)
   * [Obtenir un commentaire](cell.md#GetComments)

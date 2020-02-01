@@ -74,6 +74,7 @@
   * [Получить гиперссылку](cell.md#GetCellHyperLink)
   * [Получить индекс стиля](cell.md#GetCellStyle)
   * [Объединить ячейки](cell.md#MergeCell)
+  * [Отменить объединение ячеек](cell.md#UnmergeCell)
   * [Получить ячейки слияния](cell.md#GetMergeCells)
   * [Добавить комментарий](cell.md#AddComment)
   * [Получить комментарий](cell.md#GetComments)

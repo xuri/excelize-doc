@@ -252,6 +252,20 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusionnées existantes, les cellules fusionnées existantes seront supprimées.
 
+## Dissocier les cellules {#UnmergeCell}
+
+```go
+func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+```
+
+UnmergeCell fournit une fonction pour annuler la fusion d'une zone de coordonnées donnée. Par exemple, annuler la fusion de la zone `D3:E9` sur `Sheet1`:
+
+```go
+err := f.UnmergeCell("Sheet1", "D3", "E9")
+```
+
+Attention: les zones qui se chevauchent seront également non fusionnées.
+
 ## Obtenir les cellules fusionnées {#GetMergeCells}
 
 GetMergeCells fournit une fonction pour obtenir toutes les cellules fusionnées à partir d'une feuille de calcul.
