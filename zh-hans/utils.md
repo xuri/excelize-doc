@@ -742,3 +742,11 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
     println(err.Error())
 }
 ```
+
+## 字符集转码器 {#CharsetTranscoder}
+
+```go
+func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+```
+
+CharsetTranscoder 为非 UTF-8 编码的电子表格文档设置用户提供指定自定义编码转换器支持。

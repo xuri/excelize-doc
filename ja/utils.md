@@ -613,7 +613,7 @@ split (Split)|ペインは分割されますが、固定されません。この
 f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
 ```
 
-例 2, `Sheet1` の行 1 ~ 9 をフリーズし、`Sheet1!A11:XFD11` でアクティブなセル範囲を設定します:
+例 2, `Sheet1` の行 1 - 9 をフリーズし、`Sheet1!A11:XFD11` でアクティブなセル範囲を設定します:
 
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="列をフリーズし、アクティブなセル範囲を設定する"></p>
 
@@ -747,3 +747,11 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
     println(err.Error())
 }
 ```
+
+## 文字トランスコーダー {#CharsetTranscoder}
+
+```go
+func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+```
+
+CharsetTranscoder 非 UTF-8 エンコーディングからオープン XLSX のユーザー定義コードページトランスコーダー関数を設定します。

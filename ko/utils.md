@@ -613,7 +613,7 @@ split (Split)|창은 분할되지만 고정되지는 않습니다. 이 상태에
 f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
 ```
 
-예 2: Sheet1 에서 행 1~9 행을 고정하고 `Sheet1!A11:XFD11` 에서 활성 셀 범위를 설정합니다:
+예 2: Sheet1 에서 행 1 - 9 행을 고정하고 `Sheet1!A11:XFD11` 에서 활성 셀 범위를 설정합니다:
 
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="열을 고정하고 활성 셀 범위를 설정합니다"></p>
 
@@ -747,3 +747,11 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
     println(err.Error())
 }
 ```
+
+## 문자셋 트랜스 코더 {#CharsetTranscoder}
+
+```go
+func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+```
+
+CharsetTranscoder UTF-8 이외의 인코딩에서 열린 XLSX에 대한 사용자 정의 코드 페이지 트랜스 코더 기능을 설정합니다.

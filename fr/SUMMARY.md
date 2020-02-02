@@ -177,6 +177,7 @@
   * [Convertir HSL en RGB](utils.md#HSLToRGB)
   * [Writer Fichier](utils.md#FileWriter)
   * [Ajouter VBA Project](utils.md#AddVBAProject)
+  * [Transcodeur Charset](utils.md#CharsetTranscoder)
 * [Constantes](constants.md)
 * [Performance](performance.md)
 * [Contribution](contribution.md)

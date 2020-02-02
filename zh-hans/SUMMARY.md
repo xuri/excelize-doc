@@ -177,6 +177,7 @@
   * [HSL与RGB色彩空间色值转换](utils.md#HSLToRGB)
   * [文件 Writer](utils.md#FileWriter)
   * [嵌入 VBA 项目](utils.md#AddVBAProject)
+  * [字符集转码器](utils.md#CharsetTranscoder)
 * [常量](constants.md)
 * [性能数据](performance.md)
 * [参与贡献](contribution.md)

@@ -177,6 +177,7 @@
   * [HSL 을 RGB 로 변환](utils.md#HSLToRGB)
   * [파일 작성자](utils.md#FileWriter)
   * [VBA 프로젝트 추가](utils.md#AddVBAProject)
+  * [문자셋 트랜스 코더](utils.md#CharsetTranscoder)
 * [상수](constants.md)
 * [성능](performance.md)
 * [의연금](contribution.md)

@@ -177,6 +177,7 @@
   * [HSLとRGBカラースペースカラー値変換](utils.md#HSLToRGB)
   * [ファイルライター](utils.md#FileWriter)
   * [VBA プロジェクトの追加](utils.md#AddVBAProject)
+  * [文字トランスコーダー](utils.md#CharsetTranscoder)
 * [定数](constants.md)
 * [パフォーマンスデータ](performance.md)
 * [参加貢献](contribution.md)

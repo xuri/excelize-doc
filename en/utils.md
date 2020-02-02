@@ -747,3 +747,11 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
     println(err.Error())
 }
 ```
+
+## Charset transcoder {#CharsetTranscoder}
+
+```go
+func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+```
+
+CharsetTranscoder Set user defined codepage transcoder function for open XLSX from non UTF-8 encoding.

@@ -748,3 +748,11 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
     println(err.Error())
 }
 ```
+
+## Транскодер персонажа {#CharsetTranscoder}
+
+```go
+func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+```
+
+CharsetTranscoder Устанавливает пользовательскую функцию транскодера кодовой страницы для открытого XLSX из кодировки не UTF-8.
