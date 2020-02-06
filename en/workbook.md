@@ -63,7 +63,7 @@ err := f.CopySheet(1, index)
 return err
 ```
 
-## Worksheet background {#SetSheetBackground}
+## Set worksheet background {#SetSheetBackground}
 
 ```go
 func (f *File) SetSheetBackground(sheet, picture string) error

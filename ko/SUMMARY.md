@@ -44,6 +44,7 @@
   * [행 가시성 확보](sheet.md#GetRowVisible)
   * [워크 시트 색인 가져 오기](sheet.md#GetSheetIndex)
   * [워크 시트 목록 가져 오기](sheet.md#GetSheetMap)
+  * [워크 시트 이름 설정](sheet.md#SetSheetName)
   * [워크 시트 속성 설정](sheet.md#SetSheetPrOptions)
   * [워크 시트 속성 가져 오기](sheet.md#GetSheetPrOptions)
   * [열 삽입](sheet.md#InsertCol)

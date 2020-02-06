@@ -133,6 +133,14 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## ワークシート名を設定 {#SetSheetName}
+
+```go
+func (f *File) SetSheetName(oldName, newName string)
+```
+
+SetSheetName は、指定された古いワークシート名と新しいワークシート名でワークシート名を設定する関数を提供します。 シートのタイトルには最大 31 文字を使用できます。この関数はシートの名前を変更するだけで、セルに関連付けられた数式または参照のシート名は更新しません。 そのため、問題の数式エラーまたは参照が欠落している可能性があります。
+
 ## ワークシートのプロパティを設定する {#SetSheetPrOptions}
 
 ```go

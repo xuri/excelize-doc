@@ -135,6 +135,14 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## Définir le nom de la feuille de calcul {#SetSheetName}
+
+```go
+func (f *File) SetSheetName(oldName, newName string)
+```
+
+SetSheetName fournit une fonction pour définir le nom de la feuille de calcul en fonction des anciens et nouveaux noms de feuille de calcul. Un maximum de 31 caractères sont autorisés dans le titre de la feuille et cette fonction ne modifie que le nom de la feuille et ne mettra pas à jour le nom de la feuille dans la formule ou la référence associée à la cellule. Il peut donc y avoir une erreur de formule ou une référence manquante.
+
 ## Définir les propriétés d'une feuille de calcul {#SetSheetPrOptions}
 
 ```go

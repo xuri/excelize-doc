@@ -135,6 +135,14 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## Set worksheet name {#SetSheetName}
+
+```go
+func (f *File) SetSheetName(oldName, newName string)
+```
+
+SetSheetName provides a function to set the worksheet name by given old and new worksheet name. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be problem formula error or reference missing.
+
 ## Set worksheet properties {#SetSheetPrOptions}
 
 ```go

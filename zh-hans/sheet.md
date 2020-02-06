@@ -133,6 +133,14 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## 设置工作表名称 {#SetSheetName}
+
+```go
+func (f *File) SetSheetName(oldName, newName string)
+```
+
+根据给定的新旧工作表名称（大小写敏感）重命名工作表。工作表名称最多允许使用 31 个字符，此功能仅更改工作表的名称，而不会更新与单元格关联的公式或引用中的工作表名称。因此使用此功能重命名工作表后可能导致公式错误或参考引用问题。
+
 ## 设置工作表属性 {#SetSheetPrOptions}
 
 ```go

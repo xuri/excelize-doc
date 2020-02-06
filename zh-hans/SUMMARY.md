@@ -44,6 +44,7 @@
   * [获取行可见性](sheet.md#GetRowVisible)
   * [获取工作表索引](sheet.md#GetSheetIndex)
   * [获取工作表列表](sheet.md#GetSheetMap)
+  * [设置工作表名称](sheet.md#SetSheetName)
   * [设置工作表属性](sheet.md#SetSheetPrOptions)
   * [获取工作表属性](sheet.md#GetSheetPrOptions)
   * [插入列](sheet.md#InsertCol)

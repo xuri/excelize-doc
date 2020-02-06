@@ -135,6 +135,14 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
+## 워크 시트 이름 설정 {#SetSheetName}
+
+```go
+func (f *File) SetSheetName(oldName, newName string)
+```
+
+SetSheetName 은 이전 및 새 워크 시트 이름으로 워크 시트 이름을 설정하는 기능을 제공합니다. 시트 제목에는 최대 31 자를 사용할 수 있으며이 함수는 시트 이름 만 변경하며 셀과 관련된 수식 또는 참조에서 시트 이름을 업데이트하지 않습니다. 따라서 문제 공식 오류 또는 참조가 없을 수 있습니다.
+
 ## 워크 시트 속성 설정 {#SetSheetPrOptions}
 
 ```go

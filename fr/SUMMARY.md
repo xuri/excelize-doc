@@ -44,6 +44,7 @@
   * [Obtenir la visibilité des lignes](sheet.md#GetRowVisible)
   * [Obtenir l'index de la feuille de calcul](sheet.md#GetSheetIndex)
   * [Obtenir la liste des feuilles de calcul](sheet.md#GetSheetMap)
+  * [Définir le nom de la feuille de calcul](sheet.md#SetSheetName)
   * [Définir les propriétés d'une feuille de calcul](sheet.md#SetSheetPrOptions)
   * [Obtenir les propriétés de la feuille de calcul](sheet.md#GetSheetPrOptions)
   * [Insérer une colonne](sheet.md#InsertCol)
