@@ -119,6 +119,86 @@ GetSheetVisible 은 주어진 워크 시트 이름으로 볼 수있는 워크 �
 f.GetSheetVisible("Sheet1")
 ```
 
+## 워크 시트보기 속성 설정 {#SetSheetViewOptions}
+
+```go
+func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+```
+
+SetSheetViewOptions 는 시트보기 옵션을 설정합니다. `viewIndex` 는 음수 일 수 있으며, 그럴 경우 역으로 계산됩니다 (`-1` 이 마지막보기).
+
+선택적 뷰 매개 변수 | 유형
+---|---
+DefaultGridColor|bool
+RightToLeft|bool
+ShowFormulas|bool
+ShowGridLines|bool
+ShowRowColHeaders|bool
+ZoomScale|float64
+TopLeftCell|string
+
+- 예 1:
+
+```go
+err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
+```
+
+- 예 2:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetViewOptions(sheet, 0,
+    excelize.DefaultGridColor(false),
+    excelize.RightToLeft(false),
+    excelize.ShowFormulas(true),
+    excelize.ShowGridLines(true),
+    excelize.ShowRowColHeaders(true),
+    excelize.ZoomScale(80),
+    excelize.TopLeftCell("C3"),
+); err != nil {
+    println(err.Error())
+}
+
+var zoomScale excelize.ZoomScale
+fmt.Println("Default:")
+fmt.Println("- zoomScale: 80")
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used out of range value:")
+fmt.Println("- zoomScale:", zoomScale)
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used correct value:")
+fmt.Println("- zoomScale:", zoomScale)
+```
+
+출력 가져오기:
+
+```text
+Default:
+- zoomScale: 80
+Used out of range value:
+- zoomScale: 80
+Used correct value:
+- zoomScale: 123
+```
+
 ## 워크 시트 뷰 속성 가져 오기 {#GetSheetViewOptions}
 
 ```go

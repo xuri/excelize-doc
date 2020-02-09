@@ -93,7 +93,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) SetSheetVisible(name string, visible bool) error
 ```
 
-根据给定的工作表名称和可见性参数设置工作表的可见性。 一个工作簿中至少包含一个可见工作表。如果给定的工作表为默认工作表，则对其可见性设置无效。工作表可见性状态可参考[工作表状态枚举](https://docs.microsoft.com/zh-cn/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
+根据给定的工作表名称和可见性参数设置工作表的可见性。一个工作簿中至少包含一个可见工作表。如果给定的工作表为默认工作表，则对其可见性设置无效。工作表可见性状态可参考[工作表状态枚举](https://docs.microsoft.com/zh-cn/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
 
 |工作表状态枚举|
 |---|
@@ -117,6 +117,86 @@ func (f *File) GetSheetVisible(name string) bool
 
 ```go
 f.GetSheetVisible("Sheet1")
+```
+
+## 设置工作表视图属性 {#SetSheetViewOptions}
+
+```go
+func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+```
+
+根据给定的工作表名称、视图索引和视图参数设置工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。
+
+可选视图参数|类型
+---|---
+DefaultGridColor|bool
+RightToLeft|bool
+ShowFormulas|bool
+ShowGridLines|bool
+ShowRowColHeaders|bool
+ZoomScale|float64
+TopLeftCell|string
+
+- 例1:
+
+```go
+err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
+```
+
+- 例2:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetViewOptions(sheet, 0,
+    excelize.DefaultGridColor(false),
+    excelize.RightToLeft(false),
+    excelize.ShowFormulas(true),
+    excelize.ShowGridLines(true),
+    excelize.ShowRowColHeaders(true),
+    excelize.ZoomScale(80),
+    excelize.TopLeftCell("C3"),
+); err != nil {
+    println(err.Error())
+}
+
+var zoomScale excelize.ZoomScale
+fmt.Println("Default:")
+fmt.Println("- zoomScale: 80")
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used out of range value:")
+fmt.Println("- zoomScale:", zoomScale)
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used correct value:")
+fmt.Println("- zoomScale:", zoomScale)
+```
+
+得到输出：
+
+```text
+Default:
+- zoomScale: 80
+Used out of range value:
+- zoomScale: 80
+Used correct value:
+- zoomScale: 123
 ```
 
 ## 获取工作表视图属性 {#GetSheetViewOptions}

@@ -119,6 +119,86 @@ GetSheetVisible は、与えられたワークシート名でワークシート�
 f.GetSheetVisible("Sheet1")
 ```
 
+## ワークシートビューのプロパティを設定する {#SetSheetViewOptions}
+
+```go
+func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+```
+
+SetSheetViewOptions は、シートビューオプションを設定します。`viewIndex` は負の場合があり、その場合は逆方向にカウントされます（`-1` は最後のビューです）。
+
+オプションのビューパラメータ|タイプ
+---|---
+DefaultGridColor|bool
+RightToLeft|bool
+ShowFormulas|bool
+ShowGridLines|bool
+ShowRowColHeaders|bool
+ZoomScale|float64
+TopLeftCell|string
+
+- 例1:
+
+```go
+err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
+```
+
+- 例2:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetViewOptions(sheet, 0,
+    excelize.DefaultGridColor(false),
+    excelize.RightToLeft(false),
+    excelize.ShowFormulas(true),
+    excelize.ShowGridLines(true),
+    excelize.ShowRowColHeaders(true),
+    excelize.ZoomScale(80),
+    excelize.TopLeftCell("C3"),
+); err != nil {
+    println(err.Error())
+}
+
+var zoomScale excelize.ZoomScale
+fmt.Println("Default:")
+fmt.Println("- zoomScale: 80")
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used out of range value:")
+fmt.Println("- zoomScale:", zoomScale)
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used correct value:")
+fmt.Println("- zoomScale:", zoomScale)
+```
+
+出力を取得する：
+
+```text
+Default:
+- zoomScale: 80
+Used out of range value:
+- zoomScale: 80
+Used correct value:
+- zoomScale: 123
+```
+
 ## ワークシートビュープロパティを取得する {#GetSheetViewOptions}
 
 ```go

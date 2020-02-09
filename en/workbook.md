@@ -119,6 +119,88 @@ GetSheetVisible provides a function to get worksheet visible by given worksheet 
 f.GetSheetVisible("Sheet1")
 ```
 
+## Set worksheet view properties {#SetSheetViewOptions}
+
+```go
+func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+```
+
+SetSheetViewOptions sets sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
+
+Available options:
+
+Optional view parameter |Type
+---|---
+DefaultGridColor|bool
+RightToLeft|bool
+ShowFormulas|bool
+ShowGridLines|bool
+ShowRowColHeaders|bool
+ZoomScale|float64
+TopLeftCell|string
+
+- Example 1:
+
+```go
+err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
+```
+
+- Example 2:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetViewOptions(sheet, 0,
+    excelize.DefaultGridColor(false),
+    excelize.RightToLeft(false),
+    excelize.ShowFormulas(true),
+    excelize.ShowGridLines(true),
+    excelize.ShowRowColHeaders(true),
+    excelize.ZoomScale(80),
+    excelize.TopLeftCell("C3"),
+); err != nil {
+    println(err.Error())
+}
+
+var zoomScale excelize.ZoomScale
+fmt.Println("Default:")
+fmt.Println("- zoomScale: 80")
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used out of range value:")
+fmt.Println("- zoomScale:", zoomScale)
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used correct value:")
+fmt.Println("- zoomScale:", zoomScale)
+```
+
+Get output:
+
+```text
+Default:
+- zoomScale: 80
+Used out of range value:
+- zoomScale: 80
+Used correct value:
+- zoomScale: 123
+```
+
 ## Get worksheet view properties {#GetSheetViewOptions}
 
 ```go

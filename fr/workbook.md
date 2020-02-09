@@ -119,6 +119,86 @@ GetSheetVisible fournit une fonction permettant d’obtenir une feuille de calcu
 f.GetSheetVisible("Sheet1")
 ```
 
+## Définir les propriétés de la vue de feuille de calcul {#SetSheetViewOptions}
+
+```go
+func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+```
+
+SetSheetViewOptions définit les options d'affichage des feuilles. Le `viewIndex` peut être négatif et si c'est le cas, il est compté en arrière (`-1` est la dernière vue).
+
+Paramètre de vue facultatif|Type
+---|---
+DefaultGridColor|bool
+RightToLeft|bool
+ShowFormulas|bool
+ShowGridLines|bool
+ShowRowColHeaders|bool
+ZoomScale|float64
+TopLeftCell|string
+
+- Exemple 1:
+
+```go
+err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
+```
+
+- Exemple 2:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetViewOptions(sheet, 0,
+    excelize.DefaultGridColor(false),
+    excelize.RightToLeft(false),
+    excelize.ShowFormulas(true),
+    excelize.ShowGridLines(true),
+    excelize.ShowRowColHeaders(true),
+    excelize.ZoomScale(80),
+    excelize.TopLeftCell("C3"),
+); err != nil {
+    println(err.Error())
+}
+
+var zoomScale excelize.ZoomScale
+fmt.Println("Default:")
+fmt.Println("- zoomScale: 80")
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used out of range value:")
+fmt.Println("- zoomScale:", zoomScale)
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
+    println(err.Error())
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
+    println(err.Error())
+}
+
+fmt.Println("Used correct value:")
+fmt.Println("- zoomScale:", zoomScale)
+```
+
+Obtenir la sortie:
+
+```text
+Default:
+- zoomScale: 80
+Used out of range value:
+- zoomScale: 80
+Used correct value:
+- zoomScale: 123
+```
+
 ## Obtenir les propriétés d'affichage de la feuille de calcul {#GetSheetViewOptions}
 
 ```go
@@ -144,7 +224,7 @@ var showGridLines excelize.ShowGridLines
 err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
 ```
 
-- Example 2:
+- Exemple 2:
 
 ```go
 f := excelize.NewFile()

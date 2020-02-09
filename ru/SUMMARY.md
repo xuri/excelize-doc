@@ -21,6 +21,7 @@
   * [Получить активный индекс листа](workbook.md#GetActiveSheetIndex)
   * [Сделать лист видимым](workbook.md#SetSheetVisible)
   * [Получить рабочий лист видимым](workbook.md#GetSheetVisible)
+  * [Задать свойства представления листа](workbook.md#SetSheetViewOptions)
   * [Получить свойства вида листа](workbook.md#GetSheetViewOptions)
   * [Установить макет страницы листа](workbook.md#SetPageLayout)
   * [Получить макет страницы листа](workbook.md#GetPageLayout)
