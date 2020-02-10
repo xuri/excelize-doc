@@ -509,6 +509,10 @@ Defaults:
 
 ## 设置工作表页边距 {#SetPageMargins}
 
+```go
+func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+```
+
 根据给定的工作表名称和页边距参数设置工作表的页边距。页边距可选参数：
 
 参数|数据类型

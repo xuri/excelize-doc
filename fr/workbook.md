@@ -509,6 +509,10 @@ Defaults:
 
 ## Définissez les marges de page de feuille de calcul {#SetPageMargins}
 
+```go
+func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+```
+
 SetPageMargins fournit une fonction permettant de définir les marges des pages de la feuille de calcul. Options disponibles:
 
 Options|Type

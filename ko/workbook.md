@@ -509,6 +509,10 @@ Defaults:
 
 ## 워크 시트 페이지 여백 설정 {#SetPageMargins}
 
+```go
+func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+```
+
 SetPageMargins 는 워크 시트 페이지 여백을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
 
 옵션|유형

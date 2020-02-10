@@ -511,6 +511,10 @@ Defaults:
 
 ## Set worksheet page margins {#SetPageMargins}
 
+```go
+func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+```
+
 SetPageMargins provides a function to set worksheet page margins. Available options:
 
 Options|Type

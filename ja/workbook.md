@@ -503,7 +503,11 @@ Defaults:
 
 ## ワークシートのページ余白を設定する {#SetPageMargins}
 
-SetPageMargins は、ワークシートのページ余白を設定する機能を提供します。 利用可能なオプション：
+```go
+func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+```
+
+SetPageMargins は、ワークシートのページ余白を設定する機能を提供します。利用可能なオプション：
 
 オプション|タイプ
 ---|---

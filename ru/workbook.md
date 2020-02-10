@@ -513,6 +513,10 @@ Defaults:
 
 ## Задать поля страницы листа {#SetPageMargins}
 
+```go
+func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+```
+
 SetPageMargins предоставляет функцию для установки полей страницы рабочего листа. Доступные Варианты:
 
 Параметры|Тип
