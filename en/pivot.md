@@ -8,7 +8,27 @@ A pivot table is a table of statistics that summarizes the data of a more extens
 func (f *File) AddPivotTable(opt *PivotTableOption) error
 ```
 
-AddPivotTable provides the method to add pivot table by given pivot table options. For example, create a pivot table on the `Sheet1!$G$2:$M$34` area with the region `Sheet1!$A$1:$E$31` as the data source, summarize by sum for sales:
+AddPivotTable provides the method to add pivot table by given pivot table options.
+
+DataSubtotal specifies the aggregation function that applies to this data field. The default value is `Sum`. The possible values for this attribute are:
+
+|Optional Value|
+|---|
+|Average|
+|Count|
+|CountNums|
+|Max|
+|Min|
+|Product|
+|StdDev|
+|StdDevp|
+|Sum|
+|Var|
+|Varp|
+
+DataFieldName specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
+
+For example, create a pivot table on the `Sheet1!$G$2:$M$34` area with the region `Sheet1!$A$1:$E$31` as the data source, summarize by sum for sales:
 
 <p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="create pivot table with excelize using Go"></p>
 
@@ -43,6 +63,8 @@ func main() {
         Rows:            []string{"Month", "Year"},
         Columns:         []string{"Type"},
         Data:            []string{"Sales"},
+        DataSubtotal:    "Sum",
+        DataFieldName:   "Summarize as Sum",
     }); err != nil {
         println(err.Error())
     }

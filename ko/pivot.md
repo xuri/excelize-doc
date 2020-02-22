@@ -8,8 +8,27 @@
 func (f *File) AddPivotTable(opt *PivotTableOption) error
 ```
 
-AddPivotTable은 지정된 피벗 테이블 옵션으로 피벗 테이블을 추가하는 방법을 제공합니다. 예를 들어, `Sheet1!$G$2:$M$34` 영역에 데이터 소스가 `Sheet1!$A$1:$E$31` 인 피벗 테이블을 작성하십시오.
+AddPivotTable 은 지정된 피벗 테이블 옵션으로 피벗 테이블을 추가하는 방법을 제공합니다.
 
+DataSubtotal 은이 데이터 필드에 적용되는 집계 함수를 지정합니다. 기본값은 `Sum` 입니다. 이 속성에 가능한 값은 다음과 같습니다.
+
+|선택적 값|
+|---|
+|Average|
+|Count|
+|CountNums|
+|Max|
+|Min|
+|Product|
+|StdDev|
+|StdDevp|
+|Sum|
+|Var|
+|Varp|
+
+DataFieldName 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름에 최대 `255` 자를 사용할 수 있으며 초과 문자는 잘립니다.
+
+예를 들어, `Sheet1!$G$2:$M$34` 영역에 데이터 소스가 `Sheet1!$A$1:$E$31` 인 피벗 테이블을 작성하십시오.
 
 <p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="Go 를 사용하여 excelize 로 피벗 테이블 만들기"></p>
 
@@ -44,6 +63,8 @@ func main() {
         Rows:            []string{"Month", "Year"},
         Columns:         []string{"Type"},
         Data:            []string{"Sales"},
+        DataSubtotal:    "Sum",
+        DataFieldName:   "Summarize as Sum",
     }); err != nil {
         println(err.Error())
     }

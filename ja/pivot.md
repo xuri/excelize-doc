@@ -8,7 +8,27 @@
 func (f *File) AddPivotTable(opt *PivotTableOption) error
 ```
 
-AddPivotTableは、指定されたピボットテーブルオプションによってピボットテーブルを追加するメソッドを提供します。 たとえば、`Sheet1!$G$2:$M$34` 領域にピボットテーブルを作成し、データソースとして地域 `Sheet1!$A$1:$E$31` を使用し、売上の合計で集計します。
+AddPivotTable は、指定されたピボットテーブルオプションによってピボットテーブルを追加するメソッドを提供します。
+
+DataSubtotal は、このデータフィールドに適用される集計関数を指定します。 デフォルト値は `Sum` です。 この属性に指定できる値は次のとおりです。
+
+|オプション値|
+|---|
+|Average|
+|Count|
+|CountNums|
+|Max|
+|Min|
+|Product|
+|StdDev|
+|StdDevp|
+|Sum|
+|Var|
+|Varp|
+
+DataFieldName は、データフィールドの名前を指定します。 データフィールド名には最大 `255` 文字を使用できますが、余分な文字は切り捨てられます。
+
+たとえば、`Sheet1!$G$2:$M$34` 領域にピボットテーブルを作成し、データソースとして地域 `Sheet1!$A$1:$E$31` を使用し、売上の合計で集計します。
 
 <p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="Go を使用して excelize でピボットテーブルを作成する"></p>
 
@@ -43,6 +63,8 @@ func main() {
         Rows:            []string{"Month", "Year"},
         Columns:         []string{"Type"},
         Data:            []string{"Sales"},
+        DataSubtotal:    "Sum",
+        DataFieldName:   "Summarize as Sum",
     }); err != nil {
         println(err.Error())
     }

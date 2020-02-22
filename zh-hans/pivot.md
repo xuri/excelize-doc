@@ -8,7 +8,27 @@
 func (f *File) AddPivotTable(opt *PivotTableOption) error
 ```
 
-根据给定的属性创建数据透视表。例如，以 `Sheet1!$G$2:$M$34` 作为数据源，在 `Sheet1!$A$1:$E$31` 选区创建数据透视表，并按照销售数据汇总求和:
+根据给定的属性创建数据透视表。
+
+DataSubtotal 指定适用于数值字段的聚合函数。默认值为 `Sum`。该属性的可选值如下：
+
+|可选值|
+|---|
+|Average|
+|Count|
+|CountNums|
+|Max|
+|Min|
+|Product|
+|StdDev|
+|StdDevp|
+|Sum|
+|Var|
+|Varp|
+
+DataFieldName 用以指定数值字段的名称，最大长度为 `255` 个字符，超出部分的字符将不会被保留。
+
+例如，以 `Sheet1!$G$2:$M$34` 作为数据源，在 `Sheet1!$A$1:$E$31` 选区创建数据透视表，并按照销售数据汇总求和:
 
 <p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 语言通过 exceliz 创建数据透视博表"></p>
 
@@ -43,6 +63,8 @@ func main() {
         Rows:            []string{"Month", "Year"},
         Columns:         []string{"Type"},
         Data:            []string{"Sales"},
+        DataSubtotal:    "Sum",
+        DataFieldName:   "Summarize as Sum",
     }); err != nil {
         println(err.Error())
     }

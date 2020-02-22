@@ -8,7 +8,27 @@ Un tableau croisé dynamique est un tableau de statistiques qui résume les donn
 func (f *File) AddPivotTable(opt *PivotTableOption) error
 ```
 
-AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction de ses options. Par exemple, créez un tableau croisé dynamique dans la zone `Sheet1!$G$2:$M$34` avec la région `Sheet1!$A$1:$E$31` comme source de données, récapitulez par somme pour les ventes:
+AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction des options de tableau croisé dynamique données.
+
+DataSubtotal spécifie la fonction d'agrégation qui s'applique à ce champ de données. La valeur par défaut est `Sum`. Les valeurs possibles pour cet attribut sont:
+
+|Valeur facultative|
+|---|
+|Average|
+|Count|
+|CountNums|
+|Max|
+|Min|
+|Product|
+|StdDev|
+|StdDevp|
+|Sum|
+|Var|
+|Varp|
+
+DataFieldName spécifie le nom du champ de données. Un maximum de 255 caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
+
+Par exemple, créez un tableau croisé dynamique dans la zone `Sheet1!$G$2:$M$34` avec la région `Sheet1!$A$1:$E$31` comme source de données, récapitulez par somme pour les ventes:
 
 <p align="center"><img width="1130" src="./images/pivot_table_01.png" alt="créer un tableau croisé dynamique avec excelize en utilisant Go"></p>
 
@@ -43,6 +63,8 @@ func main() {
         Rows:            []string{"Month", "Year"},
         Columns:         []string{"Type"},
         Data:            []string{"Sales"},
+        DataSubtotal:    "Sum",
+        DataFieldName:   "Summarize as Sum",
     }); err != nil {
         println(err.Error())
     }
