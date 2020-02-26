@@ -2,15 +2,30 @@
 
 数据透视表是一种交互式的表，是计算、汇总和分析数据的强大工具，可助你了解数据中的对比情况、模式和趋势。
 
-## 创建数据透视表 {#AddPivotTable}
+PivotTableOption 定义了数据透视表的属性。
 
 ```go
-func (f *File) AddPivotTable(opt *PivotTableOption) error
+type PivotTableOption struct {
+    DataRange       string
+    PivotTableRange string
+    Page            []PivotTableField
+    Rows            []PivotTableField
+    Columns         []PivotTableField
+    Data            []PivotTableField
+}
 ```
 
-根据给定的属性创建数据透视表。
+PivotTableField 定义了数据透视表的字段属性。
 
-DataSubtotal 指定适用于数值字段的聚合函数。默认值为 `Sum`。该属性的可选值如下：
+```go
+type PivotTableField struct {
+    Data     string
+    Name     string
+    Subtotal string
+}
+```
+
+Subtotal 指定适用于数值字段的聚合函数。默认值为 `Sum`。该属性的可选值如下：
 
 |可选值|
 |---|
@@ -26,7 +41,15 @@ DataSubtotal 指定适用于数值字段的聚合函数。默认值为 `Sum`。�
 |Var|
 |Varp|
 
-DataFieldName 用以指定数值字段的名称，最大长度为 `255` 个字符，超出部分的字符将不会被保留。
+Name 用以指定数值字段的名称，最大长度为 `255` 个字符，超出部分的字符将不会被保留。
+
+## 创建数据透视表 {#AddPivotTable}
+
+```go
+func (f *File) AddPivotTable(opt *PivotTableOption) error
+```
+
+根据给定的属性创建数据透视表。
 
 例如，以 `Sheet1!$G$2:$M$34` 作为数据源，在 `Sheet1!$A$1:$E$31` 选区创建数据透视表，并按照销售数据汇总求和:
 
@@ -60,16 +83,14 @@ func main() {
     if err := f.AddPivotTable(&excelize.PivotTableOption{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
-        Rows:            []string{"Month", "Year"},
-        Columns:         []string{"Type"},
-        Data:            []string{"Sales"},
-        DataSubtotal:    "Sum",
-        DataFieldName:   "Summarize as Sum",
+        Rows:            []excelize.PivotTableField{{Data: "Month"}, {Data: "Year"}},
+        Columns:         []excelize.PivotTableField{{Data: "Type"}},
+        Data:            []excelize.PivotTableField{{Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
     }); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```

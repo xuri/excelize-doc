@@ -2,15 +2,30 @@
 
 A pivot table is a table of statistics that summarizes the data of a more extensive table (such as from a database, spreadsheet, or business intelligence program). This summary might include sums, averages, or other statistics, which the pivot table groups together in a meaningful way.
 
-## Create Pivot Table {#AddPivotTable}
+PivotTableOption directly maps the format settings of the pivot table.
 
 ```go
-func (f *File) AddPivotTable(opt *PivotTableOption) error
+type PivotTableOption struct {
+    DataRange       string
+    PivotTableRange string
+    Page            []PivotTableField
+    Rows            []PivotTableField
+    Columns         []PivotTableField
+    Data            []PivotTableField
+}
 ```
 
-AddPivotTable provides the method to add pivot table by given pivot table options.
+PivotTableField directly maps the field settings of the pivot table.
 
-DataSubtotal specifies the aggregation function that applies to this data field. The default value is `Sum`. The possible values for this attribute are:
+```go
+type PivotTableField struct {
+    Data     string
+    Name     string
+    Subtotal string
+}
+```
+
+Subtotal specifies the aggregation function that applies to this data field. The default value is `Sum`. The possible values for this attribute are:
 
 |Optional Value|
 |---|
@@ -26,11 +41,19 @@ DataSubtotal specifies the aggregation function that applies to this data field.
 |Var|
 |Varp|
 
-DataFieldName specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
+Name specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
+
+## Create Pivot Table {#AddPivotTable}
+
+```go
+func (f *File) AddPivotTable(opt *PivotTableOption) error
+```
+
+AddPivotTable provides the method to add pivot table by given pivot table options.
 
 For example, create a pivot table on the `Sheet1!$G$2:$M$34` area with the region `Sheet1!$A$1:$E$31` as the data source, summarize by sum for sales:
 
-<p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="create pivot table with excelize using Go"></p>
+<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="create pivot table with excelize using Go"></p>
 
 ```go
 package main
@@ -60,16 +83,14 @@ func main() {
     if err := f.AddPivotTable(&excelize.PivotTableOption{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
-        Rows:            []string{"Month", "Year"},
-        Columns:         []string{"Type"},
-        Data:            []string{"Sales"},
-        DataSubtotal:    "Sum",
-        DataFieldName:   "Summarize as Sum",
+        Rows:            []excelize.PivotTableField{{Data: "Month"}, {Data: "Year"}},
+        Columns:         []excelize.PivotTableField{{Data: "Type"}},
+        Data:            []excelize.PivotTableField{{Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
     }); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```

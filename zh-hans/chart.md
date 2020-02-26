@@ -95,7 +95,7 @@ top_right|右上
 
 其中参数 `show_legend_key` 默认值为 `false`。
 
-通过可选 `title` 对象的 `name` 参数设置图表标题，标题将会在图表上方显示。参数 `name` 支持使用公式表示，例如 `Sheet1!$A$1`，如果不指定图标标题默认值为空。
+通过可选 `title` 对象的 `name` 参数设置图表标题，标题将会在图表上方显示。参数 `name` 支持使用公式表示，例如 `Sheet1!$A$1`，图表标题的默认值为空。
 
 参数 `show_blanks_as` 提供“隐藏和清空单元格”设置，默认值为：`gap` 即“空单元格显示为”：“空距”。下面是该参数的可选值：
 
@@ -148,8 +148,6 @@ minimum|int|`0`|最小值，`0` 代表自动
 ---|---|---|---
 height|int|290|高度
 width|int|480|宽度
-
-The parameter `combo` specifies the create a chart that combines two or more chart types in a single chart. For example, create a clustered column - line chart with data `Sheet1!$E$1:$L$15`:
 
 参数 `combo` 用来指定创建组合图表，该图表将两个或多个图表类型组合在一个图表中。例如，在 `Sheet1!$E$1:$L$15` 区域创建一个 簇状柱形图 - 折线图：
 

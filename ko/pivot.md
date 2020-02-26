@@ -2,15 +2,30 @@
 
 피벗 테이블은보다 광범위한 테이블의 데이터 (예 : 데이터베이스, 스프레드 시트 또는 비즈니스 인텔리전스 프로그램)를 요약하는 통계 테이블입니다. 이 요약에는 피벗 테이블이 의미있는 방식으로 그룹화되는 합계, 평균 또는 기타 통계가 포함될 수 있습니다.
 
-## 피벗 테이블 만들기 {#AddPivotTable}
+PivotTableOption 은 피벗 테이블의 형식 설정을 직접 매핑합니다.
 
 ```go
-func (f *File) AddPivotTable(opt *PivotTableOption) error
+type PivotTableOption struct {
+    DataRange       string
+    PivotTableRange string
+    Page            []PivotTableField
+    Rows            []PivotTableField
+    Columns         []PivotTableField
+    Data            []PivotTableField
+}
 ```
 
-AddPivotTable 은 지정된 피벗 테이블 옵션으로 피벗 테이블을 추가하는 방법을 제공합니다.
+PivotTableField 는 피벗 테이블의 필드 설정을 직접 매핑합니다.
 
-DataSubtotal 은이 데이터 필드에 적용되는 집계 함수를 지정합니다. 기본값은 `Sum` 입니다. 이 속성에 가능한 값은 다음과 같습니다.
+```go
+type PivotTableField struct {
+    Data     string
+    Name     string
+    Subtotal string
+}
+```
+
+Subtotal 은이 데이터 필드에 적용되는 집계 함수를 지정합니다. 기본값은 `Sum` 입니다. 이 속성에 가능한 값은 다음과 같습니다.
 
 |선택적 값|
 |---|
@@ -26,11 +41,19 @@ DataSubtotal 은이 데이터 필드에 적용되는 집계 함수를 지정합�
 |Var|
 |Varp|
 
-DataFieldName 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름에 최대 `255` 자를 사용할 수 있으며 초과 문자는 잘립니다.
+Name 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름에 최대 `255` 자를 사용할 수 있으며 초과 문자는 잘립니다.
+
+## 피벗 테이블 만들기 {#AddPivotTable}
+
+```go
+func (f *File) AddPivotTable(opt *PivotTableOption) error
+```
+
+AddPivotTable 은 지정된 피벗 테이블 옵션으로 피벗 테이블을 추가하는 방법을 제공합니다.
 
 예를 들어, `Sheet1!$G$2:$M$34` 영역에 데이터 소스가 `Sheet1!$A$1:$E$31` 인 피벗 테이블을 작성하십시오.
 
-<p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="Go 를 사용하여 excelize 로 피벗 테이블 만들기"></p>
+<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="Go 를 사용하여 excelize 로 피벗 테이블 만들기"></p>
 
 ```go
 package main
@@ -60,16 +83,14 @@ func main() {
     if err := f.AddPivotTable(&excelize.PivotTableOption{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
-        Rows:            []string{"Month", "Year"},
-        Columns:         []string{"Type"},
-        Data:            []string{"Sales"},
-        DataSubtotal:    "Sum",
-        DataFieldName:   "Summarize as Sum",
+        Rows:            []excelize.PivotTableField{{Data: "Month"}, {Data: "Year"}},
+        Columns:         []excelize.PivotTableField{{Data: "Type"}},
+        Data:            []excelize.PivotTableField{{Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
     }); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```

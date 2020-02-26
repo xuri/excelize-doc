@@ -2,15 +2,30 @@
 
 Un tableau croisé dynamique est un tableau de statistiques qui résume les données d'un tableau plus détaillé (tel qu'une base de données, un tableur ou un programme d'aide à la décision). Ce résumé peut inclure des sommes, des moyennes ou d’autres statistiques que le tableau croisé dynamique regroupe de manière significative.
 
-## Créer un tableau croisé dynamique {#AddPivotTable}
+PivotTableOption mappe directement les paramètres de format du tableau croisé dynamique.
 
 ```go
-func (f *File) AddPivotTable(opt *PivotTableOption) error
+type PivotTableOption struct {
+    DataRange       string
+    PivotTableRange string
+    Page            []PivotTableField
+    Rows            []PivotTableField
+    Columns         []PivotTableField
+    Data            []PivotTableField
+}
 ```
 
-AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction des options de tableau croisé dynamique données.
+PivotTableField mappe directement les paramètres de champ du tableau croisé dynamique.
 
-DataSubtotal spécifie la fonction d'agrégation qui s'applique à ce champ de données. La valeur par défaut est `Sum`. Les valeurs possibles pour cet attribut sont:
+```go
+type PivotTableField struct {
+    Data     string
+    Name     string
+    Subtotal string
+}
+```
+
+Subtotal spécifie la fonction d'agrégation qui s'applique à ce champ de données. La valeur par défaut est `Sum`. Les valeurs possibles pour cet attribut sont:
 
 |Valeur facultative|
 |---|
@@ -26,11 +41,19 @@ DataSubtotal spécifie la fonction d'agrégation qui s'applique à ce champ de d
 |Var|
 |Varp|
 
-DataFieldName spécifie le nom du champ de données. Un maximum de 255 caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
+Name spécifie le nom du champ de données. Un maximum de `255` caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
+
+## Créer un tableau croisé dynamique {#AddPivotTable}
+
+```go
+func (f *File) AddPivotTable(opt *PivotTableOption) error
+```
+
+AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction des options de tableau croisé dynamique données.
 
 Par exemple, créez un tableau croisé dynamique dans la zone `Sheet1!$G$2:$M$34` avec la région `Sheet1!$A$1:$E$31` comme source de données, récapitulez par somme pour les ventes:
 
-<p align="center"><img width="1130" src="./images/pivot_table_01.png" alt="créer un tableau croisé dynamique avec excelize en utilisant Go"></p>
+<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="créer un tableau croisé dynamique avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -60,16 +83,14 @@ func main() {
     if err := f.AddPivotTable(&excelize.PivotTableOption{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
-        Rows:            []string{"Month", "Year"},
-        Columns:         []string{"Type"},
-        Data:            []string{"Sales"},
-        DataSubtotal:    "Sum",
-        DataFieldName:   "Summarize as Sum",
+        Rows:            []excelize.PivotTableField{{Data: "Month"}, {Data: "Year"}},
+        Columns:         []excelize.PivotTableField{{Data: "Type"}},
+        Data:            []excelize.PivotTableField{{Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
     }); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```

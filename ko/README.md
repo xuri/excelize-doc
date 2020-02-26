@@ -18,7 +18,7 @@ Excelize 는 순수 Go 로 작성되고 XLSX 파일에 쓰고 읽을 수있는 �
 - GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.1.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 문서 업데이트 시간: 2020 년 2 월 22 일
+- 문서 업데이트 시간: 2020 년 2 월 27 일
 
 ## 프로젝트 미션
 
