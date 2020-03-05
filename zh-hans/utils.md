@@ -568,6 +568,14 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":
 
 `bar_color` - 当条件格式类型为 `data_bar` 时使用。与 `min_color` 用法相同，参考上述文档。
 
+## 删除条件格式 {#UnsetConditionalFormat}
+
+```go
+func (f *File) UnsetConditionalFormat(sheet, area string) error
+```
+
+根据给定的工作表名称和单元格坐标区域删除条件格式。
+
 ## 设置窗格 {#SetPanes}
 
 ```go

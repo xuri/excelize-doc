@@ -439,3 +439,19 @@ func (f *File) UnprotectSheet(sheet string) error
 ```
 
 根据给定的工作表名称（大小写敏感）取消保护该工作表。
+
+## 插入分页符 {#InsertPageBreak}
+
+```go
+func (f *File) InsertPageBreak(sheet, cell string) (err error)
+```
+
+根据给定的工作表名称和单元格坐标插入分页符。分页符是将工作表分成单独的页面以便打印的分隔线。
+
+## 删除分页符 {#RemovePageBreak}
+
+```go
+func (f *File) RemovePageBreak(sheet, cell string) (err error)
+```
+
+根据给定的工作表名称和单元格坐标删除分页符。

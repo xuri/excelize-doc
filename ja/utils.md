@@ -573,6 +573,14 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":
 
 `bar_color` - `data_bar` に使用されます。`min_color` と同じ, 上記を参照してください。
 
+## 条件付きフォーマットを削除 {#UnsetConditionalFormat}
+
+```go
+func (f *File) UnsetConditionalFormat(sheet, area string) error
+```
+
+UnsetConditionalFormat は、指定されたワークシート名と範囲によって条件付き書式を設定解除する機能を提供します。
+
 ## 設定ペイン {#SetPanes}
 
 ```go

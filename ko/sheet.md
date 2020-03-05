@@ -481,3 +481,19 @@ SetSheetRow는 지정된 워크 시트 이름, 시작 좌표 및 배열 유형 `
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```
+
+## 페이지 나누기 삽입 {#InsertPageBreak}
+
+```go
+func (f *File) InsertPageBreak(sheet, cell string) (err error)
+```
+
+InsertPageBreak 는 페이지 나누기를 만들어 인쇄 된 페이지가 끝나는 위치와 지정된 워크 시트 이름 및 축으로 다음 페이지를 시작할 위치를 결정하므로 페이지 나누기 전의 내용은 한 페이지에 인쇄되고 페이지 나누기 후에 다른 페이지에 인쇄됩니다.
+
+## 페이지 나누기 제거 {#RemovePageBreak}
+
+```go
+func (f *File) RemovePageBreak(sheet, cell string) (err error)
+```
+
+RemovePageBreak 는 워크 시트 이름과 축을 지정하여 페이지 나누기를 제거합니다.

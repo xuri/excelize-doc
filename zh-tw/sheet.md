@@ -1,0 +1,457 @@
+# 工作表
+
+## 設置欄可見性 {#SetColVisible}
+
+```go
+func (f *File) SetColVisible(sheet, col string, visible bool) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列名稱設置欄可見性。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
+
+```go
+err := f.SetColVisible("Sheet1", "D", false)
+```
+
+隱藏名稱為 `Sheet1` 的工作表中的 `D` 至 `F` 欄：
+
+```go
+err := f.SetColVisible("Sheet1", "D:F", false)
+```
+
+## 設置欄寬度 {#SetColWidth}
+
+```go
+func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
+```
+
+根據給定的工作表名稱（大小寫敏感）、列範圍和寬度值設置單個或多個列的寬度。例如設置名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
+
+```go
+f := excelize.NewFile()
+err := f.SetColWidth("Sheet1", "A", "H", 20)
+```
+
+## 設置列高度 {#SetRowHeight}
+
+```go
+func (f *File) SetRowHeight(sheet string, row int, height float64) error
+```
+
+根據給定的工作表名稱（大小寫敏感）、列號和高度值設置單列高度。例如設置名為 `Sheet1` 工作表首列的高度為 `50`：
+
+```go
+err := f.SetRowHeight("Sheet1", 1, 50)
+```
+
+## 設置列可見性 {#SetRowVisible}
+
+```go
+func (f *File) SetRowVisible(sheet string, row int, visible bool) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號設置列可見性。例如隱藏名為 `Sheet1` 工作表上第二列：
+
+```go
+err := f.SetRowVisible("Sheet1", 2, false)
+```
+
+## 獲取工作表名 {#GetSheetName}
+
+```go
+func (f *File) GetSheetName(index int) string
+```
+
+根據給定的工作表索引獲取工作表名稱，如果工作表不存在將傳回空字符。
+
+## 獲取欄可見性 {#GetColVisible}
+
+```go
+func (f *File) GetColVisible(sheet, column string) (bool, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）和列名獲取工作表中指定列的可見性，可見傳回值為 `true`，否則為 `false`。例如，獲取名為 `Sheet1` 的工作表上 `D` 欄的可見性：
+
+```go
+visible, err := f.GetColVisible("Sheet1", "D")
+```
+
+## 獲取欄寬度 {#GetColWidth}
+
+```go
+func (f *File) GetColWidth(sheet, col string) (float64, error)
+```
+
+根據給定的工作表和列名獲取工作表中指定列的寬度。
+
+## 獲取列高度 {#GetRowHeight}
+
+```go
+func (f *File) GetRowHeight(sheet string, row int) (float64, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號獲取工作表中指定列的高度。例如，獲取名為 `Sheet1` 的工作表首列的高度：
+
+```go
+height, err := f.GetRowHeight("Sheet1", 1)
+```
+
+## 獲取列可見性 {#GetRowVisible}
+
+```go
+func (f *File) GetRowVisible(sheet string, row int) (bool, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號獲取工作表中指定列的可見性。例如，獲取名為 `Sheet1` 的工作表第 2 列的可見性：
+
+```go
+err := f.GetRowVisible("Sheet1", 2)
+```
+
+## 獲取工作表索引 {#GetSheetIndex}
+
+```go
+func (f *File) GetSheetIndex(name string) int
+```
+
+根據給定的工作表名稱（大小寫敏感）獲取該工作表的索引，如果工作表不存在將傳回 `0`。獲取到的索引可以在設置活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
+
+## 獲取工作表列表  {#GetSheetMap}
+
+```go
+func (f *File) GetSheetMap() map[int]string
+```
+
+獲取活頁簿中以名稱和索引構成的全部工作表的列表。
+
+```go
+f, err := excelize.OpenFile("./Book1.xlsx")
+if err != nil {
+    return
+}
+for index, name := range f.GetSheetMap() {
+    fmt.Println(index, name)
+}
+```
+
+## 設置工作表名稱 {#SetSheetName}
+
+```go
+func (f *File) SetSheetName(oldName, newName string)
+```
+
+根據給定的新舊工作表名稱（大小寫敏感）重命名工作表。工作表名稱最多允許使用 31 個字符，此功能僅更改工作表的名稱，而不會更新與儲存格關聯的公式或引用中的工作表名稱。因此使用此功能重命名工作表後可能導致公式錯誤或參考引用問題。
+
+## 設置工作表屬性 {#SetSheetPrOptions}
+
+```go
+func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和篩選項設置工作表屬性。
+
+可選屬性列表：
+
+|可選屬性|類別|
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+例如：
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+if err := f.SetSheetPrOptions(sheet,
+    excelize.CodeName("code"),
+    excelize.EnableFormatConditionsCalculation(false),
+    excelize.Published(false),
+    excelize.FitToPage(true),
+    excelize.AutoPageBreaks(true),
+    excelize.OutlineSummaryBelow(false),
+); err != nil {
+    panic(err)
+}
+```
+
+## 獲取工作表屬性 {#GetSheetPrOptions}
+
+```go
+func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和篩選項獲取工作表屬性。
+
+|可選屬性|類別|
+|---|---|
+|CodeName|string|
+|EnableFormatConditionsCalculation|bool|
+|Published|bool|
+|FitToPage|bool|
+|AutoPageBreaks|bool|
+|OutlineSummaryBelow|bool|
+
+例如：
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    codeName                          excelize.CodeName
+    enableFormatConditionsCalculation excelize.EnableFormatConditionsCalculation
+    published                         excelize.Published
+    fitToPage                         excelize.FitToPage
+    autoPageBreaks                    excelize.AutoPageBreaks
+    outlineSummaryBelow               excelize.OutlineSummaryBelow
+)
+
+if err := f.GetSheetPrOptions(sheet,
+    &codeName,
+    &enableFormatConditionsCalculation,
+    &published,
+    &fitToPage,
+    &autoPageBreaks,
+    &outlineSummaryBelow,
+); err != nil {
+    panic(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+fmt.Println("- enableFormatConditionsCalculation:", enableFormatConditionsCalculation)
+fmt.Println("- published:", published)
+fmt.Println("- fitToPage:", fitToPage)
+fmt.Println("- autoPageBreaks:", autoPageBreaks)
+fmt.Println("- outlineSummaryBelow:", outlineSummaryBelow)
+```
+
+輸出：
+
+```text
+Defaults:
+- codeName: ""
+- enableFormatConditionsCalculation: true
+- published: true
+- fitToPage: false
+- autoPageBreaks: false
+- outlineSummaryBelow: true
+```
+
+## 插入欄 {#InsertCol}
+
+```go
+func (f *File) InsertCol(sheet, column string) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列名稱，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的 `C` 欄前插入空白列：
+
+```go
+err := f.InsertCol("Sheet1", "C")
+```
+
+## 插入列 {#InsertRow}
+
+```go
+func (f *File) InsertRow(sheet string, row int) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的第 3 列前插入空白列：
+
+```go
+err := f.InsertRow("Sheet1", 3)
+```
+
+## 追加複製列 {#DuplicateRow}
+
+```go
+func (f *File) DuplicateRow(sheet string, row int) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號，在該列後追加複製。例如，將名為 `Sheet1` 的工作表的第 2 列複製到第 3 列：
+
+```go
+err := f.DuplicateRow("Sheet1", 2)
+```
+
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用對更新。
+
+## 複製列 {#DuplicateRowTo}
+
+```go
+func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號，在指定列後複製該列。例如，將名為 `Sheet1` 的工作表的第 2 列後複製到第 7 列：
+
+```go
+err := f.DuplicateRowTo("Sheet1", 2, 7)
+```
+
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用對更新。
+
+## 創建列的分級顯示 {#SetRowOutlineLevel}
+
+```go
+func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
+```
+
+根據給定的工作表名稱（大小寫敏感）、列號和分級參數創建組。例如，在名為 `Sheet1` 的工作表的第 2 列創建 1 級分組。
+
+<p align="center"><img width="612" src="./images/row_outline_level.png" alt="創建列的分級顯示"></p>
+
+```go
+err := f.SetRowOutlineLevel("Sheet1", 2, 1)
+```
+
+## 創建欄的分級顯示 {#SetColOutlineLevel}
+
+```go
+func (f *File) SetColOutlineLevel(sheet, col string, level uint8) error
+```
+
+根據給定的工作表名稱（大小寫敏感）、列名稱和分級參數創建組。例如，在名為 `Sheet1` 的工作表的 `D` 欄創建 2 級分組。
+
+<p align="center"><img width="612" src="./images/col_outline_level.png" alt="創建列的分級顯示"></p>
+
+```go
+err := f.SetColOutlineLevel("Sheet1", "D", 2)
+```
+
+## 獲取列的分級顯示 {#GetRowOutlineLevel}
+
+```go
+func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號獲取分組級別。例如，獲取名為 `Sheet1` 的工作表第 2 列的分組級別。
+
+```go
+err := f.GetRowOutlineLevel("Sheet1", 2)
+```
+
+## 獲取欄的分級顯示 {#GetColOutlineLevel}
+
+```go
+func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）和列名稱獲取分組分級。例如，獲取名為 `Sheet1` 的工作表的 `D` 欄的分組級別。
+
+```go
+level, err := f.GetColOutlineLevel("Sheet1", "D")
+```
+
+## 列迭代器 {#Rows}
+
+```go
+func (f *File) Rows(sheet string) (*Rows, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）獲取該工作表的列迭代器。使用列迭代器遍歷儲存格：
+
+```go
+rows, err := f.Rows("Sheet1")
+if err != nil {
+    println(err.Error())
+    return
+}
+for rows.Next() {
+    row, err := rows.Columns()
+    if err != nil {
+        println(err.Error())
+    }
+    for _, colCell := range row {
+        print(colCell, "\t")
+    }
+    println()
+}
+```
+
+### 列迭代器 - 單列操作
+
+```go
+func (rows *Rows) Columns() ([]string, error)
+```
+
+傳回當前列所有列的值。
+
+### 列迭代器 - 遍歷操作
+
+```go
+func (rows *Rows) Next() bool
+```
+
+如果下一列有值存在將傳回 `true`。
+
+### 列迭代器 - 錯誤處理
+
+```go
+func (rows *Rows) Error() error
+```
+
+當查找下一列出現錯誤時將傳回 `error`。
+
+## 在工作表中搜索 {#SearchSheet}
+
+```go
+func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
+```
+
+根據給定的工作表名稱（大小寫敏感），儲存格值或正則表達式來獲取坐標。此函數僅支持字符串和數字的完全匹配，不支持公式計算後的結果、格式化數字和條件搜索。如果搜索結果是合併的儲存格，將傳回合併區域左上角的坐標。
+
+例如，在名為 `Sheet1` 的工作表中搜索值 `100` 的坐標:
+
+```go
+result, err := f.SearchSheet("Sheet1", "100")
+```
+
+例如，在名為 `Sheet1` 的工作表中搜索 `0-9` 範圍內數值的坐標:
+
+```go
+result, err := f.SearchSheet("Sheet1", "[0-9]", true)
+```
+
+## 保護工作表 {#ProtectSheet}
+
+```go
+func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
+```
+
+防止其他用戶意外或有意更改、移動或刪除工作表中的資料。例如，為名為 `Sheet1` 的工作表設置密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
+
+<p align="center"><img width="791" src="./images/protect_sheet.png" alt="保護工作表"></p>
+
+```go
+err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+    Password:      "password",
+    EditScenarios: false,
+})
+```
+
+## 取消保護工作表 {#UnprotectSheet}
+
+```go
+func (f *File) UnprotectSheet(sheet string) error
+```
+
+根據給定的工作表名稱（大小寫敏感）取消保護該工作表。
+
+## 插入分頁符 {#InsertPageBreak}
+
+```go
+func (f *File) InsertPageBreak(sheet, cell string) (err error)
+```
+
+根據給定的工作表名稱和儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便打印的分隔線。
+
+## 刪除分頁符 {#RemovePageBreak}
+
+```go
+func (f *File) RemovePageBreak(sheet, cell string) (err error)
+```
+
+根據給定的工作表名稱和儲存格坐標刪除分頁符。

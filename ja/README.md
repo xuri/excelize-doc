@@ -15,10 +15,10 @@ Excelize は、ECMA-376 Office OpenXML 標準に基づいて Office Excel ドキ
 
 - ソースコード: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - 問題: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
-- GoDoc: [godoc.org/github.com/360EntSecGroup-Skylar/excelize](https://godoc.org/github.com/360EntSecGroup-Skylar/excelize)
+- go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 現在のバージョン: [v2.1.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- ドキュメントの更新：2020年2月27日
+- ドキュメントの更新：2020年3月6日
 
 ## プロジェクトミッション
 

@@ -48,10 +48,10 @@ col3DPyramid                | 三维棱锥图
 col3DPyramidClustered       | 三维簇状棱锥图
 col3DPyramidStacked         | 三维堆积棱锥图
 col3DPyramidPercentStacked  | 三维百分比堆积棱锥图
-col3DCylinder               | 三维柱形图
-col3DCylinderClustered      | 三维簇状柱形图
-col3DCylinderStacked        | 三维堆积柱形图
-col3DCylinderPercentStacked | 三维百分比堆积柱形图
+col3DCylinder               | 三维圆柱图
+col3DCylinderClustered      | 三维簇状圆柱图
+col3DCylinderStacked        | 三维堆积圆柱图
+col3DCylinderPercentStacked | 三维百分比堆积圆柱图
 doughnut                    | 圆环图
 line                        | 折线图
 pie                         | 饼图

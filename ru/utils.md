@@ -573,6 +573,14 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":
 
 `bar_color` - Используется для `data_bar`. То же, что и `min_color`, см. Выше.
 
+## Удалить условный формат {#UnsetConditionalFormat}
+
+```go
+func (f *File) UnsetConditionalFormat(sheet, area string) error
+```
+
+UnsetConditionalFormat предоставляет функцию для сброса условного формата по заданному имени и диапазону листа.
+
 ## панель {#SetPanes}
 
 ```go

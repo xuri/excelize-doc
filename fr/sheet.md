@@ -482,3 +482,19 @@ SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coo
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```
+
+## Insérer un saut de page {#InsertPageBreak}
+
+```go
+func (f *File) InsertPageBreak(sheet, cell string) (err error)
+```
+
+InsertPageBreak crée un saut de page pour déterminer où la page imprimée se termine et où commence la suivante par un nom de feuille de calcul et un axe donnés, de sorte que le contenu avant le saut de page sera imprimé sur une page et après le saut de page sur une autre.
+
+## Supprimer le saut de page {#RemovePageBreak}
+
+```go
+func (f *File) RemovePageBreak(sheet, cell string) (err error)
+```
+
+RemovePageBreak supprime un saut de page par un nom de feuille de calcul et un axe donnés.

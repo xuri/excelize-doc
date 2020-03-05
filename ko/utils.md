@@ -573,6 +573,15 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":
 
 `bar_color` - `data_bar` 에 사용. `min_color` 와 동일, 위의 참조.
 
+
+## 조건부 서식을 제거합니다 {#UnsetConditionalFormat}
+
+```go
+func (f *File) UnsetConditionalFormat(sheet, area string) error
+```
+
+UnsetConditionalFormat 은 주어진 워크 시트 이름과 범위에 따라 조건부 서식을 설정 해제하는 기능을 제공합니다.
+
 ## 설정 창 {#SetPanes}
 
 ```go

@@ -237,7 +237,7 @@ CoordinatesToCellName convertit les coordonnées `[X, Y]` en nom de cellule alph
 CoordinatesToCellName(1, 1) // returns "A1", nil
 ```
 
-## Style de condition {#NewConditionalStyle}
+## Style conditionnel {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style string) (int, error)
@@ -245,7 +245,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 
 NewConditionalStyle fournit une fonction pour créer un style pour le format conditionnel par format de style donné. Les paramètres sont les mêmes que la fonction [`NewStyle()`](style.md#NewStyle). Notez que le champ de couleur utilise le code de couleur RGB et uniquement le support pour définir la police, les remplissages, l'alignement et les bordures actuellement.
 
-## Format de condition {#SetConditionalFormat}
+## Format conditionnel {#SetConditionalFormat}
 
 ```go
 func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
@@ -572,6 +572,14 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":
 `max_color` - Pareil que `min_color`, voir au dessus.
 
 `bar_color` - Utilisé pour `data_bar`. Pareil que `min_color`, voir au dessus.
+
+## Supprimer le format conditionnel {#UnsetConditionalFormat}
+
+```go
+func (f *File) UnsetConditionalFormat(sheet, area string) error
+```
+
+UnsetConditionalFormat fournit une fonction pour annuler le format conditionnel en fonction du nom et de la plage de la feuille de calcul.
 
 ## Panes {#SetPanes}
 

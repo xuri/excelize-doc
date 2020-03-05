@@ -113,7 +113,9 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-指定されたワークシート名に基づいてワークシートのインデックスを取得し（大文字と小文字を区別）、ワークシートが存在しない場合は `0` を返します。取得したインデックスは、ワークブックのデフォルトワークシートを設定するときに [`SetActiveSheet()`](workbook.md#SetActiveSheet) 関数を呼び出すためのパラメータとして使用できます。
+指定されたワークシート名に基づいてワークシートのインデックスを取得し（大文字と小文字を区別）、ワークシートが存在しない場合は `0` を返します。
+
+取得したインデックスは、ワークブックのデフォルトワークシートを設定するときに [`SetActiveSheet()`](workbook.md#SetActiveSheet) 関数を呼び出すためのパラメータとして使用できます。
 
 ## ワークシート一覧を取得する  {#GetSheetMap}
 
@@ -277,6 +279,8 @@ func (f *File) DuplicateRow(sheet string, row int) error
 err := f.DuplicateRow("Sheet1", 2)
 ```
 
+このメソッドは注意して使用してください。式やグラフなどの参照の変更に影響します。 ワークシートの参照値がある場合、それを開くとファイルエラーが発生します。現在、Excelize はこれらの参照を部分的にのみ更新します。
+
 ## 行を複製 {#DuplicateRowTo}
 
 ```go
@@ -288,6 +292,8 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 ```go
 err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
+
+このメソッドは注意して使用してください。式やグラフなどの参照の変更に影響します。 ワークシートの参照値がある場合、それを開くとファイルエラーが発生します。現在、Excelize はこれらの参照を部分的にのみ更新します。
 
 ## 行のアウトラインを作成する {#SetRowOutlineLevel}
 
@@ -448,7 +454,7 @@ RemoveColは、与えられたワークシート名と列インデックスに�
 err := f.RemoveCol("Sheet1", "C")
 ```
 
-この方法は慎重に使用してください。式、グラフなどの参照の変更に影響します。 ワークシートの参照値がある場合は、開くとファイルエラーが発生します。excelize は現在これらの参照を部分的にしか更新しません。
+このメソッドは注意して使用してください。式やグラフなどの参照の変更に影響します。 ワークシートの参照値がある場合、それを開くとファイルエラーが発生します。現在、Excelize はこれらの参照を部分的にのみ更新します。
 
 ## 行を削除 {#RemoveRow}
 
@@ -476,3 +482,19 @@ SetSheetRow は与えられたワークシート名、開始座標、配列型 `
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```
+
+## 改ページを挿入 {#InsertPageBreak}
+
+```go
+func (f *File) InsertPageBreak(sheet, cell string) (err error)
+```
+
+InsertPageBreak は、改ページを作成して、印刷されたページの終了位置と特定のワークシート名と軸による次のページの開始位置を決定します。
+
+## 改ページを削除 {#RemovePageBreak}
+
+```go
+func (f *File) RemovePageBreak(sheet, cell string) (err error)
+```
+
+RemovePageBreak は、指定されたワークシート名と軸による改ページを削除します。
