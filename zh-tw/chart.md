@@ -52,16 +52,16 @@ col3DCylinder               | 立體圓柱圖
 col3DCylinderClustered      | 立體群組圓柱圖
 col3DCylinderStacked        | 立體堆疊圓柱圖
 col3DCylinderPercentStacked | 立體百分比堆疊圓柱圖
-doughnut                    | 圓環圖
+doughnut                    | 環圈圖
 line                        | 折線圖
 pie                         | 圓形圖
 pie3D                       | 立體圓形圖
 radar                       | 雷達圖
-scatter                     | 散點圖
+scatter                     | 散佈圖
 surface3D                   | 立體曲面圖
-wireframeSurface3D          | 立體曲面圖（框架圖）
+wireframeSurface3D          | 立體曲面圖（只顯示線條）
 contour                     | 曲面圖
-wireframeContour            | 曲面圖（俯視框架圖）
+wireframeContour            | 曲面圖（俯視、只顯示線條）
 bubble                      | 泡泡圖
 bubble3D                    | 立體泡泡圖
 

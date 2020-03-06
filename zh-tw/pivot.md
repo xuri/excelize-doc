@@ -1,8 +1,8 @@
-# 資料透視表 {#PivotTable}
+# 樞紐分析表 {#PivotTable}
 
-資料透視表是一種交互式的表，是計算、匯總和分析資料的強大工具，可助你瞭解資料中的對比情況、模式和趨勢。
+樞紐分析表是一種交互式的表，是計算、匯總和分析資料的強大工具，可助你瞭解資料中的對比情況、模式和趨勢。
 
-PivotTableOption 定義了資料透視表的屬性。
+PivotTableOption 定義了樞紐分析表的屬性。
 
 ```go
 type PivotTableOption struct {
@@ -15,7 +15,7 @@ type PivotTableOption struct {
 }
 ```
 
-PivotTableField 定義了資料透視表的欄位屬性。
+PivotTableField 定義了樞紐分析表的欄位屬性。
 
 ```go
 type PivotTableField struct {
@@ -43,17 +43,17 @@ Subtotal 指定適用於數值欄位的聚合函數。默認值為 `Sum`。該�
 
 Name 用以指定數值欄位的名稱，最大長度為 `255` 個字符，超出部分的字符將不會被保留。
 
-## 創建資料透視表 {#AddPivotTable}
+## 創建樞紐分析表 {#AddPivotTable}
 
 ```go
 func (f *File) AddPivotTable(opt *PivotTableOption) error
 ```
 
-根據給定的屬性創建資料透視表。
+根據給定的屬性創建樞紐分析表。
 
-例如，以 `Sheet1!$G$2:$M$34` 作為資料源，在 `Sheet1!$A$1:$E$31` 選區創建資料透視表，並按照銷售資料匯總求和:
+例如，以 `Sheet1!$G$2:$M$34` 作為資料源，在 `Sheet1!$A$1:$E$31` 選區創建樞紐分析表，並按照銷售資料匯總求和:
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 語言通過 exceliz 創建資料透視表"></p>
+<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 語言通過 exceliz 創建樞紐分析表"></p>
 
 ```go
 package main
