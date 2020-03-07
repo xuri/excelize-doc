@@ -478,7 +478,6 @@ func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 
 SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice` Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Sheet1`:
 
-
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```

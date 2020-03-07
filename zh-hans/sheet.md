@@ -113,7 +113,9 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-根据给定的工作表名称（大小写敏感）获取该工作表的索引，如果工作表不存在将返回 `0`。获取到的索引可以在设置工作簿默认工作表时，作为调用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函数的参数使用。
+根据给定的工作表名称（大小写敏感）获取该工作表的索引，如果工作表不存在将返回 `0`。
+
+获取到的索引可以在设置工作簿默认工作表时，作为调用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函数的参数使用。
 
 ## 获取工作表列表  {#GetSheetMap}
 
@@ -277,7 +279,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 err := f.DuplicateRow("Sheet1", 2)
 ```
 
-请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用对更新。
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用的更新。
 
 ## 复制行 {#DuplicateRowTo}
 
@@ -291,7 +293,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
-请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用对更新。
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用的更新。
 
 ## 创建行的分级显示 {#SetRowOutlineLevel}
 
@@ -421,7 +423,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-防止其他用户意外或有意更改、移动或删除工作表中的数据。例如，为名为 `Sheet1` 的工作表设置密码保护，但是允许选择锁定的单元格、选择未锁定的单元格、编辑方案：
+防止其他用户意外或有意更改、移动或删除工作表中的数据。例如，将名为 `Sheet1` 的工作表设置密码保护，但是允许选择锁定的单元格、选择未锁定的单元格、编辑方案：
 
 <p align="center"><img width="790" src="./images/protect_sheet.png" alt="保护工作表"></p>
 
@@ -439,6 +441,46 @@ func (f *File) UnprotectSheet(sheet string) error
 ```
 
 根据给定的工作表名称（大小写敏感）取消保护该工作表。
+
+## 删除列 {#RemoveCol}
+
+```go
+func (f *File) RemoveCol(sheet, col string) error
+```
+
+根据给定的工作表名称（大小写敏感）和列名称删除指定列。例如，删除名为 `Sheet1` 的 `C` 列：
+
+```go
+err := f.RemoveCol("Sheet1", "C")
+```
+
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用的更新。
+
+## 删除行 {#RemoveRow}
+
+```go
+func (f *File) RemoveRow(sheet string, row int) error
+```
+
+根据给定的工作表名称（大小写敏感）和行号删除指定行。例如，删除名为 `Sheet1` 的第 `3` 行：
+
+```go
+err := f.RemoveRow("Sheet1", 3)
+```
+
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用的更新。
+
+## 按行赋值 {#SetSheetRow}
+
+```go
+func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+```
+
+根据给定的工作表名称（大小写敏感）、起始坐标和 `slice` 类型引用按行赋值。例如，在名为 `Sheet1` 的工作簿第 `6` 行上，以 `B6` 单元格作为起始坐标按行赋值：
+
+```go
+err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## 插入分页符 {#InsertPageBreak}
 

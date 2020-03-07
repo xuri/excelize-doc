@@ -478,7 +478,6 @@ func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 
 SetSheetRow writes an array to row by given worksheet name, starting coordinate and a pointer to array type `slice`. For example, writes an array to row `6` start with the cell `B6` on `Sheet1`:
 
-
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```

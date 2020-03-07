@@ -478,7 +478,6 @@ func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 
 SetSheetRow записывает массив в строку по заданному имени рабочего листа, начальной координате и указателю на тип массива `slice`. Например, запись массива в строку `6` начинается с ячейки `B6` на `Sheet1`:
 
-
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```

@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）和列名稱設置欄可見性。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
+根據給定的工作表名稱（大小寫敏感）和欄名稱設置欄可見性。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -113,7 +113,9 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-根據給定的工作表名稱（大小寫敏感）獲取該工作表的索引，如果工作表不存在將傳回 `0`。獲取到的索引可以在設置活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
+根據給定的工作表名稱（大小寫敏感）獲取該工作表的索引，如果工作表不存在將傳回 `0`。
+
+獲取到的索引可以在設置活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
 
 ## 獲取工作表列表  {#GetSheetMap}
 
@@ -277,7 +279,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 err := f.DuplicateRow("Sheet1", 2)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用對更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
 
 ## 複製列 {#DuplicateRowTo}
 
@@ -291,7 +293,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用對更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
 
 ## 創建列的分級顯示 {#SetRowOutlineLevel}
 
@@ -439,6 +441,46 @@ func (f *File) UnprotectSheet(sheet string) error
 ```
 
 根據給定的工作表名稱（大小寫敏感）取消保護該工作表。
+
+## 刪除欄 {#RemoveCol}
+
+```go
+func (f *File) RemoveCol(sheet, col string) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和欄名稱刪除指定欄。例如，刪除名為 `Sheet1` 的 `C` 欄：
+
+```go
+err := f.RemoveCol("Sheet1", "C")
+```
+
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+
+## 刪除列 {#RemoveRow}
+
+```go
+func (f *File) RemoveRow(sheet string, row int) error
+```
+
+根據給定的工作表名稱（大小寫敏感）和列號刪除指定列。例如，刪除名為 `Sheet1` 的第 `3` 列：
+
+```go
+err := f.RemoveRow("Sheet1", 3)
+```
+
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+
+## 按列賦值 {#SetSheetRow}
+
+```go
+func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+```
+
+根據給定的工作表名稱（大小寫敏感）、起始坐標和 `slice` 類型引用按列賦值。例如，在名為 `Sheet1` 的工作簿第 `6` 列上，以 `B6` 單元格作為起始坐標按列賦值：
+
+```go
+err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## 插入分頁符 {#InsertPageBreak}
 

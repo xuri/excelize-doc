@@ -478,7 +478,6 @@ func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 
 SetSheetRow は与えられたワークシート名、開始座標、配列型 `slice` へのポインタで配列を行に書き込みます。例えば、 `Sheet1` の `B6`のセルから始まる行 `6` の配列を書き込みます。
 
-
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ```
