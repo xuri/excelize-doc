@@ -1,12 +1,89 @@
 # Style
 
+Alignment directly maps the alignment settings of the cells.
+
+```go
+type Alignment struct {
+    Horizontal      string `json:"horizontal"`
+    Indent          int    `json:"indent"`
+    JustifyLastLine bool   `json:"justify_last_line"`
+    ReadingOrder    uint64 `json:"reading_order"`
+    RelativeIndent  int    `json:"relative_indent"`
+    ShrinkToFit     bool   `json:"shrink_to_fit"`
+    TextRotation    int    `json:"text_rotation"`
+    Vertical        string `json:"vertical"`
+    WrapText        bool   `json:"wrap_text"`
+}
+```
+
+Border directly maps the border settings of the cells.
+
+```go
+type Border struct {
+    Type  string `json:"type"`
+    Color string `json:"color"`
+    Style int    `json:"style"`
+}
+```
+
+Font directly maps the font settings of the fonts.
+
+```go
+type Font struct {
+    Bold      bool    `json:"bold"`
+    Italic    bool    `json:"italic"`
+    Underline string  `json:"underline"`
+    Family    string  `json:"family"`
+    Size      float64 `json:"size"`
+    Strike    bool    `json:"strike"`
+    Color     string  `json:"color"`
+}
+```
+
+Fill directly maps the fill settings of the cells.
+
+```go
+type Fill struct {
+    Type    string   `json:"type"`
+    Pattern int      `json:"pattern"`
+    Color   []string `json:"color"`
+    Shading int      `json:"shading"`
+}
+```
+
+Protection directly maps the protection settings of the cells.
+
+```go
+type Protection struct {
+    Hidden bool `json:"hidden"`
+    Locked bool `json:"locked"`
+}
+```
+
+Style directly maps the style settings of the cells.
+
+```go
+type Style struct {
+    Border        []Border    `json:"border"`
+    Fill          Fill        `json:"fill"`
+    Font          *Font       `json:"font"`
+    Alignment     *Alignment  `json:"alignment"`
+    Protection    *Protection `json:"protection"`
+    NumFmt        int         `json:"number_format"`
+    DecimalPlaces int         `json:"decimal_places"`
+    CustomNumFmt  *string     `json:"custom_number_format"`
+    Lang          string      `json:"lang"`
+    NegRed        bool        `json:"negred"`
+}
+```
+
 ## Create style {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style string) (int, error)
+func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle provides a function to create style for cells by given style format. Note that the color field uses RGB color code.
+NewStyle provides a function to create the style for cells by given JSON string or structure. Note that the color field uses RGB color code.
 
 ### Border {#border}
 
@@ -893,7 +970,8 @@ Excelize support set custom number format for cell. For example, set number as d
 ```go
 f := excelize.NewFile()
 f.SetCellValue("Sheet1", "A6", 42920.5)
-style, err := f.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
+exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
+style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 

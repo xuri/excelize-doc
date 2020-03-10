@@ -1,12 +1,89 @@
 # 樣式
 
+Alignment 映射儲存格對齊樣式設定。
+
+```go
+type Alignment struct {
+    Horizontal      string `json:"horizontal"`
+    Indent          int    `json:"indent"`
+    JustifyLastLine bool   `json:"justify_last_line"`
+    ReadingOrder    uint64 `json:"reading_order"`
+    RelativeIndent  int    `json:"relative_indent"`
+    ShrinkToFit     bool   `json:"shrink_to_fit"`
+    TextRotation    int    `json:"text_rotation"`
+    Vertical        string `json:"vertical"`
+    WrapText        bool   `json:"wrap_text"`
+}
+```
+
+Border 映射儲存格邊框樣式設定。
+
+```go
+type Border struct {
+    Type  string `json:"type"`
+    Color string `json:"color"`
+    Style int    `json:"style"`
+}
+```
+
+Font 映射字體樣式設定。
+
+```go
+type Font struct {
+    Bold      bool    `json:"bold"`
+    Italic    bool    `json:"italic"`
+    Underline string  `json:"underline"`
+    Family    string  `json:"family"`
+    Size      float64 `json:"size"`
+    Strike    bool    `json:"strike"`
+    Color     string  `json:"color"`
+}
+```
+
+Fill 映射儲存格樣式填充設定。
+
+```go
+type Fill struct {
+    Type    string   `json:"type"`
+    Pattern int      `json:"pattern"`
+    Color   []string `json:"color"`
+    Shading int      `json:"shading"`
+}
+```
+
+Protection 映射保護儲存格屬性設定。
+
+```go
+type Protection struct {
+    Hidden bool `json:"hidden"`
+    Locked bool `json:"locked"`
+}
+```
+
+Style 映射儲存格樣式設定。
+
+```go
+type Style struct {
+    Border        []Border    `json:"border"`
+    Fill          Fill        `json:"fill"`
+    Font          *Font       `json:"font"`
+    Alignment     *Alignment  `json:"alignment"`
+    Protection    *Protection `json:"protection"`
+    NumFmt        int         `json:"number_format"`
+    DecimalPlaces int         `json:"decimal_places"`
+    CustomNumFmt  *string     `json:"custom_number_format"`
+    Lang          string      `json:"lang"`
+    NegRed        bool        `json:"negred"`
+}
+```
+
 ## 創建樣式 {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style string) (int, error)
+func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-通過給定的樣式格式創建樣式並傳回樣式索引。請注意，色彩需要使用 RGB 色域代碼表示。
+通過給定的樣式格式 JSON 或結構體創建樣式並傳回樣式索引。請注意，色彩需要使用 RGB 色域代碼表示。
 
 ### 邊框 {#border}
 
@@ -29,7 +106,7 @@ func (f *File) NewStyle(style string) (int, error)
 12|短線與兩個點一組重復線|2|!["短線與兩個點一組重復線"](../images/style/border_12.png)
 13|斜線與點線|2|!["斜線與點線"](../images/style/border_13.png)
 
-Excelize 中的邊框樣式代碼與 Office Excel 應用程式「設置儲存格格式」 - 「邊框」對話框中的關係對照：
+Excelize 中的邊框樣式代碼與 Office Excel 應用程式「設定儲存格格式」 - 「邊框」對話框中的關係對照：
 
 索引|預覽效果|索引|預覽效果
 ---|---|---|---
@@ -886,43 +963,44 @@ Excelize 目前支持的貨幣格式索引如下表所示，索引號僅用於�
 633|`ZWN`
 634|`ZWR`
 
-Excelize 支持為儲存格設置自定義數字格式。例如，將 `Sheet1` 工作表的 `A6` 儲存格 設置為烏拉圭（西班牙）格式的日期類別：
+Excelize 支持為儲存格設定自定義數字格式。例如，將 `Sheet1` 工作表的 `A6` 儲存格 設定為烏拉圭（西班牙）格式的日期類別：
 
-<p align="center"><img width="612" src="./images/number_format_01.png" alt="設置自定義數字格式"></p>
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="設定自定義數字格式"></p>
 
 ```go
 f := excelize.NewFile()
 f.SetCellValue("Sheet1", "A6", 42920.5)
-style, err := f.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
+exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
+style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
 儲存格 `Sheet1!A6` 在 Office Excel 應用程式中將會被格式化為：`martes, 04 de Julio de 2017`
 
-## 設置欄樣式 {#SetColStyle}
+## 設定欄樣式 {#SetColStyle}
 
 ```go
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-根據給定的工作表名稱、欄區域和樣式索引設置欄樣式。
+根據給定的工作表名稱、欄區域和樣式索引設定欄樣式。
 
-例1，為名稱為 `Sheet1` 的工作表中的 `H` 欄設置樣式：
+例1，為名稱為 `Sheet1` 的工作表中的 `H` 欄設定樣式：
 
 ```go
 err = f.SetColStyle("Sheet1", "H", style)
 ```
 
-例2，為名稱為 `Sheet1` 的工作表中的 `C:F` 欄設置樣式：
+例2，為名稱為 `Sheet1` 的工作表中的 `C:F` 欄設定樣式：
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
-## 設置默認字型 {#SetDefaultFont}
+## 設定默認字型 {#SetDefaultFont}
 
 ```go
 func (f *File) SetDefaultFont(fontName string)
 ```
 
-根據給定的字型名稱為活頁簿設置默認字型。
+根據給定的字型名稱為活頁簿設定默認字型。

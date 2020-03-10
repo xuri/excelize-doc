@@ -24,9 +24,9 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
 ```
 
-注意，表格坐標區域至少需要覆蓋兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，並且必須在調用 AddTable 函數前設置表格的標題列資料。多個表格的坐標區域不能有交集。
+注意，表格坐標區域至少需要覆蓋兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，並且必須在調用 AddTable 函數前設定表格的標題列資料。多個表格的坐標區域不能有交集。
 
-可選參數 `table_name` 用以設置自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
+可選參數 `table_name` 用以設定自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
 
 Excelize 支持的表格樣式 `table_style` 參數：
 
@@ -82,9 +82,9 @@ err := f.AutoFilter("Sheet1", "A1", "D4", "")
 err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
-參數 `column` 指定了自動過濾器在過濾範圍內的基準欄。 Excelize 暫不支持自動過濾器的計算，在設置過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設置列的可見性。
+參數 `column` 指定了自動過濾器在過濾範圍內的基準欄。 Excelize 暫不支持自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
 
-為欄設置過濾條件，參數 `expression` 用於指定過濾條件運算，支持下列運算符：
+為欄設定過濾條件，參數 `expression` 用於指定過濾條件運算，支持下列運算符：
 
 ```text
 ==
@@ -240,15 +240,15 @@ CoordinatesToCellName(1, 1) // returns "A1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-通過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle()`](style.md#NewStyle) 函數的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設置字型、填滿、對齊和邊框的色彩。
+通過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle()`](style.md#NewStyle) 函數的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和邊框的色彩。
 
-## 設置條件式格式 {#SetConditionalFormat}
+## 設定條件式格式 {#SetConditionalFormat}
 
 ```go
 func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
 ```
 
-根據給定的工作表名稱、儲存格坐標區域和格式參數，為儲存格值創建條件式格式設置規則。條件式格式是 Office Excel 的一項功能，它允許您根據特定條件將格式應用於儲存格或一系列儲存格。
+根據給定的工作表名稱、儲存格坐標區域和格式參數，為儲存格值創建條件式格式設定規則。條件式格式是 Office Excel 的一項功能，它允許您根據特定條件將格式應用於儲存格或一系列儲存格。
 
 格式參數 `type` 選項是必需的參數，它沒有默認值。允許的類別值及其相關參數是：
 
@@ -409,7 +409,7 @@ func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
     </tbody>
 </table>
 
-`criteria` 參數用於設置儲存格資料的條件式格式運算符。它沒有默認值，同常與 `{"type"："cell"}` 一起使用，支持的參數為：
+`criteria` 參數用於設定儲存格資料的條件式格式運算符。它沒有默認值，同常與 `{"type"："cell"}` 一起使用，支持的參數為：
 
 文本描述字符|符號表示
 ---|---
@@ -424,7 +424,7 @@ less than or equal to|<=
 
 可以使用上面表格第一欄中的 Office Excel 文本描述字符，或者符號表示方法（`between` 與 `not between` 沒有符號表示法）作為條件式格式運算符。 下面的相關部分顯示了其他條件式格式類別的特定標準。
 
-`value`：該值通常與 `criteria` 參數一起使用，可以用確定的值作為設置儲存格條件式格式的條件參數：
+`value`：該值通常與 `criteria` 參數一起使用，可以用確定的值作為設定儲存格條件式格式的條件參數：
 
 ```go
 f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
@@ -448,7 +448,7 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteri
 
 注意：在 Office Excel 中，條件式格式疊加在現有儲存格格式上，並非所有儲存格格式屬性都可以修改。無法在條件式格式中修改的屬性包括：字型名稱、字型大小、上標和下標、對角邊框、所有對齊屬性和所有保護屬性。
 
-Office Excel 中內置了一些與條件式格式一起使用的默認樣式。可以使用以下 excelize 設置實現這些樣式效果：
+Office Excel 中內置了一些與條件式格式一起使用的默認樣式。可以使用以下 excelize 設定實現這些樣式效果：
 
 ```go
 // 淺紅填滿色深色文本代表較差
@@ -461,16 +461,16 @@ format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type"
 format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
 ```
 
-類別：`minimum` - 當條件式格式 `criteria` 為 `between` 或 `not between` 時，`minimum` 參數用於設置下限值。
+類別：`minimum` - 當條件式格式 `criteria` 為 `between` 或 `not between` 時，`minimum` 參數用於設定下限值。
 
 ```go
 // 高亮儲存格條件式格式規則： between...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
 ```
 
-類別：`maximum` - 當條件式格式 `criteria` 為 `between` 或 `not between` 時，`maximum` 參數用於設置上限值，參考上面的例子。
+類別：`maximum` - 當條件式格式 `criteria` 為 `between` 或 `not between` 時，`maximum` 參數用於設定上限值，參考上面的例子。
 
-類別：`average` - 平均類別用於指定 Office Excel 「最前最後規則」中「經典」樣式的「僅高於或低於平均值的數值設置格式」條件式格式：
+類別：`average` - 平均類別用於指定 Office Excel 「最前最後規則」中「經典」樣式的「僅高於或低於平均值的數值設定格式」條件式格式：
 
 ```go
 // 最前最後規則：高於平均值...
@@ -480,34 +480,34 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","crit
 f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
 ```
 
-類別：`duplicate` - 用於設置「突出顯示儲存格規則」中的「重復值 ...」：
+類別：`duplicate` - 用於設定「突出顯示儲存格規則」中的「重復值 ...」：
 
 ```go
 // 突出顯示儲存格規則: 重復值...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
 ```
 
-類別：`unique` - 用於設置「突出顯示儲存格規則」中「只為以下內容的儲存格設置格式」的「特定文本」：
+類別：`unique` - 用於設定「突出顯示儲存格規則」中「只為以下內容的儲存格設定格式」的「特定文本」：
 
 ```go
-// 突出顯示儲存格規則，只為以下內容的儲存格設置格式: 特定文本 不等於...
+// 突出顯示儲存格規則，只為以下內容的儲存格設定格式: 特定文本 不等於...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
 ```
 
-類別：`top` -  用於設置「最前最後規則」中的「前 10 項...」或「前 10% ...」：
+類別：`top` -  用於設定「最前最後規則」中的「前 10 項...」或「前 10% ...」：
 
 ```go
 // 最前最後規則： 前 10 項...
 f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
 ```
 
-設置帶有百分比條件的條件式格式：
+設定帶有百分比條件的條件式格式：
 
 ```go
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
 ```
 
-類別：`2_color_scale` - 用於設置帶有「雙色刻度」的「色階樣式」條件式格式：
+類別：`2_color_scale` - 用於設定帶有「雙色刻度」的「色階樣式」條件式格式：
 
 ```go
 // 色階：雙色刻度
@@ -516,7 +516,7 @@ f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":
 
 雙色刻度色階條件式格式可選參數：`min_type`、`max_type`、`min_value`、`max_value`、`min_color` 和 `max_color`。
 
-類別：`3_color_scale` - 用於設置帶有「三色刻度」的「色階樣式」條件式格式：
+類別：`3_color_scale` - 用於設定帶有「三色刻度」的「色階樣式」條件式格式：
 
 ```go
 // 色階：三色刻度
@@ -525,7 +525,7 @@ f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":
 
 三色刻度色階條件式格式可選參數： `min_type`、`mid_type`、`max_type`、`min_value`、`mid_value`、`max_value`、`min_color`、`mid_color` 和 `max_color`。
 
-類別：`data_bar` - 用於設置「資料條」類別的條件式格式。
+類別：`data_bar` - 用於設定「資料條」類別的條件式格式。
 
 `min_type` - 參數 `min_type` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `mid_type` 在條件式格式類別為 `3_color_scale` 時可用。例如：
 
@@ -576,13 +576,13 @@ func (f *File) UnsetConditionalFormat(sheet, area string) error
 
 根據給定的工作表名稱和儲存格坐標區域刪除條件式格式。
 
-## 設置窗格 {#SetPanes}
+## 設定窗格 {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet, panes string)
 ```
 
-通過給定的工作表名稱和窗格樣式參數設置凍結窗格或拆分窗格。
+通過給定的工作表名稱和窗格樣式參數設定凍結窗格或拆分窗格。
 
 `activePane` 定義了活動窗格，下表為該屬性的可選值：
 
@@ -600,15 +600,15 @@ topRight (Top Right Pane)|當應用垂直和水平分割時，位於右上方窗
 frozen (Frozen)|窗格被凍結，但並不分裂。在此狀態下，當窗格被解除凍結然後再次解凍時，會生成單個窗格，而不會被分割。<br><br>在這種狀態下，分割條不可調節。
 split (Split)|窗格被分裂，但並不凍結。在此狀態下，用戶可以調整分割條。
 
-`x_split` - 水平分割點的位置。如果窗格凍結，則此值用於設置頂部窗格中可見的欄數。
+`x_split` - 水平分割點的位置。如果窗格凍結，則此值用於設定頂部窗格中可見的欄數。
 
-`y_split` - 垂直分割點的位置。如果窗格凍結，則此值用於設置左側窗格中可見的列數。該屬性的可能值由 W3C XML Schema double 資料類別定義。
+`y_split` - 垂直分割點的位置。如果窗格凍結，則此值用於設定左側窗格中可見的列數。該屬性的可能值由 W3C XML Schema double 資料類別定義。
 
 `top_left_cell` - 處於「從左到右」模式時,右下方窗格中左上角可見儲存格的位置。
 
 `sqref` - 參考儲存格坐標區域。可以是非連續的一組儲存格坐標區域。
 
-例1，在名為 `Sheet1` 的工作表上凍結欄 `A` 並設置活動儲存格 `Sheet1!K16`：
+例1，在名為 `Sheet1` 的工作表上凍結欄 `A` 並設定活動儲存格 `Sheet1!K16`：
 
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="凍結欄"></p>
 
@@ -616,15 +616,15 @@ split (Split)|窗格被分裂，但並不凍結。在此狀態下，用戶可以
 f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
 ```
 
-例2，在名為 `Sheet1` 的工作表上凍結第 1 到第 9 列，並設置活動儲存格區域 `Sheet1!A11:XFD11`：
+例2，在名為 `Sheet1` 的工作表上凍結第 1 到第 9 列，並設定活動儲存格區域 `Sheet1!A11:XFD11`：
 
-<p align="center"><img width="770" src="./images/setpans_02.png" alt="凍結欄並設置活動儲存格區域"></p>
+<p align="center"><img width="770" src="./images/setpans_02.png" alt="凍結欄並設定活動儲存格區域"></p>
 
 ```go
 f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
 ```
 
-例3，在名為 `Sheet1` 的工作表上創建拆分窗格，並設置活動儲存格 `Sheet1!J60`：
+例3，在名為 `Sheet1` 的工作表上創建拆分窗格，並設定活動儲存格 `Sheet1!J60`：
 
 <p align="center"><img width="755" src="./images/setpans_03.png" alt="創建拆分窗格"></p>
 
@@ -757,4 +757,4 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
 func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
 ```
 
-CharsetTranscoder 為非 UTF-8 編碼的電子錶格文檔設置用戶提供指定自定義編碼轉換器支持。
+CharsetTranscoder 為非 UTF-8 編碼的電子錶格文檔設定用戶提供指定自定義編碼轉換器支持。

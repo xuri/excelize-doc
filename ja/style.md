@@ -1,12 +1,89 @@
 # スタイル
 
+Alignment はセルの配置設定を直接マップします。
+
+```go
+type Alignment struct {
+    Horizontal      string `json:"horizontal"`
+    Indent          int    `json:"indent"`
+    JustifyLastLine bool   `json:"justify_last_line"`
+    ReadingOrder    uint64 `json:"reading_order"`
+    RelativeIndent  int    `json:"relative_indent"`
+    ShrinkToFit     bool   `json:"shrink_to_fit"`
+    TextRotation    int    `json:"text_rotation"`
+    Vertical        string `json:"vertical"`
+    WrapText        bool   `json:"wrap_text"`
+}
+```
+
+Border はセルの境界線設定を直接マップします。
+
+```go
+type Border struct {
+    Type  string `json:"type"`
+    Color string `json:"color"`
+    Style int    `json:"style"`
+}
+```
+
+Font は直接フォントのフォント設定をマッピングします。
+
+```go
+type Font struct {
+    Bold      bool    `json:"bold"`
+    Italic    bool    `json:"italic"`
+    Underline string  `json:"underline"`
+    Family    string  `json:"family"`
+    Size      float64 `json:"size"`
+    Strike    bool    `json:"strike"`
+    Color     string  `json:"color"`
+}
+```
+
+Fill はセルの塗りつぶし設定を直接マップします。
+
+```go
+type Fill struct {
+    Type    string   `json:"type"`
+    Pattern int      `json:"pattern"`
+    Color   []string `json:"color"`
+    Shading int      `json:"shading"`
+}
+```
+
+Protection は、セルの保護設定を直接マップします。
+
+```go
+type Protection struct {
+    Hidden bool `json:"hidden"`
+    Locked bool `json:"locked"`
+}
+```
+
+Style は、セルのスタイル設定を直接マップします。
+
+```go
+type Style struct {
+    Border        []Border    `json:"border"`
+    Fill          Fill        `json:"fill"`
+    Font          *Font       `json:"font"`
+    Alignment     *Alignment  `json:"alignment"`
+    Protection    *Protection `json:"protection"`
+    NumFmt        int         `json:"number_format"`
+    DecimalPlaces int         `json:"decimal_places"`
+    CustomNumFmt  *string     `json:"custom_number_format"`
+    Lang          string      `json:"lang"`
+    NegRed        bool        `json:"negred"`
+}
+```
+
 ## スタイルの作成 {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style string) (int, error)
+func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle には、指定したスタイル形式でセルのスタイルを作成する関数が提供されます。カラー フィールドでは RGB カラー コードが使用されます。
+NewStyle は、指定された JSON または構造によってセルのスタイルを作成する関数を提供します。カラー フィールドでは RGB カラー コードが使用されます。
 
 ### 枠 {#border}
 
@@ -893,7 +970,8 @@ Excel のすべての言語形式 (`number_format` パラメーター) を次の
 ```go
 f := excelize.NewFile()
 f.SetCellValue("Sheet1", "A6", 42920.5)
-style, err := f.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
+exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
+style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 

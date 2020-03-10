@@ -1,12 +1,12 @@
 # 儲存格
 
-## 設置儲存格的值 {#SetCellValue}
+## 設定儲存格的值 {#SetCellValue}
 
 ```go
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-根據給定的工作表名和儲存格坐標設置儲存格的值。指定的坐標不應在表格的第一行範圍。
+根據給定的工作表名和儲存格坐標設定儲存格的值。指定的坐標不應在表格的第一行範圍。
 
 |支持的資料類別|
 |---|
@@ -29,47 +29,47 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 |bool|
 |nil|
 
-## 設置布林型值 {#SetCellBool}
+## 設定布林型值 {#SetCellBool}
 
 ```go
 func (f *File) SetCellBool(sheet, axis string, value bool) error
 ```
 
-根據給定的工作表名和儲存格坐標設置布林型儲存格的值。
+根據給定的工作表名和儲存格坐標設定布林型儲存格的值。
 
-## 設置默認字符型值 {#SetCellDefault}
+## 設定默認字符型值 {#SetCellDefault}
 
 ```go
 func (f *File) SetCellDefault(sheet, axis, value string) error
 ```
 
-根據給定的工作表名和儲存格坐標設置字符型儲存格的值，字符將不會進行特殊字符過濾。
+根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將不會進行特殊字符過濾。
 
-## 設置實數 {#SetCellInt}
+## 設定實數 {#SetCellInt}
 
 ```go
 func (f *File) SetCellInt(sheet, axis string, value int) error
 ```
 
-根據給定的工作表名和儲存格坐標設置實數儲存格的值。
+根據給定的工作表名和儲存格坐標設定實數儲存格的值。
 
-## 設置字符型值 {#SetCellStr}
+## 設定字符型值 {#SetCellStr}
 
 ```go
 func (f *File) SetCellStr(sheet, axis, value string) error
 ```
 
-根據給定的工作表名和儲存格坐標設置字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被忽略。
+根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被忽略。
 
-## 設置儲存格樣式 {#SetCellStyle}
+## 設定儲存格樣式 {#SetCellStyle}
 
 ```go
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設置儲存格的值。樣式索引可以通過 `NewStyle` 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。
+根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。
 
-- 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設置邊框樣式：
+- 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定邊框樣式：
 
 ```go
 style, err := f.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
@@ -79,11 +79,11 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="為儲存格設置邊框樣式"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="為儲存格設定邊框樣式"></p>
 
-儲存格 `D7` 的四個邊框被設置了不同的樣式和色彩，這與調用 `NewStyle` 函數時的參數有關，需要設置不同的樣式可參考該章節的文檔。
+儲存格 `D7` 的四個邊框被設定了不同的樣式和色彩，這與調用 [`NewStyle`](style.md#NewStyle) 函數時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
-- 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設置漸變樣式：
+- 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設定漸變樣式：
 
 ```go
 style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
@@ -93,11 +93,11 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="為儲存格設置漸變樣式"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="為儲存格設定漸變樣式"></p>
 
-儲存格 `D7` 被設置了漸變效果的色彩填滿，漸變填滿效果與調用 `NewStyle` 函數時的參數有關，需要設置不同的樣式可參考該章節的文檔。
+儲存格 `D7` 被設定了漸變效果的色彩填滿，漸變填滿效果與調用 [`NewStyle`](style.md#NewStyle) 函數時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
-- 例3，為名為 `Sheet1` 的工作表 `D7` 儲存格設置純色填滿：
+- 例3，為名為 `Sheet1` 的工作表 `D7` 儲存格設定純色填滿：
 
 ```go
 style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
@@ -107,11 +107,11 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_03.png" alt="為儲存格設置純色填滿"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_03.png" alt="為儲存格設定純色填滿"></p>
 
-儲存格 `D7` 被設置了純色填滿。
+儲存格 `D7` 被設定了純色填滿。
 
-- 例4，為名為 `Sheet1` 的工作表 `D7` 儲存格設置字符間距與旋轉角度：
+- 例4，為名為 `Sheet1` 的工作表 `D7` 儲存格設定字符間距與旋轉角度：
 
 ```go
 f.SetCellValue("Sheet1", "D7", "樣式")
@@ -122,9 +122,9 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_04.png" alt="設置字符間距與旋轉角度"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_04.png" alt="設定字符間距與旋轉角度"></p>
 
-- 例5，Excel 中的日期和時間用實數表示，例如 `2017/7/4  12:00:00 PM` 可以用數字 `42920.5` 來表示。為名為 `Sheet1` 的工作表 `D7` 儲存格設置時間格式：
+- 例5，Excel 中的日期和時間用實數表示，例如 `2017/7/4  12:00:00 PM` 可以用數字 `42920.5` 來表示。為名為 `Sheet1` 的工作表 `D7` 儲存格設定時間格式：
 
 ```go
 f.SetCellValue("Sheet1", "D7", 42920.5)
@@ -136,11 +136,11 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="為儲存格設置時間格式"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="為儲存格設定時間格式"></p>
 
-儲存格 `D7` 被設置了時間格式。注意，當應用了時間格式的儲存格寬度過窄無法完整展示時會顯示為 `####`，可以拖拽調整欄寬或者通過調用 `SetColWidth` 函數設置欄寬到合適的大小使其正常顯示。
+儲存格 `D7` 被設定了時間格式。注意，當應用了時間格式的儲存格寬度過窄無法完整展示時會顯示為 `####`，可以拖拽調整欄寬或者通過調用 `SetColWidth` 函數設定欄寬到合適的大小使其正常顯示。
 
-- 例6，為名為 `Sheet1` 的工作表 `D7` 儲存格設置字型、字號、色彩和傾斜樣式：
+- 例6，為名為 `Sheet1` 的工作表 `D7` 儲存格設定字型、字號、色彩和傾斜樣式：
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
@@ -151,7 +151,7 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_06.png" alt="為儲存格設置字型、字號、色彩和傾斜樣式"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_06.png" alt="為儲存格設定字型、字號、色彩和傾斜樣式"></p>
 
 - 例7，鎖定並隱藏名為 `Sheet1` 的工作表 `D7` 儲存格：
 
@@ -165,19 +165,19 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 要鎖定儲存格或隱藏公式，請保護工作表。在「審閱」選項卡上，單擊「保護工作表」。
 
-## 設置超鏈接 {#SetCellHyperLink}
+## 設定超鏈接 {#SetCellHyperLink}
 
 ```go
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-根據給定的工作表、儲存格坐標、鏈接資源和資源類別設置儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。
+根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
 ```go
 err := f.SetCellHyperLink("Sheet1", "A3", "https://github.com/360EntSecGroup-Skylar/excelize", "External")
-// 為儲存格設置字型和下划線樣式
+// 為儲存格設定字型和下划線樣式
 style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 ```
@@ -296,13 +296,13 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 通過該方法可以獲取全部工作表中的註解。
 
-## 設置公式 {#SetCellFormula}
+## 設定公式 {#SetCellFormula}
 
 ```go
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐設置取該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，Excelize 目前不提供公式計算引擎，所以無法計算公式結果。
+根據給定的工作表名（大小寫敏感）和儲存格坐設定取該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，Excelize 目前不提供公式計算引擎，所以無法計算公式結果。
 
 ## 獲取公式 {#GetCellFormula}
 

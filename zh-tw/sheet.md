@@ -1,12 +1,12 @@
 # 工作表
 
-## 設置欄可見性 {#SetColVisible}
+## 設定欄可見性 {#SetColVisible}
 
 ```go
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）和欄名稱設置欄可見性。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
+根據給定的工作表名稱（大小寫敏感）和欄名稱設定欄可見性。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -18,38 +18,38 @@ err := f.SetColVisible("Sheet1", "D", false)
 err := f.SetColVisible("Sheet1", "D:F", false)
 ```
 
-## 設置欄寬度 {#SetColWidth}
+## 設定欄寬度 {#SetColWidth}
 
 ```go
 func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）、列範圍和寬度值設置單個或多個列的寬度。例如設置名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
+根據給定的工作表名稱（大小寫敏感）、列範圍和寬度值設定單個或多個列的寬度。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
 
 ```go
 f := excelize.NewFile()
 err := f.SetColWidth("Sheet1", "A", "H", 20)
 ```
 
-## 設置列高度 {#SetRowHeight}
+## 設定列高度 {#SetRowHeight}
 
 ```go
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）、列號和高度值設置單列高度。例如設置名為 `Sheet1` 工作表首列的高度為 `50`：
+根據給定的工作表名稱（大小寫敏感）、列號和高度值設定單列高度。例如設定名為 `Sheet1` 工作表首列的高度為 `50`：
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)
 ```
 
-## 設置列可見性 {#SetRowVisible}
+## 設定列可見性 {#SetRowVisible}
 
 ```go
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）和列號設置列可見性。例如隱藏名為 `Sheet1` 工作表上第二列：
+根據給定的工作表名稱（大小寫敏感）和列號設定列可見性。例如隱藏名為 `Sheet1` 工作表上第二列：
 
 ```go
 err := f.SetRowVisible("Sheet1", 2, false)
@@ -115,7 +115,7 @@ func (f *File) GetSheetIndex(name string) int
 
 根據給定的工作表名稱（大小寫敏感）獲取該工作表的索引，如果工作表不存在將傳回 `0`。
 
-獲取到的索引可以在設置活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
+獲取到的索引可以在設定活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
 
 ## 獲取工作表列表  {#GetSheetMap}
 
@@ -135,7 +135,7 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
-## 設置工作表名稱 {#SetSheetName}
+## 設定工作表名稱 {#SetSheetName}
 
 ```go
 func (f *File) SetSheetName(oldName, newName string)
@@ -143,13 +143,13 @@ func (f *File) SetSheetName(oldName, newName string)
 
 根據給定的新舊工作表名稱（大小寫敏感）重命名工作表。工作表名稱最多允許使用 31 個字符，此功能僅更改工作表的名稱，而不會更新與儲存格關聯的公式或引用中的工作表名稱。因此使用此功能重命名工作表後可能導致公式錯誤或參考引用問題。
 
-## 設置工作表屬性 {#SetSheetPrOptions}
+## 設定工作表屬性 {#SetSheetPrOptions}
 
 ```go
 func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）和篩選項設置工作表屬性。
+根據給定的工作表名稱（大小寫敏感）和篩選項設定工作表屬性。
 
 可選屬性列表：
 
@@ -423,7 +423,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-防止其他用戶意外或有意更改、移動或刪除工作表中的資料。例如，為名為 `Sheet1` 的工作表設置密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
+防止其他用戶意外或有意更改、移動或刪除工作表中的資料。例如，為名為 `Sheet1` 的工作表設定密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
 
 <p align="center"><img width="791" src="./images/protect_sheet.png" alt="保護工作表"></p>
 

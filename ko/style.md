@@ -1,12 +1,89 @@
 # 스타일
 
+Alignment 는 셀의 맞춤 설정을 직접 매핑합니다.
+
+```go
+type Alignment struct {
+    Horizontal      string `json:"horizontal"`
+    Indent          int    `json:"indent"`
+    JustifyLastLine bool   `json:"justify_last_line"`
+    ReadingOrder    uint64 `json:"reading_order"`
+    RelativeIndent  int    `json:"relative_indent"`
+    ShrinkToFit     bool   `json:"shrink_to_fit"`
+    TextRotation    int    `json:"text_rotation"`
+    Vertical        string `json:"vertical"`
+    WrapText        bool   `json:"wrap_text"`
+}
+```
+
+Border directly maps the border settings of the cells.
+
+```go
+type Border struct {
+    Type  string `json:"type"`
+    Color string `json:"color"`
+    Style int    `json:"style"`
+}
+```
+
+Font 는 글꼴의 글꼴 설정을 직접 매핑합니다.
+
+```go
+type Font struct {
+    Bold      bool    `json:"bold"`
+    Italic    bool    `json:"italic"`
+    Underline string  `json:"underline"`
+    Family    string  `json:"family"`
+    Size      float64 `json:"size"`
+    Strike    bool    `json:"strike"`
+    Color     string  `json:"color"`
+}
+```
+
+Fill 는 셀의 채우기 설정을 직접 매핑합니다.
+
+```go
+type Fill struct {
+    Type    string   `json:"type"`
+    Pattern int      `json:"pattern"`
+    Color   []string `json:"color"`
+    Shading int      `json:"shading"`
+}
+```
+
+Protection 는 셀의 보호 설정을 직접 매핑합니다.
+
+```go
+type Protection struct {
+    Hidden bool `json:"hidden"`
+    Locked bool `json:"locked"`
+}
+```
+
+Style 는 셀의 스타일 설정을 직접 매핑합니다.
+
+```go
+type Style struct {
+    Border        []Border    `json:"border"`
+    Fill          Fill        `json:"fill"`
+    Font          *Font       `json:"font"`
+    Alignment     *Alignment  `json:"alignment"`
+    Protection    *Protection `json:"protection"`
+    NumFmt        int         `json:"number_format"`
+    DecimalPlaces int         `json:"decimal_places"`
+    CustomNumFmt  *string     `json:"custom_number_format"`
+    Lang          string      `json:"lang"`
+    NegRed        bool        `json:"negred"`
+}
+```
+
 ## 스타일 만들기 {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style string) (int, error)
+func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle 지정된 스타일 형식에 의해 셀에 대 한 스타일을 만드는 기능을 제공 합니다. 색상 필드는 RGB 색상 코드를 사용합니다.
+NewStyle 은 지정된 JSON 또는 구조별로 셀 스타일을 만드는 기능을 제공합니다. 색상 필드는 RGB 색상 코드를 사용합니다.
 
 ### 테두리 {#border}
 
@@ -893,7 +970,8 @@ Excelize 기본 제공 통화 형식은 다음 표에 표시되며 다음 표에
 ```go
 f := excelize.NewFile()
 f.SetCellValue("Sheet1", "A6", 42920.5)
-style, err := f.NewStyle(`{"custom_number_format": "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"}`)
+exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
+style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 

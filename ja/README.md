@@ -11,14 +11,14 @@
     <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
 </p>
 
-Excelize は、ECMA-376 Office OpenXML 標準に基づいて Office Excel ドキュメントを操作するための Go 言語で書かれたクラスライブラリです。 XLSX ファイルの読み書きに使用できます。 Excelize は、他のオープンソースライブラリと比較して、イメージ（テーブル）付きのドキュメントの作成、Excel へのイメージの挿入、および保存後のチャートスタイルの保存をサポートしており、さまざまなレポートシステムに適用できます。
+Excelize は、ECMA-376 Office OpenXML 標準に基づいて Office Excel ドキュメントを操作するための Go 言語で書かれたクラスライブラリです。 XLSX ファイルの読み書きに使用できます。Excelize は、他のオープンソースライブラリと比較して、イメージ（テーブル）付きのドキュメントの作成、Excel へのイメージの挿入、および保存後のチャートスタイルの保存をサポートしており、さまざまなレポートシステムに適用できます。
 
 - ソースコード: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - 問題: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 現在のバージョン: [v2.1.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- ドキュメントの更新：2020年3月6日
+- ドキュメントの更新：2020年3月11日
 
 ## プロジェクトミッション
 

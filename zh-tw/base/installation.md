@@ -35,10 +35,10 @@ func main() {
     f := excelize.NewFile()
     // 創建一個工作表
     index := f.NewSheet("Sheet2")
-    // 設置儲存格的值
+    // 設定儲存格的值
     f.SetCellValue("Sheet2", "A2", "Hello world.")
     f.SetCellValue("Sheet1", "B2", 100)
-    // 設置活頁簿的默認工作表
+    // 設定活頁簿的默認工作表
     f.SetActiveSheet(index)
     // 根據指定路徑儲存檔案
     if err := f.SaveAs("Book1.xlsx"); err != nil {
@@ -144,11 +144,11 @@ func main() {
     if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
         fmt.Println(err)
     }
-    // 在工作表中插入圖片，並設置圖片的縮放比例
+    // 在工作表中插入圖片，並設定圖片的縮放比例
     if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{"x_scale": 0.5, "y_scale": 0.5}`); err != nil {
         fmt.Println(err)
     }
-    // 在工作表中插入圖片，並設置圖片的打印屬性
+    // 在工作表中插入圖片，並設定圖片的打印屬性
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "print_obj": true, "lock_aspect_ratio": false, "locked": false}`); err != nil {
         fmt.Println(err)
     }

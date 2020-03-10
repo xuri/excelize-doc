@@ -67,7 +67,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-指定されたワークシート名、セル座標領域、およびスタイルインデックスに基づいて、セルの値を設定します。スタイルインデックスは `NewStyle` 関数を使用して取得できます。同じ座標領域内の `diagonaldown` と `diagonalup` は同じ色で保持する必要があることに注意してください。
+指定されたワークシート名、セル座標領域、およびスタイルインデックスに基づいて、セルの値を設定します。スタイルインデックスは [`NewStyle`](style.md#NewStyle) 関数を使用して取得できます。同じ座標領域内の `diagonaldown` と `diagonalup` は同じ色で保持する必要があることに注意してください。
 
 - 例1、ワークシート `D7` セル `Sheet1` の境界線のスタイルを設定します:
 
@@ -81,7 +81,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="Excel セルの枠線のスタイルを設定する"></p>
 
-セル `D7` の4つの境界は、`NewStyle` 関数を呼び出すときにパラメータに関連する異なるスタイルと色に設定されており、その章のドキュメントを参照するために異なるスタイルを設定する必要があります。
+セル `D7` の4つの境界は、[`NewStyle`](style.md#NewStyle) 関数を呼び出すときにパラメータに関連する異なるスタイルと色に設定されており、その章のドキュメントを参照するために異なるスタイルを設定する必要があります。
 
 - 例2では、ワークシート `D7` セル `Sheet1` という名前のグラデーションスタイルを設定します:
 
@@ -95,7 +95,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="セルのグラデーションスタイルを設定する"></p>
 
-セル `D7` はグラデーション効果の塗りつぶしに設定され、グラデーションの塗りつぶし効果は `NewStyle` 関数を呼び出すときのパラメーターに関連しており、その章のドキュメントを参照するために異なるスタイルを設定する必要があります。
+セル `D7` はグラデーション効果の塗りつぶしに設定され、グラデーションの塗りつぶし効果は [`NewStyle`](style.md#NewStyle) 関数を呼び出すときのパラメーターに関連しており、その章のドキュメントを参照するために異なるスタイルを設定する必要があります。
 
 - 例3では、ワークシート `D7` セル `Sheet1` という名前の単色の塗りつぶしを設定します:
 

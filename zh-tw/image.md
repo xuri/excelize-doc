@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設置等），在對應的儲存格上插入圖片。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等），在對應的儲存格上插入圖片。
 
 例如：
 
@@ -31,7 +31,7 @@ func main() {
     if err := f.AddPicture("Sheet1", "D2", "image.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`); err != nil {
         println(err.Error())
     }
-    // 插入圖片，並設置圖片的外部超鏈接、打印和位置屬性
+    // 插入圖片，並設定圖片的外部超鏈接、打印和位置屬性
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
         println(err.Error())
     }
@@ -43,13 +43,13 @@ func main() {
 
 鏈接類別 `hyperlink_type` 支持外部鏈接 `External` 和內部鏈接 `Location` 兩種類別，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
 
-位置屬性 `positioning` 支持 `oneCell`（大小固定，位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類別，當不設置此參數時，默認屬性為大小、位置隨儲存格而改變。
+位置屬性 `positioning` 支持 `oneCell`（大小固定，位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類別，當不設定此參數時，默認屬性為大小、位置隨儲存格而改變。
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設置等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。
 
 例如：
 

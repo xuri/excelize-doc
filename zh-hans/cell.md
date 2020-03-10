@@ -67,7 +67,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。样式索引可以通过 `NewStyle` 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。
+根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。样式索引可以通过 [`NewStyle`](style.md#NewStyle) 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。
 
 - 例1，为名为 `Sheet1` 的工作表 `D7` 单元格设置边框样式：
 
@@ -81,7 +81,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="为单元格设置边框样式"></p>
 
-单元格 `D7` 的四个边框被设置了不同的样式和颜色，这与调用 `NewStyle` 函数时的参数有关，需要设置不同的样式可参考该章节的文档。
+单元格 `D7` 的四个边框被设置了不同的样式和颜色，这与调用 [`NewStyle`](style.md#NewStyle) 函数时的参数有关，需要设置不同的样式可参考该章节的文档。
 
 - 例2，为名为 `Sheet1` 的工作表 `D7` 单元格设置渐变样式：
 
@@ -95,7 +95,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="为单元格设置渐变样式"></p>
 
-单元格 `D7` 被设置了渐变效果的颜色填充，渐变填充效果与调用 `NewStyle` 函数时的参数有关，需要设置不同的样式可参考该章节的文档。
+单元格 `D7` 被设置了渐变效果的颜色填充，渐变填充效果与调用 [`NewStyle`](style.md#NewStyle) 函数时的参数有关，需要设置不同的样式可参考该章节的文档。
 
 - 例3，为名为 `Sheet1` 的工作表 `D7` 单元格设置纯色填充：
 

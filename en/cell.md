@@ -67,7 +67,7 @@ SetCellStr provides a function to set string type value of a cell. Total number 
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the `NewStyle` function. Note that `diagonalDown` and `diagonalUp` type border should be use same color in the same coordinate area.
+SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should be use same color in the same coordinate area.
 
 - Example 1, create borders of cell `D7` on `Sheet1`:
 
@@ -81,7 +81,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="Set a border style for a cell"></p>
 
-The four borders of the cell `D7` are set with different styles and colors. This is related to the parameters when calling the `NewStyle` function. You need to set different styles to refer to the documentation for that chapter.
+The four borders of the cell `D7` are set with different styles and colors. This is related to the parameters when calling the [`NewStyle`](style.md#NewStyle) function. You need to set different styles to refer to the documentation for that chapter.
 
 - Example 2, setting the gradient style for the worksheet `D7` cell named `Sheet1`:
 
@@ -95,7 +95,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="Set a gradient style for the cell"></p>
 
-The cell `D7` is set with the color fill of the gradient effect. The gradient fill effect is related to the parameter when the `NewStyle` function is called. You need to set different styles to refer to the documentation of this chapter.
+The cell `D7` is set with the color fill of the gradient effect. The gradient fill effect is related to the parameter when the [`NewStyle`](style.md#NewStyle) function is called. You need to set different styles to refer to the documentation of this chapter.
 
 - Example 3, set a solid fill for the `D7` cell named `Sheet1`:
 

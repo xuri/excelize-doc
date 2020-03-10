@@ -63,21 +63,21 @@ err := f.CopySheet(1, index)
 return err
 ```
 
-## 設置工作表背景圖片 {#SetSheetBackground}
+## 設定工作表背景圖片 {#SetSheetBackground}
 
 ```go
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-根據給定的工作表名稱和圖片地址為指定的工作表設置平鋪效果的背景圖片。
+根據給定的工作表名稱和圖片地址為指定的工作表設定平鋪效果的背景圖片。
 
-## 設置默認工作表 {#SetActiveSheet}
+## 設定默認工作表 {#SetActiveSheet}
 
 ```go
 func (f *File) SetActiveSheet(index int)
 ```
 
-根據給定的索引值設置默認工作表，索引的值應該大於 `0` 且小於活頁簿所包含的累積工作表總數。
+根據給定的索引值設定默認工作表，索引的值應該大於 `0` 且小於活頁簿所包含的累積工作表總數。
 
 ## 獲取默認工作表索引 {#GetActiveSheetIndex}
 
@@ -87,13 +87,13 @@ func (f *File) GetActiveSheetIndex() int
 
 獲取默認工作表的索引，如果沒有找到默認工作表將傳回 `0`。
 
-## 設置工作表可見性 {#SetSheetVisible}
+## 設定工作表可見性 {#SetSheetVisible}
 
 ```go
 func (f *File) SetSheetVisible(name string, visible bool) error
 ```
 
-根據給定的工作表名稱和可見性參數設置工作表的可見性。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見性設置無效。工作表可見性狀態可參考[工作表狀態枚舉](https://docs.microsoft.com/zh-cn/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
+根據給定的工作表名稱和可見性參數設定工作表的可見性。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見性設定無效。工作表可見性狀態可參考[工作表狀態枚舉](https://docs.microsoft.com/zh-cn/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
 
 |工作表狀態枚舉|
 |---|
@@ -113,19 +113,19 @@ err := f.SetSheetVisible("Sheet1", false)
 func (f *File) GetSheetVisible(name string) bool
 ```
 
-根據給定的工作表名稱獲取工作表可見性設置。例如，獲取名為 `Sheet1` 的工作表可見性設置:
+根據給定的工作表名稱獲取工作表可見性設定。例如，獲取名為 `Sheet1` 的工作表可見性設定:
 
 ```go
 f.GetSheetVisible("Sheet1")
 ```
 
-## 設置工作表檢視屬性 {#SetSheetViewOptions}
+## 設定工作表檢視屬性 {#SetSheetViewOptions}
 
 ```go
 func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
 ```
 
-根據給定的工作表名稱、檢視索引和檢視參數設置工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
+根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
 
 可選檢視參數|類別
 ---|---
@@ -217,7 +217,7 @@ ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
 
-- 例1，獲取名為 `Sheet1` 的工作表上最後一個檢視的網格線屬性設置：
+- 例1，獲取名為 `Sheet1` 的工作表上最後一個檢視的網格線屬性設定：
 
 ```go
 var showGridLines excelize.ShowGridLines
@@ -312,22 +312,22 @@ After change:
 - topLeftCell: B2
 ```
 
-## 設置工作表頁面佈局 {#SetPageLayout}
+## 設定工作表頁面佈局 {#SetPageLayout}
 
 ```go
 func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 ```
 
-根據給定的工作表名稱和頁面佈局參數設置工作表的頁面佈局屬性。目前支持設置的頁面佈局屬性：
+根據給定的工作表名稱和頁面佈局參數設定工作表的頁面佈局屬性。目前支持設定的頁面佈局屬性：
 
-- 通過 `PageLayoutOrientation` 方法設置頁面佈局方向，默認頁面佈局方向為「直向」。下面的表格是 Excelize 中頁面佈局方向 `PageLayoutOrientation` 參數的列表：
+- 通過 `PageLayoutOrientation` 方法設定頁面佈局方向，默認頁面佈局方向為「直向」。下面的表格是 Excelize 中頁面佈局方向 `PageLayoutOrientation` 參數的列表：
 
 參數 | 方向
 ---|---
 OrientationPortrait | 直向
 OrientationLandscape | 橫向
 
-- 通過 `PageLayoutPaperSize` 方法設置頁面紙張大小，默認頁面佈局大小為「信紙 8½ × 11 英吋」。下面的表格是 Excelize 中頁面佈局大小和索引 `PageLayoutPaperSize` 參數的關係對照：
+- 通過 `PageLayoutPaperSize` 方法設定頁面紙張大小，默認頁面佈局大小為「信紙 8½ × 11 英吋」。下面的表格是 Excelize 中頁面佈局大小和索引 `PageLayoutPaperSize` 參數的關係對照：
 
 索引 | 紙張大小
 ---|---
@@ -448,7 +448,7 @@ OrientationLandscape | 橫向
 117 | 中式信封 #9 橫向旋轉 324 × 229 毫米
 118 | 中式信封 #10 橫向旋轉 458 × 324 毫米
 
-- 例如，將名為 `Sheet1` 的工作表頁面佈局設置為橫向並使用 A4(小) 210 × 297 毫米紙張：
+- 例如，將名為 `Sheet1` 的工作表頁面佈局設定為橫向並使用 A4(小) 210 × 297 毫米紙張：
 
 ```go
 f := excelize.NewFile()
@@ -479,7 +479,7 @@ func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
 - 通過 `PageLayoutOrientation` 方法獲取頁面佈局方向
 - 通過 `PageLayoutPaperSize` 方法獲取頁面紙張大小
 
-例如，獲取名為 `Sheet1` 的工作表頁面佈局設置：
+例如，獲取名為 `Sheet1` 的工作表頁面佈局設定：
 
 ```go
 f := excelize.NewFile()
@@ -507,13 +507,13 @@ Defaults:
 - paper size: 1
 ```
 
-## 設置工作表頁邊距 {#SetPageMargins}
+## 設定工作表頁邊距 {#SetPageMargins}
 
 ```go
 func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
 ```
 
-根據給定的工作表名稱和頁邊距參數設置工作表的頁邊距。頁邊距可選參數：
+根據給定的工作表名稱和頁邊距參數設定工作表的頁邊距。頁邊距可選參數：
 
 參數|資料類別
 ---|---
@@ -524,7 +524,7 @@ PageMarginLeft|float64
 PageMarginRight|float64
 PageMarginTop|float64
 
-- 例如，設置名為 `Sheet1` 的工作表頁邊距:
+- 例如，設定名為 `Sheet1` 的工作表頁邊距:
 
 ```go
 f := excelize.NewFile()
@@ -601,13 +601,13 @@ Defaults:
 - marginTop: 0.75
 ```
 
-## 設置頁眉和頁腳 {#SetHeaderFooter}
+## 設定頁眉和頁腳 {#SetHeaderFooter}
 
 ```go
 func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
 ```
 
-根據給定的工作表名稱和控制字符設置工作表的頁眉和頁腳。頁眉和頁腳包含如下欄位：
+根據給定的工作表名稱和控制字符設定工作表的頁眉和頁腳。頁眉和頁腳包含如下欄位：
 
 Headers and footers are specified using the following settings fields:
 
@@ -762,13 +762,13 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 - 第一頁中心部分的第一行上的文本為「Center Bold Header」, 第二行為日期
 - 第一頁上沒有頁腳
 
-## 設置名稱 {#SetDefinedName}
+## 設定名稱 {#SetDefinedName}
 
 ```go
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-根據給定的名稱和作範圍設置名稱，默認範圍是活頁簿。例如：
+根據給定的名稱和作範圍設定名稱，默認範圍是活頁簿。例如：
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{
@@ -802,13 +802,13 @@ f.DeleteDefinedName(&excelize.DefinedName{
 })
 ```
 
-## 設置活頁簿屬性 {#SetDocProps}
+## 設定活頁簿屬性 {#SetDocProps}
 
 ```go
 func (f *File) SetDocProps(docProperties *DocProperties) error
 ```
 
-設置活頁簿的核心屬性。 可以設置的屬性包括:
+設定活頁簿的核心屬性。 可以設定的屬性包括:
 
 屬性           | 描述
 ---|---
@@ -823,7 +823,7 @@ Identifier     | 對給定上下文中的資源的明確引用
 Revision       | 文檔修訂版本
 ContentStatus  | 文檔內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
 Category       | 文檔內容的分類
-Version        | 版本號，該值由用戶或應用程式設置
+Version        | 版本號，該值由用戶或應用程式設定
 
 例如：
 
