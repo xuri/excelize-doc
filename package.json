@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "gitbook-cli": "^2.3.2",
-    "gitbook-plugin-page-footer": "^5.4.2",
-    "gitbook-plugin-scramble-mailto": "^0.1.2",
-    "gitbook-plugin-scripts": "^1.0.2",
-    "gitbook-plugin-search-plus": "^1.0.4-alpha-3",
-    "gitbook-plugin-signature": "^1.5.2"
+    "gitbook-cli": "2.3.2",
+    "gitbook-plugin-page-footer": "5.4.3",
+    "gitbook-plugin-scramble-mailto": "0.1.2",
+    "gitbook-plugin-scripts": "1.0.2",
+    "gitbook-plugin-search-plus": "1.0.4-alpha-3",
+    "gitbook-plugin-signature": "1.5.2"
   },
   "devDependencies": {},
   "scripts": {
