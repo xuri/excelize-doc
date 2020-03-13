@@ -1,6 +1,6 @@
 # 数据
 
-## 数据验证 {#AddDataValidation}
+## 添加数据验证 {#AddDataValidation}
 
 ```go
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
@@ -53,3 +53,11 @@ dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("$E$1:$E$3", true)
 f.AddDataValidation("Sheet1", dvRange)
 ```
+
+## 删除数据验证 {#DeleteDataValidation}
+
+```go
+func (f *File) DeleteDataValidation(sheet, sqref string) error
+```
+
+根据给定的工作表名和数据验证区域删除数据验证规则。

@@ -1,6 +1,6 @@
 # データ
 
-## データ検証 {#AddDataValidation}
+## データ検証を追加する {#AddDataValidation}
 
 ```go
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
@@ -53,3 +53,11 @@ dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("$E$1:$E$3", true)
 f.AddDataValidation("Sheet1", dvRange)
 ```
+
+## データ検証の削除 {#DeleteDataValidation}
+
+```go
+func (f *File) DeleteDataValidation(sheet, sqref string) error
+```
+
+DeleteDataValidation は、指定されたワークシート名と参照シーケンスによるデータ検証を削除します。

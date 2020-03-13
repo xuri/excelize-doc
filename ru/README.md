@@ -2,15 +2,6 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-<p align="center">
-    <a href="https://travis-ci.org/360EntSecGroup-Skylar/excelize"><img src="https://travis-ci.org/360EntSecGroup-Skylar/excelize.svg?branch=master" alt="Build Status"></a>
-    <a href="https://codecov.io/gh/360EntSecGroup-Skylar/excelize"><img src="https://codecov.io/gh/360EntSecGroup-Skylar/excelize/branch/master/graph/badge.svg" alt="Code Coverage"></a>
-    <a href="https://goreportcard.com/report/github.com/360EntSecGroup-Skylar/excelize"><img src="https://goreportcard.com/badge/github.com/360EntSecGroup-Skylar/excelize" alt="Go Report Card"></a>
-    <a href="https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white" alt="go.dev"></a>
-    <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/license-bsd-orange.svg" alt="Licenses"></a>
-    <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
-</p>
-
 Excelize - это библиотека, написанная на чистом Go и предоставляющая набор функций, которые позволяют вам писать и читать из файлов XLSX. Поддержка чтения и записи файла XLSX, созданного Microsoft Excel&trade; 2007 и более поздних версий. Поддержка сохранения файла без потери оригинальных графиков XLSX. Эта библиотека нуждается в версии 1.10 или более поздней.
 
 - Исходный код: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
@@ -18,7 +9,7 @@ Excelize - это библиотека, написанная на чистом G
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Последняя версия: [v2.1.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Время обновления документа: 11 март 2020 г.
+- Время обновления документа: 14 март 2020 г.
 
 ## Миссия проекта
 

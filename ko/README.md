@@ -2,15 +2,6 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-<p align="center">
-    <a href="https://travis-ci.org/360EntSecGroup-Skylar/excelize"><img src="https://travis-ci.org/360EntSecGroup-Skylar/excelize.svg?branch=master" alt="Build Status"></a>
-    <a href="https://codecov.io/gh/360EntSecGroup-Skylar/excelize"><img src="https://codecov.io/gh/360EntSecGroup-Skylar/excelize/branch/master/graph/badge.svg" alt="Code Coverage"></a>
-    <a href="https://goreportcard.com/report/github.com/360EntSecGroup-Skylar/excelize"><img src="https://goreportcard.com/badge/github.com/360EntSecGroup-Skylar/excelize" alt="Go Report Card"></a>
-    <a href="https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white" alt="go.dev"></a>
-    <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/license-bsd-orange.svg" alt="Licenses"></a>
-    <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
-</p>
-
 Excelize 는 순수 Go 로 작성되고 XLSX 파일에 쓰고 읽을 수있는 함수 세트를 제공하는 라이브러리입니다. 지원은 Microsoft Excel&trade; 2007 이후 버전에서 생성 된 XLSX 파일을 읽고 씁니다. XLSX 의 원본 차트를 잃지 않고 파일 저장을 지원합니다. 이 라이브러리에는 Go 버전 1.10 이상이 필요합니다.
 
 - 소스 코드: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
@@ -18,7 +9,7 @@ Excelize 는 순수 Go 로 작성되고 XLSX 파일에 쓰고 읽을 수있는 �
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.1.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 문서 업데이트 시간: 2020 년 3 월 11 일
+- 문서 업데이트 시간: 2020 년 3 월 14 일
 
 ## 프로젝트 미션
 

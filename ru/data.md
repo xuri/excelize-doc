@@ -1,6 +1,6 @@
 # Данные
 
-## Проверка данных {#AddDataValidation}
+## Добавить проверку данных {#AddDataValidation}
 
 ```go
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
@@ -53,3 +53,11 @@ dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("$E$1:$E$3", true)
 f.AddDataValidation("Sheet1", dvRange)
 ```
+
+## Удалить данные проверки {#DeleteDataValidation}
+
+```go
+func (f *File) DeleteDataValidation(sheet, sqref string) error
+```
+
+DeleteDataValidation удаляет проверку данных по заданному имени рабочего листа и ссылочной последовательности.

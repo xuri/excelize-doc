@@ -1,6 +1,6 @@
 # 데이터
 
-## 데이터 유효성 검사 {#AddDataValidation}
+## 데이터 유효성 검사 추가 {#AddDataValidation}
 
 ```go
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
@@ -53,3 +53,11 @@ dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("$E$1:$E$3", true)
 f.AddDataValidation("Sheet1", dvRange)
 ```
+
+## 데이터 유효성 검사 삭제 {#DeleteDataValidation}
+
+```go
+func (f *File) DeleteDataValidation(sheet, sqref string) error
+```
+
+DeleteDataValidation 은 주어진 워크 시트 이름과 참조 순서에 따라 데이터 유효성 검사를 삭제합니다.

@@ -2,15 +2,6 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-<p align="center">
-    <a href="https://travis-ci.org/360EntSecGroup-Skylar/excelize"><img src="https://travis-ci.org/360EntSecGroup-Skylar/excelize.svg?branch=master" alt="Build Status"></a>
-    <a href="https://codecov.io/gh/360EntSecGroup-Skylar/excelize"><img src="https://codecov.io/gh/360EntSecGroup-Skylar/excelize/branch/master/graph/badge.svg" alt="Code Coverage"></a>
-    <a href="https://goreportcard.com/report/github.com/360EntSecGroup-Skylar/excelize"><img src="https://goreportcard.com/badge/github.com/360EntSecGroup-Skylar/excelize" alt="Go Report Card"></a>
-    <a href="https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white" alt="go.dev"></a>
-    <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/license-bsd-orange.svg" alt="Licenses"></a>
-    <a href="https://www.paypal.me/xuri"><img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate"></a>
-</p>
-
 Excelize 是 Go 語言編寫的一個用來操作 Office Excel 文檔類庫，基於 ECMA-376 Office OpenXML 標準。可以使用它來讀取、寫入 XLSX 檔案。相比較其他的開源類庫，Excelize 支持寫入原本帶有圖片(表)的文檔，還支持向 Excel 中插入圖片，並且在儲存後不會丟失圖表樣式，可以應用在各種報表系統中。
 
 - Source Code: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
@@ -18,7 +9,7 @@ Excelize 是 Go 語言編寫的一個用來操作 Office Excel 文檔類庫，�
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.1.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 文檔更新: 2020年3月11日
+- 文檔更新: 2020年3月14日
 
 ## 項目使命
 

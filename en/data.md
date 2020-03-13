@@ -1,6 +1,6 @@
 # Data
 
-## Data validation {#AddDataValidation}
+## Add data validation {#AddDataValidation}
 
 ```go
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
@@ -53,3 +53,11 @@ dvRange.Sqref = "A7:B8"
 dvRange.SetSqrefDropList("$E$1:$E$3", true)
 f.AddDataValidation("Sheet1", dvRange)
 ```
+
+## Delete data validation {#DeleteDataValidation}
+
+```go
+func (f *File) DeleteDataValidation(sheet, sqref string) error
+```
+
+DeleteDataValidation deletes data validation by the given worksheet name and the reference sequence.
