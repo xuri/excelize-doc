@@ -607,11 +607,11 @@ Defaults:
 func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
 ```
 
-根据给定的工作表名称和控制字符设置工作表的页眉和页脚。页眉和页脚包含如下字段：
+根据给定的工作表名称和控制字符设置工作表的页眉和页脚。
 
-Headers and footers are specified using the following settings fields:
+页眉和页脚包含如下字段：
 
-字段           | 描述
+字段 | 描述
 ---|---
 AlignWithMargins | 设定页眉页脚页边距与页边距对齐
 DifferentFirst   | 设定第一页页眉和页脚

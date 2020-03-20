@@ -607,9 +607,9 @@ Defaults:
 func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
 ```
 
-根據給定的工作表名稱和控制字符設定工作表的頁眉和頁腳。頁眉和頁腳包含如下欄位：
+根據給定的工作表名稱和控制字符設定工作表的頁眉和頁腳。
 
-Headers and footers are specified using the following settings fields:
+頁眉和頁腳包含如下欄位：
 
 欄位           | 描述
 ---|---
