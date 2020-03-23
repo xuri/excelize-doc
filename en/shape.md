@@ -29,12 +29,12 @@ actionButtonDocument | Document Button Shape | <p style="text-align: center;"><i
 actionButtonEnd | End Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonEnd.svg" height="50" width="50"></p>
 actionButtonForwardNext | Forward or Next Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonForwardNext.svg" height="50" width="50"></p>
 actionButtonHelp | Help Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonHelp.svg" height="50" width="50"></p>
-actionButtonHome | Home Button Shape |
+actionButtonHome | Home Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonHome.svg" height="50" width="50"></p>
 actionButtonInformation | Information Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonInformation.svg" height="50" width="50"></p>
 actionButtonMovie | Movie Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonMovie.svg" height="50" width="50"></p>
 actionButtonReturn | Return Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonReturn.svg" height="50" width="50"></p>
 actionButtonSound | Sound Button Shape | <p style="text-align: center;"><img src="../images/shapes/actionButtonSound.svg" height="50" width="50"></p>
-arc | Curved Arc Shape |
+arc | Curved Arc Shape | <p style="text-align: center;"><img src="../images/shapes/arc.svg" height="50" width="50"></p>
 bentArrow | Bent Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/bentArrow.svg" height="50" width="50"></p>
 bentConnector2 | Bent Connector 2 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector2.svg" height="50" width="50"></p>
 bentConnector3 | Bent Connector 3 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector3.svg" height="50" width="50"></p>
@@ -52,16 +52,16 @@ callout1 | Callout 1 Shape | <p style="text-align: center;"><img src="../images/
 callout2 | Callout 2 Shape | <p style="text-align: center;"><img src="../images/shapes/callout2.svg" height="50" width="50"></p>
 callout3 | Callout 3 Shape | <p style="text-align: center;"><img src="../images/shapes/callout3.svg" height="50" width="50"></p>
 can | Can Shape | <p style="text-align: center;"><img src="../images/shapes/can.svg" height="50" width="50"></p>
-chartPlus | Chart Plus Shape |
-chartStar | Chart Star Shape |
-chartX | Chart X Shape |
-chevron | Chevron Shape |
+chartPlus | Chart Plus Shape | <p style="text-align: center;"><img src="../images/shapes/chartPlus.svg" height="50" width="50"></p>
+chartStar | Chart Star Shape | <p style="text-align: center;"><img src="../images/shapes/chartStar.svg" height="50" width="50"></p>
+chartX | Chart X Shape | <p style="text-align: center;"><img src="../images/shapes/chartX.svg" height="50" width="50"></p>
+chevron | Chevron Shape | <p style="text-align: center;"><img src="../images/shapes/chevron.svg" height="50" width="50"></p>
 chord | Chord Shape | <p style="text-align: center;"><img src="../images/shapes/chord.svg" height="50" width="50"></p>
 circularArrow | Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/circularArrow.svg" height="50" width="50"></p>
 cloud | Cloud Shape | <p style="text-align: center;"><img src="../images/shapes/cloud.svg" height="50" width="50"></p>
 cloudCallout | Callout Cloud Shape | <p style="text-align: center;"><img src="../images/shapes/cloudCallout.svg" height="50" width="50"></p>
 corner | Corner Shape | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
-cornerTabs | Corner Tabs Shape |
+cornerTabs | Corner Tabs Shape | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
 cube | Cube Shape | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
 curvedConnector2 | Curved Connector 2 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
 curvedConnector3 | Curved Connector 3 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
@@ -113,9 +113,9 @@ flowChartSummingJunction | Summing Junction Flow Shape | <p style="text-align: c
 flowChartTerminator | Terminator Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartTerminator.svg" height="50" width="50"></p>
 foldedCorner | Folded Corner Shape | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
 frame | Frame Shape | <p style="text-align: center;"><img src="../images/shapes/frame.svg" height="50" width="50"></p>
-funnel | Funnel Shape |
-gear6 | Gear 6 Shape |
-gear9 | Gear 9 Shape |
+funnel | Funnel Shape | <p style="text-align: center;"><img src="../images/shapes/funnel.svg" height="50" width="50"></p>
+gear6 | Gear 6 Shape | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
+gear9 | Gear 9 Shape | <p style="text-align: center;"><img src="../images/shapes/gear9.svg" height="50" width="50"></p>
 halfFrame | Half Frame Shape | <p style="text-align: center;"><img src="../images/shapes/halfFrame.svg" height="50" width="50"></p>
 heart | Heart Shape | <p style="text-align: center;"><img src="../images/shapes/heart.svg" height="50" width="50"></p>
 heptagon | Heptagon Shape | <p style="text-align: center;"><img src="../images/shapes/heptagon.svg" height="50" width="50"></p>
@@ -128,11 +128,11 @@ leftArrow | Left Arrow Shape | <p style="text-align: center;"><img src="../image
 leftArrowCallout | Callout Left Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftArrowCallout.svg" height="50" width="50"></p>
 leftBrace | Left Brace Shape | <p style="text-align: center;"><img src="../images/shapes/leftBrace.svg" height="50" width="50"></p>
 leftBracket | Left Bracket Shape | <p style="text-align: center;"><img src="../images/shapes/leftBracket.svg" height="50" width="50"></p>
-leftCircularArrow | Left Circular Arrow Shape |
+leftCircularArrow | Left Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
 leftRightArrow | Left Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
 leftRightArrowCallout | Callout Left Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightArrowCallout.svg" height="50" width="50"></p>
 leftRightCircularArrow | Left Right Circular Arrow Shape |
-leftRightRibbon | Left Right Ribbon Shape |
+leftRightRibbon | Left Right Ribbon Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightRibbon.svg" height="50" width="50"></p>
 leftRightUpArrow | Left Right Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
 leftUpArrow | Left Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
 lightningBolt | Lightning Bolt Shape | <p style="text-align: center;"><img src="../images/shapes/lightningBolt.svg" height="50" width="50"></p>
@@ -152,7 +152,7 @@ octagon | Octagon Shape | <p style="text-align: center;"><img src="../images/sha
 parallelogram | Parallelogram Shape | <p style="text-align: center;"><img src="../images/shapes/parallelogram.svg" height="50" width="50"></p>
 pentagon | Pentagon Shape | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
 pie | Pie Shape | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
-pieWedge | Pie Wedge Shape |
+pieWedge | Pie Wedge Shape | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
 plaque | Plaque Shape | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
 plaqueTabs | Plaque Tabs Shape |
 plus | Plus Shape | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
@@ -175,7 +175,7 @@ snip1Rect | One Snip Corner Rectangle Shape | <p style="text-align: center;"><im
 snip2DiagRect | Two Diagonal Snip Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snip2DiagRect.svg" height="50" width="50"></p>
 snip2SameRect | Two Same-side Snip Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snip2SameRect.svg" height="50" width="50"></p>
 snipRoundRect | One Snip One Round Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snipRoundRect.svg" height="50" width="50"></p>
-squareTabs | Square Tabs Shape |
+squareTabs | Square Tabs Shape | <p style="text-align: center;"><img src="../images/shapes/squareTabs.svg" height="50" width="50"></p>
 star10 | Ten Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star10.svg" height="50" width="50"></p>
 star12 | Twelve Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star12.svg" height="50" width="50"></p>
 star16 | Sixteen Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star16.svg" height="50" width="50"></p>
@@ -189,7 +189,7 @@ star8 | Eight Pointed Star Shape | <p style="text-align: center;"><img src="../i
 straightConnector1 | Straight Connector 1 Shape | <p style="text-align: center;"><img src="../images/shapes/straightConnector1.svg" height="50" width="50"></p>
 stripedRightArrow | Striped Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/stripedRightArrow.svg" height="50" width="50"></p>
 sun | Sun Shape | <p style="text-align: center;"><img src="../images/shapes/sun.svg" height="50" width="50"></p>
-swooshArrow | Swoosh Arrow Shape |
+swooshArrow | Swoosh Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/swooshArrow.svg" height="50" width="50"></p>
 teardrop | Teardrop Shape | <p style="text-align: center;"><img src="../images/shapes/teardrop.svg" height="50" width="50"></p>
 trapezoid | Trapezoid Shape | <p style="text-align: center;"><img src="../images/shapes/trapezoid.svg" height="50" width="50"></p>
 triangle | Triangle Shape | <p style="text-align: center;"><img src="../images/shapes/triangle.svg" height="50" width="50"></p>

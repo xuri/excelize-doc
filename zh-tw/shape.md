@@ -29,16 +29,16 @@ actionButtonDocument | 動作按鈕：文檔 | <p style="text-align: center;"><i
 actionButtonEnd | 動作按鈕：轉到結尾 | <p style="text-align: center;"><img src="../images/shapes/actionButtonEnd.svg" height="50" width="50"></p>
 actionButtonForwardNext | 動作按鈕：前進或下一項 | <p style="text-align: center;"><img src="../images/shapes/actionButtonForwardNext.svg" height="50" width="50"></p>
 actionButtonHelp | 動作按鈕：幫助 | <p style="text-align: center;"><img src="../images/shapes/actionButtonHelp.svg" height="50" width="50"></p>
-actionButtonHome | 動作按鈕：轉到主頁 |
+actionButtonHome | 動作按鈕：轉到主頁 | <p style="text-align: center;"><img src="../images/shapes/actionButtonHome.svg" height="50" width="50"></p>
 actionButtonInformation | 動作按鈕：獲取信息 | <p style="text-align: center;"><img src="../images/shapes/actionButtonInformation.svg" height="50" width="50"></p>
 actionButtonMovie | 動作按鈕：視頻 | <p style="text-align: center;"><img src="../images/shapes/actionButtonMovie.svg" height="50" width="50"></p>
 actionButtonReturn | 動作按鈕：上一張 | <p style="text-align: center;"><img src="../images/shapes/actionButtonReturn.svg" height="50" width="50"></p>
 actionButtonSound | 動作按鈕：聲音 | <p style="text-align: center;"><img src="../images/shapes/actionButtonSound.svg" height="50" width="50"></p>
-arc | Curved Arc Shape |
+arc | 曲線的弧形狀 | <p style="text-align: center;"><img src="../images/shapes/arc.svg" height="50" width="50"></p>
 bentArrow | 箭頭：圓角右 | <p style="text-align: center;"><img src="../images/shapes/bentArrow.svg" height="50" width="50"></p>
-bentConnector2 | Bent Connector 2 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector2.svg" height="50" width="50"></p>
-bentConnector3 | Bent Connector 3 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector3.svg" height="50" width="50"></p>
-bentConnector4 | Bent Connector 4 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector4.svg" height="50" width="50"></p>
+bentConnector2 | 彎曲的連接器 2 形狀 | <p style="text-align: center;"><img src="../images/shapes/bentConnector2.svg" height="50" width="50"></p>
+bentConnector3 | 彎曲的連接器 3 形狀 | <p style="text-align: center;"><img src="../images/shapes/bentConnector3.svg" height="50" width="50"></p>
+bentConnector4 | 彎曲的連接器 4 形狀 | <p style="text-align: center;"><img src="../images/shapes/bentConnector4.svg" height="50" width="50"></p>
 bentConnector5 | 連接符：肘形 | <p style="text-align: center;"><img src="../images/shapes/bentConnector5.svg" height="50" width="50"></p>
 bentUpArrow | 箭頭：直角上 | <p style="text-align: center;"><img src="../images/shapes/bentUpArrow.svg" height="50" width="50"></p>
 bevel | 矩形：稜台 | <p style="text-align: center;"><img src="../images/shapes/bevel.svg" height="50" width="50"></p>
@@ -52,21 +52,21 @@ callout1 | 標注：線形（無邊框） | <p style="text-align: center;"><img 
 callout2 | 標注：彎曲線形（無邊框） | <p style="text-align: center;"><img src="../images/shapes/callout2.svg" height="50" width="50"></p>
 callout3 | 標注：雙彎曲線形（無邊框） | <p style="text-align: center;"><img src="../images/shapes/callout3.svg" height="50" width="50"></p>
 can | 圓柱體 | <p style="text-align: center;"><img src="../images/shapes/can.svg" height="50" width="50"></p>
-chartPlus | Chart Plus Shape |
-chartStar | Chart Star Shape |
-chartX | Chart X Shape |
-chevron | 箭頭：右 |
+chartPlus | 圖表加上形狀 | <p style="text-align: center;"><img src="../images/shapes/chartPlus.svg" height="50" width="50"></p>
+chartStar | 圖表的星形 | <p style="text-align: center;"><img src="../images/shapes/chartStar.svg" height="50" width="50"></p>
+chartX | 圖表 X 形狀 | <p style="text-align: center;"><img src="../images/shapes/chartX.svg" height="50" width="50"></p>
+chevron | 箭頭：V 形 | <p style="text-align: center;"><img src="../images/shapes/chevron.svg" height="50" width="50"></p>
 chord | 弦形 | <p style="text-align: center;"><img src="../images/shapes/chord.svg" height="50" width="50"></p>
 circularArrow | 箭頭：環形 | <p style="text-align: center;"><img src="../images/shapes/circularArrow.svg" height="50" width="50"></p>
 cloud | 雲形 | <p style="text-align: center;"><img src="../images/shapes/cloud.svg" height="50" width="50"></p>
 cloudCallout | 雲形標注 | <p style="text-align: center;"><img src="../images/shapes/cloudCallout.svg" height="50" width="50"></p>
 corner | L 形 | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
-cornerTabs | Corner Tabs Shape |
+cornerTabs | 角選項卡形狀 | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
 cube | 立方體 | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
 curvedConnector2 | 弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
 curvedConnector3 | 鏈接符：曲線 | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
-curvedConnector4 | Curved Connector 4 Shape |
-curvedConnector5 | Curved Connector 5 Shape |
+curvedConnector4 | 曲線的連接符 4 形狀 |
+curvedConnector5 | 曲線的連接符 5 形狀 |
 curvedDownArrow | 箭頭：上弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedDownArrow.svg" height="50" width="50"></p>
 curvedLeftArrow | 箭頭：右弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedLeftArrow.svg" height="50" width="50"></p>
 curvedRightArrow | 箭頭：左弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedRightArrow.svg" height="50" width="50"></p>
@@ -113,9 +113,9 @@ flowChartSummingJunction | 流程圖：匯總連接 | <p style="text-align: cent
 flowChartTerminator | 流程圖：終止 | <p style="text-align: center;"><img src="../images/shapes/flowChartTerminator.svg" height="50" width="50"></p>
 foldedCorner | 矩形：折角 | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
 frame | 圖文框 | <p style="text-align: center;"><img src="../images/shapes/frame.svg" height="50" width="50"></p>
-funnel | 漏斗形 |
-gear6 | Gear 6 Shape |
-gear9 | Gear 9 Shape |
+funnel | 漏斗形 | <p style="text-align: center;"><img src="../images/shapes/funnel.svg" height="50" width="50"></p>
+gear6 | 齒輪 6 形狀 | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
+gear9 | 齒輪 9 形狀 | <p style="text-align: center;"><img src="../images/shapes/gear9.svg" height="50" width="50"></p>
 halfFrame | 半閉框 | <p style="text-align: center;"><img src="../images/shapes/halfFrame.svg" height="50" width="50"></p>
 heart | 心形 | <p style="text-align: center;"><img src="../images/shapes/heart.svg" height="50" width="50"></p>
 heptagon | 七邊形 | <p style="text-align: center;"><img src="../images/shapes/heptagon.svg" height="50" width="50"></p>
@@ -128,11 +128,11 @@ leftArrow | 箭頭：左 | <p style="text-align: center;"><img src="../images/sh
 leftArrowCallout | 標注：左箭頭 | <p style="text-align: center;"><img src="../images/shapes/leftArrowCallout.svg" height="50" width="50"></p>
 leftBrace | 左大括號 | <p style="text-align: center;"><img src="../images/shapes/leftBrace.svg" height="50" width="50"></p>
 leftBracket | 左中括號 | <p style="text-align: center;"><img src="../images/shapes/leftBracket.svg" height="50" width="50"></p>
-leftCircularArrow | Left Circular Arrow Shape |
+leftCircularArrow | 左側的環形箭頭形狀 | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
 leftRightArrow | 箭頭：左右 | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
 leftRightArrowCallout | 標注：左右箭頭 | <p style="text-align: center;"><img src="../images/shapes/leftRightArrowCallout.svg" height="50" width="50"></p>
-leftRightCircularArrow | Left Right Circular Arrow Shape |
-leftRightRibbon | Left Right Ribbon Shape |
+leftRightCircularArrow | 左右環形箭頭形狀 |
+leftRightRibbon | 左右功能區形狀 | <p style="text-align: center;"><img src="../images/shapes/leftRightRibbon.svg" height="50" width="50"></p>
 leftRightUpArrow | 箭頭：丁字 | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
 leftUpArrow | 箭頭：直角雙向 | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
 lightningBolt | 閃電形 | <p style="text-align: center;"><img src="../images/shapes/lightningBolt.svg" height="50" width="50"></p>
@@ -152,9 +152,9 @@ octagon | 八邊形 | <p style="text-align: center;"><img src="../images/shapes/
 parallelogram | 平行四邊形 | <p style="text-align: center;"><img src="../images/shapes/parallelogram.svg" height="50" width="50"></p>
 pentagon | 五邊形 | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
 pie | 不完整圓 | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
-pieWedge | Pie Wedge Shape |
+pieWedge | 餅圖楔入形狀 | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
 plaque | 缺角矩形 | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
-plaqueTabs | Plaque Tabs Shape |
+plaqueTabs | 板選項卡形狀 |
 plus | 十字形 | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
 quadArrow | 箭頭：十字 | <p style="text-align: center;"><img src="../images/shapes/quadArrow.svg" height="50" width="50"></p>
 quadArrowCallout | 標注：十字箭頭 | <p style="text-align: center;"><img src="../images/shapes/quadArrowCallout.svg" height="50" width="50"></p>
@@ -175,7 +175,7 @@ snip1Rect | 矩形：減去單角 | <p style="text-align: center;"><img src="../
 snip2DiagRect | 矩形：減去對角 | <p style="text-align: center;"><img src="../images/shapes/snip2DiagRect.svg" height="50" width="50"></p>
 snip2SameRect | 矩形：減去左右頂角 | <p style="text-align: center;"><img src="../images/shapes/snip2SameRect.svg" height="50" width="50"></p>
 snipRoundRect | 矩形：一個圓頂角，減去另一個頂角 | <p style="text-align: center;"><img src="../images/shapes/snipRoundRect.svg" height="50" width="50"></p>
-squareTabs | Square Tabs Shape |
+squareTabs | 方形選項卡形狀 | <p style="text-align: center;"><img src="../images/shapes/squareTabs.svg" height="50" width="50"></p>
 star10 | 星形：十角 | <p style="text-align: center;"><img src="../images/shapes/star10.svg" height="50" width="50"></p>
 star12 | 星形：十二角 | <p style="text-align: center;"><img src="../images/shapes/star12.svg" height="50" width="50"></p>
 star16 | 星形：十六角 | <p style="text-align: center;"><img src="../images/shapes/star16.svg" height="50" width="50"></p>
@@ -186,10 +186,10 @@ star5 | 星形：五角 | <p style="text-align: center;"><img src="../images/sha
 star6 | 星形：六角 | <p style="text-align: center;"><img src="../images/shapes/star6.svg" height="50" width="50"></p>
 star7 | 星形：七角 | <p style="text-align: center;"><img src="../images/shapes/star7.svg" height="50" width="50"></p>
 star8 | 星形：八角 | <p style="text-align: center;"><img src="../images/shapes/star8.svg" height="50" width="50"></p>
-straightConnector1 | Straight Connector 1 Shape | <p style="text-align: center;"><img src="../images/shapes/straightConnector1.svg" height="50" width="50"></p>
+straightConnector1 | 直線連接符 1 形狀 | <p style="text-align: center;"><img src="../images/shapes/straightConnector1.svg" height="50" width="50"></p>
 stripedRightArrow | 箭頭：虛尾 | <p style="text-align: center;"><img src="../images/shapes/stripedRightArrow.svg" height="50" width="50"></p>
 sun | 太陽形 | <p style="text-align: center;"><img src="../images/shapes/sun.svg" height="50" width="50"></p>
-swooshArrow | Swoosh Arrow Shape |
+swooshArrow | Swoosh 箭頭形狀 | <p style="text-align: center;"><img src="../images/shapes/swooshArrow.svg" height="50" width="50"></p>
 teardrop | 淚滴形 | <p style="text-align: center;"><img src="../images/shapes/teardrop.svg" height="50" width="50"></p>
 trapezoid | 梯形 | <p style="text-align: center;"><img src="../images/shapes/trapezoid.svg" height="50" width="50"></p>
 triangle | 等腰三角形 | <p style="text-align: center;"><img src="../images/shapes/triangle.svg" height="50" width="50"></p>
