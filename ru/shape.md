@@ -35,70 +35,70 @@ actionButtonMovie | Фигура кнопка фильма | <p style="text-alig
 actionButtonReturn | Возвращает форму кнопки | <p style="text-align: center;"><img src="../images/shapes/actionButtonReturn.svg" height="50" width="50"></p>
 actionButtonSound |При нажатии кнопки звук фигуры | <p style="text-align: center;"><img src="../images/shapes/actionButtonSound.svg" height="50" width="50"></p>
 arc | Фигура кривой Arc | <p style="text-align: center;"><img src="../images/shapes/arc.svg" height="50" width="50"></p>
-bentArrow | Bent Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/bentArrow.svg" height="50" width="50"></p>
-bentConnector2 | Bent Connector 2 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector2.svg" height="50" width="50"></p>
-bentConnector3 | Bent Connector 3 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector3.svg" height="50" width="50"></p>
-bentConnector4 | Bent Connector 4 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector4.svg" height="50" width="50"></p>
-bentConnector5 | Bent Connector 5 Shape | <p style="text-align: center;"><img src="../images/shapes/bentConnector5.svg" height="50" width="50"></p>
-bentUpArrow | Bent Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/bentUpArrow.svg" height="50" width="50"></p>
-bevel | Bevel Shape | <p style="text-align: center;"><img src="../images/shapes/bevel.svg" height="50" width="50"></p>
-blockArc | Block Arc Shape | <p style="text-align: center;"><img src="../images/shapes/blockArc.svg" height="50" width="50"></p>
-borderCallout1 | Callout 1 with Border Shape | <p style="text-align: center;"><img src="../images/shapes/borderCallout1.svg" height="50" width="50"></p>
-borderCallout2 | Callout 2 with Border Shape | <p style="text-align: center;"><img src="../images/shapes/borderCallout2.svg" height="50" width="50"></p>
-borderCallout3 | Callout 3 with Border Shape | <p style="text-align: center;"><img src="../images/shapes/borderCallout3.svg" height="50" width="50"></p>
-bracePair | Brace Pair Shape | <p style="text-align: center;"><img src="../images/shapes/bracePair.svg" height="50" width="50"></p>
-bracketPair | Bracket Pair Shape | <p style="text-align: center;"><img src="../images/shapes/bracketPair.svg" height="50" width="50"></p>
-callout1 | Callout 1 Shape | <p style="text-align: center;"><img src="../images/shapes/callout1.svg" height="50" width="50"></p>
-callout2 | Callout 2 Shape | <p style="text-align: center;"><img src="../images/shapes/callout2.svg" height="50" width="50"></p>
-callout3 | Callout 3 Shape | <p style="text-align: center;"><img src="../images/shapes/callout3.svg" height="50" width="50"></p>
-can | Can Shape | <p style="text-align: center;"><img src="../images/shapes/can.svg" height="50" width="50"></p>
-chartPlus | Chart Plus Shape | <p style="text-align: center;"><img src="../images/shapes/chartPlus.svg" height="50" width="50"></p>
-chartStar | Chart Star Shape | <p style="text-align: center;"><img src="../images/shapes/chartStar.svg" height="50" width="50"></p>
-chartX | Chart X Shape | <p style="text-align: center;"><img src="../images/shapes/chartX.svg" height="50" width="50"></p>
-chevron | Chevron Shape | <p style="text-align: center;"><img src="../images/shapes/chevron.svg" height="50" width="50"></p>
-chord | Chord Shape | <p style="text-align: center;"><img src="../images/shapes/chord.svg" height="50" width="50"></p>
-circularArrow | Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/circularArrow.svg" height="50" width="50"></p>
-cloud | Cloud Shape | <p style="text-align: center;"><img src="../images/shapes/cloud.svg" height="50" width="50"></p>
-cloudCallout | Callout Cloud Shape | <p style="text-align: center;"><img src="../images/shapes/cloudCallout.svg" height="50" width="50"></p>
-corner | Corner Shape | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
-cornerTabs | Corner Tabs Shape | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
-cube | Cube Shape | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
-curvedConnector2 | Curved Connector 2 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
-curvedConnector3 | Curved Connector 3 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
-curvedConnector4 | Curved Connector 4 Shape |
-curvedConnector5 | Curved Connector 5 Shape |
-curvedDownArrow | Curved Down Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedDownArrow.svg" height="50" width="50"></p>
-curvedLeftArrow | Curved Left Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedLeftArrow.svg" height="50" width="50"></p>
-curvedRightArrow | Curved Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedRightArrow.svg" height="50" width="50"></p>
-curvedUpArrow | Curved Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedUpArrow.svg" height="50" width="50"></p>
-decagon | Decagon Shape | <p style="text-align: center;"><img src="../images/shapes/decagon.svg" height="50" width="50"></p>
-diagStripe | Diagonal Stripe Shape | <p style="text-align: center;"><img src="../images/shapes/diagStripe.svg" height="50" width="50"></p>
-diamond | Diamond Shape | <p style="text-align: center;"><img src="../images/shapes/diamond.svg" height="50" width="50"></p>
-dodecagon | Dodecagon Shape | <p style="text-align: center;"><img src="../images/shapes/dodecagon.svg" height="50" width="50"></p>
-donut | Donut Shape | <p style="text-align: center;"><img src="../images/shapes/donut.svg" height="50" width="50"></p>
-doubleWave | Double Wave Shape | <p style="text-align: center;"><img src="../images/shapes/doubleWave.svg" height="50" width="50"></p>
-downArrow | Down Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/downArrow.svg" height="50" width="50"></p>
-downArrowCallout | Callout Down Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/downArrowCallout.svg" height="50" width="50"></p>
-ellipse | Ellipse Shape | <p style="text-align: center;"><img src="../images/shapes/ellipse.svg" height="50" width="50"></p>
-ellipseRibbon | Ellipse Ribbon Shape | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon.svg" height="50" width="50"></p>
-ellipseRibbon2 | Ellipse Ribbon 2 Shape | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon2.svg" height="50" width="50"></p>
-flowChartAlternateProcess | Alternate Process Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartAlternateProcess.svg" height="50" width="50"></p>
-flowChartCollate | Collate Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartCollate.svg" height="50" width="50"></p>
-flowChartConnector | Connector Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartConnector.svg" height="50" width="50"></p>
-flowChartDecision | Decision Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartDecision.svg" height="50" width="50"></p>
-flowChartDelay | Delay Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartDelay.svg" height="50" width="50"></p>
-flowChartDisplay | Display Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartDisplay.svg" height="50" width="50"></p>
-flowChartDocument | Document Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartDocument.svg" height="50" width="50"></p>
-flowChartExtract | Extract Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartExtract.svg" height="50" width="50"></p>
-flowChartInputOutput | Input Output Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
-flowChartInternalStorage | Internal Storage Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
-flowChartMagneticDisk | Magnetic Disk Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticDisk.svg" height="50" width="50"></p>
-flowChartMagneticDrum | Magnetic Drum Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticDrum.svg" height="50" width="50"></p>
-flowChartMagneticTape | Magnetic Tape Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticTape.svg" height="50" width="50"></p>
-flowChartManualInput | Manual Input Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartManualInput.svg" height="50" width="50"></p>
-flowChartManualOperation | Manual Operation Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartManualOperation.svg" height="50" width="50"></p>
-flowChartMerge | Merge Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
-flowChartMultidocument | Multi-Document Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMultidocument.svg" height="50" width="50"></p>
+bentArrow | Фигура стрелку углом | <p style="text-align: center;"><img src="../images/shapes/bentArrow.svg" height="50" width="50"></p>
+bentConnector2 | Фигура углом соединителя 2 | <p style="text-align: center;"><img src="../images/shapes/bentConnector2.svg" height="50" width="50"></p>
+bentConnector3 | Фигура углом соединителя 3 | <p style="text-align: center;"><img src="../images/shapes/bentConnector3.svg" height="50" width="50"></p>
+bentConnector4 | Фигура углом соединителя 4 | <p style="text-align: center;"><img src="../images/shapes/bentConnector4.svg" height="50" width="50"></p>
+bentConnector5 | Фигура углом соединителя 5 | <p style="text-align: center;"><img src="../images/shapes/bentConnector5.svg" height="50" width="50"></p>
+bentUpArrow | Углом вверх стрелки | <p style="text-align: center;"><img src="../images/shapes/bentUpArrow.svg" height="50" width="50"></p>
+bevel | Багетная рамка фигуры | <p style="text-align: center;"><img src="../images/shapes/bevel.svg" height="50" width="50"></p>
+blockArc | Фигура Arc блокировки | <p style="text-align: center;"><img src="../images/shapes/blockArc.svg" height="50" width="50"></p>
+borderCallout1 | Выноска 1 с границы фигуры | <p style="text-align: center;"><img src="../images/shapes/borderCallout1.svg" height="50" width="50"></p>
+borderCallout2 | Выноска 2 с границы фигуры | <p style="text-align: center;"><img src="../images/shapes/borderCallout2.svg" height="50" width="50"></p>
+borderCallout3 | Выноска 3 с границы фигуры | <p style="text-align: center;"><img src="../images/shapes/borderCallout3.svg" height="50" width="50"></p>
+bracePair | Правая фигурная пары фигуры | <p style="text-align: center;"><img src="../images/shapes/bracePair.svg" height="50" width="50"></p>
+bracketPair | Фигура пары скобку | <p style="text-align: center;"><img src="../images/shapes/bracketPair.svg" height="50" width="50"></p>
+callout1 | Фигура выноски 1 | <p style="text-align: center;"><img src="../images/shapes/callout1.svg" height="50" width="50"></p>
+callout2 | Фигура выноски 2 | <p style="text-align: center;"><img src="../images/shapes/callout2.svg" height="50" width="50"></p>
+callout3 | Фигура выноски 3 | <p style="text-align: center;"><img src="../images/shapes/callout3.svg" height="50" width="50"></p>
+can | Можно изменить | <p style="text-align: center;"><img src="../images/shapes/can.svg" height="50" width="50"></p>
+chartPlus | Кроме того фигуры диаграммы | <p style="text-align: center;"><img src="../images/shapes/chartPlus.svg" height="50" width="50"></p>
+chartStar | Звезда диаграммы | <p style="text-align: center;"><img src="../images/shapes/chartStar.svg" height="50" width="50"></p>
+chartX | Диаграмма X фигуры | <p style="text-align: center;"><img src="../images/shapes/chartX.svg" height="50" width="50"></p>
+chevron | Шеврон фигуры | <p style="text-align: center;"><img src="../images/shapes/chevron.svg" height="50" width="50"></p>
+chord | Фигура кабеля | <p style="text-align: center;"><img src="../images/shapes/chord.svg" height="50" width="50"></p>
+circularArrow | Круговые стрелки | <p style="text-align: center;"><img src="../images/shapes/circularArrow.svg" height="50" width="50"></p>
+cloud | Фигуры в облаке | <p style="text-align: center;"><img src="../images/shapes/cloud.svg" height="50" width="50"></p>
+cloudCallout | Фигура выноски облака | <p style="text-align: center;"><img src="../images/shapes/cloudCallout.svg" height="50" width="50"></p>
+corner | Угол фигуры | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
+cornerTabs | Фигура вкладок угла | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
+cube | Фигура куба | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
+curvedConnector2 | Круглая соединителя 2 фигуры | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
+curvedConnector3 | Круглая соединителя 3 фигуры | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
+curvedConnector4 | Круглая соединителя 4 фигуры |
+curvedConnector5 | Круглая соединителя 5 фигуры |
+curvedDownArrow | Круглая вниз стрелки | <p style="text-align: center;"><img src="../images/shapes/curvedDownArrow.svg" height="50" width="50"></p>
+curvedLeftArrow | Круглая стрелка влево фигуры | <p style="text-align: center;"><img src="../images/shapes/curvedLeftArrow.svg" height="50" width="50"></p>
+curvedRightArrow | Круглая Стрелка вправо фигуры | <p style="text-align: center;"><img src="../images/shapes/curvedRightArrow.svg" height="50" width="50"></p>
+curvedUpArrow | Круглая вверх стрелки | <p style="text-align: center;"><img src="../images/shapes/curvedUpArrow.svg" height="50" width="50"></p>
+decagon | Фигура decagon | <p style="text-align: center;"><img src="../images/shapes/decagon.svg" height="50" width="50"></p>
+diagStripe | Диагональная полоса фигуры | <p style="text-align: center;"><img src="../images/shapes/diagStripe.svg" height="50" width="50"></p>
+diamond | Ромб фигуры | <p style="text-align: center;"><img src="../images/shapes/diamond.svg" height="50" width="50"></p>
+dodecagon | Фигура dodecagon | <p style="text-align: center;"><img src="../images/shapes/dodecagon.svg" height="50" width="50"></p>
+donut | Фигура пончик | <p style="text-align: center;"><img src="../images/shapes/donut.svg" height="50" width="50"></p>
+doubleWave | Двойная волнистая фигуры | <p style="text-align: center;"><img src="../images/shapes/doubleWave.svg" height="50" width="50"></p>
+downArrow | Вниз стрелки | <p style="text-align: center;"><img src="../images/shapes/downArrow.svg" height="50" width="50"></p>
+downArrowCallout | Фигура стрелка вниз выноски | <p style="text-align: center;"><img src="../images/shapes/downArrowCallout.svg" height="50" width="50"></p>
+ellipse | Фигура эллипс | <p style="text-align: center;"><img src="../images/shapes/ellipse.svg" height="50" width="50"></p>
+ellipseRibbon | Фигура эллипс ленты | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon.svg" height="50" width="50"></p>
+ellipseRibbon2 | Фигура ленты 2 эллипс | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon2.svg" height="50" width="50"></p>
+flowChartAlternateProcess | Альтернативный процесс поток фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartAlternateProcess.svg" height="50" width="50"></p>
+flowChartCollate | Сопоставление поток фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartCollate.svg" height="50" width="50"></p>
+flowChartConnector | Фигура поток соединителя | <p style="text-align: center;"><img src="../images/shapes/flowChartConnector.svg" height="50" width="50"></p>
+flowChartDecision | Фигура поток принятия решений | <p style="text-align: center;"><img src="../images/shapes/flowChartDecision.svg" height="50" width="50"></p>
+flowChartDelay | Задержка поток фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartDelay.svg" height="50" width="50"></p>
+flowChartDisplay | Отображение фигуры потока | <p style="text-align: center;"><img src="../images/shapes/flowChartDisplay.svg" height="50" width="50"></p>
+flowChartDocument | Фигура поток обработки документов | <p style="text-align: center;"><img src="../images/shapes/flowChartDocument.svg" height="50" width="50"></p>
+flowChartExtract | Извлечение потока фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartExtract.svg" height="50" width="50"></p>
+flowChartInputOutput | Фигура потока ввода-вывода | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
+flowChartInternalStorage | Внутреннее хранилище потока фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
+flowChartMagneticDisk | Фигура поток магнитным диска | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticDisk.svg" height="50" width="50"></p>
+flowChartMagneticDrum | Фигура Магнитное барабана потока | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticDrum.svg" height="50" width="50"></p>
+flowChartMagneticTape | Фигура ленточного потока | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticTape.svg" height="50" width="50"></p>
+flowChartManualInput | Фигура вручную входной поток | <p style="text-align: center;"><img src="../images/shapes/flowChartManualInput.svg" height="50" width="50"></p>
+flowChartManualOperation | Фигура поток ручные операции | <p style="text-align: center;"><img src="../images/shapes/flowChartManualOperation.svg" height="50" width="50"></p>
+flowChartMerge | Объединение фигур потока | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
+flowChartMultidocument | Поток обработки нескольких документов фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartMultidocument.svg" height="50" width="50"></p>
 flowChartOfflineStorage | Offline Storage Flow Shape |
 flowChartOffpageConnector | Off-Page Connector Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOffpageConnector.svg" height="50" width="50"></p>
 flowChartOnlineStorage | Online Storage Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOnlineStorage.svg" height="50" width="50"></p>
