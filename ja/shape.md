@@ -65,8 +65,8 @@ cornerTabs | Corner Tabs Shape | <p style="text-align: center;"><img src="../ima
 cube | Cube Shape | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
 curvedConnector2 | Curved Connector 2 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
 curvedConnector3 | Curved Connector 3 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
-curvedConnector4 | Curved Connector 4 Shape |
-curvedConnector5 | Curved Connector 5 Shape |
+curvedConnector4 | Curved Connector 4 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector4.svg" height="50" width="50"></p>
+curvedConnector5 | Curved Connector 5 Shape | <p style="text-align: center;"><img src="../images/shapes/curvedConnector5.svg" height="50" width="50"></p>
 curvedDownArrow | Curved Down Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedDownArrow.svg" height="50" width="50"></p>
 curvedLeftArrow | Curved Left Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedLeftArrow.svg" height="50" width="50"></p>
 curvedRightArrow | Curved Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/curvedRightArrow.svg" height="50" width="50"></p>
@@ -99,7 +99,7 @@ flowChartManualInput | Manual Input Flow Shape | <p style="text-align: center;">
 flowChartManualOperation | Manual Operation Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartManualOperation.svg" height="50" width="50"></p>
 flowChartMerge | Merge Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
 flowChartMultidocument | Multi-Document Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartMultidocument.svg" height="50" width="50"></p>
-flowChartOfflineStorage | Offline Storage Flow Shape |
+flowChartOfflineStorage | Offline Storage Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOfflineStorage.svg" height="50" width="50"></p>
 flowChartOffpageConnector | Off-Page Connector Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOffpageConnector.svg" height="50" width="50"></p>
 flowChartOnlineStorage | Online Storage Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOnlineStorage.svg" height="50" width="50"></p>
 flowChartOr | Or Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOr.svg" height="50" width="50"></p>
@@ -131,7 +131,7 @@ leftBracket | Left Bracket Shape | <p style="text-align: center;"><img src="../i
 leftCircularArrow | Left Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
 leftRightArrow | Left Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
 leftRightArrowCallout | Callout Left Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightArrowCallout.svg" height="50" width="50"></p>
-leftRightCircularArrow | Left Right Circular Arrow Shape |
+leftRightCircularArrow | Left Right Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightCircularArrow.svg" height="50" width="50"></p>
 leftRightRibbon | Left Right Ribbon Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightRibbon.svg" height="50" width="50"></p>
 leftRightUpArrow | Left Right Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
 leftUpArrow | Left Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
@@ -154,7 +154,7 @@ pentagon | Pentagon Shape | <p style="text-align: center;"><img src="../images/s
 pie | Pie Shape | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
 pieWedge | Pie Wedge Shape | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
 plaque | Plaque Shape | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
-plaqueTabs | Plaque Tabs Shape |
+plaqueTabs | Plaque Tabs Shape | <p style="text-align: center;"><img src="../images/shapes/plaqueTabs.svg" height="50" width="50"></p>
 plus | Plus Shape | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
 quadArrow | Quad-Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/quadArrow.svg" height="50" width="50"></p>
 quadArrowCallout | Callout Quad-Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/quadArrowCallout.svg" height="50" width="50"></p>

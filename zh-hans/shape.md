@@ -65,8 +65,8 @@ cornerTabs | 角选项卡形状 | <p style="text-align: center;"><img src="../im
 cube | 立方体 | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
 curvedConnector2 | 弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
 curvedConnector3 | 链接符：曲线 | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
-curvedConnector4 | 曲线的连接符 4 形状 |
-curvedConnector5 | 曲线的连接符 5 形状 |
+curvedConnector4 | 曲线的连接符 4 形状 | <p style="text-align: center;"><img src="../images/shapes/curvedConnector4.svg" height="50" width="50"></p>
+curvedConnector5 | 曲线的连接符 5 形状 | <p style="text-align: center;"><img src="../images/shapes/curvedConnector5.svg" height="50" width="50"></p>
 curvedDownArrow | 箭头：上弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedDownArrow.svg" height="50" width="50"></p>
 curvedLeftArrow | 箭头：右弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedLeftArrow.svg" height="50" width="50"></p>
 curvedRightArrow | 箭头：左弧形 | <p style="text-align: center;"><img src="../images/shapes/curvedRightArrow.svg" height="50" width="50"></p>
@@ -99,7 +99,7 @@ flowChartManualInput | 流程图：手动输入 | <p style="text-align: center;"
 flowChartManualOperation | 流程图：手动操作 | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
 flowChartMerge | 流程图：合并 | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
 flowChartMultidocument | 流程图：多文档 | <p style="text-align: center;"><img src="../images/shapes/flowChartMultidocument.svg" height="50" width="50"></p>
-flowChartOfflineStorage | 流程图：离页存储 |
+flowChartOfflineStorage | 流程图：离页存储 | <p style="text-align: center;"><img src="../images/shapes/flowChartOfflineStorage.svg" height="50" width="50"></p>
 flowChartOffpageConnector | 流程图：离页连接符 | <p style="text-align: center;"><img src="../images/shapes/flowChartOffpageConnector.svg" height="50" width="50"></p>
 flowChartOnlineStorage | 流程图：存储数据 | <p style="text-align: center;"><img src="../images/shapes/flowChartOnlineStorage.svg" height="50" width="50"></p>
 flowChartOr | 流程图：或者 | <p style="text-align: center;"><img src="../images/shapes/flowChartOr.svg" height="50" width="50"></p>
@@ -131,7 +131,7 @@ leftBracket | 左中括号 | <p style="text-align: center;"><img src="../images/
 leftCircularArrow | 左侧的环形箭头形状 | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
 leftRightArrow | 箭头：左右 | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
 leftRightArrowCallout | 标注：左右箭头 | <p style="text-align: center;"><img src="../images/shapes/leftRightArrowCallout.svg" height="50" width="50"></p>
-leftRightCircularArrow | 左右环形箭头形状 |
+leftRightCircularArrow | 左右环形箭头形状 | <p style="text-align: center;"><img src="../images/shapes/leftRightCircularArrow.svg" height="50" width="50"></p>
 leftRightRibbon | 左右功能区形状 | <p style="text-align: center;"><img src="../images/shapes/leftRightRibbon.svg" height="50" width="50"></p>
 leftRightUpArrow | 箭头：丁字 | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
 leftUpArrow | 箭头：直角双向 | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
@@ -154,7 +154,7 @@ pentagon | 五边形 | <p style="text-align: center;"><img src="../images/shapes
 pie | 不完整圆 | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
 pieWedge | 饼图楔入形状 | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
 plaque | 缺角矩形 | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
-plaqueTabs | 板选项卡形状 |
+plaqueTabs | 板选项卡形状 | <p style="text-align: center;"><img src="../images/shapes/plaqueTabs.svg" height="50" width="50"></p>
 plus | 十字形 | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
 quadArrow | 箭头：十字 | <p style="text-align: center;"><img src="../images/shapes/quadArrow.svg" height="50" width="50"></p>
 quadArrowCallout | 标注：十字箭头 | <p style="text-align: center;"><img src="../images/shapes/quadArrowCallout.svg" height="50" width="50"></p>
