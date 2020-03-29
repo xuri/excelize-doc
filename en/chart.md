@@ -177,6 +177,14 @@ func main() {
 }
 ```
 
+## Add chart sheet {#AddChartSheet}
+
+```go
+func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+```
+
+AddChartSheet provides the method to create a chartsheet by given chart format set (such as offset, scale, aspect ratio setting and print settings) and properties set. In Excel a chartsheet is a worksheet that only contains a chart.
+
 ## Delete chart {#DeleteChart}
 
 ```go

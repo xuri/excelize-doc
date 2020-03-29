@@ -123,7 +123,7 @@ L'index obtenu peut être utilisé comme paramètre pour appeler la fonction [`S
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap fournit une fonction pour obtenir le nom de la feuille de calcul et la carte d'index de XLSX. Par exemple:
+GetSheetMap fournit une fonction pour obtenir les feuilles de calcul et le nom des feuilles de graphique et la carte d'index de XLSX. Par exemple:
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")

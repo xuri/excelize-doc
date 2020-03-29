@@ -86,6 +86,7 @@
   * [セル式を取得する](cell.md#GetCellFormula)
 * [グラフ](chart.md)
   * [グラフを追加する](chart.md#AddChart)
+  * [グラフシートを作成する](chart.md#AddChartSheet)
   * [2D エリアチャート](chart/area.md)
   * [2D 積層型エリアチャート](chart/areaStacked.md)
   * [2D 100％ 積み上げ面グラフ](chart/areaPercentStacked.md)

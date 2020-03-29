@@ -86,6 +86,7 @@
   * [Obtenir la formule cellulaire](cell.md#GetCellFormula)
 * [Graphique](chart.md)
   * [Ajouter un graphique](chart.md#AddChart)
+  * [Créer une feuille de graphique](chart.md#AddChartSheet)
   * [2D graphique à aires](chart/area.md)
   * [2D graphique à aires empilées](chart/areaStacked.md)
   * [2D 100% graphique à aires empilées](chart/areaPercentStacked.md)

@@ -123,7 +123,7 @@ func (f *File) GetSheetIndex(name string) int
 func (f *File) GetSheetMap() map[int]string
 ```
 
-名前とインデックスで構成されるブック内のすべてのワークシートのリストを取得します。
+GetSheetMap は、XLSX のワークシートとチャートシート名、およびインデックスマップを取得する関数を提供します。
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")

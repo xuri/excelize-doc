@@ -86,6 +86,7 @@
   * [獲取公式](cell.md#GetCellFormula)
 * [圖表](chart.md)
   * [添加圖表](chart.md#AddChart)
+  * [創建圖表工作表](chart.md#AddChartSheet)
   * [平面區域圖](chart/area.md)
   * [平面堆疊區域圖](chart/areaStacked.md)
   * [平面百分比堆疊區域圖](chart/areaPercentStacked.md)

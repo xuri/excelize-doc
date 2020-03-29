@@ -177,6 +177,14 @@ func main() {
 }
 ```
 
+## Créer une feuille de graphique {#AddChartSheet}
+
+```go
+func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+```
+
+AddChartSheet fournit la méthode pour créer une feuille de graphique en fonction d'un ensemble de formats de graphique donné (tels que l'offset, l'échelle, le paramètre de rapport hauteur / largeur et les paramètres d'impression) et d'un ensemble de propriétés. Dans Excel, une feuille de graphique est une feuille de calcul qui contient uniquement un graphique.
+
 ## Supprimer le graphique {#DeleteChart}
 
 ```go

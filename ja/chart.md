@@ -178,6 +178,15 @@ func main() {
 }
 ```
 
+## グラフシートを作成する {#AddChartSheet}
+
+```go
+func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+```
+
+AddChartSheet は、指定されたグラフ形式セット（オフセット、スケール、アスペクト比の設定、印刷設定など）とプロパティセットによってグラフシートを作成するメソッドを提供します。 Excelでは、グラフシートはグラフのみを含むワークシートです。
+
+
 ## チャートを削除 {#DeleteChart}
 
 ```go

@@ -86,6 +86,7 @@
   * [Получить формулу ячейки](cell.md#GetCellFormula)
 * [Диаграмма](chart.md)
   * [Добавить диаграмму](chart.md#AddChart)
+  * [Добавить лист диаграммы](chart.md#AddChartSheet)
   * [2D диаграмма области](chart/area.md)
   * [2D диаграмма области с накоплением](chart/areaStacked.md)
   * [2D 100% диаграмма области с накоплением](chart/areaPercentStacked.md)

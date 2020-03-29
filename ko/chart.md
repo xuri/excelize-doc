@@ -178,6 +178,14 @@ func main() {
 }
 ```
 
+## 차트 시트 추가 {#AddChartSheet}
+
+```go
+func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+```
+
+AddChartSheet 는 주어진 차트 형식 세트 (예: 오프셋, 배율, 종횡비 설정 및 인쇄 설정) 및 속성 세트별로 차트 시트를 작성하는 방법을 제공합니다. Excel 에서 차트 시트는 차트 만 포함 된 워크 시트입니다.
+
 ## 차트 삭제 {#DeleteChart}
 
 ```go

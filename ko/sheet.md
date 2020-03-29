@@ -123,7 +123,7 @@ GetSheetIndex 주어진 된 시트 이름으로 XLSX의 워크 시트 인덱스�
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap 은 XLSX 의 워크 시트 이름 및 인덱스 맵을 얻는 기능을 제공합니다. 예를 들어:
+GetSheetMap 은 XLSX 의 워크 시트 및 차트 시트 이름 및 인덱스 맵을 가져 오는 기능을 제공합니다. 예를 들어:
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")

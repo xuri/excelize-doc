@@ -123,7 +123,7 @@ The obtained index can be used as a parameter to call the [`SetActiveSheet()`](w
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap provides a function to get worksheet name and index map of XLSX. For example:
+GetSheetMap provides a function to get worksheet and chartsheet name and index map of XLSX. For example:
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")

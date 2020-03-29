@@ -1,155 +1,155 @@
-# åœ–è¡¨
+# ˆD±í
 
-## æ·»åŠ åœ–è¡¨ {#AddChart}
+## Ìí¼ÓˆD±í {#AddChart}
 
 ```go
 func (f *File) AddChart(sheet, cell, format string, combo ...string) error
 ```
 
-æ ¹æ“šçµ¦å®šçš„å·¥ä½œè¡¨åç¨±ã€å„²å­˜æ ¼åæ¨™å’Œåœ–è¡¨æ¨£å¼å±¬æ€§æ’å…¥åœ–è¡¨ã€‚
+¸ù“ş½o¶¨µÄ¹¤×÷±íÃû·Q¡¢ƒ¦´æ¸ñ×ø˜ËºÍˆD±í˜ÓÊ½ŒÙĞÔ²åÈëˆD±í¡£
 
-ä¸‹é¢æ˜¯ Excelize æ”¯æŒå‰µå»ºçš„åœ–è¡¨é¡åˆ¥ `type`ï¼š
+ÏÂÃæÊÇ Excelize Ö§³Ö„“½¨µÄˆD±íî„e `type`£º
 
-åç¨±|åœ–è¡¨é¡åˆ¥
+Ãû·Q|ˆD±íî„e
 ---|---
-area                        | äºŒç¶­å€åŸŸåœ–
-areaStacked                 | äºŒç¶­å †ç–Šå€åŸŸåœ–
-areaPercentStacked          | äºŒç¶­ç™¾åˆ†æ¯”å †ç–Šå€åŸŸåœ–
-area3D                      | ç«‹é«”å€åŸŸåœ–
-area3DStacked               | ç«‹é«”å †ç–Šå€åŸŸåœ–
-area3DPercentStacked        | ç«‹é«”ç™¾åˆ†æ¯”å †ç–Šå€åŸŸåœ–
-bar                         | äºŒç¶­ç¾¤çµ„æ¢å½¢åœ–
-barStacked                  | äºŒç¶­å †ç–Šæ¢å½¢åœ–
-barPercentStacked           | äºŒç¶­ç™¾åˆ†æ¯”å †ç–Šæ¢å½¢åœ–
-bar3DClustered              | ç«‹é«”ç¾¤çµ„æ¢å½¢åœ–
-bar3DStacked                | ç«‹é«”å †ç–Šæ¢å½¢åœ–
-bar3DPercentStacked         | ç«‹é«”ç™¾åˆ†æ¯”å †ç–Šæ¢å½¢åœ–
-bar3DConeClustered          | ç«‹é«”ç¾¤çµ„æ°´å¹³åœ“éŒåœ–
-bar3DConeStacked            | ç«‹é«”å †ç–Šæ°´å¹³åœ“éŒåœ–
-bar3DConePercentStacked     | ç«‹é«”å †ç–Šç™¾åˆ†æ¯”æ°´å¹³åœ“éŒåœ–
-bar3DPyramidClustered       | ç«‹é«”ç¾¤çµ„æ°´å¹³ç¨œéŒåœ–
-bar3DPyramidStacked         | ç«‹é«”å †ç–Šæ°´å¹³ç¨œéŒåœ–
-bar3DPyramidPercentStacked  | ç«‹é«”å †ç–Šç™¾åˆ†æ¯”æ°´å¹³ç¨œéŒåœ–
-bar3DCylinderClustered      | ç«‹é«”ç¾¤çµ„æ°´å¹³åœ“æŸ±åœ–
-bar3DCylinderStacked        | ç«‹é«”å †ç–Šæ°´å¹³åœ“æŸ±åœ–
-bar3DCylinderPercentStacked | ç«‹é«”å †ç–Šç™¾åˆ†æ¯”æ°´å¹³åœ“æŸ±åœ–
-col                         | äºŒç¶­ç¾¤çµ„æŸ±å½¢åœ–
-colStacked                  | äºŒç¶­å †ç–ŠæŸ±å½¢åœ–
-colPercentStacked           | äºŒç¶­ç™¾åˆ†æ¯”å †ç–ŠæŸ±å½¢åœ–
-col3D                       | ç«‹é«”æŸ±å½¢åœ–
-col3DClustered              | ç«‹é«”ç¾¤çµ„æŸ±å½¢åœ–
-col3DStacked                | ç«‹é«”å †ç–ŠæŸ±å½¢åœ–
-col3DPercentStacked         | ç«‹é«”ç™¾åˆ†æ¯”å †ç–ŠæŸ±å½¢åœ–
-col3DCone                   | ç«‹é«”åœ“éŒåœ–
-col3DConeClustered          | ç«‹é«”ç¾¤çµ„åœ“éŒåœ–
-col3DConeStacked            | ç«‹é«”å †ç–Šåœ“éŒåœ–
-col3DConePercentStacked     | ç«‹é«”ç™¾åˆ†æ¯”å †ç–Šåœ“éŒåœ–
-col3DPyramid                | ç«‹é«”ç¨œéŒåœ–
-col3DPyramidClustered       | ç«‹é«”ç¾¤çµ„ç¨œéŒåœ–
-col3DPyramidStacked         | ç«‹é«”å †ç–Šç¨œéŒåœ–
-col3DPyramidPercentStacked  | ç«‹é«”ç™¾åˆ†æ¯”å †ç–Šç¨œéŒåœ–
-col3DCylinder               | ç«‹é«”åœ“æŸ±åœ–
-col3DCylinderClustered      | ç«‹é«”ç¾¤çµ„åœ“æŸ±åœ–
-col3DCylinderStacked        | ç«‹é«”å †ç–Šåœ“æŸ±åœ–
-col3DCylinderPercentStacked | ç«‹é«”ç™¾åˆ†æ¯”å †ç–Šåœ“æŸ±åœ–
-doughnut                    | ç’°åœˆåœ–
-line                        | æŠ˜ç·šåœ–
-pie                         | åœ“å½¢åœ–
-pie3D                       | ç«‹é«”åœ“å½¢åœ–
-radar                       | é›·é”åœ–
-scatter                     | æ•£ä½ˆåœ–
-surface3D                   | ç«‹é«”æ›²é¢åœ–
-wireframeSurface3D          | ç«‹é«”æ›²é¢åœ–ï¼ˆåªé¡¯ç¤ºç·šæ¢ï¼‰
-contour                     | æ›²é¢åœ–
-wireframeContour            | æ›²é¢åœ–ï¼ˆä¿¯è¦–ã€åªé¡¯ç¤ºç·šæ¢ï¼‰
-bubble                      | æ³¡æ³¡åœ–
-bubble3D                    | ç«‹é«”æ³¡æ³¡åœ–
+area                        | ¶ş¾S…^ÓòˆD
+areaStacked                 | ¶ş¾S¶Ñ¯B…^ÓòˆD
+areaPercentStacked          | ¶ş¾S°Ù·Ö±È¶Ñ¯B…^ÓòˆD
+area3D                      | Á¢ów…^ÓòˆD
+area3DStacked               | Á¢ów¶Ñ¯B…^ÓòˆD
+area3DPercentStacked        | Á¢ów°Ù·Ö±È¶Ñ¯B…^ÓòˆD
+bar                         | ¶ş¾SÈº½M—lĞÎˆD
+barStacked                  | ¶ş¾S¶Ñ¯B—lĞÎˆD
+barPercentStacked           | ¶ş¾S°Ù·Ö±È¶Ñ¯B—lĞÎˆD
+bar3DClustered              | Á¢ówÈº½M—lĞÎˆD
+bar3DStacked                | Á¢ów¶Ñ¯B—lĞÎˆD
+bar3DPercentStacked         | Á¢ów°Ù·Ö±È¶Ñ¯B—lĞÎˆD
+bar3DConeClustered          | Á¢ówÈº½MË®Æ½ˆAåFˆD
+bar3DConeStacked            | Á¢ów¶Ñ¯BË®Æ½ˆAåFˆD
+bar3DConePercentStacked     | Á¢ów¶Ñ¯B°Ù·Ö±ÈË®Æ½ˆAåFˆD
+bar3DPyramidClustered       | Á¢ówÈº½MË®Æ½¶ åFˆD
+bar3DPyramidStacked         | Á¢ów¶Ñ¯BË®Æ½¶ åFˆD
+bar3DPyramidPercentStacked  | Á¢ów¶Ñ¯B°Ù·Ö±ÈË®Æ½¶ åFˆD
+bar3DCylinderClustered      | Á¢ówÈº½MË®Æ½ˆAÖùˆD
+bar3DCylinderStacked        | Á¢ów¶Ñ¯BË®Æ½ˆAÖùˆD
+bar3DCylinderPercentStacked | Á¢ów¶Ñ¯B°Ù·Ö±ÈË®Æ½ˆAÖùˆD
+col                         | ¶ş¾SÈº½MÖùĞÎˆD
+colStacked                  | ¶ş¾S¶Ñ¯BÖùĞÎˆD
+colPercentStacked           | ¶ş¾S°Ù·Ö±È¶Ñ¯BÖùĞÎˆD
+col3D                       | Á¢ówÖùĞÎˆD
+col3DClustered              | Á¢ówÈº½MÖùĞÎˆD
+col3DStacked                | Á¢ów¶Ñ¯BÖùĞÎˆD
+col3DPercentStacked         | Á¢ów°Ù·Ö±È¶Ñ¯BÖùĞÎˆD
+col3DCone                   | Á¢ówˆAåFˆD
+col3DConeClustered          | Á¢ówÈº½MˆAåFˆD
+col3DConeStacked            | Á¢ów¶Ñ¯BˆAåFˆD
+col3DConePercentStacked     | Á¢ów°Ù·Ö±È¶Ñ¯BˆAåFˆD
+col3DPyramid                | Á¢ów¶ åFˆD
+col3DPyramidClustered       | Á¢ówÈº½M¶ åFˆD
+col3DPyramidStacked         | Á¢ów¶Ñ¯B¶ åFˆD
+col3DPyramidPercentStacked  | Á¢ów°Ù·Ö±È¶Ñ¯B¶ åFˆD
+col3DCylinder               | Á¢ówˆAÖùˆD
+col3DCylinderClustered      | Á¢ówÈº½MˆAÖùˆD
+col3DCylinderStacked        | Á¢ów¶Ñ¯BˆAÖùˆD
+col3DCylinderPercentStacked | Á¢ów°Ù·Ö±È¶Ñ¯BˆAÖùˆD
+doughnut                    | ­hÈ¦ˆD
+line                        | ÕÛ¾€ˆD
+pie                         | ˆAĞÎˆD
+pie3D                       | Á¢ówˆAĞÎˆD
+radar                       | À×ß_ˆD
+scatter                     | É¢ÑˆD
+surface3D                   | Á¢ówÇúÃæˆD
+wireframeSurface3D          | Á¢ówÇúÃæˆD£¨Ö»ï@Ê¾¾€—l£©
+contour                     | ÇúÃæˆD
+wireframeContour            | ÇúÃæˆD£¨¸©Ò•¡¢Ö»ï@Ê¾¾€—l£©
+bubble                      | ÅİÅİˆD
+bubble3D                    | Á¢ówÅİÅİˆD
 
-åœ¨ Office Excel ä¸­åœ–è¡¨è³‡æ–™å€åŸŸ `series` æŒ‡å®šäº†ç¹ªåˆ¶å“ªäº›è³‡æ–™çš„ä¿¡æ¯é›†åˆã€åœ–ä¾‹é …ï¼ˆç³»åˆ—ï¼‰å’Œæ°´å¹³ï¼ˆåˆ†é¡ï¼‰è»¸æ¨™ç±¤ã€‚
+ÔÚ Office Excel ÖĞˆD±íÙYÁÏ…^Óò `series` Ö¸¶¨ÁËÀLÖÆÄÄĞ©ÙYÁÏµÄĞÅÏ¢¼¯ºÏ¡¢ˆDÀıí—£¨ÏµÁĞ£©ºÍË®Æ½£¨·Öî£©İS˜Ë»`¡£
 
-ä¸‹é¢æ˜¯ Excelize ä¸­ `series` çš„å¯é¸åƒæ•¸ï¼š
+ÏÂÃæÊÇ Excelize ÖĞ `series` µÄ¿Éßx…¢”µ£º
 
-åƒæ•¸|å«ç¾©
+…¢”µ|º¬Áx
 ---|---
-name|åœ–ä¾‹é …ï¼ˆç³»åˆ—ï¼‰ï¼Œåœ¨åœ–è¡¨åœ–ä¾‹å’Œå…¬å¼æ¬„ä¸­é¡¯ç¤ºã€‚`name` åƒæ•¸æ˜¯å¯é¸çš„ï¼Œå¦‚æœä¸æŒ‡å®šè©²å€¼é»˜èªå°‡æœƒä½¿ç”¨ `Series 1 .. n` è¡¨ç¤ºã€‚`name` æ”¯æŒä½¿ç”¨å…¬å¼è¡¨ç¤ºï¼Œä¾‹å¦‚ï¼š`Sheet1!$A$1`ã€‚
-categories|æ°´å¹³ï¼ˆåˆ†é¡ï¼‰è»¸æ¨™ç±¤ã€‚åœ¨å¤§å¤šæ•¸åœ–è¡¨é¡åˆ¥ä¸­ï¼Œ`categories` å±¬æ€§æ˜¯å¯é¸çš„ï¼Œé»˜èªç‚ºå½¢å¦‚ `1..n` çš„é€£çºŒåºåˆ—ã€‚
-values|åœ–è¡¨è³‡æ–™å€åŸŸï¼Œæ˜¯ `series` ä¸­æœ€é‡è¦çš„åƒæ•¸ï¼Œä¹Ÿæ˜¯å‰µå»ºåœ–è¡¨æ™‚å”¯ä¸€çš„å¿…é¸åƒæ•¸ã€‚è©²é¸é …å°‡åœ–è¡¨èˆ‡å…¶é¡¯ç¤ºçš„å·¥ä½œè¡¨è³‡æ–™éˆæ¥èµ·ä¾†ã€‚
-line |è¨­å®šæŠ˜ç·šåœ–çš„æŠ˜ç·šæ ¼å¼ã€‚`line` å±¬æ€§æ˜¯å¯é¸çš„ï¼Œå¦‚æœæœªæŒ‡å®šè©²å±¬æ€§ï¼Œå‰‡ç‚ºé»˜èªæ¨£å¼ã€‚å¯ä»¥è¨­å®šçš„é¸é …æ˜¯ `width`ï¼Œå¯¬åº¦ç¯„åœæ˜¯ 0.25pt è‡³ 999ptã€‚å¦‚æœ `width` çš„å€¼è¶…å‡ºç¯„åœï¼Œå‰‡ç·šçš„é»˜èªå¯¬åº¦ç‚º 2ptã€‚
+name|ˆDÀıí—£¨ÏµÁĞ£©£¬ÔÚˆD±íˆDÀıºÍ¹«Ê½™ÚÖĞï@Ê¾¡£`name` …¢”µÊÇ¿ÉßxµÄ£¬Èç¹û²»Ö¸¶¨Ô“ÖµÄ¬ÕJŒ¢•şÊ¹ÓÃ `Series 1 .. n` ±íÊ¾¡£`name` Ö§³ÖÊ¹ÓÃ¹«Ê½±íÊ¾£¬ÀıÈç£º`Sheet1!$A$1`¡£
+categories|Ë®Æ½£¨·Öî£©İS˜Ë»`¡£ÔÚ´ó¶à”µˆD±íî„eÖĞ£¬`categories` ŒÙĞÔÊÇ¿ÉßxµÄ£¬Ä¬ÕJéĞÎÈç `1..n` µÄßBÀmĞòÁĞ¡£
+values|ˆD±íÙYÁÏ…^Óò£¬ÊÇ `series` ÖĞ×îÖØÒªµÄ…¢”µ£¬Ò²ÊÇ„“½¨ˆD±í•rÎ¨Ò»µÄ±Øßx…¢”µ¡£Ô“ßxí—Œ¢ˆD±íÅcÆäï@Ê¾µÄ¹¤×÷±íÙYÁÏæœ½ÓÆğí¡£
+line |ÔO¶¨ÕÛ¾€ˆDµÄÕÛ¾€¸ñÊ½¡£`line` ŒÙĞÔÊÇ¿ÉßxµÄ£¬Èç¹ûÎ´Ö¸¶¨Ô“ŒÙĞÔ£¬„téÄ¬ÕJ˜ÓÊ½¡£¿ÉÒÔÔO¶¨µÄßxí—ÊÇ `width`£¬Œ’¶È¹ ‡úÊÇ 0.25pt ÖÁ 999pt¡£Èç¹û `width` µÄÖµ³¬³ö¹ ‡ú£¬„t¾€µÄÄ¬ÕJŒ’¶Èé 2pt¡£
 
-åƒæ•¸ `legend` æä¾›å°åœ–ä¾‹é …çš„å±¬æ€§è¨­å®šæ–¹æ³•ï¼Œä¸‹é¢æ˜¯ Excelize ä¸­ `legend` çš„å¯é¸åƒæ•¸ï¼š
+…¢”µ `legend` Ìá¹©Œ¦ˆDÀıí—µÄŒÙĞÔÔO¶¨·½·¨£¬ÏÂÃæÊÇ Excelize ÖĞ `legend` µÄ¿Éßx…¢”µ£º
 
-åƒæ•¸|é¡åˆ¥|å«ç¾©
+…¢”µ|î„e|º¬Áx
 ---|---|---
-position|string|åœ–ä¾‹ä½ç½®
-show_legend_key|bool|é¡¯ç¤ºåœ–ä¾‹ï¼Œä½†ä¸èˆ‡åœ–è¡¨é‡ç–Š
+position|string|ˆDÀıÎ»ÖÃ
+show_legend_key|bool|ï@Ê¾ˆDÀı£¬µ«²»ÅcˆD±íÖØ¯B
 
-å…¶ä¸­åƒæ•¸ `position` é»˜èªå€¼ç‚º `right`ï¼Œä¸‹é¢æ˜¯å¯é¸å€¼ï¼š
+ÆäÖĞ…¢”µ `position` Ä¬ÕJÖµé `right`£¬ÏÂÃæÊÇ¿ÉßxÖµ£º
 
-å¯é¸å€¼|å«ç¾©
+¿ÉßxÖµ|º¬Áx
 ---|---
-top|é ä¸Š
-bottom|é ä¸‹
-left|é å·¦
-right|é å³
-top_right|å³ä¸Š
+top|¿¿ÉÏ
+bottom|¿¿ÏÂ
+left|¿¿×ó
+right|¿¿ÓÒ
+top_right|ÓÒÉÏ
 
-å…¶ä¸­åƒæ•¸ `show_legend_key` é»˜èªå€¼ç‚º `false`ã€‚
+ÆäÖĞ…¢”µ `show_legend_key` Ä¬ÕJÖµé `false`¡£
 
-é€šéå¯é¸ `title` å°è±¡çš„ `name` åƒæ•¸è¨­å®šåœ–è¡¨æ¨™é¡Œï¼Œæ¨™é¡Œå°‡æœƒåœ¨åœ–è¡¨ä¸Šæ–¹é¡¯ç¤ºã€‚åƒæ•¸ `name` æ”¯æŒä½¿ç”¨å…¬å¼è¡¨ç¤ºï¼Œä¾‹å¦‚ `Sheet1!$A$1`ï¼Œåœ–è¡¨æ¨™é¡Œçš„é»˜èªå€¼ç‚ºç©ºã€‚
+Í¨ß^¿Éßx `title` Œ¦ÏóµÄ `name` …¢”µÔO¶¨ˆD±í˜Ëî}£¬˜Ëî}Œ¢•şÔÚˆD±íÉÏ·½ï@Ê¾¡£…¢”µ `name` Ö§³ÖÊ¹ÓÃ¹«Ê½±íÊ¾£¬ÀıÈç `Sheet1!$A$1`£¬ˆD±í˜Ëî}µÄÄ¬ÕJÖµé¿Õ¡£
 
-åƒæ•¸ `show_blanks_as` æä¾›ã€Œéš±è—å’Œæ¸…ç©ºå„²å­˜æ ¼ã€è¨­å®šï¼Œé»˜èªå€¼ç‚ºï¼š`gap` å³ã€Œç©ºå„²å­˜æ ¼é¡¯ç¤ºç‚ºã€ï¼šã€Œç©ºè·ã€ã€‚ä¸‹é¢æ˜¯è©²åƒæ•¸çš„å¯é¸å€¼ï¼š
+…¢”µ `show_blanks_as` Ìá¹©¡¸ë[²ØºÍÇå¿Õƒ¦´æ¸ñ¡¹ÔO¶¨£¬Ä¬ÕJÖµé£º`gap` ¼´¡¸¿Õƒ¦´æ¸ñï@Ê¾é¡¹£º¡¸¿Õ¾à¡¹¡£ÏÂÃæÊÇÔ“…¢”µµÄ¿ÉßxÖµ£º
 
-å€¼|å«ç¾©
+Öµ|º¬Áx
 ---|---
-gap|ç©ºè·
-span|ç”¨ç›´ç·šé€£æ¥è³‡æ–™é»
-zero|é›¶å€¼
+gap|¿Õ¾à
+span|ÓÃÖ±¾€ßB½ÓÙYÁÏüc
+zero|ÁãÖµ
 
-åƒæ•¸ `format` æä¾›å°åœ–è¡¨åç§»ã€ç¸®æ”¾ã€é«˜å¯¬æ¯”è¨­å®šå’Œæ‰“å°å±¬æ€§ç­‰åƒæ•¸çš„è¨­å®šï¼Œå…¶åƒæ•¸èˆ‡åœ¨ [`AddPicture()`](image.md#AddPicture) å‡½æ•¸ä¸­æ‰€ä½¿ç”¨çš„ç›¸åŒã€‚
+…¢”µ `format` Ìá¹©Œ¦ˆD±íÆ«ÒÆ¡¢¿s·Å¡¢¸ßŒ’±ÈÔO¶¨ºÍ´òÓ¡ŒÙĞÔµÈ…¢”µµÄÔO¶¨£¬Æä…¢”µÅcÔÚ [`AddPicture()`](image.md#AddPicture) º¯”µÖĞËùÊ¹ÓÃµÄÏàÍ¬¡£
 
-é€šéå¯é¸ `plotarea` å°è±¡è¨­å®šè³‡æ–™æ¨™ç±¤æ ¼å¼ï¼Œå¯é¸åƒæ•¸å¦‚ä¸‹ï¼š
+Í¨ß^¿Éßx `plotarea` Œ¦ÏóÔO¶¨ÙYÁÏ˜Ë»`¸ñÊ½£¬¿Éßx…¢”µÈçÏÂ£º
 
-åƒæ•¸|é¡åˆ¥|é»˜èªå€¼|å«ç¾©
+…¢”µ|î„e|Ä¬ÕJÖµ|º¬Áx
 ---|---|---|---
-show_bubble_size|bool|`false`|æ³¡æ³¡å¤§å°
-show_cat_name|bool|`true`|é¡åˆ¥åç¨±
-show_leader_lines|bool|`false`|é¡¯ç¤ºå¼•å°ç·š
-show_percent|bool|`false`|ç™¾åˆ†æ¯”
-show_series_name|bool|`false`|ç³»åˆ—åç¨±
-show_val|bool|`false`|å€¼
+show_bubble_size|bool|`false`|ÅİÅİ´óĞ¡
+show_cat_name|bool|`true`|î„eÃû·Q
+show_leader_lines|bool|`false`|ï@Ê¾ÒıŒ§¾€
+show_percent|bool|`false`|°Ù·Ö±È
+show_series_name|bool|`false`|ÏµÁĞÃû·Q
+show_val|bool|`false`|Öµ
 
-é€šéåƒæ•¸ `x_axis` å’Œ `y_axis` åƒæ•¸è¨­å®šåæ¨™è»¸é¸é …ã€‚
+Í¨ß^…¢”µ `x_axis` ºÍ `y_axis` …¢”µÔO¶¨×ø˜ËİSßxí—¡£
 
-ä¸‹é¢æ˜¯ `x_axis` åƒæ•¸çš„å¯é¸å€¼ï¼š
+ÏÂÃæÊÇ `x_axis` …¢”µµÄ¿ÉßxÖµ£º
 
-åƒæ•¸|é¡åˆ¥|é»˜èªå€¼|å«ç¾©
+…¢”µ|î„e|Ä¬ÕJÖµ|º¬Áx
 ---|---|---|---
-major_grid_lines|bool|`false`|ä¸»è¦ç¶²æ ¼ç·š
-minor_grid_lines|bool|`false`|æ¬¡è¦ç¶²æ ¼ç·š
-tick_label_skip|int|`1`|æŒ‡å®šæ¨™ç±¤é–“éš”å–®ä½
-reverse_order|bool|`false`|é€†åºåˆ»åº¦å€¼
-maximum|int|`0`|æœ€å¤§å€¼ï¼Œ`0` ä»£è¡¨è‡ªå‹•
-minimum|int|`0`|æœ€å°å€¼ï¼Œ`0` ä»£è¡¨è‡ªå‹•
+major_grid_lines|bool|`false`|Ö÷Òª¾W¸ñ¾€
+minor_grid_lines|bool|`false`|´ÎÒª¾W¸ñ¾€
+tick_label_skip|int|`1`|Ö¸¶¨˜Ë»`ég¸ô†ÎÎ»
+reverse_order|bool|`false`|ÄæĞò¿Ì¶ÈÖµ
+maximum|int|`0`|×î´óÖµ£¬`0` ´ú±í×Ô„Ó
+minimum|int|`0`|×îĞ¡Öµ£¬`0` ´ú±í×Ô„Ó
 
-ä¸‹é¢æ˜¯ `y_axis` åƒæ•¸çš„å¯é¸å€¼ï¼š
+ÏÂÃæÊÇ `y_axis` …¢”µµÄ¿ÉßxÖµ£º
 
-åƒæ•¸|é¡åˆ¥|é»˜èªå€¼|å«ç¾©
+…¢”µ|î„e|Ä¬ÕJÖµ|º¬Áx
 ---|---|---|---
-major_grid_lines|bool|`false`|ä¸»è¦ç¶²æ ¼ç·š
-minor_grid_lines|bool|`false`|æ¬¡è¦ç¶²æ ¼ç·š
-major_unit|float64|`0`|åæ¨™è»¸ä¸»è¦åˆ»åº¦å–®ä½
-reverse_order|bool|`false`|é€†åºåˆ»åº¦å€¼
-maximum|int|`0`|æœ€å¤§å€¼ï¼Œ`0` ä»£è¡¨è‡ªå‹•
-minimum|int|`0`|æœ€å°å€¼ï¼Œ`0` ä»£è¡¨è‡ªå‹•
+major_grid_lines|bool|`false`|Ö÷Òª¾W¸ñ¾€
+minor_grid_lines|bool|`false`|´ÎÒª¾W¸ñ¾€
+major_unit|float64|`0`|×ø˜ËİSÖ÷Òª¿Ì¶È†ÎÎ»
+reverse_order|bool|`false`|ÄæĞò¿Ì¶ÈÖµ
+maximum|int|`0`|×î´óÖµ£¬`0` ´ú±í×Ô„Ó
+minimum|int|`0`|×îĞ¡Öµ£¬`0` ´ú±í×Ô„Ó
 
-é€šéå¯é¸ `dimension` å°è±¡è¨­å®šåœ–è¡¨çš„å¤§å°ï¼Œå¯é¸åƒæ•¸å¦‚ä¸‹ï¼š
+Í¨ß^¿Éßx `dimension` Œ¦ÏóÔO¶¨ˆD±íµÄ´óĞ¡£¬¿Éßx…¢”µÈçÏÂ£º
 
-åƒæ•¸|é¡åˆ¥|é»˜èªå€¼|å«ç¾©
+…¢”µ|î„e|Ä¬ÕJÖµ|º¬Áx
 ---|---|---|---
-height|int|290|é«˜åº¦
-width|int|480|å¯¬åº¦
+height|int|290|¸ß¶È
+width|int|480|Œ’¶È
 
-åƒæ•¸ `combo` ç”¨ä¾†æŒ‡å®šå‰µå»ºçµ„åˆåœ–è¡¨ï¼Œè©²åœ–è¡¨å°‡å…©å€‹æˆ–å¤šå€‹åœ–è¡¨é¡åˆ¥çµ„åˆåœ¨ä¸€å€‹åœ–è¡¨ä¸­ã€‚ä¾‹å¦‚ï¼Œåœ¨ `Sheet1!$E$1:$L$15` å€åŸŸå‰µå»ºä¸€å€‹ ç¾¤çµ„æŸ±å½¢åœ– - æŠ˜ç·šåœ–ï¼š
+…¢”µ `combo` ÓÃíÖ¸¶¨„“½¨½MºÏˆD±í£¬Ô“ˆD±íŒ¢ƒÉ‚€»ò¶à‚€ˆD±íî„e½MºÏÔÚÒ»‚€ˆD±íÖĞ¡£ÀıÈç£¬ÔÚ `Sheet1!$E$1:$L$15` …^Óò„“½¨Ò»‚€ Èº½MÖùĞÎˆD - ÕÛ¾€ˆD£º
 
 ```go
 package main
@@ -166,21 +166,29 @@ func main() {
     for k, v := range values {
         f.SetCellValue("Sheet1", k, v)
     }
-    if err := f.AddChart("Sheet1", "E1", `{"type":"col","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"title":{"name":"ç¾¤çµ„æŸ±å½¢åœ– - æŠ˜ç·šåœ–"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`, `{"type":"line","series":[{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`); err != nil {
+    if err := f.AddChart("Sheet1", "E1", `{"type":"col","series":[{"name":"Sheet1!$A$2","categories":"","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"title":{"name":"Èº½MÖùĞÎˆD - ÕÛ¾€ˆD"},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`, `{"type":"line","series":[{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"format":{"x_scale":1.0,"y_scale":1.0,"x_offset":15,"y_offset":10,"print_obj":true,"lock_aspect_ratio":false,"locked":false},"legend":{"position":"left","show_legend_key":false},"plotarea":{"show_bubble_size":true,"show_cat_name":false,"show_leader_lines":false,"show_percent":true,"show_series_name":true,"show_val":true}}`); err != nil {
         println(err.Error())
         return
     }
-    // å„²å­˜æ´»é ç°¿
+    // ƒ¦´æ»îí“²¾
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         println(err.Error())
     }
 }
 ```
 
-## åˆªé™¤åœ–è¡¨ {#DeleteChart}
+## „“½¨ˆD±í¹¤×÷±í {#AddChartSheet}
+
+```go
+func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+```
+
+¸ù“ş½o¶¨µÄ¹¤×÷±íÃû·QºÍˆD±í˜ÓÊ½ŒÙĞÔ„“½¨ˆD±í¹¤×÷±í£¬ˆD±í˜ÓÊ½ŒÙĞÔµÄ¶¨ÁxÅc [AddChart](chart.md#AddChart) º¯”µÏàÍ¬¡£Excel ÖĞµÄˆD±í¹¤×÷±íÊÇƒH°üº¬ˆD±íµÄ¹¤×÷±í¡£
+
+## „h³ıˆD±í {#DeleteChart}
 
 ```go
 func (f *File) DeleteChart(sheet, cell string) (err error)
 ```
 
-æ ¹æ“šçµ¦å®šçš„å·¥ä½œè¡¨åç¨±å’Œå„²å­˜æ ¼åæ¨™åˆªé™¤åœ–è¡¨ã€‚
+¸ù“ş½o¶¨µÄ¹¤×÷±íÃû·QºÍƒ¦´æ¸ñ×ø˜Ë„h³ıˆD±í¡£

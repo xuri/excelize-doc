@@ -86,6 +86,7 @@
   * [Get cell formula](cell.md#GetCellFormula)
 * [Chart](chart.md)
   * [Add chart](chart.md#AddChart)
+  * [Add chart sheet](chart.md#AddChartSheet)
   * [2D area chart](chart/area.md)
   * [2D stacked area chart](chart/areaStacked.md)
   * [2D 100% stacked area chart](chart/areaPercentStacked.md)

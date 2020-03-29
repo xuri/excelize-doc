@@ -86,6 +86,7 @@
   * [셀 수식 가져 오기](cell.md#GetCellFormula)
 * [차트](chart.md)
   * [차트 추가](chart.md#AddChart)
+  * [차트 시트 추가](chart.md#AddChartSheet)
   * [2D 영역 차트](chart/area.md)
   * [2D 스택 영역 차트](chart/areaStacked.md)
   * [2D 100% 스택 영역 차트](chart/areaPercentStacked.md)

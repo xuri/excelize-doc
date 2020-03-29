@@ -123,7 +123,7 @@ func (f *File) GetSheetIndex(name string) int
 func (f *File) GetSheetMap() map[int]string
 ```
 
-獲取活頁簿中以名稱和索引構成的全部工作表的列表。
+獲取活頁簿中以名稱和索引構成的全部工作表和圖表工作表列表。
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
