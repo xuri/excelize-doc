@@ -184,6 +184,7 @@
   * [Convertir HSL en RGB](utils.md#HSLToRGB)
   * [Writer Fichier](utils.md#FileWriter)
   * [Ajouter VBA Project](utils.md#AddVBAProject)
+  * [Convertir la date Excel en heure](utils.md#ExcelDateToTime)
   * [Transcodeur Charset](utils.md#CharsetTranscoder)
 * [Constantes](constants.md)
 * [Performance](performance.md)

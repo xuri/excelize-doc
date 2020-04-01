@@ -757,6 +757,14 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
 }
 ```
 
+## Преобразование даты Excel в то время {#ExcelDateToTime}
+
+```go
+func ExcelDateToTime(excelDate float64, use1904Format bool) (time.Time, error)
+```
+
+ExcelDateToTime конвертирует представление даты в формате `float` в значение `time.Time`.
+
 ## Транскодер персонажа {#CharsetTranscoder}
 
 ```go

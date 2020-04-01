@@ -752,6 +752,14 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
 }
 ```
 
+## Convertir la date Excel en heure {#ExcelDateToTime}
+
+```go
+func ExcelDateToTime(excelDate float64, use1904Format bool) (time.Time, error)
+```
+
+ExcelDateToTime convertit une représentation de date Excel basée sur un flotteur en un `time.Time`.
+
 ## Transcodeur Charset {#CharsetTranscoder}
 
 ```go

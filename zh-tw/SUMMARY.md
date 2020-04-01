@@ -184,6 +184,7 @@
   * [HSL與RGB色彩空間色值轉換](utils.md#HSLToRGB)
   * [檔案 Writer](utils.md#FileWriter)
   * [嵌入 VBA 項目](utils.md#AddVBAProject)
+  * [Excel 日期時間轉換](utils.md#ExcelDateToTime)
   * [字符集轉碼器](utils.md#CharsetTranscoder)
 * [常量](constants.md)
 * [性能資料](performance.md)

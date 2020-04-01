@@ -184,6 +184,7 @@
   * [HSLとRGBカラースペースカラー値変換](utils.md#HSLToRGB)
   * [ファイルライター](utils.md#FileWriter)
   * [VBA プロジェクトの追加](utils.md#AddVBAProject)
+  * [Excel の日付を時刻に変換する](utils.md#ExcelDateToTime)
   * [文字トランスコーダー](utils.md#CharsetTranscoder)
 * [定数](constants.md)
 * [パフォーマンスデータ](performance.md)

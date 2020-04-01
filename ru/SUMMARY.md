@@ -184,6 +184,7 @@
   * [Конвертировать HSL в RGB](utils.md#HSLToRGB)
   * [Файловый писатель](utils.md#FileWriter)
   * [Добавить проект VBA](utils.md#AddVBAProject)
+  * [Преобразование даты Excel в то время](utils.md#ExcelDateToTime)
   * [Транскодер персонажа](utils.md#CharsetTranscoder)
 * [Константы](constants.md)
 * [Производительность](performance.md)

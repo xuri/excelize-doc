@@ -756,6 +756,14 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
 }
 ```
 
+## Excel の日付を時刻に変換する {#ExcelDateToTime}
+
+```go
+func ExcelDateToTime(excelDate float64, use1904Format bool) (time.Time, error)
+```
+
+ExcelDateToTime は、`float` ベースの Excel 日付表現を `time.Time` に変換します。
+
 ## 文字トランスコーダー {#CharsetTranscoder}
 
 ```go

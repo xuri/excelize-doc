@@ -751,6 +751,14 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
 }
 ```
 
+## Excel 日期时间转换 {#ExcelDateToTime}
+
+```go
+func ExcelDateToTime(excelDate float64, use1904Format bool) (time.Time, error)
+```
+
+ExcelDateToTime 将 Excel 中以 `float` 类型表示的日期转换为 `time.Time` 类型。
+
 ## 字符集转码器 {#CharsetTranscoder}
 
 ```go
