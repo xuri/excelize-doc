@@ -99,107 +99,107 @@ flowChartManualInput | Фигура вручную входной поток | <
 flowChartManualOperation | Фигура поток ручные операции | <p style="text-align: center;"><img src="../images/shapes/flowChartManualOperation.svg" height="50" width="50"></p>
 flowChartMerge | Объединение фигур потока | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
 flowChartMultidocument | Поток обработки нескольких документов фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartMultidocument.svg" height="50" width="50"></p>
-flowChartOfflineStorage | Offline Storage Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOfflineStorage.svg" height="50" width="50"></p>
-flowChartOffpageConnector | Off-Page Connector Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOffpageConnector.svg" height="50" width="50"></p>
-flowChartOnlineStorage | Online Storage Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOnlineStorage.svg" height="50" width="50"></p>
-flowChartOr | Or Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartOr.svg" height="50" width="50"></p>
-flowChartPredefinedProcess | Predefined Process Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartPredefinedProcess.svg" height="50" width="50"></p>
-flowChartPreparation | Preparation Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartPredefinedProcess.svg" height="50" width="50"></p>
-flowChartProcess | Process Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartPreparation.svg" height="50" width="50"></p>
-flowChartPunchedCard | Punched Card Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartPunchedCard.svg" height="50" width="50"></p>
-flowChartPunchedTape | Punched Tape Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartPunchedTape.svg" height="50" width="50"></p>
-flowChartSort | Sort Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartSort.svg" height="50" width="50"></p>
-flowChartSummingJunction | Summing Junction Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartSummingJunction.svg" height="50" width="50"></p>
-flowChartTerminator | Terminator Flow Shape | <p style="text-align: center;"><img src="../images/shapes/flowChartTerminator.svg" height="50" width="50"></p>
-foldedCorner | Folded Corner Shape | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
-frame | Frame Shape | <p style="text-align: center;"><img src="../images/shapes/frame.svg" height="50" width="50"></p>
-funnel | Funnel Shape | <p style="text-align: center;"><img src="../images/shapes/funnel.svg" height="50" width="50"></p>
-gear6 | Gear 6 Shape | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
-gear9 | Gear 9 Shape | <p style="text-align: center;"><img src="../images/shapes/gear9.svg" height="50" width="50"></p>
-halfFrame | Half Frame Shape | <p style="text-align: center;"><img src="../images/shapes/halfFrame.svg" height="50" width="50"></p>
-heart | Heart Shape | <p style="text-align: center;"><img src="../images/shapes/heart.svg" height="50" width="50"></p>
-heptagon | Heptagon Shape | <p style="text-align: center;"><img src="../images/shapes/heptagon.svg" height="50" width="50"></p>
-hexagon | Hexagon Shape | <p style="text-align: center;"><img src="../images/shapes/hexagon.svg" height="50" width="50"></p>
-homePlate | Home Plate Shape | <p style="text-align: center;"><img src="../images/shapes/homePlate.svg" height="50" width="50"></p>
-horizontalScroll | Horizontal Scroll Shape | <p style="text-align: center;"><img src="../images/shapes/horizontalScroll.svg" height="50" width="50"></p>
-irregularSeal1 | Irregular Seal 1 Shape | <p style="text-align: center;"><img src="../images/shapes/irregularSeal1.svg" height="50" width="50"></p>
-irregularSeal2 | Irregular Seal 2 Shape | <p style="text-align: center;"><img src="../images/shapes/irregularSeal2.svg" height="50" width="50"></p>
-leftArrow | Left Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftArrow.svg" height="50" width="50"></p>
-leftArrowCallout | Callout Left Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftArrowCallout.svg" height="50" width="50"></p>
-leftBrace | Left Brace Shape | <p style="text-align: center;"><img src="../images/shapes/leftBrace.svg" height="50" width="50"></p>
-leftBracket | Left Bracket Shape | <p style="text-align: center;"><img src="../images/shapes/leftBracket.svg" height="50" width="50"></p>
-leftCircularArrow | Left Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
-leftRightArrow | Left Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
-leftRightArrowCallout | Callout Left Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightArrowCallout.svg" height="50" width="50"></p>
-leftRightCircularArrow | Left Right Circular Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightCircularArrow.svg" height="50" width="50"></p>
-leftRightRibbon | Left Right Ribbon Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightRibbon.svg" height="50" width="50"></p>
-leftRightUpArrow | Left Right Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
-leftUpArrow | Left Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
-lightningBolt | Lightning Bolt Shape | <p style="text-align: center;"><img src="../images/shapes/lightningBolt.svg" height="50" width="50"></p>
-line | Line Shape | <p style="text-align: center;"><img src="../images/shapes/line.svg" height="50" width="50"></p>
-lineInv | Line Inverse Shape | <p style="text-align: center;"><img src="../images/shapes/lineInv.svg" height="50" width="50"></p>
-mathDivide | Divide Math Shape | <p style="text-align: center;"><img src="../images/shapes/mathDivide.svg" height="50" width="50"></p>
-mathEqual | Equal Math Shape | <p style="text-align: center;"><img src="../images/shapes/mathEqual.svg" height="50" width="50"></p>
-mathMinus | Minus Math Shape | <p style="text-align: center;"><img src="../images/shapes/mathMinus.svg" height="50" width="50"></p>
-mathMultiply | Multiply Math Shape | <p style="text-align: center;"><img src="../images/shapes/mathMultiply.svg" height="50" width="50"></p>
-mathNotEqual | Not Equal Math Shape | <p style="text-align: center;"><img src="../images/shapes/mathNotEqual.svg" height="50" width="50"></p>
-mathPlus | Plus Math Shape | <p style="text-align: center;"><img src="../images/shapes/mathPlus.svg" height="50" width="50"></p>
-moon | Moon Shape | <p style="text-align: center;"><img src="../images/shapes/moon.svg" height="50" width="50"></p>
-nonIsoscelesTrapezoid | Non-Isosceles Trapezoid Shape | <p style="text-align: center;"><img src="../images/shapes/nonIsoscelesTrapezoid.svg" height="50" width="50"></p>
-noSmoking | No Smoking Shape | <p style="text-align: center;"><img src="../images/shapes/noSmoking.svg" height="50" width="50"></p>
-notchedRightArrow | Notched Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/notchedRightArrow.svg" height="50" width="50"></p>
-octagon | Octagon Shape | <p style="text-align: center;"><img src="../images/shapes/octagon.svg" height="50" width="50"></p>
-parallelogram | Parallelogram Shape | <p style="text-align: center;"><img src="../images/shapes/parallelogram.svg" height="50" width="50"></p>
-pentagon | Pentagon Shape | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
-pie | Pie Shape | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
-pieWedge | Pie Wedge Shape | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
-plaque | Plaque Shape | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
-plaqueTabs | Plaque Tabs Shape | <p style="text-align: center;"><img src="../images/shapes/plaqueTabs.svg" height="50" width="50"></p>
-plus | Plus Shape | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
-quadArrow | Quad-Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/quadArrow.svg" height="50" width="50"></p>
-quadArrowCallout | Callout Quad-Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/quadArrowCallout.svg" height="50" width="50"></p>
-rect | Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/rect.svg" height="50" width="50"></p>
-ribbon | Ribbon Shape | <p style="text-align: center;"><img src="../images/shapes/ribbon.svg" height="50" width="50"></p>
-ribbon2 | Ribbon 2 Shape | <p style="text-align: center;"><img src="../images/shapes/ribbon2.svg" height="50" width="50"></p>
-rightArrow | Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/rightArrow.svg" height="50" width="50"></p>
-rightArrowCallout | Callout Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/rightArrowCallout.svg" height="50" width="50"></p>
-rightBrace | Right Brace Shape | <p style="text-align: center;"><img src="../images/shapes/rightBrace.svg" height="50" width="50"></p>
-rightBracket | Right Bracket Shape | <p style="text-align: center;"><img src="../images/shapes/rightBracket.svg" height="50" width="50"></p>
-round1Rect | One Round Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/round1Rect.svg" height="50" width="50"></p>
-round2DiagRect | Two Diagonal Round Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/round2DiagRect.svg" height="50" width="50"></p>
-round2SameRect | Two Same-side Round Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/round2SameRect.svg" height="50" width="50"></p>
-roundRect | Round Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/roundRect.svg" height="50" width="50"></p>
-rtTriangle | Right Triangle Shape | <p style="text-align: center;"><img src="../images/shapes/rtTriangle.svg" height="50" width="50"></p>
-smileyFace | Smiley Face Shape | <p style="text-align: center;"><img src="../images/shapes/smileyFace.svg" height="50" width="50"></p>
-snip1Rect | One Snip Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snip1Rect.svg" height="50" width="50"></p>
-snip2DiagRect | Two Diagonal Snip Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snip2DiagRect.svg" height="50" width="50"></p>
-snip2SameRect | Two Same-side Snip Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snip2SameRect.svg" height="50" width="50"></p>
-snipRoundRect | One Snip One Round Corner Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/snipRoundRect.svg" height="50" width="50"></p>
-squareTabs | Square Tabs Shape | <p style="text-align: center;"><img src="../images/shapes/squareTabs.svg" height="50" width="50"></p>
-star10 | Ten Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star10.svg" height="50" width="50"></p>
-star12 | Twelve Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star12.svg" height="50" width="50"></p>
-star16 | Sixteen Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star16.svg" height="50" width="50"></p>
-star24 | Twenty Four Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star24.svg" height="50" width="50"></p>
-star32 | Thirty Two Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star32.svg" height="50" width="50"></p>
-star4 | Four Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star4.svg" height="50" width="50"></p>
-star5 | Five Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star5.svg" height="50" width="50"></p>
-star6 | Six Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star6.svg" height="50" width="50"></p>
-star7 | Seven Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star7.svg" height="50" width="50"></p>
-star8 | Eight Pointed Star Shape | <p style="text-align: center;"><img src="../images/shapes/star8.svg" height="50" width="50"></p>
-straightConnector1 | Straight Connector 1 Shape | <p style="text-align: center;"><img src="../images/shapes/straightConnector1.svg" height="50" width="50"></p>
-stripedRightArrow | Striped Right Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/stripedRightArrow.svg" height="50" width="50"></p>
-sun | Sun Shape | <p style="text-align: center;"><img src="../images/shapes/sun.svg" height="50" width="50"></p>
-swooshArrow | Swoosh Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/swooshArrow.svg" height="50" width="50"></p>
-teardrop | Teardrop Shape | <p style="text-align: center;"><img src="../images/shapes/teardrop.svg" height="50" width="50"></p>
-trapezoid | Trapezoid Shape | <p style="text-align: center;"><img src="../images/shapes/trapezoid.svg" height="50" width="50"></p>
-triangle | Triangle Shape | <p style="text-align: center;"><img src="../images/shapes/triangle.svg" height="50" width="50"></p>
-upArrow | Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/upArrow.svg" height="50" width="50"></p>
-upArrowCallout | Callout Up Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/upArrowCallout.svg" height="50" width="50"></p>
-upDownArrow | Up Down Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/upDownArrow.svg" height="50" width="50"></p>
-upDownArrowCallout | Callout Up Down Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/upDownArrowCallout.svg" height="50" width="50"></p>
-uturnArrow | U-Turn Arrow Shape | <p style="text-align: center;"><img src="../images/shapes/uturnArrow.svg" height="50" width="50"></p>
-verticalScroll | Vertical Scroll Shape | <p style="text-align: center;"><img src="../images/shapes/verticalScroll.svg" height="50" width="50"></p>
-wave | Wave Shape | <p style="text-align: center;"><img src="../images/shapes/wave.svg" height="50" width="50"></p>
-wedgeEllipseCallout | Callout Wedge Ellipse Shape | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
-wedgeRectCallout | Callout Wedge Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
-wedgeRoundRectCallout | Callout Wedge Round Rectangle Shape  | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+flowChartOfflineStorage | Автономное хранение поток фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartOfflineStorage.svg" height="50" width="50"></p>
+flowChartOffpageConnector | Фигура поток страницу соединителя | <p style="text-align: center;"><img src="../images/shapes/flowChartOffpageConnector.svg" height="50" width="50"></p>
+flowChartOnlineStorage | Фигура поток хранилище в Интернете | <p style="text-align: center;"><img src="../images/shapes/flowChartOnlineStorage.svg" height="50" width="50"></p>
+flowChartOr | Фигура "или" поток | <p style="text-align: center;"><img src="../images/shapes/flowChartOr.svg" height="50" width="50"></p>
+flowChartPredefinedProcess | Типовой процесс поток фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartPredefinedProcess.svg" height="50" width="50"></p>
+flowChartPreparation | Фигура поток подготовки | <p style="text-align: center;"><img src="../images/shapes/flowChartPredefinedProcess.svg" height="50" width="50"></p>
+flowChartProcess | Фигура поток процесса | <p style="text-align: center;"><img src="../images/shapes/flowChartPreparation.svg" height="50" width="50"></p>
+flowChartPunchedCard | Фигура поток Punched карточки | <p style="text-align: center;"><img src="../images/shapes/flowChartPunchedCard.svg" height="50" width="50"></p>
+flowChartPunchedTape | Перфорация фигуры поток ленты | <p style="text-align: center;"><img src="../images/shapes/flowChartPunchedTape.svg" height="50" width="50"></p>
+flowChartSort | Фигура поток сортировки | <p style="text-align: center;"><img src="../images/shapes/flowChartSort.svg" height="50" width="50"></p>
+flowChartSummingJunction | Суммирование фигуры поток соединения | <p style="text-align: center;"><img src="../images/shapes/flowChartSummingJunction.svg" height="50" width="50"></p>
+flowChartTerminator | Терминатор поток фигуры | <p style="text-align: center;"><img src="../images/shapes/flowChartTerminator.svg" height="50" width="50"></p>
+foldedCorner | Фигура Загнутый угол | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
+frame | Форма рамки | <p style="text-align: center;"><img src="../images/shapes/frame.svg" height="50" width="50"></p>
+funnel | Воронка фигуры | <p style="text-align: center;"><img src="../images/shapes/funnel.svg" height="50" width="50"></p>
+gear6 | Фигура шестеренки 6 | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
+gear9 | Фигура шестеренки 9 | <p style="text-align: center;"><img src="../images/shapes/gear9.svg" height="50" width="50"></p>
+halfFrame | Частичное форма рамки | <p style="text-align: center;"><img src="../images/shapes/halfFrame.svg" height="50" width="50"></p>
+heart | Фигуре | <p style="text-align: center;"><img src="../images/shapes/heart.svg" height="50" width="50"></p>
+heptagon | Фигура heptagon | <p style="text-align: center;"><img src="../images/shapes/heptagon.svg" height="50" width="50"></p>
+hexagon | Шестиугольник фигуры | <p style="text-align: center;"><img src="../images/shapes/hexagon.svg" height="50" width="50"></p>
+homePlate | Домашняя страница формы фигуры | <p style="text-align: center;"><img src="../images/shapes/homePlate.svg" height="50" width="50"></p>
+horizontalScroll | Горизонтальной полосы прокрутки | <p style="text-align: center;"><img src="../images/shapes/horizontalScroll.svg" height="50" width="50"></p>
+irregularSeal1 | Фигура нерегулярные печати 1 | <p style="text-align: center;"><img src="../images/shapes/irregularSeal1.svg" height="50" width="50"></p>
+irregularSeal2 | Фигура нерегулярные печати 2 | <p style="text-align: center;"><img src="../images/shapes/irregularSeal2.svg" height="50" width="50"></p>
+leftArrow | Стрелка влево фигуры | <p style="text-align: center;"><img src="../images/shapes/leftArrow.svg" height="50" width="50"></p>
+leftArrowCallout | Фигура стрелка влево выноски | <p style="text-align: center;"><img src="../images/shapes/leftArrowCallout.svg" height="50" width="50"></p>
+leftBrace | Левая фигурная скобка фигуры | <p style="text-align: center;"><img src="../images/shapes/leftBrace.svg" height="50" width="50"></p>
+leftBracket | Фигура левую скобку | <p style="text-align: center;"><img src="../images/shapes/leftBracket.svg" height="50" width="50"></p>
+leftCircularArrow | Стрелка влево циклическое фигуры | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
+leftRightArrow | Фигура левой Стрелка вправо | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
+leftRightArrowCallout | Фигура Стрелка вправо выноски слева | <p style="text-align: center;"><img src="../images/shapes/leftRightArrowCallout.svg" height="50" width="50"></p>
+leftRightCircularArrow | Слева прямо круговые стрелки | <p style="text-align: center;"><img src="../images/shapes/leftRightCircularArrow.svg" height="50" width="50"></p>
+leftRightRibbon | Фигура левой правом ленты | <p style="text-align: center;"><img src="../images/shapes/leftRightRibbon.svg" height="50" width="50"></p>
+leftRightUpArrow | Вправо вверх стрелку влево | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
+leftUpArrow | Копирование стрелки слева | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
+lightningBolt | Фигура изображением молнии | <p style="text-align: center;"><img src="../images/shapes/lightningBolt.svg" height="50" width="50"></p>
+line | Фигура строки | <p style="text-align: center;"><img src="../images/shapes/line.svg" height="50" width="50"></p>
+lineInv | Обратная линия | <p style="text-align: center;"><img src="../images/shapes/lineInv.svg" height="50" width="50"></p>
+mathDivide | Разделите Math фигуры | <p style="text-align: center;"><img src="../images/shapes/mathDivide.svg" height="50" width="50"></p>
+mathEqual | Фигура равно Math | <p style="text-align: center;"><img src="../images/shapes/mathEqual.svg" height="50" width="50"></p>
+mathMinus | Минус фигуры Math | <p style="text-align: center;"><img src="../images/shapes/mathMinus.svg" height="50" width="50"></p>
+mathMultiply | Умножьте Math фигуры | <p style="text-align: center;"><img src="../images/shapes/mathMultiply.svg" height="50" width="50"></p>
+mathNotEqual | Фигура не равно Math | <p style="text-align: center;"><img src="../images/shapes/mathNotEqual.svg" height="50" width="50"></p>
+mathPlus | Кроме того Math фигуры | <p style="text-align: center;"><img src="../images/shapes/mathPlus.svg" height="50" width="50"></p>
+moon | Луна фигуры | <p style="text-align: center;"><img src="../images/shapes/moon.svg" height="50" width="50"></p>
+nonIsoscelesTrapezoid | Не Равнобедренный Трапециевидный фигуры | <p style="text-align: center;"><img src="../images/shapes/nonIsoscelesTrapezoid.svg" height="50" width="50"></p>
+noSmoking | Фигура не курения | <p style="text-align: center;"><img src="../images/shapes/noSmoking.svg" height="50" width="50"></p>
+notchedRightArrow | Форма с вырезом Стрелка вправо | <p style="text-align: center;"><img src="../images/shapes/notchedRightArrow.svg" height="50" width="50"></p>
+octagon | Фигура восьмиугольник | <p style="text-align: center;"><img src="../images/shapes/octagon.svg" height="50" width="50"></p>
+parallelogram | Фигура параллелограмм | <p style="text-align: center;"><img src="../images/shapes/parallelogram.svg" height="50" width="50"></p>
+pentagon | Пятиугольник фигуры | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
+pie | Сектора | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
+pieWedge | Сектору сектора | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
+plaque | Фигура табличку | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
+plaqueTabs | Фигура табличку вкладок | <p style="text-align: center;"><img src="../images/shapes/plaqueTabs.svg" height="50" width="50"></p>
+plus | Кроме того фигуры | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
+quadArrow | Четырехъядерный стрелки | <p style="text-align: center;"><img src="../images/shapes/quadArrow.svg" height="50" width="50"></p>
+quadArrowCallout | Выноска Quad-стрелки | <p style="text-align: center;"><img src="../images/shapes/quadArrowCallout.svg" height="50" width="50"></p>
+rect | Фигура прямоугольника | <p style="text-align: center;"><img src="../images/shapes/rect.svg" height="50" width="50"></p>
+ribbon | Фигура ленты | <p style="text-align: center;"><img src="../images/shapes/ribbon.svg" height="50" width="50"></p>
+ribbon2 | Фигура ленты 2 | <p style="text-align: center;"><img src="../images/shapes/ribbon2.svg" height="50" width="50"></p>
+rightArrow | Стрелка вправо фигуры | <p style="text-align: center;"><img src="../images/shapes/rightArrow.svg" height="50" width="50"></p>
+rightArrowCallout | Фигура Стрелка вправо выноски | <p style="text-align: center;"><img src="../images/shapes/rightArrowCallout.svg" height="50" width="50"></p>
+rightBrace | Закрывающая фигурная скобка фигуры | <p style="text-align: center;"><img src="../images/shapes/rightBrace.svg" height="50" width="50"></p>
+rightBracket | Правая квадратная скобка фигуры | <p style="text-align: center;"><img src="../images/shapes/rightBracket.svg" height="50" width="50"></p>
+round1Rect | Прямоугольный фигуры | <p style="text-align: center;"><img src="../images/shapes/round1Rect.svg" height="50" width="50"></p>
+round2DiagRect | Один Round угол прямоугольника | <p style="text-align: center;"><img src="../images/shapes/round2DiagRect.svg" height="50" width="50"></p>
+round2SameRect | Два Round углом прямоугольника | <p style="text-align: center;"><img src="../images/shapes/round2SameRect.svg" height="50" width="50"></p>
+roundRect | Два Round углу же со стороны прямоугольника | <p style="text-align: center;"><img src="../images/shapes/roundRect.svg" height="50" width="50"></p>
+rtTriangle | Round угол прямоугольника | <p style="text-align: center;"><img src="../images/shapes/rtTriangle.svg" height="50" width="50"></p>
+smileyFace | Фигура улыбающееся лицо | <p style="text-align: center;"><img src="../images/shapes/smileyFace.svg" height="50" width="50"></p>
+snip1Rect | Один фрагмент угол прямоугольника фигуры | <p style="text-align: center;"><img src="../images/shapes/snip1Rect.svg" height="50" width="50"></p>
+snip2DiagRect | Два диагональные фрагмент угол прямоугольника фигуры | <p style="text-align: center;"><img src="../images/shapes/snip2DiagRect.svg" height="50" width="50"></p>
+snip2SameRect | Два фрагмент же стороне угол прямоугольника фигуры | <p style="text-align: center;"><img src="../images/shapes/snip2SameRect.svg" height="50" width="50"></p>
+snipRoundRect | Один фрагмент один Round угол прямоугольника | <p style="text-align: center;"><img src="../images/shapes/snipRoundRect.svg" height="50" width="50"></p>
+squareTabs | Фигура площади вкладок | <p style="text-align: center;"><img src="../images/shapes/squareTabs.svg" height="50" width="50"></p>
+star10 | Десять указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star10.svg" height="50" width="50"></p>
+star12 | Двенадцать указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star12.svg" height="50" width="50"></p>
+star16 | Шестнадцать указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star16.svg" height="50" width="50"></p>
+star24 | Двадцати четырех указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star24.svg" height="50" width="50"></p>
+star32 | 30 двух указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star32.svg" height="50" width="50"></p>
+star4 | Четырехконечная звезда | <p style="text-align: center;"><img src="../images/shapes/star4.svg" height="50" width="50"></p>
+star5 | Пять указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star5.svg" height="50" width="50"></p>
+star6 | Шесть указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star6.svg" height="50" width="50"></p>
+star7 | Семь указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star7.svg" height="50" width="50"></p>
+star8 | Восемь указывает звезда | <p style="text-align: center;"><img src="../images/shapes/star8.svg" height="50" width="50"></p>
+straightConnector1 | Прямая соединительная линия 1 фигуры | <p style="text-align: center;"><img src="../images/shapes/straightConnector1.svg" height="50" width="50"></p>
+stripedRightArrow | Распределяется фигуры Стрелка вправо | <p style="text-align: center;"><img src="../images/shapes/stripedRightArrow.svg" height="50" width="50"></p>
+sun | Sun фигуры | <p style="text-align: center;"><img src="../images/shapes/sun.svg" height="50" width="50"></p>
+swooshArrow | Окружающие стрелки | <p style="text-align: center;"><img src="../images/shapes/swooshArrow.svg" height="50" width="50"></p>
+teardrop | Фигура teardrop | <p style="text-align: center;"><img src="../images/shapes/teardrop.svg" height="50" width="50"></p>
+trapezoid | Трапециевидный фигуры | <p style="text-align: center;"><img src="../images/shapes/trapezoid.svg" height="50" width="50"></p>
+triangle | Фигура треугольник | <p style="text-align: center;"><img src="../images/shapes/triangle.svg" height="50" width="50"></p>
+upArrow | Копирование стрелки | <p style="text-align: center;"><img src="../images/shapes/upArrow.svg" height="50" width="50"></p>
+upArrowCallout | Стрелки вверх выноски | <p style="text-align: center;"><img src="../images/shapes/upArrowCallout.svg" height="50" width="50"></p>
+upDownArrow | Копирование вниз стрелки | <p style="text-align: center;"><img src="../images/shapes/upDownArrow.svg" height="50" width="50"></p>
+upDownArrowCallout | Выноска вверх вниз стрелки | <p style="text-align: center;"><img src="../images/shapes/upDownArrowCallout.svg" height="50" width="50"></p>
+uturnArrow | Развернутая стрелки | <p style="text-align: center;"><img src="../images/shapes/uturnArrow.svg" height="50" width="50"></p>
+verticalScroll | Фигура прокрутки по вертикали | <p style="text-align: center;"><img src="../images/shapes/verticalScroll.svg" height="50" width="50"></p>
+wave | Фигура звукового файла | <p style="text-align: center;"><img src="../images/shapes/wave.svg" height="50" width="50"></p>
+wedgeEllipseCallout | Выноска сектору эллипс фигуры | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
+wedgeRectCallout | Фигура прямоугольника сектору выноски | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
+wedgeRoundRectCallout | Выноска сектору кругового прямоугольник | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
