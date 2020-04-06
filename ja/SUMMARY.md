@@ -73,6 +73,7 @@
   * [文字列値の設定](cell.md#SetCellStr)
   * [セルスタイルの設定](cell.md#SetCellStyle)
   * [ハイパーリンクの設定](cell.md#SetCellHyperLink)
+  * [セルのリッチテキストを設定する](cell.md#SetCellRichText)
   * [セル値取得](cell.md#GetCellValue)
   * [全セル値取得](cell.md#GetRows)
   * [ハイパーリンクを取得](cell.md#GetCellHyperLink)

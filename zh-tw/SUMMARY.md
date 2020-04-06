@@ -73,6 +73,7 @@
   * [設定字符型值](cell.md#SetCellStr)
   * [設定儲存格樣式](cell.md#SetCellStyle)
   * [設定超鏈接](cell.md#SetCellHyperLink)
+  * [設置富文本格式](cell.md#SetCellRichText)
   * [獲取儲存格的值](cell.md#GetCellValue)
   * [獲取全部儲存格的值](cell.md#GetRows)
   * [獲取超鏈接](cell.md#GetCellHyperLink)

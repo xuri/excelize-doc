@@ -1,5 +1,14 @@
 # 세포
 
+RichTextRun 은 서식있는 텍스트 실행의 설정을 직접 맵핑합니다.
+
+```go
+type RichTextRun struct {
+    Font *Font
+    Text string
+}
+```
+
 ## 셀 값 설정 {#SetCellValue}
 
 ```go
@@ -186,6 +195,120 @@ err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 
 ```go
 err := f.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
+```
+
+## 셀에 서식있는 텍스트 설정 {#SetCellRichText}
+
+```go
+func (f *File) SetCellRichText(sheet, cell string, runs []RichTextRun) error
+```
+
+SetCellRichText 는 주어진 워크 시트에 의해 리치 텍스트가있는 셀을 설정하는 기능을 제공합니다.
+
+예를 들어, 이름이 `Sheet1` 인 워크 시트의 `A1` 셀에 서식있는 텍스트를 설정하십시오:
+
+<p align="center"><img width="612" src="./images/rich_text.png" alt="셀에 서식있는 텍스트 설정"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    f := excelize.NewFile()
+    if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SetColWidth("Sheet1", "A", "A", 44); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SetCellRichText("Sheet1", "A1", []excelize.RichTextRun{
+        {
+            Text: "blod",
+            Font: &excelize.Font{
+                Bold:   true,
+                Color:  "2354e8",
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: " and ",
+            Font: &excelize.Font{
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: " italic",
+            Font: &excelize.Font{
+                Bold:   true,
+                Color:  "e83723",
+                Italic: true,
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: "text with color and font-family,",
+            Font: &excelize.Font{
+                Bold:   true,
+                Color:  "2354e8",
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: "\r\nlarge text with ",
+            Font: &excelize.Font{
+                Size:  14,
+                Color: "ad23e8",
+            },
+        },
+        {
+            Text: "strike",
+            Font: &excelize.Font{
+                Color:  "e89923",
+                Strike: true,
+            },
+        },
+        {
+            Text: " and ",
+            Font: &excelize.Font{
+                Size:  14,
+                Color: "ad23e8",
+            },
+        },
+        {
+            Text: "underline.",
+            Font: &excelize.Font{
+                Color:     "23e833",
+                Underline: "single",
+            },
+        },
+    }); err != nil {
+        fmt.Println(err)
+        return
+    }
+    style, err := f.NewStyle(&excelize.Style{
+        Alignment: &excelize.Alignment{
+            WrapText: true,
+        },
+    })
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SetCellStyle("Sheet1", "A1", "A1", style); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## 셀 값 가져 오기 {#GetCellValue}

@@ -73,6 +73,7 @@
   * [Set string value](cell.md#SetCellStr)
   * [Set cell style](cell.md#SetCellStyle)
   * [Set hyperlink](cell.md#SetCellHyperLink)
+  * [Set cell rich text](cell.md#SetCellRichText)
   * [Get cell value](cell.md#GetCellValue)
   * [Get all cell value](cell.md#GetRows)
   * [Get hyperlink](cell.md#GetCellHyperLink)

@@ -73,6 +73,7 @@
   * [문자열 값 설정](cell.md#SetCellStr)
   * [셀 스타일 설정](cell.md#SetCellStyle)
   * [하이퍼 링크 설정](cell.md#SetCellHyperLink)
+  * [셀에 서식있는 텍스트 설정](cell.md#SetCellRichText)
   * [셀 값 가져 오기](cell.md#GetCellValue)
   * [모든 셀 값 가져 오기](cell.md#GetRows)
   * [하이퍼 링크 가져 오기](cell.md#GetCellHyperLink)

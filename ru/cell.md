@@ -1,5 +1,14 @@
 # клетка
 
+RichTextRun напрямую отображает настройки прогона расширенного текста.
+
+```go
+type RichTextRun struct {
+    Font *Font
+    Text string
+}
+```
+
 ## Установить значение ячейки {#SetCellValue}
 
 ```go
@@ -186,6 +195,120 @@ err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 
 ```go
 err := f.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
+```
+
+## Установить форматированный текст для ячейки {#SetCellRichText}
+
+```go
+func (f *File) SetCellRichText(sheet, cell string, runs []RichTextRun) error
+```
+
+SetCellRichText предоставляет функцию для установки ячейки с расширенным текстом по заданному рабочему листу.
+
+Например, установите расширенный текст в ячейке `A1` листа с именем `Sheet1`:
+
+<p align="center"><img width="612" src="./images/rich_text.png" alt="Установить форматированный текст для ячейки"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func main() {
+    f := excelize.NewFile()
+    if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SetColWidth("Sheet1", "A", "A", 44); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SetCellRichText("Sheet1", "A1", []excelize.RichTextRun{
+        {
+            Text: "blod",
+            Font: &excelize.Font{
+                Bold:   true,
+                Color:  "2354e8",
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: " and ",
+            Font: &excelize.Font{
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: " italic",
+            Font: &excelize.Font{
+                Bold:   true,
+                Color:  "e83723",
+                Italic: true,
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: "text with color and font-family,",
+            Font: &excelize.Font{
+                Bold:   true,
+                Color:  "2354e8",
+                Family: "Times New Roman",
+            },
+        },
+        {
+            Text: "\r\nlarge text with ",
+            Font: &excelize.Font{
+                Size:  14,
+                Color: "ad23e8",
+            },
+        },
+        {
+            Text: "strike",
+            Font: &excelize.Font{
+                Color:  "e89923",
+                Strike: true,
+            },
+        },
+        {
+            Text: " and ",
+            Font: &excelize.Font{
+                Size:  14,
+                Color: "ad23e8",
+            },
+        },
+        {
+            Text: "underline.",
+            Font: &excelize.Font{
+                Color:     "23e833",
+                Underline: "single",
+            },
+        },
+    }); err != nil {
+        fmt.Println(err)
+        return
+    }
+    style, err := f.NewStyle(&excelize.Style{
+        Alignment: &excelize.Alignment{
+            WrapText: true,
+        },
+    })
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SetCellStyle("Sheet1", "A1", "A1", style); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## Получить значение ячейки {#GetCellValue}

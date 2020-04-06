@@ -73,6 +73,7 @@
   * [Définir la valeur de chaîne](cell.md#SetCellStr)
   * [Définir le style de cellule](cell.md#SetCellStyle)
   * [Définir un lien hypertexte](cell.md#SetCellHyperLink)
+  * [Définir le texte riche pour la cellule](cell.md#SetCellRichText)
   * [Obtenir la valeur de la cellule](cell.md#GetCellValue)
   * [Obtenir toute la valeur de la cellule](cell.md#GetRows)
   * [Obtenir un lien hypertexte](cell.md#GetCellHyperLink)
