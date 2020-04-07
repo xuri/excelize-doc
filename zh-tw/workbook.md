@@ -348,9 +348,9 @@ OrientationLandscape | 橫向
 15  | 四開 215 × 275 毫米
 16  | 美式標準紙張 10 × 14 英吋
 17  | 美式標準紙張 11 × 17 英吋
-18  | Note paper 8.5 × 11 英吋
+18  | 便簽 8.5 × 11 英吋
 19  | 信封 #9 3.875 × 8.875 英吋
-20  | 信封 #10 4-1/8 × 9½ 英吋
+20  | 信封 #10 4⅛ × 9½ 英吋
 21  | 信封 #11 4.5 × 10.375 英吋
 22  | 信封 #12 4.75 × 11 英吋
 23  | 信封 #14 5 × 11.5 英吋
@@ -368,42 +368,42 @@ OrientationLandscape | 橫向
 35  | 信封 B6 176 × 125 毫米
 36  | 信封 Italy 110 × 230 毫米
 37  | 君主式信封 3.88 × 7.5 英吋
-38  | 信封 6 3/4 3.625 × 6.5 英吋
-39  | US standard fanfold 14.875 × 11 英吋
-40  | German standard fanfold 8.5 × 12 英吋
-41  | German legal fanfold 8.5 × 13 英吋
+38  | 6¾ 信封 3.625 × 6.5 英吋
+39  | 美國標準 fanfold 14.875 × 11 英吋
+40  | 德國標準 fanfold 8.5 × 12 英吋
+41  | 德國法律專用紙 fanfold 8.5 × 13 英吋
 42  | ISO B4 250 × 353 毫米
 43  | 日式明信片 100 × 148 毫米
 44  | Standard paper 9 × 11 英吋
 45  | Standard paper 10 × 11 英吋
 46  | Standard paper 15 × 11 英吋
 47  | 邀請信 220 × 220 毫米
-50  | Letter extra paper 9.275 × 12 英吋
-51  | Legal extra paper 9.275 × 15 英吋
+50  | 信紙加大 9.275 × 12 英吋
+51  | 特大法律專用紙 9.275 × 15 英吋
 52  | Tabloid extra paper 11.69 × 18 英吋
-53  | A4 extra paper 236 × 322 毫米
-54  | Letter transverse paper 8.275 × 11 英吋
-55  | A4 transverse paper 210 × 297 毫米
-56  | Letter extra transverse paper 9.275 × 12 英吋
+53  | A4 特大 236 × 322 毫米
+54  | 信紙橫向旋轉 8.275 × 11 英吋
+55  | A4 橫向旋轉 210 × 297 毫米
+56  | 信紙特大橫向旋轉 9.275 × 12 英吋
 57  | SuperA/SuperA/A4 paper 227 × 356 毫米
 58  | SuperB/SuperB/A3 paper 305 × 487 毫米
-59  | Letter plus paper 8.5 × 12.69 英吋
-60  | A4 plus paper 210 × 330 毫米
-61  | A5 transverse paper 148 × 210 毫米
-62  | JIS B5 transverse paper 182 × 257 毫米
-63  | A3 extra paper 322 × 445 毫米
-64  | A5 extra paper 174 × 235 毫米
-65  | ISO B5 extra paper 201 × 276 毫米
+59  | 信紙加大 8.5 × 12.69 英吋
+60  | A4 加大 210 × 330 毫米
+61  | A5 橫向旋轉 148 × 210 毫米
+62  | JIS B5 橫向旋轉 182 × 257 毫米
+63  | A3 特大 322 × 445 毫米
+64  | A5 特大 174 × 235 毫米
+65  | ISO B5 特大 201 × 276 毫米
 66  | A2 420 × 594 毫米
-67  | A3 transverse paper 297 × 420 毫米
-68  | A3 extra transverse paper 322 × 445 毫米
+67  | A3 橫向旋轉 297 × 420 毫米
+68  | A3 特大橫向旋轉 322 × 445 毫米
 69  | 雙層日式明信片 200 × 148 毫米
 70  | A6 105 × 148 毫米
 71  | 日式信封 Kaku #2
 72  | 日式信封 Kaku #3
 73  | 日式信封 Chou #3
 74  | 日式信封 Chou #4
-75  | Letter Rotated (11in x 8 1/2 11 in)
+75  | 信紙橫向旋轉 11 × 8½ 英吋
 76  | A3 橫向旋轉 420 × 297 毫米
 77  | A4 橫向旋轉 297 × 210 毫米
 78  | A5 橫向旋轉 210 × 148 毫米

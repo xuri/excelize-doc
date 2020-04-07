@@ -368,7 +368,7 @@ OrientationLandscape | 横
 35  | 封筒 B6 176 × 125 mm
 36  | 封筒 Italy 110 × 230 mm
 37  | 君主の封筒 3.88 × 7.5 インチ
-38  | 封筒 6 3/4 3.625 × 6.5 インチ
+38  | 6¾ 封筒 3.625 × 6.5 インチ
 39  | US standard fanfold 14.875 × 11 インチ
 40  | German standard fanfold 8.5 × 12 インチ
 41  | German legal fanfold 8.5 × 13 インチ
@@ -403,7 +403,7 @@ OrientationLandscape | 横
 72  | 日本の封筒 Kaku #3
 73  | 日本の封筒 Chou #3
 74  | 日本の封筒 Chou #4
-75  | Letter Rotated (11in x 8 1/2 11 in)
+75  | Letter Rotated (11 × 8½ in)
 76  | A3 横回転 420 × 297 mm
 77  | A4 横回転 297 × 210 mm
 78  | A5 横回転 210 × 148 mm
