@@ -2,7 +2,7 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 는 순수 Go 로 작성되고 XLSX 파일에 쓰고 읽을 수있는 함수 세트를 제공하는 라이브러리입니다. 지원은 Microsoft Excel&trade; 2007 이후 버전에서 생성 된 XLSX 파일을 읽고 씁니다. XLSX 의 원본 차트를 잃지 않고 파일 저장을 지원합니다. 이 라이브러리에는 Go 버전 1.10 이상이 필요합니다.
+Excelize 는 순수 Go로 작성된 라이브러리로 XLSX / XLSM / XLTM 파일에서 읽고 쓸 수있는 기능 세트를 제공합니다. Microsoft Excel&trade; 2007 이상에서 생성 된 스프레드 시트 문서 읽기 및 쓰기를 지원합니다. 높은 호환성으로 복잡한 구성 요소를 지원하고 대량의 데이터가있는 워크 시트에서 데이터를 생성하거나 읽을 수있는 스트리밍 API 를 제공했습니다. 이 라이브러리에는 Go 버전 1.10 이상이 필요합니다.
 
 - 소스 코드: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - 발행물: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)

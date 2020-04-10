@@ -83,7 +83,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle fournit une fonction pour créer le style des cellules en fonction de la structure ou du JSON donné. Notez que le champ de couleur utilise le code de couleur RVB.
+NewStyle fournit une fonction pour créer le style des cellules par une chaîne JSON ou un pointeur de structure donné. Notez que le champ de couleur utilise un code couleur RVB.
 
 ### Frontière {#border}
 

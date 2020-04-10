@@ -2,7 +2,7 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize は、ECMA-376 Office OpenXML 標準に基づいて Office Excel ドキュメントを操作するための Go 言語で書かれたクラスライブラリです。 XLSX ファイルの読み書きに使用できます。Excelize は、他のオープンソースライブラリと比較して、イメージ（テーブル）付きのドキュメントの作成、Excel へのイメージの挿入、および保存後のチャートスタイルの保存をサポートしており、さまざまなレポートシステムに適用できます。
+Excelize は、純粋な Go で記述されたライブラリで、XLSX / XLSM / XLTM ファイルの読み書きを可能にする一連の関数を提供します。Microsoft Excel&trade; 2007 以降で生成されたスプレッドシートドキュメントの読み取りと書き込みをサポートします。 高い互換性により複雑なコンポーネントをサポートし、大量のデータを含むワークシートからデータを生成または読み取るためのストリーミング API を提供します。
 
 - ソースコード: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - 問題: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)

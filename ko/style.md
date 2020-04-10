@@ -83,7 +83,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle 은 지정된 JSON 또는 구조별로 셀 스타일을 만드는 기능을 제공합니다. 색상 필드는 RGB 색상 코드를 사용합니다.
+NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일을 만드는 기능을 제공합니다. 색상 필드는 RGB 색상 코드를 사용합니다.
 
 ### 테두리 {#border}
 

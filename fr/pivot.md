@@ -8,10 +8,10 @@ PivotTableOption mappe directement les paramètres de format du tableau croisé 
 type PivotTableOption struct {
     DataRange       string
     PivotTableRange string
-    Page            []PivotTableField
     Rows            []PivotTableField
     Columns         []PivotTableField
     Data            []PivotTableField
+    Filter          []PivotTableField
 }
 ```
 
@@ -84,6 +84,7 @@ func main() {
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows:            []excelize.PivotTableField{{Data: "Month"}, {Data: "Year"}},
+        Filter:          []excelize.PivotTableField{{Data: "Region"}},
         Columns:         []excelize.PivotTableField{{Data: "Type"}},
         Data:            []excelize.PivotTableField{{Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
     }); err != nil {

@@ -83,7 +83,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle provides a function to create the style for cells by given JSON string or structure. Note that the color field uses RGB color code.
+NewStyle provides a function to create the style for cells by given JSON string or structure pointer. Note that the color field uses RGB color code.
 
 ### Border {#border}
 

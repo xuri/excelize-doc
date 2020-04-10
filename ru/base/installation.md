@@ -10,6 +10,12 @@
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
+- Если ваш пакет управления с помощью [Go Modules](https://blog.golang.org/using-go-modules), пожалуйста, установите с помощью следующей команды.
+
+```bash
+go get github.com/360EntSecGroup-Skylar/excelize/v2@v2.1.0
+```
+
 ## Обновление {#update}
 
 - Обновление

@@ -10,6 +10,12 @@
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
+- [Go Modules](https://blog.golang.org/using-go-modules) 로 패키지를 관리하는 경우 다음 명령으로 설치하십시오.
+
+```bash
+go get github.com/360EntSecGroup-Skylar/excelize/v2@v2.1.0
+```
+
 ## 업데이트 {#update}
 
 - 업데이트 명령

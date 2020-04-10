@@ -2,7 +2,7 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize est une bibliothèque écrite en pur Go et fournissant un ensemble de fonctions qui vous permettent d'écrire et de lire des fichiers XLSX. La prise en charge lit et écrit le fichier XLSX généré par Microsoft Excel&trade; 2007 et versions ultérieures. Soutenez le dossier de sauvegarde sans perdre les diagrammes originaux de XLSX. Cette bibliothèque a besoin de Go version 1.10 ou ultérieure.
+Excelize est une bibliothèque écrite en pure Go fournissant un ensemble de fonctions qui vous permettent d'écrire et de lire à partir de fichiers XLSX / XLSM / XLTM. Prend en charge la lecture et l'écriture de feuilles de calcul générées par Microsoft Excel&trade; 2007 et versions ultérieures. Prend en charge les composants complexes par une compatibilité élevée et fournit une API de streaming pour générer ou lire des données à partir d'une feuille de calcul contenant d'énormes quantités de données. Cette bibliothèque a besoin de Go version 1.10 ou ultérieure.
 
 - Code source: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - Problème: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)

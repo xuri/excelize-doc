@@ -10,6 +10,12 @@ L'utilisation de la dernière version de la bibliothèque Excelize nécessite Go
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
+- Si votre gestion de package avec des [Go Modules](https://blog.golang.org/using-go-modules), veuillez installer avec la commande suivante.
+
+```bash
+go get github.com/360EntSecGroup-Skylar/excelize/v2@v2.1.0
+```
+
 ## Mise à niveau {#update}
 
 - Mise à niveau

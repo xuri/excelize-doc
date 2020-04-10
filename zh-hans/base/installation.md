@@ -10,6 +10,12 @@
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
+- 如果您使用 [Go Modules](https://blog.golang.org/using-go-modules) 管理软件包，请使用下面的命令来安装最新版本。
+
+```bash
+go get github.com/360EntSecGroup-Skylar/excelize/v2@v2.1.0
+```
+
 ## 更新 {#update}
 
 - 更新命令

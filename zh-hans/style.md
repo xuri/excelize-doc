@@ -83,7 +83,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-通过给定的样式格式 JSON 或结构体创建样式并返回样式索引。请注意，颜色需要使用 RGB 色域代码表示。
+通过给定的样式格式 JSON 或结构体的指针创建样式并返回样式索引。请注意，颜色需要使用 RGB 色域代码表示。
 
 ### 边框 {#border}
 

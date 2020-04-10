@@ -83,7 +83,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle は、指定された JSON または構造によってセルのスタイルを作成する関数を提供します。カラー フィールドでは RGB カラー コードが使用されます。
+NewStyle は、与えられた JSON 文字列または構造ポインタによってセルのスタイルを作成する関数を提供します。カラーフィールドは RGB カラーコードを使用することに注意してください。
 
 ### 枠 {#border}
 

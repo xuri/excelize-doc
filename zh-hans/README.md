@@ -2,7 +2,7 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 是 Go 语言编写的一个用来操作 Office Excel 文档类库，基于 ECMA-376 Office OpenXML 标准。可以使用它来读取、写入 XLSX 文件。相比较其他的开源类库，Excelize 支持写入原本带有图片(表)的文档，还支持向 Excel 中插入图片，并且在保存后不会丢失图表样式，可以应用在各种报表系统中。
+Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基于 ECMA-376，ISO/IEC 29500 国际标准。可以使用它来读取、写入由 Microsoft Excel&trade; 2007 及以上版本创建的电子表格文档。支持 XLSX / XLSM / XLTM 等多种文档格式，高度兼容带有样式、图片(表)、透视表、切片器等复杂组件的文档，并提供流式读写 API，用于处理包含大规模数据的工作簿。可应用于各类报表平台、云计算、边缘计算等系统。使用本类库要求使用的 Go 语言为 1.10 或更高版本。
 
 - Source Code: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - Issue: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
@@ -36,4 +36,4 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1,k1,2oHMIIOyvPcGezVdHJjsHwdZzzYNI6xs3Oww8uhlvCk=&_dt_no_comment=1&origin=11)
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
 
-<img width="400" src="./images/group@2x.png" alt="Excel 技术交流群">
+<img width="400" src="./images/group@2x.png" alt="Excelize 技术交流群">
