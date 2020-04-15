@@ -168,7 +168,7 @@
   * [Create Pivot Table](pivot.md#AddPivotTable)
 * [Utils](utils.md)
   * [Table](utils.md#AddTable)
-  * [Autor filter](utils.md#AutoFilter)
+  * [Auto filter](utils.md#AutoFilter)
   * [Update linked value](utils.md#UpdateLinkedValue)
   * [Split cell name](utils.md#SplitCellName)
   * [Join cell name](utils.md#JoinCellName)
