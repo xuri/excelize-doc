@@ -60,7 +60,7 @@ TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableSty
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 
-## Filtre autor {#AutoFilter}
+## Filtre auto {#AutoFilter}
 
 ```go
 func (f *File) AutoFilter(sheet, hcell, vcell, format string) error

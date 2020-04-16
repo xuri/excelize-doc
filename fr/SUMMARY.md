@@ -168,7 +168,7 @@
   * [Créer un tableau croisé dynamique](pivot.md#AddPivotTable)
 * [Utilitaire](utils.md)
   * [Table](utils.md#AddTable)
-  * [Filtre autor](utils.md#AutoFilter)
+  * [Filtre auto](utils.md#AutoFilter)
   * [Mettre à jour la valeur liée](utils.md#UpdateLinkedValue)
   * [Nom de la cellule divisée](utils.md#SplitCellName)
   * [Rejoindre le nom de la cellule](utils.md#JoinCellName)
