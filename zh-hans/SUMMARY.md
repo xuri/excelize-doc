@@ -187,6 +187,8 @@
   * [嵌入 VBA 项目](utils.md#AddVBAProject)
   * [Excel 日期时间转换](utils.md#ExcelDateToTime)
   * [字符集转码器](utils.md#CharsetTranscoder)
+* 范例
+  * [日历](example/calendar.md)
 * [常量](constants.md)
 * [性能数据](performance.md)
 * [参与贡献](contribution.md)

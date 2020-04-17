@@ -187,6 +187,8 @@
   * [VBA プロジェクトの追加](utils.md#AddVBAProject)
   * [Excel の日付を時刻に変換する](utils.md#ExcelDateToTime)
   * [文字トランスコーダー](utils.md#CharsetTranscoder)
+* より多くの例
+  * [カレンダー](example/calendar.md)
 * [定数](constants.md)
 * [パフォーマンスデータ](performance.md)
 * [参加貢献](contribution.md)

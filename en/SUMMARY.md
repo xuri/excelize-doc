@@ -187,6 +187,8 @@
   * [Add VBA project](utils.md#AddVBAProject)
   * [Excel date to time](utils.md#ExcelDateToTime)
   * [Charset transcoder](utils.md#CharsetTranscoder)
+* Examples
+  * [Calendar](example/calendar.md)
 * [Constants](constants.md)
 * [Performance](performance.md)
 * [Contribution](contribution.md)
