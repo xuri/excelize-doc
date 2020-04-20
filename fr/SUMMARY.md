@@ -187,6 +187,8 @@
   * [Ajouter VBA Project](utils.md#AddVBAProject)
   * [Convertir la date Excel en heure](utils.md#ExcelDateToTime)
   * [Transcodeur Charset](utils.md#CharsetTranscoder)
+* Exemples
+  * [Calendrier](example/calendar.md)
 * [Constantes](constants.md)
 * [Performance](performance.md)
 * [Contribution](contribution.md)

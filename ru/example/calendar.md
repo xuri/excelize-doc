@@ -1,8 +1,8 @@
-# Calendar
+# Календарь
 
-Create calendar with Excelize using Go:
+Создайте календарь с помощью Excelize, используя Go:
 
-<p align="center"><img width="934" src="../images/example_calendar.png" alt="create calendar with excelize using Go"></p>
+<p align="center"><img width="933" src="../images/example_calendar.png" alt="Создайте календарь с помощью Excelize, используя Go"></p>
 
 ```go
 package main
@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-    // create a new spreadsheet
+    // создать новую таблицу
     f := excelize.NewFile()
     var (
         monthStyle, titleStyle, dataStyle, blankStyle,
@@ -23,20 +23,20 @@ func main() {
         err   error
         addr  string
         sheet = "Sheet1"
-        // cell values
+        // значения ячеек
         data = map[int][]interface{}{
-            1: {"MAY 2020"},
-            3: {"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY",
-                "THURSDAY", "FRIDAY", "SATURDAY"},
+            1: {"Май 2020"},
+            3: {"Вс", "Пн", "Вт", "Ср",
+                "Чт", "Пт", "Сб"},
             4:  {26, 27, 28, 29, 30, 1, 2},
             6:  {3, 4, 5, 6, 7, 8, 9},
             8:  {10, 11, 12, 13, 14, 15, 16},
             10: {17, 18, 19, 20, 21, 22, 23},
             12: {24, 25, 26, 27, 28, 29, 30},
             14: {31, 1, 2, 3, 4, 5, 6},
-            18: {"Notes"},
+            18: {"Заметки"},
         }
-        // custom rows height
+        // высота пользовательских строк
         height = map[int]float64{
             1: 45, 3: 22, 5: 44, 7: 44, 9: 44, 11: 44, 13: 44, 15: 44,
             18: 24, 19: 24, 20: 24, 21: 24, 22: 24, 23: 24, 24: 24,
@@ -47,7 +47,7 @@ func main() {
         bottom = excelize.Border{Type: "bottom", Style: 1, Color: "DADEE0"}
         fill   = excelize.Fill{Type: "pattern", Color: []string{"EFEFEF"}, Pattern: 1}
     )
-    // set each cell value
+    // установить значение каждой ячейки
     for r, row := range data {
         if addr, err = excelize.JoinCellName("B", r); err != nil {
             fmt.Println(err)
@@ -58,36 +58,36 @@ func main() {
             return
         }
     }
-    // set custom row height
+    // установить пользовательскую высоту строки
     for r, ht := range height {
         if err = f.SetRowHeight(sheet, r, ht); err != nil {
             fmt.Println(err)
             return
         }
     }
-    // set custom column width
+    // установить произвольную ширину столбца
     if err = f.SetColWidth(sheet, "B", "H", 16.5); err != nil {
         fmt.Println(err)
         return
     }
-    // merge cell for the 'MONTH'
+    // Объединить ячейку для «МЕСЯЦА»
     if err = f.MergeCell(sheet, "B1", "D1"); err != nil {
         fmt.Println(err)
         return
     }
-    // define font style for the 'MONTH'
+    // определить стиль шрифта для «МЕСЯЦА»
     if monthStyle, err = f.NewStyle(&excelize.Style{
         Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Arial"},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // set font style for the 'MONTH'
+    // установить стиль шрифта для «МЕСЯЦА»
     if err = f.SetCellStyle(sheet, "B1", "D1", monthStyle); err != nil {
         fmt.Println(err)
         return
     }
-    // define style for the 'SUNDAY' to 'SATURDAY'
+    // определить стиль для «воскресенья» в «субботу»
     if titleStyle, err = f.NewStyle(&excelize.Style{
         Font:      &excelize.Font{Color: "1f7f3b", Bold: true, Family: "Arial"},
         Fill:      excelize.Fill{Type: "pattern", Color: []string{"E6F4EA"}, Pattern: 1},
@@ -97,19 +97,19 @@ func main() {
         fmt.Println(err)
         return
     }
-    // set style for the 'SUNDAY' to 'SATURDAY'
+    // набор стилей для «ВОСКРЕСЕНЬЕ» к «СУББОТА»
     if err = f.SetCellStyle(sheet, "B3", "H3", titleStyle); err != nil {
         fmt.Println(err)
         return
     }
-    // define cell border for the date cell in the date range
+    // определить границу ячейки для даты в диапазоне дат
     if dataStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{top, left, right},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // set cell border for the date cell in the date range
+    // установить границу ячейки для даты в диапазоне дат
     for _, r := range []int{4, 6, 8, 10, 12, 14} {
         if err = f.SetCellStyle(sheet, "B"+strconv.Itoa(r),
             "H"+strconv.Itoa(r), dataStyle); err != nil {
@@ -117,14 +117,14 @@ func main() {
             return
         }
     }
-    // define cell border for the blank cell in the date range
+    // определить границу ячейки для пустой ячейки в диапазоне дат
     if blankStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{left, right, bottom},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // set cell border for the blank cell in the date range
+    // установить границу ячейки для пустой ячейки в диапазоне дат
     for _, r := range []int{5, 7, 9, 11, 13, 15} {
         if err = f.SetCellStyle(sheet, "B"+strconv.Itoa(r),
             "H"+strconv.Itoa(r), blankStyle); err != nil {
@@ -132,14 +132,14 @@ func main() {
             return
         }
     }
-    // define the border and fill style for the blank cell in previous and next month
+    // определить границу и стиль заливки для пустой ячейки в предыдущем и следующем месяце
     if grayBlankStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{left, right, bottom},
         Fill:   fill}); err != nil {
         fmt.Println(err)
         return
     }
-    // set the border and fill style for the blank cell in previous and next month
+    // установить границу и стиль заливки для пустой ячейки в предыдущем и следующем месяце
     if err = f.SetCellStyle(sheet, "B5", "F5", grayBlankStyle); err != nil {
         fmt.Println(err)
         return
@@ -148,14 +148,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // define the border and fill style for the date cell in previous and next month
+    // определить границу и стиль заливки для ячейки даты в предыдущем и следующем месяце
     if grayDataStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{left, right, top},
         Font:   &excelize.Font{Color: "777777"}, Fill: fill}); err != nil {
         fmt.Println(err)
         return
     }
-    // set the border and fill style for the date cell in previous and next month
+    // установить границу и стиль заливки для ячейки даты в предыдущем и следующем месяце
     if err = f.SetCellStyle(sheet, "B4", "F4", grayDataStyle); err != nil {
         fmt.Println(err)
         return
@@ -164,26 +164,26 @@ func main() {
         fmt.Println(err)
         return
     }
-    // define font style for the 'Notes'
+    // определить стиль шрифта для «Заметок»
     if noteStyle, err = f.NewStyle(&excelize.Style{
         Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Arial"},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // set font style for the 'Notes'
+    // установить стиль шрифта для заметок
     if err = f.SetCellStyle(sheet, "B18", "B18", noteStyle); err != nil {
         fmt.Println(err)
         return
     }
-    // define cell style for the note range
+    // определить стиль ячейки для диапазона заметок
     if noteLineStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{{Type: "bottom", Style: 4, Color: "DDDDDD"}},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // set cell style for the note range
+    // установить стиль ячейки для диапазона заметок
     for r := 19; r < 25; r++ {
         if err = f.SetCellStyle(sheet, "B"+strconv.Itoa(r),
             "H"+strconv.Itoa(r), noteLineStyle); err != nil {
@@ -191,16 +191,16 @@ func main() {
             return
         }
     }
-    // hide gridlines for the worksheet
+    // скрыть линии сетки для рабочего листа
     if err = f.SetSheetViewOptions(sheet, 0,
         excelize.ShowGridLines(false)); err != nil {
         fmt.Println(err)
         return
     }
-    // rename worksheet
-    f.SetSheetName(sheet, "May 20")
-    // save spreadsheet file
-    if err = f.SaveAs("Calendar.xlsx"); err != nil {
+    // переименовать лист
+    f.SetSheetName(sheet, "Май 20")
+    // файл электронной таблицы сохранения
+    if err = f.SaveAs("Календарь.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

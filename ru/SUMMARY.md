@@ -187,6 +187,8 @@
   * [Добавить проект VBA](utils.md#AddVBAProject)
   * [Преобразование даты Excel в то время](utils.md#ExcelDateToTime)
   * [Транскодер персонажа](utils.md#CharsetTranscoder)
+* Примеры
+  * [Календарь](example/calendar.md)
 * [Константы](constants.md)
 * [Производительность](performance.md)
 * [Вклад](contribution.md)
