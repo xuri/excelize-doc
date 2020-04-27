@@ -55,13 +55,13 @@ SetRowVisible provides a function to set visible of a single row by given worksh
 err := f.SetRowVisible("Sheet1", 2, false)
 ```
 
-## Get worksheet name {#GetSheetName}
+## Get sheet name {#GetSheetName}
 
 ```go
 func (f *File) GetSheetName(index int) string
 ```
 
-GetSheetName provides a function to get worksheet name of XLSX by given worksheet index. If given sheet index is invalid, will return an empty string.
+GetSheetName provides a function to get the sheet name of the workbook by the given sheet index. If the given sheet index is invalid, it will return an empty string.
 
 ## Get column visibility {#GetColVisible}
 
@@ -107,23 +107,23 @@ GetRowVisible provides a function to get visible of a single row by given worksh
 err := f.GetRowVisible("Sheet1", 2)
 ```
 
-## Get worksheet index {#GetSheetIndex}
+## Get sheet index {#GetSheetIndex}
 
 ```go
 func (f *File) GetSheetIndex(name string) int
 ```
 
-GetSheetIndex provides a function to get worksheet index of XLSX by given sheet name. If given worksheet name is invalid, will return an integer type value `0`.
+GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid, it will return an integer type value `-1`.
 
 The obtained index can be used as a parameter to call the [`SetActiveSheet()`](workbook.md#SetActiveSheet) function when setting the workbook default worksheet.
 
-## Get worksheets list {#GetSheetMap}
+## Get sheet map {#GetSheetMap}
 
 ```go
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap provides a function to get worksheet and chartsheet name and index map of XLSX. For example:
+GetSheetMap provides a function to get worksheets, chart sheets, dialog sheets ID and name map of the workbook. For example:
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
@@ -135,7 +135,15 @@ for index, name := range f.GetSheetMap() {
 }
 ```
 
-## Set worksheet name {#SetSheetName}
+## Get sheet list {#GetSheetList}
+
+```go
+func (f *File) GetSheetList() []string
+```
+
+GetSheetList provides a function to get worksheets, chart sheets, and dialog sheets name list of the workbook.
+
+## Set sheet name {#SetSheetName}
 
 ```go
 func (f *File) SetSheetName(oldName, newName string)
@@ -143,7 +151,7 @@ func (f *File) SetSheetName(oldName, newName string)
 
 SetSheetName provides a function to set the worksheet name by given old and new worksheet name. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be problem formula error or reference missing.
 
-## Set worksheet properties {#SetSheetPrOptions}
+## Set sheet properties {#SetSheetPrOptions}
 
 ```go
 func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
@@ -180,7 +188,7 @@ if err := f.SetSheetPrOptions(sheet,
 }
 ```
 
-## Get worksheet properties {#GetSheetPrOptions}
+## Get sheet properties {#GetSheetPrOptions}
 
 ```go
 func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error

@@ -77,7 +77,7 @@ SetSheetBackground provides a function to set background picture by given worksh
 func (f *File) SetActiveSheet(index int)
 ```
 
-SetActiveSheet provides a function to set default active worksheet of XLSX by given index. Note that active index is different with the index that got by function [`GetSheetMap`](sheet.md#GetSheetMap), and it should be greater than `0` and less than total worksheet numbers.
+SetActiveSheet provides a function to set the default active sheet of the workbook by a given index. Note that the active index is different from the ID returned by function [`GetSheetMap`](sheet.md#GetSheetMap). It should be greater or equal to 0 and less than the total worksheet numbers.
 
 ## Get active sheet index {#GetActiveSheetIndex}
 
