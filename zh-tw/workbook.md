@@ -77,7 +77,7 @@ func (f *File) SetSheetBackground(sheet, picture string) error
 func (f *File) SetActiveSheet(index int)
 ```
 
-根據給定的索引值設定默認工作表，索引的值應該大於 `0` 且小於活頁簿所包含的累積工作表總數。
+根據給定的索引值設定默認工作表，索引的值應該大於等於 `0` 且小於活頁簿所包含的累積工作表總數。
 
 ## 獲取默認工作表索引 {#GetActiveSheetIndex}
 

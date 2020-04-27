@@ -77,7 +77,7 @@ func (f *File) SetSheetBackground(sheet, picture string) error
 func (f *File) SetActiveSheet(index int)
 ```
 
-デフォルトワークシートは与えられたインデックス値に従って設定され、インデックスの値は `0` より大きくワークブックに含まれる累積ワークシートの総数よりも小さくなければなりません。
+SetActiveSheet は、指定されたインデックスによってワークブックのデフォルトのアクティブシートを設定する関数を提供します。 アクティブなインデックスは、[`GetSheetMap`](sheet.md#GetSheetMap) 関数によって返されるIDとは異なることに注意してください。`0` 以上で、ワークシートの総数よりも少ない必要があります。
 
 ## アクティブシートインデックスを取得する {#GetActiveSheetIndex}
 
@@ -126,6 +126,8 @@ func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetView
 ```
 
 SetSheetViewOptions は、シートビューオプションを設定します。`viewIndex` は負の場合があり、その場合は逆方向にカウントされます（`-1` は最後のビューです）。
+
+利用可能なオプション：
 
 オプションのビューパラメータ|タイプ
 ---|---

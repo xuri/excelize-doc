@@ -45,6 +45,7 @@
   * [Получить видимость строки](sheet.md#GetRowVisible)
   * [Получить индекс рабочего листа](sheet.md#GetSheetIndex)
   * [Получить список рабочих листов](sheet.md#GetSheetMap)
+  * [Получить список листов](sheet.md#GetSheetList)
   * [Задать имя листа](sheet.md#SetSheetName)
   * [Установить свойства листа](sheet.md#SetSheetPrOptions)
   * [Получить свойства листа](sheet.md#GetSheetPrOptions)

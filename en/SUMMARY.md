@@ -38,7 +38,7 @@
   * [Set column width](sheet.md#SetColWidth)
   * [Set row height](sheet.md#SetRowHeight)
   * [Set row visibility](sheet.md#SetRowVisible)
-  * [Get worksheet name](sheet.md#GetSheetName)
+  * [Get sheet name](sheet.md#GetSheetName)
   * [Get column visibility](sheet.md#GetColVisible)
   * [Get column width](sheet.md#GetColWidth)
   * [Get row height](sheet.md#GetRowHeight)

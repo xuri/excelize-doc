@@ -113,17 +113,17 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-指定されたワークシート名に基づいてワークシートのインデックスを取得し（大文字と小文字を区別）、ワークシートが存在しない場合は `0` を返します。
+GetSheetIndex は、指定されたシート名でブックのシートインデックスを取得する関数を提供します。指定されたシート名が無効な場合、整数型の値 `-1` を返します。
 
 取得したインデックスは、ワークブックのデフォルトワークシートを設定するときに [`SetActiveSheet()`](workbook.md#SetActiveSheet) 関数を呼び出すためのパラメータとして使用できます。
 
-## ワークシート一覧を取得する  {#GetSheetMap}
+## ワークシートマップを取得する {#GetSheetMap}
 
 ```go
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap は、XLSX のワークシートとチャートシート名、およびインデックスマップを取得する関数を提供します。
+GetSheetMap は、ワークシート、チャートシート、ダイアログシート ID、およびワークブックの名前マップを取得する関数を提供します。例えば：
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
@@ -134,6 +134,15 @@ for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
 ```
+
+## ワークシートリストを取得する {#GetSheetList}
+
+```go
+func (f *File) GetSheetList() []string
+```
+
+GetSheetList は、ワークシート、チャートシート、およびワークブックのダイアログシート名リストを取得する関数を提供します。
+
 
 ## ワークシート名を設定 {#SetSheetName}
 

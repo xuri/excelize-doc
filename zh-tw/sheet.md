@@ -113,17 +113,17 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-根據給定的工作表名稱（大小寫敏感）獲取該工作表的索引，如果工作表不存在將傳回 `0`。
+根據給定的工作表名稱（大小寫敏感）獲取該工作表的索引，如果工作表不存在將傳回 `-1`。
 
 獲取到的索引可以在設定活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
 
-## 獲取工作表列表  {#GetSheetMap}
+## 獲取工作表映射表 {#GetSheetMap}
 
 ```go
 func (f *File) GetSheetMap() map[int]string
 ```
 
-獲取活頁簿中以名稱和索引構成的全部工作表和圖表工作表列表。
+獲取工作簿中以 ID 和名稱構成的全部工作表、圖表工作表和對話工作表映射表。
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
@@ -134,6 +134,14 @@ for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
 ```
+
+## 獲取工作表列表 {#GetSheetList}
+
+```go
+func (f *File) GetSheetList() []string
+```
+
+獲取與工作簿內順序相一致的，包含工作表、圖表工作表、對話工作表在內的工作表列表。
 
 ## 設定工作表名稱 {#SetSheetName}
 

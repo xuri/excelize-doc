@@ -113,17 +113,17 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-GetSheetIndex fournit une fonction pour obtenir l'index de feuille de calcul de XLSX par nom de feuille donné. Si le nom de feuille de calcul donné est invalide, retournera une valeur de type entier `0`.
+GetSheetIndex fournit une fonction pour obtenir un index de feuille du classeur par le nom de feuille donné. Si le nom de feuille donné n'est pas valide, il renverra une valeur de type entier `-1`.
 
 L'index obtenu peut être utilisé comme paramètre pour appeler la fonction [`SetActiveSheet()`](workbook.md#SetActiveSheet) lors de la définition de la feuille de calcul par défaut du classeur.
 
-## Obtenir la liste des feuilles de calcul {#GetSheetMap}
+## Obtenir le plan des feuilles {#GetSheetMap}
 
 ```go
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap fournit une fonction pour obtenir les feuilles de calcul et le nom des feuilles de graphique et la carte d'index de XLSX. Par exemple:
+GetSheetMap fournit une fonction pour obtenir des feuilles de calcul, des feuilles de graphique, des ID de feuilles de dialogue et une carte de noms du classeur. Par exemple:
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
@@ -134,6 +134,14 @@ for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
 ```
+
+## Obtenir la liste des feuilles {#GetSheetList}
+
+```go
+func (f *File) GetSheetList() []string
+```
+
+GetSheetList fournit une fonction pour obtenir les feuilles de calcul, les feuilles de graphique et la liste de noms des feuilles de dialogue du classeur.
 
 ## Définir le nom de la feuille de calcul {#SetSheetName}
 

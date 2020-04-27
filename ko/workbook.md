@@ -77,7 +77,7 @@ func (f *File) SetSheetBackground(sheet, picture string) error
 func (f *File) SetActiveSheet(index int)
 ```
 
-지정 된 인덱스 값을 기준으로 기본 워크시트를 설정 하면 인덱스 값이 `0` 보다 커야 하 고 통합 문서에 포함 된 누적 워크시트의 총 개수 보다 작아야 합니다.
+SetActiveSheet 는 지정된 인덱스로 통합 문서의 기본 활성 시트를 설정하는 기능을 제공합니다. 활성 인덱스는 [`GetSheetMap`](sheet.md#GetSheetMap) 함수가 리턴 한 ID와 다릅니다. 총 워크 시트 수보다 `0` 보다 크거나 같아야합니다.
 
 ## 활성 시트 색인 가져 오기 {#GetActiveSheetIndex}
 

@@ -77,7 +77,7 @@ SetSheetBackground fournit une fonction pour définir l'image d'arrière-plan pa
 func (f *File) SetActiveSheet(index int)
 ```
 
-SetActiveSheet fournit une fonction pour définir la feuille de calcul active par défaut de XLSX par index donné. Notez que l'indice actif est différent avec l'indice qui a obtenu par la fonction [`GetSheetMap`](sheet.md#GetSheetMap), et il devrait être supérieur à `0` et moins le nombre total de feuille de calcul.
+SetActiveSheet fournit une fonction pour définir la feuille active par défaut du classeur en fonction d'un index donné. Notez que l'index actif est différent de l'ID retourné par la fonction [`GetSheetMap`](sheet.md#GetSheetMap). Il doit être supérieur ou égal à `0` et inférieur au nombre total de feuilles de calcul.
 
 ## Obtenir l'index de feuille actif {#GetActiveSheetIndex}
 

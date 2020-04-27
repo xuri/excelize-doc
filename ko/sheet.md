@@ -113,17 +113,17 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-GetSheetIndex 주어진 된 시트 이름으로 XLSX의 워크 시트 인덱스를 얻을 수 있는 함수를 제공 합니다. 지정된 워크시트 이름이 유효하지 않은 경우 정수 형식 값 `0` 을 반환합니다.
+GetSheetIndex 는 주어진 시트 이름으로 통합 문서의 시트 인덱스를 가져 오는 함수를 제공합니다. 주어진 시트 이름이 유효하지 않으면 정수형 값 `-1` 을 반환합니다.
 
 얻은 인덱스는 통합 문서 기본 워크시트를 설정할 때 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 함수를 호출하는 매개 변수로 사용할 수 있습니다.
 
-## 워크 시트 목록 가져 오기 {#GetSheetMap}
+## 워크 시트 맵 가져 오기 {#GetSheetMap}
 
 ```go
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap 은 XLSX 의 워크 시트 및 차트 시트 이름 및 인덱스 맵을 가져 오는 기능을 제공합니다. 예를 들어:
+GetSheetMap 은 통합 문서의 워크 시트, 차트 시트, 대화 상자 시트 ID 및 이름 맵을 가져 오는 기능을 제공합니다. 예를 들면 다음과 같습니다.
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
@@ -134,6 +134,15 @@ for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
 ```
+
+## 시트리스트 받기 {#GetSheetList}
+
+```go
+func (f *File) GetSheetList() []string
+```
+
+GetSheetList 는 통합 문서의 워크 시트, 차트 시트 및 대화 상자 시트 이름 목록을 가져 오는 기능을 제공합니다.
+
 
 ## 워크 시트 이름 설정 {#SetSheetName}
 
