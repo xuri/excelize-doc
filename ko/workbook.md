@@ -119,6 +119,112 @@ GetSheetVisible 은 주어진 워크 시트 이름으로 볼 수있는 워크 �
 f.GetSheetVisible("Sheet1")
 ```
 
+## 워크 시트 형식 속성 설정 {#SetSheetFormatPr}
+
+```go
+func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+```
+
+SetSheetFormatPr 은 워크 시트 서식 속성을 설정하는 기능을 제공합니다.
+
+사용 가능한 옵션:
+
+선택적 형식 매개 변수 | 유형
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+예를 들어, 워크 시트 행을 기본적으로 숨김으로 설정하십시오:
+
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="워크 시트 형식 속성 설정"></p>
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
+    fmt.Println(err)
+}
+f.SaveAs("Book1.xlsx")
+```
+
+## 워크 시트 형식 속성 가져 오기 {#GetSheetFormatPr}
+
+```go
+func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+```
+
+GetSheetFormatPr 은 워크 시트 서식 속성을 가져 오는 기능을 제공합니다.
+
+사용 가능한 옵션:
+
+선택적 형식 매개 변수 | 유형
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+예를 들면:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    baseColWidth     excelize.BaseColWidth
+    defaultColWidth  excelize.DefaultColWidth
+    defaultRowHeight excelize.DefaultRowHeight
+    customHeight     excelize.CustomHeight
+    zeroHeight       excelize.ZeroHeight
+    thickTop         excelize.ThickTop
+    thickBottom      excelize.ThickBottom
+)
+
+if err := f.GetSheetFormatPr(sheet,
+    &baseColWidth,
+    &defaultColWidth,
+    &defaultRowHeight,
+    &customHeight,
+    &zeroHeight,
+    &thickTop,
+    &thickBottom,
+); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- baseColWidth:", baseColWidth)
+fmt.Println("- defaultColWidth:", defaultColWidth)
+fmt.Println("- defaultRowHeight:", defaultRowHeight)
+fmt.Println("- customHeight:", customHeight)
+fmt.Println("- zeroHeight:", zeroHeight)
+fmt.Println("- thickTop:", thickTop)
+fmt.Println("- thickBottom:", thickBottom)
+```
+
+출력 가져오기:
+
+```text
+Defaults:
+- baseColWidth: 0
+- defaultColWidth: 0
+- defaultRowHeight: 15
+- customHeight: false
+- zeroHeight: false
+- thickTop: false
+- thickBottom: false
+```
+
 ## 워크 시트보기 속성 설정 {#SetSheetViewOptions}
 
 ```go

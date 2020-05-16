@@ -21,6 +21,8 @@
   * [Obtenir l'index de feuille actif](workbook.md#GetActiveSheetIndex)
   * [Définir la feuille de calcul visible](workbook.md#SetSheetVisible)
   * [Obtenir la feuille de calcul visible](workbook.md#GetSheetVisible)
+  * [Définir les propriétés du format de feuille de calcul](workbook.md#SetSheetFormatPr)
+  * [Obtenir les propriétés du format de feuille de calcul](workbook.md#GetSheetFormatPr)
   * [Définir les propriétés de la vue de feuille de calcul](workbook.md#SetSheetViewOptions)
   * [Obtenir les propriétés d'affichage de la feuille de calcul](workbook.md#GetSheetViewOptions)
   * [Définir la mise en page de feuille de calcul](workbook.md#SetPageLayout)

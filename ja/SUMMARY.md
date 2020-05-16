@@ -21,6 +21,8 @@
   * [アクティブシートインデックスを取得する](workbook.md#GetActiveSheetIndex)
   * [ワークシートの表示設定](workbook.md#SetSheetVisible)
   * [ワークシートの表示設定を取得する](workbook.md#GetSheetVisible)
+  * [ワークシート形式のプロパティを設定する](workbook.md#SetSheetFormatPr)
+  * [ワークシート形式のプロパティを取得する](workbook.md#GetSheetFormatPr)
   * [ワークシートビューのプロパティを設定する](workbook.md#SetSheetViewOptions)
   * [ワークシートビュープロパティを取得する](workbook.md#GetSheetViewOptions)
   * [ワークシートのページレイアウトを設定する](workbook.md#SetPageLayout)

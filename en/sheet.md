@@ -361,7 +361,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows return a rows iterator. For example:
+Rows returns a rows iterator, used for streaming reading data for a worksheet with a large data. For example:
 
 ```go
 rows, err := f.Rows("Sheet1")

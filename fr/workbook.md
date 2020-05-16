@@ -119,6 +119,112 @@ GetSheetVisible fournit une fonction permettant d’obtenir une feuille de calcu
 f.GetSheetVisible("Sheet1")
 ```
 
+## Définir les propriétés du format de feuille de calcul {#SetSheetFormatPr}
+
+```go
+func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+```
+
+SetSheetFormatPr fournit une fonction pour définir les propriétés de formatage des feuilles de calcul.
+
+Options disponibles:
+
+Paramètre de format facultatif | Type
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+Par exemple, rendre les lignes de feuille de calcul par défaut masquées:
+
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Définir les propriétés du format de feuille de calcul"></p>
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
+    fmt.Println(err)
+}
+f.SaveAs("Book1.xlsx")
+```
+
+## Obtenir les propriétés du format de feuille de calcul {#GetSheetFormatPr}
+
+```go
+func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+```
+
+GetSheetFormatPr fournit une fonction pour obtenir les propriétés de formatage des feuilles de calcul.
+
+Options disponibles:
+
+Paramètre de format facultatif | Type
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+Par exemple:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    baseColWidth     excelize.BaseColWidth
+    defaultColWidth  excelize.DefaultColWidth
+    defaultRowHeight excelize.DefaultRowHeight
+    customHeight     excelize.CustomHeight
+    zeroHeight       excelize.ZeroHeight
+    thickTop         excelize.ThickTop
+    thickBottom      excelize.ThickBottom
+)
+
+if err := f.GetSheetFormatPr(sheet,
+    &baseColWidth,
+    &defaultColWidth,
+    &defaultRowHeight,
+    &customHeight,
+    &zeroHeight,
+    &thickTop,
+    &thickBottom,
+); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- baseColWidth:", baseColWidth)
+fmt.Println("- defaultColWidth:", defaultColWidth)
+fmt.Println("- defaultRowHeight:", defaultRowHeight)
+fmt.Println("- customHeight:", customHeight)
+fmt.Println("- zeroHeight:", zeroHeight)
+fmt.Println("- thickTop:", thickTop)
+fmt.Println("- thickBottom:", thickBottom)
+```
+
+Obtenir la sortie:
+
+```text
+Defaults:
+- baseColWidth: 0
+- defaultColWidth: 0
+- defaultRowHeight: 15
+- customHeight: false
+- zeroHeight: false
+- thickTop: false
+- thickBottom: false
+```
+
 ## Définir les propriétés de la vue de feuille de calcul {#SetSheetViewOptions}
 
 ```go

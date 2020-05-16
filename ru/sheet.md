@@ -361,7 +361,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Строки возвращают итератор строк. Например:
+Rows возвращает итератор строк, используемый для потоковой передачи данных чтения для листа с большими данными. Например:
 
 ```go
 rows, err := f.Rows("Sheet1")

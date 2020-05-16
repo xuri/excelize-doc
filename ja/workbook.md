@@ -119,6 +119,112 @@ GetSheetVisible は、与えられたワークシート名でワークシート�
 f.GetSheetVisible("Sheet1")
 ```
 
+## ワークシート形式のプロパティを設定する {#SetSheetFormatPr}
+
+```go
+func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+```
+
+SetSheetFormatPr は、ワークシートのフォーマットプロパティを設定する関数を提供します。
+
+利用可能なオプション：
+
+オプションのフォーマットパラメータ|タイプ
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+たとえば、ワークシートの行をデフォルトで非表示にします。
+
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="ワークシート形式のプロパティを設定する"></p>
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
+    fmt.Println(err)
+}
+f.SaveAs("Book1.xlsx")
+```
+
+## ワークシート形式のプロパティを取得する {#GetSheetFormatPr}
+
+```go
+func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+```
+
+GetSheetFormatPr は、ワークシートのフォーマットプロパティを取得する関数を提供します。
+
+利用可能なオプション：
+
+オプションのフォーマットパラメータ|タイプ
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+例えば：
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    baseColWidth     excelize.BaseColWidth
+    defaultColWidth  excelize.DefaultColWidth
+    defaultRowHeight excelize.DefaultRowHeight
+    customHeight     excelize.CustomHeight
+    zeroHeight       excelize.ZeroHeight
+    thickTop         excelize.ThickTop
+    thickBottom      excelize.ThickBottom
+)
+
+if err := f.GetSheetFormatPr(sheet,
+    &baseColWidth,
+    &defaultColWidth,
+    &defaultRowHeight,
+    &customHeight,
+    &zeroHeight,
+    &thickTop,
+    &thickBottom,
+); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- baseColWidth:", baseColWidth)
+fmt.Println("- defaultColWidth:", defaultColWidth)
+fmt.Println("- defaultRowHeight:", defaultRowHeight)
+fmt.Println("- customHeight:", customHeight)
+fmt.Println("- zeroHeight:", zeroHeight)
+fmt.Println("- thickTop:", thickTop)
+fmt.Println("- thickBottom:", thickBottom)
+```
+
+出力を取得する：
+
+```text
+Defaults:
+- baseColWidth: 0
+- defaultColWidth: 0
+- defaultRowHeight: 15
+- customHeight: false
+- zeroHeight: false
+- thickTop: false
+- thickBottom: false
+```
+
 ## ワークシートビューのプロパティを設定する {#SetSheetViewOptions}
 
 ```go

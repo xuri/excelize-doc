@@ -362,7 +362,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-指定されたワークシート名に基づいてワークシートの行反復子を取得します（大文字と小文字を区別）。行反復子を使用してセルをトラバースする
+Rows は行イテレータを返します。これは、大きなデータを含むワークシートのデータのストリーミングストリーミングに使用されます。例えば:
 
 ```go
 rows, err := f.Rows("Sheet1")

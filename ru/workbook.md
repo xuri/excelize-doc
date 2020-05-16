@@ -119,6 +119,112 @@ GetSheetVisible предоставляет функцию для отображ�
 f.GetSheetVisible("Sheet1")
 ```
 
+## Установить свойства формата листа {#SetSheetFormatPr}
+
+```go
+func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+```
+
+SetSheetFormatPr предоставляет функцию для установки свойств форматирования листа.
+
+Доступные Варианты:
+
+Необязательный параметр формата | Тип
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+Например, сделать строки на листе по умолчанию скрытыми:
+
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Установить свойства формата листа"></p>
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
+    fmt.Println(err)
+}
+f.SaveAs("Book1.xlsx")
+```
+
+## Получить свойства формата листа {#GetSheetFormatPr}
+
+```go
+func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+```
+
+GetSheetFormatPr предоставляет функцию для получения свойств форматирования листа.
+
+Доступные Варианты:
+
+Необязательный параметр формата | Тип
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+Например:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    baseColWidth     excelize.BaseColWidth
+    defaultColWidth  excelize.DefaultColWidth
+    defaultRowHeight excelize.DefaultRowHeight
+    customHeight     excelize.CustomHeight
+    zeroHeight       excelize.ZeroHeight
+    thickTop         excelize.ThickTop
+    thickBottom      excelize.ThickBottom
+)
+
+if err := f.GetSheetFormatPr(sheet,
+    &baseColWidth,
+    &defaultColWidth,
+    &defaultRowHeight,
+    &customHeight,
+    &zeroHeight,
+    &thickTop,
+    &thickBottom,
+); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- baseColWidth:", baseColWidth)
+fmt.Println("- defaultColWidth:", defaultColWidth)
+fmt.Println("- defaultRowHeight:", defaultRowHeight)
+fmt.Println("- customHeight:", customHeight)
+fmt.Println("- zeroHeight:", zeroHeight)
+fmt.Println("- thickTop:", thickTop)
+fmt.Println("- thickBottom:", thickBottom)
+```
+
+вывод:
+
+```text
+Defaults:
+- baseColWidth: 0
+- defaultColWidth: 0
+- defaultRowHeight: 15
+- customHeight: false
+- zeroHeight: false
+- thickTop: false
+- thickBottom: false
+```
+
 ## Задать свойства представления листа {#SetSheetViewOptions}
 
 ```go

@@ -361,7 +361,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Les lignes renvoient un itérateur de lignes. Par exemple:
+Rows renvoie un itérateur de lignes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Par exemple:
 
 ```go
 rows, err := f.Rows("Sheet1")

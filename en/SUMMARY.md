@@ -21,6 +21,8 @@
   * [Get active sheet index](workbook.md#GetActiveSheetIndex)
   * [Set worksheet visible](workbook.md#SetSheetVisible)
   * [Get worksheet visible](workbook.md#GetSheetVisible)
+  * [Set worksheet format properties](workbook.md#SetSheetFormatPr)
+  * [Get worksheet format properties](workbook.md#GetSheetFormatPr)
   * [Set worksheet view properties](workbook.md#SetSheetViewOptions)
   * [Get worksheet view properties](workbook.md#GetSheetViewOptions)
   * [Set worksheet page layout](workbook.md#SetPageLayout)

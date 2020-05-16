@@ -119,6 +119,108 @@ func (f *File) GetSheetVisible(name string) bool
 f.GetSheetVisible("Sheet1")
 ```
 
+## 設置工作表格式屬性 {#SetSheetFormatPr}
+
+```go
+func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+```
+
+根據給定的工作表名稱設置格式屬性。
+
+可選格式參數 | 數據類型
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+例如，設置名為 `Sheet1` 的工作表中列默認為隱藏：
+
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="設置工作表格式屬性"></p>
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
+    fmt.Println(err)
+}
+f.SaveAs("Book1.xlsx")
+```
+
+## 獲取工作表格式屬性 {#GetSheetFormatPr}
+
+```go
+func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+```
+
+根據給定的工作表名稱獲取格式屬性。
+
+可選格式參數 | 數據類型
+---|---
+BaseColWidth | uint8
+DefaultColWidth | float64
+DefaultRowHeight | float64
+CustomHeight | bool
+ZeroHeight | bool
+ThickTop | bool
+ThickBottom | bool
+
+例子:
+
+```go
+f := excelize.NewFile()
+const sheet = "Sheet1"
+
+var (
+    baseColWidth     excelize.BaseColWidth
+    defaultColWidth  excelize.DefaultColWidth
+    defaultRowHeight excelize.DefaultRowHeight
+    customHeight     excelize.CustomHeight
+    zeroHeight       excelize.ZeroHeight
+    thickTop         excelize.ThickTop
+    thickBottom      excelize.ThickBottom
+)
+
+if err := f.GetSheetFormatPr(sheet,
+    &baseColWidth,
+    &defaultColWidth,
+    &defaultRowHeight,
+    &customHeight,
+    &zeroHeight,
+    &thickTop,
+    &thickBottom,
+); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Println("- baseColWidth:", baseColWidth)
+fmt.Println("- defaultColWidth:", defaultColWidth)
+fmt.Println("- defaultRowHeight:", defaultRowHeight)
+fmt.Println("- customHeight:", customHeight)
+fmt.Println("- zeroHeight:", zeroHeight)
+fmt.Println("- thickTop:", thickTop)
+fmt.Println("- thickBottom:", thickBottom)
+```
+
+得到輸出：
+
+```text
+Defaults:
+- baseColWidth: 0
+- defaultColWidth: 0
+- defaultRowHeight: 15
+- customHeight: false
+- zeroHeight: false
+- thickTop: false
+- thickBottom: false
+```
+
 ## 設定工作表檢視屬性 {#SetSheetViewOptions}
 
 ```go

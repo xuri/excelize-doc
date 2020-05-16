@@ -361,7 +361,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-根据给定的工作表名称（大小写敏感）获取该工作表的行迭代器。使用行迭代器遍历单元格：
+根据给定的工作表名称（大小写敏感）获取该工作表的行迭代器。使用行迭代器进行流式读取遍历单元格：
 
 ```go
 rows, err := f.Rows("Sheet1")

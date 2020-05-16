@@ -21,6 +21,8 @@
   * [활성 시트 색인 가져 오기](workbook.md#GetActiveSheetIndex)
   * [워크 시트 가시성 설정](workbook.md#SetSheetVisible)
   * [워크 시트 가시성 확보](workbook.md#GetSheetVisible)
+  * [워크 시트 형식 속성 설정](workbook.md#SetSheetFormatPr)
+  * [워크 시트 형식 속성 가져 오기](workbook.md#GetSheetFormatPr)
   * [워크 시트보기 속성 설정](workbook.md#SetSheetViewOptions)
   * [워크 시트 뷰 속성 가져 오기](workbook.md#GetSheetViewOptions)
   * [워크 시트 페이지 레이아웃 설정](workbook.md#SetPageLayout)

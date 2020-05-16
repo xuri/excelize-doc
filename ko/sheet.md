@@ -362,7 +362,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-행은 행 이터레이터를 반환합니다. 예를 들어:
+Rows 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍에 사용되는 행 반복자를 반환합니다. 예를 들어:
 
 ```go
 rows, err := f.Rows("Sheet1")

@@ -1,7 +1,7 @@
 # 目錄
 
 * [介紹](README.md)
-* [快速上手](base/installation.md)
+* [快速開始](base/installation.md)
   * [安裝](base/installation.md#install)
   * [更新](base/installation.md#update)
   * [創建 Excel 文檔](base/installation.md#NewFile)
@@ -21,6 +21,8 @@
   * [獲取默認工作表索引](workbook.md#GetActiveSheetIndex)
   * [設定工作表可見性](workbook.md#SetSheetVisible)
   * [獲取工作表可見性](workbook.md#GetSheetVisible)
+  * [設置工作表格式屬性](workbook.md#SetSheetFormatPr)
+  * [獲取工作表格式屬性](workbook.md#GetSheetFormatPr)
   * [設定工作表檢視屬性](workbook.md#SetSheetViewOptions)
   * [獲取工作表檢視屬性](workbook.md#GetSheetViewOptions)
   * [設定工作表頁面佈局](workbook.md#SetPageLayout)
