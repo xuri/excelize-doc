@@ -11,6 +11,7 @@
 * [ワークブック](workbook.md)
   * [Excel 文書を作成する](workbook.md#NewFile)
   * [開く](workbook.md#OpenFile)
+  * [データストリームを開く](workbook.md#OpenReader)
   * [保存](workbook.md#Save)
   * [名前を付けて保存](workbook.md#SaveAs)
   * [ワークシートを作成する](workbook.md#NewSheet)

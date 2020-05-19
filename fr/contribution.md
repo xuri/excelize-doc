@@ -60,9 +60,3 @@ Décrivez brièvement le problème que vous rencontrez en quelques paragraphes.
 ** Détails de l'environnement (OS, version Microsoft Excel&trade;, physique, etc.): **
 
 ---
-
-## Parrainer Excelize Development
-
-Si vous êtes un utilisateur individuel et que vous avez apprécié la productivité de l'utilisation d'Excelize, considérez le don comme un signe d'appréciation - comme l'achat de café de temps en temps.
-
-<a href="https://www.paypal.me/xuri" title="Faire un don avec Paypal" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Faire un don avec Paypal"></a>

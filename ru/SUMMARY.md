@@ -12,6 +12,7 @@
   * [Создать документ Excel](workbook.md#NewFile)
   * [Открыть](workbook.md#OpenFile)
   * [Сохранить](workbook.md#Save)
+  * [Открытый поток данных](workbook.md#OpenReader)
   * [Сохранить как](workbook.md#SaveAs)
   * [Создать рабочий лист](workbook.md#NewSheet)
   * [Удалить рабочий лист](workbook.md#DeleteSheet)

@@ -14,7 +14,62 @@ NewFile provides a function to create new file by default template. The newly cr
 func OpenFile(filename string) (*File, error)
 ```
 
-OpenFile take the name of an XLSX file and returns a populated XLSX file struct for it.
+OpenFile take the name of an spreadsheet file and returns a populated spreadsheet file struct for it.
+
+## Open data stream {#OpenReader}
+
+```go
+func OpenReader(r io.Reader) (*File, error)
+```
+
+OpenReader read data stream from `io.Reader` and return a populated spreadsheet file.
+
+For example, create HTTP server to handle upload template, then response download file with new worksheet added:
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func process(w http.ResponseWriter, req *http.Request) {
+    file, _, err := req.FormFile("file")
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    defer file.Close()
+    f, err := excelize.OpenReader(file)
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    f.NewSheet("NewSheet")
+    w.Header().Set("Content-Disposition", "attachment; filename=Book1.xlsx")
+    w.Header().Set("Content-Type", req.Header.Get("Content-Type"))
+    if _, err := f.WriteTo(w); err != nil {
+        fmt.Fprintf(w, err.Error())
+    }
+    return
+}
+
+func main() {
+    http.HandleFunc("/process", process)
+    http.ListenAndServe(":8090", nil)
+}
+```
+
+Test with cURL:
+
+```bash
+curl --location --request GET 'http://127.0.0.1:8090/process' \
+--form 'file=@/tmp/template.xlsx' -O -J
+curl: Saved to filename 'Book1.xlsx'
+```
 
 ## Save {#Save}
 
@@ -38,7 +93,7 @@ SaveAs provides a function to create or update to an xlsx file at the provided p
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet provides a function to create a new sheet by given worksheet name when creating a new XLSX file, the default sheet will be created, when you create a new file.
+NewSheet provides a function to create a new sheet by given worksheet name when creating a new spreadsheet file, the default sheet will be created, when you create a new file.
 
 ## Delete worksheet {#DeleteSheet}
 

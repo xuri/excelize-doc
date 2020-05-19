@@ -57,9 +57,3 @@ Microsoft Excel&trade; 2007 バージョンでは、XML および ZIP テクノ�
 ** オペレーティング環境の詳細 (オペレーティングシステム、Microsoft Excel&trade; バージョン、物理マシンの構成など)：**
 
 ---
-
-### Excelize の開発に協賛
-
-プロジェクトの開発は、あなたのサポートから分離することはできません、著者にコーヒーバーのカップをしてください! Excelize は、以下の方法でスポンサーシップを受け入れます。
-
-<a href="https://www.paypal.me/xuri" title="Paypal で寄付する" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Paypal で寄付する"></a>

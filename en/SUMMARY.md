@@ -11,6 +11,7 @@
 * [Workbook](workbook.md)
   * [Create Excel document](workbook.md#NewFile)
   * [Open](workbook.md#OpenFile)
+  * [Open data stream](workbook.md#OpenReader)
   * [Save](workbook.md#Save)
   * [Save as](workbook.md#SaveAs)
   * [Create worksheet](workbook.md#NewSheet)

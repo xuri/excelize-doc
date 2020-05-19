@@ -11,6 +11,7 @@
 * [Classeur](workbook.md)
   * [Créer un document Excel](workbook.md#NewFile)
   * [Ouvrir](workbook.md#OpenFile)
+  * [Flux de données ouvert](workbook.md#OpenReader)
   * [Enregistrer](workbook.md#Save)
   * [Enregistrer sous](workbook.md#SaveAs)
   * [Créer une feuille de calcul](workbook.md#NewSheet)

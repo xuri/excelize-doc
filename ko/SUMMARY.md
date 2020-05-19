@@ -11,6 +11,7 @@
 * [통합 문서](workbook.md)
   * [Excel 문서 만들기](workbook.md#NewFile)
   * [열기](workbook.md#OpenFile)
+  * [열린 데이터 스트림](workbook.md#OpenReader)
   * [저장](workbook.md#Save)
   * [다른 이름으로 저장](workbook.md#SaveAs)
   * [워크 시트 만들기](workbook.md#NewSheet)

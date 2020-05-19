@@ -16,6 +16,61 @@ func OpenFile(filename string) (*File, error)
 
 OpenFile принимает имя файла XLSX и возвращает для него заполненную файловую структуру XLSX.
 
+## Открытый поток данных {#OpenReader}
+
+```go
+func OpenReader(r io.Reader) (*File, error)
+```
+
+OpenReader считывает поток данных из `io.Reader` и возвращает заполненный файл электронной таблицы.
+
+Например, создайте HTTP-сервер для обработки загружаемого шаблона, а затем загрузите ответный файл с новым рабочим листом:
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func process(w http.ResponseWriter, req *http.Request) {
+    file, _, err := req.FormFile("file")
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    defer file.Close()
+    f, err := excelize.OpenReader(file)
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    f.NewSheet("NewSheet")
+    w.Header().Set("Content-Disposition", "attachment; filename=Book1.xlsx")
+    w.Header().Set("Content-Type", req.Header.Get("Content-Type"))
+    if _, err := f.WriteTo(w); err != nil {
+        fmt.Fprintf(w, err.Error())
+    }
+    return
+}
+
+func main() {
+    http.HandleFunc("/process", process)
+    http.ListenAndServe(":8090", nil)
+}
+```
+
+Тест с cURL:
+
+```bash
+curl --location --request GET 'http://127.0.0.1:8090/process' \
+--form 'file=@/tmp/template.xlsx' -O -J
+curl: Saved to filename 'Book1.xlsx'
+```
+
 ## Сохранить {#Save}
 
 ```go

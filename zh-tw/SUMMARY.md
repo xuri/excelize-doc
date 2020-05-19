@@ -11,6 +11,7 @@
 * [活頁簿](workbook.md)
   * [創建](workbook.md#NewFile)
   * [打開](workbook.md#OpenFile)
+  * [打開數據流](workbook.md#OpenReader)
   * [儲存](workbook.md#Save)
   * [另存為](workbook.md#SaveAs)
   * [新建工作表](workbook.md#NewSheet)

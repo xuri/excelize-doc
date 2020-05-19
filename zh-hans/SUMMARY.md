@@ -11,6 +11,7 @@
 * [工作簿](workbook.md)
   * [创建](workbook.md#NewFile)
   * [打开](workbook.md#OpenFile)
+  * [打开数据流](workbook.md#OpenReader)
   * [保存](workbook.md#Save)
   * [另存为](workbook.md#SaveAs)
   * [新建工作表](workbook.md#NewSheet)

@@ -60,9 +60,3 @@ Briefly describe the problem you are having in a few paragraphs.
 ** Environment details (OS, Microsoft Excel&trade; version, physical, etc.): **
 
 ---
-
-## Sponsor Excelize Development
-
-If you are an individual user and have enjoyed the productivity of using Excelize, consider donating as a sign of appreciation - like buying me coffee once in a while.
-
-<a href="https://www.paypal.me/xuri" title="Donate with Paypal" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Donate with Paypal"></a>

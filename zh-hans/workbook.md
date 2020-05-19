@@ -16,6 +16,61 @@ func OpenFile(filename string) (*File, error)
 
 使用 `OpenFile` 打开已有 Excel 文档。
 
+## 打开数据流 {#OpenReader}
+
+```go
+func OpenReader(r io.Reader) (*File, error)
+```
+
+OpenReader 从 `io.Reader` 读取数据流。
+
+下面的例子中，我们创建一个简单的 HTTP 服务器接收上传的电子表格文档，向接收到的电子表格文档添加新工作表，并返回下载响应:
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func process(w http.ResponseWriter, req *http.Request) {
+    file, _, err := req.FormFile("file")
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    defer file.Close()
+    f, err := excelize.OpenReader(file)
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    f.NewSheet("NewSheet")
+    w.Header().Set("Content-Disposition", "attachment; filename=Book1.xlsx")
+    w.Header().Set("Content-Type", req.Header.Get("Content-Type"))
+    if _, err := f.WriteTo(w); err != nil {
+        fmt.Fprintf(w, err.Error())
+    }
+    return
+}
+
+func main() {
+    http.HandleFunc("/process", process)
+    http.ListenAndServe(":8090", nil)
+}
+```
+
+使用 cURL 进行测试:
+
+```bash
+curl --location --request GET 'http://127.0.0.1:8090/process' \
+--form 'file=@/tmp/template.xlsx' -O -J
+curl: Saved to filename 'Book1.xlsx'
+```
+
 ## 保存 {#Save}
 
 ```go

@@ -60,9 +60,3 @@ Briefly describe the problem you are having in a few paragraphs.
 ** Environment details (OS, Microsoft Excel&trade; version, physical, etc.): **
 
 ---
-
-## 스폰서 Excelize 개발
-
-개인 사용자이고 Excelize 를 사용하는 생산성을 즐겼다면 가끔 커피를 사는 것과 같이 감사의 표시로 기부하는 것이 좋습니다.
-
-<a href="https://www.paypal.me/xuri" title="Paypal 로 기부하기" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Paypal 로 기부하기"></a>

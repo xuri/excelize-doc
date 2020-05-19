@@ -16,6 +16,61 @@ func OpenFile(filename string) (*File, error)
 
 既存の Excel 文書を `OpenFile` で開きます。
 
+## データストリームを開く {#OpenReader}
+
+```go
+func OpenReader(r io.Reader) (*File, error)
+```
+
+OpenReaderは `io.Reader` からデータストリームを読み取り、入力されたスプレッドシートファイルを返します。
+
+たとえば、アップロードテンプレートを処理するHTTPサーバーを作成してから、新しいワークシートが追加された応答ダウンロードファイルを作成します:
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
+
+func process(w http.ResponseWriter, req *http.Request) {
+    file, _, err := req.FormFile("file")
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    defer file.Close()
+    f, err := excelize.OpenReader(file)
+    if err != nil {
+        fmt.Fprintf(w, err.Error())
+        return
+    }
+    f.NewSheet("NewSheet")
+    w.Header().Set("Content-Disposition", "attachment; filename=Book1.xlsx")
+    w.Header().Set("Content-Type", req.Header.Get("Content-Type"))
+    if _, err := f.WriteTo(w); err != nil {
+        fmt.Fprintf(w, err.Error())
+    }
+    return
+}
+
+func main() {
+    http.HandleFunc("/process", process)
+    http.ListenAndServe(":8090", nil)
+}
+```
+
+cURLを使用してテストします:
+
+```bash
+curl --location --request GET 'http://127.0.0.1:8090/process' \
+--form 'file=@/tmp/template.xlsx' -O -J
+curl: Saved to filename 'Book1.xlsx'
+```
+
 ## 保存 {#Save}
 
 ```go
