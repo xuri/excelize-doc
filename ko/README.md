@@ -9,7 +9,7 @@ Excelize 는 순수 Go로 작성된 라이브러리로 XLSX / XLSM / XLTM 파일
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.2.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 문서 업데이트 시간: 2020 년 5 월 19 일
+- 문서 업데이트 시간: 2020 년 5 월 20 일
 
 ## 프로젝트 미션
 
@@ -25,10 +25,10 @@ Excelize 의 목표는 OOXML (Office Open XML) 표준을 준수하는 xlsx 파�
 
 회사 나 제품이 Excelize 도 사용하고 있다면 <a href="mailto: xuri.me@gmail.com?Subject=Please add our company in Excelize Introduction page&amp;Body=Hello%2C%20this%20is%20%3Cyour%20name%3E%20from%20%3Cyour%20company%20name%3E.%0AWe%20are%20using%20Excelize%20and%20will%20be%20proud%20to%20add%20our%20company%20name%20to%20Excelize%20Introduction%20page.%0APlease%20see%20attachment%20for%20our%20logo.%20%3CBe%20sure%20to%20include%20logo%20in%20attachment%3E%0A" title="로고 보내주기">로고 보내주기</a>.
 
-<a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img height="65" src="../images/slack.svg" alt="Excelize Slack Channel"></a>
+<a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img style="margin-top: 25px;" height="60" src="../images/slack.svg" alt="Excelize Slack Channel"></a>
 
 ## 스폰서 Excelize 개발
 
 개인 사용자이고 Excelize 를 사용하는 생산성을 즐겼다면 가끔 커피를 사는 것과 같이 감사의 표시로 기부하는 것이 좋습니다.
 
-<a href="https://www.paypal.me/xuri" title="Paypal 로 기부하기" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Paypal 로 기부하기"></a>
+<a href="https://www.paypal.me/xuri" title="Paypal 로 기부하기" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Paypal 로 기부하기"></a>

@@ -9,7 +9,7 @@ Excelize est une bibliothèque écrite en pure Go fournissant un ensemble de fon
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Dernière version: [v2.2.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Heure de mise à jour du document: 19 Mai 2020
+- Heure de mise à jour du document: 20 Mai 2020
 
 ## Mission du projet
 
@@ -25,10 +25,10 @@ Dans certains cas, nous devons manipuler des documents Excel à travers des prog
 
 Si votre entreprise ou produit utilise également Excelize, bienvenue <a href="mailto: xuri.me@gmail.com?Subject=Please add our company in Excelize Introduction page&amp;Body=Hello%2C%20this%20is%20%3Cyour%20name%3E%20from%20%3Cyour%20company%20name%3E.%0AWe%20are%20using%20Excelize%20and%20will%20be%20proud%20to%20add%20our%20company%20name%20to%20Excelize%20Introduction%20page.%0APlease%20see%20attachment%20for%20our%20logo.%20%3CBe%20sure%20to%20include%20logo%20in%20attachment%3E%0A" title="envoyer Logo">envoyer Logo</a> à nous.
 
-<a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img height="65" src="../images/slack.svg" alt="Excelize Slack Channel"></a>
+<a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img style="margin-top: 25px;" height="60" src="../images/slack.svg" alt="Excelize Slack Channel"></a>
 
 ## Parrainer Excelize Development
 
 Si vous êtes un utilisateur individuel et que vous avez apprécié la productivité de l'utilisation d'Excelize, considérez le don comme un signe d'appréciation - comme l'achat de café de temps en temps.
 
-<a href="https://www.paypal.me/xuri" title="Faire un don avec Paypal" target="_blank"><img width="220" src="../images/donate@2x.png" alt="Faire un don avec Paypal"></a>
+<a href="https://www.paypal.me/xuri" title="Faire un don avec Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Faire un don avec Paypal"></a>
