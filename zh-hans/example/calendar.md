@@ -77,7 +77,7 @@ func main() {
     }
     // 设置月份单元格样式
     if monthStyle, err = f.NewStyle(&excelize.Style{
-        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Arial"},
+        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Microsoft YaHei"},
     }); err != nil {
         fmt.Println(err)
         return
@@ -89,7 +89,7 @@ func main() {
     }
     // 创建周一至周日标题行样式
     if titleStyle, err = f.NewStyle(&excelize.Style{
-        Font:      &excelize.Font{Color: "1f7f3b", Bold: true, Family: "Arial"},
+        Font:      &excelize.Font{Color: "1f7f3b", Bold: true, Family: "Microsoft YaHei"},
         Fill:      excelize.Fill{Type: "pattern", Color: []string{"E6F4EA"}, Pattern: 1},
         Alignment: &excelize.Alignment{Vertical: "center", Horizontal: "center"},
         Border:    []excelize.Border{{Type: "top", Style: 2, Color: "1f7f3b"}},
@@ -166,7 +166,7 @@ func main() {
     }
     // 创建笔记单元格样式
     if noteStyle, err = f.NewStyle(&excelize.Style{
-        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Arial"},
+        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Microsoft YaHei"},
     }); err != nil {
         fmt.Println(err)
         return

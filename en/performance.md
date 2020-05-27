@@ -168,6 +168,6 @@ The performance figures below show execution time and memory usage for worksheet
 
 ## Performance comparison of similar libs
 
-The following graph shows performance comparison of generation `12800*50` plain text matrix by the major open source Excel libs under personal computer (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB), including Go, Python, Java, PHP and NodeJS.
+The following graph shows performance comparison of generation `102400*50` plain text matrix by the major open source Excel libs under personal computer (OS: macOS Catalina version 10.15.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB), including Go, Python, Java, PHP and NodeJS.
 
-<p align="center"><img width="721" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Performance comparison of similar Excel libs"></p>
+<p align="center"><img width="688" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Performance comparison of similar Excel libs"></p>

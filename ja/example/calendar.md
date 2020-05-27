@@ -77,7 +77,7 @@ func main() {
     }
     // 「月」のフォントスタイルを定義する
     if monthStyle, err = f.NewStyle(&excelize.Style{
-        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Arial"},
+        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Microsoft YaHei"},
     }); err != nil {
         fmt.Println(err)
         return
@@ -89,7 +89,7 @@ func main() {
     }
     // 「土曜日」から「日曜日」のスタイルを定義する
     if titleStyle, err = f.NewStyle(&excelize.Style{
-        Font:      &excelize.Font{Color: "1f7f3b", Bold: true, Family: "Arial"},
+        Font:      &excelize.Font{Color: "1f7f3b", Bold: true, Family: "Microsoft YaHei"},
         Fill:      excelize.Fill{Type: "pattern", Color: []string{"E6F4EA"}, Pattern: 1},
         Alignment: &excelize.Alignment{Vertical: "center", Horizontal: "center"},
         Border:    []excelize.Border{{Type: "top", Style: 2, Color: "1f7f3b"}},
@@ -166,7 +166,7 @@ func main() {
     }
     // 「ノート」のためのフォントスタイルを定義
     if noteStyle, err = f.NewStyle(&excelize.Style{
-        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Arial"},
+        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Microsoft YaHei"},
     }); err != nil {
         fmt.Println(err)
         return

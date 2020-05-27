@@ -168,6 +168,6 @@
 
 ## 相關 Excel 開源類庫性能對比
 
-下圖展示了 Go, Python, Java, PHP 和 NodeJS 語言中主要 Excel 開源類庫，基於普通個人計算機 (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB) 生成 `50` 列 `12800` 行純文本儲存格的性能表現。
+下圖展示了 Go, Python, Java, PHP 和 NodeJS 語言中主要 Excel 開源類庫，基於普通個人計算機 (OS: macOS Catalina version 10.15.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB) 生成 `50` 列 `102400` 行純文本儲存格的性能表現。
 
-<p align="center"><img width="721" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="相關 Excel 開源類庫性能對比"></p>
+<p align="center"><img width="688" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="相關 Excel 開源類庫性能對比"></p>

@@ -168,6 +168,6 @@
 
 ## Сравнение производительности похожих библиотек
 
-На следующем рисунке показаны основные библиотеки Excel с открытым исходным кодом на языках Go, Python, Java, PHP и NodeJS, основанные на обычном персональном компьютере (OS: macOS Mojave version 10.14.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB) Генерирует производительность строки `50` строки `12800` ячеек простого текста.
+На следующем рисунке показаны основные библиотеки Excel с открытым исходным кодом на языках Go, Python, Java, PHP и NodeJS, основанные на обычном персональном компьютере (OS: macOS Catalina version 10.15.4, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB) Генерирует производительность строки `50` строки `102400` ячеек простого текста.
 
-<p align="center"><img width="721" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Сравнение производительности похожих библиотек"></p>
+<p align="center"><img width="688" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Сравнение производительности похожих библиотек"></p>

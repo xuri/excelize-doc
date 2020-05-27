@@ -13,7 +13,7 @@ go get github.com/360EntSecGroup-Skylar/excelize
 - [Go Modules](https://blog.golang.org/using-go-modules) でパッケージを管理している場合は、次のコマンドでインストールしてください。
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize/v2@v2.1.0
+go get github.com/360EntSecGroup-Skylar/excelize/v2
 ```
 
 ## アップグレード {#update}
