@@ -319,23 +319,51 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 
 La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée.
 
-## Obtenir toute la valeur de la cellule {#GetRows}
+## Obtenir toutes les valeurs des cellules par colonnes {#GetCols}
+
+```go
+func (f *File) GetCols(sheet string) ([][]string, error)
+```
+
+Obtient la valeur de toutes les cellules par colonnes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
+
+Par exemple, obtenez et parcourez la valeur de toutes les cellules par colonnes dans une feuille de calcul nommée `Sheet1`:
+
+```go
+cols, err := f.GetCols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for _, col := range cols {
+    for _, colCell := range col {
+        fmt.Println(colCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## Obtenir toutes les valeurs de la cellule par des lignes {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-Obtient la valeur de toutes les cellules de la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type chaîne. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
+Obtient la valeur de toutes les cellules par lignes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
 
-Par exemple, obtenez et parcourez la valeur de toutes les cellules d'une feuille de calcul appelée `Sheet1`:
+Par exemple, obtenez et parcourez la valeur de toutes les cellules par lignes sur une feuille de calcul nommée `Sheet1`:
 
 ```go
 rows, err := f.GetRows("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 for _, row := range rows {
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

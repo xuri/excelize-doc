@@ -319,23 +319,51 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 
 根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。
 
-## 获取全部单元格的值 {#GetRows}
+## 按列获取全部单元格的值 {#GetCols}
+
+```go
+func (f *File) GetCols(sheet string) ([][]string, error)
+```
+
+根据给定的工作表名（大小写敏感）按列获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。
+
+例如，按列获取并遍历输出名为 `Sheet1` 的工作表上的所有单元格的值：
+
+```go
+cols, err := f.GetCols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for _, col := range cols {
+    for _, colCell := range col {
+        fmt.Println(colCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## 按行获取全部单元格的值 {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-根据给定的工作表名（大小写敏感）获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。
+根据给定的工作表名（大小写敏感）按行获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。
 
-例如，获取并遍历输出名为 `Sheet1` 的工作表上的所有单元格的值：
+例如，按行获取并遍历输出名为 `Sheet1` 的工作表上的所有单元格的值：
 
 ```go
 rows, err := f.GetRows("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 for _, row := range rows {
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

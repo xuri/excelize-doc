@@ -355,6 +355,32 @@ GetColOutlineLevel fournit une fonction permettant d'obtenir le niveau hiérarch
 level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
+## Itérateur de colonne {#Cols}
+
+```go
+func (f *File) Cols(sheet string) (*Cols, error)
+```
+
+Cols renvoie un itérateur de colonnes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Par exemple:
+
+```go
+cols, err := f.Cols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for cols.Next() {
+    col, err := cols.Rows()
+    if err != nil {
+        fmt.Println(err)
+    }
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
 ## Row itérateur {#Rows}
 
 ```go
@@ -366,18 +392,18 @@ Rows renvoie un itérateur de lignes, utilisé pour diffuser en continu les donn
 ```go
 rows, err := f.Rows("Sheet1")
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
     return
 }
 for rows.Next() {
     row, err := rows.Columns()
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

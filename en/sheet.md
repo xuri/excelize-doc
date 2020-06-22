@@ -355,6 +355,32 @@ GetColOutlineLevel provides a function to get outline level of a single column b
 level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
+## Column iterator {#Cols}
+
+```go
+func (f *File) Cols(sheet string) (*Cols, error)
+```
+
+Cols returns a columns iterator, used for streaming reading data for a worksheet with a large data. For example:
+
+```go
+cols, err := f.Cols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for cols.Next() {
+    col, err := cols.Rows()
+    if err != nil {
+        fmt.Println(err)
+    }
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
 ## Row iterator {#Rows}
 
 ```go
@@ -366,18 +392,18 @@ Rows returns a rows iterator, used for streaming reading data for a worksheet wi
 ```go
 rows, err := f.Rows("Sheet1")
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
     return
 }
 for rows.Next() {
     row, err := rows.Columns()
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

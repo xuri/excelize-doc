@@ -143,7 +143,6 @@ func (f *File) GetSheetList() []string
 
 GetSheetList は、ワークシート、チャートシート、およびワークブックのダイアログシート名リストを取得する関数を提供します。
 
-
 ## ワークシート名を設定 {#SetSheetName}
 
 ```go
@@ -356,7 +355,33 @@ func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
-## 行イテレーター {#Rows}
+## 列イテレータ {#Cols}
+
+```go
+func (f *File) Cols(sheet string) (*Cols, error)
+```
+
+Cols は列イテレータを返します。これは、大きなデータを含むワークシートのデータをストリーミングして読み取るために使用されます。例えば：
+
+```go
+cols, err := f.Cols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for cols.Next() {
+    col, err := cols.Rows()
+    if err != nil {
+        fmt.Println(err)
+    }
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## 行イテレータ {#Rows}
 
 ```go
 func (f *File) Rows(sheet string) (*Rows, error)
@@ -367,18 +392,18 @@ Rows は行イテレータを返します。これは、大きなデータを含
 ```go
 rows, err := f.Rows("Sheet1")
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
     return
 }
 for rows.Next() {
     row, err := rows.Columns()
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

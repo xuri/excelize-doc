@@ -319,23 +319,51 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 
 根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。
 
-## 獲取全部儲存格的值 {#GetRows}
+## 按欄獲取全部儲存格的值 {#GetCols}
+
+```go
+func (f *File) GetCols(sheet string) ([][]string, error)
+```
+
+根據給定的工作表名（大小寫敏感）按欄獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
+
+例如，按欄獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
+
+```go
+cols, err := f.GetCols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for _, col := range cols {
+    for _, colCell := range col {
+        fmt.Println(colCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## 按列獲取全部儲存格的值 {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
+根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
 
-例如，獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
+例如，按列獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
 ```go
 rows, err := f.GetRows("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 for _, row := range rows {
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

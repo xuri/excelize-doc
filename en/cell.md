@@ -319,23 +319,51 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 
 The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned.
 
-## Get all cell value {#GetRows}
+## Get all cell value by cols {#GetCols}
+
+```go
+func (f *File) GetCols(sheet string) ([][]string, error)
+```
+
+Gets the value of all cells by columns on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used.
+
+For example, get and traverse the value of all cells by columns on a worksheet named `Sheet1`:
+
+```go
+cols, err := f.GetCols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for _, col := range cols {
+    for _, colCell := range col {
+        fmt.Println(colCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## Get all cell value by rows {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-Gets the value of all cells on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used.
+Gets the value of all cells by rows on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used.
 
-For example, get and traverse the value of all cells on a worksheet named `Sheet1`:
+For example, get and traverse the value of all cells by rows on a worksheet named `Sheet1`:
 
 ```go
 rows, err := f.GetRows("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 for _, row := range rows {
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

@@ -355,6 +355,32 @@ func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
+## 欄迭代器 {#Cols}
+
+```go
+func (f *File) Cols(sheet string) (*Cols, error)
+```
+
+根據給定的工作表名稱（大小寫敏感）獲取該工作表的欄迭代器。使用欄迭代器進行流式讀取遍歷儲存格：
+
+```go
+cols, err := f.Cols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for cols.Next() {
+    col, err := cols.Rows()
+    if err != nil {
+        fmt.Println(err)
+    }
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
 ## 列迭代器 {#Rows}
 
 ```go
@@ -366,18 +392,18 @@ func (f *File) Rows(sheet string) (*Rows, error)
 ```go
 rows, err := f.Rows("Sheet1")
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
     return
 }
 for rows.Next() {
     row, err := rows.Columns()
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

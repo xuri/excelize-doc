@@ -319,23 +319,51 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 
 指定されたワークシートとセルの座標に基づいてセルの値を取得し、戻り値を `string` 型に変換します。 セルの書式をセルの値に適用できる場合は、アプリの後の値が返され、それ以外の場合は元の値が返されます。
 
-## 全セル値取得 {#GetRows}
+## 列ごとにすべてのセル値を取得する {#GetCols}
+
+```go
+func (f *File) GetCols(sheet string) ([][]string, error)
+```
+
+指定されたワークシート名（大文字と小文字を区別）に基づいて、ワークシートの列ごとにすべてのセルの値を取得し、2次元配列として返されます。セルの値は `string` タイプに変換されます。 セルのフォーマットをセルの値に適用できる場合は、適用された値が使用されます。それ以外の場合は、元の値が使用されます。
+
+たとえば、`Sheet1` という名前のワークシートの列ごとにすべてのセルの値を取得してトラバースします。
+
+```go
+cols, err := f.GetCols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for _, col := range cols {
+    for _, colCell := range col {
+        fmt.Println(colCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## 行ごとにすべてのセル値を取得する {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-ワークシート上のすべてのセルの値を、指定されたワークシート名 (大文字小文字の区別) に基づいて取得し、2次元配列として返し、セルの値を `string` 型に変換します。 セルの書式設定をセルの値に適用できる場合は、アプリの後の値が使用され、それ以外の場合は元の値が使用されます。
+指定されたワークシート名（大文字と小文字を区別）に基づいて、ワークシートの行ごとにすべてのセルの値を取得し、2次元配列として返されます。セルの値は `string` タイプに変換されます。 セルのフォーマットをセルの値に適用できる場合は、適用された値が使用されます。それ以外の場合は、元の値が使用されます。
 
-たとえば、ワークシート上のすべてのセルの値を取得および走査するには、`Sheet1` という名前の出力を使用します。
+たとえば、`Sheet1` という名前のワークシートの行ごとにすべてのセルの値を取得してトラバースします。
 
 ```go
 rows, err := f.GetRows("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 for _, row := range rows {
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 
