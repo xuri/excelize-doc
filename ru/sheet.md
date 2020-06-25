@@ -355,6 +355,32 @@ GetColOutlineLevel предоставляет функцию для получе
 level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
+## Итератор столбца {#Cols}
+
+```go
+func (f *File) Cols(sheet string) (*Cols, error)
+```
+
+Cols возвращает итератор столбцов, используемый для потоковой передачи данных чтения для листа с большими данными. Например:
+
+```go
+cols, err := f.Cols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for cols.Next() {
+    col, err := cols.Rows()
+    if err != nil {
+        fmt.Println(err)
+    }
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
 ## Ряд итератора {#Rows}
 
 ```go
@@ -366,18 +392,18 @@ Rows возвращает итератор строк, используемый 
 ```go
 rows, err := f.Rows("Sheet1")
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
     return
 }
 for rows.Next() {
     row, err := rows.Columns()
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 

@@ -319,23 +319,51 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 
 셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다.
 
-## 모든 셀 값 가져 오기 {#GetRows}
+## 열로 모든 셀 값 가져 오기 {#GetCols}
+
+```go
+func (f *File) GetCols(sheet string) ([][]string, error)
+```
+
+주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 열을 기준으로 모든 셀의 값을 가져오고 2 차원 배열로 반환되며 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다.
+
+예를 들어, `Sheet1` 이라는 워크 시트에서 열을 기준으로 모든 셀의 값을 가져 오십시오.
+
+```go
+cols, err := f.GetCols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for _, col := range cols {
+    for _, colCell := range col {
+        fmt.Println(colCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
+## 행으로 모든 셀 값 가져 오기 {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-셀값이 `string` 유형으로 변환되는 2차원 배열로 반환되는 지정된 워크시트 이름(대/소문자 구분)을 기반으로 워크시트의 모든 셀 값을 가져옵니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 사용되며 그렇지 않으면 원래 값이 사용됩니다.
+주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 모든 셀 값을 행 단위로 가져옵니다. 2 차원 배열로 반환되며, 여기서 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다.
 
-예를 들어 `Sheet1` 이라는 워크시트에서 모든 셀의 값을 가져옵니다:
+예를 들어,` Sheet1` 이라는 워크 시트에서 모든 셀의 값을 행으로 가로지 릅니다.
 
 ```go
 rows, err := f.GetRows("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 for _, row := range rows {
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 
@@ -403,7 +431,7 @@ func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 func (f *File) AddComment(sheet, cell, format string) error
 ```
 
-AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: 작성자 및 텍스트) 을 사용하여 시트에 주석을 추가하는 방법을 제공합니다. 최대 작성자 길이는 255 이고 최대 텍스트 길이는 32512 입니다. 예를 들어 `Sheet1!$A$3` 에 주석을 추가합니다:GetComments retrieves all comments and returns a map of worksheet name to the worksheet comments.
+AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: 작성자 및 텍스트) 을 사용하여 시트에 주석을 추가하는 방법을 제공합니다. 최대 작성자 길이는 255 이고 최대 텍스트 길이는 32512 입니다. 예를 들어 `Sheet1!$A$3` 에 주석을 추가합니다:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Excel 문서에 주석 추가"></p>
 
@@ -425,7 +453,7 @@ GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크�
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식의 결과는 Office Excel 응용 프로그램에서 워크시트를 열 때 계산되며 Excelize는 현재 수식 계산 엔진을 제공하지 않으므로 수식 결과를 계산할 수 없습니다.
+셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식의 결과는 Office Excel 응용 프로그램에서 워크시트를 열 때 계산되며 Excelize 는 현재 수식 계산 엔진을 제공하지 않으므로 수식 결과를 계산할 수 없습니다.
 
 ## 셀 수식 가져 오기 {#GetCellFormula}
 

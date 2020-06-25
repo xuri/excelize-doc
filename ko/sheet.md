@@ -356,6 +356,32 @@ GetColOutlineLevel 은 지정된 워크시트 이름과 열 이름을 사용하�
 level, err := f.GetColOutlineLevel("Sheet1", "D")
 ```
 
+## 열 반복자 {#Cols}
+
+```go
+func (f *File) Cols(sheet string) (*Cols, error)
+```
+
+Cols 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍에 사용되는 열 반복자를 리턴합니다. 예를 들면 다음과 같습니다.
+
+```go
+cols, err := f.Cols("Sheet1")
+if err != nil {
+    fmt.Println(err)
+    return
+}
+for cols.Next() {
+    col, err := cols.Rows()
+    if err != nil {
+        fmt.Println(err)
+    }
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
+    }
+    fmt.Println()
+}
+```
+
 ## 행 반복기 {#Rows}
 
 ```go
@@ -367,18 +393,18 @@ Rows 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍�
 ```go
 rows, err := f.Rows("Sheet1")
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
     return
 }
 for rows.Next() {
     row, err := rows.Columns()
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     for _, colCell := range row {
-        print(colCell, "\t")
+        fmt.Println(colCell, "\t")
     }
-    println()
+    fmt.Println()
 }
 ```
 
