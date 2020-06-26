@@ -381,6 +381,30 @@ for cols.Next() {
 }
 ```
 
+### 列イテレータ - 列
+
+```go
+func (cols *Cols) Rows() ([]string, error)
+```
+
+Rows は、現在の列の行の値を返します。
+
+### 列イテレータ - トラバース
+
+```go
+func (cols *Cols) Next() bool
+```
+
+Next は、次の列が見つかった場合に `true` を返します。
+
+### 列イテレータ - エラー処理
+
+```go
+func (cols *Cols) Error() error
+```
+
+エラーが発生すると、Error は `error` を返します。
+
 ## 行イテレータ {#Rows}
 
 ```go
@@ -429,7 +453,7 @@ func (rows *Rows) Next() bool
 func (rows *Rows) Error() error
 ```
 
-次の行でエラーを探すと `error` が返されます。
+エラーが発生すると、Error は `error` を返します。
 
 ## 検索シート {#SearchSheet}
 

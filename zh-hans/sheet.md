@@ -381,6 +381,30 @@ for cols.Next() {
 }
 ```
 
+### 列迭代器 - 单列操作
+
+```go
+func (cols *Cols) Rows() ([]string, error)
+```
+
+返回当前列所有行的值。
+
+### 列迭代器 - 遍历操作
+
+```go
+func (cols *Cols) Next() bool
+```
+
+如果下一列有值存在将返回 `true`。
+
+### 列迭代器 - 错误处理
+
+```go
+func (cols *Cols) Error() error
+```
+
+当查找下一列出现错误时将返回 `error`。
+
 ## 行迭代器 {#Rows}
 
 ```go

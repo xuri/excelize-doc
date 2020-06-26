@@ -381,6 +381,30 @@ for cols.Next() {
 }
 ```
 
+### Itérateur de colonne - Colonnes
+
+```go
+func (cols *Cols) Rows() ([]string, error)
+```
+
+Rows renvoie les valeurs de ligne de la colonne actuelle.
+
+### Itérateur de colonne - Traversing
+
+```go
+func (cols *Cols) Next() bool
+```
+
+Next retournera `true` si la colonne suivante est trouvée.
+
+### Itérateur de colonne - Gestion des erreurs
+
+```go
+func (cols *Cols) Error() error
+```
+
+Error renverra l '`error` lorsque l'erreur se produit.
+
 ## Row itérateur {#Rows}
 
 ```go
@@ -413,7 +437,7 @@ for rows.Next() {
 func (rows *Rows) Columns() ([]string, error)
 ```
 
-Les colonnes renvoient les valeurs de colonne de la ligne en cours.
+Columns renvoie les valeurs de colonne de la ligne actuelle.
 
 ### Row itérateur - Traverser
 
@@ -421,7 +445,7 @@ Les colonnes renvoient les valeurs de colonne de la ligne en cours.
 func (rows *Rows) Next() bool
 ```
 
-Suivant retournera `true` si trouver l'élément de ligne suivant.
+Next retournera `true` si trouver l'élément de ligne suivant.
 
 ### Row itérateur - La gestion des erreurs
 
@@ -429,7 +453,7 @@ Suivant retournera `true` si trouver l'élément de ligne suivant.
 func (rows *Rows) Error() error
 ```
 
-L'erreur retournera le `error` lorsque l'élément de ligne suivant sera trouvé.
+Error renverra l '`error` lorsque l'erreur se produit.
 
 ## Rechercher dans la fiche de calcul {#SearchSheet}
 

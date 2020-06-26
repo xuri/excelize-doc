@@ -381,6 +381,30 @@ for cols.Next() {
 }
 ```
 
+### Column iterator - Columns
+
+```go
+func (cols *Cols) Rows() ([]string, error)
+```
+
+Rows return the current column's row values.
+
+### Column iterator - Traversing
+
+```go
+func (cols *Cols) Next() bool
+```
+
+Next will return `true` if the next column is found.
+
+### Column iterator - Error handling
+
+```go
+func (cols *Cols) Error() error
+```
+
+Error will return the `error` when the error occurs.
+
 ## Row iterator {#Rows}
 
 ```go
@@ -429,7 +453,7 @@ Next will return `true` if find the next row element.
 func (rows *Rows) Error() error
 ```
 
-Error will return the `error` when the find next row element.
+Error will return the `error` when the error occurs.
 
 ## Search Sheet {#SearchSheet}
 

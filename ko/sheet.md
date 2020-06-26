@@ -382,6 +382,30 @@ for cols.Next() {
 }
 ```
 
+### 열 반복자 - 열
+
+```go
+func (cols *Cols) Rows() ([]string, error)
+```
+
+Rows 는 현재 열 행 값을 반환합니다.
+
+### 열 반복자 - 순회
+
+```go
+func (cols *Cols) Next() bool
+```
+
+다음 열이 발견되면 Next 는 `true` 를 반환합니다.
+
+### 열 반복자 - 오류 처리
+
+```go
+func (cols *Cols) Error() error
+```
+
+Error 는 오류가 발생하면 `error` 를 반환합니다.
+
 ## 행 반복기 {#Rows}
 
 ```go
@@ -414,7 +438,7 @@ for rows.Next() {
 func (rows *Rows) Columns() ([]string, error)
 ```
 
-열은 현재 행의 열 값을 반환합니다.
+Columns 는 현재 행의 열 값을 반환합니다.
 
 ### 행 이터레이터 - 트래빙
 
@@ -422,7 +446,7 @@ func (rows *Rows) Columns() ([]string, error)
 func (rows *Rows) Next() bool
 ```
 
-다음 다음 행 요소를 찾으면 `true` 를 반환합니다.
+다음 행 요소를 찾으면 Next 는 `true` 를 리턴합니다.
 
 ### 행 이터레이터 - 오류 처리
 
@@ -430,7 +454,7 @@ func (rows *Rows) Next() bool
 func (rows *Rows) Error() error
 ```
 
-다음 행 요소를 찾을 때 오류가 `error` 를 반환합니다.
+Error 는 오류가 발생하면 `error` 를 반환합니다.
 
 ## 검색 시트 {#SearchSheet}
 
