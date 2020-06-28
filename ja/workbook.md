@@ -321,7 +321,7 @@ if err := f.SetSheetViewOptions(sheet, 0,
     excelize.ZoomScale(80),
     excelize.TopLeftCell("C3"),
 ); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 
 var zoomScale excelize.ZoomScale
@@ -329,22 +329,22 @@ fmt.Println("Default:")
 fmt.Println("- zoomScale: 80")
 
 if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 
 if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 
 fmt.Println("Used out of range value:")
 fmt.Println("- zoomScale:", zoomScale)
 
 if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 
 if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 
 fmt.Println("Used correct value:")

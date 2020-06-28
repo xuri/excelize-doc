@@ -44,7 +44,7 @@ func main() {
     f.SetActiveSheet(index)
     // Сохранить файл xlsx по данному пути
     if err := f.SaveAs("Book1.xlsx"); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```
@@ -56,28 +56,31 @@ func main() {
 ```go
 package main
 
-import "github.com/360EntSecGroup-Skylar/excelize"
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
 
 func main() {
     f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
         return
     }
     // Получить значение из ячейки по заданному имени и оси листа
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
         return
     }
-    println(cell)
     // Получить все строки в Sheet1
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
         for _, colCell := range row {
-            print(colCell, "\t")
+            fmt.Print(colCell, "\t")
         }
-        println()
+        fmt.Println()
     }
 }
 ```
@@ -104,12 +107,12 @@ func main() {
         f.SetCellValue("Sheet1", k, v)
     }
     if err := f.AddChart("Sheet1", "E1", `{"type":"col3DClustered","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"title":{"name":"Fruit 3D Clustered Column Chart"}}`); err != nil {
-        println(err.Error())
+        fmt.Println(err)
         return
     }
     // Сохранить файл xlsx по данному пути
     if err := f.SaveAs("Book1.xlsx"); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```
@@ -130,24 +133,24 @@ import (
 func main() {
     f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
         return
     }
     // Вставить картинку
     if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     // Вставка изображения в рабочий лист с масштабированием
     if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{"x_scale": 0.5, "y_scale": 0.5}`); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     // Вставьте смещение изображения в ячейке с поддержкой печати
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "print_obj": true, "lock_aspect_ratio": false, "locked": false}`); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
     // Сохраните файл xlsx с исходным путем
     if err = f.Save(); err != nil {
-        println(err.Error())
+        fmt.Println(err)
     }
 }
 ```

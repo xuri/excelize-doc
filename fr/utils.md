@@ -446,7 +446,7 @@ type: `format` - Le paramètre `format` est utilisé pour spécifier le format q
 ```go
 format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
@@ -655,6 +655,7 @@ ThemeColor a appliqué la couleur avec la valeur de teinte:
 package main
 
 import (
+    "fmt"
     "strings"
 
     "github.com/360EntSecGroup-Skylar/excelize"
@@ -663,10 +664,10 @@ import (
 func main() {
     f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
         return
     }
-    println(getCellBgColor(f, "Sheet1", "A1"))
+    fmt.Println(getCellBgColor(f, "Sheet1", "A1"))
 }
 
 func getCellBgColor(f *excelize.File, sheet, axix string) string {
@@ -742,13 +743,13 @@ AddVBAProject fournit la méthode pour ajouter le fichier `vbaProject.bin` qui c
 
 ```go
 if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 if err := f.SaveAs("macros.xlsm"); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 ```
 

@@ -78,12 +78,11 @@ func main() {
         fmt.Println(err)
         return
     }
-    println(cell)
     // 獲取 Sheet1 上所有儲存格
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
         for _, colCell := range row {
-            fmt.Printf(colCell, "\t")
+            fmt.Print(colCell, "\t")
         }
         fmt.Println()
     }

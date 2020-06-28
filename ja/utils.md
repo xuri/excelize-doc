@@ -446,7 +446,7 @@ type: `format` - `format` パラメーターは、条件付き書式基準が満
 ```go
 format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
 ```
@@ -655,6 +655,7 @@ ThemeColor は色の値を持つ色を適用しました:
 package main
 
 import (
+    "fmt"
     "strings"
 
     "github.com/360EntSecGroup-Skylar/excelize"
@@ -663,10 +664,10 @@ import (
 func main() {
     f, err := excelize.OpenFile("Book1.xlsx")
     if err != nil {
-        println(err.Error())
+        fmt.Println(err)
         return
     }
-    println(getCellBgColor(f, "Sheet1", "A1"))
+    fmt.Println(getCellBgColor(f, "Sheet1", "A1"))
 }
 
 func getCellBgColor(f *excelize.File, sheet, axix string) string {
@@ -746,13 +747,13 @@ AddVBAProject は、関数やマクロを含む `vbaProject.bin` ファイルを
 
 ```go
 err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 if err := f.SaveAs("macros.xlsm"); err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 ```
 

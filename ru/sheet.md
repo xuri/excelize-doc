@@ -425,7 +425,7 @@ for rows.Next() {
         fmt.Println(err)
     }
     for _, colCell := range row {
-        fmt.Println(colCell, "\t")
+        fmt.Print(colCell, "\t")
     }
     fmt.Println()
 }

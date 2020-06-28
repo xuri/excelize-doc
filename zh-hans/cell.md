@@ -83,7 +83,7 @@ func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```go
 style, err := f.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -97,7 +97,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -111,7 +111,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -126,7 +126,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 f.SetCellValue("Sheet1", "D7", "样式")
 style, err := f.NewStyle(`{"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"text_rotation":45,"vertical":"","wrap_text":true}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -140,7 +140,7 @@ f.SetCellValue("Sheet1", "D7", 42920.5)
 f.SetColWidth("Sheet1", "D", "D", 13)
 style, err := f.NewStyle(`{"number_format": 22}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -155,7 +155,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 f.SetCellValue("Sheet1", "D7", "Excel")
 style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -167,7 +167,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 style, err := f.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
 if err != nil {
-    println(err.Error())
+    fmt.Println(err)
 }
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
@@ -336,8 +336,8 @@ if err != nil {
     return
 }
 for _, col := range cols {
-    for _, colCell := range col {
-        fmt.Println(colCell, "\t")
+    for _, rowCell := range col {
+        fmt.Print(rowCell, "\t")
     }
     fmt.Println()
 }
@@ -361,7 +361,7 @@ if err != nil {
 }
 for _, row := range rows {
     for _, colCell := range row {
-        fmt.Println(colCell, "\t")
+        fmt.Print(colCell, "\t")
     }
     fmt.Println()
 }
