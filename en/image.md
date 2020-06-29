@@ -14,6 +14,7 @@ For example:
 package main
 
 import (
+    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"

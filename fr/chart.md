@@ -154,7 +154,11 @@ Le paramètre `combo` spécifie la création d'un graphique qui combine deux ou 
 ```go
 package main
 
-import "github.com/360EntSecGroup-Skylar/excelize"
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
 
 func main() {
     categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}

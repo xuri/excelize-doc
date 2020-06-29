@@ -14,6 +14,7 @@ func (f *File) AddPicture(sheet, cell, picture, format string) error
 package main
 
 import (
+    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"

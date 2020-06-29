@@ -31,7 +31,11 @@ Voici un exemple d'utilisation minimale qui créera le fichier XLSX:
 ```go
 package main
 
-import "github.com/360EntSecGroup-Skylar/excelize"
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
 
 func main() {
     f := excelize.NewFile()
@@ -95,7 +99,11 @@ Avec Excelize, la génération et la gestion des graphiques est aussi simple que
 ```go
 package main
 
-import "github.com/360EntSecGroup-Skylar/excelize"
+import (
+    "fmt"
+
+    "github.com/360EntSecGroup-Skylar/excelize"
+)
 
 func main() {
     categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
@@ -124,6 +132,7 @@ func main() {
 package main
 
 import (
+    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"

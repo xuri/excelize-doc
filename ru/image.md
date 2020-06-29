@@ -14,6 +14,7 @@ AddPicture предоставляет способ добавления изоб
 package main
 
 import (
+    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"

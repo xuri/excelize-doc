@@ -14,6 +14,7 @@ AddPicture 는 주어진 그림 형식 집합(예: 오프셋, 축척, 종횡비 
 package main
 
 import (
+    "fmt"
     _ "image/gif"
     _ "image/jpeg"
     _ "image/png"
