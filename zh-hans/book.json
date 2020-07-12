@@ -1,6 +1,7 @@
 {
     "title": "Excelize 简体字文档",
     "author": "xuri",
+    "description": "Go 语言编写的用于操作 Office Excel 文档基础库",
     "language": "zh-hans",
     "plugins": [
         "sharing",
@@ -27,5 +28,20 @@
     "styles":
     {
         "website": "styles/website.css"
+    },
+    "pdf":
+    {
+        "fontSize": 10,
+        "pageNumbers": false,
+        "paperSize": "a4",
+        "margin":
+        {
+            "right": 0,
+            "left": 0,
+            "top": 0,
+            "bottom": 0
+        },
+        "headerTemplate": null,
+        "footerTemplate": null
     }
 }

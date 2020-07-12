@@ -32,5 +32,20 @@
         {
             "files": []
         }
+    },
+    "pdf":
+    {
+        "fontSize": 10,
+        "pageNumbers": false,
+        "paperSize": "a4",
+        "margin":
+        {
+            "right": 0,
+            "left": 0,
+            "top": 0,
+            "bottom": 0
+        },
+        "headerTemplate": null,
+        "footerTemplate": null
     }
 }

@@ -81,7 +81,39 @@ SetCellStyle предоставляет функцию добавления ат
 - Пример 1, создайте границы ячейки `D7` на` Sheet1`:
 
 ```go
-style, err := f.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
+style, err := f.NewStyle(`{
+    "border": [
+    {
+        "type": "left",
+        "color": "0000FF",
+        "style": 3
+    },
+    {
+        "type": "top",
+        "color": "00FF00",
+        "style": 4
+    },
+    {
+        "type": "bottom",
+        "color": "FFFF00",
+        "style": 5
+    },
+    {
+        "type": "right",
+        "color": "FF0000",
+        "style": 6
+    },
+    {
+        "type": "diagonalDown",
+        "color": "A020F0",
+        "style": 7
+    },
+    {
+        "type": "diagonalUp",
+        "color": "A020F0",
+        "style": 8
+    }]
+}`)
 if err != nil {
     fmt.Println(err)
 }
@@ -124,7 +156,20 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "样式")
-style, err := f.NewStyle(`{"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"text_rotation":45,"vertical":"","wrap_text":true}}`)
+style, err := f.NewStyle(`{
+    "alignment":
+    {
+        "horizontal": "center",
+        "ident": 1,
+        "justify_last_line": true,
+        "reading_order": 0,
+        "relative_indent": 1,
+        "shrink_to_fit": true,
+        "text_rotation": 45,
+        "vertical": "",
+        "wrap_text": true
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
@@ -153,7 +198,16 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
+style, err := f.NewStyle(`{
+    "font":
+    {
+        "bold": true,
+        "italic": true,
+        "family": "Times New Roman",
+        "size": 36,
+        "color": "#777777"
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
@@ -185,7 +239,8 @@ SetCellHyperLink предоставляет функцию для установ
 - Пример 1, добавление внешней ссылки на ячейку `A3` на листе с именем `Sheet1`:
 
 ```go
-err := f.SetCellHyperLink("Sheet1", "A3", "https://github.com/360EntSecGroup-Skylar/excelize", "External")
+err := f.SetCellHyperLink("Sheet1", "A3",
+    "https://github.com/360EntSecGroup-Skylar/excelize", "External")
 // Задайте стиль шрифта и подчеркивания для ячейки
 style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)

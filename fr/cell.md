@@ -81,7 +81,39 @@ SetCellStyle fournit la fonction pour ajouter l'attribut de style pour les cellu
 - Exemple 1, créez une bordure de la cellule `D7` sur `Sheet1`:
 
 ```go
-style, err := f.NewStyle(`{"border":[{"type":"left","color":"0000FF","style":3},{"type":"top","color":"00FF00","style":4},{"type":"bottom","color":"FFFF00","style":5},{"type":"right","color":"FF0000","style":6},{"type":"diagonalDown","color":"A020F0","style":7},{"type":"diagonalUp","color":"A020F0","style":8}]}`)
+style, err := f.NewStyle(`{
+    "border": [
+    {
+        "type": "left",
+        "color": "0000FF",
+        "style": 3
+    },
+    {
+        "type": "top",
+        "color": "00FF00",
+        "style": 4
+    },
+    {
+        "type": "bottom",
+        "color": "FFFF00",
+        "style": 5
+    },
+    {
+        "type": "right",
+        "color": "FF0000",
+        "style": 6
+    },
+    {
+        "type": "diagonalDown",
+        "color": "A020F0",
+        "style": 7
+    },
+    {
+        "type": "diagonalUp",
+        "color": "A020F0",
+        "style": 8
+    }]
+}`)
 if err != nil {
     fmt.Println(err)
 }
@@ -124,7 +156,20 @@ La cellule `D7` est définie avec un remplissage solide.
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Style")
-style, err := f.NewStyle(`{"alignment":{"horizontal":"center","ident":1,"justify_last_line":true,"reading_order":0,"relative_indent":1,"shrink_to_fit":true,"text_rotation":45,"vertical":"","wrap_text":true}}`)
+style, err := f.NewStyle(`{
+    "alignment":
+    {
+        "horizontal": "center",
+        "ident": 1,
+        "justify_last_line": true,
+        "reading_order": 0,
+        "relative_indent": 1,
+        "shrink_to_fit": true,
+        "text_rotation": 45,
+        "vertical": "",
+        "wrap_text": true
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
@@ -153,7 +198,16 @@ La cellule `D7` est définie sur le format de l'heure. Notez que lorsque la larg
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{"font":{"bold":true,"italic":true,"family":"Times New Roman","size":36,"color":"#777777"}}`)
+style, err := f.NewStyle(`{
+    "font":
+    {
+        "bold": true,
+        "italic": true,
+        "family": "Times New Roman",
+        "size": 36,
+        "color": "#777777"
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
@@ -185,7 +239,8 @@ SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellul
 - Exemple 1, ajout d'un lien externe à la cellule `A3` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-err := f.SetCellHyperLink("Sheet1", "A3", "https://github.com/360EntSecGroup-Skylar/excelize", "External")
+err := f.SetCellHyperLink("Sheet1", "A3",
+    "https://github.com/360EntSecGroup-Skylar/excelize", "External")
 // Définir le style de police et de soulignement pour la cellule
 style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)

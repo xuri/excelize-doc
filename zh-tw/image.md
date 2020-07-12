@@ -29,11 +29,25 @@ func main() {
         fmt.Println(err)
     }
     // 插入帶有縮放比例和超鏈接的圖片
-    if err := f.AddPicture("Sheet1", "D2", "image.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`); err != nil {
+    if err := f.AddPicture("Sheet1", "D2", "image.png", `{
+        "x_scale": 0.5,
+        "y_scale": 0.5,
+        "hyperlink": "#Sheet2!D8",
+        "hyperlink_type": "Location"
+    }`); err != nil {
         fmt.Println(err)
     }
     // 插入圖片，並設定圖片的外部超鏈接、打印和位置屬性
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
+        "x_offset": 15,
+        "y_offset": 10,
+        "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize",
+        "hyperlink_type": "External",
+        "print_obj": true,
+        "lock_aspect_ratio": false,
+        "locked": false,
+        "positioning": "oneCell"
+    }`); err != nil {
         fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {

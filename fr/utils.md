@@ -21,7 +21,14 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="Ajouter une table avec le jeu de formats"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
+err := f.AddTable("Sheet2", "F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
 ```
 
 Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques et doivent définir les données de ligne d'en-tête de la table avant d'appeler la fonction AddTable. Plusieurs tables coordonnent des zones qui ne peuvent pas avoir d'intersection.
@@ -457,20 +464,60 @@ Excel spécifie certains formats par défaut à utiliser avec la mise en forme c
 
 ```go
 // Format rose pour mauvais conditionnel.
-format1, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format1, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 
 // Format jaune clair pour neutre conditionnel.
-format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
+format2, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9B5713"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEEAA0"],
+        "pattern": 1
+    }
+}`)
 
 // Le format vert clair pour le bon conditionnel.
-format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
+format3, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#09600B"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#C7EECF"],
+        "pattern": 1
+    }
+}`)
 ```
 
 type: `minimum` - Le paramètre `minimum` est utilisé pour définir la valeur limite inférieure lorsque le `critère` est entre `between` ou `not between`.
 
 ```go
 // Highlight cells rules: between...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": "between",
+    "format": %d,
+    "minimum": "6",
+    "maximum": "8"
+}]`, format))
 ```
 
 type: `maximum` - Le paramètre `maximum` est utilisé pour définir la valeur limite supérieure lorsque les critères sont entre `between` ou `not between`. Voir l'exemple précédent.
@@ -479,31 +526,59 @@ type: `average` - Le type `average` est utilisé pour spécifier le format condi
 
 ```go
 // Haut/Bas règles: Au-dessus de la moyenne ...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": true
+}]`, format1))
 
 // THaut/Bas règles: Au-dessous de la moyenne ...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
+f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": false
+}]`, format2))
 ```
 
 type: `duplicate` - The `duplicate` type is used to highlight duplicate cells in a range:
 
 ```go
 // Mettez en surbrillance les règles relatives aux cellules: Valeurs en double ...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "duplicate",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `unique` - Le type `unique` est utilisé pour mettre en évidence des cellules individuelles dans une gamme:
 
 ```go
 // Mettez en surbrillance les règles des cellules: pas égal à ...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "unique",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `top` - Le type `top` est utilisé pour spécifier les n premières valeurs en nombre ou en pourcentage dans une plage:
 
 ```go
 // THaut/Bas règles: Top 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 Les critères peuvent être utilisés pour indiquer qu'une condition de pourcentage est requise:
@@ -516,7 +591,15 @@ type: `2_color_scale` - Le type `2_color_scale` est utilisé pour spécifier le 
 
 ```go
 // Échelles de couleurs: 2 couleurs.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "2_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 Ce type conditionnel peut être modifié avec `min_type`, `max_type`, `min_value`, `max_value`, `min_color` et `max_color`, voir ci-dessous.
@@ -525,7 +608,17 @@ type: `3_color_scale` - Le type `3_color_scale` est utilisé pour spécifier le 
 
 ```go
 // Échelles de couleurs: 3 couleurs.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 Ce type conditionnel peut être modifié avec `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` et `max_color`, voir ci-dessous.
@@ -564,7 +657,17 @@ max|Maximum (for `max_type` only)
 
 ```go
 // Échelles de couleurs: 3 couleurs.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "B1:B10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 `mid_color` - Utilisé pour `3_color_scale`. Pareil que `min_color`, voir au dessus.
@@ -618,7 +721,20 @@ Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="Colonne gelée"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 1,
+    "y_split": 0,
+    "top_left_cell": "B1",
+    "active_pane": "topRight",
+    "panes": [
+    {
+        "sqref": "K16",
+        "active_cell": "K16",
+        "pane": "topRight"
+    }]
+}`)
 ```
 
 Exemple 2: geler les lignes 1 à 9 dans la feuille Sheet1 et définir les plages de cellules actives sur `Sheet1!A11:XFD11`:
@@ -626,7 +742,20 @@ Exemple 2: geler les lignes 1 à 9 dans la feuille Sheet1 et définir les plages
 <p align="center"><img width="769" src="./images/setpans_02.png" alt="Geler les colonnes et définir les plages de cellules actives"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 0,
+    "y_split": 9,
+    "top_left_cell": "A34",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "A11:XFD11",
+        "active_cell": "A11",
+        "pane": "bottomLeft"
+    }]
+}`)
 ```
 
 Exemple 3: créer des volets fractionnés dans `Sheet1` et définir la cellule active sur  `Sheet1!J60`:
@@ -634,7 +763,34 @@ Exemple 3: créer des volets fractionnés dans `Sheet1` et définir la cellule a
 <p align="center"><img width="737" src="./images/setpans_03.png" alt="Créer des volets divisés"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": false,
+    "split": true,
+    "x_split": 3270,
+    "y_split": 1800,
+    "top_left_cell": "N57",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "I36",
+        "active_cell": "I36"
+    },
+    {
+        "sqref": "G33",
+        "active_cell": "G33",
+        "pane": "topRight"
+    },
+    {
+        "sqref": "J60",
+        "active_cell": "J60",
+        "pane": "bottomLeft"
+    },
+    {
+        "sqref": "O60",
+        "active_cell": "O60",
+        "pane": "bottomRight"
+    }]
+}`)
 ```
 
 Exemple 4, dégeler et supprimer tous les volets sur `Sheet1`:

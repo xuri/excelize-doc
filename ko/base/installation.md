@@ -105,8 +105,12 @@ import (
 )
 
 func main() {
-    categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
-    values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+    categories := map[string]string{
+        "A2": "Small", "A3": "Normal", "A4": "Large",
+        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+    values := map[string]int{
+        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2,
+        "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
     for k, v := range categories {
         f.SetCellValue("Sheet1", k, v)
@@ -114,7 +118,29 @@ func main() {
     for k, v := range values {
         f.SetCellValue("Sheet1", k, v)
     }
-    if err := f.AddChart("Sheet1", "E1", `{"type":"col3DClustered","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"title":{"name":"Fruit 3D Clustered Column Chart"}}`); err != nil {
+    if err := f.AddChart("Sheet1", "E1", `{
+        "type": "col3DClustered",
+        "series": [
+        {
+            "name": "Sheet1!$A$2",
+            "categories": "Sheet1!$B$1:$D$1",
+            "values": "Sheet1!$B$2:$D$2"
+        },
+        {
+            "name": "Sheet1!$A$3",
+            "categories": "Sheet1!$B$1:$D$1",
+            "values": "Sheet1!$B$3:$D$3"
+        },
+        {
+            "name": "Sheet1!$A$4",
+            "categories": "Sheet1!$B$1:$D$1",
+            "values": "Sheet1!$B$4:$D$4"
+        }],
+        "title":
+        {
+            "name": "Fruit 3D Clustered Column Chart"
+        }
+    }`); err != nil {
         fmt.Println(err)
         return
     }
@@ -150,11 +176,20 @@ func main() {
         fmt.Println(err)
     }
     // 워크시트에 그림을 삽입 하 고 그림의 확대/축소 배율을 설정 합니다
-    if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{"x_scale": 0.5, "y_scale": 0.5}`); err != nil {
+    if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{
+        "x_scale": 0.5,
+        "y_scale": 0.5
+    }`); err != nil {
         fmt.Println(err)
     }
     // 워크시트에 그림을 삽입 하 고 그림의 인쇄 속성을 설정 합니다
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "print_obj": true, "lock_aspect_ratio": false, "locked": false}`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
+        "x_offset": 15,
+        "y_offset": 10,
+        "print_obj": true,
+        "lock_aspect_ratio": false,
+        "locked": false
+    }`); err != nil {
         fmt.Println(err)
     }
     // 파일 저장

@@ -21,7 +21,14 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="書式設定を使用したテーブルの追加"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
+err := f.AddTable("Sheet2", "F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
 ```
 
 テーブルは、ヘッダーを含む少なくとも2行でなければならないことに注意してください。 ヘッダーセルには文字列が含まれ、一意である必要があり、AddTable 関数を呼び出す前にテーブルのヘッダー行データを設定する必要があります。複数のテーブルは、交差できないエリアを調整します。
@@ -457,20 +464,60 @@ Excel では、条件付き書式設定で使用する既定の形式がいく�
 
 ```go
 // 不適切な条件付きのローズ形式。
-format1, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format1, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 
 // ニュートラル条件のライトイエロー形式。
-format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
+format2, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9B5713"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEEAA0"],
+        "pattern": 1
+    }
+}`)
 
 // 良好な条件付きの薄緑色の形式。
-format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
+format3, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#09600B"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#C7EECF"],
+        "pattern": 1
+    }
+}`)
 ```
 
 type: `minimum` - `minimum` パラメーターは、`criteria` が `between` または `not between` でない場合に、より低い制限値を設定するために使用されます。
 
 ```go
 // Highlight cells rules: between...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": "between",
+    "format": %d,
+    "minimum": "6",
+    "maximum": "8"
+}]`, format))
 ```
 
 type: `maximum` - `maximum` パラメータは、条件が `between` または `not between` の場合に、上限制限値を設定するために使用されます。前の例を参照してください。
@@ -479,31 +526,59 @@ type: `average` - `average` タイプは、Office Excel の "平均" スタイ�
 
 ```go
 // Top/Bottom rules: Above Average...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": true
+}]`, format1))
 
 // Top/Bottom rules: Below Average...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
+f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": false
+}]`, format2))
 ```
 
 type: `duplicate` - `duplicate` タイプは、範囲内の重複セルを強調表示するために使用されます:
 
 ```go
 // Highlight cells rules: Duplicate Values...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "duplicate",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `unique` - `unique` タイプは、範囲内の一意のセルを強調表示するために使用されます:
 
 ```go
 // Highlight cells rules: Not Equal To...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "unique",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `top` - `top` 型は、範囲内の数値またはパーセンテージで上位 n 値を指定するために使用されます:
 
 ```go
 // Top/Bottom rules: Top 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 条件は、パーセント条件が必要であることを示すために使用できます:
@@ -516,7 +591,15 @@ type: `2_color_scale` - `2_color_scale` タイプは、Excel の "2 色スケー
 
 ```go
 // Color scales: 2 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "2_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 この条件付き型は、`min_type`、`max_type`、`min_value`、`max_value`、`min_color`、および `max_color` で変更できます，以下を参照してください。
@@ -525,7 +608,17 @@ type: `3_color_scale` - `3_color_scale` タイプは、Excel の "3 色スケー
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 この条件付き型は、`min_type`、`mid_type`、`max_type`、`min_value`、`mid_value`、`max_value`、`min_color`、`mid_color` および `max_color` で変更できます，以下を参照してください。
@@ -564,7 +657,17 @@ max|Maximum (for `max_type` only)
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "B1:B10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 `mid_color` - `3_color_scale` に使用されます。`min_color` と同じ, 上記を参照してください。
@@ -618,7 +721,20 @@ split (Split)|ペインは分割されますが、固定されません。この
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="フリーズされた列"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 1,
+    "y_split": 0,
+    "top_left_cell": "B1",
+    "active_pane": "topRight",
+    "panes": [
+    {
+        "sqref": "K16",
+        "active_cell": "K16",
+        "pane": "topRight"
+    }]
+}`)
 ```
 
 例 2, `Sheet1` の行 1 - 9 をフリーズし、`Sheet1!A11:XFD11` でアクティブなセル範囲を設定します:
@@ -626,7 +742,20 @@ f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="列をフリーズし、アクティブなセル範囲を設定する"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 0,
+    "y_split": 9,
+    "top_left_cell": "A34",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "A11:XFD11",
+        "active_cell": "A11",
+        "pane": "bottomLeft"
+    }]
+}`)
 ```
 
 例 3, `Sheet1` で分割ペインを作成し、アクティブセルを `Sheet1!J60` に設定します:
@@ -634,7 +763,34 @@ f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_
 <p align="center"><img width="778" src="./images/setpans_03.png" alt="分割ペインの作成"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": false,
+    "split": true,
+    "x_split": 3270,
+    "y_split": 1800,
+    "top_left_cell": "N57",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "I36",
+        "active_cell": "I36"
+    },
+    {
+        "sqref": "G33",
+        "active_cell": "G33",
+        "pane": "topRight"
+    },
+    {
+        "sqref": "J60",
+        "active_cell": "J60",
+        "pane": "bottomLeft"
+    },
+    {
+        "sqref": "O60",
+        "active_cell": "O60",
+        "pane": "bottomRight"
+    }]
+}`)
 ```
 
 例 4, `Sheet1` 上のすべてのペインのフリーズ解除と削除:

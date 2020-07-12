@@ -68,7 +68,8 @@ import (
 func main() {
     f := excelize.NewFile()
     // 시트에 일부 데이터 생성
-    month := []string{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    month := []string{"Jan", "Feb", "Mar", "Apr", "May",
+        "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
     year := []int{2017, 2018, 2019}
     types := []string{"Meat", "Dairy", "Beverages", "Produce"}
     region := []string{"East", "West", "North", "South"}
@@ -83,10 +84,14 @@ func main() {
     if err := f.AddPivotTable(&excelize.PivotTableOption{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
-        Rows:            []excelize.PivotTableField{{Data: "Month"}, {Data: "Year"}},
-        Filter:          []excelize.PivotTableField{{Data: "Region"}},
-        Columns:         []excelize.PivotTableField{{Data: "Type"}},
-        Data:            []excelize.PivotTableField{{Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+        Rows: []excelize.PivotTableField{
+            {Data: "Month"}, {Data: "Year"}},
+        Filter: []excelize.PivotTableField{
+            {Data: "Region"}},
+        Columns: []excelize.PivotTableField{
+            {Data: "Type"}},
+        Data: []excelize.PivotTableField{
+            {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
     }); err != nil {
         fmt.Println(err)
     }

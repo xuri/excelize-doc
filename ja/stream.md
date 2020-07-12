@@ -29,7 +29,8 @@ styleID, err := file.NewStyle(`{"font":{"color":"#777777"}}`)
 if err != nil {
     fmt.Println(err)
 }
-if err := streamWriter.SetRow("A1", []interface{}{excelize.Cell{StyleID: styleID, Value: "Data"}}); err != nil {
+if err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{StyleID: styleID, Value: "Data"}}); err != nil {
     fmt.Println(err)
 }
 for rowID := 2; rowID <= 102400; rowID++ {

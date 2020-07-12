@@ -29,11 +29,25 @@ func main() {
         fmt.Println(err)
     }
     // Insert a picture scaling in the cell with location hyperlink.
-    if err := f.AddPicture("Sheet1", "D2", "image.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`); err != nil {
+    if err := f.AddPicture("Sheet1", "D2", "image.png", `{
+        "x_scale": 0.5,
+        "y_scale": 0.5,
+        "hyperlink": "#Sheet2!D8",
+        "hyperlink_type": "Location"
+    }`); err != nil {
         fmt.Println(err)
     }
     // Insert a picture offset in the cell with external hyperlink, printing and positioning support.
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
+        "x_offset": 15,
+        "y_offset": 10,
+        "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize",
+        "hyperlink_type": "External",
+        "print_obj": true,
+        "lock_aspect_ratio": false,
+        "locked": false,
+        "positioning": "oneCell"
+    }`); err != nil {
         fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {

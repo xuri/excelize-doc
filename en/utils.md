@@ -21,7 +21,14 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="Add table with format set"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
+err := f.AddTable("Sheet2", "F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
 ```
 
 Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique, and must set the header row data of the table before calling the AddTable function. Multiple tables coordinate areas that can't have an intersection.
@@ -457,20 +464,60 @@ Excel specifies some default formats to be used with conditional formatting. The
 
 ```go
 // Rose format for bad conditional.
-format1, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format1, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 
 // Light yellow format for neutral conditional.
-format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
+format2, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9B5713"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEEAA0"],
+        "pattern": 1
+    }
+}`)
 
 // Light green format for good conditional.
-format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
+format3, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#09600B"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#C7EECF"],
+        "pattern": 1
+    }
+}`)
 ```
 
 type: `minimum` - The `minimum` parameter is used to set the lower limiting value when the `criteria` is either `between` or `not between`.
 
 ```go
 // Highlight cells rules: between...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": "between",
+    "format": %d,
+    "minimum": "6",
+    "maximum": "8"
+}]`, format))
 ```
 
 type: `maximum` - The `maximum` parameter is used to set the upper limiting value when the criteria is either `between` or `not between`. See the previous example.
@@ -479,31 +526,59 @@ type: `average` - The `average` type is used to specify Office Excel's "Average"
 
 ```go
 // Top/Bottom rules: Above Average...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": true
+}]`, format1))
 
 // Top/Bottom rules: Below Average...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
+f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": false
+}]`, format2))
 ```
 
 type: `duplicate` - The `duplicate` type is used to highlight duplicate cells in a range:
 
 ```go
 // Highlight cells rules: Duplicate Values...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "duplicate",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `unique` - The `unique` type is used to highlight unique cells in a range:
 
 ```go
 // Highlight cells rules: Not Equal To...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "unique",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `top` - The `top` type is used to specify the top n values by number or percentage in a range:
 
 ```go
 // Top/Bottom rules: Top 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 The criteria can be used to indicate that a percentage condition is required:
@@ -516,7 +591,15 @@ type: `2_color_scale` - The `2_color_scale` type is used to specify Excel's "2 C
 
 ```go
 // Color scales: 2 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "2_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 This conditional type can be modified with `min_type`, `max_type`, `min_value`, `max_value`, `min_color` and `max_color`, see below.
@@ -525,7 +608,17 @@ type: `3_color_scale` - The `3_color_scale` type is used to specify Excel's "3 C
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 This conditional type can be modified with `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` and `max_color`, see below.
@@ -564,7 +657,17 @@ max|Maximum (for `max_type` only)
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "B1:B10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 `mid_color` - Used for `3_color_scale`. Same as `min_color`, see above.
@@ -618,7 +721,20 @@ Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="Frozen column"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 1,
+    "y_split": 0,
+    "top_left_cell": "B1",
+    "active_pane": "topRight",
+    "panes": [
+    {
+        "sqref": "K16",
+        "active_cell": "K16",
+        "pane": "topRight"
+    }]
+}`)
 ```
 
 Example 2: freeze rows 1 to 9 in the Sheet1 and set the active cell ranges on `Sheet1!A11:XFD11`:
@@ -626,7 +742,20 @@ Example 2: freeze rows 1 to 9 in the Sheet1 and set the active cell ranges on `S
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="Freeze columns and set active cell ranges"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 0,
+    "y_split": 9,
+    "top_left_cell": "A34",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "A11:XFD11",
+        "active_cell": "A11",
+        "pane": "bottomLeft"
+    }]
+}`)
 ```
 
 Example 3: create split panes in the `Sheet1` and set the active cell on `Sheet1!J60`:
@@ -634,7 +763,34 @@ Example 3: create split panes in the `Sheet1` and set the active cell on `Sheet1
 <p align="center"><img width="775" src="./images/setpans_03.png" alt="Create split panes"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": false,
+    "split": true,
+    "x_split": 3270,
+    "y_split": 1800,
+    "top_left_cell": "N57",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "I36",
+        "active_cell": "I36"
+    },
+    {
+        "sqref": "G33",
+        "active_cell": "G33",
+        "pane": "topRight"
+    },
+    {
+        "sqref": "J60",
+        "active_cell": "J60",
+        "pane": "bottomLeft"
+    },
+    {
+        "sqref": "O60",
+        "active_cell": "O60",
+        "pane": "bottomRight"
+    }]
+}`)
 ```
 
 Example 4, unfreeze and remove all panes on `Sheet1`:

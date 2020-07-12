@@ -29,11 +29,25 @@ func main() {
         fmt.Println(err)
     }
     // 위치 하이퍼링크가 있는 셀에 그림 배율을 삽입합니다.
-    if err := f.AddPicture("Sheet1", "D2", "image.png", `{"x_scale": 0.5, "y_scale": 0.5, "hyperlink": "#Sheet2!D8", "hyperlink_type": "Location"}`); err != nil {
+    if err := f.AddPicture("Sheet1", "D2", "image.png", `{
+        "x_scale": 0.5,
+        "y_scale": 0.5,
+        "hyperlink": "#Sheet2!D8",
+        "hyperlink_type": "Location"
+    }`); err != nil {
         fmt.Println(err)
     }
     // 외부 하이퍼링크, 인쇄 및 위치 지정 지원이 있는 셀에 그림 오프셋을 삽입합니다.
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
+        "x_offset": 15,
+        "y_offset": 10,
+        "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize",
+        "hyperlink_type": "External",
+        "print_obj": true,
+        "lock_aspect_ratio": false,
+        "locked": false,
+        "positioning": "oneCell"
+    }`); err != nil {
         fmt.Println(err)
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {

@@ -21,7 +21,14 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="형식 집합으로 테이블 추가"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{"table_name":"table","table_style":"TableStyleMedium2", "show_first_column":true,"show_last_column":true,"show_row_stripes":false,"show_column_stripes":true}`)
+err := f.AddTable("Sheet2", "F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
 ```
 
 표는 머리글을 포함하여 두 줄 이상이어야합니다. 헤더 셀은 문자열을 포함해야하며 고유해야하며 AddTable 함수를 호출하기 전에 테이블의 헤더 행 데이터를 설정해야합니다. 여러 테이블은 교차점이없는 영역을 조정합니다.
@@ -457,20 +464,60 @@ Excel 은 조건부 서식에 사용할 일부 기본 형식을 지정합니다.
 
 ```go
 // 나쁜 조건부 장미 형식입니다.
-format1, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format1, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 
 // 중립 조건부에 대한 밝은 노란색 형식입니다.
-format2, err = f.NewConditionalStyle(`{"font":{"color":"#9B5713"},"fill":{"type":"pattern","color":["#FEEAA0"],"pattern":1}}`)
+format2, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9B5713"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEEAA0"],
+        "pattern": 1
+    }
+}`)
 
 // 좋은 조건부에 대한 밝은 녹색 형식입니다.
-format3, err = f.NewConditionalStyle(`{"font":{"color":"#09600B"},"fill":{"type":"pattern","color":["#C7EECF"],"pattern":1}}`)
+format3, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#09600B"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#C7EECF"],
+        "pattern": 1
+    }
+}`)
 ```
 
 type: `minimum` - 최소 매개변수는 `criteria` 가 `between` 또는 `not between` 일 때 하한 값을 설정하는 데 사용됩니다.
 
 ```go
 // Highlight cells rules: between...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":"between","format":%d,"minimum":"6","maximum":"8"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": "between",
+    "format": %d,
+    "minimum": "6",
+    "maximum": "8"
+}]`, format))
 ```
 
 type: `maximum` - `maximum` 매개변수는 기준이 `between` 또는 `not between` 일 때 상한 값을 설정하는 데 사용됩니다. 이전 예제를 참조하십시오.
@@ -479,31 +526,59 @@ type: `average` - `average` 형식은 Office Excel 의 "Average" 스타일 조�
 
 ```go
 // Top/Bottom rules: Above Average...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": true}]`, format1))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": true
+}]`, format1))
 
 // Top/Bottom rules: Below Average...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[{"type":"average","criteria":"=","format":%d, "above_average": false}]`, format2))
+f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
+{
+    "type": "average",
+    "criteria": "=",
+    "format": %d,
+    "above_average": false
+}]`, format2))
 ```
 
 type: `duplicate` - `duplicate` 유형은 범위의 중복 셀을 강조 표시하는 데 사용됩니다:
 
 ```go
 // Highlight cells rules: Duplicate Values...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"duplicate","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "duplicate",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `unique` - 고유 유형은 범위의 고유한 셀을 강조 표시하는 데 사용됩니다:
 
 ```go
 // Highlight cells rules: Not Equal To...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"unique","criteria":"=","format":%d}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "unique",
+    "criteria": "=",
+    "format": %d
+}]`, format))
 ```
 
 type: `top` - `top` 형식은 범위의 숫자 또는 백분율로 상위 n 값을 지정하는 데 사용됩니다:
 
 ```go
 // Top/Bottom rules: Top 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 기준은 백분율 조건이 필요하다는 것을 나타내는 데 사용할 수 있습니다:
@@ -516,7 +591,15 @@ type: `2_color_scale` - `2_color_scale` 형식은 Excel의 "2 색 배율" 스타
 
 ```go
 // Color scales: 2 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"2_color_scale","criteria":"=","min_type":"min","max_type":"max","min_color":"#F8696B","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "2_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 이 조건부 형식은 `min_type`, `max_type`, `min_value`, `max_value`, `min_color` 및 `max_color` 로 수정할 수 있습니다. 아래를 참조하십시오.
@@ -525,7 +608,17 @@ type: `3_color_scale` - `3_color_scale` 형식은 Excel 의 "3 색 배율" 스�
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "A1:A10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 이 조건부 형식은 `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` 및 `max_color` 로 수정할 수 있습니다. 아래를 참조하십시오.
@@ -564,7 +657,17 @@ max|Maximum (for `max_type` only)
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[{"type":"3_color_scale","criteria":"=","min_type":"min","mid_type":"percentile","max_type":"max","min_color":"#F8696B","mid_color":"#FFEB84","max_color":"#63BE7B"}]`)
+f.SetConditionalFormat("Sheet1", "B1:B10", `[
+{
+    "type": "3_color_scale",
+    "criteria": "=",
+    "min_type": "min",
+    "mid_type": "percentile",
+    "max_type": "max",
+    "min_color": "#F8696B",
+    "mid_color": "#FFEB84",
+    "max_color": "#63BE7B"
+}]`)
 ```
 
 `mid_color` - `3_color_scale` 에 사용. `min_color` 와 동일, 위의 참조.
@@ -619,7 +722,20 @@ split (Split)|창은 분할되지만 고정되지는 않습니다. 이 상태에
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="고정 된 열"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_left_cell":"B1","active_pane":"topRight","panes":[{"sqref":"K16","active_cell":"K16","pane":"topRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 1,
+    "y_split": 0,
+    "top_left_cell": "B1",
+    "active_pane": "topRight",
+    "panes": [
+    {
+        "sqref": "K16",
+        "active_cell": "K16",
+        "pane": "topRight"
+    }]
+}`)
 ```
 
 예 2: Sheet1 에서 행 1 - 9 행을 고정하고 `Sheet1!A11:XFD11` 에서 활성 셀 범위를 설정합니다:
@@ -627,7 +743,20 @@ f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":1,"y_split":0,"top_
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="열을 고정하고 활성 셀 범위를 설정합니다"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_left_cell":"A34","active_pane":"bottomLeft","panes":[{"sqref":"A11:XFD11","active_cell":"A11","pane":"bottomLeft"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": true,
+    "split": false,
+    "x_split": 0,
+    "y_split": 9,
+    "top_left_cell": "A34",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "A11:XFD11",
+        "active_cell": "A11",
+        "pane": "bottomLeft"
+    }]
+}`)
 ```
 
 예 3: `Sheet1` 에서 분할 창을 만들고 `Sheet1!J60` 에서 활성 셀을 설정합니다:
@@ -635,7 +764,34 @@ f.SetPanes("Sheet1", `{"freeze":true,"split":false,"x_split":0,"y_split":9,"top_
 <p align="center"><img width="775" src="./images/setpans_03.png" alt="분할 창 만들기"></p>
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":true,"x_split":3270,"y_split":1800,"top_left_cell":"N57","active_pane":"bottomLeft","panes":[{"sqref":"I36","active_cell":"I36"},{"sqref":"G33","active_cell":"G33","pane":"topRight"},{"sqref":"J60","active_cell":"J60","pane":"bottomLeft"},{"sqref":"O60","active_cell":"O60","pane":"bottomRight"}]}`)
+f.SetPanes("Sheet1", `{
+    "freeze": false,
+    "split": true,
+    "x_split": 3270,
+    "y_split": 1800,
+    "top_left_cell": "N57",
+    "active_pane": "bottomLeft",
+    "panes": [
+    {
+        "sqref": "I36",
+        "active_cell": "I36"
+    },
+    {
+        "sqref": "G33",
+        "active_cell": "G33",
+        "pane": "topRight"
+    },
+    {
+        "sqref": "J60",
+        "active_cell": "J60",
+        "pane": "bottomLeft"
+    },
+    {
+        "sqref": "O60",
+        "active_cell": "O60",
+        "pane": "bottomRight"
+    }]
+}`)
 ```
 
 예 4, 고정을 해제 하 고 `Sheet1` 에 있는 모든 창을 제거:
