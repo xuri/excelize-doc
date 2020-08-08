@@ -439,23 +439,52 @@ less than or equal to|<=
 `value`: 값은 일반적으로 `criteria` 매개 변수와 함께 사용되어 셀 데이터가 평가되는 규칙을 설정합니다:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 `value` 속성은 셀 참조일 수도 있습니다:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "$C$1"
+}]`, format))
 ```
 
 type: `format` - 조건부 서식 기준이 충족될 때 셀에 적용되는 형식을 지정하는 데 `format` 매개 변수가 사용됩니다. 형식은 셀 형식과 동일한 방식으로 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 메서드를 사용하여 만들어집니다:
 
 ```go
-format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 참고: Excel 에서 조건부 형식은 기존 셀 형식 위에 중첩되며 모든 셀 형식 속성을 수정할 수 있는 것은 아닙니다. 조건부 형식으로 수정할 수 없는 속성은 글꼴 이름, 글꼴 크기, 초중문자 및 하위 스크립트, 대각선 테두리, 모든 정렬 속성 및 모든 보호 속성입니다.
@@ -584,7 +613,14 @@ f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
 기준은 백분율 조건이 필요하다는 것을 나타내는 데 사용할 수 있습니다:
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6",
+    "percent": true
+}]`, format))
 ```
 
 type: `2_color_scale` - `2_color_scale` 형식은 Excel의 "2 색 배율" 스타일 조건부 형식을 지정하는 데 사용됩니다:
@@ -629,7 +665,14 @@ type: `data_bar` - `data_bar` 형식은 Excel 의 "Data Bar" 스타일 조건부
 
 ```go
 // Data Bars: Gradient Fill.
-f.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
+f.SetConditionalFormat("Sheet1", "K1:K10", `[
+{
+    "type": "data_bar",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "bar_color": "#638EC6"
+}]`)
 ```
 
 사용 가능한 `min/mid/max` 유형은 다음과 같습니다:
@@ -843,7 +886,8 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
                 2: children[3].SrgbClr.Val,
                 3: children[2].SrgbClr.Val,
             }
-            return strings.TrimPrefix(excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
+            return strings.TrimPrefix(
+                excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
         }
         srgbClr := children[*fgColor.Theme].SrgbClr.Val
         return strings.TrimPrefix(excelize.ThemeColor(srgbClr, fgColor.Tint), "FF")

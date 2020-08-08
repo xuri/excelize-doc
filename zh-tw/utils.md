@@ -434,23 +434,52 @@ less than or equal to|<=
 `value`：該值通常與 `criteria` 參數一起使用，可以用確定的值作為設定儲存格條件式格式的條件參數：
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 `value` 屬性也可以是儲存格引用：
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "$C$1"
+}]`, format))
 ```
 
 類別：`format` - `format` 參數用於指定滿足條件式格式標準時將應用於儲存格的格式。該參數可以通過 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 方法來創建：
 
 ```go
-format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 注意：在 Office Excel 中，條件式格式疊加在現有儲存格格式上，並非所有儲存格格式屬性都可以修改。無法在條件式格式中修改的屬性包括：字型名稱、字型大小、上標和下標、對角邊框、所有對齊屬性和所有保護屬性。
@@ -579,7 +608,14 @@ f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
 設定帶有百分比條件的條件式格式：
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6",
+    "percent": true
+}]`, format))
 ```
 
 類別：`2_color_scale` - 用於設定帶有「雙色刻度」的「色階樣式」條件式格式：
@@ -624,7 +660,14 @@ f.SetConditionalFormat("Sheet1", "A1:A10", `[
 
 ```go
 // 資料條：漸變填滿
-f.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
+f.SetConditionalFormat("Sheet1", "K1:K10", `[
+{
+    "type": "data_bar",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "bar_color": "#638EC6"
+}]`)
 ```
 
 參數 `min/mid/max_types` 可選值列表:
@@ -837,7 +880,8 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
                 2: children[3].SrgbClr.Val,
                 3: children[2].SrgbClr.Val,
             }
-            return strings.TrimPrefix(excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
+            return strings.TrimPrefix(
+                excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
         }
         srgbClr := children[*fgColor.Theme].SrgbClr.Val
         return strings.TrimPrefix(excelize.ThemeColor(srgbClr, fgColor.Tint), "FF")

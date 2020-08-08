@@ -439,23 +439,52 @@ Excel のテキスト記述文字列は、上記の最初の列で使用する�
 `value`: この値は、通常、セル データを評価するルールを設定する `criteria` パラメーターと共に使用されます:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 `value` プロパティは、セル参照にすることもできます:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "$C$1"
+}]`, format))
 ```
 
 type: `format` - `format` パラメーターは、条件付き書式基準が満たされたときにセルに適用される形式を指定するために使用されます。この形式は、セル形式と同じ方法で [`NewConditionalStyle()`](utils.md#NewConditionalStyle) メソッドを使用して作成されます:
 
 ```go
-format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 注: Excel では、条件付き形式が既存のセル形式に重ね合わされ、すべてのセル形式のプロパティを変更することはできません。条件付き形式で変更できないプロパティは、フォント名、フォント サイズ、上付き文字と下付き文字、対角線の境界線、すべての配置プロパティ、およびすべての保護プロパティです。
@@ -584,7 +613,14 @@ f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
 条件は、パーセント条件が必要であることを示すために使用できます:
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6",
+    "percent": true
+}]`, format))
 ```
 
 type: `2_color_scale` - `2_color_scale` タイプは、Excel の "2 色スケール" スタイルの条件付き書式を指定するために使用されます:
@@ -629,7 +665,14 @@ type: `data_bar` - `data_bar` タイプは、Excel の "データ バー" スタ
 
 ```go
 // Data Bars: Gradient Fill.
-f.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
+f.SetConditionalFormat("Sheet1", "K1:K10", `[
+{
+    "type": "data_bar",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "bar_color": "#638EC6"
+}]`)
 ```
 
 使用可能な `min/mid/max` タイプは次のとおりです:
@@ -842,7 +885,8 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
                 2: children[3].SrgbClr.Val,
                 3: children[2].SrgbClr.Val,
             }
-            return strings.TrimPrefix(excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
+            return strings.TrimPrefix(
+                excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
         }
         srgbClr := children[*fgColor.Theme].SrgbClr.Val
         return strings.TrimPrefix(excelize.ThemeColor(srgbClr, fgColor.Tint), "FF")

@@ -439,23 +439,52 @@ Des critères supplémentaires spécifiques aux autres types de formats conditio
 `value`: La valeur est généralement utilisée avec le paramètre `criteria` pour définir la règle selon laquelle les données de la cellule seront évaluées:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 La propriété `value` peut également être une référence de cellule:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"$C$1"}]`, format))
+f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "$C$1"
+}]`, format))
 ```
 
 type: `format` - Le paramètre `format` est utilisé pour spécifier le format qui sera appliqué à la cellule lorsque le critère de mise en forme conditionnelle est satisfait. Le format est créé en utilisant [`NewConditionalStyle()`](utils.md#NewConditionalStyle) une méthode de la même manière que les formats de cellule:
 
 ```go
-format, err = f.NewConditionalStyle(`{"font":{"color":"#9A0511"},"fill":{"type":"pattern","color":["#FEC7CE"],"pattern":1}}`)
+format, err = f.NewConditionalStyle(`{
+    "font":
+    {
+        "color": "#9A0511"
+    },
+    "fill":
+    {
+        "type": "pattern",
+        "color": ["#FEC7CE"],
+        "pattern": 1
+    }
+}`)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"cell","criteria":">","format":%d,"value":"6"}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "cell",
+    "criteria": ">",
+    "format": %d,
+    "value": "6"
+}]`, format))
 ```
 
 Remarque: Dans Excel, un format conditionnel est superposé au format de cellule existant et toutes les propriétés de format de cellule ne peuvent pas être modifiées. Les propriétés qui ne peuvent pas être modifiées dans un format conditionnel sont le nom de la police, la taille de la police, l'exposant et l'indice, les bordures diagonales, toutes les propriétés d'alignement et toutes les propriétés de protection.
@@ -584,7 +613,14 @@ f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
 Les critères peuvent être utilisés pour indiquer qu'une condition de pourcentage est requise:
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[{"type":"top","criteria":"=","format":%d,"value":"6","percent":true}]`, format))
+f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
+{
+    "type": "top",
+    "criteria": "=",
+    "format": %d,
+    "value": "6",
+    "percent": true
+}]`, format))
 ```
 
 type: `2_color_scale` - Le type `2_color_scale` est utilisé pour spécifier le format conditionnel de style Excel "2 Color Scale":
@@ -629,7 +665,14 @@ type: `data_bar` - Le type `data_bar` est utilisé pour spécifier le format con
 
 ```go
 // Barres de données: Remplissage dégradé.
-f.SetConditionalFormat("Sheet1", "K1:K10", `[{"type":"data_bar", "criteria":"=", "min_type":"min","max_type":"max","bar_color":"#638EC6"}]`)
+f.SetConditionalFormat("Sheet1", "K1:K10", `[
+{
+    "type": "data_bar",
+    "criteria": "=",
+    "min_type": "min",
+    "max_type": "max",
+    "bar_color": "#638EC6"
+}]`)
 ```
 
 Les types `min/mid/max` disponibles sont:
@@ -842,7 +885,8 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
                 2: children[3].SrgbClr.Val,
                 3: children[2].SrgbClr.Val,
             }
-            return strings.TrimPrefix(excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
+            return strings.TrimPrefix(
+                excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
         }
         srgbClr := children[*fgColor.Theme].SrgbClr.Val
         return strings.TrimPrefix(excelize.ThemeColor(srgbClr, fgColor.Tint), "FF")
