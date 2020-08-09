@@ -875,7 +875,7 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
     if err != nil {
         return err.Error()
     }
-    fillID := f.Styles.CellXfs.Xf[styleID].FillID
+    fillID := *f.Styles.CellXfs.Xf[styleID].FillID
     fgColor := f.Styles.Fills.Fill[fillID].PatternFill.FgColor
     if fgColor.Theme != nil {
         children := f.Theme.ThemeElements.ClrScheme.Children
@@ -883,13 +883,13 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
             dklt := map[int]string{
                 0: children[1].SysClr.LastClr,
                 1: children[0].SysClr.LastClr,
-                2: children[3].SrgbClr.Val,
-                3: children[2].SrgbClr.Val,
+                2: *children[3].SrgbClr.Val,
+                3: *children[2].SrgbClr.Val,
             }
             return strings.TrimPrefix(
                 excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
         }
-        srgbClr := children[*fgColor.Theme].SrgbClr.Val
+        srgbClr := *children[*fgColor.Theme].SrgbClr.Val
         return strings.TrimPrefix(excelize.ThemeColor(srgbClr, fgColor.Tint), "FF")
     }
     return strings.TrimPrefix(fgColor.RGB, "FF")
