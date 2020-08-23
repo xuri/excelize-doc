@@ -91,6 +91,7 @@
   * [의견 가져 오기](cell.md#GetComments)
   * [셀 수식 설정](cell.md#SetCellFormula)
   * [셀 수식 가져 오기](cell.md#GetCellFormula)
+  * [셀 값 계산](cell.md#CalcCellValue)
 * [차트](chart.md)
   * [차트 추가](chart.md#AddChart)
   * [차트 시트 추가](chart.md#AddChartSheet)

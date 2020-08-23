@@ -285,7 +285,7 @@ func main() {
     }
     if err := f.SetCellRichText("Sheet1", "A1", []excelize.RichTextRun{
         {
-            Text: "blod",
+            Text: "bold",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "2354e8",
@@ -517,3 +517,25 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
 Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné (sensible à la casse) et des coordonnées de cellule.
+
+## Calculer la valeur de la cellule {#CalcCellValue}
+
+```go
+func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+```
+
+CalcCellValue fournit une fonction pour obtenir la valeur de cellule calculée. Cette fonctionnalité est actuellement en cours de traitement. La formule de tableau, la formule de tableau et certaines autres formules ne sont actuellement pas prises en charge.
+
+Formules prises en charge:
+
+```text
+ABS, ACOS, ACOSH, ACOT, ACOTH, ARABIC, ASIN, ASINH, ATAN2, ATANH, BASE,
+CEILING, CEILING.MATH, CEILING.PRECISE, COMBIN, COMBINA, COS, COSH, COT,
+COTH, COUNTA, CSC, CSCH, DECIMAL, DEGREES, EVEN, EXP, FACT, FACTDOUBLE,
+FLOOR, FLOOR.MATH, FLOOR.PRECISE, GCD, INT, ISBLANK, ISERR, ISERROR,
+ISEVEN, ISNA, ISNONTEXT, ISNUMBER, ISO.CEILING, ISODD, LCM, LN, LOG,
+LOG10, MDETERM, MEDIAN, MOD, MROUND, MULTINOMIAL, MUNIT, NA, ODD, PI,
+POWER, PRODUCT, QUOTIENT, RADIANS, RAND, RANDBETWEEN, ROUND, ROUNDDOWN,
+ROUNDUP, SEC, SECH, SIGN, SIN, SINH, SQRT, SQRTPI, SUM, SUMIF, SUMSQ,
+TAN, TANH, TRUNC
+```

@@ -91,6 +91,7 @@
   * [Obtenir un commentaire](cell.md#GetComments)
   * [Formule de définition de cellule](cell.md#SetCellFormula)
   * [Obtenir la formule cellulaire](cell.md#GetCellFormula)
+  * [Calculer la valeur de la cellule](cell.md#CalcCellValue)
 * [Graphique](chart.md)
   * [Ajouter un graphique](chart.md#AddChart)
   * [Créer une feuille de graphique](chart.md#AddChartSheet)

@@ -91,6 +91,7 @@
   * [Получить комментарий](cell.md#GetComments)
   * [Установить формулу ячейки](cell.md#SetCellFormula)
   * [Получить формулу ячейки](cell.md#GetCellFormula)
+  * [Рассчитать значение ячейки](cell.md#CalcCellValue)
 * [Диаграмма](chart.md)
   * [Добавить диаграмму](chart.md#AddChart)
   * [Добавить лист диаграммы](chart.md#AddChartSheet)

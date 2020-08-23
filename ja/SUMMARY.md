@@ -91,6 +91,7 @@
   * [コメントを得る](cell.md#GetComments)
   * [セル式の設定](cell.md#SetCellFormula)
   * [セル式を取得する](cell.md#GetCellFormula)
+  * [セル値を計算する](cell.md#CalcCellValue)
 * [グラフ](chart.md)
   * [グラフを追加する](chart.md#AddChart)
   * [グラフシートを作成する](chart.md#AddChartSheet)

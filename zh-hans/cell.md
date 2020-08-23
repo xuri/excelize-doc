@@ -285,7 +285,7 @@ func main() {
     }
     if err := f.SetCellRichText("Sheet1", "A1", []excelize.RichTextRun{
         {
-            Text: "blod",
+            Text: "bold",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "2354e8",
@@ -508,7 +508,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐设置取该单元格上的公式。公式的结果会在工作表被 Office Excel 应用程序打开时计算，Excelize 目前不提供公式计算引擎，所以无法计算公式结果。
+根据给定的工作表名（大小写敏感）和单元格坐标设置取该单元格上的公式。公式的结果会在工作表被 Office Excel 应用程序打开时计算，Excelize 目前不提供公式计算引擎，所以无法计算公式结果。
 
 ## 获取公式 {#GetCellFormula}
 
@@ -517,3 +517,25 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
 根据给定的工作表名（大小写敏感）和单元格坐标获取该单元格上的公式。
+
+## 计算单元格的值 {#CalcCellValue}
+
+```go
+func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+```
+
+根据给定的工作表名（大小写敏感）和单元格坐标计算包含公式单元格的值。该方法目前正在开发中，尚未支持数组函数、表格函数和其他部分函数。
+
+支持的函数列表如下：
+
+```text
+ABS, ACOS, ACOSH, ACOT, ACOTH, ARABIC, ASIN, ASINH, ATAN2, ATANH, BASE,
+CEILING, CEILING.MATH, CEILING.PRECISE, COMBIN, COMBINA, COS, COSH, COT,
+COTH, COUNTA, CSC, CSCH, DECIMAL, DEGREES, EVEN, EXP, FACT, FACTDOUBLE,
+FLOOR, FLOOR.MATH, FLOOR.PRECISE, GCD, INT, ISBLANK, ISERR, ISERROR,
+ISEVEN, ISNA, ISNONTEXT, ISNUMBER, ISO.CEILING, ISODD, LCM, LN, LOG,
+LOG10, MDETERM, MEDIAN, MOD, MROUND, MULTINOMIAL, MUNIT, NA, ODD, PI,
+POWER, PRODUCT, QUOTIENT, RADIANS, RAND, RANDBETWEEN, ROUND, ROUNDDOWN,
+ROUNDUP, SEC, SECH, SIGN, SIN, SINH, SQRT, SQRTPI, SUM, SUMIF, SUMSQ,
+TAN, TANH, TRUNC
+```

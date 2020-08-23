@@ -91,6 +91,7 @@
   * [獲取註解](cell.md#GetComments)
   * [設定公式](cell.md#SetCellFormula)
   * [獲取公式](cell.md#GetCellFormula)
+  * [計算單元格的值](cell.md#CalcCellValue)
 * [圖表](chart.md)
   * [添加圖表](chart.md#AddChart)
   * [創建圖表工作表](chart.md#AddChartSheet)

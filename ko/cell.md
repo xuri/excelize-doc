@@ -285,7 +285,7 @@ func main() {
     }
     if err := f.SetCellRichText("Sheet1", "A1", []excelize.RichTextRun{
         {
-            Text: "blod",
+            Text: "bold",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "2354e8",
@@ -517,3 +517,25 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
 지정된 워크시트 이름(대/소문자 구분) 및 셀 좌표를 기반으로 셀에 수식을 가져옵니다.
+
+## 셀 값 계산 {#CalcCellValue}
+
+```go
+func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+```
+
+CalcCellValue 는 계산 된 셀 값을 가져 오는 함수를 제공합니다. 이 기능은 현재 작업 중입니다. 배열 수식, 테이블 수식 및 일부 다른 수식은 현재 지원되지 않습니다.
+
+지원되는 공식 :
+
+```text
+ABS, ACOS, ACOSH, ACOT, ACOTH, ARABIC, ASIN, ASINH, ATAN2, ATANH, BASE,
+CEILING, CEILING.MATH, CEILING.PRECISE, COMBIN, COMBINA, COS, COSH, COT,
+COTH, COUNTA, CSC, CSCH, DECIMAL, DEGREES, EVEN, EXP, FACT, FACTDOUBLE,
+FLOOR, FLOOR.MATH, FLOOR.PRECISE, GCD, INT, ISBLANK, ISERR, ISERROR,
+ISEVEN, ISNA, ISNONTEXT, ISNUMBER, ISO.CEILING, ISODD, LCM, LN, LOG,
+LOG10, MDETERM, MEDIAN, MOD, MROUND, MULTINOMIAL, MUNIT, NA, ODD, PI,
+POWER, PRODUCT, QUOTIENT, RADIANS, RAND, RANDBETWEEN, ROUND, ROUNDDOWN,
+ROUNDUP, SEC, SECH, SIGN, SIN, SINH, SQRT, SQRTPI, SUM, SUMIF, SUMSQ,
+TAN, TANH, TRUNC
+```

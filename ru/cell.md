@@ -285,7 +285,7 @@ func main() {
     }
     if err := f.SetCellRichText("Sheet1", "A1", []excelize.RichTextRun{
         {
-            Text: "blod",
+            Text: "bold",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "2354e8",
@@ -513,3 +513,25 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
 Получите формулу в ячейке на основе заданного имени листа (с учетом регистра) и координат ячейки.
+
+## Рассчитать значение ячейки {#CalcCellValue}
+
+```go
+func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+```
+
+CalcCellValue предоставляет функцию для получения вычисленного значения ячейки. Эта функция в настоящее время находится в рабочей обработке. Формула массива, формула таблицы и некоторые другие формулы в настоящее время не поддерживаются.
+
+Поддерживаемые формулы:
+
+```text
+ABS, ACOS, ACOSH, ACOT, ACOTH, ARABIC, ASIN, ASINH, ATAN2, ATANH, BASE,
+CEILING, CEILING.MATH, CEILING.PRECISE, COMBIN, COMBINA, COS, COSH, COT,
+COTH, COUNTA, CSC, CSCH, DECIMAL, DEGREES, EVEN, EXP, FACT, FACTDOUBLE,
+FLOOR, FLOOR.MATH, FLOOR.PRECISE, GCD, INT, ISBLANK, ISERR, ISERROR,
+ISEVEN, ISNA, ISNONTEXT, ISNUMBER, ISO.CEILING, ISODD, LCM, LN, LOG,
+LOG10, MDETERM, MEDIAN, MOD, MROUND, MULTINOMIAL, MUNIT, NA, ODD, PI,
+POWER, PRODUCT, QUOTIENT, RADIANS, RAND, RANDBETWEEN, ROUND, ROUNDDOWN,
+ROUNDUP, SEC, SECH, SIGN, SIN, SINH, SQRT, SQRTPI, SUM, SUMIF, SUMSQ,
+TAN, TANH, TRUNC
+```

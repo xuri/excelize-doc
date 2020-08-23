@@ -91,6 +91,7 @@
   * [Get comment](cell.md#GetComments)
   * [Set cell formula](cell.md#SetCellFormula)
   * [Get cell formula](cell.md#GetCellFormula)
+  * [Calculate cell value](cell.md#CalcCellValue)
 * [Chart](chart.md)
   * [Add chart](chart.md#AddChart)
   * [Add chart sheet](chart.md#AddChartSheet)
