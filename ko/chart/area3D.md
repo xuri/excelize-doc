@@ -28,7 +28,7 @@ func main() {
         "series": [
         {
             "name": "Sheet1!$A$2",
-            "categories": "",
+            "categories": "Sheet1!$B$1:$D$1",
             "values": "Sheet1!$B$2:$D$2"
         },
         {
