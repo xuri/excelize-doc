@@ -1,5 +1,13 @@
 # 통합 문서
 
+Options 는 열려있는 스프레드 시트에 대한 옵션을 정의합니다.
+
+```go
+type Options struct {
+    Password string
+}
+```
+
 ## Excel 문서 만들기 {#NewFile}
 
 ```go
@@ -11,15 +19,22 @@ func NewFile() *File
 ## 열기 {#OpenFile}
 
 ```go
-func OpenFile(filename string) (*File, error)
+func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-`OpenFile` 을 사용 하 여 기존 Excel 문서를 엽니다.
+`OpenFile` 을 사용 하 여 기존 Excel 문서를 엽니다. 예를 들어, 암호로 보호 된 스프레드 시트를 엽니 다:
+
+```go
+f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+if err != nil {
+    return
+}
+```
 
 ## 열린 데이터 스트림 {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader) (*File, error)
+func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
 OpenReader 는 `io.Reader` 에서 데이터 스트림을 읽고 채워진 스프레드 시트 파일을 반환합니다.

@@ -1,5 +1,13 @@
 # ワークブック
 
+Options は、開いているスプレッドシートのオプションを定義します。
+
+```go
+type Options struct {
+    Password string
+}
+```
+
 ## Excel 文書を作成する {#NewFile}
 
 ```go
@@ -11,15 +19,22 @@ func NewFile() *File
 ## 開く {#OpenFile}
 
 ```go
-func OpenFile(filename string) (*File, error)
+func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-既存の Excel 文書を `OpenFile` で開きます。
+既存の Excel 文書を `OpenFile` で開きます。たとえば、パスワード保護された開いているスプレッドシート:
+
+```go
+f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+if err != nil {
+    return
+}
+```
 
 ## データストリームを開く {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader) (*File, error)
+func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
 OpenReaderは `io.Reader` からデータストリームを読み取り、入力されたスプレッドシートファイルを返します。

@@ -1,5 +1,13 @@
 # Рабочая книга
 
+Options определяет параметры для открытой электронной таблицы.
+
+```go
+type Options struct {
+    Password string
+}
+```
+
 ## Создать документ Excel {#NewFile}
 
 ```go
@@ -11,15 +19,22 @@ NewFile предоставляет функцию для создания нов
 ## Открыть {#OpenFile}
 
 ```go
-func OpenFile(filename string) (*File, error)
+func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-OpenFile принимает имя файла XLSX и возвращает для него заполненную файловую структуру XLSX.
+OpenFile берет имя файла электронной таблицы и возвращает для него заполненную структуру файла электронной таблицы. Например, откройте электронную таблицу с защитой паролем:
+
+```go
+f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+if err != nil {
+    return
+}
+```
 
 ## Открытый поток данных {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader) (*File, error)
+func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
 OpenReader считывает поток данных из `io.Reader` и возвращает заполненный файл электронной таблицы.

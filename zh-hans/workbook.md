@@ -1,5 +1,13 @@
 # 工作簿
 
+Options 定义了打开电子表格的选项。
+
+```go
+type Options struct {
+    Password string
+}
+```
+
 ## 创建 {#NewFile}
 
 ```go
@@ -11,15 +19,22 @@ func NewFile() *File
 ## 打开 {#OpenFile}
 
 ```go
-func OpenFile(filename string) (*File, error)
+func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-使用 `OpenFile` 打开已有 Excel 文档。
+使用 `OpenFile` 打开已有 Excel 文档。例如，打开带有密码保护的电子表格文档:
+
+```go
+f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+if err != nil {
+    return
+}
+```
 
 ## 打开数据流 {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader) (*File, error)
+func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
 OpenReader 从 `io.Reader` 读取数据流。

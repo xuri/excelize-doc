@@ -1,5 +1,13 @@
 # Classeur
 
+Options définit les options de la feuille de calcul ouverte.
+
+```go
+type Options struct {
+    Password string
+}
+```
+
 ## Créer un document Excel {#NewFile}
 
 ```go
@@ -11,15 +19,22 @@ NewFile fournit une fonction pour créer un nouveau fichier par le modèle par d
 ## Ouvrir {#OpenFile}
 
 ```go
-func OpenFile(filename string) (*File, error)
+func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-OpenFile prend le nom d'un fichier XLSX et renvoie une structure de fichier XLSX remplie pour cela.
+OpenFile prend le nom d'un fichier de feuille de calcul et renvoie une structure de fichier de feuille de calcul remplie pour celui-ci. Par exemple, ouvrez une feuille de calcul avec une protection par mot de passe:
+
+```go
+f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+if err != nil {
+    return
+}
+```
 
 ## Flux de données ouvert {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader) (*File, error)
+func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
 OpenReader lit le flux de données depuis `io.Reader` et renvoie un fichier de feuille de calcul rempli.

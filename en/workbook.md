@@ -1,5 +1,13 @@
 # Workbook
 
+Options define the options for open spreadsheet.
+
+```go
+type Options struct {
+    Password string
+}
+```
+
 ## Create Excel document {#NewFile}
 
 ```go
@@ -11,15 +19,22 @@ NewFile provides a function to create new file by default template. The newly cr
 ## Open {#OpenFile}
 
 ```go
-func OpenFile(filename string) (*File, error)
+func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-OpenFile take the name of an spreadsheet file and returns a populated spreadsheet file struct for it.
+OpenFile take the name of an spreadsheet file and returns a populated spreadsheet file struct for it. For example, open spreadsheet with password protection:
+
+```go
+f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+if err != nil {
+    return
+}
+```
 
 ## Open data stream {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader) (*File, error)
+func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
 OpenReader read data stream from `io.Reader` and return a populated spreadsheet file.
