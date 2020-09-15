@@ -6,12 +6,25 @@ PivotTableOption напрямую отображает настройки фор
 
 ```go
 type PivotTableOption struct {
-    DataRange       string
-    PivotTableRange string
-    Rows            []PivotTableField
-    Columns         []PivotTableField
-    Data            []PivotTableField
-    Filter          []PivotTableField
+    DataRange           string
+    PivotTableRange     string
+    Rows                []PivotTableField
+    Columns             []PivotTableField
+    Data                []PivotTableField
+    Filter              []PivotTableField
+    RowGrandTotals      bool
+    ColGrandTotals      bool
+    ShowDrill           bool
+    UseAutoFormatting   bool
+    PageOverThenDown    bool
+    MergeItem           bool
+    CompactData         bool
+    ShowRowHeaders      bool
+    ShowColHeaders      bool
+    ShowRowStripes      bool
+    ShowColStripes      bool
+    ShowLastColumn      bool
+    PivotTableStyleName string
 }
 ```
 
@@ -19,9 +32,10 @@ PivotTableField непосредственно привязки параметр
 
 ```go
 type PivotTableField struct {
-    Data     string
-    Name     string
-    Subtotal string
+    Data            string
+    Name            string
+    Subtotal        string
+    DefaultSubtotal bool
 }
 ```
 
@@ -85,13 +99,19 @@ func main() {
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows: []excelize.PivotTableField{
-            {Data: "Month"}, {Data: "Year"}},
+            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"}},
         Filter: []excelize.PivotTableField{
             {Data: "Region"}},
         Columns: []excelize.PivotTableField{
-            {Data: "Type"}},
+            {Data: "Type", DefaultSubtotal: true}},
         Data: []excelize.PivotTableField{
             {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+        RowGrandTotals: true,
+        ColGrandTotals: true,
+        ShowDrill:      true,
+        ShowRowHeaders: true,
+        ShowColHeaders: true,
+        ShowLastColumn: true,
     }); err != nil {
         fmt.Println(err)
     }
