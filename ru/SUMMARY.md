@@ -196,6 +196,7 @@
   * [Транскодер персонажа](utils.md#CharsetTranscoder)
 * Примеры
   * [Календарь](example/calendar.md)
+  * [Зависимый выпадающий список](example/dependentDropList.md)
 * [Константы](constants.md)
 * [Производительность](performance.md)
 * [Вклад](contribution.md)
