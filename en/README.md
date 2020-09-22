@@ -8,8 +8,8 @@ Excelize is a library written in pure Go providing a set of functions that allow
 - Issue: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Last version: [v2.3.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Document update time: Sep 13, 2020
+- Last version: [v2.3.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Document update time: Sep 23, 2020
 
 ## Project mission
 

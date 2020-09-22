@@ -31,6 +31,8 @@ if err != nil {
 }
 ```
 
+Notez que Excelize ne prend en charge que le déchiffrement et ne prend pas en charge le chiffrement actuellement, la feuille de calcul enregistrée par [`Save()`](workbook.md#Save) et [`SaveAs()`](workbook.md#SaveAs) sera sans mot de passe non protégée.
+
 ## Flux de données ouvert {#OpenReader}
 
 ```go

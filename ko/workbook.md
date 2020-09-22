@@ -31,6 +31,8 @@ if err != nil {
 }
 ```
 
+Excelize 는 현재 암호화를 지원하지 않고 해독 만 지원하므로 [`Save()`](workbook.md#Save) 및 [`SaveAs()`](workbook.md#SaveAs) 로 저장된 스프레드 시트는 보호되지 않은 암호가 없습니다.
+
 ## 열린 데이터 스트림 {#OpenReader}
 
 ```go

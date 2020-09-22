@@ -8,8 +8,8 @@ EXCELIZE - это библиотека, написанная на чистом G
 - вопрос: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Последняя версия: [v2.3.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Время обновления документа: 13 сентябрь 2020 г.
+- Последняя версия: [v2.3.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Время обновления документа: 23 сентябрь 2020 г.
 
 ## Миссия проекта
 

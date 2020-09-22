@@ -31,6 +31,8 @@ if err != nil {
 }
 ```
 
+請注意，目前 Excelize 支持解密帶有密碼保護的電子表格檔案，但不支持加密，通過 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存後的電子表格檔案將不受密碼保護。
+
 ## 打開數據流 {#OpenReader}
 
 ```go
