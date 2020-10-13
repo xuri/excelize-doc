@@ -953,6 +953,23 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
+工作表的打印区域和打印标题设置:
+
+<p align="center"><img width="628" src="./images/page_setup_01.png" alt="工作表的打印区域和打印标题设置"></p>
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Area",
+    RefersTo: "Sheet1!$A$1:$Z$100",
+    Scope:    "Sheet1",
+})
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
+    Scope:    "Sheet1",
+})
+```
+
 ## 获取名称 {#GetDefinedName}
 
 ```go

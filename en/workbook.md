@@ -961,6 +961,23 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
+Print area and print titles settings for the worksheet:
+
+<p align="center"><img width="628" src="./images/page_setup_01.png" alt="Print area and print titles settings for the worksheet"></p>
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Area",
+    RefersTo: "Sheet1!$A$1:$Z$100",
+    Scope:    "Sheet1",
+})
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
+    Scope:    "Sheet1",
+})
+```
+
 ## Get defined name {#GetDefinedName}
 
 ```go

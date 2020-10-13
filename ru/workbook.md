@@ -957,6 +957,23 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
+Параметры области печати и заголовков печати для рабочего листа:
+
+<p align="center"><img width="755" src="./images/page_setup_01.png" alt="Параметры области печати и заголовков печати для рабочего листа"></p>
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Area",
+    RefersTo: "Sheet1!$A$1:$Z$100",
+    Scope:    "Sheet1",
+})
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
+    Scope:    "Sheet1",
+})
+```
+
 ## Получить определенное имя {#GetDefinedName}
 
 ```go

@@ -953,6 +953,23 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
+ワークシートの印刷領域と印刷タイトルの設定:
+
+<p align="center"><img width="657" src="./images/page_setup_01.png" alt="ワークシートの印刷領域と印刷タイトルの設定"></p>
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Area",
+    RefersTo: "Sheet1!$A$1:$Z$100",
+    Scope:    "Sheet1",
+})
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
+    Scope:    "Sheet1",
+})
+```
+
 ## 名前を取得する {#GetDefinedName}
 
 ```go

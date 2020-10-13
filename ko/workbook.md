@@ -957,6 +957,23 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
+워크 시트의 인쇄 영역 및 인쇄 제목 설정:
+
+<p align="center"><img width="628" src="./images/page_setup_01.png" alt="워크 시트의 인쇄 영역 및 인쇄 제목 설정"></p>
+
+```go
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Area",
+    RefersTo: "Sheet1!$A$1:$Z$100",
+    Scope:    "Sheet1",
+})
+f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
+    Scope:    "Sheet1",
+})
+```
+
 ## 이름 가져 오기 {#GetDefinedName}
 
 ```go

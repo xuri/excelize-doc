@@ -113,7 +113,7 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid, it will return an integer type value `-1`.
+GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid or sheet doesn't exist, it will return an integer type value `-1`.
 
 The obtained index can be used as a parameter to call the [`SetActiveSheet()`](workbook.md#SetActiveSheet) function when setting the workbook default worksheet.
 
