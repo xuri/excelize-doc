@@ -110,7 +110,7 @@ SaveAs provides a function to create or update to an xlsx file at the provided p
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet provides a function to create a new sheet by given worksheet name when creating a new spreadsheet file, the default sheet will be created, when you create a new file.
+NewSheet provides the function to create a new sheet by given a worksheet name and returns the index of the sheets in the workbook (spreadsheet) after it appended. Note that when creating a new spreadsheet file, the default worksheet named `Sheet1` will be created. 
 
 ## Delete worksheet {#DeleteSheet}
 

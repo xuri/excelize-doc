@@ -110,7 +110,7 @@ func (f *File) SaveAs(name string) error
 func (f *File) NewSheet(name string) int
 ```
 
-根据给定的工作表名称添加新的工作表，并返回工作表索引。新创建的工作簿将会包含一个名为 `Sheet1` 的默认工作簿。
+根据给定的工作表名称来创建新工作表，并返回工作表在工作簿中的索引。请注意，在创建新的工作簿时，将包含名为 `Sheet1` 的默认工作表。
 
 ## 删除工作表 {#DeleteSheet}
 

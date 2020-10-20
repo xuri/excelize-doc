@@ -110,7 +110,7 @@ SaveAs fournit une fonction pour créer ou mettre à jour un fichier xlsx sur le
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet fournit une fonction pour créer une nouvelle feuille par nom de feuille de calcul donné lors de la création d'un nouveau fichier XLSX, la feuille par défaut sera créée, lorsque vous créez un nouveau fichier.
+NewSheet fournit la fonction pour créer une nouvelle feuille en donnant un nom de feuille de calcul et renvoie l'index des feuilles dans le classeur (feuille de calcul) après l'ajout. Notez que lors de la création d'un nouveau fichier de feuille de calcul, la feuille de calcul par défaut nommée `Sheet1` sera créée.
 
 ## Supprimer la feuille de calcul {#DeleteSheet}
 
