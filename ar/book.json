@@ -1,0 +1,44 @@
+{
+    "title": "مستند Excelize",
+    "author": "xuri",
+    "language": "ar",
+    "plugins": [
+        "sharing",
+        "-lunr",
+        "-search",
+        "search-plus",
+        "language-picker",
+        "favicon"
+    ],
+    "pluginsConfig":
+    {
+        "favicon":
+        {
+            "shortcut": "../images/favicon.ico",
+            "bookmark": "../images/favicon.ico",
+            "appleTouch": "../images/logo_trans_300x300.png",
+            "appleTouchMore":
+            {
+                "120x120": "../images/apple-touch-icon-120x120.png",
+                "180x180": "../images/apple-touch-icon-180x180.png"
+            }
+        }
+    },
+    "styles":
+    {
+        "website": "styles/website.css"
+    },
+    "pdf":
+    {
+        "fontSize": 10,
+        "pageNumbers": false,
+        "paperSize": "a4",
+        "margin":
+        {
+            "right": 0,
+            "left": 0,
+            "top": 0,
+            "bottom": 0
+        }
+    }
+}
