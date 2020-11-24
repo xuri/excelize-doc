@@ -1,32 +1,32 @@
-# Basic Usage
+# الاستخدام الأساسي
 
-## Installation {#install}
+## التركيب {#install}
 
-Using the latest version Excelize library require to Go version 1.10 or later.
+استخدام أحدث إصدار Excelize مكتبة تتطلب الانتقال الإصدار 1.10 أو أحدث.
 
-- Installation
+- التركيب
 
 ```bash
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
-- If your package management with [Go Modules](https://blog.golang.org/using-go-modules), please install with following command.
+- إذا كانت إدارة الحزمة مع [Go Modules](https://blog.golang.org/using-go-modules)، يرجى تثبيت مع الأمر التالي.
 
 ```bash
 go get github.com/360EntSecGroup-Skylar/excelize/v2
 ```
 
-## Upgrade {#update}
+## ترقيه {#update}
 
-- Upgrade
+- ترقيه
 
 ```bash
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 
-## Create Excel document {#NewFile}
+## قم بإنشاء مستند جدول بيانات {#NewFile}
 
-Here is a minimal example usage that will create spreadsheet file:
+هنا هو الحد الأدنى من الاستخدام الأمثلة التي من شأنها أن تخلق ملف جدول البيانات:
 
 ```go
 package main
@@ -39,23 +39,23 @@ import (
 
 func main() {
     f := excelize.NewFile()
-    // Create a new sheet.
+    // إنشاء ورقة عمل جديدة.
     index := f.NewSheet("Sheet2")
-    // Set value of a cell.
+    // تعيين قيمة خلية.
     f.SetCellValue("Sheet2", "A2", "Hello world.")
     f.SetCellValue("Sheet1", "B2", 100)
-    // Set active sheet of the workbook.
+    // تعيين ورقة نشطة للمصنف.
     f.SetActiveSheet(index)
-    // Save xlsx file by the given path.
+    // حفظ ملف xlsx مع مسار الأصل.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-## Reading Excel document {#read}
+## قراءة وثيقة إكسل {#read}
 
-The following constitutes the bare to read a spreadsheet document:
+وفيما يلي يشكل عارية لقراءة وثيقة جدول:
 
 ```go
 package main
@@ -72,14 +72,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Get value from cell by given worksheet name and axis.
+    // الحصول على قيمة من الخلية حسب اسم ورقة العمل والمحور.
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
         fmt.Println(err)
         return
     }
     fmt.Println(cell)
-    // Get all the rows in the Sheet1.
+    // الحصول على جميع الصفوف في Sheet1.
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
         for _, colCell := range row {
@@ -90,11 +90,11 @@ func main() {
 }
 ```
 
-## Add chart to Excel document {#chart}
+## أضف مخططًا إلى جدول بيانات {#chart}
 
-With Excelize chart generation and management is as easy as a few lines of code. You can build charts based off data in your worksheet or generate charts without any data in your worksheet at all.
+مع Excelize إنشاء المخطط والإدارة سهلاً مثل بضعة أسطر من التعليمات البرمجية. يمكنك إنشاء مخططات استناداً إلى بيانات في ورقة العمل أو إنشاء مخططات بدون أية بيانات في ورقة العمل على الإطلاق.
 
-<p align="center"><img width="770" src="../images/base.png" alt="Add chart to Excel document"></p>
+<p align="center"><img width="770" src="../images/base.png" alt="أضف مخططًا إلى جدول بيانات"></p>
 
 ```go
 package main
@@ -107,7 +107,7 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "صغير", "A3": "عادي", "A4": "كبير", "B1": "تفاح", "C1": "برتقال", "D1": "كمثرى"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -137,20 +137,20 @@ func main() {
         }],
         "title":
         {
-            "name": "Fruit 3D Clustered Column Chart"
+            "name": "مخطط عمودي مُكدَّد ثلاثي الأبعاد"
         }
     }`); err != nil {
         fmt.Println(err)
         return
     }
-    // Save xlsx file by the given path.
+    // حفظ ملف xlsx مع مسار الأصل.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-## Add picture to Excel document {#image}
+## أضف صورة إلى جدول البيانات {#image}
 
 ```go
 package main
@@ -170,18 +170,18 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Insert a picture.
+    // إدراج صورة.
     if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
         fmt.Println(err)
     }
-    // Insert a picture to worksheet with scaling.
+    // إدراج صورة في ورقة عمل مع التحجيم.
     if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{
         "x_scale": 0.5,
         "y_scale": 0.5
     }`); err != nil {
         fmt.Println(err)
     }
-    // Insert a picture offset in the cell with printing support.
+    // إدراج إزاحة صورة في الخلية مع دعم الطباعة.
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
         "x_offset": 15,
         "y_offset": 10,
@@ -191,7 +191,7 @@ func main() {
     }`); err != nil {
         fmt.Println(err)
     }
-    // Save the xlsx file with the origin path.
+    // حفظ ملف xlsx مع مسار الأصل.
     if err = f.Save(); err != nil {
         fmt.Println(err)
     }

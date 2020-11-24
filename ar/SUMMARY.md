@@ -3,7 +3,7 @@
 * [المقدمة](README.md)
 * [الاستخدام الأساسي](base/installation.md)
   * [التركيب](base/installation.md#install)
-  * [التركيب...](base/installation.md#update)
+  * [ترقيه](base/installation.md#update)
   * [قم بإنشاء مستند جدول بيانات](base/installation.md#NewFile)
   * [قراءة وثيقة إكسل](base/installation.md#read)
   * [أضف مخططًا إلى جدول بيانات](base/installation.md#chart)
