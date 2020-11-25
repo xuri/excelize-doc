@@ -37,11 +37,11 @@ If you are an individual user and have enjoyed the productivity of using Exceliz
 
 Let us help you reach the maximum potential of your app, to make working with Excel fun. Besides offering a completely free and open source package, we can also offer support on a commercial basis：
 
-* Prioritize your issue
+- Prioritize your issue
 
 Having a bug ticket, a question or a feature request on our Github issue tracker that needs urgent attention? We are happy to give your ticket priority based on commercial support, contact us to get more details.
 
-* Technical advisory services
+- Technical advisory services
 
 Need help implementing Excelize in your application and you are on a shortage of technology or resources? We are happy to supercharge your imports and exports and can step in your team on an hourly-basis contract.
 

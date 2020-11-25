@@ -1,32 +1,32 @@
-# Basic Usage
+# Uso básico
 
-## Installation {#install}
+## Instalación {#install}
 
 Using the latest version Excelize library require to Go version 1.10 or later.
 
-- Installation
+- Instalación
 
 ```bash
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
-- If your package management with [Go Modules](https://blog.golang.org/using-go-modules), please install with the following command.
+- Si la administración de paquetes con [Go Modules](https://blog.golang.org/using-go-modules), instálelo con el siguiente comando.
 
 ```bash
 go get github.com/360EntSecGroup-Skylar/excelize/v2
 ```
 
-## Upgrade {#update}
+## Actualizar {#update}
 
-- Upgrade
+- Actualizar
 
 ```bash
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 
-## Create Excel document {#NewFile}
+## Crear una hoja de cálculo {#NewFile}
 
-Here is a minimal example usage that will create spreadsheet file:
+Este es un uso mínimo de ejemplo que creará un archivo de hoja de cálculo:
 
 ```go
 package main
@@ -39,23 +39,23 @@ import (
 
 func main() {
     f := excelize.NewFile()
-    // Create a new worksheet.
+    // Crear una nueva hoja de trabajo.
     index := f.NewSheet("Sheet2")
-    // Set value of a cell.
+    // Establecer el valor de una celda.
     f.SetCellValue("Sheet2", "A2", "Hello world.")
     f.SetCellValue("Sheet1", "B2", 100)
-    // Set the active worksheet of the workbook.
+    // Establezca la hoja de trabajo activa del libro de trabajo.
     f.SetActiveSheet(index)
-    // Save the spreadsheet by the given path.
+    // Guarde la hoja de cálculo por la ruta dada.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-## Reading Excel document {#read}
+## Lectura de hojas de cálculo {#read}
 
-The following constitutes the bare to read a spreadsheet document:
+Lo siguiente constituye el desnudo para leer un documento de hoja de cálculo:
 
 ```go
 package main
@@ -72,14 +72,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Get value from the cell by given worksheet name and axis.
+    // Obtener valor de la celda por el nombre y el eje de la hoja de trabajo dado.
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
         fmt.Println(err)
         return
     }
     fmt.Println(cell)
-    // Get all the rows in the Sheet1.
+    // Obtener todas las filas en el Sheet1.
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
         for _, colCell := range row {
@@ -90,11 +90,11 @@ func main() {
 }
 ```
 
-## Add chart to Excel document {#chart}
+## Añadir un gráfico a una hoja de cálculo {#chart}
 
-With Excelize chart generation and management is as easy as a few lines of code. You can build charts based on data in your worksheet or generate charts without any data in your worksheet at all.
+Con Excelize la generación y administración de gráficos es tan fácil como unas pocas líneas de código. Puede crear gráficos basados en datos en su hoja de trabajo o generar gráficos sin ningún dato en su hoja de trabajo en absoluto.
 
-<p align="center"><img width="770" src="../images/base.png" alt="Add chart to Excel document"></p>
+<p align="center"><img width="770" src="../images/base.png" alt="Añadir un gráfico a una hoja de cálculo"></p>
 
 ```go
 package main
@@ -107,7 +107,7 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Pequeño", "A3": "Normal", "A4": "Grande", "B1": "Manzana", "C1": "Naranja", "D1": "Pera"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -137,20 +137,20 @@ func main() {
         }],
         "title":
         {
-            "name": "Fruit 3D Clustered Column Chart"
+            "name": "Gráfico de columnas agrupadas 3D"
         }
     }`); err != nil {
         fmt.Println(err)
         return
     }
-    // Save the spreadsheet by the given path.
+    // Guarde la hoja de cálculo por la ruta dada.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-## Add picture to Excel document {#image}
+## Añadir una imagen a la hoja de cálculo {#image}
 
 ```go
 package main
@@ -170,18 +170,18 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Insert a picture.
+    // Insertar una imagen.
     if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
         fmt.Println(err)
     }
-    // Insert a picture to worksheet with scaling.
+    // Inserte una imagen en la hoja de trabajo con escalado.
     if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{
         "x_scale": 0.5,
         "y_scale": 0.5
     }`); err != nil {
         fmt.Println(err)
     }
-    // Insert a picture offset in the cell with printing support.
+    // Inserte un desplazamiento de imagen en la celda con soporte de impresión.
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
         "x_offset": 15,
         "y_offset": 10,
@@ -191,7 +191,7 @@ func main() {
     }`); err != nil {
         fmt.Println(err)
     }
-    // Save the spreadsheet with the origin path.
+    // Guarde la hoja de cálculo por la ruta dada.
     if err = f.Save(); err != nil {
         fmt.Println(err)
     }

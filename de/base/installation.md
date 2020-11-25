@@ -1,8 +1,8 @@
-# Basic Usage
+# Grundlegende Nutzung
 
 ## Installation {#install}
 
-Using the latest version Excelize library require to Go version 1.10 or later.
+Für die Verwendung der neuesten Version Excelize Bibliothek erfordern, um Version 1.10 oder höher.
 
 - Installation
 
@@ -10,7 +10,7 @@ Using the latest version Excelize library require to Go version 1.10 or later.
 go get github.com/360EntSecGroup-Skylar/excelize
 ```
 
-- If your package management with [Go Modules](https://blog.golang.org/using-go-modules), please install with the following command.
+- Wenn Ihre Paketverwaltung mit [Go Modules](https://blog.golang.org/using-go-modules), installieren Sie bitte mit dem folgenden Befehl.
 
 ```bash
 go get github.com/360EntSecGroup-Skylar/excelize/v2
@@ -24,9 +24,9 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 go get -u github.com/360EntSecGroup-Skylar/excelize
 ```
 
-## Create Excel document {#NewFile}
+## Erstellen einer Kalkulationstabelle {#NewFile}
 
-Here is a minimal example usage that will create spreadsheet file:
+Hier ist eine minimale Beispielverwendung, die eine Tabellenkalkulationsdatei erstellt:
 
 ```go
 package main
@@ -39,23 +39,23 @@ import (
 
 func main() {
     f := excelize.NewFile()
-    // Create a new worksheet.
+    // Erstellen eines neuen Arbeitsblatts.
     index := f.NewSheet("Sheet2")
-    // Set value of a cell.
+    // Festlegen des Wertes einer Zelle.
     f.SetCellValue("Sheet2", "A2", "Hello world.")
     f.SetCellValue("Sheet1", "B2", 100)
-    // Set the active worksheet of the workbook.
+    // Aktives Arbeitsblatt der Arbeitsmappe festlegen.
     f.SetActiveSheet(index)
-    // Save the spreadsheet by the given path.
+    // Speichern der Tabellenkalkulationsdatei nach dem angegebenen Pfad.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-## Reading Excel document {#read}
+## Tabellenkalkulation lesen {#read}
 
-The following constitutes the bare to read a spreadsheet document:
+Im Folgenden wird das Nackte zum Lesen eines Tabellendokuments dargestellt:
 
 ```go
 package main
@@ -72,14 +72,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Get value from the cell by given worksheet name and axis.
+    // Abrufen von Wert aus der Zelle durch angegebenen Arbeitsblattnamen und Achse.
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
         fmt.Println(err)
         return
     }
     fmt.Println(cell)
-    // Get all the rows in the Sheet1.
+    // Abrufen aller Zeilen im Sheet1.
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
         for _, colCell := range row {
@@ -90,11 +90,11 @@ func main() {
 }
 ```
 
-## Add chart to Excel document {#chart}
+## Hinzufügen eines Diagramms zur Tabellenkalkulation {#chart}
 
-With Excelize chart generation and management is as easy as a few lines of code. You can build charts based on data in your worksheet or generate charts without any data in your worksheet at all.
+Mit Excelize Diagrammgenerierung und -verwaltung ist so einfach wie ein paar Zeilen Quellcode. Sie können Diagramme basierend auf Daten in Ihrem Arbeitsblatt erstellen oder Diagramme ohne Daten in Ihrem Arbeitsblatt generieren.
 
-<p align="center"><img width="770" src="../images/base.png" alt="Add chart to Excel document"></p>
+<p align="center"><img width="770" src="../images/base.png" alt="Hinzufügen eines Diagramms zur Tabellenkalkulation"></p>
 
 ```go
 package main
@@ -107,7 +107,7 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Klein", "A3": "Normal", "A4": "Groß", "B1": "Apfel", "C1": "Orange", "D1": "Birne"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -137,20 +137,20 @@ func main() {
         }],
         "title":
         {
-            "name": "Fruit 3D Clustered Column Chart"
+            "name": "3D Cluster-Säulendiagramm"
         }
     }`); err != nil {
         fmt.Println(err)
         return
     }
-    // Save the spreadsheet by the given path.
+    // Speichern der Tabellenkalkulationsdatei nach dem angegebenen Pfad.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
 ```
 
-## Add picture to Excel document {#image}
+## Hinzufügen eines Bildes zur Tabellenkalkulation {#image}
 
 ```go
 package main
@@ -170,18 +170,18 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Insert a picture.
+    // Fügen Sie ein Bild ein.
     if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
         fmt.Println(err)
     }
-    // Insert a picture to worksheet with scaling.
+    // Fügen Sie ein Bild mit Skalierung in ein Arbeitsblatt ein.
     if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{
         "x_scale": 0.5,
         "y_scale": 0.5
     }`); err != nil {
         fmt.Println(err)
     }
-    // Insert a picture offset in the cell with printing support.
+    // Fügen Sie mit Druckunterstützung einen Bildversatz in die Zelle ein.
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
         "x_offset": 15,
         "y_offset": 10,
@@ -191,7 +191,7 @@ func main() {
     }`); err != nil {
         fmt.Println(err)
     }
-    // Save the spreadsheet with the origin path.
+    // Speichern Sie die Tabellenkalkulationsdatei mit dem Ursprungspfad.
     if err = f.Save(); err != nil {
         fmt.Println(err)
     }
