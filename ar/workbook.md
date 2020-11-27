@@ -1,6 +1,6 @@
-# Рабочая книга
+# دفتر العمل
 
-Options определяет параметры для открытой электронной таблицы.
+تحدد الخيارات الخيارات الخاصة بجدول بيانات مفتوح.
 
 ```go
 type Options struct {
@@ -8,21 +8,21 @@ type Options struct {
 }
 ```
 
-## Создать документ Excel {#NewFile}
+## قم بإنشاء جدول بيانات {#NewFile}
 
 ```go
 func NewFile() *File
 ```
 
-NewFile предоставляет функцию для создания нового файла по умолчанию. Вновь созданная рабочая книга по умолчанию будет содержать таблицу с именем `Sheet1`. Например:
+يوفر NewFile وظيفة لإنشاء ملف جديد بواسطة القالب الافتراضي. سيحتوي المصنف الذي تم إنشاؤه حديثًا بشكل افتراضي على ورقة عمل باسم `Sheet1`. فمثلا:
 
-## Открыть {#OpenFile}
+## افتح {#OpenFile}
 
 ```go
 func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-OpenFile берет имя файла электронной таблицы и возвращает для него заполненную структуру файла электронной таблицы. Например, откройте электронную таблицу с защитой паролем:
+يأخذ OpenFile اسم ملف جدول البيانات ويعيد بنية ملف جدول بيانات معبأة له. على سبيل المثال ، افتح جدول بيانات محميًا بكلمة مرور:
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
@@ -31,17 +31,17 @@ if err != nil {
 }
 ```
 
-Обратите внимание, что Excelize в настоящее время поддерживает только расшифровку и не поддерживает шифрование, электронная таблица, сохраненная с помощью [`Save()`](workbook.md#Save) и [`SaveAs()`](workbook.md#SaveAs), не будет защищена паролем.
+لاحظ أن excelize يدعم فقط فك التشفير ولا يدعم التشفير حاليًا ، وسيكون جدول البيانات المحفوظ بواسطة [`Save()`](workbook.md#Save) و [`SaveAs()`](workbook.md#SaveAs) بدون كلمة مرور غير محمية.
 
-## Открытый поток данных {#OpenReader}
+## فتح دفق البيانات {#OpenReader}
 
 ```go
 func OpenReader(r io.Reader, opt ...Options) (*File, error)
 ```
 
-OpenReader считывает поток данных из `io.Reader` и возвращает заполненный файл электронной таблицы.
+يقوم OpenReader بقراءة دفق البيانات من `io.Reader` وإرجاع ملف جدول بيانات ممتلئ.
 
-Например, создайте HTTP-сервер для обработки загружаемого шаблона, а затем загрузите ответный файл с новым рабочим листом:
+على سبيل المثال ، أنشئ خادم HTTP للتعامل مع قالب التحميل ، ثم استجابة ملف التنزيل مع إضافة ورقة عمل جديدة:
 
 ```go
 package main
@@ -80,7 +80,7 @@ func main() {
 }
 ```
 
-Тест с cURL:
+اختبار مع cURL:
 
 ```bash
 curl --location --request GET 'http://127.0.0.1:8090/process' \
@@ -88,120 +88,120 @@ curl --location --request GET 'http://127.0.0.1:8090/process' \
 curl: Saved to filename 'Book1.xlsx'
 ```
 
-## Сохранить {#Save}
+## حفظ {#Save}
 
 ```go
 func (f *File) Save() error
 ```
 
-Save предоставляет функцию для переопределения файла xlsx с исходным путем.
+يوفر Save وظيفة لتجاوز جدول البيانات بمسار الأصل.
 
-## Сохранить как {#SaveAs}
+## حفظ باسم {#SaveAs}
 
 ```go
 func (f *File) SaveAs(name string) error
 ```
 
-SaveAs предоставляет функцию для создания или обновления файла xlsx по предоставленному пути.
+يوفر SaveAs وظيفة لإنشاء أو تحديث جدول بيانات في المسار المتوفر.
 
-## Создать рабочий лист {#NewSheet}
+## قم بإنشاء ورقة عمل {#NewSheet}
 
 ```go
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet предоставляет функцию для создания нового листа по заданному имени рабочего листа и возвращает индекс листов в книге (электронной таблице) после его добавления. Обратите внимание, что при создании нового файла электронной таблицы будет создан рабочий лист по умолчанию с именем `Sheet1`.
+يوفر NewSheet وظيفة لإنشاء ورقة جديدة من خلال إعطاء اسم ورقة العمل وإرجاع فهرس الأوراق في المصنف (جدول البيانات) بعد إلحاقه. لاحظ أنه عند إنشاء ملف جدول بيانات جديد ، سيتم إنشاء ورقة العمل الافتراضية المسماة `Sheet1`.
 
-## Удалить рабочий лист {#DeleteSheet}
+## احذف ورقة العمل {#DeleteSheet}
 
 ```go
 func (f *File) DeleteSheet(name string)
 ```
 
-DeleteSheet предоставляет функцию для удаления рабочего листа в рабочей книге с помощью заданного имени листа. Используйте этот метод с осторожностью, что повлияет на изменения в ссылках, таких как формулы, диаграммы и т. Д. Если есть какое-либо ссылочное значение удаленного листа, это приведет к ошибке файла при его открытии. Эта функция будет недействительной, если останется только один лист.
+يوفر DeleteSheet وظيفة لحذف أوراق العمل في مصنف حسب اسم ورقة العمل المحدد. استخدم هذه الطريقة بحذر ، مما سيؤثر على التغييرات في المراجع مثل الصيغ والمخططات وما إلى ذلك. إذا كان هناك أي قيمة مرجعية لورقة العمل المحذوفة ، فسوف يتسبب ذلك في حدوث خطأ في الملف عند فتحه. ستكون هذه الوظيفة غير صالحة عند ترك ورقة عمل واحدة فقط.
 
-## Лист копирования {#CopySheet}
+## نسخ ورقة العمل {#CopySheet}
 
 ```go
 func (f *File) CopySheet(from, to int) error
 ```
 
-CopySheet предоставляет функцию для дублирования рабочего листа путем указания индекса источника и целевого листа. Обратите внимание, что в настоящее время не поддерживается дублирование книг, содержащих таблицы, диаграммы или изображения. Например:
+يوفر CopySheet وظيفة لتكرار ورقة العمل من خلال إعطاء فهرس ورقة العمل المصدر والهدف. لاحظ أنه لا يدعم حاليًا المصنفات المكررة التي تحتوي على جداول أو مخططات أو صور. فمثلا:
 
 ```go
-// Sheet1 уже существует...
+// Sheet1 موجود بالفعل...
 index := f.NewSheet("Sheet2")
 err := f.CopySheet(1, index)
 return err
 ```
 
-## Фон рабочего листа {#SetSheetBackground}
+## تعيين خلفية ورقة العمل {#SetSheetBackground}
 
 ```go
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground предоставляет функцию для установки фонового изображения с помощью имени рабочего листа.
+يوفر SetSheetBackground وظيفة لتعيين صورة الخلفية بواسطة اسم ورقة العمل المحدد.
 
-## Установить рабочий лист по умолчанию {#SetActiveSheet}
+## تعيين ورقة العمل الافتراضية {#SetActiveSheet}
 
 ```go
 func (f *File) SetActiveSheet(index int)
 ```
 
-SetActiveSheet предоставляет функцию для установки активного листа книги по умолчанию по заданному индексу. Обратите внимание, что активный индекс отличается от идентификатора, возвращаемого функцией [`GetSheetMap`](sheet.md#GetSheetMap). Оно должно быть больше или равно `0` и меньше общего числа листов.
+يوفر SetActiveSheet وظيفة لتعيين الورقة النشطة الافتراضية للمصنف بواسطة فهرس معين. لاحظ أن الفهرس النشط يختلف عن المعرف الذي تم إرجاعه بواسطة الوظيفة `GetSheetMap`. يجب أن يكون أكبر أو يساوي 0 وأقل من إجمالي أرقام ورقة العمل.
 
-## Получить активный индекс листа {#GetActiveSheetIndex}
+## احصل على فهرس الورقة النشط {#GetActiveSheetIndex}
 
 ```go
 func (f *File) GetActiveSheetIndex() int
 ```
 
-GetActiveSheetIndex предоставляет функцию для получения активного листа XLSX. Если не найден, активный лист вернет целое число `0`.
+يوفر GetActiveSheetIndex وظيفة للحصول على ورقة عمل نشطة من المصنف. إذا لم يتم العثور على الورقة النشطة ، فستعرض عددًا صحيحًا `0`.
 
-## Сделать лист видимым {#SetSheetVisible}
+## تعيين ورقة العمل مرئية {#SetSheetVisible}
 
 ```go
 func (f *File) SetSheetVisible(name string, visible bool) error
 ```
 
-SetSheetVisible предоставляет функцию для установки рабочего листа, видимого по заданному имени рабочего листа. Рабочая книга должна содержать хотя бы одну видимую рабочую таблицу. Если данный лист был активирован, этот параметр будет недействительным. Значения состояния листа, как определено [SheetStateValues Enum](https://docs.microsoft.com/ru-ru/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
+يوفر SetSheetVisible وظيفة لتعيين ورقة العمل مرئية من خلال اسم ورقة العمل المحدد. يجب أن يحتوي المصنف على ورقة عمل مرئية واحدة على الأقل. إذا تم تنشيط ورقة العمل المحددة ، فسيتم إبطال هذا الإعداد. قيم حالة الورقة على النحو المحدد بواسطة [SheetStateValues Enum](https://docs.microsoft.com/ar-sa/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
 
-|Лист Государственные ценности|
+|قيم حالة ورقة العمل|
 |---|
 |visible|
 |hidden|
 |veryHidden|
 
-Например, скрыть `Sheet1`:
+على سبيل المثال ، إخفاء `Sheet1`:
 
 ```go
 err := f.SetSheetVisible("Sheet1", false)
 ```
 
-## Получить рабочий лист видимым {#GetSheetVisible}
+## احصل على ورقة العمل مرئية {#GetSheetVisible}
 
 ```go
 func (f *File) GetSheetVisible(name string) bool
 ```
 
-GetSheetVisible предоставляет функцию для отображения рабочего листа по заданному имени. Например, получить видимое состояние `Sheet1`:
+يوفر GetSheetVisible وظيفة لإظهار ورقة العمل من خلال اسم ورقة العمل المحدد. على سبيل المثال ، احصل على الحالة المرئية لـ `Sheet1`:
 
 ```go
 f.GetSheetVisible("Sheet1")
 ```
 
-## Установить свойства формата листа {#SetSheetFormatPr}
+## تعيين خصائص تنسيق ورقة العمل {#SetSheetFormatPr}
 
 ```go
 func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
 ```
 
-SetSheetFormatPr предоставляет функцию для установки свойств форматирования листа.
+يوفر SetSheetFormatPr وظيفة لتعيين خصائص تنسيق ورقة العمل.
 
-Доступные Варианты:
+الخيارات المتاحة:
 
-Необязательный параметр формата | Тип
+معلمة تنسيق اختيارية |اكتب
 ---|---
 BaseColWidth | uint8
 DefaultColWidth | float64
@@ -211,9 +211,9 @@ ZeroHeight | bool
 ThickTop | bool
 ThickBottom | bool
 
-Например, сделать строки на листе по умолчанию скрытыми:
+على سبيل المثال ، اجعل صفوف ورقة العمل الافتراضية مخفية:
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Установить свойства формата листа"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="تعيين خصائص تنسيق ورقة العمل"></p>
 
 ```go
 f := excelize.NewFile()
@@ -227,17 +227,17 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-## Получить свойства формата листа {#GetSheetFormatPr}
+## احصل على خصائص تنسيق ورقة العمل {#GetSheetFormatPr}
 
 ```go
 func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
 ```
 
-GetSheetFormatPr предоставляет функцию для получения свойств форматирования листа.
+يوفر GetSheetFormatPr وظيفة للحصول على خصائص تنسيق ورقة العمل.
 
-Доступные Варианты:
+الخيارات المتاحة:
 
-Необязательный параметр формата | Тип
+معلمة تنسيق اختيارية |اكتب
 ---|---
 BaseColWidth | uint8
 DefaultColWidth | float64
@@ -247,7 +247,7 @@ ZeroHeight | bool
 ThickTop | bool
 ThickBottom | bool
 
-Например:
+فمثلا:
 
 ```go
 f := excelize.NewFile()
@@ -284,7 +284,7 @@ fmt.Println("- thickTop:", thickTop)
 fmt.Println("- thickBottom:", thickBottom)
 ```
 
-вывод:
+الحصول على الإخراج:
 
 ```text
 Defaults:
@@ -297,15 +297,17 @@ Defaults:
 - thickBottom: false
 ```
 
-## Задать свойства представления листа {#SetSheetViewOptions}
+## تعيين خصائص عرض ورقة العمل {#SetSheetViewOptions}
 
 ```go
 func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
 ```
 
-SetSheetViewOptions устанавливает параметры просмотра листа. `viewIndex` может быть отрицательным и, если это так, считается обратным (`-1` - последний вид). Доступные Варианты:
+يحدد SetSheetViewOptions خيارات عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه للخلف (`-1` هو العرض الأخير).
 
-Необязательный параметр просмотра|Тип
+الخيارات المتاحة:
+
+معلمة العرض الاختيارية |اكتب
 ---|---
 DefaultGridColor|bool
 RightToLeft|bool
@@ -315,13 +317,13 @@ ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
 
-- Пример 1:
+- مثال 1:
 
 ```go
 err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
 ```
 
-- Пример 2:
+- مثال 2:
 
 ```go
 f := excelize.NewFile()
@@ -366,7 +368,7 @@ fmt.Println("Used correct value:")
 fmt.Println("- zoomScale:", zoomScale)
 ```
 
-вывод:
+الحصول على الإخراج:
 
 ```text
 Default:
@@ -377,15 +379,15 @@ Used correct value:
 - zoomScale: 123
 ```
 
-## Получить свойства вида листа {#GetSheetViewOptions}
+## احصل على خصائص عرض ورقة العمل {#GetSheetViewOptions}
 
 ```go
 func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
-GetSheetViewOptions получает значение параметров просмотра листа. `viewIndex` может быть отрицательным, и если это так отсчитывается в обратном направлении (`-1` это последний вид). Доступные Варианты:
+يحصل GetSheetViewOptions على قيمة خيارات عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه للخلف (`-1` هو العرض الأخير). الخيارات المتاحة:
 
-Необязательный параметр просмотра|Тип
+معلمة العرض الاختيارية |اكتب
 ---|---
 DefaultGridColor|bool
 RightToLeft|bool
@@ -395,14 +397,14 @@ ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
 
-- Пример 1, чтобы получить параметры свойства сетки для последнего представления на листе с именем `Sheet1`:
+- المثال 1 ، للحصول على إعدادات خاصية خط الشبكة لطريقة العرض الأخيرة في ورقة العمل المسماة `Sheet1`:
 
 ```go
 var showGridLines excelize.ShowGridLines
 err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
 ```
 
-- Пример 2:
+- المثال 2:
 
 ```go
 f := excelize.NewFile()
@@ -472,7 +474,7 @@ fmt.Println("- showZeros:", showZeros)
 fmt.Println("- topLeftCell:", topLeftCell)
 ```
 
-вывод:
+الحصول على الإخراج:
 
 ```text
 Default:
@@ -490,24 +492,24 @@ After change:
 - topLeftCell: B2
 ```
 
-## Установить макет страницы листа {#SetPageLayout}
+## تعيين تخطيط صفحة ورقة العمل {#SetPageLayout}
 
 ```go
 func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 ```
 
-SetPageLayout предоставляет функцию для установки макета страницы листа Доступные Варианты:
+يوفر SetPageLayout وظيفة لتعيين تخطيط صفحة ورقة العمل. الخيارات المتاحة:
 
-- `PageLayoutOrientation` предоставляет метод для установки ориентации листа, по умолчанию это "portrait". Ниже показаны параметры ориентации, поддерживаемые индексным номером Excelize:
+- يوفر `PageLayoutOrientation` طريقة لتعيين اتجاه ورقة العمل ، والاتجاه الافتراضي هو "صورة". يوضح ما يلي معلمات الاتجاه التي يدعمها رقم فهرس Excelize:
 
-Параметр | Ориентация
+معامل|اتجاه
 ---|---
-OrientationPortrait|portrait
-OrientationLandscape|landscape
+OrientationPortrait|صورة
+OrientationLandscape|المناظر الطبيعيه
 
-- `PageLayoutPaperSize` предоставляет метод для установки размера бумаги на листе, по умолчанию размер листа составляет "Letter 8S × 11 дюймов". Ниже показан формат бумаги, отсортированный по номеру индекса Excelize:
+- يوفر `PageLayoutPaperSize` طريقة لتعيين حجم ورق ورقة العمل ، وحجم الورق الافتراضي لورقة العمل هو "ورق إلكتروني (8.5 بوصة في 11 بوصة)". يوضح ما يلي حجم الورق مرتبة حسب رقم فهرس Excelize:
 
-Индекс | Размер бумаги
+فهرس|حجم الورق
 ---|---
 1   | Letter paper (8.5 in. × 11 in.)
 2   | Letter small paper (8.5 in. × 11 in.)
@@ -626,7 +628,7 @@ OrientationLandscape|landscape
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- Например, установите макет страницы для `Sheet1` с альбомной ориентацией "A4 (малый) 210 × 297 мм":
+- فمثلا, ضبط تخطيط الصفحة لـ `Sheet1` مع ورق صغير بحجم A4 (210 مم × 297 مم):
 
 ```go
 f := excelize.NewFile()
@@ -646,18 +648,18 @@ if err := f.SetPageLayout(
 }
 ```
 
-## Получить макет страницы листа {#GetPageLayout}
+## احصل على تخطيط صفحة ورقة العمل {#GetPageLayout}
 
 ```go
 func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
 ```
 
-GetPageLayout предоставляет функцию для получения макета страницы рабочего листа. Доступные Варианты:
+يوفر GetPageLayout وظيفة للحصول على تخطيط صفحة ورقة العمل. الخيارات المتاحة:
 
-- `PageLayoutOrientation` предоставляет метод для получения ориентации листа
-- `PageLayoutPaperSize` предоставляет метод для получения размера листа
+- يوفر `PageLayoutOrientation` طريقة للحصول على اتجاه ورقة العمل
+- يوفر `PageLayoutPaperSize` طريقة للحصول على حجم ورق ورقة العمل
 
-- Например, получить макет страницы `Sheet1`:
+- فمثلا, الحصول على تخطيط صفحة `Sheet1`:
 
 ```go
 f := excelize.NewFile()
@@ -677,7 +679,7 @@ fmt.Printf("- orientation: %q\n", orientation)
 fmt.Printf("- paper size: %d\n", paperSize)
 ```
 
-Вывод:
+انتاج:
 
 ```text
 Defaults:
@@ -685,15 +687,15 @@ Defaults:
 - paper size: 1
 ```
 
-## Задать поля страницы листа {#SetPageMargins}
+## تعيين هوامش صفحة ورقة العمل {#SetPageMargins}
 
 ```go
 func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
 ```
 
-SetPageMargins предоставляет функцию для установки полей страницы рабочего листа. Доступные Варианты:
+يوفر SetPageMargins وظيفة لتعيين هوامش صفحة ورقة العمل. الخيارات المتاحة:
 
-Параметры|Тип
+خيارات|اكتب
 ---|---
 PageMarginBotom|float64
 PageMarginFooter|float64
@@ -702,7 +704,7 @@ PageMarginLeft|float64
 PageMarginRight|float64
 PageMarginTop|float64
 
-- Например, установите поля страницы `Sheet1`:
+- فمثلا, تعيين هوامش الصفحة لـ `Sheet1`:
 
 ```go
 f := excelize.NewFile()
@@ -720,11 +722,11 @@ if err := f.SetPageMargins(sheet,
 }
 ```
 
-## Получить поля страницы листа {#GetPageMargins}
+## احصل على هوامش صفحة ورقة العمل {#GetPageMargins}
 
-GetPageMargins предоставляет функцию для получения полей страницы рабочего листа. Доступные Варианты:
+يوفر GetPageMargins وظيفة للحصول على هوامش صفحة ورقة العمل. الخيارات المتاحة:
 
-Параметры|Тип
+خيارات|اكتب
 ---|---
 PageMarginBotom|float64
 PageMarginFooter|float64
@@ -733,7 +735,7 @@ PageMarginLeft|float64
 PageMarginRight|float64
 PageMarginTop|float64
 
-- Например, получить поля страницы `Sheet1`:
+- فمثلا, الحصول على هوامش صفحة `Sheet1`:
 
 ```go
 f := excelize.NewFile()
@@ -767,7 +769,7 @@ fmt.Println("- marginRight:", marginRight)
 fmt.Println("- marginTop:", marginTop)
 ```
 
-Вывод:
+انتاج:
 
 ```text
 Defaults:
@@ -779,143 +781,143 @@ Defaults:
 - marginTop: 0.75
 ```
 
-## Установить верхний и нижний колонтитулы {#SetHeaderFooter}
+## تعيين الرأس والتذييل {#SetHeaderFooter}
 
 ```go
 func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
 ```
 
-SetHeaderFooter предоставляет функцию установки верхних и нижних колонтитулов по заданному имени рабочего листа и управляющим символам.
+يوفر SetHeaderFooter وظيفة لتعيين الرؤوس والتذييلات من خلال اسم ورقة العمل المحددة وأحرف التحكم.
 
-Верхние и нижние колонтитулы указываются с помощью следующих полей настроек:
+يتم تحديد الرؤوس والتذييلات باستخدام حقول الإعدادات التالية:
 
-Fields           | Description
+مجالات           | وصف
 ---|---
-AlignWithMargins | Align header footer margins with page margins
-DifferentFirst   | Different first-page header and footer indicator
-DifferentOddEven | Different odd and even page headers and footers indicator
-ScaleWithDoc     | Scale header and footer with document scaling
-OddFooter        | Odd Page Footer
-OddHeader        | Odd Header
-EvenFooter       | Even Page Footer
-EvenHeader       | Even Page Header
-FirstFooter      | First Page Footer
-FirstHeader      | First Page Header
+AlignWithMargins | محاذاة هوامش تذييل الرأس مع هوامش الصفحة
+DifferentFirst   | مؤشر مختلف لرأس وتذييل الصفحة الأولىمؤشر مختلف لرأس وتذييل الصفحة الأولى
+DifferentOddEven | مؤشرات مختلفة للرؤوس والتذييلات الفردية والزوجية
+ScaleWithDoc     | مقياس الرأس والتذييل باستخدام مقياس المستند
+OddFooter        | تذييل الصفحة الفردية
+OddHeader        | رأس فردي
+EvenFooter       | حتى تذييل الصفحة
+EvenHeader       | حتى رأس الصفحة
+FirstFooter      | تذييل الصفحة الأولى
+FirstHeader      | رأس الصفحة الأولى
 
-Следующие коды форматирования могут использоваться в 6 полях строкового типа: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
+يمكن استخدام رموز التنسيق التالية في 6 حقول من نوع السلسلة: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
 
 <table>
     <thead>
         <tr>
-            <th>Formatting Code</th>
-            <th>Description</th>
+            <th>كود التنسيق</th>
+            <th>وصف</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>&amp;&amp;</code></td>
-            <td>The character &quot;&amp;&quot;</td>
+            <td>الشخصية &quot;&amp;&quot;</td>
         </tr>
         <tr>
             <td><code>&amp;font-size</code></td>
-            <td>Size of the text font, where font-size is a decimal font size in points</td>
+            <td>حجم خط النص ، حيث يكون حجم الخط هو حجم الخط العشري بالنقاط</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;font name,font type&quot;</code></td>
-            <td>A text font-name string, font name, and a text font-type string, font type</td>
+            <td>سلسلة اسم الخط النصي ، واسم الخط ، وسلسلة نوع الخط النصي ، ونوع الخط</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;-,Regular&quot;</code></td>
-            <td>Regular text format. Toggles bold and italic modes to off</td>
+            <td>تنسيق النص العادي. تبديل الوضعين الغامق والمائل إلى إيقاف التشغيل</td>
         </tr>
         <tr>
             <td><code>&amp;A</code></td>
-            <td>Current worksheet&#39;s tab name</td>
+            <td>اسم علامة تبويب ورقة العمل الحالية</td>
         </tr>
         <tr>
             <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
-            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+            <td>تنسيق نص عريض ، من إيقاف تشغيل إلى تشغيل ، أو العكس. الوضع الافتراضي معطل</td>
         </tr>
         <tr>
             <td><code>&amp;D</code></td>
-            <td>Current date</td>
+            <td>التاريخ الحالي</td>
         </tr>
         <tr>
             <td><code>&amp;C</code></td>
-            <td>Center section</td>
+            <td>قسم المركز</td>
         </tr>
         <tr>
             <td><code>&amp;E</code></td>
-            <td>Double-underline text format</td>
+            <td>تنسيق نص مزدوج التسطير</td>
         </tr>
         <tr>
             <td><code>&amp;F</code></td>
-            <td>Current workbook&#39;s file name</td>
+            <td>اسم ملف المصنف الحالي</td>
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background</td>
+            <td>كائن رسومي كخلفية</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
-            <td>Shadow text format</td>
+            <td>تنسيق نص الظل</td>
         </tr>
         <tr>
             <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
-            <td>Italic text format</td>
+            <td>تنسيق نص مائل</td>
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+            <td>لون خط النص<br>تم تحديد لون RGB على أنه RRGGBB<br>يتم تحديد لون النسق على أنه TTSNNN حيث يكون TT هو معرف لون النسق ، S إما &quot;+&quot; أو &quot;-&quot; قيمة الصبغة / الظل ، و NNN هي قيمة الصبغة / الظل</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>
-            <td>Left section</td>
+            <td>القسم الأيسر</td>
         </tr>
         <tr>
             <td><code>&amp;N</code></td>
-            <td>Total number of pages</td>
+            <td>العدد الإجمالي للصفحات</td>
         </tr>
         <tr>
             <td><code>&amp;O</code></td>
-            <td>Outline text format</td>
+            <td>تنسيق نص المخطط التفصيلي</td>
         </tr>
         <tr>
             <td><code>&amp;P[[+\|-]n]</code></td>
-            <td>Without the optional suffix, the current page number in decimal</td>
+            <td>بدون اللاحقة الاختيارية ، يكون رقم الصفحة الحالي في النظام العشري</td>
         </tr>
         <tr>
             <td><code>&amp;R</code></td>
-            <td>Right section</td>
+            <td>القسم الأيمن</td>
         </tr>
         <tr>
             <td><code>&amp;S</code></td>
-            <td>Strikethrough text format</td>
+            <td>تنسيق نص يتوسطه خط</td>
         </tr>
         <tr>
             <td><code>&amp;T</code></td>
-            <td>Current time</td>
+            <td>الوقت الحالي</td>
         </tr>
         <tr>
             <td><code>&amp;U</code></td>
-            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+            <td>تنسيق نص تسطير واحد. إذا كان وضع التسطير المزدوج قيد التشغيل ، فإن التواجد التالي في محدد القسم يقوم بتبديل وضع التسطير المزدوج إلى وضع الإيقاف ؛ وإلا ، فإنه يقوم بتبديل وضع التسطير الفردي ، من إيقاف تشغيل إلى تشغيل ، أو العكس. الوضع الافتراضي معطل</td>
         </tr>
         <tr>
             <td><code>&amp;X</code></td>
-            <td>Superscript text format</td>
+            <td>تنسيق نص مرتفع</td>
         </tr>
         <tr>
             <td><code>&amp;Y</code></td>
-            <td>Subscript text format</td>
+            <td>تنسيق نص منخفض</td>
         </tr>
         <tr>
             <td><code>&amp;Z</code></td>
-            <td>Current workbook&#39;s file path</td>
+            <td>مسار ملف المصنف الحالي</td>
         </tr>
     </tbody>
 </table>
 
-Например:
+فمثلا:
 
 ```go
 err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
@@ -929,24 +931,26 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 })
 ```
 
-Этот пример показывает:
+يوضح هذا المثال:
 
-- Первая страница имеет свой собственный верхний и нижний колонтитулы
-- Нечетные и четные страницы имеют разные верхние и нижние колонтитулы
-- Номер текущей страницы в правой части заголовков нечетных страниц
-- Имя файла текущей книги в центральной части нижнего колонтитула
-- Номер текущей страницы в левой части заголовков четных страниц
-- текущая дата в левом разделе и текущее время в правом разделе нижнего колонтитула четных страниц
-- текст «Center Bold Header» в первой строке центральной части первой страницы и дата во второй строке центральной части той же страницы
-- Нет нижнего колонтитула на первой странице
+- تحتوي الصفحة الأولى على رأس وتذييل خاصين بها
+- الصفحات الفردية والزوجية لها رؤوس وتذييلات مختلفة
+- رقم الصفحة الحالي في القسم الأيمن من رؤوس الصفحات الفردية
+- اسم ملف المصنف الحالي في القسم الأوسط من تذييلات الصفحات الفردية
+- رقم الصفحة الحالي في القسم الأيسر من رؤوس الصفحات الزوجية
+- التاريخ الحالي في القسم الأيسر والوقت الحالي في القسم الأيمن من تذييلات الصفحات الزوجية
+- النص "Center Bold Header" في السطر الأول من القسم الأوسط من الصفحة الأولى ، والتاريخ في السطر الثاني من القسم الأوسط من نفس الصفحة
+- لا يوجد تذييل في الصفحة الأولى
 
-## Установить определенное имя {#SetDefinedName}
+## تعيين الاسم المحدد {#SetDefinedName}
 
 ```go
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-SetDefinedName предоставляет функцию для установки определенных имен рабочей книги или рабочего листа. Если не указано scopr, областью по умолчанию является книга. Например:
+يوفر SetDefinedName دالة لتعيين الأسماء المحددة للمصنف أو ورقة العمل. إذا لم يتم تحديد النطاق ، فإن النطاق الافتراضي هو المصنف.
+
+فمثلا:
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{
@@ -957,9 +961,9 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
-Параметры области печати и заголовков печати для рабочего листа:
+إعدادات منطقة الطباعة وعناوين الطباعة لورقة العمل:
 
-<p align="center"><img width="755" src="./images/page_setup_01.png" alt="Параметры области печати и заголовков печати для рабочего листа"></p>
+<p align="center"><img width="628" src="./images/page_setup_01.png" alt="منطقة الطباعة وإعدادات عناوين الطباعة لورقة العمل"></p>
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{
@@ -974,21 +978,21 @@ f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
-## Получить определенное имя {#GetDefinedName}
+## احصل على اسم محدد {#GetDefinedName}
 
 ```go
 func (f *File) GetDefinedName() []DefinedName
 ```
 
-GetDefinedName предоставляет функцию для получения определенных имен рабочей книги или рабочего листа.
+يوفر GetDefinedName دالة للحصول على الأسماء المحددة للمصنف أو ورقة العمل.
 
-## Удалить определенное имя {#DeleteDefinedName}
+## حذف الاسم المحدد {#DeleteDefinedName}
 
 ```go
 func (f *File) DeleteDefinedName(definedName *DefinedName) error
 ```
 
-DeleteDefinedName предоставляет функцию для удаления определенных имен рабочей книги или рабочего листа. Если не указана область, областью по умолчанию является рабочая книга. Например:
+يوفر DeleteDefinedName وظيفة لحذف الأسماء المعرفة للمصنف أو ورقة العمل. إذا لم يتم تحديد النطاق ، فإن النطاق الافتراضي هو المصنف. فمثلا:
 
 ```go
 f.DeleteDefinedName(&excelize.DefinedName{
@@ -997,30 +1001,30 @@ f.DeleteDefinedName(&excelize.DefinedName{
 })
 ```
 
-## Установить свойства документа {#SetDocProps}
+## تعيين خصائص الوثيقة {#SetDocProps}
 
 ```go
 func (f *File) SetDocProps(docProperties *DocProperties) error
 ```
 
-SetDocProps предоставляет функцию для установки основных свойств документа. Свойства, которые можно установить:
+يوفر SetDocProps وظيفة لتعيين خصائص الوثيقة الأساسية. الخصائص التي يمكن تعيينها هي:
 
-Недвижимость   | Описание
+خاصية       | وصف
 ---|---
-Title          | Название, данное ресурсу.
-Subject        | Тема о содержании ресурса.
-Creator        | Сущность, в первую очередь ответственная за создание контента ресурса.
-Keywords       | Набор ключевых слов с разделителями для поддержки поиска и индексации. Обычно это список терминов, которые недоступны в других местах свойств.
-Description    | Разъяснение содержания ресурса.
-LastModifiedBy | Пользователь, который выполнил последнюю модификацию. Идентификация зависит от окружающей среды.
-Language       | Язык интеллектуального содержания ресурса.
-Identifier     | Однозначная ссылка на ресурс в данном контексте.
-Revision       | Тема о содержании ресурса.
-ContentStatus  | Статус контента. Например: значения могут включать «Draft», «Reviewed» и «Final»
-Category       | Категоризация содержимого этого пакета.
-Version        | Номер версии. Это значение задается пользователем или приложением.
+Title          | تم إعطاء الاسم للمورد.
+Subject        | موضوع محتوى المصدر.
+Creator        | الكيان مسؤول بشكل أساسي عن صنع محتوى المورد
+Keywords       | مجموعة محددة من الكلمات الأساسية لدعم البحث والفهرسة. عادةً ما تكون هذه قائمة بالمصطلحات غير المتوفرة في أي مكان آخر في الخصائص.
+Description    | شرح لمحتوى المصدر.
+LastModifiedBy | المستخدم الذي أجرى التعديل الأخير. التعريف خاص بالبيئة.
+Language       | لغة المحتوى الفكري للمصدر.
+Identifier     | إشارة لا لبس فيها إلى المورد ضمن سياق معين.
+Revision       | موضوع محتوى المصدر.
+ContentStatus  | حالة المحتوى. فمثلا: قد تتضمن القيم "Draft" و "Reviewed" و "Final"
+Category       | تصنيف محتوى هذه الحزمة.
+Version        | رقم الإصدار. يتم تعيين هذه القيمة من قبل المستخدم أو بواسطة التطبيق.
 
-Например:
+فمثلا:
 
 ```go
 err := f.SetDocProps(&excelize.DocProperties{
@@ -1041,10 +1045,10 @@ err := f.SetDocProps(&excelize.DocProperties{
 })
 ```
 
-## Получить свойства документа {#GetDocProps}
+## احصل على خصائص المستند {#GetDocProps}
 
 ```go
 func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
-GetDocProps предоставляет функцию для получения основных свойств документа.
+يوفر GetDocProps وظيفة للحصول على خصائص المستند الأساسية.

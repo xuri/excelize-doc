@@ -982,7 +982,7 @@ func (f *File) GetDefinedName() []DefinedName
 
 범위에있는 통합 문서 및 워크 시트의 이름 목록을 얻습니다.
 
-# 정의 된 이름 삭제 {#DeleteDefinedName}
+## 정의 된 이름 삭제 {#DeleteDefinedName}
 
 ```go
 func (f *File) DeleteDefinedName(definedName *DefinedName) error

@@ -22,7 +22,7 @@ NewFile provides a function to create new file by default template. The newly cr
 func OpenFile(filename string, opt ...Options) (*File, error)
 ```
 
-OpenFile take the name of an spreadsheet file and returns a populated spreadsheet file struct for it. For example, open spreadsheet with password protection:
+OpenFile takes the name of a spreadsheet file and returns a populated spreadsheet file struct for it. For example, open a spreadsheet with password protection:
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
@@ -94,7 +94,7 @@ curl: Saved to filename 'Book1.xlsx'
 func (f *File) Save() error
 ```
 
-Save provides a function to override the xlsx file with origin path.
+Save provides a function to override the spreadsheet file with the origin path.
 
 ## Save as {#SaveAs}
 
@@ -102,7 +102,7 @@ Save provides a function to override the xlsx file with origin path.
 func (f *File) SaveAs(name string) error
 ```
 
-SaveAs provides a function to create or update to an xlsx file at the provided path.
+SaveAs provides a function to create or update the spreadsheet file at the provided path.
 
 ## Create worksheet {#NewSheet}
 
@@ -118,7 +118,7 @@ NewSheet provides the function to create a new sheet by given a worksheet name a
 func (f *File) DeleteSheet(name string)
 ```
 
-DeleteSheet provides a function to delete worksheet in a workbook by given worksheet name. Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the deleted worksheet, it will cause a file error when you open it. This function will be invalid when only the one worksheet is left.
+DeleteSheet provides a function to delete worksheets in a workbook by given worksheet name. Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the deleted worksheet, it will cause a file error when you open it. This function will be invalid when only one worksheet is left.
 
 ## Copy worksheet {#CopySheet}
 
@@ -126,7 +126,7 @@ DeleteSheet provides a function to delete worksheet in a workbook by given works
 func (f *File) CopySheet(from, to int) error
 ```
 
-CopySheet provides a function to duplicate a worksheet by gave source and target worksheet index. Note that currently doesn't support duplicate workbooks that contain tables, charts or pictures. For Example:
+CopySheet provides a function to duplicate a worksheet by gave source and target worksheet index. Note that currently doesn't support duplicate workbooks that contain tables, charts or pictures. For example:
 
 ```go
 // Sheet1 already exists...
@@ -157,7 +157,7 @@ SetActiveSheet provides a function to set the default active sheet of the workbo
 func (f *File) GetActiveSheetIndex() int
 ```
 
-GetActiveSheetIndex provides a function to get an active sheet of XLSX. If not found the active sheet will return integer `0`.
+GetActiveSheetIndex provides a function to get an active worksheet of the workbook. If not found the active sheet will return integer `0`.
 
 ## Set worksheet visible {#SetSheetVisible}
 
@@ -385,7 +385,9 @@ Used correct value:
 func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
-GetSheetViewOptions gets the value of sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view). Available options:
+GetSheetViewOptions gets the value of sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
+
+Available options:
 
 Optional view parameter |Type
 ---|---
@@ -948,7 +950,7 @@ This example shows:
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-SetDefinedName provides a function to set the defined names of the workbook or worksheet. If not specified scopr, the default scope is workbook.
+SetDefinedName provides a function to set the defined names of the workbook or worksheet. If not specified scope, the default scope is the workbook.
 
 For example:
 
@@ -986,7 +988,7 @@ func (f *File) GetDefinedName() []DefinedName
 
 GetDefinedName provides a function to get the defined names of the workbook or worksheet.
 
-# Delete defined name {#DeleteDefinedName}
+## Delete defined name {#DeleteDefinedName}
 
 ```go
 func (f *File) DeleteDefinedName(definedName *DefinedName) error

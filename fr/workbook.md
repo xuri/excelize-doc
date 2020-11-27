@@ -965,7 +965,7 @@ func (f *File) GetDefinedName() []DefinedName
 
 GetDefinedName fournit une fonction pour obtenir les noms définis du classeur ou de la feuille de calcul.
 
-# Supprimer le nom défini {#DeleteDefinedName}
+## Supprimer le nom défini {#DeleteDefinedName}
 
 ```go
 func (f *File) DeleteDefinedName(definedName *DefinedName) error

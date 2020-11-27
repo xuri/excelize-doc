@@ -41,8 +41,9 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1,k1,2oHMIIOyvPcGezVdHJjsHwdZzzYNI6xs3Oww8uhlvCk=&_dt_no_comment=1&origin=11)
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
+WeChat ID: `hixuri` (请备注: Excelize)
 
-<img width="400" src="./images/group@2x.png" alt="Excelize 技术交流群">
+<img width="700" src="./images/group@2x.png" alt="Excelize 技术交流群">
 
 ## 商业支持
 

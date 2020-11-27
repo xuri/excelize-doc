@@ -978,7 +978,7 @@ func (f *File) GetDefinedName() []DefinedName
 
 範囲内のワークブックとワークシートの名前のリストを取得します。
 
-# 定義された名前を削除 {#DeleteDefinedName}
+## 定義された名前を削除 {#DeleteDefinedName}
 
 ```go
 func (f *File) DeleteDefinedName(definedName *DefinedName) error

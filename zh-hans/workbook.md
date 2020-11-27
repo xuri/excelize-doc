@@ -978,7 +978,7 @@ func (f *File) GetDefinedName() []DefinedName
 
 获取作用范围内的工作簿和工作表的名称列表。
 
-# 删除名称 {#DeleteDefinedName}
+## 删除名称 {#DeleteDefinedName}
 
 ```go
 func (f *File) DeleteDefinedName(definedName *DefinedName) error
