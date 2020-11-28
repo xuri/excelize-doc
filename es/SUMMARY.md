@@ -36,7 +36,7 @@
   * [Eliminar nombre definido](workbook.md#DeleteDefinedName)
   * [Establecer las propiedades del documento](workbook.md#SetDocProps)
   * [Obtener propiedades del documento](workbook.md#GetDocProps)
-* [hoja de trabajo](sheet.md)
+* [Hoja de trabajo](sheet.md)
   * [Establecer visibilidad de columna](sheet.md#SetColVisible)
   * [Establecer el ancho de la columna](sheet.md#SetColWidth)
   * [Establecer la altura de la fila](sheet.md#SetRowHeight)

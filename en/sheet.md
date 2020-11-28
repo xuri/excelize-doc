@@ -69,7 +69,7 @@ GetSheetName provides a function to get the sheet name of the workbook by the gi
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible provides a function to get visible of a single column by given worksheet name and column name. For example, get visible state of column `D` in `Sheet1`:
+GetColVisible provides a function to get visible of a single column by given worksheet name and column name. For example, get the visible state of column `D` in `Sheet1`:
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth provides a function to get column width by given worksheet name and column index.
+GetColWidth provides a function to get the column width by given the worksheet name and column index.
 
 ## Get row height {#GetRowHeight}
 
@@ -113,7 +113,7 @@ err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(name string) int
 ```
 
-GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid or sheet doesn't exist, it will return an integer type value `-1`.
+GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid or the worksheet doesn't exist, it will return an integer type value `-1`.
 
 The obtained index can be used as a parameter to call the [`SetActiveSheet()`](workbook.md#SetActiveSheet) function when setting the workbook default worksheet.
 
@@ -123,7 +123,7 @@ The obtained index can be used as a parameter to call the [`SetActiveSheet()`](w
 func (f *File) GetSheetMap() map[int]string
 ```
 
-GetSheetMap provides a function to get worksheets, chart sheets, dialog sheets ID and name map of the workbook. For example:
+GetSheetMap provides a function to get worksheets, chart sheets, dialog sheets ID, and name maps of the workbook. For example:
 
 ```go
 f, err := excelize.OpenFile("./Book1.xlsx")
@@ -149,7 +149,7 @@ GetSheetList provides a function to get worksheets, chart sheets, and dialog she
 func (f *File) SetSheetName(oldName, newName string)
 ```
 
-SetSheetName provides a function to set the worksheet name by given old and new worksheet name. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be problem formula error or reference missing.
+SetSheetName provides a function to set the worksheet name by given the old and new worksheet names. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be a problem formula error or reference missing.
 
 ## Set sheet properties {#SetSheetPrOptions}
 
@@ -281,7 +281,7 @@ err := f.InsertRow("Sheet1", 3)
 func (f *File) DuplicateRow(sheet string, row int) error
 ```
 
-DuplicateRow inserts a copy of specified row below specified, for example:
+DuplicateRow inserts a copy of specific row below specified, for example:
 
 ```go
 err := f.DuplicateRow("Sheet1", 2)
@@ -337,7 +337,7 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-GetRowOutlineLevel provides a function to get outline level number of a single row by given worksheet name and Excel row number. For example, get outline number of row 2 in `Sheet1`:
+GetRowOutlineLevel provides a function to get the outline level number of a single row by given worksheet name and Excel row number. For example, get the outline number of row 2 in `Sheet1`:
 
 ```go
 err := f.GetRowOutlineLevel("Sheet1", 2)
@@ -349,7 +349,7 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-GetColOutlineLevel provides a function to get outline level of a single column by given worksheet name and column name. For example, get outline level of column `D` in `Sheet1`:
+GetColOutlineLevel provides a function to get the outline level of a single column by given worksheet name and column name. For example, get outline level of column `D` in `Sheet1`:
 
 ```go
 level, err := f.GetColOutlineLevel("Sheet1", "D")
@@ -361,7 +361,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols returns a columns iterator, used for streaming reading data for a worksheet with a large data. For example:
+Cols returns a column iterator, used for streaming reading data for a worksheet with a large data. For example:
 
 ```go
 cols, err := f.Cols("Sheet1")
