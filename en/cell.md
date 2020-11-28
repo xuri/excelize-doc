@@ -44,7 +44,7 @@ SetCellValue provides a function to set the value of a cell. The specified coord
 func (f *File) SetCellBool(sheet, axis string, value bool) error
 ```
 
-SetCellBool provides a function to set bool type value of a cell by given worksheet name, cell coordinates and cell value.
+SetCellBool provides a function to set the bool type value of a cell by given worksheet name, cell coordinates, and cell value.
 
 ## Set RAW value {#SetCellDefault}
 
@@ -52,7 +52,7 @@ SetCellBool provides a function to set bool type value of a cell by given worksh
 func (f *File) SetCellDefault(sheet, axis, value string) error
 ```
 
-SetCellDefault provides a function to set string type value of a cell as default format without escaping the cell.
+SetCellDefault provides a function to set the string type value of a cell as a default format without escaping the cell.
 
 ## Set integer value {#SetCellInt}
 
@@ -60,7 +60,7 @@ SetCellDefault provides a function to set string type value of a cell as default
 func (f *File) SetCellInt(sheet, axis string, value int) error
 ```
 
-SetCellInt provides a function to set int type value of a cell by given worksheet name, cell coordinates, and cell value.
+SetCellInt provides a function to set the int type value of a cell by given worksheet name, cell coordinates, and cell value.
 
 ## Set string value {#SetCellStr}
 
@@ -68,7 +68,7 @@ SetCellInt provides a function to set int type value of a cell by given workshee
 func (f *File) SetCellStr(sheet, axis, value string) error
 ```
 
-SetCellStr provides a function to set string type value of a cell. Total number of characters that a cell can contain `32767` characters.
+SetCellStr provides a function to set the string type value of a cell. The total number of characters that a cell can contain `32767` characters.
 
 ## Set cell style {#SetCellStyle}
 
@@ -76,7 +76,7 @@ SetCellStr provides a function to set string type value of a cell. Total number 
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should be use same color in the same coordinate area.
+SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same coordinate area.
 
 - Example 1, create borders of cell `D7` on `Sheet1`:
 
@@ -234,7 +234,7 @@ To lock a cell or hide a formula, protect the worksheet. On the "Review" tab, cl
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-SetCellHyperLink provides a function to set cell hyperlink by given worksheet name and link URL address. LinkType defines two types of hyperlink `External` for website or `Location` for moving to one of cell in this workbook. Maximum limit hyperlinks in a worksheet is `65530`. The below is an example of an external link.
+SetCellHyperLink provides a function to set cell hyperlinks by given worksheet name and link URL address. LinkType defines two types of hyperlinks `External` for the website or `Location` for moving to one of the cells in this workbook. The maximum limit of hyperlinks in a worksheet is `65530`. Below is an example of an external link.
 
 - Example 1, adding an external link to the `A3` cell of the worksheet named `Sheet1`:
 
@@ -258,7 +258,7 @@ err := f.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
 func (f *File) SetCellRichText(sheet, cell string, runs []RichTextRun) error
 ```
 
-SetCellRichText provides a function to set cell with rich text by given worksheet.
+SetCellRichText provides a function to set a cell with rich text by given worksheet.
 
 For example, set rich text on the `A1` cell of the worksheet named `Sheet1`:
 
@@ -299,7 +299,7 @@ func main() {
             },
         },
         {
-            Text: " italic",
+            Text: "italic",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "e83723",
@@ -458,7 +458,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 If the given cell coordinate area overlaps with other existing merged cells, the existing merged cells will be deleted.
 
-##  Unmerge cells {#UnmergeCell}
+## Unmerge cells {#UnmergeCell}
 
 ```go
 func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
@@ -486,7 +486,7 @@ func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 func (f *File) AddComment(sheet, cell, format string) error
 ```
 
-AddComment provides the method to add comment in a sheet by given worksheet index, cell and format set (such as author and text). Note that the max author length is 255 and the max text length is 32512. For example, add a comment in `Sheet1!$A$3`:
+AddComment provides the method to add comments in a sheet by given worksheet index, cell and format set (such as author and text). Note that the max author length is 255 and the max text length is 32512. For example, add a comment in `Sheet1!$A$3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Add a comment to an Excel document"></p>
 
@@ -500,7 +500,7 @@ err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a co
 func (f *File) GetComments() (comments map[string][]Comment)
 ```
 
-GetComments retrieves all comments and returns a map of worksheet name to the worksheet comments.
+GetComments retrieve all comments and return a map of worksheet name to the worksheet comments.
 
 ## Set cell formula {#SetCellFormula}
 

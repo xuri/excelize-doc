@@ -299,7 +299,7 @@ func main() {
             },
         },
         {
-            Text: " italic",
+            Text: "italic",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "e83723",
