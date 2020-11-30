@@ -6,7 +6,7 @@
 func (f *File) AddChart(sheet, cell, format string, combo ...string) error
 ```
 
-AddChart provides the method to add chart in a sheet by given chart format set (such as offset, scale, aspect ratio setting and print settings) and properties set.
+AddChart provides the method to add a chart in a worksheet by given chart format set (such as offset, scale, aspect ratio setting, and print settings) and properties set.
 
 The following shows the `type` of chart supported by excelize:
 
@@ -65,7 +65,7 @@ wireframeContour            | wireframe contour chart
 bubble                      | bubble chart
 bubble3D                    | 3D bubble chart
 
-In the Office Excel chart data area `series` specifies the set of information for which data to draw, the legend item (series), and the horizontal (category) axis label.
+In the Office Excel chart data range, `series` specifies the set of information for which data to draw, the legend item (series), and the horizontal (category) axis label.
 
 The `series` options that can be set are:
 
@@ -97,7 +97,7 @@ The `show_legend_key` parameter set the legend keys shall be shown in data label
 
 The chart title is set by selecting the `name` parameter of the `title` object, and the title will be displayed above the chart. The parameter `name` supports the use of formula representations, such as `Sheet1!$A$1`, if you do not specify an icon title, the default value is null.
 
-The parameter `show_blanks_as` provides the "Hide and empty cells" setting. The default value is: `gap`. In Excel application "empty cell is displayed as": "space". The following are optional values for this parameter:
+The parameter `show_blanks_as` provides the "Hide and empty cells" setting. The default value is: `gap`. In the Excel application "empty cell is displayed as": "space". The following are optional values for this parameter:
 
 Parameter|Explanation
 ---|---
@@ -107,12 +107,12 @@ zero|zero value
 
 The parameter `format` provides settings for parameters such as chart offset, scale, aspect ratio settings, and print properties, as well as those used in the [`AddPicture()`](image.md#AddPicture) function.
 
-Set the position of the chart plot area by plotarea. The properties that can be set are:
+Set the position of the chart plot area by plot area. The properties that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
 show_bubble_size|bool|`false`|Specifies the bubble size shall be shown in a data label.
-show_cat_name|bool|`true`|Category name
+show_cat_name|bool|`true`|Category name.
 show_leader_lines|bool|`false`|Specifies that the category name shall be shown in the data label.
 show_percent|bool|`false`|Specifies that the percentage shall be shown in a data label.
 show_series_name|bool|`false`|Specifies that the series name shall be shown in a data label.
@@ -127,7 +127,7 @@ Parameter|Type|Default|Explanation
 major_grid_lines|bool|`false`|Specifies major gridlines.
 minor_grid_lines|bool|`false`|Specifies minor gridlines.
 tick_label_skip|int|`1`|Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
-reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
+reverse_order|bool|`false`|Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
 minimum|int|`0`|Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
 
@@ -137,8 +137,8 @@ Parameter|Type|Default|Explanation
 ---|---|---|---
 major_grid_lines|bool|`false`|Specifies major gridlines.
 minor_grid_lines|bool|`false`|Specifies minor gridlines.
-major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The major_unit property is optional. The default value is auto.
-reverse_order|bool|`false`|Specifies that the categories or values on reverse order (orientation of the chart). The `reverse_order` property is optional.
+major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The `major_unit` property is optional. The default value is auto.
+reverse_order|bool|`false`|Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
 maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
 minimum|int|`0`|Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
 
@@ -249,7 +249,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Save xlsx file by the given path.
+    // Save the spreadsheet by the given path.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
@@ -270,4 +270,4 @@ AddChartSheet provides the method to create a chartsheet by given chart format s
 func (f *File) DeleteChart(sheet, cell string) (err error)
 ```
 
-DeleteChart provides a function to delete chart in XLSX by given worksheet and cell name.
+DeleteChart provides a function to delete charts in a spreadsheet by given worksheet and cell name.

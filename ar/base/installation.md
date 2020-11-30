@@ -46,7 +46,7 @@ func main() {
     f.SetCellValue("Sheet1", "B2", 100)
     // تعيين ورقة نشطة للمصنف.
     f.SetActiveSheet(index)
-    // حفظ ملف xlsx مع مسار الأصل.
+    // احفظ جدول البيانات بالمسار المحدد.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
@@ -143,7 +143,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // حفظ ملف xlsx مع مسار الأصل.
+    // احفظ جدول البيانات بالمسار المحدد.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
@@ -191,7 +191,7 @@ func main() {
     }`); err != nil {
         fmt.Println(err)
     }
-    // حفظ ملف xlsx مع مسار الأصل.
+    // احفظ جدول البيانات بالمسار المحدد.
     if err = f.Save(); err != nil {
         fmt.Println(err)
     }

@@ -46,7 +46,7 @@ func main() {
     f.SetCellValue("Sheet1", "B2", 100)
     // Aktives Arbeitsblatt der Arbeitsmappe festlegen.
     f.SetActiveSheet(index)
-    // Speichern der Tabellenkalkulationsdatei nach dem angegebenen Pfad.
+    // Speichern Sie die Tabelle unter dem angegebenen Pfad.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
@@ -143,7 +143,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Speichern der Tabellenkalkulationsdatei nach dem angegebenen Pfad.
+    // Speichern Sie die Tabelle unter dem angegebenen Pfad.
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
