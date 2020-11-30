@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-AddPicture provides the method to add picture in a sheet by given picture format set (such as offset, scale, aspect ratio setting and print settings) and file path.
+AddPicture provides the method to add a picture to a worksheet by given picture format set (such as offset, scale, aspect ratio setting, and print settings) and file path.
 
 For example:
 
@@ -56,9 +56,9 @@ func main() {
 }
 ```
 
-LinkType defines two types of hyperlink `External` for web site or `Location` for moving to one of cell in this workbook. When the `hyperlink_type` is `Location`, coordinates need to start with `#`.
+LinkType defines two types of hyperlinks `External` for a website or `Location` for moving to one of the cells in this workbook. When the `hyperlink_type` is `Location`, coordinates need to start with `#`.
 
-Positioning defines two types of the position of a picture in an Excel spreadsheet, `oneCell` (Move but don't size with cells) or "absolute" (Don't move or size with cells). If you don't set this parameter, default `positioning` is move and size with cells.
+Positioning defines two types of the position of a picture in an Excel spreadsheet, `oneCell` (Move but don't size with cells) or "absolute" (Don't move or size with cells). If you don't set this parameter, the default `positioning` is move and size with cells.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
@@ -100,7 +100,7 @@ func main() {
 func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
-GetPicture provides a function to get picture base name and raw content embed in XLSX by given worksheet and cell name. This function returns the file name in XLSX and file contents as `[]byte` data types.
+GetPicture provides a function to get picture base name and raw content embed in a spreadsheet by given worksheet and cell name. This function returns the file name in the spreadsheet and file contents as `[]byte` data types.
 
 For example:
 
@@ -126,4 +126,4 @@ if err := ioutil.WriteFile(file, raw, 0644); err != nil {
 func (f *File) DeletePicture(sheet, cell string) (err error)
 ```
 
-DeletePicture provides a function to delete charts in XLSX by given worksheet and cell name. Note that the image file won't be deleted from the document currently.
+DeletePicture provides a function to delete charts in a spreadsheet by given worksheet and cell name. Note that the image file won't be deleted from the document currently.

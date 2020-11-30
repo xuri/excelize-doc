@@ -6,7 +6,7 @@
 func (f *File) AddTable(sheet, hcell, vcell, format string) error
 ```
 
-AddTable provides the method to add table in a worksheet by given worksheet name, coordinate area and format set.
+AddTable provides the method to add a table in a worksheet by given worksheet name, coordinate area, and format set.
 
 - Example 1, create a table of `A1:D5` on `Sheet1`:
 
@@ -16,7 +16,7 @@ AddTable provides the method to add table in a worksheet by given worksheet name
 err := f.AddTable("Sheet1", "A1", "D5", ``)
 ```
 
-- Example 2, create a table of `F2:H6` on `Sheet2` with format set:
+- Example 2, create a table of `F2:H6` on `Sheet2` with the format set:
 
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="Add table with format set"></p>
 
@@ -33,7 +33,7 @@ err := f.AddTable("Sheet2", "F2", "H6", `{
 
 Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique, and must set the header row data of the table before calling the AddTable function. Multiple tables coordinate areas that can't have an intersection.
 
-`table_name`: The name of the table, in the same worksheet name of the table should be unique.
+`table_name`: The name of the table, in the same worksheet name of the table, should be unique.
 
 `table_style`: The built-in table style names:
 
@@ -73,9 +73,9 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
 ```
 
-AutoFilter provides the method to add auto filter in a worksheet by given worksheet name, coordinate area and settings. An autofilter in Excel is a way of filtering a 2D range of data based on some simple criteria.
+AutoFilter provides the method to add an auto filter in a worksheet by given worksheet name, coordinate area, and settings. An auto filter in Excel is a way of filtering a 2D range of data based on some simple criteria.
 
-Example 1, applying an autofilter to a cell range `A1:D4` in the `Sheet1`:
+Example 1, applying an auto filter to a cell range `A1:D4` in the `Sheet1`:
 
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="Add auto filter"></p>
 
@@ -83,17 +83,17 @@ Example 1, applying an autofilter to a cell range `A1:D4` in the `Sheet1`:
 err := f.AutoFilter("Sheet1", "A1", "D4", "")
 ```
 
-Example 2, filter data in an autofilter:
+Example 2, filter data in an auto filter:
 
 ```go
 err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
-`column` defines the filter columns in a autofilter range based on simple criteria
+`column` defines the filter columns in an auto filter range based on simple criteria.
 
 It isn't sufficient to just specify the filter condition. You must also hide any rows that don't match the filter condition. Rows are hidden using the [`SetRowVisible()`](sheet.md#SetRowVisible) method. Excelize can't filter rows automatically since this isn't part of the file format.
 
-Setting a filter criteria for a column:
+Setting filter criteria for a column:
 
 `expression` defines the conditions, the following operators are available for setting the filter criteria:
 
@@ -152,7 +152,7 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue fix linked values within a spreadsheet are not updating in Office Excel 2007 and 2010. This function will be remove value tag when met a cell have a linked value. Reference [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Notice: after open XLSX file Excel will be update linked value and generate new value and will prompt save file or not.
+UpdateLinkedValue fix linked values within a spreadsheet are not updating in Office Excel 2007 and 2010. This function will remove the value tag when met a cell have a linked value. Reference [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Notice: after open the spreadsheet file Excel will be updating the linked value and generate a new value and will prompt the save file or not.
 
 The effect of clearing the cell cache on the workbook appears as a modification to the `<v>` tag, for example, the cell cache before clearing:
 
@@ -201,7 +201,7 @@ JoinCellName joins cell name from column name and row number.
 func ColumnNameToNumber(name string) (int, error)
 ```
 
-ColumnNameToNumber provides a function to convert Excel sheet column name to `int`. Column name case insensitive. The function returns an error if column name incorrect. For example:
+ColumnNameToNumber provides a function to convert Excel sheet column name to `int`. Column name case insensitive. The function returns an error if the column name incorrect. For example:
 
 ```go
 excelize.ColumnNameToNumber("AK") // returns 37, nil
@@ -250,7 +250,8 @@ CoordinatesToCellName(1, 1) // returns "A1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-NewConditionalStyle provides a function to create a style for the conditional format by given style format. The parameters are the same as function [`NewStyle()`](style.md#NewStyle). Note that the color field uses RGB color code and only support to set the font, fills, alignment and borders currently.
+NewConditionalStyle provides a function to create a style for the conditional format by given style format. The parameters are the same as function [`NewStyle()`](style.md#NewStyle). Note that the color field uses RGB color code and only supports setting the font, fills, alignment, and borders currently.
+
 
 ## Conditional format {#SetConditionalFormat}
 
@@ -434,7 +435,7 @@ less than or equal to|<=
 
 You can either use Excel's textual description strings, in the first column above, or the more common symbolic alternatives.
 
-Additional criteria which are specific to other conditional format types are shown in the relevant sections below.
+Additional criteria that are specific to other conditional format types are shown in the relevant sections below.
 
 `value`: The value is generally used along with the `criteria` parameter to set the rule by which the cell data will be evaluated:
 
@@ -538,7 +539,7 @@ format3, err = f.NewConditionalStyle(`{
 type: `minimum` - The `minimum` parameter is used to set the lower limiting value when the `criteria` is either `between` or `not between`.
 
 ```go
-// Highlight cells rules: between...
+// Highlight cells rule: between...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 {
     "type": "cell",
@@ -549,7 +550,7 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-type: `maximum` - The `maximum` parameter is used to set the upper limiting value when the criteria is either `between` or `not between`. See the previous example.
+type: `maximum` - The `maximum` parameter is used to set the upper limiting value when the criteria are either `between` or `not between`. See the previous example.
 
 type: `average` - The `average` type is used to specify Office Excel's "Average" style conditional format:
 
@@ -753,11 +754,11 @@ split (Split)|Panes are split, but not frozen. In this state, the split bars are
 
 `x_split` - Horizontal position of the split, in 1/20th of a point; 0 (zero) if none. If the pane is frozen, this value indicates the number of columns visible in the top pane.
 
-`y_split` - Vertical position of the split, in 1/20th of a point; 0 (zero) if none. If the pane is frozen, this value indicates the number of rows visible in the left pane. The possible values for this attribute are defined by the W3C XML Schema double datatype.
+`y_split` - Vertical position of the split, in 1/20th of a point; 0 (zero) if none. If the pane is frozen, this value indicates the number of rows visible in the left pane. The possible values for this attribute are defined by the W3C XML Schema double data type.
 
 `top_left_cell` - Location of the top left visible cell in the bottom right pane (when in Left-To-Right mode).
 
-`sqref` - Range of the selection. Can be non-contiguous set of ranges.
+`sqref` - Range of the selection. Can be a non-contiguous set of ranges.
 
 Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!K16`:
 
