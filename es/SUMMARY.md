@@ -173,7 +173,7 @@
   * [Eliminar validación de datos](data.md#DeleteDataValidation)
 * [Tabla dinámica](pivot.md#PivotTable)
   * [Crear una tabla dinámica](pivot.md#AddPivotTable)
-* [Utils](utils.md)
+* [Utilidades](utils.md)
   * [Mesa](utils.md#AddTable)
   * [Filtro automático](utils.md#AutoFilter)
   * [Actualizar valor vinculado](utils.md#UpdateLinkedValue)

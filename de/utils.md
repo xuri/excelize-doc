@@ -1,24 +1,24 @@
-# Utils
+# Dienstprogramme
 
-## Table {#AddTable}
+## Tabelle {#AddTable}
 
 ```go
 func (f *File) AddTable(sheet, hcell, vcell, format string) error
 ```
 
-AddTable provides the method to add a table in a worksheet by given worksheet name, coordinate area, and format set.
+AddTable bietet die Methode zum Hinzufügen einer Tabelle zu einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und des Formatsatzes.
 
-- Example 1, create a table of `A1:D5` on `Sheet1`:
+- Beispiel 1: Erstellen Sie eine Tabelle mit `A1:D5` auf `Sheet1`:
 
-<p align="center"><img width="612" src="./images/addtable_01.png" alt="Add table"></p>
+<p align="center"><img width="612" src="./images/addtable_01.png" alt="Tabelle hinzufügen"></p>
 
 ```go
 err := f.AddTable("Sheet1", "A1", "D5", ``)
 ```
 
-- Example 2, create a table of `F2:H6` on `Sheet2` with the format set:
+- Beispiel 2: Erstellen Sie eine Tabelle mit `F2:H6` auf `Sheet2` mit dem folgenden Format:
 
-<p align="center"><img width="612" src="./images/addtable_02.png" alt="Add table with format set"></p>
+<p align="center"><img width="612" src="./images/addtable_02.png" alt="Tabelle mit festgelegtem Format hinzufügen"></p>
 
 ```go
 err := f.AddTable("Sheet2", "F2", "H6", `{
@@ -31,11 +31,11 @@ err := f.AddTable("Sheet2", "F2", "H6", `{
 }`)
 ```
 
-Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique, and must set the header row data of the table before calling the AddTable function. Multiple tables coordinate areas that can't have an intersection.
+Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfzeile enthalten muss. Die Header-Zellen müssen Zeichenfolgen enthalten und eindeutig sein und die Header-Zeilendaten der Tabelle festlegen, bevor die AddTable-Funktion aufgerufen wird. Mehrere Tabellen koordinieren Bereiche, die keinen Schnittpunkt haben können.
 
-`table_name`: The name of the table, in the same worksheet name of the table, should be unique.
+`table_name`: Der Name der Tabelle im selben Arbeitsblattnamen der Tabelle sollte eindeutig sein.
 
-`table_style`: The built-in table style names:
+`table_style`: Die Namen der integrierten Tabellenstile:
 
 ```text
 TableStyleLight1 - TableStyleLight21
@@ -43,7 +43,7 @@ TableStyleMedium1 - TableStyleMedium28
 TableStyleDark1 - TableStyleDark11
 ```
 
-Index|Style|Index|Style|Index|Style
+Index|Stil|Index|Stil|Index|Stil
 ---|---|---|---|---|---
 |<img src="../images/table_style/light/0.png" width="61">|TableStyleLight1|<img src="../images/table_style/light/1.png" width="61">|TableStyleLight2|<img src="../images/table_style/light/2.png" width="61">
 TableStyleLight3|<img src="../images/table_style/light/3.png" width="61">|TableStyleLight4|<img src="../images/table_style/light/4.png" width="61">|TableStyleLight5|<img src="../images/table_style/light/5.png" width="61">
@@ -67,35 +67,35 @@ TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableSty
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 
-## Auto filter {#AutoFilter}
+## Automatischer Filter {#AutoFilter}
 
 ```go
 func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
 ```
 
-AutoFilter provides the method to add an auto filter in a worksheet by given worksheet name, coordinate area, and settings. An auto filter in Excel is a way of filtering a 2D range of data based on some simple criteria.
+AutoFilter bietet die Methode zum Hinzufügen eines automatischen Filters in einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Einstellungen. Ein automatischer Filter in Excel ist eine Möglichkeit, einen 2D-Datenbereich anhand einiger einfacher Kriterien zu filtern.
 
-Example 1, applying an auto filter to a cell range `A1:D4` in the `Sheet1`:
+Beispiel 1: Anwenden eines automatischen Filters auf einen Zellbereich `A1:D4` in `Sheet1`:
 
-<p align="center"><img width="612" src="./images/autofilter_01.png" alt="Add auto filter"></p>
+<p align="center"><img width="612" src="./images/autofilter_01.png" alt="Automatischen Filter hinzufügen"></p>
 
 ```go
 err := f.AutoFilter("Sheet1", "A1", "D4", "")
 ```
 
-Example 2, filter data in an auto filter:
+Beispiel 2: Filtern von Daten in einem automatischen Filter:
 
 ```go
 err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
-`column` defines the filter columns in an auto filter range based on simple criteria.
+`column` definiert die Filterspalten in einem automatischen Filterbereich anhand einfacher Kriterien.
 
-It isn't sufficient to just specify the filter condition. You must also hide any rows that don't match the filter condition. Rows are hidden using the [`SetRowVisible()`](sheet.md#SetRowVisible) method. Excelize can't filter rows automatically since this isn't part of the file format.
+Es reicht nicht aus, nur die Filterbedingung anzugeben. Sie müssen auch alle Zeilen ausblenden, die nicht der Filterbedingung entsprechen. Zeilen werden mit der Methode [`SetRowVisible()`](sheet.md#SetRowVisible) ausgeblendet. Excelize kann Zeilen nicht automatisch filtern, da dies nicht Teil des Dateiformats ist.
 
-Setting filter criteria for a column:
+Festlegen von Filterkriterien für eine Spalte:
 
-`expression` defines the conditions, the following operators are available for setting the filter criteria:
+`expression` definiert die Bedingungen, die folgenden Operatoren stehen zum Festlegen der Filterkriterien zur Verfügung:
 
 ```text
 ==
@@ -108,7 +108,7 @@ and
 or
 ```
 
-An expression can comprise a single statement or two statements separated by the `and` and `or` operators. For example:
+Ein Ausdruck kann eine einzelne Anweisung oder zwei Anweisungen umfassen, die durch die Operatoren `and` und `or` getrennt sind. Zum Beispiel:
 
 ```text
 x <  2000
@@ -118,27 +118,27 @@ x >  2000 and x <  5000
 x == 2000 or  x == 5000
 ```
 
-Filtering of blank or non-blank data can be achieved by using a value of Blanks or NonBlanks in the expression:
+Das Filtern von leeren oder nicht leeren Daten kann erreicht werden, indem ein Wert von Leer oder Nicht leer im Ausdruck verwendet wird:
 
 ```text
 x == Blanks
 x == NonBlanks
 ```
 
-Office Excel also allows some simple string matching operations:
+Office Excel ermöglicht auch einige einfache Zeichenfolgenabgleichsvorgänge:
 
 ```text
-x == b*      // begins with b
-x != b*      // doesn't begin with b
-x == *b      // ends with b
-x != *b      // doesn't end with b
-x == *b*     // contains b
-x != *b*     // doesn't contains b
+x == b*      // beginnt mit b
+x != b*      // beginnt nicht mit b
+x == *b      // endet mit b
+x != *b      // endet nicht mit b
+x == *b*     // enthält b
+x != *b*     // enthält nicht b
 ```
 
-You can also use `*` to match any character or number and `?` to match any single character or number. No other regular expression quantifier is supported by Excel's filters. Excel's regular expression characters can be escaped using `~`.
+Sie können auch `*` verwenden, um mit einem beliebigen Zeichen oder einer beliebigen Zahl übereinzustimmen, und `?`, Um mit einem einzelnen Zeichen oder einer einzelnen Zahl übereinzustimmen. Kein anderer Quantifizierer für reguläre Ausdrücke wird von den Excel-Filtern unterstützt. Die regulären Ausdruckszeichen von Excel können mit `~` maskiert werden.
 
-The placeholder variable `x` in the above examples can be replaced by any simple string. The actual placeholder name is ignored internally so the following are all equivalent:
+Die Platzhaltervariable `x` in den obigen Beispielen kann durch eine einfache Zeichenfolge ersetzt werden. Der tatsächliche Platzhaltername wird intern ignoriert, sodass alle folgenden Elemente gleichwertig sind:
 
 ```text
 x     < 2000
@@ -146,15 +146,15 @@ col   < 2000
 Price < 2000
 ```
 
-## Update linked value {#UpdateLinkedValue}
+## Verknüpften Wert aktualisieren {#UpdateLinkedValue}
 
 ```go
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue fix linked values within a spreadsheet are not updating in Office Excel 2007 and 2010. This function will remove the value tag when met a cell have a linked value. Reference [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Notice: after open the spreadsheet file Excel will be updating the linked value and generate a new value and will prompt the save file or not.
+UpdateLinkedValue fix verknüpfte Werte in einer Tabelle werden in Office Excel 2007 und 2010 nicht aktualisiert. Diese Funktion entfernt das Wertetag, wenn eine Zelle einen verknüpften Wert hat. Referenz [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Hinweis: Nach dem Öffnen der Tabellenkalkulationsdatei aktualisiert Excel den verknüpften Wert, generiert einen neuen Wert und fordert zum Speichern der Datei auf oder nicht.
 
-The effect of clearing the cell cache on the workbook appears as a modification to the `<v>` tag, for example, the cell cache before clearing:
+Der Effekt des Löschens des Zellencaches in der Arbeitsmappe wird als Änderung des Tags `<v>` angezeigt, z. B. des Zellencaches vor dem Löschen:
 
 ```xml
 <row r="19" spans="2:2">
@@ -165,7 +165,7 @@ The effect of clearing the cell cache on the workbook appears as a modification 
 </row>
 ```
 
-After clearing the cell cache:
+Nach dem Löschen des Zellencaches:
 
 ```xml
 <row r="19" spans="2:2">
@@ -175,97 +175,97 @@ After clearing the cell cache:
 </row>
 ```
 
-## Split Cell Name {#SplitCellName}
+## Geteilter Zellname {#SplitCellName}
 
 ```go
 func SplitCellName(cell string) (string, int, error)
 ```
 
-SplitCellName splits cell name to column name and row number. For example:
+SplitCellName teilt den Zellennamen in den Spaltennamen und die Zeilennummer auf. Zum Beispiel:
 
 ```go
-excelize.SplitCellName("AK74") // return "AK", 74, nil
+excelize.SplitCellName("AK74") // rückkehr "AK", 74, nil
 ```
 
-## Join Cell Name {#JoinCellName}
+## Join-Zellenname {#JoinCellName}
 
 ```go
 func JoinCellName(col string, row int) (string, error)
 ```
 
-JoinCellName joins cell name from column name and row number.
+JoinCellName verbindet den Zellennamen aus dem Spaltennamen und der Zeilennummer.
 
-## Column Name To Number {#ColumnNameToNumber}
+## Spaltenname zu Nummer {#ColumnNameToNumber}
 
 ```go
 func ColumnNameToNumber(name string) (int, error)
 ```
 
-ColumnNameToNumber provides a function to convert Excel sheet column name to `int`. Column name case insensitive. The function returns an error if the column name incorrect. For example:
+ColumnNameToNumber bietet eine Funktion zum Konvertieren des Spaltennamens einer Excel-Tabelle in `int`. Spaltenname ohne Berücksichtigung der Groß- und Kleinschreibung. Die Funktion gibt einen Fehler zurück, wenn der Spaltenname falsch ist. Zum Beispiel:
 
 ```go
-excelize.ColumnNameToNumber("AK") // returns 37, nil
+excelize.ColumnNameToNumber("AK") // rückkehr 37, nil
 ```
 
-## Column Number To Name {#ColumnNumberToName}
+## Die zu benennende Spaltennummer {#ColumnNumberToName}
 
 ```go
 func ColumnNumberToName(num int) (string, error)
 ```
 
-ColumnNumberToName provides a function to convert the integer to Excel sheet column title. For example:
+ColumnNumberToName bietet eine Funktion zum Konvertieren der Ganzzahl in den Spaltentitel des Excel-Arbeitsblatts. Zum Beispiel:
 
 ```go
-excelize.ColumnNumberToName(37) // returns "AK", nil
+excelize.ColumnNumberToName(37) // rückkehr "AK", nil
 ```
 
-## Cell Name To Coordinates {#CellNameToCoordinates}
+## Zellenname zu Koordinaten {#CellNameToCoordinates}
 
 ```go
 func CellNameToCoordinates(cell string) (int, int, error)
 ```
 
-CellNameToCoordinates converts alphanumeric cell name to `[X, Y]` coordinates or returns an error. For example:
+CellNameToCoordinates konvertiert den alphanumerischen Zellennamen in `[X, Y]` Koordinaten oder gibt einen Fehler zurück. Zum Beispiel:
 
 ```go
-CellCoordinates("A1") // returns 1, 1, nil
-CellCoordinates("Z3") // returns 26, 3, nil
+CellCoordinates("A1") // rückkehr 1, 1, nil
+CellCoordinates("Z3") // rückkehr 26, 3, nil
 ```
 
-## Coordinates To Cell Name {#CoordinatesToCellName}
+## Koordinaten zum Zellnamen {#CoordinatesToCellName}
 
 ```go
 func CoordinatesToCellName(col, row int) (string, error)
 ```
 
-CoordinatesToCellName converts `[X, Y]` coordinates to alpha-numeric cell name or returns an error. For example:
+CoordinatesToCellName konvertiert `[X, Y]` Koordinaten in alphanumerische Zellennamen oder gibt einen Fehler zurück. Zum Beispiel:
 
 ```go
-CoordinatesToCellName(1, 1) // returns "A1", nil
+CoordinatesToCellName(1, 1) // rückkehr "A1", nil
 ```
 
-## Conditional style {#NewConditionalStyle}
+## Bedingter Stil {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-NewConditionalStyle provides a function to create a style for the conditional format by given style format. The parameters are the same as function [`NewStyle()`](style.md#NewStyle). Note that the color field uses RGB color code and only supports setting the font, fills, alignment, and borders currently.
+NewConditionalStyle bietet eine Funktion zum Erstellen eines Stils für das bedingte Format anhand des angegebenen Stilformats. Die Parameter sind die gleichen wie bei der Funktion [`NewStyle()`](style.md#NewStyle). Beachten Sie, dass das Farbfeld RGB-Farbcode verwendet und nur das Festlegen von Schriftart, Füllungen, Ausrichtung und Rahmen unterstützt.
 
-## Conditional format {#SetConditionalFormat}
+## Bedingtes Format {#SetConditionalFormat}
 
 ```go
 func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
 ```
 
-SetConditionalFormat provides a function to create a conditional formatting rule for cell value. Conditional formatting is a feature of Office Excel which allows you to apply a format to a cell or a range of cells based on certain criteria.
+SetConditionalFormat bietet eine Funktion zum Erstellen einer bedingten Formatierungsregel für den Zellenwert. Die bedingte Formatierung ist eine Funktion von Office Excel, mit der Sie ein Format auf eine Zelle oder einen Zellbereich basierend auf bestimmten Kriterien anwenden können.
 
-The `type` option is a required parameter and it has no default value. Allowable type values and their associated parameters are:
+Die Option `type` ist ein erforderlicher Parameter und hat keinen Standardwert. Zulässige Typwerte und die zugehörigen Parameter sind:
 
 <table>
     <thead>
         <tr>
-            <th>Type</th>
+            <th>Typ</th>
             <th>Parameters</th>
         </tr>
     </thead>
@@ -419,9 +419,9 @@ The `type` option is a required parameter and it has no default value. Allowable
     </tbody>
 </table>
 
-The `criteria` parameter is used to set the criteria by which the cell data will be evaluated. It has no default value. The most common criteria as applied to `{"type"："cell"}` are:
+Der Parameter `criteria` wird verwendet, um die Kriterien festzulegen, nach denen die Zellendaten ausgewertet werden. Es hat keinen Standardwert. Die häufigsten Kriterien für `{"type"："cell"}` sind:
 
-Text description character|Symbolic representation
+Textbeschreibung Charakter|Symbolische Darstellung
 ---|---
 between|
 not between|
@@ -432,11 +432,11 @@ less than|<
 greater than or equal to|>=
 less than or equal to|<=
 
-You can either use Excel's textual description strings, in the first column above, or the more common symbolic alternatives.
+Sie können entweder die Textbeschreibungszeichenfolgen von Excel in der ersten Spalte oben oder die gängigsten symbolischen Alternativen verwenden.
 
-Additional criteria that are specific to other conditional format types are shown in the relevant sections below.
+Zusätzliche Kriterien, die für andere bedingte Formattypen spezifisch sind, werden in den entsprechenden Abschnitten unten gezeigt.
 
-`value`: The value is generally used along with the `criteria` parameter to set the rule by which the cell data will be evaluated:
+`value`: Der Wert wird im Allgemeinen zusammen mit dem Parameter `criteria` verwendet, um die Regel festzulegen, nach der die Zellendaten ausgewertet werden:
 
 ```go
 f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
@@ -448,7 +448,7 @@ f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-The `value` property can also be a cell reference:
+Die Eigenschaft `value` kann auch eine Zellreferenz sein:
 
 ```go
 f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
@@ -460,7 +460,7 @@ f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-type: `format` - The `format` parameter is used to specify the format that will be applied to the cell when the conditional formatting criterion is met. The format is created using the [`NewConditionalStyle()`](utils.md#NewConditionalStyle) method in the same way as cell formats:
+type: `format` - Der Parameter `format` wird verwendet, um das Format anzugeben, das auf die Zelle angewendet wird, wenn das Kriterium der bedingten Formatierung erfüllt ist. Das Format wird mit der Methode [`NewConditionalStyle()`](utils.md#NewConditionalStyle) auf dieselbe Weise wie die Zellenformate erstellt:
 
 ```go
 format, err = f.NewConditionalStyle(`{
@@ -487,12 +487,12 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-Note: In Excel, a conditional format is superimposed over the existing cell format and not all cell format properties can be modified. Properties that cannot be modified in a conditional format are font name, font size, superscript and subscript, diagonal borders, all alignment properties and all protection properties.
+Hinweis: In Excel wird ein bedingtes Format über das vorhandene Zellenformat gelegt, und nicht alle Eigenschaften des Zellenformats können geändert werden. Eigenschaften, die in einem bedingten Format nicht geändert werden können, sind Schriftname, Schriftgröße, hochgestellt und tiefgestellt, diagonale Ränder, alle Ausrichtungseigenschaften und alle Schutzeigenschaften.
 
-Excel specifies some default formats to be used with conditional formatting. These can be replicated using the following excelize formats:
+Excel gibt einige Standardformate an, die bei der bedingten Formatierung verwendet werden sollen. Diese können mit den folgenden Excel-Formaten repliziert werden:
 
 ```go
-// Rose format for bad conditional.
+// Rosenformat für schlechte Bedingungen.
 format1, err = f.NewConditionalStyle(`{
     "font":
     {
@@ -506,7 +506,7 @@ format1, err = f.NewConditionalStyle(`{
     }
 }`)
 
-// Light yellow format for neutral conditional.
+// Hellgelbes Format für neutrale Bedingungen.
 format2, err = f.NewConditionalStyle(`{
     "font":
     {
@@ -520,7 +520,7 @@ format2, err = f.NewConditionalStyle(`{
     }
 }`)
 
-// Light green format for good conditional.
+// Hellgrünes Format für gute Bedingungen.
 format3, err = f.NewConditionalStyle(`{
     "font":
     {
@@ -535,10 +535,10 @@ format3, err = f.NewConditionalStyle(`{
 }`)
 ```
 
-type: `minimum` - The `minimum` parameter is used to set the lower limiting value when the `criteria` is either `between` or `not between`.
+type: `minimum` - Der Parameter `minimum` wird verwendet, um den unteren Grenzwert festzulegen, wenn das `criteria` entweder `between` oder `not between` liegt.
 
 ```go
-// Highlight cells rule: between...
+// Markieren Sie die Regel für Zellen: zwischen ...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 {
     "type": "cell",
@@ -549,12 +549,12 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-type: `maximum` - The `maximum` parameter is used to set the upper limiting value when the criteria are either `between` or `not between`. See the previous example.
+type: `maximum` - Der Parameter `maximum` wird verwendet, um den oberen Grenzwert festzulegen, wenn die Kriterien entweder `between` oder `not between` liegen. Siehe das vorherige Beispiel.
 
-type: `average` - The `average` type is used to specify Office Excel's "Average" style conditional format:
+type: `average` - Der Typ `average` wird verwendet, um das bedingte Format im "Durchschnitt" -Stil von Office Excel anzugeben:
 
 ```go
-// Top/Bottom rules: Above Average...
+// Top/Bottom-Regeln: Überdurchschnittlich...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 {
     "type": "average",
@@ -563,7 +563,7 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
     "above_average": true
 }]`, format1))
 
-// Top/Bottom rules: Below Average...
+// Top/Bottom-Regeln: Unterdurchschnittlich...
 f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
 {
     "type": "average",
@@ -573,10 +573,10 @@ f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
 }]`, format2))
 ```
 
-type: `duplicate` - The `duplicate` type is used to highlight duplicate cells in a range:
+type: `duplicate` - Der Typ `duplicate` wird verwendet, um doppelte Zellen in einem Bereich hervorzuheben:
 
 ```go
-// Highlight cells rules: Duplicate Values...
+// Markieren Sie die Zellenregeln: Werte duplizieren...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 {
     "type": "duplicate",
@@ -585,10 +585,10 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-type: `unique` - The `unique` type is used to highlight unique cells in a range:
+type: `unique` - Der Typ `unique` wird verwendet, um eindeutige Zellen in einem Bereich hervorzuheben:
 
 ```go
-// Highlight cells rules: Not Equal To...
+// Markieren Sie die Zellenregeln: Nicht gleich...
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 {
     "type": "unique",
@@ -597,10 +597,10 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-type: `top` - The `top` type is used to specify the top n values by number or percentage in a range:
+type: `top` - Der Typ `top` wird verwendet, um die oberen n-Werte nach Anzahl oder Prozentsatz in einem Bereich anzugeben:
 
 ```go
-// Top/Bottom rules: Top 10.
+// Top/Bottom-Regeln: Top 10.
 f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
 {
     "type": "top",
@@ -610,7 +610,7 @@ f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-The criteria can be used to indicate that a percentage condition is required:
+Die Kriterien können verwendet werden, um anzuzeigen, dass eine prozentuale Bedingung erforderlich ist:
 
 ```go
 f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
@@ -623,10 +623,10 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-type: `2_color_scale` - The `2_color_scale` type is used to specify Excel's "2 Color Scale" style conditional format:
+type: `2_color_scale` - Der Typ `2_color_scale` wird verwendet, um das bedingte Format im Excel-Stil "2 Farbskala" anzugeben:
 
 ```go
-// Color scales: 2 color.
+// Farbskalen: 2 Farben.
 f.SetConditionalFormat("Sheet1", "A1:A10", `[
 {
     "type": "2_color_scale",
@@ -638,12 +638,12 @@ f.SetConditionalFormat("Sheet1", "A1:A10", `[
 }]`)
 ```
 
-This conditional type can be modified with `min_type`, `max_type`, `min_value`, `max_value`, `min_color` and `max_color`, see below.
+Dieser bedingte Typ kann mit `min_type`, `max_type`, `min_value`, `max_value`, `min_color` und `max_color` geändert werden (siehe unten).
 
-type: `3_color_scale` - The `3_color_scale` type is used to specify Excel's "3 Color Scale" style conditional format:
+type: `3_color_scale` - Der Typ `3_color_scale` wird verwendet, um das bedingte Format des Excel-Stils "3 Color Scale" anzugeben:
 
 ```go
-// Color scales: 3 color.
+// Farbskalen: 3 Farben.
 f.SetConditionalFormat("Sheet1", "A1:A10", `[
 {
     "type": "3_color_scale",
@@ -657,14 +657,14 @@ f.SetConditionalFormat("Sheet1", "A1:A10", `[
 }]`)
 ```
 
-This conditional type can be modified with `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` and `max_color`, see below.
+Dieser bedingte Typ kann mit `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` und `max_color` geändert werden (siehe unten).
 
-type: `data_bar` - The `data_bar` type is used to specify Excel's "Data Bar" style conditional format.
+type: `data_bar` - Der Typ `data_bar` wird verwendet, um das bedingte Format im Excel-Stil "Data Bar" anzugeben.
 
-`min_type` - The `min_type` and `max_type` properties are available when the conditional formatting type is `2_color_scale`, `3_color_scale` or `data_bar`. The `mid_type` is available for `3_color_scale`. The properties are used as follows:
+`min_type` - Die Eigenschaften `min_type` und `max_type` sind verfügbar, wenn der bedingte Formatierungstyp `2_color_scale`, `3_color_scale` oder `data_bar` ist. Der `mid_type` ist für `3_color_scale` verfügbar. Die Eigenschaften werden wie folgt verwendet:
 
 ```go
-// Data Bars: Gradient Fill.
+// Datenbalken: Verlaufsfüllung.
 f.SetConditionalFormat("Sheet1", "K1:K10", `[
 {
     "type": "data_bar",
@@ -675,31 +675,31 @@ f.SetConditionalFormat("Sheet1", "K1:K10", `[
 }]`)
 ```
 
-The available `min/mid/max` types are:
+Die verfügbaren `min/mid/max` -Typen sind:
 
-Parameter|Explanation
+Parameter|Erläuterung
 ---|---
-min|Minimum value (for `min_type` only)
-num|Numeric
-percent|Percentage
-percentile|Percentile
-formula|Formula
-max|Maximum (for `max_type` only)
+min|Minimalwert (nur für `min_type`)
+num|Numerisch
+percent|Prozentsatz
+percentile|Perzentil
+formula|Formel
+max|Maximum (nur für `max_type`)
 
-`mid_type` - Used for `3_color_scale`. Same as `min_type`, see above.
+`mid_type` - Wird für `3_color_scale` verwendet. Gleich wie `min_type`, siehe oben.
 
-`max_type` - Same as `min_type`, see above.
+`max_type` - Gleich wie `min_type`, siehe oben.
 
-`min_value` - The `min_value` and `max_value` properties are available when the conditional formatting type is `2_color_scale`, `3_color_scale` or `data_bar`. The `mid_value` is available for `3_color_scale`.
+`min_value` - Die Eigenschaften `min_value` und `max_value` sind verfügbar, wenn der bedingte Formatierungstyp `2_color_scale`, `3_color_scale` oder `data_bar` ist. Der `mid_value` ist für `3_color_scale` verfügbar.
 
-`mid_value` - Used for `3_color_scale`. Same as `min_value`, see above.
+`mid_value` - Wird für `3_color_scale` verwendet. Gleich wie `min_value`, siehe oben.
 
-`max_value` - Same as `min_value`, see above.
+`max_value` - Gleich wie `min_value`, siehe oben.
 
-`min_color` - The `min_color` and `max_color` properties are available when the conditional formatting type is `2_color_scale`, `3_color_scale` or `data_bar`. The `mid_color` is available for `3_color_scale`. The properties are used as follows:
+`min_color` - Die Eigenschaften `min_color` und `max_color` sind verfügbar, wenn der bedingte Formatierungstyp `2_color_scale`, `3_color_scale` oder `data_bar` ist. Die `mid_color` ist für `3_color_scale` verfügbar. Die Eigenschaften werden wie folgt verwendet:
 
 ```go
-// Color scales: 3 color.
+// Farbskalen: 3 Farben.
 f.SetConditionalFormat("Sheet1", "B1:B10", `[
 {
     "type": "3_color_scale",
@@ -713,55 +713,55 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[
 }]`)
 ```
 
-`mid_color` - Used for `3_color_scale`. Same as `min_color`, see above.
+`mid_color` - Wird für `3_color_scale` verwendet. Gleich wie `min_color`, siehe oben.
 
-`max_color` - Same as `min_color`, see above.
+`max_color` - Gleich wie `min_color`, siehe oben.
 
-`bar_color` - Used for `data_bar`. Same as `min_color`, see above.
+`bar_color` - Wird für `data_bar` verwendet. Gleich wie `min_color`, siehe oben.
 
-## Remove conditional format {#UnsetConditionalFormat}
+## Entfernen des bedingten Formats {#UnsetConditionalFormat}
 
 ```go
 func (f *File) UnsetConditionalFormat(sheet, area string) error
 ```
 
-UnsetConditionalFormat provides a function to unset the conditional format by given worksheet name and range.
+UnsetConditionalFormat bietet eine Funktion zum Aufheben des bedingten Formats anhand des angegebenen Arbeitsblattnamens und -bereichs.
 
-## Panes {#SetPanes}
+## Bereiche {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet, panes string)
 ```
 
-SetPanes provides a function to create and remove freeze panes and split panes by given worksheet name and panes format set.
+SetPanes bietet eine Funktion zum Erstellen und Entfernen von Freeze-Fenstern und zum Teilen von Fenstern anhand des angegebenen Arbeitsblattnamens und des festgelegten Fensterformats.
 
-`activePane` defines the pane that is active. The possible values for this attribute are defined in the following table:
+`activePane` definiert das aktive Fenster. Die möglichen Werte für dieses Attribut sind in der folgenden Tabelle definiert:
 
-Enumeration Value|Description
+Aufzählungswert|Beschreibung
 ---|---
-bottomLeft (Bottom Left Pane) |Bottom left pane, when both vertical and horizontal splits are applied.<br><br>This value is also used when only a horizontal split has been applied, dividing the pane into upper and lower regions. In that case, this value specifies the bottom pane.
-bottomRight (Bottom Right Pane) | Bottom right pane, when both vertical and horizontal splits are applied.
-topLeft (Top Left Pane)|Top left pane, when both vertical and horizontal splits are applied.<br><br>This value is also used when only a horizontal split has been applied, dividing the pane into upper and lower regions. In that case, this value specifies the top pane.<br><br>This value is also used when only a vertical split has been applied, dividing the pane into right and left regions. In that case, this value specifies the left pane.
-topRight (Top Right Pane)|Top right pane, when both vertical and horizontal splits are applied.<br><br> This value is also used when only a vertical split has been applied, dividing the pane into right and left regions. In that case, this value specifies the right pane.
+bottomLeft (Unten links) |Unten links, wenn sowohl vertikale als auch horizontale Teilungen angewendet werden.<br><br>Dieser Wert wird auch verwendet, wenn nur eine horizontale Aufteilung angewendet wurde, die den Bereich in obere und untere Bereiche unterteilt. In diesem Fall gibt dieser Wert den unteren Bereich an.
+bottomRight (Unten rechts) | Unten rechts, wenn sowohl vertikale als auch horizontale Teilungen angewendet werden.
+topLeft (Oben links)|Oben links, wenn sowohl vertikale als auch horizontale Teilungen angewendet werden.<br><br>Dieser Wert wird auch verwendet, wenn nur eine horizontale Aufteilung angewendet wurde, die den Bereich in obere und untere Bereiche unterteilt. In diesem Fall gibt dieser Wert den oberen Bereich an.<br><br>Dieser Wert wird auch verwendet, wenn nur eine vertikale Teilung angewendet wurde, die den Bereich in rechte und linke Bereiche unterteilt. In diesem Fall gibt dieser Wert den linken Bereich an.
+topRight (Top Right Pane)|Oben rechts, wenn sowohl vertikale als auch horizontale Teilungen angewendet werden.<br><br> Dieser Wert wird auch verwendet, wenn nur eine vertikale Teilung angewendet wurde, die den Bereich in rechte und linke Bereiche unterteilt. In diesem Fall gibt dieser Wert den rechten Bereich an.
 
-Pane state type is restricted to the values supported currently listed in the following table:
+Der Statusstatus des Bereichs ist auf die unterstützten Werte beschränkt, die derzeit in der folgenden Tabelle aufgeführt sind:
 
-Enumeration Value|Description
+Aufzählungswert|Beschreibung
 ---|---
-frozen (Frozen)|Panes are frozen, but were not split being frozen. In this state, when the panes are unfrozen again, a single pane results, with no split.<br><br>In this state, the split bars are not adjustable.
-split (Split)|Panes are split, but not frozen. In this state, the split bars are adjustable by the user.
+frozen (Gefroren)|Die Scheiben sind eingefroren, wurden aber beim Teilen nicht gespalten. In diesem Zustand wird beim erneuten Auffrieren der Fenster ein einzelnes Fenster ohne Teilung erstellt.<br><br>In diesem Zustand sind die geteilten Balken nicht einstellbar.
+split (Teilt)|Die Scheiben sind geteilt, aber nicht gefroren. In diesem Zustand sind die geteilten Balken vom Benutzer einstellbar.
 
-`x_split` - Horizontal position of the split, in 1/20th of a point; 0 (zero) if none. If the pane is frozen, this value indicates the number of columns visible in the top pane.
+`x_split` - Horizontale Position der Teilung in 1/20 eines Punktes; 0 (Null) wenn keine. Wenn der Bereich eingefroren ist, gibt dieser Wert die Anzahl der im oberen Bereich sichtbaren Spalten an.
 
-`y_split` - Vertical position of the split, in 1/20th of a point; 0 (zero) if none. If the pane is frozen, this value indicates the number of rows visible in the left pane. The possible values for this attribute are defined by the W3C XML Schema double data type.
+`y_split` - Vertikale Position der Teilung in 1/20 eines Punktes; 0 (Null) wenn keine. Wenn der Bereich eingefroren ist, gibt dieser Wert die Anzahl der im linken Bereich sichtbaren Zeilen an. Die möglichen Werte für dieses Attribut werden durch den doppelten Datentyp W3C XML Schema definiert.
 
-`top_left_cell` - Location of the top left visible cell in the bottom right pane (when in Left-To-Right mode).
+`top_left_cell` - Position der sichtbaren Zelle oben links im unteren rechten Bereich (im Modus von links nach rechts).
 
-`sqref` - Range of the selection. Can be a non-contiguous set of ranges.
+`sqref` - Bereich der Auswahl. Kann ein nicht zusammenhängender Satz von Bereichen sein.
 
-Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!K16`:
+Beispiel 1: Spalte `A` in `Sheet1` einfrieren und die aktive Zelle auf `Sheet1!K16` setzen:
 
-<p align="center"><img width="770" src="./images/setpans_01.png" alt="Frozen column"></p>
+<p align="center"><img width="770" src="./images/setpans_01.png" alt="Gefrorene Säule"></p>
 
 ```go
 f.SetPanes("Sheet1", `{
@@ -780,9 +780,9 @@ f.SetPanes("Sheet1", `{
 }`)
 ```
 
-Example 2: freeze rows 1 to 9 in the `Sheet1` and set the active cell ranges on `Sheet1!A11:XFD11`:
+Beispiel 2: Frieren Sie die Zeilen 1 bis 9 in `Sheet1` ein und setzen Sie die aktiven Zellbereiche auf AA `Sheet1!A11:XFD11`:
 
-<p align="center"><img width="770" src="./images/setpans_02.png" alt="Freeze columns and set active cell ranges"></p>
+<p align="center"><img width="770" src="./images/setpans_02.png" alt="Spalten einfrieren und aktive Zellbereiche festlegen"></p>
 
 ```go
 f.SetPanes("Sheet1", `{
@@ -801,9 +801,9 @@ f.SetPanes("Sheet1", `{
 }`)
 ```
 
-Example 3: create split panes in the `Sheet1` and set the active cell on `Sheet1!J60`:
+Beispiel 3: Erstellen Sie geteilte Fenster in `Sheet1` und setzen Sie die aktive Zelle auf `Sheet1!J60`:
 
-<p align="center"><img width="775" src="./images/setpans_03.png" alt="Create split panes"></p>
+<p align="center"><img width="755" src="./images/setpans_03.png" alt="Erstellen Sie geteilte Fenster"></p>
 
 ```go
 f.SetPanes("Sheet1", `{
@@ -836,19 +836,19 @@ f.SetPanes("Sheet1", `{
 }`)
 ```
 
-Example 4, unfreeze and remove all panes on `Sheet1`:
+Beispiel 4: Entfrieren und entfernen Sie alle Fenster auf `Sheet1`:
 
 ```go
 f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
 ```
 
-## Color {#ThemeColor}
+## Farbe {#ThemeColor}
 
 ```go
 func ThemeColor(baseColor string, tint float64) string
 ```
 
-ThemeColor applied the color with tint value:
+ThemeColor hat die Farbe mit dem Farbtonwert angewendet:
 
 ```go
 package main
@@ -895,23 +895,23 @@ func getCellBgColor(f *excelize.File, sheet, axix string) string {
 }
 ```
 
-## Convert RGB to HSL {#RGBToHSL}
+## Konvertieren von RGB in HSL {#RGBToHSL}
 
 ```go
 func RGBToHSL(r, g, b uint8) (h, s, l float64)
 ```
 
-RGBToHSL converts an RGB triple to a HSL triple.
+RGBToHSL konvertiert ein RGB-Tripel in ein HSL-Tripel.
 
-## Convert HSL to RGB {#HSLToRGB}
+## Konvertieren von HSL in RGB {#HSLToRGB}
 
 ```go
 func HSLToRGB(h, s, l float64) (r, g, b uint8)
 ```
 
-HSLToRGB converts an HSL triple to a RGB triple.
+HSLToRGB konvertiert ein HSL-Tripel in ein RGB-Tripel.
 
-## File Writer {#FileWriter}
+## Datei-Brenner {#FileWriter}
 
 ### Write {#Write}
 
@@ -919,7 +919,7 @@ HSLToRGB converts an HSL triple to a RGB triple.
 func (f *File) Write(w io.Writer) error
 ```
 
-Write provides a function to write to an `io.Writer`.
+Write bietet eine Funktion zum Schreiben in einen `io.Writer`.
 
 ### WriteTo {#WriteTo}
 
@@ -927,7 +927,7 @@ Write provides a function to write to an `io.Writer`.
 func (f *File) WriteTo(w io.Writer) (int64, error)
 ```
 
-WriteTo implements `io.WriterTo` to write the file.
+WriteTo implementiert `io.WriterTo`, um die Datei zu schreiben.
 
 ### WriteToBuffer {#WriteToBuffer}
 
@@ -935,15 +935,15 @@ WriteTo implements `io.WriterTo` to write the file.
 func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 ```
 
-WriteToBuffer provides a function to get `*bytes.Buffer` from the saved file.
+WriteToBuffer bietet eine Funktion zum Abrufen von `*bytes.Buffer` aus der gespeicherten Datei.
 
-## Add VBA Project {#AddVBAProject}
+## VBA-Projekt hinzufügen {#AddVBAProject}
 
 ```go
 func (f *File) AddVBAProject(bin string) error
 ```
 
-AddVBAProject provides the method to add `vbaProject.bin` file which contains functions and/or macros. The file extension should be `.xlsm`. For example:
+AddVBAProject bietet die Methode zum Hinzufügen der Datei `vbaProject.bin`, die Funktionen und/oder Makros enthält. Die Dateierweiterung sollte `.xlsm` sein. Zum Beispiel:
 
 ```go
 if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
@@ -957,18 +957,18 @@ if err := f.SaveAs("macros.xlsm"); err != nil {
 }
 ```
 
-## Excel date to time {#ExcelDateToTime}
+## Excel-Datum zur Uhrzeit {#ExcelDateToTime}
 
 ```go
 func ExcelDateToTime(excelDate float64, use1904Format bool) (time.Time, error)
 ```
 
-ExcelDateToTime converts a float-based excel date representation to a `time.Time`.
+ExcelDateToTime konvertiert eine Float-basierte Excel-Datumsdarstellung in eine `time.Time`.
 
-## Charset transcoder {#CharsetTranscoder}
+## Zeichentranscoder {#CharsetTranscoder}
 
 ```go
 func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
 ```
 
-CharsetTranscoder Set user-defined codepage transcoder function for open the spreadsheet from non-UTF-8 encoding.
+CharsetTranscoder Legt die benutzerdefinierte Codepage-Transcoder-Funktion zum Öffnen der Tabelle mit Nicht-UTF-8-Codierung fest.

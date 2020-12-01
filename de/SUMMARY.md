@@ -173,7 +173,7 @@
   * [Datenvalidierung löschen](data.md#DeleteDataValidation)
 * [Pivot-Tabelle](pivot.md#PivotTable)
   * [Erstellen einer Pivot-Tabelle](pivot.md#AddPivotTable)
-* [Utils](utils.md)
+* [Dienstprogramme](utils.md)
   * [Tabelle](utils.md#AddTable)
   * [Automatischer Filter](utils.md#AutoFilter)
   * [Verknüpften Wert aktualisieren](utils.md#UpdateLinkedValue)
