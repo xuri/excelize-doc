@@ -16,7 +16,7 @@ The Microsoft Excel&trade; 2007 release supports the XML-based document format O
 
 ## Document Translation
 
-The documentation is built on [GitBook](https://www.gitbook.com) in the format of Markdown and is welcome to participate in the translation. Documentation repository: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
+The documentation is built on [GitBook](https://github.com/GitbookIO/gitbook) in the format of Markdown and is welcome to participate in the translation. Documentation repository: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
 
 ## Create Issue {#Issue}
 

@@ -16,7 +16,7 @@ Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Off
 
 ## 參與貢獻文檔
 
-文檔基於 [GitBook](https://www.gitbook.com) 構建，格式為 Markdown，源檔案倉庫地址：[github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)，歡迎參與撰寫、糾錯與翻譯。
+文檔基於 [GitBook](https://github.com/GitbookIO/gitbook) 構建，格式為 Markdown，源檔案倉庫地址：[github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)，歡迎參與撰寫、糾錯與翻譯。
 
 ## 報告問題 {#Issue}
 

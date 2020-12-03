@@ -16,7 +16,7 @@ Microsoft Excel&trade; 2007 バージョンでは、XML および ZIP テクノ�
 
 ## 寄稿文書への参加
 
-文書は、[GitBook](https://www.gitbook.com) 構築、書式マークダウン、ソースファイルウェアハウスアドレス: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc) に基づいて、書き込み、エラー修正および翻訳に参加することを歓迎します。
+文書は、[GitBook](https://github.com/GitbookIO/gitbook) 構築、書式マークダウン、ソースファイルウェアハウスアドレス: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc) に基づいて、書き込み、エラー修正および翻訳に参加することを歓迎します。
 
 ## 报告问题 {#Issue}
 

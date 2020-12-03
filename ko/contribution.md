@@ -16,7 +16,7 @@ Microsoft Excel&trade; 2007 릴리스는 XML 및 ZIP 기술을 기반으로 하�
 
 ## 문서 번역
 
-이 문서는 [GitBook](https://www.gitbook.com) 을 마크다운 형식으로 작성했으며 번역에 참여할 수 있습니다. 문서 리포지토리: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
+이 문서는 [GitBook](https://github.com/GitbookIO/gitbook) 을 마크다운 형식으로 작성했으며 번역에 참여할 수 있습니다. 문서 리포지토리: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
 
 ## 문제 만들기 {#Issue}
 

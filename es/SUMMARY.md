@@ -196,7 +196,7 @@
   * [Transcodificador Charset](utils.md#CharsetTranscoder)
 * Ejemplos
   * [Calendario](example/calendar.md)
-  * [Lista desplegable de dependientes](example/dependentDropList.md)
+  * [Lista desplegable dependiente](example/dependentDropList.md)
 * [Constantes](constants.md)
 * [Rendimiento](performance.md)
 * [Contribución](contribution.md)

@@ -16,7 +16,7 @@ La version Microsoft Excel&trade; 2007 prend en charge le format de document XML
 
 ## Traduction de documents
 
-La documentation est construite sur [GitBook](https://www.gitbook.com) dans le format de Markdown et est la bienvenue pour participer à la traduction. Dépôt de documentation: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
+La documentation est construite sur [GitBook](https://github.com/GitbookIO/gitbook) dans le format de Markdown et est la bienvenue pour participer à la traduction. Dépôt de documentation: [github.com/xuri/excelize-doc](https://github.com/xuri/excelize-doc)
 
 ## Créer un problème {#Issue}
 
