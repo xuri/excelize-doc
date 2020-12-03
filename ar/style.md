@@ -1,6 +1,6 @@
-# Style
+# نمط
 
-Alignment directly maps the alignment settings of the cells.
+تقوم Alignment بتعيين إعدادات محاذاة الخلايا مباشرة.
 
 ```go
 type Alignment struct {
@@ -16,7 +16,7 @@ type Alignment struct {
 }
 ```
 
-Border directly maps the border settings of the cells.
+يقوم Border بتعيين إعدادات حدود الخلايا مباشرةً.
 
 ```go
 type Border struct {
@@ -26,7 +26,7 @@ type Border struct {
 }
 ```
 
-Font directly maps the font settings of the fonts.
+يقوم Font بتعيين إعدادات الخطوط للخطوط مباشرةً.
 
 ```go
 type Font struct {
@@ -40,7 +40,7 @@ type Font struct {
 }
 ```
 
-Fill directly maps the fill settings of the cells.
+يعين Fill مباشرة إعدادات التعبئة للخلايا.
 
 ```go
 type Fill struct {
@@ -51,7 +51,7 @@ type Fill struct {
 }
 ```
 
-Protection directly maps the protection settings of the cells.
+يقوم Protection بتعيين إعدادات الحماية للخلايا مباشرةً.
 
 ```go
 type Protection struct {
@@ -60,7 +60,7 @@ type Protection struct {
 }
 ```
 
-Style directly maps the style settings of the cells.
+تعين Style مباشرة إعدادات نمط الخلايا.
 
 ```go
 type Style struct {
@@ -77,115 +77,115 @@ type Style struct {
 }
 ```
 
-## Create style {#NewStyle}
+## إنشاء نمط {#NewStyle}
 
 ```go
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle provides a function to create the style for cells by given JSON string or structure pointer. Note that the color field uses RGB color code.
+يوفر NewStyle وظيفة لإنشاء نمط للخلايا عن طريق سلسلة JSON أو مؤشر البنية. لاحظ أن حقل اللون يستخدم رمز ألوان RGB.
 
-### Border {#border}
+### الحدود {#border}
 
-The following shows the border styles `type` sorted by excelize index number:
+يوضح ما يلي أنماط الحدود `type` مرتبة حسب رقم فهرس excelize:
 
-Index|Style|Line|Preview
+فهرس|أسلوب|خط|معاينة
 ---|---|---|---
-0|None|0|
-1|Continuous|1|!["Continuous"](../images/style/border_01.png)
-2|Continuous|2|!["Continuous"](../images/style/border_02.png)
-3|Dash|1|!["Dash"](../images/style/border_03.png)
-4|Dot|1|!["Dot"](../images/style/border_04.png)
-5|Continuous|3|!["Continuous"](../images/style/border_05.png)
-6|Double|3|!["Double"](../images/style/border_06.png)
-7|Continuous|0|!["Continuous"](../images/style/border_07.png)
-8|Dash|2|!["Dash"](../images/style/border_08.png)
-9|Dash Dot|1|!["Dash Dot"](../images/style/border_09.png)
-10|Dash Dot|2|!["Dash Dot"](../images/style/border_10.png)
-11|Dash Dot Dot|1|!["Dash Dot Dot"](../images/style/border_11.png)
-12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
-13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
+0|لا شيء|0|
+1|مستمر|1|!["مستمر"](../images/style/border_01.png)
+2|مستمر|2|!["مستمر"](../images/style/border_02.png)
+3|اندفاع|1|!["اندفاع"](../images/style/border_03.png)
+4|دوت|1|!["دوت"](../images/style/border_04.png)
+5|مستمر|3|!["مستمر"](../images/style/border_05.png)
+6|مزدوج|3|!["مزدوج"](../images/style/border_06.png)
+7|مستمر|0|!["مستمر"](../images/style/border_07.png)
+8|اندفاع|2|!["اندفاع"](../images/style/border_08.png)
+9|اندفاع دوت|1|!["اندفاع دوت"](../images/style/border_09.png)
+10|اندفاع دوت|2|!["اندفاع دوت"](../images/style/border_10.png)
+11|اندفاع دوت دوت|1|!["اندفاع دوت دوت"](../images/style/border_11.png)
+12|اندفاع دوت دوت|2|!["اندفاع دوت دوت"](../images/style/border_12.png)
+13|اندفاعة مائلة دوت|2|!["اندفاعة مائلة دوت"](../images/style/border_13.png)
 
-The following shows the `borders` in the order shown in the Excel dialog:
+يوضح ما يلي `borders` بالترتيب الموضح في مربع حوار Excel:
 
-Index|Preview|Index|Preview
+فهرس|معاينة|فهرس|معاينة
 ---|---|---|---
-0||12|!["Border 12"](../images/style/border_12.png)
-7|!["Border 7"](../images/style/border_07.png)|13|!["Border 13"](../images/style/border_13.png)
-4|!["Border 4"](../images/style/border_04.png)|10|!["Border 19"](../images/style/border_10.png)
-11|!["Border 11"](../images/style/border_11.png)|8|!["Border 8"](../images/style/border_08.png)
-9|!["Border 9"](../images/style/border_09.png)|2|!["Border 2"](../images/style/border_02.png)
-3|!["Border 3"](../images/style/border_03.png)|5|!["Border 5"](../images/style/border_05.png)
-1|!["Border 1"](../images/style/border_01.png)|6|!["Border 6"](../images/style/border_06.png)
+0||12|!["الحدود 12"](../images/style/border_12.png)
+7|!["الحدود 7"](../images/style/border_07.png)|13|!["الحدود 13"](../images/style/border_13.png)
+4|!["الحدود 4"](../images/style/border_04.png)|10|!["الحدود 19"](../images/style/border_10.png)
+11|!["الحدود 11"](../images/style/border_11.png)|8|!["الحدود 8"](../images/style/border_08.png)
+9|!["الحدود 9"](../images/style/border_09.png)|2|!["الحدود 2"](../images/style/border_02.png)
+3|!["الحدود 3"](../images/style/border_03.png)|5|!["الحدود 5"](../images/style/border_05.png)
+1|!["الحدود 1"](../images/style/border_01.png)|6|!["الحدود 6"](../images/style/border_06.png)
 
-### Color fill {#shading}
+### تعبئة اللون {#shading}
 
 The following shows the `shading` styles sorted by excelize index number:
 
-Index|Style|Index|Style
+فهرس|أسلوب|فهرس|أسلوب
 ---|---|---|---
 0|Horizontal|3|Diagonal down
 1|Vertical|4|From corner
 2|Diagonal Up|5|From center
 
-### Pattern fill {#pattern}
+### تعبئة النقش {#pattern}
 
-The following shows the `pattern` styles sorted by excelize index number:
+يوضح ما يلي أنماط `pattern` مرتبة حسب رقم فهرس excelize:
 
-Index|Style|Index|Style
+فهرس|أسلوب|فهرس|أسلوب
 ---|---|---|---
-0|None|10|!["Pattern fill 10"](../images/style/pattern_10.png)
-1|!["Pattern fill 1"](../images/style/pattern_01.png)|11|!["Pattern fill 11"](../images/style/pattern_11.png)
-2|!["Pattern fill 2"](../images/style/pattern_02.png)|12|!["Pattern fill 12"](../images/style/pattern_12.png)
-3|!["Pattern fill 3"](../images/style/pattern_03.png)|13|!["Pattern fill 13"](../images/style/pattern_13.png)
-4|!["Pattern fill 4"](../images/style/pattern_04.png)|14|!["Pattern fill 14"](../images/style/pattern_14.png)
-5|!["Pattern fill 5"](../images/style/pattern_05.png)|15|!["Pattern fill 15"](../images/style/pattern_15.png)
-6|!["Pattern fill 6"](../images/style/pattern_06.png)|16|!["Pattern fill 16"](../images/style/pattern_16.png)
-7|!["Pattern fill 7"](../images/style/pattern_07.png)|17|!["Pattern fill 17"](../images/style/pattern_17.png)
-8|!["Pattern fill 8"](../images/style/pattern_08.png)|18|!["Pattern fill 18"](../images/style/pattern_18.png)
-9|!["Pattern fill 9](../images/style/pattern_09.png)||
+0|لا شيء|10|!["تعبئة النقش 10"](../images/style/pattern_10.png)
+1|!["تعبئة النقش 1"](../images/style/pattern_01.png)|11|!["تعبئة النقش 11"](../images/style/pattern_11.png)
+2|!["تعبئة النقش 2"](../images/style/pattern_02.png)|12|!["تعبئة النقش 12"](../images/style/pattern_12.png)
+3|!["تعبئة النقش 3"](../images/style/pattern_03.png)|13|!["تعبئة النقش 13"](../images/style/pattern_13.png)
+4|!["تعبئة النقش 4"](../images/style/pattern_04.png)|14|!["تعبئة النقش 14"](../images/style/pattern_14.png)
+5|!["تعبئة النقش 5"](../images/style/pattern_05.png)|15|!["تعبئة النقش 15"](../images/style/pattern_15.png)
+6|!["تعبئة النقش 6"](../images/style/pattern_06.png)|16|!["تعبئة النقش 16"](../images/style/pattern_16.png)
+7|!["تعبئة النقش 7"](../images/style/pattern_07.png)|17|!["تعبئة النقش 17"](../images/style/pattern_17.png)
+8|!["تعبئة النقش 8"](../images/style/pattern_08.png)|18|!["تعبئة النقش 18"](../images/style/pattern_18.png)
+9|!["تعبئة النقش 9](../images/style/pattern_09.png)||
 
-### Align {#align}
+### محاذاه {#align}
 
-#### Horizontal alignment
+#### محاذاة أفقية
 
-The following type of `horizontal` alignment in cells:
+النوع التالي من المحاذاة `horizontal` في الخلايا:
 
-Type|Style
+اكتب|أسلوب
 ---|---
-left|Left (indented)
-center|Centered
-right|Right (indented)
-fill|Filling
-justify|Justified
-centerContinuous|Cross-column centered
-distributed|Decentralized alignment (indented)
+left|يسار (مسافة بادئة)
+center|توسيط
+right|يمين (مسافة بادئة)
+fill|حشوة
+justify|مبرر
+centerContinuous|عبر الأعمدة في الوسط
+distributed|محاذاة لامركزية (مسافة بادئة)
 
-#### Vertical alignment
+#### انحياز عمودي
 
-The following type of `vertical` alignment in cells:
+النوع التالي من المحاذاة `vertical` في الخلايا:
 
-Type|Style
+اكتب|أسلوب
 ---|---
-top|Top alignment
-center|Centered
-justify|Justified
-distributed|Decentralized alignment
+top|محاذاة لأعلى
+center|توسيط
+justify|مبرر
+distributed|المحاذاة اللامركزية
 
-### Font underline {#underline}
+### تسطير الخط {#underline}
 
-The following type of font `underline` style:
+النوع التالي من نمط الخط `underline`:
 
-Type|Style
+اكتب|أسلوب
 ---|---
-single|Single line
-double|Double line
+single|سطر واحد
+double|خط مزدوج
 
-### Number format {#number_format}
+### تنسيق الأرقام {#number_format}
 
-Excel's built-in all languages formats (the `number_format` parameter) are shown in the following table:
+يتم عرض تنسيقات جميع اللغات المضمنة في Excel (المعلمة `number_format`) في الجدول التالي:
 
-Index|Type
+فهرس|اكتب
 ---|---
 0|`General`
 1|`0`
@@ -225,11 +225,11 @@ Index|Type
 48|`##0.0E+0`
 49|`@`
 
-#### Traditional Chinese number format
+#### تنسيق الأرقام الصينية التقليدية
 
-Number format code in `zh-tw` language:
+كود تنسيق الأرقام بلغة `zh-tw`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`[$-404]e/m/d`
 28|`[$-404]e"年"m"月"d"日"`
@@ -251,11 +251,11 @@ Index|Type
 57|`[$-404]e/m/d`
 58|`[$-404]e"年"m"月"d"日"`
 
-#### Simplified Chinese number format
+#### تنسيق أرقام صيني مبسط
 
-Number format code in `zh-cn` language:
+كود تنسيق الأرقام بلغة `zh-cn`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`yyyy"年"m"月"`
 28|`m"月"d"日"`
@@ -277,11 +277,11 @@ Index|Type
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### Unicode Traditional Chinese number format
+#### Unicode تنسيق الأرقام الصينية التقليدية
 
-Number format code with unicode values provided for language glyphs where they occur in `zh-tw` language:
+كود تنسيق الأرقام بقيم Unicode المقدمة لرموز اللغة حيث تظهر بلغة `zh-tw`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`[$-404]e/m/`
 28|`[$-404]e"5E74"m"6708"d"65E5`
@@ -303,11 +303,11 @@ Index|Type
 57|`[$-404]e/m/`
 58|`[$-404]e"5E74"m"6708"d"65E5"`
 
-#### Unicode Simplified Chinese number format
+#### تنسيق الأرقام الصينية المبسطة يونيكود
 
-Number format code with unicode values provided for language glyphs where they occur in `zh-cn` language:
+كود تنسيق الأرقام مع قيم Unicode المقدمة لصور اللغة حيث تظهر بلغة `zh-cn`
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`yyyy"5E74"m"6708`
 28|`m"6708"d"65E5`
@@ -329,11 +329,11 @@ Index|Type
 57|`yyyy"5E74"m"6708`
 58|`m"6708"d"65E5"`
 
-#### Japanese number format
+#### تنسيق الأرقام اليابانية
 
-Number format code in `ja-jp` language:
+كود تنسيق الرقم بلغة `ja-jp`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`[$-411]ge.m.d`
 28|`[$-411]ggge"年"m"月"d"日`
@@ -355,11 +355,11 @@ Index|Type
 57|`[$-411]ge.m.d`
 58|`[$-411]ggge"年"m"月"d"日"`
 
-#### Korean number format
+#### تنسيق الأرقام الكوري
 
-Number format code in `ko-kr` language:
+كود تنسيق الأرقام بلغة `ko-kr`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`yyyy"年" mm"月" dd"日`
 28|`mm-d`
@@ -381,11 +381,11 @@ Index|Type
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### Unicode Japanese number format
+#### تنسيق الأرقام اليابانية يونيكود
 
-Number format code with unicode values provided for language glyphs where they occur in `ja-jp` language:
+كود تنسيق الأرقام بقيم Unicode المقدمة لصور اللغة حيث تظهر بلغة `ja-jp`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`[$-411]ge.m.d`
 28|`[$-411]ggge"5E74"m"6708"d"65E5`
@@ -407,11 +407,11 @@ Index|Type
 57|`[$-411]ge.m.d`
 58|`[$-411]ggge"5E74"m"6708"d"65E5"`
 
-#### Unicode Korean number format
+#### تنسيق الأرقام الكورية يونيكود
 
-Number format code with unicode values provided for language glyphs where they occur in `ko-kr` language:
+كود تنسيق الأرقام بقيم Unicode المقدمة لرموز اللغة حيث تظهر بلغة `ko-kr`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 27|`yyyy"5E74" mm"6708" dd"65E5`
 28|`mm-d`
@@ -433,11 +433,11 @@ Index|Type
 57|`yyyy"5E74" mm"6708" dd"65E5`
 58|`mm-dd`
 
-#### Thai language number format
+#### تنسيق أرقام اللغة التايلاندية
 
-Number format code in `th-th` language:
+كود تنسيق الرقم باللغة `th-th`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 59|`t`
 60|`t0.0`
@@ -459,11 +459,11 @@ Index|Type
 80|`นน:ทท.`
 81|`d/m/bb`
 
-#### Unicode Thai language number format
+#### تنسيق رقم لغة يونيكود التايلاندية
 
-Number format code with unicode values provided for language glyphs where they occur in `th-th` language:
+كود تنسيق الأرقام مع قيم Unicode المقدمة لرموز اللغة حيث تظهر في اللغة `th`:
 
-Index|Type
+فهرس|اكتب
 ---|---
 59|`t`
 60|`t0.0`
@@ -485,11 +485,11 @@ Index|Type
 80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
-### Currency format
+### تنسيق العملة
 
-Excelize built-in currency formats are shown in the following table, only support these types in the following table (Index number is used only for markup and is not used inside an Excel file and you can't get formatted value by the function [`GetCellValue`](cell.md#GetCellValue)) currently:
+تظهر تنسيقات العملات المضمنة في Excelize في الجدول التالي ، ولا تدعم سوى هذه الأنواع في الجدول التالي (يتم استخدام رقم الفهرس فقط للترميز ولا يتم استخدامه داخل ملف Excel ولا يمكنك الحصول على قيمة منسقة بواسطة الوظيفة [`GetCellValue`](cell.md#GetCellValue)) حاليا:
 
-Index|Currency format
+فهرس|تنسيق العملة
 ---|---
 164|`CN¥`
 165|`$ English (China)`
@@ -963,9 +963,9 @@ Index|Currency format
 633|`ZWN`
 634|`ZWR`
 
-Excelize support set custom number format for cell. For example, set number as date type in Uruguay (Spanish) format for `Sheet1!A6`:
+دعم Excelize تعيين تنسيق رقم مخصص للخلية. على سبيل المثال ، عيِّن الرقم كنوع التاريخ بتنسيق أوروجواي (الإسبانية) لـ `Sheet1!A6`:
 
-<p align="center"><img width="612" src="./images/number_format_01.png" alt="Set number format"></p>
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="ضبط تنسيق الرقم"></p>
 
 ```go
 f := excelize.NewFile()
@@ -975,32 +975,32 @@ style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
-Cell `Sheet1!A6` in the Excel Application: `martes, 04 de Julio de 2017`
+الخلية `Sheet1!A6` في تطبيق Excel: `martes, 04 de Julio de 2017`
 
-## Set column style {#SetColStyle}
+## تعيين نمط العمود {#SetColStyle}
 
 ```go
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID.
+يوفر SetColStyle وظيفة لتعيين نمط الأعمدة حسب اسم ورقة العمل ونطاق الأعمدة ومعرف النمط.
 
-For example set style of column `H` on `Sheet1`:
+على سبيل المثال ، تعيين نمط العمود `H` في `Sheet1`:
 
 ```go
 err = f.SetColStyle("Sheet1", "H", style)
 ```
 
-Set style of columns `C:F` on `Sheet1`:
+تعيين نمط الأعمدة `C:F` في `Sheet1`:
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
-## Set default font {#SetDefaultFont}
+## تعيين الخط الافتراضي {#SetDefaultFont}
 
 ```go
 func (f *File) SetDefaultFont(fontName string)
 ```
 
-SetDefaultFont changes the default font in the workbook.
+يقوم SetDefaultFont بتغيير الخط الافتراضي في المصنف.

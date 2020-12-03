@@ -1,6 +1,6 @@
-# Style
+# Stil
 
-Alignment directly maps the alignment settings of the cells.
+Alignment ordnet die Ausrichtungseinstellungen der Zellen direkt zu.
 
 ```go
 type Alignment struct {
@@ -16,7 +16,7 @@ type Alignment struct {
 }
 ```
 
-Border directly maps the border settings of the cells.
+Border ordnet die Randeinstellungen der Zellen direkt zu.
 
 ```go
 type Border struct {
@@ -26,7 +26,7 @@ type Border struct {
 }
 ```
 
-Font directly maps the font settings of the fonts.
+Font ordnet die Schriftarteinstellungen der Schriftarten direkt zu.
 
 ```go
 type Font struct {
@@ -40,7 +40,7 @@ type Font struct {
 }
 ```
 
-Fill directly maps the fill settings of the cells.
+Fill ordnet die Fülleinstellungen der Zellen direkt zu.
 
 ```go
 type Fill struct {
@@ -51,7 +51,7 @@ type Fill struct {
 }
 ```
 
-Protection directly maps the protection settings of the cells.
+Protection ordnet die Schutzeinstellungen der Zellen direkt zu.
 
 ```go
 type Protection struct {
@@ -60,7 +60,7 @@ type Protection struct {
 }
 ```
 
-Style directly maps the style settings of the cells.
+Style ordnet die Stileinstellungen der Zellen direkt zu.
 
 ```go
 type Style struct {
@@ -77,115 +77,115 @@ type Style struct {
 }
 ```
 
-## Create style {#NewStyle}
+## Erstellen eines Stils {#NewStyle}
 
 ```go
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle provides a function to create the style for cells by given JSON string or structure pointer. Note that the color field uses RGB color code.
+NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen mithilfe einer bestimmten JSON-Zeichenfolge oder eines Strukturzeigers. Beachten Sie, dass das Farbfeld den RGB-Farbcode verwendet.
 
-### Border {#border}
+### Grenze {#border}
 
-The following shows the border styles `type` sorted by excelize index number:
+Das Folgende zeigt die Randstile `type`, sortiert nach Excelize-Indexnummer:
 
-Index|Style|Line|Preview
+Index|Stil|Linie|Vorschau
 ---|---|---|---
-0|None|0|
-1|Continuous|1|!["Continuous"](../images/style/border_01.png)
-2|Continuous|2|!["Continuous"](../images/style/border_02.png)
-3|Dash|1|!["Dash"](../images/style/border_03.png)
-4|Dot|1|!["Dot"](../images/style/border_04.png)
-5|Continuous|3|!["Continuous"](../images/style/border_05.png)
-6|Double|3|!["Double"](../images/style/border_06.png)
-7|Continuous|0|!["Continuous"](../images/style/border_07.png)
-8|Dash|2|!["Dash"](../images/style/border_08.png)
-9|Dash Dot|1|!["Dash Dot"](../images/style/border_09.png)
-10|Dash Dot|2|!["Dash Dot"](../images/style/border_10.png)
-11|Dash Dot Dot|1|!["Dash Dot Dot"](../images/style/border_11.png)
-12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
-13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
+0|Keiner|0|
+1|Kontinuierlich|1|!["Kontinuierlich"](../images/style/border_01.png)
+2|Kontinuierlich|2|!["Kontinuierlich"](../images/style/border_02.png)
+3|Strich|1|!["Strich"](../images/style/border_03.png)
+4|Punkt|1|!["Punkt"](../images/style/border_04.png)
+5|Kontinuierlich|3|!["Kontinuierlich"](../images/style/border_05.png)
+6|Doppelt|3|!["Doppelt"](../images/style/border_06.png)
+7|Kontinuierlich|0|!["Kontinuierlich"](../images/style/border_07.png)
+8|Strich|2|!["Strich"](../images/style/border_08.png)
+9|Strich Punkt|1|!["Strich Punkt"](../images/style/border_09.png)
+10|Strich Punkt|2|!["Strich Punkt"](../images/style/border_10.png)
+11|Strich Punkt Punkt|1|!["Strich Punkt Punkt"](../images/style/border_11.png)
+12|Strich Punkt Punkt|2|!["Strich Punkt Punkt"](../images/style/border_12.png)
+13|SlantDash Punkt|2|!["SlantDash Punkt"](../images/style/border_13.png)
 
-The following shows the `borders` in the order shown in the Excel dialog:
+Das Folgende zeigt das `borders` in der Reihenfolge, die im Excel-Dialogfeld angezeigt wird:
 
-Index|Preview|Index|Preview
+Index|Vorschau|Index|Vorschau
 ---|---|---|---
-0||12|!["Border 12"](../images/style/border_12.png)
-7|!["Border 7"](../images/style/border_07.png)|13|!["Border 13"](../images/style/border_13.png)
-4|!["Border 4"](../images/style/border_04.png)|10|!["Border 19"](../images/style/border_10.png)
-11|!["Border 11"](../images/style/border_11.png)|8|!["Border 8"](../images/style/border_08.png)
-9|!["Border 9"](../images/style/border_09.png)|2|!["Border 2"](../images/style/border_02.png)
-3|!["Border 3"](../images/style/border_03.png)|5|!["Border 5"](../images/style/border_05.png)
-1|!["Border 1"](../images/style/border_01.png)|6|!["Border 6"](../images/style/border_06.png)
+0||12|!["Rand 12"](../images/style/border_12.png)
+7|!["Rand 7"](../images/style/border_07.png)|13|!["Rand 13"](../images/style/border_13.png)
+4|!["Rand 4"](../images/style/border_04.png)|10|!["Rand 19"](../images/style/border_10.png)
+11|!["Rand 11"](../images/style/border_11.png)|8|!["Rand 8"](../images/style/border_08.png)
+9|!["Rand 9"](../images/style/border_09.png)|2|!["Rand 2"](../images/style/border_02.png)
+3|!["Rand 3"](../images/style/border_03.png)|5|!["Rand 5"](../images/style/border_05.png)
+1|!["Rand 1"](../images/style/border_01.png)|6|!["Rand 6"](../images/style/border_06.png)
 
-### Color fill {#shading}
+### Farbfüllung {#shading}
 
-The following shows the `shading` styles sorted by excelize index number:
+Das Folgende zeigt die `shading`-Stile, sortiert nach der Excelize-Indexnummer:
 
-Index|Style|Index|Style
+Index|Stil|Index|Stil
 ---|---|---|---
-0|Horizontal|3|Diagonal down
-1|Vertical|4|From corner
-2|Diagonal Up|5|From center
+0|Horizontal|3|Diagonale nach unten
+1|Vertikal|4|Aus der Ecke
+2|Diagonal nach oben|5|Von der Mitte
 
-### Pattern fill {#pattern}
+### Musterfüllung {#pattern}
 
-The following shows the `pattern` styles sorted by excelize index number:
+Das Folgende zeigt die nach Musterindexnummer sortierten `pattern`-Stile:
 
-Index|Style|Index|Style
+Index|Stil|Index|Stil
 ---|---|---|---
-0|None|10|!["Pattern fill 10"](../images/style/pattern_10.png)
-1|!["Pattern fill 1"](../images/style/pattern_01.png)|11|!["Pattern fill 11"](../images/style/pattern_11.png)
-2|!["Pattern fill 2"](../images/style/pattern_02.png)|12|!["Pattern fill 12"](../images/style/pattern_12.png)
-3|!["Pattern fill 3"](../images/style/pattern_03.png)|13|!["Pattern fill 13"](../images/style/pattern_13.png)
-4|!["Pattern fill 4"](../images/style/pattern_04.png)|14|!["Pattern fill 14"](../images/style/pattern_14.png)
-5|!["Pattern fill 5"](../images/style/pattern_05.png)|15|!["Pattern fill 15"](../images/style/pattern_15.png)
-6|!["Pattern fill 6"](../images/style/pattern_06.png)|16|!["Pattern fill 16"](../images/style/pattern_16.png)
-7|!["Pattern fill 7"](../images/style/pattern_07.png)|17|!["Pattern fill 17"](../images/style/pattern_17.png)
-8|!["Pattern fill 8"](../images/style/pattern_08.png)|18|!["Pattern fill 18"](../images/style/pattern_18.png)
-9|!["Pattern fill 9](../images/style/pattern_09.png)||
+0|Keiner|10|!["Muster füllen 10"](../images/style/pattern_10.png)
+1|!["Muster füllen 1"](../images/style/pattern_01.png)|11|!["Muster füllen 11"](../images/style/pattern_11.png)
+2|!["Muster füllen 2"](../images/style/pattern_02.png)|12|!["Muster füllen 12"](../images/style/pattern_12.png)
+3|!["Muster füllen 3"](../images/style/pattern_03.png)|13|!["Muster füllen 13"](../images/style/pattern_13.png)
+4|!["Muster füllen 4"](../images/style/pattern_04.png)|14|!["Muster füllen 14"](../images/style/pattern_14.png)
+5|!["Muster füllen 5"](../images/style/pattern_05.png)|15|!["Muster füllen 15"](../images/style/pattern_15.png)
+6|!["Muster füllen 6"](../images/style/pattern_06.png)|16|!["Muster füllen 16"](../images/style/pattern_16.png)
+7|!["Muster füllen 7"](../images/style/pattern_07.png)|17|!["Muster füllen 17"](../images/style/pattern_17.png)
+8|!["Muster füllen 8"](../images/style/pattern_08.png)|18|!["Muster füllen 18"](../images/style/pattern_18.png)
+9|!["Muster füllen 9](../images/style/pattern_09.png)||
 
-### Align {#align}
+### Ausrichten {#align}
 
-#### Horizontal alignment
+#### Horizontale Ausrichtung
 
-The following type of `horizontal` alignment in cells:
+Die folgende Art der `horizontal` Ausrichtung in Zellen:
 
-Type|Style
+Typ|Stil
 ---|---
-left|Left (indented)
-center|Centered
-right|Right (indented)
-fill|Filling
-justify|Justified
-centerContinuous|Cross-column centered
-distributed|Decentralized alignment (indented)
+left|Links (eingerückt)
+center|Zentriert
+right|Rechts (eingerückt)
+fill|Füllung
+justify|Gerechtfertigt
+centerContinuous|Kreuzspaltenzentriert
+distributed|Dezentrale Ausrichtung (eingerückt)
 
-#### Vertical alignment
+#### Vertikale Ausrichtung
 
-The following type of `vertical` alignment in cells:
+Die folgende Art der `vertical` Ausrichtung in Zellen:
 
-Type|Style
+Typ|Stil
 ---|---
-top|Top alignment
-center|Centered
-justify|Justified
-distributed|Decentralized alignment
+top|Top Ausrichtung
+center|Zentriert
+justify|Gerechtfertigt
+distributed|Dezentrale Ausrichtung
 
-### Font underline {#underline}
+### Schriftunterstreichung {#underline}
 
-The following type of font `underline` style:
+Die folgende Art von Schriftart `underline`:
 
-Type|Style
+Typ|Stil
 ---|---
-single|Single line
-double|Double line
+single|Einzelne Zeile
+double|Doppelte Linie
 
-### Number format {#number_format}
+### Zahlenformat {#number_format}
 
-Excel's built-in all languages formats (the `number_format` parameter) are shown in the following table:
+Die in Excel integrierten Formate für alle Sprachen (der Parameter `number_format`) sind in der folgenden Tabelle aufgeführt:
 
-Index|Type
+Index|Typ
 ---|---
 0|`General`
 1|`0`
@@ -225,11 +225,11 @@ Index|Type
 48|`##0.0E+0`
 49|`@`
 
-#### Traditional Chinese number format
+#### Traditionelles chinesisches Zahlenformat
 
-Number format code in `zh-tw` language:
+Zahlenformatcode in der Sprache `zh-tw`:
 
-Index|Type
+Index|Typ
 ---|---
 27|`[$-404]e/m/d`
 28|`[$-404]e"年"m"月"d"日"`
@@ -251,11 +251,11 @@ Index|Type
 57|`[$-404]e/m/d`
 58|`[$-404]e"年"m"月"d"日"`
 
-#### Simplified Chinese number format
+#### Vereinfachtes chinesisches Zahlenformat
 
-Number format code in `zh-cn` language:
+Zahlenformatcode in der Sprache `zh-cn`:
 
-Index|Type
+Index|Typ
 ---|---
 27|`yyyy"年"m"月"`
 28|`m"月"d"日"`
@@ -277,11 +277,11 @@ Index|Type
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### Unicode Traditional Chinese number format
+#### Unicode Traditionelles chinesisches Zahlenformat
 
-Number format code with unicode values provided for language glyphs where they occur in `zh-tw` language:
+Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der Sprache `zh-tw` vorkommen:
 
-Index|Type
+Index|Typ
 ---|---
 27|`[$-404]e/m/`
 28|`[$-404]e"5E74"m"6708"d"65E5`
@@ -305,9 +305,9 @@ Index|Type
 
 #### Unicode Simplified Chinese number format
 
-Number format code with unicode values provided for language glyphs where they occur in `zh-cn` language:
+Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der Sprache `zh-cn` vorkommen:
 
-Index|Type
+Index|Typ
 ---|---
 27|`yyyy"5E74"m"6708`
 28|`m"6708"d"65E5`
@@ -329,11 +329,11 @@ Index|Type
 57|`yyyy"5E74"m"6708`
 58|`m"6708"d"65E5"`
 
-#### Japanese number format
+#### Japanisches Zahlenformat
 
-Number format code in `ja-jp` language:
+Zahlenformatcode in der Sprache `ja-jp`:
 
-Index|Type
+Index|Typ
 ---|---
 27|`[$-411]ge.m.d`
 28|`[$-411]ggge"年"m"月"d"日`
@@ -355,11 +355,11 @@ Index|Type
 57|`[$-411]ge.m.d`
 58|`[$-411]ggge"年"m"月"d"日"`
 
-#### Korean number format
+#### Koreanisches Zahlenformat
 
-Number format code in `ko-kr` language:
+Zahlenformatcode in der Sprache `ko-kr`:
 
-Index|Type
+Index|Typ
 ---|---
 27|`yyyy"年" mm"月" dd"日`
 28|`mm-d`
@@ -381,11 +381,11 @@ Index|Type
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### Unicode Japanese number format
+#### Unicode japanisches Zahlenformat
 
-Number format code with unicode values provided for language glyphs where they occur in `ja-jp` language:
+Zahlenformatcode mit Unicode-Werten für Sprachglyphen, wenn sie in der Sprache `ja-jp` vorkommen:
 
-Index|Type
+Index|Typ
 ---|---
 27|`[$-411]ge.m.d`
 28|`[$-411]ggge"5E74"m"6708"d"65E5`
@@ -407,11 +407,11 @@ Index|Type
 57|`[$-411]ge.m.d`
 58|`[$-411]ggge"5E74"m"6708"d"65E5"`
 
-#### Unicode Korean number format
+#### Unicode koreanisches Zahlenformat
 
-Number format code with unicode values provided for language glyphs where they occur in `ko-kr` language:
+Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der Sprache `ko-kr` vorkommen:
 
-Index|Type
+Index|Typ
 ---|---
 27|`yyyy"5E74" mm"6708" dd"65E5`
 28|`mm-d`
@@ -433,11 +433,11 @@ Index|Type
 57|`yyyy"5E74" mm"6708" dd"65E5`
 58|`mm-dd`
 
-#### Thai language number format
+#### Zahlenformat in thailändischer Sprache
 
-Number format code in `th-th` language:
+Zahlenformatcode in der Sprache `th-th`:
 
-Index|Type
+Index|Typ
 ---|---
 59|`t`
 60|`t0.0`
@@ -459,11 +459,11 @@ Index|Type
 80|`นน:ทท.`
 81|`d/m/bb`
 
-#### Unicode Thai language number format
+#### Unicode Thai Sprachnummernformat
 
-Number format code with unicode values provided for language glyphs where they occur in `th-th` language:
+Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der `th-th` -Sprache vorkommen:
 
-Index|Type
+Index|Typ
 ---|---
 59|`t`
 60|`t0.0`
@@ -485,11 +485,11 @@ Index|Type
 80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
-### Currency format
+### Währungsformat
 
-Excelize built-in currency formats are shown in the following table, only support these types in the following table (Index number is used only for markup and is not used inside an Excel file and you can't get formatted value by the function [`GetCellValue`](cell.md#GetCellValue)) currently:
+In Excelize integrierte Währungsformate werden in der folgenden Tabelle angezeigt. Diese Typen werden in der folgenden Tabelle nur unterstützt (die Indexnummer wird nur für Markups verwendet und nicht in einer Excel-Datei verwendet, und Sie können mit der Funktion [`GetCellValue`](cell.md#GetCellValue)) derzeit:
 
-Index|Currency format
+Index|Währungsformat
 ---|---
 164|`CN¥`
 165|`$ English (China)`
@@ -963,9 +963,9 @@ Index|Currency format
 633|`ZWN`
 634|`ZWR`
 
-Excelize support set custom number format for cell. For example, set number as date type in Uruguay (Spanish) format for `Sheet1!A6`:
+Die Excelize-Unterstützung legt ein benutzerdefiniertes Zahlenformat für die Zelle fest. Legen Sie beispielsweise die Nummer als Datumstyp im Format Uruguay (Spanisch) für `Sheet1!A6` fest:
 
-<p align="center"><img width="612" src="./images/number_format_01.png" alt="Set number format"></p>
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="Zahlenformat einstellen"></p>
 
 ```go
 f := excelize.NewFile()
@@ -975,32 +975,32 @@ style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
-Cell `Sheet1!A6` in the Excel Application: `martes, 04 de Julio de 2017`
+Zelle `Sheet1!A6` in der Excel-Anwendung: `martes, 04 de Julio de 2017`
 
-## Set column style {#SetColStyle}
+## Spaltenstil festlegen {#SetColStyle}
 
 ```go
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID.
+SetColStyle bietet eine Funktion zum Festlegen des Spaltenstils anhand des angegebenen Arbeitsblattnamens, des Spaltenbereichs und der Stil-ID.
 
-For example set style of column `H` on `Sheet1`:
+Stellen Sie zum Beispiel den Stil der Spalte `H` auf `Sheet1` ein:
 
 ```go
 err = f.SetColStyle("Sheet1", "H", style)
 ```
 
-Set style of columns `C:F` on `Sheet1`:
+Legen Sie den Stil der Spalten `C:F` auf `Sheet1` fest:
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
-## Set default font {#SetDefaultFont}
+## Festlegen der Standardschriftart {#SetDefaultFont}
 
 ```go
 func (f *File) SetDefaultFont(fontName string)
 ```
 
-SetDefaultFont changes the default font in the workbook.
+SetDefaultFont ändert die Standardschriftart in der Arbeitsmappe.
