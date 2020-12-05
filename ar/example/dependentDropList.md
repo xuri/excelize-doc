@@ -130,7 +130,7 @@ func main() {
         return
     }
     // حفظ ملف جدول البيانات
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

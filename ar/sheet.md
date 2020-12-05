@@ -125,7 +125,7 @@ func (f *File) GetSheetMap() map[int]string
 يوفر GetSheetMap وظيفة للحصول على أوراق العمل وأوراق المخططات ومعرف أوراق الحوار وخريطة اسم المصنف. فمثلا:
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("المصنف1.xlsx")
 if err != nil {
     return
 }
@@ -482,7 +482,7 @@ func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 
 توفر ProtectSheet وظيفة لمنع المستخدمين الآخرين من تغيير أو نقل أو حذف البيانات في ورقة العمل عن طريق الخطأ أو عن عمد. على سبيل المثال ، حماية `Sheet1` بإعدادات الحماية:
 
-<p align="center"><img width="790" src="./images/protect_sheet.png" alt="حماية الورقة"></p>
+<p align="center"><img width="789" src="./images/protect_sheet.png" alt="حماية الورقة"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{

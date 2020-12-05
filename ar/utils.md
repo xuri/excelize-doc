@@ -18,7 +18,7 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 
 - مثال 2 ، أنشئ جدولاً من `F2:H6` في `Sheet2` مع مجموعة التنسيق:
 
-<p align="center"><img width="612" src="./images/addtable_02.png" alt="إضافة الجدول مع مجموعة التنسيق"></p>
+<p align="center"><img width="613" src="./images/addtable_02.png" alt="إضافة الجدول مع مجموعة التنسيق"></p>
 
 ```go
 err := f.AddTable("Sheet2", "F2", "H6", `{
@@ -760,7 +760,7 @@ split (انشق، مزق)|الأجزاء منقسمة ولكنها غير مجم
 
 مثال 1: تجميد العمود `A` في `Sheet1` وتعيين الخلية النشطة على `Sheet1!K16`:
 
-<p align="center"><img width="769" src="./images/setpans_01.png" alt="عمود مجمد"></p>
+<p align="center"><img width="770" src="./images/setpans_01.png" alt="عمود مجمد"></p>
 
 ```go
 f.SetPanes("Sheet1", `{
@@ -781,7 +781,7 @@ f.SetPanes("Sheet1", `{
 
 مثال 2: قم بتجميد الصفوف من 1 إلى 9 في `Sheet1` وقم بتعيين نطاقات الخلايا النشطة على `Sheet1!A11:XFD11`:
 
-<p align="center"><img width="770" src="./images/setpans_02.png" alt="تجميد الأعمدة وتعيين نطاقات الخلايا النشطة"></p>
+<p align="center"><img width="771" src="./images/setpans_02.png" alt="تجميد الأعمدة وتعيين نطاقات الخلايا النشطة"></p>
 
 ```go
 f.SetPanes("Sheet1", `{
@@ -802,7 +802,7 @@ f.SetPanes("Sheet1", `{
 
 مثال 3: قم بإنشاء ألواح مقسمة في `Sheet1` وتعيين الخلية النشطة على `Sheet1!J60`:
 
-<p align="center"><img width="753" src="./images/setpans_03.png" alt="إنشاء الأجزاء المنقسمة"></p>
+<p align="center"><img width="756" src="./images/setpans_03.png" alt="إنشاء الأجزاء المنقسمة"></p>
 
 ```go
 f.SetPanes("Sheet1", `{
@@ -860,7 +860,7 @@ import (
 )
 
 func main() {
-    f, err := excelize.OpenFile("Book1.xlsx")
+    f, err := excelize.OpenFile("المصنف1.xlsx")
     if err != nil {
         fmt.Println(err)
         return

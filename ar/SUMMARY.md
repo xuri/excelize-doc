@@ -153,7 +153,7 @@
   * [احصل على صورة](image.md#GetPicture)
   * [حذف الصورة](image.md#DeletePicture)
 * [الشكل](shape.md)
-* [سباركلينز](sparklines.md)
+* [سباركلاين](sparklines.md)
 * [نمط](style.md)
   * [إنشاء نمط](style.md#NewStyle)
   * [الحدود](style.md#border)

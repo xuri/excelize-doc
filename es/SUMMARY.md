@@ -153,7 +153,7 @@
   * [Obtener imagen](image.md#GetPicture)
   * [Eliminar imagen](image.md#DeletePicture)
 * [Forma](shape.md)
-* [Sparklines](sparklines.md)
+* [Minigráficos](sparklines.md)
 * [Estilo](style.md)
   * [Crear un estilo](style.md#NewStyle)
   * [Frontera](style.md#border)

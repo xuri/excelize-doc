@@ -23,7 +23,7 @@ import (
 )
 
 func main() {
-    f, err := excelize.OpenFile("Book1.xlsx")
+    f, err := excelize.OpenFile("المصنف1.xlsx")
     if err != nil {
         fmt.Println(err)
         return
@@ -80,7 +80,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
-
+    if err := f.SetSheetViewOptions("Sheet1", -1,
+        excelize.RightToLeft(true),
+    ); err != nil {
+        fmt.Println(err)
+    }
     file, err := ioutil.ReadFile("image.jpg")
     if err != nil {
         fmt.Println(err)
@@ -88,7 +92,7 @@ func main() {
     if err := f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file); err != nil {
         fmt.Println(err)
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
@@ -105,7 +109,7 @@ func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 فمثلا:
 
 ```go
-f, err := excelize.OpenFile("Book1.xlsx")
+f, err := excelize.OpenFile("المصنف1.xlsx")
 if err != nil {
     fmt.Println(err)
     return

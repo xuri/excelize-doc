@@ -279,6 +279,11 @@ func main() {
         fmt.Println(err)
         return
     }
+    if err := f.SetSheetViewOptions("Sheet1", -1,
+        excelize.RightToLeft(true),
+    ); err != nil {
+        fmt.Println(err)
+    }
     if err := f.SetColWidth("Sheet1", "A", "A", 44); err != nil {
         fmt.Println(err)
         return
@@ -360,7 +365,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
@@ -488,7 +493,7 @@ func (f *File) AddComment(sheet, cell, format string) error
 
 يوفر AddComment طريقة لإضافة التعليقات في ورقة من خلال فهرس ورقة العمل والخلية ومجموعة التنسيق (مثل المؤلف والنص). لاحظ أن الحد الأقصى لطول المؤلف هو 255 والحد الأقصى لطول النص هو 32512. على سبيل المثال ، أضف تعليقًا في `Sheet1!$A$3`:
 
-<p align="center"><img width="612" src="./images/comment.png" alt="أضف تعليقًا إلى مستند Excel"></p>
+<p align="center"><img width="613" src="./images/comment.png" alt="أضف تعليقًا إلى مستند Excel"></p>
 
 ```go
 err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"هذا تعليق."}`)

@@ -166,6 +166,11 @@ func main() {
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
+    if err := f.SetSheetViewOptions("Sheet1", -1,
+        excelize.RightToLeft(true),
+    ); err != nil {
+        fmt.Println(err)
+    }
     for k, v := range categories {
         f.SetCellValue("Sheet1", k, v)
     }
@@ -250,7 +255,7 @@ func main() {
         return
     }
     // احفظ جدول البيانات بالمسار المحدد.
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

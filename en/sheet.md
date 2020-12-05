@@ -126,7 +126,7 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap provides a function to get worksheets, chart sheets, dialog sheets ID, and name maps of the workbook. For example:
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
     return
 }

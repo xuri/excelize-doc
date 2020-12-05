@@ -25,7 +25,7 @@ func OpenFile(filename string, opt ...Options) (*File, error)
 يأخذ OpenFile اسم ملف جدول البيانات ويعيد بنية ملف جدول بيانات معبأة له. على سبيل المثال ، افتح جدول بيانات محميًا بكلمة مرور:
 
 ```go
-f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
+f, err := excelize.OpenFile("المصنف1.xlsx", excelize.Options{Password: "password"})
 if err != nil {
     return
 }
@@ -213,10 +213,15 @@ ThickBottom | bool
 
 على سبيل المثال ، اجعل صفوف ورقة العمل الافتراضية مخفية:
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="تعيين خصائص تنسيق ورقة العمل"></p>
+<p align="center"><img width="613" src="./images/sheet_format_pr_01.png" alt="تعيين خصائص تنسيق ورقة العمل"></p>
 
 ```go
 f := excelize.NewFile()
+if err := f.SetSheetViewOptions("Sheet1", -1,
+    excelize.RightToLeft(true),
+); err != nil {
+    fmt.Println(err)
+}
 const sheet = "Sheet1"
 if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
     fmt.Println(err)
@@ -224,7 +229,7 @@ if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
 if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
     fmt.Println(err)
 }
-f.SaveAs("Book1.xlsx")
+f.SaveAs("المصنف1.xlsx")
 ```
 
 ## احصل على خصائص تنسيق ورقة العمل {#GetSheetFormatPr}
