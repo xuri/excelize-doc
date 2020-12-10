@@ -17,7 +17,7 @@ func main() {
     categories := map[string]string{
         "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
     values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+        "B2": 7, "C2": 7, "D2": 8, "B3": 5, "C3": 4, "D3": 4, "B4": 2, "C4": 3, "D4": 3}
     f := excelize.NewFile()
     for k, v := range categories {
         f.SetCellValue("Sheet1", k, v)
@@ -26,7 +26,7 @@ func main() {
         f.SetCellValue("Sheet1", k, v)
     }
     if err := f.AddChart("Sheet1", "E1", `{
-        "type": "bar",
+        "type": "area",
         "series": [
         {
             "name": "Sheet1!$A$2",

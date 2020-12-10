@@ -17,7 +17,7 @@ func main() {
     categories := map[string]string{
         "A2": "صغير", "A3": "عادي", "A4": "كبير", "B1": "تفاح", "C1": "برتقال", "D1": "كمثرى"}
     values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+        "B2": 7, "C2": 7, "D2": 8, "B3": 5, "C3": 4, "D3": 4, "B4": 2, "C4": 3, "D4": 3}
     f := excelize.NewFile()
     f.SetSheetName("Sheet1", "ورقة1")
     if err := f.SetSheetViewOptions("ورقة1", -1,
@@ -32,7 +32,7 @@ func main() {
         f.SetCellValue("ورقة1", k, v)
     }
     if err := f.AddChart("ورقة1", "E1", `{
-        "type": "bar",
+        "type": "area",
         "series": [
         {
             "name": "ورقة1!$A$2",
