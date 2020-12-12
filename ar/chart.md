@@ -12,56 +12,56 @@ func (f *File) AddChart(sheet, cell, format string, combo ...string) error
 
 اكتب|الرسم البياني
 ---|---
-area                        | مخطط منطقة 2D
-areaStacked                 | مخطط منطقة مكدسة 2D
-areaPercentStacked          | مخطط منطقة مكدس 2D 100%
-area3D                      | مخطط منطقة ثلاثي الأبعاد
-area3DStacked               | مخطط منطقة مكدس ثلاثي الأبعاد
-area3DPercentStacked        | مخطط المساحة مكدسة 3D 100%
-bar                         | مخطط شريطي مقسم إلى 2D
-barStacked                  | مخطط شريطي مكدس 2D
-barPercentStacked           | مخطط شريطي مكدس 2D 100%
-bar3DClustered              | مخطط شريطي ثلاثي الأبعاد مُكتلّّد
+area                        | مخطط منطقة ثنائي الأبعاد
+areaStacked                 | مخطط مساحي مكدس ثنائي الأبعاد
+areaPercentStacked          | مخطط مساحي مكدس بنسبة 100٪ ثنائي الأبعاد
+area3D                      | مخطط مساحي ثلاثي الأبعاد
+area3DStacked               | ممخطط مساحي مكدس ثلاثي الأبعاد
+area3DPercentStacked        | مخطط مساحي مكدس بنسبة 100٪ ثلاثي الأبعاد
+bar                         | مخطط شريطي متفاوت الأبعاد ثنائي الأبعاد
+barStacked                  | مخطط شريطي مكدس ثنائي الأبعاد
+barPercentStacked           | مخطط شريطي مكدس ثنائي الأبعاد بنسبة 100٪
+bar3DClustered              | مخطط شريطي ثلاثي الأبعاد متفاوت
 bar3DStacked                | مخطط شريطي مكدس ثلاثي الأبعاد
-bar3DPercentStacked         | مخطط شريطي مكدس 3D 100%
-bar3DConeClustered          | مخطط شريطي مخروطي ثلاثي الأبعاد
-bar3DConeStacked            | مخطط شريطي مكدس ثلاثي الأبعاد
-bar3DConePercentStacked     | مخروط شريطية الرسم البياني 3D 100%
-bar3DPyramidClustered       | مخطط شريطي هرمي ثلاثي الأبعاد
-bar3DPyramidStacked         | مخطط شريطي مرصوف هرمي ثلاثي الأبعاد
-bar3DPyramidPercentStacked  | هرم مخطط شريطي مكدس 3D 100%
-bar3DCylinderClustered      | مخطط شريطي مُكدّد ثلاثي الأبعاد من الأسطوانات
-bar3DCylinderStacked        | مخطط شريطي مكدس ثلاثي الأبعاد من الأسطوانات
-bar3DCylinderPercentStacked | اسطوانات مخطط شريطي مكدس 3D 100%
-col                         | مخطط عمودي مقسم إلى 2D
-colStacked                  | مخطط عمودي مكدس 2D
-colPercentStacked           | مخطط عمودي مكدس 2D 100%
-col3DClustered              | مخطط عمودي مُكدَّد ثلاثي الأبعاد
+bar3DPercentStacked         | مخطط شريطي مكدس ثلاثي الأبعاد بنسبة 100٪
+bar3DConeClustered          | مخطط شريطي مخروطي ثلاثي الأبعاد متفاوت
+bar3DConeStacked            | مخطط شريطي مخروطي ثلاثي الأبعاد مكدس
+bar3DConePercentStacked     | مخطط شريطي مخروطي 100٪ ثلاثي الأبعاد
+bar3DPyramidClustered       | ممخطط شريطي ثلاثي الأبعاد هرمي متفاوت
+bar3DPyramidStacked         | الرسم البياني الشريطي ثلاثي الأبعاد المكدس بالهرم
+bar3DPyramidPercentStacked  | الرسم البياني الشريطي ثلاثي الأبعاد المكدس بالهرم 100٪
+bar3DCylinderClustered      | مخطط شريطي اسطوانات ثلاثية الأبعاد متفاوت المسافات
+bar3DCylinderStacked        | مخطط شريطي مكدس اسطوانة ثلاثية الأبعاد
+bar3DCylinderPercentStacked | مخطط شريطي مكدس اسطوانة ثلاثية الأبعاد 100٪
+col                         | مخطط عمودي ثنائي الأبعاد متفاوت
+colStacked                  | مخطط عمودي مكدس ثنائي الأبعاد
+colPercentStacked           | مخطط عمودي مكدس ثنائي الأبعاد 100٪
+col3DClustered              | مخطط عمودي ثلاثي الأبعاد متفاوت
 col3D                       | مخطط عمودي ثلاثي الأبعاد
 col3DStacked                | مخطط عمودي مكدس ثلاثي الأبعاد
-col3DPercentStacked         | مخطط عمودي مكدس 3D 100%
-col3DCone                   | مخطط عمودي مخروط ثلاثي الأبعاد
-col3DConeClustered          | مخطط عمودي مخروطي ثلاثي الأبعاد
-col3DConeStacked            | مخطط عمودي مكدس ثلاثي الأبعاد مخروطي
-col3DConePercentStacked     | مخروط مخطط عمودي مكدس 3D 100%
+col3DPercentStacked         | مخطط عمودي مكدس ثلاثي الأبعاد 100٪
+col3DCone                   | ممخطط عمودي مخروطي ثلاثي الأبعاد
+col3DConeClustered          | مخطط عمودي مخروط ثلاثي الأبعاد متفاوت المسافات
+col3DConeStacked            | ممخطط عمودي مكدس مخروطي ثلاثي الأبعاد
+col3DConePercentStacked     | مخطط عمودي مكدس مخروطي ثلاثي الأبعاد 100٪
 col3DPyramid                | مخطط عمودي هرمي ثلاثي الأبعاد
-col3DPyramidClustered       | مخطط عمودي مقسم هرمي ثلاثي الأبعاد
-col3DPyramidStacked         | مخطط عمودي مرصوف هرمي ثلاثي الأبعاد
-col3DPyramidPercentStacked  | هرم مخطط عمودي مكدس 3D 100%
+col3DPyramidClustered       | مخطط عمودي هرم ثلاثي الأبعاد متفاوت
+col3DPyramidStacked         | مخطط عمودي هرمي ثلاثي الأبعاد مكدس
+col3DPyramidPercentStacked  | مخطط عمودي هرمي ثلاثي الأبعاد مكدس 100٪
 col3DCylinder               | مخطط عمودي اسطوانات ثلاثية الأبعاد
-col3DCylinderClustered      | مخطط عمودي مُكدّد من الاسطوانة ثلاثية الأبعاد
-col3DCylinderStacked        | مخطط عمودي مكدس الأسطوانات ثلاثية الأبعاد
-col3DCylinderPercentStacked | اسطوانات مخطط عمودي مكدس 3D 100%
-doughnut                    | مخطط دائري مجوف
+col3DCylinderClustered      | مخطط عمود أسطواني ثلاثي الأبعاد متفاوت
+col3DCylinderStacked        | مخطط عمودي مكدس بأسطوانة ثلاثية الأبعاد
+col3DCylinderPercentStacked | مخطط عمودي مكدس بأسطوانة ثلاثية الأبعاد 100٪
+doughnut                    | دونات الرسم البياني
 line                        | مخطط خطي
 pie                         | مخطط دائري
 pie3D                       | مخطط دائري ثلاثي الأبعاد
-radar                       | مخططات رادارية
+radar                       | مخطط رادار
 scatter                     | مخطط مبعثر
 surface3D                   | مخطط سطحي ثلاثي الأبعاد
-wireframeSurface3D          | مخطط سطحي 3D إطار سلكي
-contour                     | مخطط محيط
-wireframeContour            | مخطط محيط الإطار السلكي
+wireframeSurface3D          | مخطط سطح إطار سلكي ثلاثي الأبعاد
+contour                     | مخطط كونتور
+wireframeContour            | مخطط كفاف الإطار السلكي
 bubble                      | مخطط فقاعي
 bubble3D                    | مخطط فقاعي ثلاثي الأبعاد
 
