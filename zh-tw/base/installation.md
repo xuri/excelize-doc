@@ -21,7 +21,7 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 - 更新命令
 
 ```bash
-go get -u github.com/360EntSecGroup-Skylar/excelize
+go get -u github.com/360EntSecGroup-Skylar/excelize/v2
 ```
 
 ## 創建 Excel 文檔 {#NewFile}
@@ -34,7 +34,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {
@@ -63,7 +63,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {
@@ -101,7 +101,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {
@@ -139,7 +139,7 @@ import (
     _ "image/png"
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {

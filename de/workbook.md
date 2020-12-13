@@ -50,7 +50,7 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func process(w http.ResponseWriter, req *http.Request) {
@@ -110,7 +110,7 @@ SaveAs bietet eine Funktion zum Erstellen oder Aktualisieren einer Tabellenkalku
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet bietet die Funktion zum Erstellen eines neuen Blatts, indem ein Arbeitsblattname angegeben wird, und gibt den Index der Blätter in der Arbeitsmappe (Spreadsheet) zurück, nachdem es angehängt wurde. Beachten Sie, dass beim Erstellen einer neuen Tabellenkalkulationsdatei das Standardarbeitsblatt mit dem Namen `Sheet1` erstellt wird. 
+NewSheet bietet die Funktion zum Erstellen eines neuen Blatts, indem ein Arbeitsblattname angegeben wird, und gibt den Index der Blätter in der Arbeitsmappe (Spreadsheet) zurück, nachdem es angehängt wurde. Beachten Sie, dass beim Erstellen einer neuen Tabellenkalkulationsdatei das Standardarbeitsblatt mit dem Namen `Sheet1` erstellt wird.
 
 ## Arbeitsblatt löschen {#DeleteSheet}
 

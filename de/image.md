@@ -19,7 +19,7 @@ import (
     _ "image/jpeg"
     _ "image/png"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {
@@ -75,7 +75,7 @@ import (
     _ "image/jpeg"
     "io/ioutil"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {

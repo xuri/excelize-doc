@@ -50,7 +50,7 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func process(w http.ResponseWriter, req *http.Request) {
@@ -110,7 +110,7 @@ SaveAs proporciona una función para crear o actualizar el archivo de hoja de c�
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet proporciona la función para crear una nueva hoja por un nombre de hoja de cálculo y devuelve el índice de las hojas en el libro (hoja de cálculo) después de anexar. Tenga en cuenta que al crear un nuevo archivo de hoja de cálculo, se creará la hoja de cálculo predeterminada denominada `Sheet1`. 
+NewSheet proporciona la función para crear una nueva hoja por un nombre de hoja de cálculo y devuelve el índice de las hojas en el libro (hoja de cálculo) después de anexar. Tenga en cuenta que al crear un nuevo archivo de hoja de cálculo, se creará la hoja de cálculo predeterminada denominada `Sheet1`.
 
 ## Eliminar hoja de trabajo {#DeleteSheet}
 

@@ -50,7 +50,7 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func process(w http.ResponseWriter, req *http.Request) {

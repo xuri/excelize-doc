@@ -11,7 +11,7 @@ import (
     "fmt"
     "strconv"
 
-    "github.com/360EntSecGroup-skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func main() {

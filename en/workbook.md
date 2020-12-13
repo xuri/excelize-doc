@@ -50,7 +50,7 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/360EntSecGroup-Skylar/excelize"
+    "github.com/360EntSecGroup-Skylar/excelize/v2"
 )
 
 func process(w http.ResponseWriter, req *http.Request) {
@@ -110,7 +110,7 @@ SaveAs provides a function to create or update the spreadsheet file at the provi
 func (f *File) NewSheet(name string) int
 ```
 
-NewSheet provides the function to create a new sheet by given a worksheet name and returns the index of the sheets in the workbook (spreadsheet) after it appended. Note that when creating a new spreadsheet file, the default worksheet named `Sheet1` will be created. 
+NewSheet provides the function to create a new sheet by given a worksheet name and returns the index of the sheets in the workbook (spreadsheet) after it appended. Note that when creating a new spreadsheet file, the default worksheet named `Sheet1` will be created.
 
 ## Delete worksheet {#DeleteSheet}
 
