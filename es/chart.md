@@ -75,6 +75,7 @@ name|Elemento de leyenda (serie), que se muestra en la barra de fórmulas y la l
 categories|Etiqueta de eje horizontal (categoría). El parámetro `categorías` es opcional en la mayoría de los tipos de gráficos, el valor predeterminado es una secuencia contigua de la forma `1..n`.
 values|El área de datos del gráfico, que es el parámetro más importante de la `series`, también es el único parámetro obligatorio al crear un gráfico. Esta opción vincula el gráfico a los datos de la hoja de trabajo que muestra.
 line|Esto establece el formato de línea del gráfico de líneas. La propiedad `line` es opcional y, si no se proporciona, tendrá el estilo predeterminado. Las opciones que se pueden configurar son `width`. El rango de `width` es 0.25pt - 999pt. Si el valor del ancho está fuera del rango, el ancho predeterminado de la línea es 2 puntos.
+marker|Esto establece el marcador del gráfico de líneas y el gráfico de dispersión. El rango del campo opcional `size` es 2-72 (el valor predeterminado es `5`). El valor de enumeración del campo opcional `symbol` es (el valor predeterminado es `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 Establezca las propiedades de la leyenda del gráfico. Las opciones que se pueden configurar son:
 

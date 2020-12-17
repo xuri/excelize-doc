@@ -75,6 +75,7 @@ name|Élément de légende (série), affiché dans la légende du graphique et l
 categories|Etiquette d'axe horizontal (catégorie). Le paramètre `categories` est facultatif dans la plupart des types de graphiques, la valeur par défaut est une séquence contiguë de la forme `1..n`.
 values|La zone de données de graphique, qui est le paramètre le plus important dans `series`, est également le seul paramètre requis lors de la création d'un graphique. Cette option lie le graphique aux données de la feuille de calcul qu'il affiche.
 line|Ceci définit le format de ligne du graphique en courbes. La propriété line est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `width`. La plage de `width` est comprise entre 0,25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
+marker|Ceci définit le marqueur du graphique linéaire et du nuage de points. La plage du champ facultatif `size` est comprise entre 2 et 72 (la valeur par défaut est `5`). La valeur d'énumération du champ facultatif `symbol` est (la valeur par défaut est `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 Définir les propriétés de la légende du graphique. Les options qui peuvent être définies sont:
 

@@ -75,6 +75,7 @@ name|Legend item (series), displayed in the chart legend and formula bar. The `n
 categories|Horizontal (category) axis label. The `categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
 values|The chart data area, which is the most important parameter in `series`, is also the only required parameter when creating a chart. This option links the chart to the worksheet data it displays.
 line|This sets the line format of the line chart. The `line` property is optional and if it isn't supplied it will default style. The options that can be set is `width`. The range of `width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
+marker|This sets the marker of the line chart and scatter chart. The range of the optional field `size` is 2-72 (default value is `5`). The enumeration value of optional field `symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
 
 Set properties of the chart legend. The options that can be set are:
 

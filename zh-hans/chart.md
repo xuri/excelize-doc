@@ -75,6 +75,7 @@ name|图例项（系列），在图表图例和公式栏中显示。`name` 参�
 categories|水平（分类）轴标签。在大多数图表类型中，`categories` 属性是可选的，默认为形如 `1..n` 的连续序列。
 values|图表数据区域，是 `series` 中最重要的参数，也是创建图表时唯一的必选参数。该选项将图表与其显示的工作表数据链接起来。
 line |设置折线图的折线格式。`line` 属性是可选的，如果未指定该属性，则为默认样式。可以设置的选项是 `width`，宽度范围是 0.25pt 至 999pt。如果 `width` 的值超出范围，则线的默认宽度为 2pt。
+marker|设置折线图和散点图数据系列线型宽度和线端类型。可选参数 `size` 指定线型宽度，其取值范围是 2-72 (默认缺省值为 `5`)。线端类型可选参数 `symbol` 的枚举值为 (默认缺省值为 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`.
 
 参数 `legend` 提供对图例项的属性设置方法，下面是 Excelize 中 `legend` 的可选参数：
 

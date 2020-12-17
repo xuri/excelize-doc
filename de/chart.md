@@ -75,6 +75,7 @@ name|Legendenelement (Serie), angezeigt in der Diagrammlegende und in der Formel
 categories|Beschriftung der horizontalen Achse (Kategorie). Der Parameter `categories` ist in den meisten Diagrammtypen optional. Der Standardwert ist eine zusammenhängende Folge der Form `1..n`.
 values|Der Diagrammdatenbereich, der der wichtigste Parameter in `series` ist, ist auch der einzige erforderliche Parameter beim Erstellen eines Diagramms. Diese Option verknüpft das Diagramm mit den angezeigten Arbeitsblattdaten.
 line|Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `width`. Der Bereich von `width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
+marker|Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können eingestellt werden:
 

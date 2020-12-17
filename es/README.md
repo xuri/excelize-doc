@@ -9,7 +9,7 @@ Excelize es una biblioteca escrita en Go puro que proporciona un conjunto de fun
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Licencias: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Ultima versión: [v2.3.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Tiempo de actualización del documento: Noviembre 22, 2020
+- Tiempo de actualización del documento: diciembre 18, 2020
 
 ## Misión del proyecto
 
