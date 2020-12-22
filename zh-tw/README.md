@@ -37,7 +37,7 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 
 ## 技術交流群
 
-<a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img style="margin-top: 25px;" height="60" src="../images/slack.svg" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img style="margin: 25px 0 0 25px;" height="60" src="../images/telegram.svg" alt="Excelize Community on Telegram"></a>
+<a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img style="margin-top: 25px;" height="60" src="../images/slack.svg" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img style="margin: 25px 0 0 25px;" height="60" src="../images/telegram.svg" alt="Excelize Community on Telegram"></a> <a href="https://discord.gg/MWV8MBQGtv" title="Excelize Community on Discord" target="_blank"><img style="margin: 25px 0 0 25px;" height="60" src="../images/discord.svg" alt="Excelize Community on Discord"></a>
 
 DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1,k1,2oHMIIOyvPcGezVdHJjsHwdZzzYNI6xs3Oww8uhlvCk=&_dt_no_comment=1&origin=11)
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
