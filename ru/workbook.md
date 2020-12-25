@@ -429,7 +429,7 @@ if err := f.GetSheetViewOptions(sheet, 0,
     &zoomScale,
     &topLeftCell,
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 fmt.Println("Default:")
@@ -443,27 +443,27 @@ fmt.Println("- zoomScale:", zoomScale)
 fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
 
 if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 
 fmt.Println("After change:")
@@ -636,13 +636,13 @@ if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 if err := f.SetPageLayout(
     "Sheet1",
     excelize.PageLayoutPaperSize(10),
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 ```
 
@@ -667,10 +667,10 @@ var (
     paperSize   excelize.PageLayoutPaperSize
 )
 if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 fmt.Println("Defaults:")
 fmt.Printf("- orientation: %q\n", orientation)
@@ -716,7 +716,7 @@ if err := f.SetPageMargins(sheet,
     excelize.PageMarginRight(1.0),
     excelize.PageMarginTop(1.0),
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 ```
 
@@ -756,7 +756,7 @@ if err := f.GetPageMargins(sheet,
     &marginRight,
     &marginTop,
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 fmt.Println("Defaults:")
 fmt.Println("- marginBottom:", marginBottom)

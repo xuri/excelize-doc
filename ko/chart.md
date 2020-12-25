@@ -82,10 +82,11 @@ marker|선형 차트 및 분산 형 차트의 마커를 설정합니다. 선택�
 
 매개 변수|유형|설명
 ---|---|---
+none|bool|차트와 겹치지 않는 범례를 닫을 지 여부를 지정합니다. 기본값은 `false` 입니다
 position|string|차트 범례의 위치
-show_legend_key|bool|범례 표시하지만 차트와 겹치지 않음
+show_legend_key|bool|데이터 레이블에 범례 항목 레이블을 표시할지 여부를 지정합니다
 
-차트 범례의 `position` 를 설정합니다. 기본 범례 위치는 `right` 입니다. 사용 가능한 위치는 다음과 같습니다.
+매개 변수 `position` 의 기본값은 `right` 이며 범례가 표시 될 때만 적용됩니다 (즉, `none` 값이 `false` 임). 다음은이 매개 변수의 선택적 값입니다.
 
 매개 변수|설명
 ---|---
@@ -164,7 +165,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Small", "A3": "Normal", "A4": "Large",
+        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -235,7 +237,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":

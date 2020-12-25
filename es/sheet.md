@@ -184,7 +184,7 @@ if err := f.SetSheetPrOptions(sheet,
     excelize.AutoPageBreaks(true),
     excelize.OutlineSummaryBelow(false),
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 ```
 
@@ -228,7 +228,7 @@ if err := f.GetSheetPrOptions(sheet,
     &autoPageBreaks,
     &outlineSummaryBelow,
 ); err != nil {
-    panic(err)
+    fmt.Println(err)
 }
 fmt.Println("Defaults:")
 fmt.Printf("- codeName: %q\n", codeName)

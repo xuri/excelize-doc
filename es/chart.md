@@ -81,10 +81,11 @@ Establezca las propiedades de la leyenda del gráfico. Las opciones que se puede
 
 Parámetro|Tipo|Explicación
 ---|---|---
+none|bool|Especifique si muestra la leyenda sin superponer el gráfico. El valor predeterminado es `false`
 position|string|La posición de la leyenda del gráfico
-show_legend_key|bool|Mostrar leyenda pero no superponerse con el gráfico
+show_legend_key|bool|Establecer las claves de leyenda se mostrarán en las etiquetas de datos
 
-Establece la `position` de la leyenda del gráfico. La posición predeterminada de la leyenda es `right`. Las posiciones disponibles son:
+Establece la `position` de la leyenda del gráfico. La posición predeterminada de la leyenda es `right`. Este parámetro solo tiene efecto cuando `none` es `false`. Las posiciones disponibles son:
 
 Parámetro|Explicación
 ---|---
@@ -163,7 +164,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Pequeño", "A3": "Normal", "A4": "Grande", "B1": "Manzana", "C1": "Naranja", "D1": "Pera"}
+        "A2": "Pequeño", "A3": "Normal", "A4": "Grande",
+        "B1": "Manzana", "C1": "Naranja", "D1": "Pera"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -234,7 +236,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":

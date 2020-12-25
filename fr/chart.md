@@ -81,10 +81,11 @@ Définir les propriétés de la légende du graphique. Les options qui peuvent �
 
 Paramètre|Type|Explication
 ---|---|---
+none|bool|Spécifiez si afficher la légende sans chevaucher le graphique. La valeur par défaut est `false`
 position|string|La position de la légende du graphique
-show_legend_key|bool|Afficher la légende sans chevauchement avec le graphique
+show_legend_key|bool|Définir les clés de légende doivent être affichées dans les étiquettes de données
 
-Définissez la `position` de la légende du graphique. La position de la légende par défaut est `right`. Les postes disponibles sont:
+Définissez la `position` de la légende du graphique. La position par défaut de la légende est `right`. Ce paramètre ne prend effet que lorsque `none` est `false`. Les postes disponibles sont:
 
 Paramètre|Explication
 ---|---
@@ -163,7 +164,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Small", "A3": "Normal", "A4": "Large",
+        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -234,7 +236,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":

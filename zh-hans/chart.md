@@ -81,10 +81,11 @@ marker|设置折线图和散点图数据系列线型宽度和线端类型。可�
 
 参数|类型|含义
 ---|---|---
+none|bool|指定是否关闭不与图表重叠的图例。默认值为 `false`
 position|string|图例位置
-show_legend_key|bool|显示图例，但不与图表重叠
+show_legend_key|bool|指定是否在数据标签中显示图例项标示
 
-其中参数 `position` 默认值为 `right`，下面是可选值：
+其中参数 `position` 默认值为 `right`，该参数仅在当显示图例（即 `none` 的值为 `false`）时生效。下面是该参数的可选值：
 
 可选值|含义
 ---|---
@@ -163,7 +164,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Small", "A3": "Normal", "A4": "Large",
+        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -234,7 +236,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":

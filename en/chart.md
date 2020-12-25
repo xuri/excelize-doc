@@ -81,10 +81,11 @@ Set properties of the chart legend. The options that can be set are:
 
 Parameter|Type|Explanation
 ---|---|---
+none|bool|Specify if show the legend without overlapping the chart. The default value is `false`
 position|string|The position of the chart legend
-show_legend_key|bool|Show legend but not overlap with chart
+show_legend_key|bool|Set the legend keys shall be shown in data labels
 
-Set the `position` of the chart legend. The default legend position is `right`. The available positions are:
+Set the `position` of the chart legend. The default legend position is `right`. This parameter only takes effect when `none` is `false`. The available positions are:
 
 Parameter|Explanation
 ---|---
@@ -163,7 +164,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Small", "A3": "Normal", "A4": "Large",
+        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -234,7 +236,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":

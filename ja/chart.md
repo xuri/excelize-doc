@@ -82,10 +82,11 @@ marker|ラインチャートとスキャッターチャートのデータ系列�
 
 パラメータ | タイプ | 意味
 ---|---|---
+none|bool|チャートと重ならない凡例を閉じるかどうかを指定します。デフォルト値は `false` です
 position|string|凡例の場所
-show_legend_key|bool|凡例を表示しますが、グラフと重複しません
+show_legend_key|bool|データラベルに凡例アイテムラベルを表示するかどうかを指定します
 
-パラメータ `position` のデフォルト値が `right` の場合、以下はオプション値です:
+パラメータ `position` のデフォルト値は `right`であり、凡例が表示されている場合にのみ有効になります（つまり、`none` の値は `false` です）。このパラメータのオプションの値は次のとおりです:
 
 オプション値 | 意味
 ---|---
@@ -164,7 +165,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+        "A2": "Small", "A3": "Normal", "A4": "Large",
+        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -235,7 +237,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":

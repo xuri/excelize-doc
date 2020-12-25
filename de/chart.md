@@ -81,10 +81,11 @@ Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können 
 
 Parameter|Typ|Erläuterung
 ---|---|---
+none|bool|Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm zu überlappen. Der Standardwert ist `false`
 position|string|Die Position der Diagrammlegende
-show_legend_key|bool|Legende anzeigen, aber nicht mit Diagramm überlappen
+show_legend_key|bool|Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
 
-Stellen Sie den `position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Die verfügbaren Positionen sind:
+Stellen Sie die `position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `right` `false` ist. Die verfügbaren Positionen sind:
 
 Parameter|Erläuterung
 ---|---
@@ -163,7 +164,8 @@ import (
 
 func main() {
     categories := map[string]string{
-        "A2": "Klein", "A3": "Normal", "A4": "Groß", "B1": "Apfel", "C1": "Orange", "D1": "Birne"}
+        "A2": "Klein", "A3": "Normal", "A4": "Groß",
+        "B1": "Apfel", "C1": "Orange", "D1": "Birne"}
     values := map[string]int{
         "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
@@ -234,7 +236,7 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "right",
             "show_legend_key": false
         },
         "plotarea":
