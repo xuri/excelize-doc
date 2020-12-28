@@ -29,6 +29,6 @@ Excelize の目的は、Office Open XML（OOXML）標準に準拠する xlsx フ
 
 ## Excelize の開発に協賛
 
-プロジェクトの開発は、あなたのサポートから分離することはできません、著者にコーヒーバーのカップをしてください! Excelize は、以下の方法でスポンサーシップを受け入れます。
+プロジェクトの開発は、あなたのサポートから分離することはできません、著者にコーヒーバーのカップをしてください! Excelize は、以下の方法でスポンサーシップを受け入れます。スポンサーになることでこのプロジェクトをサポートする。
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Paypal で寄付する" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Paypal で寄付する"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Paypal で寄付する" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Paypal で寄付する"></a> <a href="https://opencollective.com/excelize" title="スポンサーになる" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="スポンサーになる"></a> <a href="https://www.patreon.com/xuri" title="Patreon での Excelize のサポート" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Patreon での Excelize のサポート"></a>

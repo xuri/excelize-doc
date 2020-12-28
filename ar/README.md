@@ -29,6 +29,6 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 
 ## الراعي إكسلسيز التنمية
 
-إذا كنت مستخدم فرديا وتتمتع إنتاجية استخدام Excelize، والنظر في التبرع كعلامة على التقدير - مثل شراء لي القهوة مرة واحدة في كل حين.
+إذا كنت مستخدم فرديا وتتمتع إنتاجية استخدام Excelize، والنظر في التبرع كعلامة على التقدير - مثل شراء لي القهوة مرة واحدة في كل حين. ادعم هذا المشروع من خلال أن تصبح راعيًا.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Donate with Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Donate with Paypal"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Donate with Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Donate with Paypal"></a> <a href="https://opencollective.com/excelize" title="تصبح راعيا" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="تصبح راعيا"></a> <a href="https://www.patreon.com/xuri" title="دعم Excelize على Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="دعم Excelize على Patreon"></a>

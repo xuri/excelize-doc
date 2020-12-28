@@ -29,6 +29,6 @@ Excelize 의 목표는 OOXML (Office Open XML) 표준을 준수하는 xlsx 파�
 
 ## 스폰서 Excelize 개발
 
-개인 사용자이고 Excelize 를 사용하는 생산성을 즐겼다면 가끔 커피를 사는 것과 같이 감사의 표시로 기부하는 것이 좋습니다.
+개인 사용자이고 Excelize 를 사용하는 생산성을 즐겼다면 가끔 커피를 사는 것과 같이 감사의 표시로 기부하는 것이 좋습니다. 스폰서되기 를 통해이 프로젝트를 지원할 수도 있습니다.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Paypal 로 기부하기" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Paypal 로 기부하기"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Paypal 로 기부하기" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Paypal 로 기부하기"></a> <a href="https://opencollective.com/excelize" title="스폰서되기" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="스폰서되기"></a> <a href="https://www.patreon.com/xuri" title="Patreon 에서 Excelize 지원" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Patreon 서 Excelize 지원"></a>

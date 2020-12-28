@@ -29,6 +29,6 @@ EXCELIZE - это библиотека, написанная на чистом G
 
 ## Спонсор Excelize разработки
 
-Если вы являетесь индивидуальным пользователем и наслаждаетесь продуктивностью использования Excelize, подумайте о том, чтобы пожертвовать как признак признательности - как покупка кофе время от времени.
+Если вы являетесь индивидуальным пользователем и наслаждаетесь продуктивностью использования Excelize, подумайте о том, чтобы пожертвовать как признак признательности - как покупка кофе время от времени. Поддержите этот проект, став спонсором.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Пожертвовать с помощью Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Пожертвовать с помощью Paypal"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Пожертвовать с помощью Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Пожертвовать с помощью Paypal"></a> <a href="https://opencollective.com/excelize" title="Стать спонсором" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="Стать спонсором"></a> <a href="https://www.patreon.com/xuri" title="Поддержка Excelize на Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Поддержка Excelize на Patreon"></a>

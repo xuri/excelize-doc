@@ -29,6 +29,6 @@ Wenn Ihr Unternehmen oder Produkt auch Excelize verwendet, begrüßen Sie <a hre
 
 ## Sponsor Excelize Development
 
-Wenn Sie ein einzelner Benutzer sind und die Produktivität der Verwendung von Excelize genossen haben, betrachten Sie das Essen als Zeichen der Wertschätzung - wie mir Kaffee zu kaufen ab und zu.
+Wenn Sie ein einzelner Benutzer sind und die Produktivität der Verwendung von Excelize genossen haben, betrachten Sie das Essen als Zeichen der Wertschätzung - wie mir Kaffee zu kaufen ab und zu. Unterstützen Sie dieses Projekt, indem Sie Sponsor werden.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Spenden mit PayPal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Spenden mit PayPal"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Spenden mit PayPal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Spenden mit PayPal"></a> <a href="https://opencollective.com/excelize" title="Werden Sie Sponsor" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="Werden Sie Sponsor"></a> <a href="https://www.patreon.com/xuri" title="Unterstützen Sie Excelize auf Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Unterstützen Sie Excelize auf Patreon"></a>

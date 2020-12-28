@@ -85,7 +85,7 @@ none|bool|Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm 
 position|string|Die Position der Diagrammlegende
 show_legend_key|bool|Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
 
-Stellen Sie die `position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `right` `false` ist. Die verfügbaren Positionen sind:
+Stellen Sie die `position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `none` `false` ist. Die verfügbaren Positionen sind:
 
 Parameter|Erläuterung
 ---|---

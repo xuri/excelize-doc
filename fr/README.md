@@ -29,6 +29,6 @@ Si votre entreprise ou produit utilise également Excelize, bienvenue <a href="m
 
 ## Parrainer Excelize Development
 
-Si vous êtes un utilisateur individuel et que vous avez apprécié la productivité de l'utilisation d'Excelize, considérez le don comme un signe d'appréciation - comme l'achat de café de temps en temps.
+Si vous êtes un utilisateur individuel et que vous avez apprécié la productivité de l'utilisation d'Excelize, considérez le don comme un signe d'appréciation - comme l'achat de café de temps en temps. Soutenez ce projet en devenant sponsor.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Faire un don avec Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Faire un don avec Paypal"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Faire un don avec Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Faire un don avec Paypal"></a> <a href="https://opencollective.com/excelize" title="Devenez sponsor" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="Devenez sponsor"></a> <a href="https://www.patreon.com/xuri" title="Soutenir Excelize sur Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Soutenir Excelize sur Patreon"></a>

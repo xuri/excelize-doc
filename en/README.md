@@ -29,9 +29,9 @@ If your company or product is also using Excelize, welcome <a href="mailto: xuri
 
 ## Sponsor Excelize Development
 
-If you are an individual user and have enjoyed the productivity of using Excelize, consider donating as a sign of appreciation - like buying me coffee once in a while.
+If you are an individual user and have enjoyed the productivity of using Excelize, consider donating as a sign of appreciation - like buying me coffee once in a while, or support this project by becoming a sponsor.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Donate with Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Donate with Paypal"></a>
+<a href="https://www.paypal.com/paypalme/xuri" title="Donate with Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Donate with Paypal"></a> <a href="https://opencollective.com/excelize" title="Become a Sponsor" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="Become a Sponsor"></a> <a href="https://www.patreon.com/xuri" title="Support Excelize on Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Support Excelize on Patreon"></a>
 
 ## Commercial Support
 
