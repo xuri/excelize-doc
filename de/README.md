@@ -8,8 +8,8 @@ Excelize ist eine Bibliothek, die in reinem Go geschrieben wurde und eine Reihe 
 - Problem: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Lizenzen: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Letzte Version: [v2.3.1](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Dokument Aktualisierungszeit: Dezember 18, 2020
+- Letzte Version: [v2.3.2](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Dokument Aktualisierungszeit: Januar 4, 2021
 
 ## Project mission
 
