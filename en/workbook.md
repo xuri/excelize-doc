@@ -502,6 +502,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 SetPageLayout provides a function to sets worksheet page layout. Available options:
 
+- `BlackAndWhite` specified print black and white.
+
+- `FirstPageNumber` specified the first printed page number. If no value is specified, then "automatic" is assumed.
+
 - `PageLayoutOrientation` provides a method to sets worksheet orientation, the default orientation is "portrait". The following shows the orientation parameters supported by Excelize index number:
 
 Parameter|Orientation
@@ -630,21 +634,25 @@ Index|Paper Size
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- For example, set page layout for `Sheet1` with landscape A4 small paper (210 mm by 297 mm):
+- `FitToHeight` specified the number of vertical pages to fit on.
+
+- `FitToWidth` specified the number of horizontal pages to fit on.
+
+- `PageLayoutScale` defines the print scaling. This attribute is restricted to values ranging from 10 (10%) to 400 (400%). This setting is overridden when `FitToWidth` and/or `FitToHeight` are in use.
+
+- For example, set page layout for `Sheet1` with print black and white, first printed page number from `2`, landscape A4 small paper (210 mm by 297 mm), 2 vertical pages to fit on, 2 horizontal pages to fit on and 50% print scaling:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

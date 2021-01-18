@@ -500,6 +500,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 SetPageLayout bietet eine Funktion zum Festlegen des Seitenlayouts von Arbeitsblättern. Verfügbare Optionen:
 
+- `BlackAndWhite` spezifizierter Druck Schwarzweiß.
+
+- `FirstPageNumber` hat die erste gedruckte Seitenzahl angegeben. Wenn kein Wert angegeben ist, wird "automatisch" angenommen.
+
 - `PageLayoutOrientation` bietet eine Methode zum Festlegen der Arbeitsblattausrichtung. Die Standardausrichtung ist "porträt". Im Folgenden werden die von der Excelize-Indexnummer unterstützten Orientierungsparameter angezeigt:
 
 Parameter|Orientierung
@@ -628,21 +632,25 @@ Index|Papiergröße
 117 | PRC-Umschlag Nr. 9 gedreht (324 mm × 229 mm)
 118 | PRC-Umschlag Nr. 10 gedreht (458 mm × 324 mm)
 
-- Zum Beispiel, seitenlayout für `Sheet1` mit Querformat A4-Kleinpapier (210 mm x 297 mm) festlegen:
+- `FitToHeight` hat die Anzahl der vertikalen Seiten angegeben, auf die gepasst werden soll.
+
+- `FitToWidth` hat die Anzahl der horizontalen Seiten angegeben, auf die gepasst werden soll.
+
+- `PageLayoutScale` definiert die Druckskalierung. Dieses Attribut ist auf Werte zwischen 10 (10%) und 400 (400%) beschränkt. Diese Einstellung wird überschrieben, wenn "FitToWidth" und / oder "FitToHeight" verwendet werden.
+
+- Legen Sie beispielsweise das Seitenlayout für `Sheet1` mit Schwarzweißdruck, erste gedruckte Seitenzahl von `2`, kleines A4-Querformatpapier (210 mm x 297 mm), 2 vertikale Seiten zum Anpassen und 2 horizontale Seiten zum Anpassen fest Ein und 50% Druckskalierung:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

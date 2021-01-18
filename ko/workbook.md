@@ -498,6 +498,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 지정 된 워크시트 이름 및 페이지 레이아웃 매개 변수를 기반으로 워크시트의 페이지 레이아웃 속성을 설정 합니다. 현재 설정에 대해 지원 되는 페이지 레이아웃 속성:
 
+- `BlackAndWhite` 방법을 사용하여 단색 인쇄 `true` 또는 `false` 를 설정합니다. 기본값은 `false` 입니다.
+
+- `FirstPageNumber` 방법을 사용하여 페이지 시작 페이지 번호를 기본값으로 설정합니다.
+
 - `PageLayoutOrientation` 메서드로 페이지 레이아웃 방향 설정, 기본 페이지 레이아웃 방향은 "세로" 입니다. 다음 표는 Excelize 에서 페이지 레이아웃 방향의 `PageLayoutOrientation` 매개 변수 목록입니다:
 
 매개 변수 | 방향
@@ -626,21 +630,25 @@ OrientationLandscape | 가로
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- 예를 들어 `Sheet1` 이라는 워크시트 페이지 레이아웃을 가로로 설정 하 고 A4 small paper (210 mm by 297 mm) 용지를 사용 합니다:
+- `FitToHeight` 방법을 사용하여 페이지 확대/축소 조정 페이지 너비를 기본값으로 설정합니다.
+
+- `FitToWidth` 메서드를 사용하여 페이지 확대/축소 조정 페이지 높이 (기본값 `1`) 를 설정합니다.
+
+- `PageLayoutScale` 메서드를 사용하여 페이지 배율을 10 에서 400, 즉 10%에서 400%로 설정하고 기본값은 `100` 일반 크기입니다.
+
+- 예를 들어 `Sheet1` 이라는 시트 페이지 레이아웃을 단색 인쇄로 설정하고, 시작 페이지 번호를 `2` 로 설정하고, 가로로, A4(작은) 210× 297mm 용지 사용, 너비 2, 높이 2페이지 및 배율 50% 로 조정합니다.
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

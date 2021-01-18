@@ -494,6 +494,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 根据给定的工作表名称和页面布局参数设置工作表的页面布局属性。目前支持设置的页面布局属性：
 
+- 通过 `BlackAndWhite` 方法设置单色打印 `true` 或 `false`，默认值为 `false` 关闭。
+
+- 通过 `FirstPageNumber` 方法设置页面起始页码，默认为自动。
+
 - 通过 `PageLayoutOrientation` 方法设置页面布局方向，默认页面布局方向为“纵向”。下面的表格是 Excelize 中页面布局方向 `PageLayoutOrientation` 参数的列表：
 
 参数 | 方向
@@ -622,21 +626,25 @@ OrientationLandscape | 横向
 117 | 中式信封 #9 横向旋转 324 × 229 毫米
 118 | 中式信封 #10 横向旋转 458 × 324 毫米
 
-- 例如，将名为 `Sheet1` 的工作表页面布局设置为横向并使用 A4(小) 210 × 297 毫米纸张：
+- 通过 `FitToHeight` 方法设置页面缩放调整页宽，默认值为 `1`。
+
+- 通过 `FitToWidth` 方法设置页面缩放调整页高，默认值为 `1`。
+
+- 通过 `PageLayoutScale` 方法设置页面缩放比例，取值范围 10 至 400，即缩放 10% 至 400%，默认值为 `100` 正常尺寸。
+
+- 例如，将名为 `Sheet1` 的工作表页面布局设置为单色打印、起始页码为 `2`、横向、使用 A4(小) 210 × 297 毫米纸张、调整为 2 页宽、2 页高并缩放 50%：
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

@@ -498,6 +498,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 SetPageLayout предоставляет функцию для установки макета страницы листа Доступные Варианты:
 
+- `BlackAndWhite` указывает печать черно-белую.
+
+- `FirstPageNumber` указывает номер первой напечатанной страницы. Если значение не указано, предполагается "автоматический".
+
 - `PageLayoutOrientation` предоставляет метод для установки ориентации листа, по умолчанию это "portrait". Ниже показаны параметры ориентации, поддерживаемые индексным номером Excelize:
 
 Параметр | Ориентация
@@ -626,21 +630,25 @@ OrientationLandscape|landscape
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- Например, установите макет страницы для `Sheet1` с альбомной ориентацией "A4 (малый) 210 × 297 мм":
+- `FitToHeight` указывает количество вертикальных страниц, на которых можно разместить.
+
+- `FitToWidth` указывает количество горизонтальных страниц для размещения.
+
+- `PageLayoutScale` определяет масштаб печати. Этот атрибут ограничен значениями от 10 (10%) до 400 (400%). Этот параметр отменяется при использовании FitToWidth и / или FitToHeight.
+
+- Например, установите макет страницы для `Sheet1` с черно-белой печатью, номер первой напечатанной страницы от `2`, альбомная ориентация на маленькую бумагу A4 (210 мм на 297 мм), 2 вертикальные страницы для размещения на них, 2 горизонтальные страницы для размещения включено и масштабирование печати 50%:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

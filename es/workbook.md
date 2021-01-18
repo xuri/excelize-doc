@@ -502,6 +502,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 SetPageLayout proporciona una función para establecer el diseño de página de hoja de cálculo. Opciones disponibles:
 
+- `BlackAndWhite` especificó impresión en blanco y negro.
+
+- `FirstPageNumber` especificó el primer número de página impresa. Si no se especifica ningún valor, se asume "automático".
+
 - `PageLayoutOrientation` proporciona un método para establecer la orientación de la hoja de cálculo, la orientación predeterminada es "retrato". A continuación se muestran los parámetros de orientación admitidos por Excelize index number:
 
 Parámetro|Orientación
@@ -630,21 +634,25 @@ Indice|Tamaño del papel
 117 | Sobre PRC #9 rota (324 mm × 229 mm)
 118 | Sobre PRC #10 rota (458 mm × 324 mm)
 
-- Por ejemplo, establezca el diseño de página para `Sheet1` con papel pequeño A4 horizontal (210 mm por 297 mm):
+- `FitToHeight` especificó el número de páginas verticales en las que encajar.
+
+- `FitToWidth` especifica el número de páginas horizontales en las que caben.
+
+- `PageLayoutScale` define la escala de impresión. Este atributo está restringido a valores que oscilan entre 10 (10%) y 400 (400%). Esta configuración se anula cuando se utilizan `FitToWidth` y / o `FitToHeight`.
+
+- Por ejemplo, configure el diseño de página para `Hoja1` con impresión en blanco y negro, primer número de página impresa desde `2`, papel pequeño A4 horizontal (210 mm por 297 mm), 2 páginas verticales para ajustar, 2 páginas horizontales para ajustar encendido y escala de impresión del 50%:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
-    "Sheet1",
+    "Hoja1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }
@@ -659,19 +667,19 @@ func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
 - `PageLayoutOrientation` proporciona un método para obtener la orientación de la hoja de trabajo
 - `PageLayoutPaperSize` proporciona un método para obtener el tamaño del papel de la hoja de trabajo
 
-- Por ejemplo, obtener el diseño de página de `Sheet1`:
+- Por ejemplo, obtener el diseño de página de `Hoja1`:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
+const sheet = "Hoja1"
 var (
     orientation excelize.PageLayoutOrientation
     paperSize   excelize.PageLayoutPaperSize
 )
-if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
+if err := f.GetPageLayout("Hoja1", &orientation); err != nil {
     fmt.Println(err)
 }
-if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
+if err := f.GetPageLayout("Hoja1", &paperSize); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
@@ -704,11 +712,11 @@ PageMarginLeft|float64
 PageMarginRight|float64
 PageMarginTop|float64
 
-- Por ejemplo, establezca los márgenes de página de `Sheet1`:
+- Por ejemplo, establezca los márgenes de página de `Hoja1`:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
+const sheet = "Hoja1"
 
 if err := f.SetPageMargins(sheet,
     excelize.PageMarginBottom(1.0),
@@ -735,11 +743,11 @@ PageMarginLeft|float64
 PageMarginRight|float64
 PageMarginTop|float64
 
-- Por ejemplo, obtener los márgenes de página de `Sheet1`:
+- Por ejemplo, obtener los márgenes de página de `Hoja1`:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
+const sheet = "Hoja1"
 
 var (
     marginBottom excelize.PageMarginBottom

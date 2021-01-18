@@ -505,6 +505,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 يوفر SetPageLayout وظيفة لتعيين تخطيط صفحة ورقة العمل. الخيارات المتاحة:
 
+- حدد `BlackAndWhite` طباعة أبيض وأسود.
+
+- حدد `FirstPageNumber` رقم أول صفحة مطبوعة. إذا لم يتم تحديد قيمة ، فسيتم افتراض "تلقائي".
+
 - يوفر `PageLayoutOrientation` طريقة لتعيين اتجاه ورقة العمل ، والاتجاه الافتراضي هو "صورة". يوضح ما يلي معلمات الاتجاه التي يدعمها رقم فهرس Excelize:
 
 معامل|اتجاه
@@ -633,21 +637,25 @@ OrientationLandscape|المناظر الطبيعيه
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- فمثلا, ضبط تخطيط الصفحة لـ `Sheet1` مع ورق صغير بحجم A4 (210 مم × 297 مم):
+- حدد `FitToHeight` عدد الصفحات الرأسية التي سيتم احتواؤها.
+
+- عدد FitToWidth المحدد من الصفحات الأفقية ليتم احتواؤها.
+
+- يحدد `PageLayoutScale` قياس الطباعة. هذه السمة مقيدة بقيم تتراوح من 10 (10٪) إلى 400 (400٪). يتم تجاوز هذا الإعداد عند استخدام `fitToWidth` و / أو `fitToHeight`.
+
+- على سبيل المثال ، عيّن تخطيط الصفحة لـ `Sheet1` بطباعة بالأبيض والأسود ، ورقم الصفحة الأول المطبوع من `2` ، وورق A4 صغير الحجم أفقيًا (210 مم × 297 مم) ، وصفحتان عموديتان للملاءمة ، وصفحتان أفقيتان لملاءمتهما و 50٪ مقياس طباعة
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

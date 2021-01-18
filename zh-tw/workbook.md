@@ -191,13 +191,13 @@ func (f *File) GetSheetVisible(name string) bool
 f.GetSheetVisible("Sheet1")
 ```
 
-## 設置工作表格式屬性 {#SetSheetFormatPr}
+## 設定工作表格式屬性 {#SetSheetFormatPr}
 
 ```go
 func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
 ```
 
-根據給定的工作表名稱設置格式屬性。
+根據給定的工作表名稱設定格式屬性。
 
 可選格式參數 | 數據類型
 ---|---
@@ -209,9 +209,9 @@ ZeroHeight | bool
 ThickTop | bool
 ThickBottom | bool
 
-例如，設置名為 `Sheet1` 的工作表中列默認為隱藏：
+例如，設定名為 `Sheet1` 的工作表中列默認為隱藏：
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="設置工作表格式屬性"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="設定工作表格式屬性"></p>
 
 ```go
 f := excelize.NewFile()
@@ -494,6 +494,12 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 根據給定的工作表名稱和頁面佈局參數設定工作表的頁面佈局屬性。目前支持設定的頁面佈局屬性：
 
+- 通過 `BlackAndWhite` 方法設定單色打印 `true` 或 `false`，默認值為 `false` 關閉。
+
+- 通過 `FirstPageNumber` 方法設定頁面起始頁碼，默認為自動。
+
+- 通過 `PageLayoutOrientation` 方法設定頁面佈局方向，默認頁面佈局方向為「縱向」。下面的表格是 Excelize 中頁面佈局方向 `PageLayoutOrientation` 參數的列表：
+
 - 通過 `PageLayoutOrientation` 方法設定頁面佈局方向，默認頁面佈局方向為「直向」。下面的表格是 Excelize 中頁面佈局方向 `PageLayoutOrientation` 參數的列表：
 
 參數 | 方向
@@ -622,21 +628,25 @@ OrientationLandscape | 橫向
 117 | 中式信封 #9 橫向旋轉 324 × 229 毫米
 118 | 中式信封 #10 橫向旋轉 458 × 324 毫米
 
-- 例如，將名為 `Sheet1` 的工作表頁面佈局設定為橫向並使用 A4(小) 210 × 297 毫米紙張：
+- 通過 `FitToHeight` 方法設定頁面縮放調整頁寬，默認值為 `1`。
+
+- 通過 `FitToWidth` 方法設定頁面縮放調整頁高，默認值為 `1`。
+
+- 通過 `PageLayoutScale` 方法設定頁面縮放比例，取值範圍 10 至 400，即縮放 10% 至 400%，默認值為 `100` 正常尺寸。
+
+- 例如，將名為 `Sheet1` 的工作表頁面佈局設定為單色打印、起始頁碼為 `2`、橫向、使用 A4(小) 210 × 297 毫米紙張、調整為 2 頁寬、2 頁高並縮放 50%：
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

@@ -498,6 +498,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 SetPageLayout fournit une fonction permettant de définir la mise en page de la feuille de calcul. Options disponibles:
 
+- `BlackAndWhite` a spécifié l'impression en noir et blanc.
+
+- `FirstPageNumber` a spécifié le premier numéro de page imprimée. Si aucune valeur n'est spécifiée, alors "automatique" est supposé.
+
 - `PageLayoutOrientation` fournit une méthode pour définir l'orientation de la feuille de calcul, l'orientation par défaut est "portrait". Le tableau suivant présente les paramètres d'orientation pris en charge par le numéro d'indexation Excelize:
 
 Paramètre | Orientation
@@ -626,21 +630,25 @@ Index | Taille de papier
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- Par exemple, définissez la mise en page pour `Sheet1` avec du papier format Petit A4 (210 × 297 mm):
+- `FitToHeight` spécifiait le nombre de pages verticales sur lesquelles tenir.
+
+- `FitToWidth` spécifiait le nombre de pages horizontales sur lesquelles tenir.
+
+- `PageLayoutScale` définit la mise à l'échelle de l'impression. Cet attribut est limité aux valeurs comprises entre 10 (10%) et 400 (400%). Ce paramètre est remplacé lorsque `FitToWidth` et / ou `FitToHeight` sont utilisés.
+
+- Par exemple, définissez la mise en page pour `Sheet1` avec impression en noir et blanc, premier numéro de page imprimée à partir de `2`, petit papier A4 paysage (210 mm sur 297 mm), 2 pages verticales pour s'adapter, 2 pages horizontales pour s'adapter sur et mise à l'échelle d'impression à 50%:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

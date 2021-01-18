@@ -500,6 +500,10 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 
 指定されたワークシート名とページレイアウトパラメータに基づいて、ワークシートのページレイアウトプロパティを設定します。 現在設定でサポートされているページレイアウトプロパティ:
 
+- `BlackAndWhite` メソッドを使用してモノクロ印刷 true または false を設定し、既定値は false オフです。
+
+- `FirstPageNumber` メソッドを使用して、ページの開始ページ番号を自動に設定します。
+
 - ページレイアウトの方向は `PageLayoutOrientation` メソッドによって設定され、デフォルトのページレイアウトの方向は「縦」です。 次の表は Excelize のページレイアウト指示の `PageLayoutOrientation` パラメータのリストです：
 
 パラメータ|方向
@@ -622,21 +626,25 @@ OrientationLandscape | 横
 117 | 中国の封筒 #9 横回転 324 × 229 mm
 118 | 中国の封筒 #10 横回転 458 × 324 mm
 
-- たとえば、`Sheet1` という名前のワークシートページレイアウトを横に設定し、A4 小さい 210 × 297 mm 紙を使用します。
+- `FitToHeight` メソッドを使用してページの拡大/縮小を設定し、ページの幅を `1` に設定します。
+
+- `FitToWidth` メソッドを使用して、ページのズームを設定してページの高さを調整し、既定値は `1` です。
+
+- `PageLayoutScale` メソッドを使用して、10 ~ 400 の範囲の値、つまり 10 ~ 400% の範囲のページ ズームを設定し、既定値は `100` 標準サイズです。
+
+- たとえば、`Sheet1` という名前のシート ページ レイアウトをモノクロ印刷、開始ページ番号 `2`、横向き、A4 (小) 210 × 297 mm 用紙、2 ページ幅、2 ページの高さ、および 50% のスケーリングに設定します:
 
 ```go
 f := excelize.NewFile()
-const sheet = "Sheet1"
-
 if err := f.SetPageLayout(
     "Sheet1",
+    excelize.BlackAndWhite(true),
+    excelize.FirstPageNumber(2),
     excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-); err != nil {
-    fmt.Println(err)
-}
-if err := f.SetPageLayout(
-    "Sheet1",
     excelize.PageLayoutPaperSize(10),
+    excelize.FitToHeight(2),
+    excelize.FitToWidth(2),
+    excelize.PageLayoutScale(50),
 ); err != nil {
     fmt.Println(err)
 }

@@ -252,17 +252,17 @@ err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 err := f.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
 ```
 
-## 設置富文本格式 {#SetCellRichText}
+## 設定富文本格式 {#SetCellRichText}
 
 ```go
 func (f *File) SetCellRichText(sheet, cell string, runs []RichTextRun) error
 ```
 
-根據給定的工作表、儲存格坐標和富文本格式為指定儲存格設置富文本。
+根據給定的工作表、儲存格坐標和富文本格式為指定儲存格設定富文本。
 
-例如，在名為 `Sheet1` 的工作表 `A1` 儲存格設置富文本格式：
+例如，在名為 `Sheet1` 的工作表 `A1` 儲存格設定富文本格式：
 
-<p align="center"><img width="612" src="./images/rich_text.png" alt="設置富文本格式"></p>
+<p align="center"><img width="612" src="./images/rich_text.png" alt="設定富文本格式"></p>
 
 ```go
 package main
