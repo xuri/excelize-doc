@@ -316,6 +316,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Beispiel 1:
 
@@ -396,6 +397,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Beispiel 1, um die Eigenschaften der Gitterlinieneigenschaft für die letzte Ansicht im Arbeitsblatt mit dem Namen `Sheet1` abzurufen:
 

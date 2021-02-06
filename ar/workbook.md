@@ -321,6 +321,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - مثال 1:
 
@@ -401,6 +402,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - المثال 1 ، للحصول على إعدادات خاصية خط الشبكة لطريقة العرض الأخيرة في ورقة العمل المسماة `Sheet1`:
 

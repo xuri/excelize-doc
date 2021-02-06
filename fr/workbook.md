@@ -314,6 +314,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Exemple 1:
 
@@ -394,6 +395,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Exemple 1, pour obtenir les paramètres de la propriété gridline pour la dernière vue de la feuille de calcul nommée `Sheet1`:
 

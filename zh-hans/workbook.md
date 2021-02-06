@@ -310,6 +310,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - 例1:
 
@@ -390,6 +391,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - 例1，获取名为 `Sheet1` 的工作表上最后一个视图的网格线属性设置：
 

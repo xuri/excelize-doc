@@ -17,7 +17,7 @@ type StreamWriter struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 通过给定的工作表名称返回流式写入器，用于生成包含大规模数据的工作表。请注意通过此方法按行向工作表写入数据后，必须调用 [`Flush`](stream.md#Flush) 函数来结束流式写入过程，并需要确所保写入的行号是递增的。例如，向工作表流式按行写入 `102400` 行 x `50` 列带有样式的数据：
+NewStreamWriter 通过给定的工作表名称返回流式写入器，用于生成包含大规模数据的工作表。请注意通过此方法按行向工作表写入数据后，必须调用 [`Flush`](stream.md#Flush) 函数来结束流式写入过程，并需要确所保写入的行号是递增的，普通 API 不能与流式 API 混合使用在工作表中写入数据。例如，向工作表流式按行写入 `102400` 行 x `50` 列带有样式的数据：
 
 ```go
 file := excelize.NewFile()

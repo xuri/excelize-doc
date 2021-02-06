@@ -316,6 +316,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Ejemplo 1:
 
@@ -398,6 +399,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Ejemplo 1, para obtener la configuración de propiedades de la cuadrícula para la última vista en la hoja de cálculo denominada `Sheet1`:
 

@@ -314,6 +314,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - 예 1:
 
@@ -394,6 +395,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - 예 1: `Sheet1` 이라는 워크 시트의 마지막 뷰에 대 한 그리드 선 특성 설정을 가져옵니다.
 

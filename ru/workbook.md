@@ -314,6 +314,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Пример 1:
 
@@ -394,6 +395,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Пример 1, чтобы получить параметры свойства сетки для последнего представления на листе с именем `Sheet1`:
 

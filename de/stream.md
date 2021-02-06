@@ -17,7 +17,7 @@ type StreamWriter struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter gibt die Stream-Writer-Struktur anhand des angegebenen Arbeitsblattnamens zurück, um ein neues Arbeitsblatt mit großen Datenmengen zu generieren. Beachten Sie, dass Sie nach dem Festlegen von Zeilen die [`Flush`](stream.md#Flush) Methode aufrufen müssen, um den Streaming-Schreibvorgang zu beenden und sicherzustellen, dass die Reihenfolge der Zeilennummern aufsteigend ist. Legen Sie beispielsweise Daten für das Arbeitsblatt der Größe `102400` Zeilen x `50` Spalten mit Zahlen und Stil fest:
+NewStreamWriter gibt die Stream-Writer-Struktur anhand des angegebenen Arbeitsblattnamens zurück, um ein neues Arbeitsblatt mit großen Datenmengen zu generieren. Beachten Sie, dass Sie nach dem Festlegen von Zeilen die [`Flush`](stream.md#Flush) Methode aufrufen müssen, um den Streaming-Schreibvorgang zu beenden und sicherzustellen, dass die Reihenfolge der Zeilennummern aufsteigend ist. Die allgemeine API und die Stream-API können nicht gemischt werden, um Daten in die Arbeitsblätter zu schreiben. Legen Sie beispielsweise Daten für das Arbeitsblatt der Größe `102400` Zeilen x `50` Spalten mit Zahlen und Stil fest:
 
 ```go
 file := excelize.NewFile()

@@ -316,6 +316,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - 例1:
 
@@ -396,6 +397,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - 例1、`Sheet1` という名前のワークシートの最後のビューのグリッド線プロパティ設定を取得します。
 

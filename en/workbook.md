@@ -316,6 +316,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Example 1:
 
@@ -398,6 +399,7 @@ ShowGridLines|bool
 ShowRowColHeaders|bool
 ZoomScale|float64
 TopLeftCell|string
+ShowZeros|bool
 
 - Example 1, to get the gridline property settings for the last view on the worksheet named `Sheet1`:
 
