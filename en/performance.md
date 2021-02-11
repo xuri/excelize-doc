@@ -1,6 +1,6 @@
 # Performance
 
-The performance figures below show execution time and memory usage for worksheets of size `N` rows x `50` columns with a 50/50 mixture of strings and numbers. The figures are taken from an arbitrary, mid-range, machine (OS: macOS Catalina version 10.15.7, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.2 darwin/amd64`, Commit: [`9316028`](https://github.com/360EntSecGroup-Skylar/excelize/tree/93160287bb7fa6479c73ee031b5ed771972a17a8)). Specific figures will vary from machine to machine but the trends should be the same.
+The performance figures below show execution time and memory usage for worksheets of size `N` rows x `50` columns with a 50/50 mixture of strings and numbers. The figures are taken from an arbitrary, mid-range, machine (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
 
 <table>
     <tr>
@@ -11,124 +11,242 @@ The performance figures below show execution time and memory usage for worksheet
         <th>Memory (MB)</th>
     </tr>
     <tr>
-        <td rowspan="10">Set Cell Value</td>
+        <td rowspan="10">SetSheetRow</td>
         <td>200</td>
         <td>50</td>
-        <td>0.018</td>
-        <td>2</td>
+        <td>0.006</td>
+        <td>16</td>
     </tr>
     <tr>
         <td>400</td>
         <td>50</td>
-        <td>0.033</td>
-        <td>2</td>
+        <td>0.106</td>
+        <td>25</td>
     </tr>
     <tr>
         <td>800</td>
         <td>50</td>
-        <td>0.060</td>
-        <td>4</td>
+        <td>0.207</td>
+        <td>44</td>
     </tr>
     <tr>
         <td>1600</td>
         <td>50</td>
-        <td>0.119</td>
-        <td>11</td>
+        <td>0.410</td>
+        <td>75</td>
     </tr>
     <tr>
         <td>3200</td>
         <td>50</td>
-        <td>0.240</td>
-        <td>22</td>
+        <td>0.810</td>
+        <td>167</td>
     </tr>
     <tr>
         <td>6400</td>
         <td>50</td>
-        <td>0.458</td>
-        <td>44</td>
+        <td>1.651</td>
+        <td>298</td>
     </tr>
     <tr>
         <td>12800</td>
         <td>50</td>
-        <td>0.960</td>
-        <td>46</td>
+        <td>3.278</td>
+        <td>585</td>
     </tr>
     <tr>
         <td>25600</td>
         <td>50</td>
-        <td>1.973</td>
-        <td>49</td>
+        <td>6.632</td>
+        <td>1291</td>
     </tr>
     <tr>
         <td>52100</td>
         <td>50</td>
-        <td>4.044</td>
-        <td>67</td>
+        <td>13.718</td>
+        <td>2658</td>
     </tr>
     <tr>
         <td>102400</td>
         <td>50</td>
-        <td>7.791</td>
-        <td>131</td>
+        <td>27.491</td>
+        <td>5049</td>
     </tr>
     <tr>
-        <td rowspan="1">Add Chart</td>
+        <td rowspan="10">StreamWriter</td>
         <td>200</td>
         <td>50</td>
-        <td>8.77</td>
-        <td>156</td>
-    </tr>
-    <tr>
-        <td rowspan="4">Set HyperLink</td>
-        <td>200</td>
-        <td>50</td>
-        <td>1.08</td>
+        <td>0.017</td>
         <td>9</td>
     </tr>
     <tr>
         <td>400</td>
         <td>50</td>
-        <td>1.12</td>
-        <td>9</td>
+        <td>0.031</td>
+        <td>11</td>
     </tr>
     <tr>
         <td>800</td>
         <td>50</td>
-        <td>16.9</td>
-        <td>31</td>
+        <td>0.059</td>
+        <td>13</td>
     </tr>
     <tr>
         <td>1600</td>
         <td>50</td>
-        <td>0.59</td>
-        <td>63</td>
+        <td>0.113</td>
+        <td>17</td>
     </tr>
     <tr>
-        <td rowspan="4">Insert Picture</td>
+        <td>3200</td>
+        <td>50</td>
+        <td>0.230</td>
+        <td>29</td>
+    </tr>
+    <tr>
+        <td>6400</td>
+        <td>50</td>
+        <td>0.435</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>12800</td>
+        <td>50</td>
+        <td>0.893</td>
+        <td>65</td>
+    </tr>
+    <tr>
+        <td>25600</td>
+        <td>50</td>
+        <td>1.813</td>
+        <td>82</td>
+    </tr>
+    <tr>
+        <td>52100</td>
+        <td>50</td>
+        <td>3.939</td>
+        <td>106</td>
+    </tr>
+    <tr>
+        <td>102400</td>
+        <td>50</td>
+        <td>8.043</td>
+        <td>154</td>
+    </tr>
+    <tr>
+        <td rowspan="10">RowIterator</td>
         <td>200</td>
         <td>50</td>
-        <td>1,57</td>
-        <td>47</td>
+        <td>0.051</td>
+        <td>10</td>
     </tr>
     <tr>
         <td>400</td>
         <td>50</td>
-        <td>5.01</td>
-        <td>94</td>
+        <td>0.010</td>
+        <td>10</td>
     </tr>
     <tr>
         <td>800</td>
         <td>50</td>
-        <td>18.56</td>
-        <td>188</td>
+        <td>0.197</td>
+        <td>12</td>
     </tr>
     <tr>
         <td>1600</td>
         <td>50</td>
-        <td>74</td>
-        <td>374</td>
+        <td>0.395</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>3200</td>
+        <td>50</td>
+        <td>0.784</td>
+        <td>24</td>
+    </tr>
+    <tr>
+        <td>6400</td>
+        <td>50</td>
+        <td>1.530</td>
+        <td>40</td>
+    </tr>
+    <tr>
+        <td>12800</td>
+        <td>50</td>
+        <td>3.029</td>
+        <td>73</td>
+    </tr>
+    <tr>
+        <td>25600</td>
+        <td>50</td>
+        <td>6.054</td>
+        <td>140</td>
+    </tr>
+    <tr>
+        <td>52100</td>
+        <td>50</td>
+        <td>12.317</td>
+        <td>271</td>
+    </tr>
+    <tr>
+        <td>102400</td>
+        <td>50</td>
+        <td>24.175</td>
+        <td>534</td>
+    </tr>
+    <tr>
+        <td rowspan="1">AddChart</td>
+        <td>200</td>
+        <td>50</td>
+        <td>8.693</td>
+        <td>210</td>
+    </tr>
+    <tr>
+        <td rowspan="3">SetHyperLink</td>
+        <td>200</td>
+        <td>50</td>
+        <td>1.034</td>
+        <td>16</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>50</td>
+        <td>3.937</td>
+        <td>24</td>
+    </tr>
+    <tr>
+        <td>800</td>
+        <td>50</td>
+        <td>15.744</td>
+        <td>46</td>
+    </tr>
+    <tr>
+        <td rowspan="4">AddPicture</td>
+        <td>200</td>
+        <td>50</td>
+        <td>1.471</td>
+        <td>51</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>50</td>
+        <td>4.925</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>800</td>
+        <td>50</td>
+        <td>18.586</td>
+        <td>184</td>
+    </tr>
+    <tr>
+        <td>1600</td>
+        <td>50</td>
+        <td>79.356</td>
+        <td>360</td>
     </tr>
 </table>
+
+The performance data is generated by [this benchmark testing script](https://gist.github.com/xuri/6a5733d7c68fb212792a94b29280234b).
 
 ## Performance comparison of similar libs
 
