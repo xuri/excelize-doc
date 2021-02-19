@@ -167,6 +167,7 @@ SetSheetPrOptions предоставляет функцию для устано�
 |EnableFormatConditionsCalculation|bool|
 |Published|bool|
 |FitToPage|bool|
+|TabColor|string|
 |AutoPageBreaks|bool|
 |OutlineSummaryBelow|bool|
 
@@ -181,6 +182,7 @@ if err := f.SetSheetPrOptions(sheet,
     excelize.EnableFormatConditionsCalculation(false),
     excelize.Published(false),
     excelize.FitToPage(true),
+    excelize.TabColor("#FFFF00"),
     excelize.AutoPageBreaks(true),
     excelize.OutlineSummaryBelow(false),
 ); err != nil {
@@ -202,6 +204,7 @@ GetSheetPrOptions обеспечивает функцию для получен�
 |EnableFormatConditionsCalculation|bool|
 |Published|bool|
 |FitToPage|bool|
+|TabColor|string|
 |AutoPageBreaks|bool|
 |OutlineSummaryBelow|bool|
 
@@ -216,6 +219,7 @@ var (
     enableFormatConditionsCalculation excelize.EnableFormatConditionsCalculation
     published                         excelize.Published
     fitToPage                         excelize.FitToPage
+    tabColor                          excelize.TabColor
     autoPageBreaks                    excelize.AutoPageBreaks
     outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
@@ -225,6 +229,7 @@ if err := f.GetSheetPrOptions(sheet,
     &enableFormatConditionsCalculation,
     &published,
     &fitToPage,
+    &tabColor,
     &autoPageBreaks,
     &outlineSummaryBelow,
 ); err != nil {
@@ -235,6 +240,7 @@ fmt.Printf("- codeName: %q\n", codeName)
 fmt.Println("- enableFormatConditionsCalculation:", enableFormatConditionsCalculation)
 fmt.Println("- published:", published)
 fmt.Println("- fitToPage:", fitToPage)
+fmt.Printf("- tabColor: %q\n", tabColor)
 fmt.Println("- autoPageBreaks:", autoPageBreaks)
 fmt.Println("- outlineSummaryBelow:", outlineSummaryBelow)
 ```
@@ -247,6 +253,7 @@ Defaults:
 - enableFormatConditionsCalculation: true
 - published: true
 - fitToPage: false
+- tabColor: ""
 - autoPageBreaks: false
 - outlineSummaryBelow: true
 ```
