@@ -366,6 +366,14 @@ func main() {
 }
 ```
 
+## Obtenir le texte enrichi de la cellule {#GetCellRichText}
+
+```go
+func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+```
+
+GetCellRichText fournit une fonction pour obtenir le texte enrichi des cellules par feuille de calcul donnée.
+
 ## Obtenir la valeur de la cellule {#GetCellValue}
 
 ```go
@@ -544,6 +552,9 @@ ATANH
 AVERAGE
 AVERAGEA
 BASE
+BIN2DEC
+BIN2HEX
+BIN2OCT
 BITAND
 BITLSHIFT
 BITOR
@@ -554,6 +565,9 @@ CEILING.MATH
 CEILING.PRECISE
 CHOOSE
 CLEAN
+CODE
+COLUMN
+COLUMNS
 COMBIN
 COMBINA
 CONCAT
@@ -580,6 +594,8 @@ EXP
 FACT
 FACTDOUBLE
 FALSE
+FIND
+FINDB
 FISHER
 FISHERINV
 FLOOR
@@ -588,6 +604,9 @@ FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HEX2BIN
+HEX2DEC
+HEX2OCT
 HLOOKUP
 IF
 IFERROR
@@ -604,6 +623,8 @@ ISTEXT
 ISO.CEILING
 KURT
 LCM
+LEFT
+LEFTB
 LEN
 LENB
 LN
@@ -637,6 +658,8 @@ RADIANS
 RAND
 RANDBETWEEN
 REPT
+RIGHT
+RIGHTB
 ROMAN
 ROUND
 ROUNDDOWN

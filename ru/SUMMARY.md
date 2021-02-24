@@ -79,6 +79,7 @@
   * [Установить стиль ячейки](cell.md#SetCellStyle)
   * [Установить гиперссылку](cell.md#SetCellHyperLink)
   * [Установить форматированный текст для ячейки](cell.md#SetCellRichText)
+  * [Получить форматированный текст ячейки](cell.md#GetCellRichText)
   * [Получить значение ячейки](cell.md#GetCellValue)
   * [Получить все значения ячейки по столбцам](cell.md#GetCols)
   * [Получить все значения ячеек по строкам](cell.md#GetRows)

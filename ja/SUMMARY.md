@@ -79,6 +79,7 @@
   * [セルスタイルの設定](cell.md#SetCellStyle)
   * [ハイパーリンクの設定](cell.md#SetCellHyperLink)
   * [セルのリッチテキストを設定する](cell.md#SetCellRichText)
+  * [リッチテキスト形式を取得する](cell.md#GetCellRichText)
   * [セル値取得](cell.md#GetCellValue)
   * [列ごとにすべてのセル値を取得する](cell.md#GetCols)
   * [行ごとにすべてのセル値を取得する](cell.md#GetRows)

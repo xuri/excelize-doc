@@ -235,13 +235,14 @@ CellCoordinates("Z3") // returns 26, 3, nil
 ## Координаты на имя ячейки {#CoordinatesToCellName}
 
 ```go
-func CoordinatesToCellName(col, row int) (string, error)
+func CoordinatesToCellName(col, row int, abs ...bool) (string, error)
 ```
 
 CoordinatesToCellName преобразует `[X, Y]` координаты в буквенно-цифровое имя ячейки или возвращает ошибку. Например:
 
 ```go
-CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
 ## Стиль стиля {#NewConditionalStyle}

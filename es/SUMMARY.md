@@ -79,6 +79,7 @@
   * [Establecer estilo de celda](cell.md#SetCellStyle)
   * [Establecer hipervínculo](cell.md#SetCellHyperLink)
   * [Establecer texto enriquecido de celda](cell.md#SetCellRichText)
+  * [Obtener texto enriquecido de celda](cell.md#GetCellRichText)
   * [Obtener valor de celda](cell.md#GetCellValue)
   * [Obtener todo el valor de celda por columnas](cell.md#GetCols)
   * [Obtener todo el valor de celda por filas](cell.md#GetRows)

@@ -235,13 +235,14 @@ CellCoordinates("Z3") // returns 26, 3, nil
 ## Coordinates To Cell Name {#CoordinatesToCellName}
 
 ```go
-func CoordinatesToCellName(col, row int) (string, error)
+func CoordinatesToCellName(col, row int, abs ...bool) (string, error)
 ```
 
 CoordinatesToCellName converts `[X, Y]` coordinates to alpha-numeric cell name or returns an error. For example:
 
 ```go
-CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
 ## Conditional style {#NewConditionalStyle}

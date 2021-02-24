@@ -371,6 +371,14 @@ func main() {
 }
 ```
 
+## احصل على نص منسق للخلية {#GetCellRichText}
+
+```go
+func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+```
+
+يوفر GetCellRichText وظيفة للحصول على نص منسق للخلايا بواسطة ورقة عمل معينة.
+
 ## الحصول على قيمة الخلية {#GetCellValue}
 
 ```go
@@ -549,6 +557,9 @@ ATANH
 AVERAGE
 AVERAGEA
 BASE
+BIN2DEC
+BIN2HEX
+BIN2OCT
 BITAND
 BITLSHIFT
 BITOR
@@ -559,6 +570,9 @@ CEILING.MATH
 CEILING.PRECISE
 CHOOSE
 CLEAN
+CODE
+COLUMN
+COLUMNS
 COMBIN
 COMBINA
 CONCAT
@@ -585,6 +599,8 @@ EXP
 FACT
 FACTDOUBLE
 FALSE
+FIND
+FINDB
 FISHER
 FISHERINV
 FLOOR
@@ -593,6 +609,9 @@ FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HEX2BIN
+HEX2DEC
+HEX2OCT
 HLOOKUP
 IF
 IFERROR
@@ -609,6 +628,8 @@ ISTEXT
 ISO.CEILING
 KURT
 LCM
+LEFT
+LEFTB
 LEN
 LENB
 LN
@@ -642,6 +663,8 @@ RADIANS
 RAND
 RANDBETWEEN
 REPT
+RIGHT
+RIGHTB
 ROMAN
 ROUND
 ROUNDDOWN

@@ -9,7 +9,7 @@ Excelize is a library written in pure Go providing a set of functions that allow
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Last version: [v2.3.2](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Document update time: Feb 20, 2021
+- Document update time: Feb 25, 2021
 
 ## Project mission
 

@@ -79,6 +79,7 @@
   * [Set cell style](cell.md#SetCellStyle)
   * [Set hyperlink](cell.md#SetCellHyperLink)
   * [Set cell rich text](cell.md#SetCellRichText)
+  * [Get cell rich text](cell.md#GetCellRichText)
   * [Get cell value](cell.md#GetCellValue)
   * [Get all cell value by columns](cell.md#GetCols)
   * [Get all cell value by rows](cell.md#GetRows)

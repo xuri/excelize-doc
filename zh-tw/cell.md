@@ -366,6 +366,14 @@ func main() {
 }
 ```
 
+## 獲取富文本格式 {#GetCellRichText}
+
+```go
+func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+```
+
+根據給定的工作表、儲存格坐標獲取指定儲存格的富文本格式。
+
 ## 獲取儲存格的值 {#GetCellValue}
 
 ```go
@@ -458,7 +466,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 如果給定的儲存格坐標區域與已有的其他合併儲存格相重疊，已有的合併儲存格將會被刪除。
 
-##  取消合併儲存格 {#UnmergeCell}
+## 取消合併儲存格 {#UnmergeCell}
 
 ```go
 func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
@@ -518,13 +526,13 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 
 根據給定的工作表名（大小寫敏感）和儲存格坐標獲取該儲存格上的公式。
 
-## 計算單元格的值 {#CalcCellValue}
+## 計算存儲格的值 {#CalcCellValue}
 
 ```go
 func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
 ```
 
-根據給定的工作表名（大小寫敏感）和單元格坐標計算包含公式單元格的值。該方法目前正在開發中，尚未支持數組函數、表格函數和其他部分函數。
+根據給定的工作表名（大小寫敏感）和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持數組函數、表格函數和其他部分函數。
 
 支持的函數列表如下：
 
@@ -544,6 +552,9 @@ ATANH
 AVERAGE
 AVERAGEA
 BASE
+BIN2DEC
+BIN2HEX
+BIN2OCT
 BITAND
 BITLSHIFT
 BITOR
@@ -554,6 +565,9 @@ CEILING.MATH
 CEILING.PRECISE
 CHOOSE
 CLEAN
+CODE
+COLUMN
+COLUMNS
 COMBIN
 COMBINA
 CONCAT
@@ -580,6 +594,8 @@ EXP
 FACT
 FACTDOUBLE
 FALSE
+FIND
+FINDB
 FISHER
 FISHERINV
 FLOOR
@@ -588,6 +604,9 @@ FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HEX2BIN
+HEX2DEC
+HEX2OCT
 HLOOKUP
 IF
 IFERROR
@@ -604,6 +623,8 @@ ISTEXT
 ISO.CEILING
 KURT
 LCM
+LEFT
+LEFTB
 LEN
 LENB
 LN
@@ -637,6 +658,8 @@ RADIANS
 RAND
 RANDBETWEEN
 REPT
+RIGHT
+RIGHTB
 ROMAN
 ROUND
 ROUNDDOWN

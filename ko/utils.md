@@ -235,13 +235,14 @@ CellCoordinates("Z3") // returns 26, 3, nil
 ## 셀 이름에 좌표 지정 {#CoordinatesToCellName}
 
 ```go
-func CoordinatesToCellName(col, row int) (string, error)
+func CoordinatesToCellName(col, row int, abs ...bool) (string, error)
 ```
 
 CoordinatesToCellName 는 `[X, Y]` 좌표를 알파 숫자 셀 이름으로 변환하거나 오류를 반환합니다. 예를 들어:
 
 ```go
-CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
 ## 조건 스타일 {#NewConditionalStyle}

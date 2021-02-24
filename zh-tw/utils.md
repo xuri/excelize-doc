@@ -232,13 +232,14 @@ CellCoordinates("Z3") // returns 26, 3, nil
 ## 索引轉儲存格坐標 {#CoordinatesToCellName}
 
 ```go
-func CoordinatesToCellName(col, row int) (string, error)
+func CoordinatesToCellName(col, row int, abs ...bool) (string, error)
 ```
 
 將 `[X, Y]` 形式的列、欄索引轉換為由字母和數字組合而成的儲存格坐標，或傳回錯誤。例如：
 
 ```go
-CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
 ## 創建條件式格式樣式 {#NewConditionalStyle}

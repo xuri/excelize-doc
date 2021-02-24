@@ -366,6 +366,14 @@ func main() {
 }
 ```
 
+## リッチテキスト形式を取得する {#GetCellRichText}
+
+```go
+func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+```
+
+指定されたワークシートとセル座標に従って、指定されたセルのリッチテキスト形式を取得します。
+
 ## セル値取得 {#GetCellValue}
 
 ```go
@@ -458,7 +466,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 指定したセルの座標領域が既に存在する他の結合セルと重なっている場合、既存の結合セルは削除されます。
 
-##  セルの結合を解除 {#UnmergeCell}
+## セルの結合を解除 {#UnmergeCell}
 
 ```go
 func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
@@ -544,6 +552,9 @@ ATANH
 AVERAGE
 AVERAGEA
 BASE
+BIN2DEC
+BIN2HEX
+BIN2OCT
 BITAND
 BITLSHIFT
 BITOR
@@ -554,6 +565,9 @@ CEILING.MATH
 CEILING.PRECISE
 CHOOSE
 CLEAN
+CODE
+COLUMN
+COLUMNS
 COMBIN
 COMBINA
 CONCAT
@@ -580,6 +594,8 @@ EXP
 FACT
 FACTDOUBLE
 FALSE
+FIND
+FINDB
 FISHER
 FISHERINV
 FLOOR
@@ -588,6 +604,9 @@ FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HEX2BIN
+HEX2DEC
+HEX2OCT
 HLOOKUP
 IF
 IFERROR
@@ -604,6 +623,8 @@ ISTEXT
 ISO.CEILING
 KURT
 LCM
+LEFT
+LEFTB
 LEN
 LENB
 LN
@@ -637,6 +658,8 @@ RADIANS
 RAND
 RANDBETWEEN
 REPT
+RIGHT
+RIGHTB
 ROMAN
 ROUND
 ROUNDDOWN

@@ -366,6 +366,14 @@ func main() {
 }
 ```
 
+## 서식있는 텍스트 형식 가져 오기 {#GetCellRichText}
+
+```go
+func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+```
+
+지정된 워크 시트 및 셀 좌표에 따라 지정된 셀의 서식있는 텍스트 형식을 가져옵니다.
+
 ## 셀 값 가져 오기 {#GetCellValue}
 
 ```go
@@ -458,7 +466,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 지정된 셀 좌표 영역이 다른 기존 병합셀과 겹치면 기존 병합된 셀이 삭제됩니다.
 
-##  셀 병합 취소 {#UnmergeCell}
+## 셀 병합 취소 {#UnmergeCell}
 
 ```go
 func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
@@ -544,6 +552,9 @@ ATANH
 AVERAGE
 AVERAGEA
 BASE
+BIN2DEC
+BIN2HEX
+BIN2OCT
 BITAND
 BITLSHIFT
 BITOR
@@ -554,6 +565,9 @@ CEILING.MATH
 CEILING.PRECISE
 CHOOSE
 CLEAN
+CODE
+COLUMN
+COLUMNS
 COMBIN
 COMBINA
 CONCAT
@@ -580,6 +594,8 @@ EXP
 FACT
 FACTDOUBLE
 FALSE
+FIND
+FINDB
 FISHER
 FISHERINV
 FLOOR
@@ -588,6 +604,9 @@ FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HEX2BIN
+HEX2DEC
+HEX2OCT
 HLOOKUP
 IF
 IFERROR
@@ -604,6 +623,8 @@ ISTEXT
 ISO.CEILING
 KURT
 LCM
+LEFT
+LEFTB
 LEN
 LENB
 LN
@@ -637,6 +658,8 @@ RADIANS
 RAND
 RANDBETWEEN
 REPT
+RIGHT
+RIGHTB
 ROMAN
 ROUND
 ROUNDDOWN

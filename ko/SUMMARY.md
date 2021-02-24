@@ -79,6 +79,7 @@
   * [셀 스타일 설정](cell.md#SetCellStyle)
   * [하이퍼 링크 설정](cell.md#SetCellHyperLink)
   * [셀에 서식있는 텍스트 설정](cell.md#SetCellRichText)
+  * [서식있는 텍스트 형식 가져 오기](cell.md#GetCellRichText)
   * [셀 값 가져 오기](cell.md#GetCellValue)
   * [열로 모든 셀 값 가져 오기](cell.md#GetCols)
   * [행으로 모든 셀 값 가져 오기](cell.md#GetRows)

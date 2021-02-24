@@ -366,6 +366,14 @@ func main() {
 }
 ```
 
+## 获取富文本格式 {#GetCellRichText}
+
+```go
+func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+```
+
+根据给定的工作表、单元格坐标获取指定单元格的富文本格式。
+
 ## 获取单元格的值 {#GetCellValue}
 
 ```go
@@ -458,7 +466,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 
 如果给定的单元格坐标区域与已有的其他合并单元格相重叠，已有的合并单元格将会被删除。
 
-##  取消合并单元格 {#UnmergeCell}
+## 取消合并单元格 {#UnmergeCell}
 
 ```go
 func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
@@ -544,6 +552,9 @@ ATANH
 AVERAGE
 AVERAGEA
 BASE
+BIN2DEC
+BIN2HEX
+BIN2OCT
 BITAND
 BITLSHIFT
 BITOR
@@ -554,6 +565,9 @@ CEILING.MATH
 CEILING.PRECISE
 CHOOSE
 CLEAN
+CODE
+COLUMN
+COLUMNS
 COMBIN
 COMBINA
 CONCAT
@@ -580,6 +594,8 @@ EXP
 FACT
 FACTDOUBLE
 FALSE
+FIND
+FINDB
 FISHER
 FISHERINV
 FLOOR
@@ -588,6 +604,9 @@ FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HEX2BIN
+HEX2DEC
+HEX2OCT
 HLOOKUP
 IF
 IFERROR
@@ -604,6 +623,8 @@ ISTEXT
 ISO.CEILING
 KURT
 LCM
+LEFT
+LEFTB
 LEN
 LENB
 LN
@@ -637,6 +658,8 @@ RADIANS
 RAND
 RANDBETWEEN
 REPT
+RIGHT
+RIGHTB
 ROMAN
 ROUND
 ROUNDDOWN

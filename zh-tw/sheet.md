@@ -541,7 +541,7 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）、起始坐標和 `slice` 類型引用按列賦值。例如，在名為 `Sheet1` 的工作簿第 `6` 列上，以 `B6` 單元格作為起始坐標按列賦值：
+根據給定的工作表名稱（大小寫敏感）、起始坐標和 `slice` 類型引用按列賦值。例如，在名為 `Sheet1` 的工作簿第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

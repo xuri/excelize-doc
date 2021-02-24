@@ -234,13 +234,14 @@ CellCoordinates("Z3") // إرجاع 26, 3, nil
 ## إحداثيات لاسم خلية {#CoordinatesToCellName}
 
 ```go
-func CoordinatesToCellName(col, row int) (string, error)
+func CoordinatesToCellName(col, row int, abs ...bool) (string, error)
 ```
 
 يقوم CoordinatesToCellName بتحويل إحداثيات `[X, Y]` إلى اسم خلية أبجدي رقمي أو إرجاع خطأ. فمثلا:
 
 ```go
-CoordinatesToCellName(1, 1) // إرجاع "A1", nil
+excelize.CoordinatesToCellName(1, 1) // إرجاع "A1", nil
+excelize.CoordinatesToCellName(1, 1, true) // إرجاع "$A$1", nil
 ```
 
 ## النمط الشرطي {#NewConditionalStyle}

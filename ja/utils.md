@@ -235,13 +235,14 @@ CellCoordinates("Z3") // returns 26, 3, nil
 ## セル名に対する座標 {#CoordinatesToCellName}
 
 ```go
-func CoordinatesToCellName(col, row int) (string, error)
+func CoordinatesToCellName(col, row int, abs ...bool) (string, error)
 ```
 
 CoordinatesToCellName は `[X, Y]` 座標を英数字のセル名に変換するか、エラーを返します。例えば:
 
 ```go
-CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
+excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
 ## 条件付き書式スタイルの作成 {#NewConditionalStyle}

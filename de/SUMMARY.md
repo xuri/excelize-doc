@@ -79,6 +79,7 @@
   * [Festlegen des Zellstils](cell.md#SetCellStyle)
   * [Festlegen eines Hyperlinks](cell.md#SetCellHyperLink)
   * [Festlegen von Zell-Richtext](cell.md#SetCellRichText)
+  * [Holen Sie sich zellreichen Text](cell.md#GetCellRichText)
   * [Abrufen des Zellenwerts](cell.md#GetCellValue)
   * [Abrufen des gesamten Zellenwerts nach Spalten](cell.md#GetCols)
   * [Abrufen des gesamten Zellenwerts nach Zeilen](cell.md#GetRows)
