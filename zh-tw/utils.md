@@ -225,8 +225,8 @@ func CellNameToCoordinates(cell string) (int, int, error)
 將由字母和數字組合而成的儲存格坐標轉換為 `[X, Y]` 形式的列、欄索引，或傳回錯誤。例如：
 
 ```go
-CellCoordinates("A1") // returns 1, 1, nil
-CellCoordinates("Z3") // returns 26, 3, nil
+excelize.CellCoordinates("A1") // returns 1, 1, nil
+excelize.CellCoordinates("Z3") // returns 26, 3, nil
 ```
 
 ## 索引轉儲存格坐標 {#CoordinatesToCellName}

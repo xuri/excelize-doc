@@ -228,8 +228,8 @@ func CellNameToCoordinates(cell string) (int, int, error)
 CellNameToCoordinates は英数字のセル名を `[X, Y]` 座標に変換するか、エラーを返します。例えば:
 
 ```go
-CellCoordinates("A1") // returns 1, 1, nil
-CellCoordinates("Z3") // returns 26, 3, nil
+excelize.CellCoordinates("A1") // returns 1, 1, nil
+excelize.CellCoordinates("Z3") // returns 26, 3, nil
 ```
 
 ## セル名に対する座標 {#CoordinatesToCellName}

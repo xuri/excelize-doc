@@ -228,8 +228,8 @@ func CellNameToCoordinates(cell string) (int, int, error)
 CellNameToCoordinates converts alphanumeric cell name to `[X, Y]` coordinates or returns an error. For example:
 
 ```go
-CellCoordinates("A1") // returns 1, 1, nil
-CellCoordinates("Z3") // returns 26, 3, nil
+excelize.CellCoordinates("A1") // returns 1, 1, nil
+excelize.CellCoordinates("Z3") // returns 26, 3, nil
 ```
 
 ## Coordinates To Cell Name {#CoordinatesToCellName}
