@@ -9,6 +9,15 @@ type RichTextRun struct {
 }
 ```
 
+HyperlinkOpts можно передать в [`SetCellHyperlink`](cell.md#SetCellHyperlink) для установки дополнительных атрибутов гиперссылки (например, отображаемого текста и текста подсказки на экране).
+
+```go
+type HyperlinkOpts struct {
+    Display *string
+    Tooltip *string
+}
+```
+
 ## Установить значение ячейки {#SetCellValue}
 
 ```go

@@ -9,6 +9,15 @@ type RichTextRun struct {
 }
 ```
 
+HyperlinkOpts 用来指定可选的超链接属性，例如要显示的文字与屏幕提示文字。
+
+```go
+type HyperlinkOpts struct {
+    Display *string
+    Tooltip *string
+}
+```
+
 ## 设置单元格的值 {#SetCellValue}
 
 ```go

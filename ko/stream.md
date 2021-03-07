@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+Cell 은 StreamWriter.SetRow 에서 직접 사용하여 스타일과 값을 지정할 수 있습니다.
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## 스트림 라이터 받기 {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+스트림 작성기를 사용하여 워크 시트의 셀 값 및 셀 수식을 설정합니다:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## 스트리밍 할 시트 행 쓰기 {#SetRow}

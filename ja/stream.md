@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+セルを StreamWriter.SetRow で直接使用して、スタイルと値を指定できます。
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## ストリームライターを取得する {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+ストリームライターを使用してワークシートのセル値とセル数式を設定します。
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## ストリームにシート行を書き込む {#SetRow}

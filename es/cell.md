@@ -9,6 +9,15 @@ type RichTextRun struct {
 }
 ```
 
+HyperlinkOpts se puede pasar a [`SetCellHyperlink`](cell.md#SetCellHyperlink) para establecer atributos de hipervínculo opcionales (por ejemplo, texto para mostrar y texto de sugerencia en pantalla).
+
+```go
+type HyperlinkOpts struct {
+    Display *string
+    Tooltip *string
+}
+```
+
 ## Establecer el valor de la celda {#SetCellValue}
 
 ```go

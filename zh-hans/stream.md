@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+Cell 在 StreamWriter.SetRow 中使用，用于指定单元格的值、公式和样式。
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## 获取流式写入器 {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+流式设置单元格的公式和值：
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## 按行流式写入工作表 {#SetRow}

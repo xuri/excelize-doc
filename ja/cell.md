@@ -9,6 +9,15 @@ type RichTextRun struct {
 }
 ```
 
+HyperlinkOpts を [`SetCellHyperlink`](cell.md#SetCellHyperlink) に渡して、オプションのハイパーリンク属性（表示するテキストや画面のヒントテキストなど）を設定できます。
+
+```go
+type HyperlinkOpts struct {
+    Display *string
+    Tooltip *string
+}
+```
+
 ## セル値設定 {#SetCellValue}
 
 ```go

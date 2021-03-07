@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+يمكن استخدام الخلية مباشرة في StreamWriter.SetRow لتحديد نمط وقيمة.
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## الحصول على دفق الكاتب {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+تعيين قيمة الخلية وصيغة الخلية لورقة عمل باستخدام كاتب الدفق:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## كتابة صف ورقة إلى الدفق {#SetRow}

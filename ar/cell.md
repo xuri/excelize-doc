@@ -9,6 +9,15 @@ type RichTextRun struct {
 }
 ```
 
+يمكن تمرير HyperlinkOpts إلى [`SetCellHyperlink`](cell.md#SetCellHyperlink) لتعيين سمات الارتباط التشعبي الاختيارية (مثل النص المراد عرضه ونص تلميح الشاشة).
+
+```go
+type HyperlinkOpts struct {
+    Display *string
+    Tooltip *string
+}
+```
+
 ## تعيين قيمة الخلية {#SetCellValue}
 
 ```go

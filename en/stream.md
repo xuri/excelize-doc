@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+Cell can be used directly in StreamWriter.SetRow to specify a style and a value.
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## Get stream writer {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+Set cell value and cell formula for a worksheet with stream writer:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## Write sheet row to stream {#SetRow}

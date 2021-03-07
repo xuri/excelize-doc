@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+Cell peut être utilisée directement dans StreamWriter.SetRow pour spécifier un style et une valeur.
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## Obtenez le flux écrivain {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+Définissez la valeur de la cellule et la formule de la cellule pour une feuille de calcul avec l'écrivain de flux:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## Écrire la ligne de feuille au flux {#SetRow}

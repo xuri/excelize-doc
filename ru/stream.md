@@ -11,6 +11,16 @@ type StreamWriter struct {
 }
 ```
 
+Ячейку можно использовать непосредственно в StreamWriter.SetRow для указания стиля и значения.
+
+```go
+type Cell struct {
+    StyleID int
+    Formula string
+    Value   interface{}
+}
+```
+
 ## Получить потокового писателя {#NewStreamWriter}
 
 ```go
@@ -49,6 +59,15 @@ if err := streamWriter.Flush(); err != nil {
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
+```
+
+Задайте значение ячейки и формулу ячейки для рабочего листа с помощью средства записи потока:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1},
+    excelize.Cell{Value: 2},
+    excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
 ## Запись строки листа в поток {#SetRow}
