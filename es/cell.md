@@ -18,6 +18,15 @@ type HyperlinkOpts struct {
 }
 ```
 
+FormulaOpts se puede pasar a [`SetCellFormula`](cell.md#SetCellFormula) para usar otros tipos de fórmula.
+
+```go
+type FormulaOpts struct {
+    Type *string // Tipo de fórmula
+    Ref  *string // Referencia de fórmula compartida
+}
+```
+
 ## Establecer el valor de la celda {#SetCellValue}
 
 ```go
@@ -592,6 +601,7 @@ COUNTBLANK
 CSC
 CSCH
 DATE
+DATEDIF
 DEC2BIN
 DEC2HEX
 DEC2OCT
@@ -608,12 +618,14 @@ FIND
 FINDB
 FISHER
 FISHERINV
+FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HARMEAN
 HEX2BIN
 HEX2DEC
 HEX2OCT
@@ -655,7 +667,16 @@ MROUND
 MULTINOMIAL
 MUNIT
 NA
+NORM.DIST
+NORMDIST
+NORM.INV
+NORMINV
+NORM.S.DIST
+NORMSDIST
+NORM.S.INV
+NORMSINV
 NOT
+NOW
 OCT2BIN
 OCT2DEC
 OCT2HEX
@@ -663,6 +684,8 @@ ODD
 OR
 PERMUT
 PI
+POISSON.DIST
+POISSON
 POWER
 PRODUCT
 PROPER
@@ -687,10 +710,12 @@ SHEET
 SIGN
 SIN
 SINH
+SKEW
 SMALL
 SQRT
 SQRTPI
 STDEV
+STDEV.S
 STDEVA
 SUBSTITUTE
 SUM
@@ -698,6 +723,7 @@ SUMIF
 SUMSQ
 TAN
 TANH
+TODAY
 TRIM
 TRUE
 TRUNC

@@ -1,6 +1,6 @@
 <p align="center"><a href="https://xuri.me/excelize" target="_blank" alt="Excelize Document"><img width="750" src="./images/excelize-doc.png" alt="Docs reference for the excelize library"></a></p>
 
-This is docs reference for the [excelize](https://github.com/360EntSecGroup-Skylar/excelize) library. The documentation is built on [GitBook](https://github.com/GitbookIO/gitbook) in the format of Markdown and is welcome to participate in the translation.
+This is docs reference for the [excelize](https://github.com/xuri/excelize) library. The documentation is built on [GitBook](https://github.com/GitbookIO/gitbook) in the format of Markdown and is welcome to participate in the translation.
 
 #### Sponsor Excelize Development
 

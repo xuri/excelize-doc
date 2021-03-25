@@ -18,6 +18,15 @@ type HyperlinkOpts struct {
 }
 ```
 
+FormulaOpts может быть передана [`SetCellFormula`](cell.md#SetCellFormula) для использования других типов формул.
+
+```go
+type FormulaOpts struct {
+    Type *string // Тип формулы
+    Ref  *string // Общие ссылки на формулы
+}
+```
+
 ## Установить значение ячейки {#SetCellValue}
 
 ```go
@@ -588,6 +597,7 @@ COUNTBLANK
 CSC
 CSCH
 DATE
+DATEDIF
 DEC2BIN
 DEC2HEX
 DEC2OCT
@@ -604,12 +614,14 @@ FIND
 FINDB
 FISHER
 FISHERINV
+FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
 GAMMA
 GAMMALN
 GCD
+HARMEAN
 HEX2BIN
 HEX2DEC
 HEX2OCT
@@ -651,7 +663,16 @@ MROUND
 MULTINOMIAL
 MUNIT
 NA
+NORM.DIST
+NORMDIST
+NORM.INV
+NORMINV
+NORM.S.DIST
+NORMSDIST
+NORM.S.INV
+NORMSINV
 NOT
+NOW
 OCT2BIN
 OCT2DEC
 OCT2HEX
@@ -659,6 +680,8 @@ ODD
 OR
 PERMUT
 PI
+POISSON.DIST
+POISSON
 POWER
 PRODUCT
 PROPER
@@ -683,10 +706,12 @@ SHEET
 SIGN
 SIN
 SINH
+SKEW
 SMALL
 SQRT
 SQRTPI
 STDEV
+STDEV.S
 STDEVA
 SUBSTITUTE
 SUM
@@ -694,6 +719,7 @@ SUMIF
 SUMSQ
 TAN
 TANH
+TODAY
 TRIM
 TRUE
 TRUNC
