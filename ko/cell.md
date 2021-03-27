@@ -534,7 +534,7 @@ GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크�
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식의 결과는 Office Excel 응용 프로그램에서 워크시트를 열 때 계산되며 Excelize 는 현재 수식 계산 엔진을 제공하지 않으므로 수식 결과를 계산할 수 없습니다.
+셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다.
 
 ## 셀 수식 가져 오기 {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

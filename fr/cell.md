@@ -534,7 +534,7 @@ GetComments récupère tous les commentaires et renvoie une carte de nom de feui
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-La formule sur la cellule est prise en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la formule est calculé lorsque la feuille de calcul est ouverte par l'application Office Excel et que Excelize ne fournit pas actuellement de moteur de calcul de formule. Les résultats de formule ne peuvent donc pas être calculés.
+La formule sur la cellule est prise en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée.
 
 ## Obtenir la formule cellulaire {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

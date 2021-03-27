@@ -43,7 +43,7 @@ DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
 WeChat ID: `hixuri` (请备注: Excelize)
 
-<img width="700" src="../images/group@2x.png" alt="Excelize 技术交流群">
+<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,DMIYOhc1sHsGezVdHJjsH9Y8usCdanuVIL/q9EWh9vA=&_dt_no_comment=1&origin=11" title="Excelize DingTalk 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/dingtalk_group@2x.png" alt="Excelize DingTalk 技术交流群"></a> <a href="https://jq.qq.com/?_wv=1027&k=zf9MCmtH" title="Excelize QQ 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/qq_group@2x.png" alt="Excelize QQ 技术交流群"></a> <img style="margin: 25px 60px 0 0;" width="140" src="../images/wechat_group@2x.png" alt="Excelize WeChat 技术交流群"> <a href="https://applink.larksuite.com/TJow9o9" title="Excelize Lark 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/lark_group@2x.png" alt="Excelize Lark 技术交流群"></a>
 
 ## 商业支持
 

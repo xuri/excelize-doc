@@ -20,7 +20,7 @@ type HyperlinkOpts struct {
 
 FormulaOpts 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函數中指定設置特殊公式類型。
 
-```
+```go
 type FormulaOpts struct {
     Type *string // 公式類型
     Ref  *string // 共享公式引用
@@ -534,7 +534,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標設定取該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，Excelize 目前不提供公式計算引擎，所以無法計算公式結果。
+根據給定的工作表名（大小寫敏感）和儲存格坐標設定取該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。
 
 ## 獲取公式 {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

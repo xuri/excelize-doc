@@ -539,7 +539,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-يتم أخذ الصيغة الموجودة في الخلية وفقًا لاسم ورقة العمل المحدد (حساس لحالة الأحرف) وإعدادات صيغة الخلية. يتم حساب نتيجة الصيغة عندما يتم فتح ورقة العمل بواسطة تطبيق Office Excel ، ولا يوفر Excelize حاليًا محرك حساب الصيغة ، لذلك لا يمكن حساب نتائج الصيغة.
+يتم أخذ الصيغة الموجودة في الخلية وفقًا لاسم ورقة العمل المحدد (حساس لحالة الأحرف) وإعدادات صيغة الخلية. يمكن حساب نتيجة خلية الصيغة عند فتح ورقة العمل بواسطة تطبيق Office Excel أو يمكن أن تستخدم الدالة [CalcCellValue](cell.md#CalcCellValue) أيضاً الحصول على قيمة الخلية المحسوبة.
 
 ## الحصول على صيغة الخلية {#GetCellFormula}
 
@@ -687,7 +687,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

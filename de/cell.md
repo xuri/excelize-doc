@@ -534,7 +534,7 @@ GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens a
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-Die Formel in der Zelle wird gemäß dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Einstellungen für die Zellformel verwendet. Das Ergebnis der Formel wird berechnet, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird. Excelize bietet derzeit keine Formelberechnungs-Engine, sodass die Formelergebnisse nicht berechnet werden können.
+Die Formel in der Zelle wird gemäß dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Einstellungen für die Zellformel verwendet. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen.
 
 ## Abrufen der Zellenformel {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

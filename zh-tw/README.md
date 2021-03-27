@@ -43,4 +43,18 @@ DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
 WeChat ID: `hixuri` (請備註: Excelize)
 
-<img width="700" src="../images/group@2x.png" alt="Excelize 技術交流群">
+<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,DMIYOhc1sHsGezVdHJjsH9Y8usCdanuVIL/q9EWh9vA=&_dt_no_comment=1&origin=11" title="Excelize DingTalk 技術交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/dingtalk_group@2x.png" alt="Excelize DingTalk 技術交流群"></a> <a href="https://jq.qq.com/?_wv=1027&k=zf9MCmtH" title="Excelize QQ 技術交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/qq_group@2x.png" alt="Excelize QQ 技術交流群"></a> <img style="margin: 25px 60px 0 0;" width="140" src="../images/wechat_group@2x.png" alt="Excelize WeChat 技術交流群"> <a href="https://applink.larksuite.com/TJow9o9" title="Excelize Lark 技術交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/lark_group@2x.png" alt="Excelize Lark 技術交流群"></a>
+
+## 商業支持
+
+幫助您的應用發揮最大潛力，讓使用電子錶格檔案變得有趣。除了提供完全免費和開源的基礎庫軟件包之外，Excelize 還可以在商業上提供技術咨詢支持服務：
+
+- 優先考慮您的問題
+
+有急需解決的問題或新功能需求嗎？Excelize 很樂意根據商業支持為您提供優先服務，請與 Excelize 聯繫以獲取更多詳細信息。
+
+- 專業技術咨詢服務
+
+在您的應用程序使用 Excelize 開發過程中提供技術支持，提供解決方案咨詢服務，並可以按小時為基礎加入您的團隊。
+
+請通過 <a href="mailto: xuri.me@gmail.com">E-mail</a> 與我們取得聯繫。

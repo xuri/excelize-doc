@@ -20,7 +20,7 @@ type HyperlinkOpts struct {
 
 FormulaOpts 用于在 [`SetCellFormula`](cell.md#SetCellFormula) 函数中指定设置特殊公式类型。
 
-```
+```go
 type FormulaOpts struct {
     Type *string // 公式类型
     Ref  *string // 共享公式引用
@@ -534,7 +534,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标设置取该单元格上的公式。公式的结果会在工作表被 Office Excel 应用程序打开时计算，Excelize 目前不提供公式计算引擎，所以无法计算公式结果。
+根据给定的工作表名（大小写敏感）和单元格坐标设置取该单元格上的公式。公式的结果可在工作表被 Office Excel 应用程序打开时计算，或通过 [CalcCellValue](cell.md#CalcCellValue) 函数计算单元格的值。
 
 ## 获取公式 {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

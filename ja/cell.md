@@ -534,7 +534,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-指定されたワークシート名 (大文字小文字の区別) とセルの設定に基づいて、セルの数式を設定します。 数式の結果は、ワークシートが Office Excel アプリケーションによって開かれたときに計算され、Excelize は現在、数式計算エンジンを提供していないため、数式の結果を計算できません。
+指定されたワークシート名 (大文字小文字の区別) とセルの設定に基づいて、セルの数式を設定します。数式セルの結果は、ワークシートが Office Excel アプリケーションで開かれた場合、または計算されたセル値を取得する場合に [CalcCellValue](cell.md#CalcCellValue) 関数を使用して計算できます。
 
 ## セル式を取得する {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

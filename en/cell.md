@@ -534,7 +534,7 @@ GetComments retrieve all comments and return a map of worksheet name to the work
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-The formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula is calculated when the worksheet is opened by the Office Excel application, and Excelize does not currently provide a formula calculation engine, so the formula results cannot be calculated.
+The formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value.
 
 ## Get cell formula {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON

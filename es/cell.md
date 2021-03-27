@@ -534,7 +534,7 @@ GetComments recupera todos los comentarios y devuelve un mapa del nombre de la h
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-La fórmula de la celda se toma de acuerdo con el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y la configuración de la fórmula de la celda. El resultado de la fórmula se calcula cuando la aplicación Office Excel abre la hoja de cálculo, y Excelize no proporciona actualmente un motor de cálculo de fórmulas, por lo que los resultados de la fórmula no se pueden calcular.
+La fórmula de la celda se toma de acuerdo con el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado.
 
 ## Obtener fórmula celular {#GetCellFormula}
 
@@ -682,7 +682,9 @@ OCT2DEC
 OCT2HEX
 ODD
 OR
+PERCENTILE
 PERMUT
+PERMUTATIONA
 PI
 POISSON.DIST
 POISSON
