@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.3.2](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 文档更新: 2021年3月26日
+- 文档更新: 2021年3月29日
 
 ## 项目使命
 
@@ -43,7 +43,7 @@ DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
 WeChat ID: `hixuri` (请备注: Excelize)
 
-<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,DMIYOhc1sHsGezVdHJjsH9Y8usCdanuVIL/q9EWh9vA=&_dt_no_comment=1&origin=11" title="Excelize DingTalk 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/dingtalk_group@2x.png" alt="Excelize DingTalk 技术交流群"></a> <a href="https://jq.qq.com/?_wv=1027&k=zf9MCmtH" title="Excelize QQ 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/qq_group@2x.png" alt="Excelize QQ 技术交流群"></a> <img style="margin: 25px 60px 0 0;" width="140" src="../images/wechat_group@2x.png" alt="Excelize WeChat 技术交流群"> <a href="https://applink.larksuite.com/TJow9o9" title="Excelize Lark 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/lark_group@2x.png" alt="Excelize Lark 技术交流群"></a>
+<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,DMIYOhc1sHsGezVdHJjsH9Y8usCdanuVIL/q9EWh9vA=&_dt_no_comment=1&origin=11" title="Excelize DingTalk 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/dingtalk_group@2x.png" alt="Excelize DingTalk 技术交流群"></a> <a href="https://jq.qq.com/?_wv=1027&k=zf9MCmtH" title="Excelize QQ 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/qq_group@2x.png" alt="Excelize QQ 技术交流群"></a> <img style="margin: 25px 60px 0 0;" width="140" src="../images/wechat_group@2x.png" alt="Excelize WeChat 技术交流群"> <a href="https://applink.larksuite.com/TJow9o9" title="Excelize Lark 技术交流群" target="_blank"><img style="margin: 25px 0 0 0;" width="140" src="../images/lark_group@2x.png" alt="Excelize Lark 技术交流群"></a>
 
 ## 商业支持
 

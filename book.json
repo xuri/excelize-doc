@@ -2,7 +2,8 @@
     "title": "Excelize",
     "author": "xuri",
     "language": "en",
-    "plugins": ["-sharing",
+    "plugins": [
+        "-sharing",
         "-lunr",
         "-search",
         "search-plus",
@@ -11,35 +12,28 @@
         "language-picker",
         "favicon"
     ],
-    "pluginsConfig":
-    {
-        "favicon":
-        {
-            "shortcut": "./images/favicon.ico",
-            "bookmark": "./images/favicon.ico",
+    "pluginsConfig": {
+        "favicon": {
+            "shortcut": "https://xuri.me/excelize/images/favicon.ico",
+            "bookmark": "https://xuri.me/excelize/images/favicon.ico",
             "appleTouch": "./images/logo_trans_300x300.png",
-            "appleTouchMore":
-            {
-                "120x120": "./images/apple-touch-icon-120x120.png",
-                "180x180": "./images/apple-touch-icon-180x180.png"
+            "appleTouchMore": {
+                "120x120": "https://xuri.me/excelize/images/apple-touch-icon-120x120.png",
+                "180x180": "https://xuri.me/excelize/images/apple-touch-icon-180x180.png"
             }
         },
-        "sitemap-general":
-        {
+        "sitemap-general": {
             "prefix": "https://xuri.me/excelize/"
         },
-        "scripts":
-        {
+        "scripts": {
             "files": []
         }
     },
-    "pdf":
-    {
+    "pdf": {
         "fontSize": 10,
         "pageNumbers": false,
         "paperSize": "a4",
-        "margin":
-        {
+        "margin": {
             "right": 0,
             "left": 0,
             "top": 0,
