@@ -2,7 +2,7 @@
 
 ## Installation {#install}
 
-L'utilisation de la dernière version de la bibliothèque Excelize nécessite Go version 1.10 ou ultérieure.
+L'utilisation de la dernière version de la bibliothèque Excelize nécessite Go version 1.15 ou ultérieure.
 
 - Installation
 

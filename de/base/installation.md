@@ -2,7 +2,7 @@
 
 ## Installation {#install}
 
-Für die Verwendung der neuesten Version Excelize Bibliothek erfordern, um Version 1.10 oder höher.
+Für die Verwendung der neuesten Version Excelize Bibliothek erfordern, um Version 1.15 oder höher.
 
 - Installation
 

@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基於 ECMA-376，ISO/IEC 29500 國際標準。可以使用它來讀取、寫入由 Microsoft Excel&trade; 2007 及以上版本創建的電子錶格檔案。支持 XLSX / XLSM / XLTM 等多種檔案格式，高度兼容帶有樣式、圖片(表)、透視表、切片器等複雜組件的檔案，並提供流式讀寫 API，用於處理包含大規模數據的工作簿。可應用於各類報表平台、雲計算、邊緣計算等系統。使用本類庫要求使用的 Go 語言為 1.10 或更高版本。
+Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基於 ECMA-376，ISO/IEC 29500 國際標準。可以使用它來讀取、寫入由 Microsoft Excel&trade; 2007 及以上版本創建的電子錶格檔案。支持 XLSX / XLSM / XLTM 等多種檔案格式，高度兼容帶有樣式、圖片(表)、透視表、切片器等複雜組件的檔案，並提供流式讀寫 API，用於處理包含大規模數據的工作簿。可應用於各類報表平台、雲計算、邊緣計算等系統。使用本類庫要求使用的 Go 語言為 1.15 或更高版本。
 
 - Source Code: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - Issue: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.3.2](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 檔案更新: 2021年3月29日
+- 檔案更新: 2021年4月6日
 
 ## 項目使命
 

@@ -16,7 +16,7 @@
         "favicon": {
             "shortcut": "https://xuri.me/excelize/images/favicon.ico",
             "bookmark": "https://xuri.me/excelize/images/favicon.ico",
-            "appleTouch": "./images/logo_trans_300x300.png",
+            "appleTouch": "https://xuri.me/excelize/images/logo_trans_300x300.png",
             "appleTouchMore": {
                 "120x120": "https://xuri.me/excelize/images/apple-touch-icon-120x120.png",
                 "180x180": "https://xuri.me/excelize/images/apple-touch-icon-180x180.png"

@@ -2,7 +2,7 @@
 
 ## Instalación {#install}
 
-Using the latest version Excelize library require to Go version 1.10 or later.
+Using the latest version Excelize library require to Go version 1.15 or later.
 
 - Instalación
 
