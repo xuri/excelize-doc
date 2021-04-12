@@ -107,6 +107,8 @@ gap|espacio
 span|Conecte puntos de datos con líneas rectas
 zero|valor cero
 
+Especifica que cada marcador de datos de la serie tiene un color diferente por `vary_colors`. El valor predeterminado es `true`.
+
 El parámetro `formato` proporciona ajustes para parámetros como el desplazamiento del gráfico, la escala, la configuración de la relación de aspecto y las propiedades de impresión, así como los que se utilizan en la función [`AddPicture()`](image.md#AddPicture).
 
 Establezca la posición del área de trazado del gráfico por área de trazado. Las propiedades que se pueden configurar son:

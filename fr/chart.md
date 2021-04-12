@@ -107,6 +107,8 @@ gap|espace
 span|Connecter des points de données avec des lignes droites
 zero|zvaleur zéro
 
+Spécifie que chaque marqueur de données de la série a une couleur différente par `vary_colors`. La valeur par défaut est `true`.
+
 Le paramètre `format` fournit des paramètres pour des paramètres tels que le décalage de diagramme, l'échelle, les paramètres de format et les propriétés d'impression, ainsi que ceux utilisés dans la fonction [`AddPicture()`](image.md#AddPicture).
 
 Définissez la position de la zone de tracé de graphique par plotarea. Les propriétés qui peuvent être définies sont:

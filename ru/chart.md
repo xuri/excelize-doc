@@ -107,7 +107,7 @@ gap  | пространство
 span | Соединить точки данных с прямыми линиями
 zero | нулевое значение
 
-The parameter `format` provides settings for parameters such as chart offset, scale, aspect ratio settings, and print properties, as well as those used in the [`AddPicture()`](image.md#AddPicture) function.
+Указывает, что каждый маркер данных в серии имеет различный цвет на `vary_colors`. Значение по умолчанию является `истинным`.
 
 Параметр `format` предоставляет параметры для таких параметров, как смещение графика, масштаб, параметры соотношения сторон и свойства печати, а также те, которые используются в функции [`AddPicture()`](image.md#AddPicture).
 

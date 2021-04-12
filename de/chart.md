@@ -107,6 +107,8 @@ gap|Leerzeichen
 span|Verbinden Sie Datenpunkte mit geraden Linien
 zero|Nullwert
 
+Gibt an, dass jede Datenpunktmarkierung in der Reihe eine andere Farbe durch `vary_colors` hat. Der Standardwert ist `true`.
+
 Der Parameter `format` bietet Einstellungen für Parameter wie Diagrammversatz, Skalierung, Seitenverhältniseinstellungen und Druckeigenschaften sowie für die in der Funktion [`AddPicture()`](image.md#AddPicture) verwendeten.
 
 Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende Eigenschaften können festgelegt werden:

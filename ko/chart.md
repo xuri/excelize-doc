@@ -108,6 +108,8 @@ gap|space
 span|Connect data points with straight lines
 zero|zero value
 
+계열의 각 데이터 마커는 `vary_colors` 에 의해 다른 색상을 가지고 있음을 지정합니다. 기본 값은 `true` 입니다.
+
 매개변수 `format` 은 차트 오프셋, 배율, 종횡비 설정 및 인쇄 특성과 [`AddPicture()`](image.md#AddPicture) 함수에 사용되는 매개 변수에 대한 설정을 제공합니다.
 
 차트 플롯 영역의 위치를 플롯 영역별로 설정합니다. 설정할 수 있는 속성은 다음과 같습니다:

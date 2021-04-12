@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.3.2](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 文档更新: 2021年4月6日
+- 文档更新: 2021年4月12日
 
 ## 项目使命
 
@@ -37,13 +37,13 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 ## 技术交流群
 
-<a href="https://groups.google.com/g/excelize" title="Excelize Google Group" target="_blank"><img style="margin: 25px 20px 0 0;" height="45" src="../images/google_groups@2x.png" alt="Excelize Google Group"></a> <a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img style="margin-top: 25px;" height="45" src="../images/slack.svg" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img style="margin: 25px 0 0 25px;" height="45" src="../images/telegram.svg" alt="Excelize Community on Telegram"></a> <a href="https://discord.gg/MWV8MBQGtv" title="Excelize Community on Discord" target="_blank"><img style="margin: 25px 0 0 25px;" height="45" src="../images/discord.svg" alt="Excelize Community on Discord"></a>
+<a href="https://groups.google.com/g/excelize" title="Excelize Google Group" target="_blank"><img class="group_icon" src="../images/google_groups@2x.png" alt="Excelize Google Group"></a> <a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img class="group_icon" src="../images/slack.svg" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img class="group_icon" src="../images/telegram.svg" alt="Excelize Community on Telegram"></a> <a href="https://discord.gg/MWV8MBQGtv" title="Excelize Community on Discord" target="_blank"><img class="group_icon" src="../images/discord.svg" alt="Excelize Community on Discord"></a>
 
 DingTalk Group ID: [`30047129`](https://qr.dingtalk.com/action/joingroup?code=v1,k1,ydu1Um4a+7sGezVdHJjsH2BifuEaXGW4Gkw7czNk25A=&_dt_no_comment=1&origin=11)
 QQ Group ID: [`207895940`](https://jq.qq.com/?_wv=1027&k=5imdV9h)
 WeChat ID: `hixuri` (请备注: Excelize)
 
-<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,DMIYOhc1sHsGezVdHJjsH9Y8usCdanuVIL/q9EWh9vA=&_dt_no_comment=1&origin=11" title="Excelize DingTalk 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/dingtalk_group@2x.png" alt="Excelize DingTalk 技术交流群"></a> <a href="https://jq.qq.com/?_wv=1027&k=zf9MCmtH" title="Excelize QQ 技术交流群" target="_blank"><img style="margin: 25px 60px 0 0;" width="140" src="../images/qq_group@2x.png" alt="Excelize QQ 技术交流群"></a> <img style="margin: 25px 60px 0 0;" width="140" src="../images/wechat_group@2x.png" alt="Excelize WeChat 技术交流群"> <a href="https://applink.larksuite.com/TJow9o9" title="Excelize Lark 技术交流群" target="_blank"><img style="margin: 25px 0 0 0;" width="140" src="../images/lark_group@2x.png" alt="Excelize Lark 技术交流群"></a>
+<a href="https://qr.dingtalk.com/action/joingroup?code=v1,k1,DMIYOhc1sHsGezVdHJjsH9Y8usCdanuVIL/q9EWh9vA=&_dt_no_comment=1&origin=11" title="Excelize DingTalk 技术交流群" target="_blank"><img class="group_qr" src="../images/dingtalk_group@2x.png" alt="Excelize DingTalk 技术交流群"></a> <a href="https://jq.qq.com/?_wv=1027&k=zf9MCmtH" title="Excelize QQ 技术交流群" target="_blank"><img class="group_qr" src="../images/qq_group@2x.png" alt="Excelize QQ 技术交流群"></a> <img class="group_qr" src="../images/wechat_group@2x.png" alt="Excelize WeChat 技术交流群"> <a href="https://applink.larksuite.com/TJow9o9" title="Excelize Lark 技术交流群" target="_blank"><img class="group_qr" src="../images/lark_group@2x.png" alt="Excelize Lark 技术交流群"></a>
 
 ## 商业支持
 

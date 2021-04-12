@@ -107,6 +107,8 @@ gap|space
 span|Connect data points with straight lines
 zero|zero value
 
+Specifies that each data marker in the series has a different color by `vary_colors`. The default value is `true`.
+
 The parameter `format` provides settings for parameters such as chart offset, scale, aspect ratio settings, and print properties, as well as those used in the [`AddPicture()`](image.md#AddPicture) function.
 
 Set the position of the chart plot area by plot area. The properties that can be set are:

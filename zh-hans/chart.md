@@ -107,6 +107,8 @@ gap|空距
 span|用直线连接数据点
 zero|零值
 
+通过参数 `vary_colors` 指定是否设置图表数据系列格式为自动填充颜色，默认值为 `true`。
+
 参数 `format` 提供对图表偏移、缩放、高宽比设置和打印属性等参数的设置，其参数与在 [`AddPicture()`](image.md#AddPicture) 函数中所使用的相同。
 
 通过可选 `plotarea` 对象设置数据标签格式，可选参数如下：

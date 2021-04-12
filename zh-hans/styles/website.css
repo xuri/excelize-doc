@@ -6,11 +6,27 @@
     min-width: 260px;
 }
 
+.group_icon {
+    min-width: 147px;
+    height: 40px;
+    margin: 15px;
+}
+.group_qr {
+    width: 19%;
+    margin: 0 1em 0 0;
+}
+
 @media (min-width: 1240px) {
     .page-inner {
         position: relative;
         margin: 0 auto;
         max-width: 80% !important;
         padding: 20px 50px 40px 50px !important;
+    }
+    .group_icon {
+        margin: 1.5em 1.5em 0 0;
+    }
+    .group_qr {
+        max-width: 140px !important;
     }
 }
