@@ -8,8 +8,8 @@ Excelize est une bibliothèque écrite en pure Go fournissant un ensemble de fon
 - Problème: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Dernière version: [v2.3.2](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Heure de mise à jour du document: 12 avril 2021
+- Dernière version: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Heure de mise à jour du document: 19 avril 2021
 
 ## Mission du projet
 
