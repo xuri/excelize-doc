@@ -544,7 +544,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 
 指定されたワークシート名 (大文字小文字の区別) とセルの座標に基づいて、セルの数式を取得します。
 
-## Calculate cell value {#CalcCellValue}
+## セル値を計算する {#CalcCellValue}
 
 ```go
 func (f *File) CalcCellValue(sheet, cell string) (result string, err error)

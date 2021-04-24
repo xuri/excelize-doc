@@ -78,6 +78,7 @@ func main() {
         fmt.Println(err)
         return
     }
+    fmt.Println(cell)
     // Получить все строки в Sheet1
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {

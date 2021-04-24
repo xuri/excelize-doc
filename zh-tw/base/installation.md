@@ -78,6 +78,7 @@ func main() {
         fmt.Println(err)
         return
     }
+    fmt.Println(cell)
     // 獲取 Sheet1 上所有儲存格
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {

@@ -78,6 +78,7 @@ func main() {
         fmt.Println(err)
         return
     }
+    fmt.Println(cell)
     // Sheet1 의 모든 셀 가져오기
     rows, err := f.GetRows("Sheet1")
     for _, row := range rows {
