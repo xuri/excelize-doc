@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow escribe una matriz en la fila de flujo por el nombre de la hoja de trabajo, la coordenada inicial y un puntero al tipo de matriz `slice`. Tenga en cuenta que debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión.
+SetRow escribe una matriz en la fila de flujo mediante una coordenada inicial dada y un puntero al tipo de matriz `slice`. Tenga en cuenta que debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión.
+
+## Agregar una tabla para transmitir {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+AddTable crea una tabla de Excel para StreamWriter utilizando el área de coordenadas y el formato establecidos.
+
+Ejemplo 1, cree una tabla de `A1:D5`:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+Ejemplo 2, cree una tabla de `F2:H6` con el formato establecido:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas. Actualmente, solo se permite una tabla para StreamWriter. [`AddTable`](stream.md#AddTable) se debe llamar después de que se escriban las filas pero antes de `Flush`. Consulte [`AddTable`](utils.md#AddTable) para obtener detalles sobre el formato de la tabla.
+
+## Combinar celda para transmitir {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+MergeCell proporciona una función para fusionar celdas por un área de coordenadas determinada para StreamWriter. No cree una celda combinada que se superponga con otra celda combinada existente.
 
 ## Corriente de vaciado {#Flush}
 

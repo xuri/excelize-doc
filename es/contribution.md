@@ -6,7 +6,7 @@ La versión de Microsoft Excel&trade; 2007 admite el formato de documento basado
 
 ### Referencia
 
-* [Formatos de archivo XML abiertos de Office ECMA-376 estándar](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
+* [Formatos de archivo XML abiertos de Office ECMA-376 estándar](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)
 * [Documentación para desarrolladores de Office](https://developer.microsoft.com/es-es/office/docs)
 * [Estructura de un documento SpreadsheetML (Open XML SDK)](https://docs.microsoft.com/es-es/office/open-xml/structure-of-a-spreadsheetml-document)
 * [Open XML SDK 2.5 para Microsoft Office (solo funciona en Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)

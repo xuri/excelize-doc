@@ -168,6 +168,8 @@
 * [تدفق الكتابة](stream.md)
   * [الحصول على دفق الكاتب](stream.md#NewStreamWriter)
   * [كتابة صف ورقة إلى الدفق](stream.md#SetRow)
+  * [إضافة جدول إلى تيار](stream.md#AddTable)
+  * [دمج الخلية للدفق](stream.md#MergeCell)
   * [تدفق الدفق](stream.md#Flush)
 * [البيانات](data.md)
   * [إضافة التحقق من صحة البيانات](data.md#AddDataValidation)

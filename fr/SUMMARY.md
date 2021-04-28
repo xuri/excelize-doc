@@ -168,6 +168,8 @@
 * [Écriture en flux](stream.md)
   * [Obtenez le flux écrivain](stream.md#NewStreamWriter)
   * [Écrire la ligne de feuille au flux](stream.md#SetRow)
+  * [Ajouter une table à diffuser](stream.md#AddTable)
+  * [Fusionner la cellule pour diffuser](stream.md#MergeCell)
   * [Flush le flux](stream.md#Flush)
 * [Données](data.md)
   * [Ajouter la validation des données](data.md#AddDataValidation)

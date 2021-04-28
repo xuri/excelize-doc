@@ -9,7 +9,7 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - الإصدار الأخير: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- وقت تحديث المستند: أبريل 19, 2021
+- وقت تحديث المستند: أبريل 29, 2021
 
 ## بعثة المشروع
 

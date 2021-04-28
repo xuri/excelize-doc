@@ -27,7 +27,7 @@ type Cell struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 通過給定的工作表名稱傳回流式寫入器，用於生成包含大規模資料的工作表。請注意通過此方法按行向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的行號是遞增的，普通 API 不能與流式 API 混合使用在工作表中寫入資料。例如，向工作表流式按行寫入 `102400` 行 x `50` 列帶有樣式的數據：
+NewStreamWriter 通過給定的工作表名稱傳回流式寫入器，用於生成包含大規模資料的工作表。請注意通過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的行號是遞增的，普通 API 不能與流式 API 混合使用在工作表中寫入資料。例如，向工作表流式按行寫入 `102400` 行 x `50` 列帶有樣式的數據：
 
 ```go
 file := excelize.NewFile()
@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow 通過給定的工作表名稱、起始坐標和指向數組類別「切片」的指針將資料按行流式寫入工作表中。請注意，在設定行之後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的行號是遞增的。
+SetRow 通過給定的起始坐標和指向數組類別「切片」的指針將資料按行流式寫入工作表中。請注意，在設定行之後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的列號是遞增的。
+
+## 流式創建表格
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+根據給定的存儲格坐標區域和條件格式流式創建表格。
+
+例1，在 `A1:D5` 區域流式創建表格：
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+例2，在工作表 `F2:H6` 區域創建帶有條件格式的表格：
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設置表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
+
+## 流式合併存儲格
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+通過給定的存儲格坐標區域流式合併存儲格，當前僅支持合併非交疊區域存儲格。
 
 ## 結束流式寫入 {#Flush}
 

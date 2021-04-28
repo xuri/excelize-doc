@@ -168,6 +168,8 @@
 * [流式寫入](stream.md)
   * [獲取流式寫入器](stream.md#NewStreamWriter)
   * [按列流式寫入工作表](stream.md#SetRow)
+  * [流式創建表格](stream.md#AddTable)
+  * [流式合併存儲格](stream.md#MergeCell)
   * [結束流式寫入](stream.md#Flush)
 * [資料](data.md)
   * [添加資料驗證](data.md#AddDataValidation)

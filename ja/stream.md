@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow は、指定されたワークシート名、開始座標、および配列型 `slice` へのポインタによって配列をストリーム行に書き込みます。ストリーミング書き込みプロセスを終了するには、[`Flush`](stream.md#Flush) メソッドを呼び出す必要があることに注意してください。
+SetRow は、指定された開始座標と配列型 `slice` へのポインターを使用して、ワークシートに行ごとにデータをストリーミングします。行を設定した後、[`Flush`](stream.md#Flush) 関数を呼び出してストリーミング書き込みプロセスを終了し、書き込みが保証されている行番号がインクリメントされている必要があります。
+
+## ストリーミングするテーブルを追加する {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+指定したセル座標範囲と条件付き書式に基づいてテーブルをストリーミングします。
+
+例 1 では、`A1:D5` 領域でテーブルをストリーミングして作成します:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+例 2 では、ワークシート `F2:H6` 領域に条件付き書式のテーブルを作成します:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+表の座標領域は、文字型のヘッダー行とコンテンツ行の少なくとも 2 行をカバーする必要があります。各列ヘッダー行の文字は一意であり、現在、各ワークシートで 1 つのテーブルのみのストリーミングがサポートされ、関数を呼び出す前に [`SetRow`](stream.md#SetRow) を使用してテーブルのヘッダー行データをストリーミングする必要があります。サポートされている表スタイルは、非フロー作成表 [`AddTable`](utils.md#AddTable) と同じです。
+
+## ストリームでマージセル {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+指定されたセル座標範囲を使用してセルをストリーミングすると、現在、重なり合うセル以外のセルの結合のみがサポートされます。
 
 ## エンディングストリーム {#Flush}
 

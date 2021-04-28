@@ -168,6 +168,8 @@
 * [Потоковое создать файл](stream.md)
   * [Получить потокового писателя](stream.md#NewStreamWriter)
   * [Запись строки листа в поток](stream.md#SetRow)
+  * [Добавить таблицу в поток](stream.md#AddTable)
+  * [Объединить ячейку в поток](stream.md#MergeCell)
   * [Flush поток](stream.md#Flush)
 * [Данные](data.md)
   * [Добавить проверку данных](data.md#AddDataValidation)

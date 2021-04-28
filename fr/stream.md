@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow écrit un tableau sur une ligne de flux par un nom de feuille de calcul donné, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Notez que vous devez appeler la méthode [`Flush`](stream.md#Flush) pour terminer le processus d'écriture en continu.
+SetRow écrit un tableau dans la ligne de flux en fonction de la coordonnée de départ donnée et d'un pointeur vers le type de tableau `slice`. Notez que vous devez appeler la méthode [`Flush`](stream.md#Flush) pour terminer le processus d'écriture en continu.
+
+## Ajouter une table à diffuser {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+AddTable crée un tableau Excel pour StreamWriter en utilisant la zone de coordonnées et le jeu de formats donnés.
+
+Exemple 1, créez une table de `A1:D5`:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+Exemple 2, créez une table de `F2:H6` avec le format défini:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques. Actuellement, une seule table est autorisée pour un StreamWriter. [`AddTable`](stream.md#AddTable) doit être appelé après l'écriture des lignes mais avant `Flush`. Voir [`AddTable`](utils.md#AddTable) pour plus de détails sur le format de la table.
+
+## Fusionner la cellule pour diffuser {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+MergeCell fournit une fonction pour fusionner les cellules par une zone de coordonnées donnée pour StreamWriter. Ne créez pas de cellule fusionnée qui chevauche une autre cellule fusionnée existante.
 
 ## Flush le flux {#Flush}
 

@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow записывает массив в строку потока по заданному имени рабочего листа, начальной координате и указателю на тип массива `slice`. Обратите внимание, что вы должны вызвать метод [`Flush`](stream.md#Flush), чтобы завершить процесс потоковой записи.
+SetRow записывает массив в строку потока по заданной начальной координате и указателю на массив типа `slice`. Обратите внимание, что вы должны вызвать метод [`Flush`](stream.md#Flush), чтобы завершить процесс потоковой записи.
+
+## Добавить таблицу в поток {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+AddTable создает таблицу Excel для StreamWriter, используя заданную область координат и набор форматов.
+
+Пример 1, создайте таблицу `A1:D5`:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+Пример 2, создайте таблицу `F2:H6` с установленным форматом:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+Обратите внимание, что таблица должна состоять как минимум из двух строк, включая заголовок. Ячейки заголовка должны содержать строки и быть уникальными. В настоящее время для StreamWriter разрешена только одна таблица. [`AddTable`](stream.md#AddTable) должен вызываться после записи строк, но до `Flush`. См. [`AddTable`](utils.md#AddTable) для получения подробной информации о формате таблицы.
+
+## Объединить ячейку в поток {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+MergeCell предоставляет функцию объединения ячеек по заданной области координат для StreamWriter. Не создавайте объединенную ячейку, которая перекрывается с другой существующей объединенной ячейкой.
 
 ## Flush поток {#Flush}
 

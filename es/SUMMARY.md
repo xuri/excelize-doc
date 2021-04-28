@@ -168,6 +168,8 @@
 * [Escritura en streaming](stream.md)
   * [Obtener escritor de flujo](stream.md#NewStreamWriter)
   * [Escribir fila de hoja para transmitir](stream.md#SetRow)
+  * [Agregar una tabla para transmitir](stream.md#AddTable)
+  * [Combinar celda para transmitir](stream.md#MergeCell)
   * [Corriente de vaciado](stream.md#Flush)
 * [Datos](data.md)
   * [Agregar validación de datos](data.md#AddDataValidation)

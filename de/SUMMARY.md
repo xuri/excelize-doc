@@ -168,6 +168,8 @@
 * [Streaming-Schreiben](stream.md)
   * [Stream-Writer abrufen](stream.md#NewStreamWriter)
   * [Schreiben der Zulaufzeile](stream.md#SetRow)
+  * [Fügen Sie eine Tabelle zum Streamen hinzu](stream.md#AddTable)
+  * [Zelle zum Streaming zusammenführen](stream.md#MergeCell)
   * [Flush-Stream](stream.md#Flush)
 * [Daten](data.md)
   * [Hinzufügen von Datenüberprüfungen](data.md#AddDataValidation)

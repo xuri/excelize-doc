@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow schreibt ein Array in die Stream-Zeile mit dem angegebenen Arbeitsblattnamen, der Startkoordinate und einem Zeiger auf den Array-Typ `slice`. Beachten Sie, dass Sie die [`Flush`](stream.md#Flush) Methode aufrufen müssen, um den Streaming-Schreibvorgang zu beenden.
+SetRow schreibt ein Array in die Stream-Zeile, indem eine Startkoordinate und ein Zeiger auf den Array-Typ `slice` angegeben werden. Beachten Sie, dass Sie die Methode [`Flush`](stream.md#Flush) aufrufen müssen, um den Streaming-Schreibvorgang zu beenden.
+
+## Fügen Sie eine Tabelle zum Streamen hinzu {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+AddTable erstellt eine Excel-Tabelle für den StreamWriter unter Verwendung des angegebenen Koordinatenbereichs und Formatsatzes.
+
+Beispiel 1: Erstellen Sie eine Tabelle mit `A1:D5`:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+Beispiel 2: Erstellen Sie eine Tabelle mit `F2:H6` mit dem folgenden Format:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfzeile enthalten muss. Die Header-Zellen müssen Zeichenfolgen enthalten und eindeutig sein. Derzeit ist nur eine Tabelle für einen StreamWriter zulässig. [`AddTable`](stream.md#AddTable) muss aufgerufen werden, nachdem die Zeilen geschrieben wurden, jedoch vor `Flush`. Weitere Informationen zum Tabellenformat finden Sie unter [`AddTable`](utils.md#AddTable).
+
+## Zelle zum Streaming zusammenführen {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den StreamWriter. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.
 
 ## Flush-Stream {#Flush}
 

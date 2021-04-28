@@ -6,7 +6,7 @@ Microsoft Excel&trade; 2007 バージョンでは、XML および ZIP テクノ�
 
 ### リソース
 
-* [Standard ECMA-376 Office Open XML File Formats](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
+* [Standard ECMA-376 Office Open XML File Formats](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)
 * [Office developer documentation](https://developer.microsoft.com/en-us/office/docs)
 * [Structure of a SpreadsheetML document (Open XML SDK)](https://docs.microsoft.com/en-us/office/open-xml/structure-of-a-spreadsheetml-document)
 * [Open XML SDK 2.5 for Microsoft Office (only works on the Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)

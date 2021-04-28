@@ -6,7 +6,7 @@ Die Microsoft Excel&trade; 2007-Version unterstützt das XML-basierte Dokumentfo
 
 ### Referenz
 
-* [Standard ECMA-376 Office Open XML-Dateiformate](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
+* [Standard ECMA-376 Office Open XML-Dateiformate](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)
 * [Office-Entwicklerdokumentation](https://developer.microsoft.com/de-de/office/docs)
 * [Struktur eines SpreadsheetML-Dokuments (Open XML SDK)](https://docs.microsoft.com/de-de/office/open-xml/structure-of-a-spreadsheetml-document)
 * [Öffnen Sie XML SDK 2.5 für Microsoft Office (funktioniert nur unter Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)

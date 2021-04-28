@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-يكتب SetRow مصفوفة لدفق الصف حسب اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع المصفوفة `slice`. لاحظ أنه يجب عليك استدعاء طريقة [`Flush`](stream.md#Flush) لإنهاء عملية الكتابة المتدفقة.
+يكتب SetRow مصفوفة لصف الدفق بإعطاء إحداثي بداية ومؤشر لنوع المصفوفة `slice`. لاحظ أنه يجب عليك استدعاء طريقة [`Flush`](stream.md#Flush) لإنهاء عملية الكتابة المتدفقة.
+
+## إضافة جدول إلى تيار {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+يقوم AddTable بإنشاء جدول Excel لـ StreamWriter باستخدام منطقة الإحداثيات المحددة ومجموعة التنسيق.
+
+مثال 1 ، أنشئ جدولاً من "A1: D5":
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+مثال 2 ، أنشئ جدولاً من `F2:H6` مع ضبط التنسيق:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+لاحظ أن الجدول يجب أن يتكون من سطرين على الأقل بما في ذلك الرأس. يجب أن تحتوي خلايا الرأس على سلاسل ويجب أن تكون فريدة. حاليًا ، يُسمح بجدول واحد فقط لـ StreamWriter. يجب استدعاء [`AddTable`](stream.md#AddTable) بعد كتابة الصفوف ولكن قبل `Flush`. راجع [`AddTable`](utils.md#AddTable) للحصول على تفاصيل حول تنسيق الجدول.
+
+## دمج الخلية للدفق {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+يوفر MergeCell وظيفة لدمج الخلايا بواسطة منطقة إحداثيات معينة لـ StreamWriter. لا تقم بإنشاء خلية مدمجة تتداخل مع خلية مدمجة أخرى موجودة.
 
 ## تدفق الدفق {#Flush}
 

@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow 는 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행을 스트림에 배열을 기록합니다. 스트리밍 쓰기 프로세스를 끝내려면 [`Flush`](stream.md#Flush) 메소드를 호출해야합니다.
+SetRow 는 지정된 시작 좌표와 배열 유형 `slice` 에 대한 포인터를 사용하여 워크시트에 행으로 데이터를 스트리밍합니다. 행을 설정한 후에는 [`Flush`](stream.md#Flush) 함수를 호출하여 스트리밍 쓰기 프로세스를 종료해야 하며 기록된 줄 번호가 증가해야 합니다.
+
+## 테이블을 스트리밍합니다 {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+지정된 셀 좌표 범위 및 조건부 서식을 기반으로 테이블을 만듭니다.
+
+예 1, `A1:D5` 영역에서 테이블을 스트리밍합니다:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+예 2, 워크시트 `F2:H6` 영역에 조건부 형식의 테이블을 만듭니다:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+테이블 좌표 영역은 문자 유형의 제목 줄과 콘텐츠 줄의 두 개 이상의 줄을 덮어씁니다. 각 머리글 행의 문자는 고유해야 하며 현재 각 워크시트에서 하나의 테이블만 스트리밍할 수 있으며 함수를 호출하기 전에 [`SetRow`](stream.md#SetRow) 를 통해 테이블의 머리글 행 데이터를 스트리밍해야 합니다. 지원되는 테이블 스타일은 비스트리밍 테이블 만들기 [`AddTable`](utils.md#AddTable) 과 동일합니다.
+
+## 셀을 스트리밍병합합니다 {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+지정된 셀 좌표 범위 스트리밍병합 셀을 통해 현재 겹침이 아닌 범위 셀만 병합할 수 있습니다.
 
 ## 플러시 스트림 {#Flush}
 

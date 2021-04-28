@@ -76,7 +76,44 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ```
 
-SetRow writes an array to stream row by given worksheet name, starting coordinate and a pointer to array type `slice`. Note that, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process.
+SetRow writes an array to stream row by given starting coordinate and a pointer to array type `slice`. Note that, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process.
+
+## Add table to stream {#AddTable}
+
+```go
+func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+```
+
+AddTable creates an Excel table for the StreamWriter using the given coordinate area and format set.
+
+Example 1, create a table of `A1:D5`:
+
+```go
+err := streamWriter.AddTable("A1", "D5", "")
+```
+
+Example 2, create a table of `F2:H6` with format set:
+
+```go
+err := streamWriter.AddTable("F2", "H6", `{
+    "table_name": "table",
+    "table_style": "TableStyleMedium2",
+    "show_first_column": true,
+    "show_last_column": true,
+    "show_row_stripes": false,
+    "show_column_stripes": true
+}`)
+```
+
+Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique. Currently only one table is allowed for a StreamWriter. [`AddTable`](stream.md#AddTable) must be called after the rows are written but before `Flush`. See [`AddTable`](utils.md#AddTable) for details on the table format.
+
+## Merge cell to stream {#MergeCell}
+
+```go
+func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+```
+
+MergeCell provides a function to merge cells by a given coordinate area for the StreamWriter. Don't create a merged cell that overlaps with another existing merged cell.
 
 ## Flush stream {#Flush}
 

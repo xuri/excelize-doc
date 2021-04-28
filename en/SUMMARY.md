@@ -168,6 +168,8 @@
 * [Streaming write](stream.md)
   * [Get stream writer](stream.md#NewStreamWriter)
   * [Write sheet row to stream](stream.md#SetRow)
+  * [Add table to stream](stream.md#AddTable)
+  * [Merge cell to stream](stream.md#MergeCell)
   * [Flush stream](stream.md#Flush)
 * [Data](data.md)
   * [Add data validation](data.md#AddDataValidation)

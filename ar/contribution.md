@@ -6,7 +6,7 @@
 
 ### مرجع
 
-* [تنسيقات ملفات ECMA-376 Office Open XML القياسية](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
+* [تنسيقات ملفات ECMA-376 Office Open XML القياسية](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)
 * [وثائق مطور المكتب](https://developer.microsoft.com/ar-sa/office/docs)
 * [هيكل مستند SpreadsheetML (Open XML SDK)](https://docs.microsoft.com/ar-sa/office/open-xml/structure-of-a-spreadsheetml-document)
 * [افتح XML SDK 2.5 لـ Microsoft Office (يعمل فقط على Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)

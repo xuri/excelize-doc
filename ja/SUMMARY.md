@@ -168,6 +168,8 @@
 * [ストリーミング書き込み](stream.md)
   * [ストリームライターを取得する](stream.md#NewStreamWriter)
   * [ストリームにシート行を書き込む](stream.md#SetRow)
+  * [ストリーミングするテーブルを追加する](stream.md#AddTable)
+  * [ストリームでマージセル](stream.md#MergeCell)
   * [エンディングストリーム](stream.md#Flush)
 * [データ](data.md)
   * [データ検証を追加する](data.md#AddDataValidation)

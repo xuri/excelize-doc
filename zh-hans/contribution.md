@@ -6,7 +6,7 @@ Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Off
 
 ### 参考资料
 
-* [Standard ECMA-376 Office Open XML File Formats](http://www.ecma-international.org/publications/standards/Ecma-376.htm)
+* [Standard ECMA-376 Office Open XML File Formats](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)
 * [Office 开发人员文档](https://developer.microsoft.com/zh-cn/office/docs)
 * [SpreadsheetML 文档的结构 (Open XML SDK)](https://docs.microsoft.com/zh-cn/office/open-xml/structure-of-a-spreadsheetml-document)
 * [Open XML SDK 2.5 for Microsoft Office (only works on the Windows)](https://www.microsoft.com/en-us/download/details.aspx?id=30425)
