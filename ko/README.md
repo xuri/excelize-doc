@@ -9,7 +9,7 @@ Excelize 는 순수 Go로 작성된 라이브러리로 XLSX / XLSM / XLTM 파일
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 문서 업데이트 시간: 2021 년 4 월 29 일
+- 문서 업데이트 시간: 2021 년 5 월 8 일
 
 ## 프로젝트 미션
 
@@ -27,7 +27,9 @@ Excelize 의 목표는 OOXML (Office Open XML) 표준을 준수하는 xlsx 파�
 
 ## 커뮤니티
 
-<a href="https://groups.google.com/g/excelize" title="Excelize Google Group" target="_blank"><img class="group_icon" src="../images/google_groups@2x.png" alt="Excelize Google Group"></a> <a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img class="group_icon" src="../images/slack.svg" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img class="group_icon" src="../images/telegram.svg" alt="Excelize Community on Telegram"></a> <a href="https://discord.gg/MWV8MBQGtv" title="Excelize Community on Discord" target="_blank"><img class="group_icon" src="../images/discord.svg" alt="Excelize Community on Discord"></a>
+<a href="https://groups.google.com/g/excelize" title="Excelize Google Group" target="_blank"><img src="../images/google_groups@2x.png" width="165" alt="Excelize Google Group"></a> <a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img src="../images/slack.svg" width="165" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img src="../images/telegram.svg" width="120" alt="Excelize Community on Telegram"></a> <a href="https://discord.gg/MWV8MBQGtv" title="Excelize Community on Discord" target="_blank"><img src="../images/discord.svg" width="150" alt="Excelize Community on Discord"></a>
+
+<a href="https://join.skype.com/YW3OFS5QjYcV?source=qr-ios" title="Excelize Skype Community" target="_blank"><img src="../images/skype_group@2x.png" width="150" alt="Excelize Skype Community"></a> <a href="http://line.me/ti/g/NFIjhfbP_g" title="Excelize Line Community" target="_blank"><img src="../images/line_group@2x.png" width="150" alt="Excelize Line Community"></a>
 
 ## 스폰서 Excelize 개발
 

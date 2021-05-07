@@ -9,7 +9,7 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - الإصدار الأخير: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- وقت تحديث المستند: أبريل 29, 2021
+- وقت تحديث المستند: مايو 8, 2021
 
 ## بعثة المشروع
 
@@ -28,6 +28,8 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 ## تواصل اجتماعي
 
 <a href="https://groups.google.com/g/excelize" title="Excelize Google Group" target="_blank"><img style="margin: 25px 0 0 20px;" height="45" src="../images/google_groups@2x.png" alt="Excelize Google Group"></a> <a href="https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw" title="Excelize Slack Channel" target="_blank"><img style="margin: 25px 0 0 20px" height="45" src="../images/slack.svg" alt="Excelize Slack Channel"></a> <a href="https://t.me/excelize" title="Excelize Community on Telegram" target="_blank"><img style="margin: 25px 0 0 25px;" height="45" src="../images/telegram.svg" alt="Excelize Community on Telegram"></a> <a href="https://discord.gg/MWV8MBQGtv" title="Excelize Community on Discord" target="_blank"><img style="margin: 25px 0 0 25px;" height="45" src="../images/discord.svg" alt="Excelize Community on Discord"></a>
+
+<a href="https://join.skype.com/YW3OFS5QjYcV?source=qr-ios" title="Excelize Skype Community" target="_blank"><img src="../images/skype_group@2x.png" width="150" alt="Excelize Skype Community"></a> <a href="http://line.me/ti/g/NFIjhfbP_g" title="Excelize Line Community" target="_blank"><img src="../images/line_group@2x.png" width="150" alt="Excelize Line Community"></a>
 
 ## الراعي إكسلسيز التنمية
 
