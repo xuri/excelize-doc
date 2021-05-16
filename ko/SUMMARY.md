@@ -170,6 +170,7 @@
   * [스트리밍 할 시트 행 쓰기](stream.md#SetRow)
   * [테이블을 스트리밍합니다](stream.md#AddTable)
   * [셀을 스트리밍병합합니다](stream.md#MergeCell)
+  * [스트림에서 열 너비 설정](stream.md#SetColWidth)
   * [플러시 스트림](stream.md#Flush)
 * [데이터](data.md)
   * [데이터 유효성 검사 추가](data.md#AddDataValidation)

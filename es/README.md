@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize es una biblioteca escrita en Go puro que proporciona un conjunto de funciones que le permiten escribir y leer desde archivos XLSX / XLSM / XLTM. Admite la lectura y escritura de documentos de hoja de cálculo generados por Microsoft Excel&trade; 2007 y versiones posteriores. Admite componentes complejos por alta compatibilidad y proporciona API de streaming para generar o leer datos de una hoja de trabajo con grandes cantidades de datos. Esta biblioteca necesita Go versión 1.15 o posterior.
+Excelize es una biblioteca escrita en Go puro que proporciona un conjunto de funciones que le permiten escribir y leer desde archivos XLSX / XLSM / XLTM / XLTX. Admite la lectura y escritura de documentos de hoja de cálculo generados por Microsoft Excel&trade; 2007 y versiones posteriores. Admite componentes complejos por alta compatibilidad y proporciona API de streaming para generar o leer datos de una hoja de trabajo con grandes cantidades de datos. Esta biblioteca necesita Go versión 1.15 o posterior.
 
 - Código fuente: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - Problema: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - Licencias: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Ultima versión: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- Tiempo de actualización del documento: Mayo 8, 2021
+- Tiempo de actualización del documento: Mayo 17, 2021
 
 ## Misión del proyecto
 

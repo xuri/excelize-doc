@@ -170,6 +170,7 @@
   * [Écrire la ligne de feuille au flux](stream.md#SetRow)
   * [Ajouter une table à diffuser](stream.md#AddTable)
   * [Fusionner la cellule pour diffuser](stream.md#MergeCell)
+  * [Définir la largeur de la colonne dans le flux](stream.md#SetColWidth)
   * [Flush le flux](stream.md#Flush)
 * [Données](data.md)
   * [Ajouter la validation des données](data.md#AddDataValidation)

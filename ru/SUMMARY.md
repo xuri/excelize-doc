@@ -170,6 +170,7 @@
   * [Запись строки листа в поток](stream.md#SetRow)
   * [Добавить таблицу в поток](stream.md#AddTable)
   * [Объединить ячейку в поток](stream.md#MergeCell)
+  * [Установите ширину столбца в потоке](stream.md#SetColWidth)
   * [Flush поток](stream.md#Flush)
 * [Данные](data.md)
   * [Добавить проверку данных](data.md#AddDataValidation)

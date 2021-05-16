@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 通过给定的单元格坐标区域流式合并单元格，当前仅支持合并非交叠区域单元格。
 
+## 流式设置列宽度 {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+根据给定的列范围和宽度值设置单个或多个列的宽度，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置列宽度。例如设置工作表上 `B` 到 `C` 列的宽度为 `20`：
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## 结束流式写入 {#Flush}
 
 ```go

@@ -170,6 +170,7 @@
   * [ストリームにシート行を書き込む](stream.md#SetRow)
   * [ストリーミングするテーブルを追加する](stream.md#AddTable)
   * [ストリームでマージセル](stream.md#MergeCell)
+  * [ストリームの列幅を設定する](stream.md#SetColWidth)
   * [エンディングストリーム](stream.md#Flush)
 * [データ](data.md)
   * [データ検証を追加する](data.md#AddDataValidation)

@@ -170,6 +170,7 @@
   * [كتابة صف ورقة إلى الدفق](stream.md#SetRow)
   * [إضافة جدول إلى تيار](stream.md#AddTable)
   * [دمج الخلية للدفق](stream.md#MergeCell)
+  * [تعيين عرض العمود في الدفق](stream.md#SetColWidth)
   * [تدفق الدفق](stream.md#Flush)
 * [البيانات](data.md)
   * [إضافة التحقق من صحة البيانات](data.md#AddDataValidation)

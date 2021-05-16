@@ -170,6 +170,7 @@
   * [按行流式写入工作表](stream.md#SetRow)
   * [流式创建表格](stream.md#AddTable)
   * [流式合并单元格](stream.md#MergeCell)
+  * [流式设置列宽度](stream.md#SetColWidth)
   * [结束流式写入](stream.md#Flush)
 * [数据](data.md)
   * [添加数据验证](data.md#AddDataValidation)

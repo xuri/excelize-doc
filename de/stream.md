@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den StreamWriter. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.
 
+## Festlegen der Spaltenbreite für den Stream {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+SetColWidth bietet eine Funktion zum Festlegen der Breite einer einzelnen Spalte oder mehrerer Spalten für den `StreamWriter`. Beachten Sie, dass Sie die Funktion `SetColWidth` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen. Legen Sie beispielsweise die Breitenspalte `B:C` als `20` fest:
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## Flush-Stream {#Flush}
 
 ```go

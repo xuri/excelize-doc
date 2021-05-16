@@ -2,18 +2,18 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基于 ECMA-376，ISO/IEC 29500 国际标准。可以使用它来读取、写入由 Microsoft Excel&trade; 2007 及以上版本创建的电子表格文档。支持 XLSX / XLSM / XLTM 等多种文档格式，高度兼容带有样式、图片(表)、透视表、切片器等复杂组件的文档，并提供流式读写 API，用于处理包含大规模数据的工作簿。可应用于各类报表平台、云计算、边缘计算等系统。使用本类库要求使用的 Go 语言为 1.15 或更高版本。
+Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基于 ECMA-376，ISO/IEC 29500 国际标准。可以使用它来读取、写入由 Microsoft Excel&trade; 2007 及以上版本创建的电子表格文档。支持 XLSX / XLSM / XLTM / XLTX 等多种文档格式，高度兼容带有样式、图片(表)、透视表、切片器等复杂组件的文档，并提供流式读写 API，用于处理包含大规模数据的工作簿。可应用于各类报表平台、云计算、边缘计算等系统。使用本类库要求使用的 Go 语言为 1.15 或更高版本。
 
 - Source Code: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - Issue: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- 文档更新: 2021年5月8日
+- 文档更新: 2021年5月17日
 
 ## 项目使命
 
-Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API，以处理符合基于 Office Open XML（OOXML）标准的 xlsx 文件，借助 Excelize 您可以使用 Go 读取和写入 MS Excel 文件。
+Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API，以处理符合基于 Office Open XML（OOXML）标准的电子表格文档，借助 Excelize 您可以使用 Go 读取和写入 MS Excel 文件。
 
 ## 为什么要使用 Excelize
 
@@ -29,7 +29,7 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 <p align="center"><img width="330" src="../images/gvp2018.jpg" alt="2018 年开源中国码云最有价值开源项目"></p>
 
-## 知名用户
+## 知名企业用户
 
 <a href="https://www.360.cn" title="奇虎 360 公司" target="_blank"><img width="165" src="../images/vendor/360@2x.png" alt="奇虎 360 公司"></a> <a href="https://www.baidu.com" title="百度" target="_blank"><img width="165" src="../images/vendor/baidu@2x.png" alt="百度"></a> [![合合信息](../images/vendor/intsig.com.png)](https://www.intsig.com) <a href="https://www.inke.cn" title="映客直播" target="_blank"><img width="165" src="../images/vendor/inke@2x.png" alt="映客直播"></a> <a href="https://www.meituan.com" title="美团点评" target="_blank"><img width="165" src="../images/vendor/meituan@2x.png" alt="美团点评"></a> <a href="https://www.163.com" title="网易" target="_blank"><img width="165" src="../images/vendor/netease@2x.png" alt="网易"></a> <a href="https://www.bilibili.com" title="哔哩哔哩" target="_blank"><img width="165" src="../images/vendor/bilibili@2x.png" alt="哔哩哔哩"></a> <a href="https://www.qianxin.com" title="奇安信集团" target="_blank"><img width="165" src="../images/vendor/qianxin.com@2x.png" alt="奇安信集团"></a> <a href="https://www.alibabagroup.com" title="阿里巴巴集团" target="_blank"><img width="165" src="../images/vendor/alibabagroup@2x.png" alt="阿里巴巴集团"></a> <a href="https://www.ele.me" title="饿了么" target="_blank"><img width="165" src="../images/vendor/ele.me@2x.png" alt="饿了么"></a> <a href="https://www.huifu.com" title="汇付天下" target="_blank"><img width="165" src="../images/vendor/huifu.com@2x.png" alt="汇付天下"></a> <a href="https://www.dodoca.com" title="点点客" target="_blank"><img width="165" src="../images/vendor/dodoca.com@2x.png" alt="点点客"></a> <a href="https://bytedance.com" title="字节跳动" target="_blank"><img width="165" src="../images/vendor/bytedance@2x.png" alt="字节跳动"></a> <a href="https://www.flashexpress.com" title="闪电快车" target="_blank"><img width="165" src="../images/vendor/flashexpress.com@2x.png" alt="闪电快车"></a> <a href="http://www.bigbaser.com" title="比格基地" target="_blank"><img width="165" src="../images/vendor/bigbaser.com@2x.png" alt="比格基地"></a> <a href="https://jimengio.com" title="积梦智能" target="_blank"><img width="165" src="../images/vendor/jimengio.com@2x.png" alt="积梦智能"></a> <a href="https://www.shannonai.com" title="香侬科技" target="_blank"><img width="165" src="../images/vendor/shannonai.com@2x.png" alt="香侬科技"></a> <a href="https://ibm.com" title="IBM" target="_blank"><img width="165" src="../images/vendor/ibm@2x.png" alt="IBM"></a> <a href="https://www.basedig.com" title="Basedig" target="_blank"><img width="165" src="../images/vendor/basedig.com@2x.png" alt="Basedig"></a> <a href="https://www.meitu.com" title="美图" target="_blank"><img width="165" src="../images/vendor/meitu.com@2x.png" alt="美图"></a>
 

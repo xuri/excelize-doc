@@ -170,6 +170,7 @@
   * [Schreiben der Zulaufzeile](stream.md#SetRow)
   * [Fügen Sie eine Tabelle zum Streamen hinzu](stream.md#AddTable)
   * [Zelle zum Streaming zusammenführen](stream.md#MergeCell)
+  * [Festlegen der Spaltenbreite für den Stream](stream.md#SetColWidth)
   * [Flush-Stream](stream.md#Flush)
 * [Daten](data.md)
   * [Hinzufügen von Datenüberprüfungen](data.md#AddDataValidation)

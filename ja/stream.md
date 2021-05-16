@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 指定されたセル座標範囲を使用してセルをストリーミングすると、現在、重なり合うセル以外のセルの結合のみがサポートされます。
 
+## ストリームの列幅を設定する {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+SetColWidth は、`StreamWriter` の単一の列または複数の列の幅を設定する関数を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetColWidth` 関数を呼び出す必要があることに注意してください。たとえば、幅列 `B:C` を `20` に設定します。
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## エンディングストリーム {#Flush}
 
 ```go

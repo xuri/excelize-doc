@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 MergeCell provides a function to merge cells by a given coordinate area for the StreamWriter. Don't create a merged cell that overlaps with another existing merged cell.
 
+## Set column width to stream {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+SetColWidth provides a function to set the width of a single column or multiple columns for the `StreamWriter`. Note that you must call the `SetColWidth` function before the [`SetRow`](stream.md#SetRow) function. For example set the width column `B:C` as `20`:
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## Flush stream {#Flush}
 
 ```go

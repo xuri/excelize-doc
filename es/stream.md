@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 MergeCell proporciona una función para fusionar celdas por un área de coordenadas determinada para StreamWriter. No cree una celda combinada que se superponga con otra celda combinada existente.
 
+## Establecer el ancho de columna en la secuencia {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+SetColWidth proporciona una función para establecer el ancho de una sola columna o varias columnas para el `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetColWidth` antes de la función [`SetRow`](stream.md#SetRow). Por ejemplo, establezca la columna de ancho `B:C` como `20`:
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## Corriente de vaciado {#Flush}
 
 ```go

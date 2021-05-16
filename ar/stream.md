@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 يوفر MergeCell وظيفة لدمج الخلايا بواسطة منطقة إحداثيات معينة لـ StreamWriter. لا تقم بإنشاء خلية مدمجة تتداخل مع خلية مدمجة أخرى موجودة.
 
+## تعيين عرض العمود في الدفق {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+يوفر SetColWidth دالة لتعيين عرض عمود واحد أو أعمدة متعددة ل `StreamWriter`. لاحظ أنه يجب استدعاء الدالة `SetColWidth` قبل الدالة [`SetRow`](stream.md#SetRow). على سبيل المثال تعيين العمود عرض `B:C` ك `20`:
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## تدفق الدفق {#Flush}
 
 ```go

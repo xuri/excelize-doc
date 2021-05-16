@@ -78,7 +78,7 @@ func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 
 SetRow 通過給定的起始坐標和指向數組類別「切片」的指針將資料按行流式寫入工作表中。請注意，在設定行之後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的列號是遞增的。
 
-## 流式創建表格
+## 流式創建表格 {#AddTable}
 
 ```go
 func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
@@ -107,13 +107,25 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設置表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
 
-## 流式合併存儲格
+## 流式合併存儲格 {#MergeCell}
 
 ```go
 func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 ```
 
 通過給定的存儲格坐標區域流式合併存儲格，當前僅支持合併非交疊區域存儲格。
+
+## 流式設定欄寬度 {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+根據給定的欄範圍和寬度值設定單個或多個欄的寬度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函數設定欄寬度。例如設定工作表上 `B` 到 `C` 欄的寬度為 `20`：
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
 
 ## 結束流式寫入 {#Flush}
 

@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 MergeCell предоставляет функцию объединения ячеек по заданной области координат для StreamWriter. Не создавайте объединенную ячейку, которая перекрывается с другой существующей объединенной ячейкой.
 
+## Установите ширину столбца в потоке {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+SetColWidth предоставляет функцию для настройки ширины одной колонки или нескольких столбцов для `StreamWriter`. Обратите внимание, что вы должны позвонить функции `SetColWidth` перед функцией [`SetRow`](stream.md#SetRow). Например, установите столбец ширины `B:C` как `20`:
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## Flush поток {#Flush}
 
 ```go

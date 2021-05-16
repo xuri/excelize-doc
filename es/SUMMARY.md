@@ -170,6 +170,7 @@
   * [Escribir fila de hoja para transmitir](stream.md#SetRow)
   * [Agregar una tabla para transmitir](stream.md#AddTable)
   * [Combinar celda para transmitir](stream.md#MergeCell)
+  * [Establecer el ancho de columna en la secuencia](stream.md#SetColWidth)
   * [Corriente de vaciado](stream.md#Flush)
 * [Datos](data.md)
   * [Agregar validación de datos](data.md#AddDataValidation)

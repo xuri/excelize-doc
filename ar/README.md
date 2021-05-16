@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مجموعة من الوظائف التي تسمح لك الكتابة إلى وقراءة من XLSX / XLSM / XLTM الملفات. يدعم قراءة وكتابة مستندات جداول البيانات التي تم إنشاؤها بواسطة Microsoft Excel&trade; 2007 والإصدارات الأحدث. يدعم المكونات المعقدة من خلال التوافق العالي ، ويوفر واجهة برمجة التطبيقات المتدفقة لتوليد أو قراءة البيانات من ورقة عمل تحتوي على كميات هائلة من البيانات. تحتاج هذه المكتبة إلى Go الإصدار 1.15 أو الإصدار الأحدث.
+Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مجموعة من الوظائف التي تسمح لك الكتابة إلى وقراءة من XLSX / XLSM / XLTM / XLTX الملفات. يدعم قراءة وكتابة مستندات جداول البيانات التي تم إنشاؤها بواسطة Microsoft Excel&trade; 2007 والإصدارات الأحدث. يدعم المكونات المعقدة من خلال التوافق العالي ، ويوفر واجهة برمجة التطبيقات المتدفقة لتوليد أو قراءة البيانات من ورقة عمل تحتوي على كميات هائلة من البيانات. تحتاج هذه المكتبة إلى Go الإصدار 1.15 أو الإصدار الأحدث.
 
 - شفرة المصدر: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
 - المساله: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - الإصدار الأخير: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
-- وقت تحديث المستند: مايو 8, 2021
+- وقت تحديث المستند: مايو 17, 2021
 
 ## بعثة المشروع
 

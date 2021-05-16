@@ -115,6 +115,18 @@ func (sw *StreamWriter) MergeCell(hcell, vcell string) error
 
 지정된 셀 좌표 범위 스트리밍병합 셀을 통해 현재 겹침이 아닌 범위 셀만 병합할 수 있습니다.
 
+## 스트림에서 열 너비 설정 {#SetColWidth}
+
+```go
+func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
+```
+
+SetColWidth 는 `StreamWriter` 에 대한 단일 열 또는 여러 열의 너비를 설정하는 함수를 제공합니다. [`SetRow`](stream.md#SetRow) 함수 전에 `SetColWidth` 함수를 호출해야 합니다. 예를 들어 너비 열 `B:C` 를 `20` 으로 설정합니다:
+
+```go
+err := streamWriter.SetColWidth(2, 3, 20)
+```
+
 ## 플러시 스트림 {#Flush}
 
 ```go
