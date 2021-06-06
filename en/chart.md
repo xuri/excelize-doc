@@ -128,6 +128,7 @@ The properties of `x_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
+none|bool|`false`|Disable axes.
 major_grid_lines|bool|`false`|Specifies major gridlines.
 minor_grid_lines|bool|`false`|Specifies minor gridlines.
 tick_label_skip|int|`1`|Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
@@ -139,6 +140,7 @@ The properties of `y_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
+none|bool|`false`|Disable axes.
 major_grid_lines|bool|`false`|Specifies major gridlines.
 minor_grid_lines|bool|`false`|Specifies minor gridlines.
 major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The `major_unit` property is optional. The default value is auto.

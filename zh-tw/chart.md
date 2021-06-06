@@ -128,6 +128,7 @@ show_val|bool|`false`|值
 
 參數|類別|默認值|含義
 ---|---|---|---
+none|bool|`false`|隱藏坐標軸
 major_grid_lines|bool|`false`|主要網格線
 minor_grid_lines|bool|`false`|次要網格線
 tick_label_skip|int|`1`|指定標籤間隔單位
@@ -139,6 +140,7 @@ minimum|int|`0`|最小值，`0` 代表自動
 
 參數|類別|默認值|含義
 ---|---|---|---
+none|bool|`false`|隱藏坐標軸
 major_grid_lines|bool|`false`|主要網格線
 minor_grid_lines|bool|`false`|次要網格線
 major_unit|float64|`0`|坐標軸主要刻度單位

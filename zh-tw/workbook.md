@@ -954,7 +954,7 @@ err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-根據給定的名稱和作範圍設定名稱，默認範圍是活頁簿。例如：
+根據給定的名稱和引用區域設定名稱，默認範圍是活頁簿。例如：
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{

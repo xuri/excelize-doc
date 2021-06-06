@@ -128,6 +128,7 @@ Die Eigenschaften von `x_axis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
+none|bool|`false`|Achsen deaktivieren.
 major_grid_lines|bool|`false`|Gibt die Hauptgitterlinien an.
 minor_grid_lines|bool|`false`|Gibt kleinere Gitterlinien an.
 tick_label_skip|int|`1`|Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `tick_label_skip` ist optional. Der Standardwert ist auto.
@@ -139,6 +140,7 @@ Die Eigenschaften von `y_axis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
+none|bool|`false`|Achsen deaktivieren.
 major_grid_lines|bool|`false`|Gibt die Hauptgitterlinien an.
 minor_grid_lines|bool|`false`|Gibt kleinere Gitterlinien an.
 major_unit|float64|`0`|Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `major_unit` ist optional. Der Standardwert ist auto.

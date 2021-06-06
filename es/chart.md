@@ -128,6 +128,7 @@ Las propiedades de `x_axis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
+none|bool|`false`|Deshabilitar ejes.
 major_grid_lines|bool|`false`|Especifica las principales líneas de cuadrícula.
 minor_grid_lines|bool|`false`|Especifica líneas de cuadrícula menores.
 tick_label_skip|int|`1`|Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `tick_label_skip` es opcional. El valor predeterminado es automático.
@@ -139,6 +140,7 @@ Las propiedades de `y_axis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
+none|bool|`false`|Deshabilitar ejes.
 major_grid_lines|bool|`false`|Especifica las principales líneas de cuadrícula.
 minor_grid_lines|bool|`false`|Especifica líneas de cuadrícula menores.
 major_unit|float64|`0`|Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `major_unit` es opcional. El valor predeterminado es automático.

@@ -128,6 +128,7 @@ show_val|bool|`false`|值
 
 参数|类型|默认值|含义
 ---|---|---|---
+none|bool|`false`|隐藏坐标轴
 major_grid_lines|bool|`false`|主要网格线
 minor_grid_lines|bool|`false`|次要网格线
 tick_label_skip|int|`1`|指定标签间隔单位
@@ -139,6 +140,7 @@ minimum|int|`0`|最小值，`0` 代表自动
 
 参数|类型|默认值|含义
 ---|---|---|---
+none|bool|`false`|隐藏坐标轴
 major_grid_lines|bool|`false`|主要网格线
 minor_grid_lines|bool|`false`|次要网格线
 major_unit|float64|`0`|坐标轴主要刻度单位
