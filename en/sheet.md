@@ -49,7 +49,7 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-SetRowVisible provides a function to set visible of a single row by given worksheet name and row index. For example, hide row `2` in `Sheet1`:
+SetRowVisible provides a function to set visible of a single row by given worksheet name and row number. For example, hide row `2` in `Sheet1`:
 
 ```go
 err := f.SetRowVisible("Sheet1", 2, false)
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth provides a function to get the column width by given the worksheet name and column index.
+GetColWidth provides a function to get the column width by given the worksheet name and column name.
 
 ## Get row height {#GetRowHeight}
 
@@ -89,7 +89,7 @@ GetColWidth provides a function to get the column width by given the worksheet n
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-GetRowHeight provides a function to get row height by given worksheet name and row index. For example, get the height of the first row in `Sheet1`:
+GetRowHeight provides a function to get row height by given worksheet name and row number. For example, get the height of the first row in `Sheet1`:
 
 ```go
 height, err := f.GetRowHeight("Sheet1", 1)
@@ -101,7 +101,7 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-GetRowVisible provides a function to get visible of a single row by given worksheet name and row index. For example, get visible state of row `2` in `Sheet1`:
+GetRowVisible provides a function to get visible of a single row by given worksheet name and row number. For example, get visible state of row `2` in `Sheet1`:
 
 ```go
 err := f.GetRowVisible("Sheet1", 2)
