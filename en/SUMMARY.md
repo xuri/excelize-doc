@@ -205,6 +205,7 @@
 * [Performance](performance.md)
 * [Contribution](contribution.md)
 * Released Versions
+  * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)
   * [v2.4.0 (2021-04-19)](releases/v2.4.0.md)
   * [v2.3.2 (2021-01-04)](releases/v2.3.2.md)
   * [v2.3.1 (2020-09-23)](releases/v2.3.1.md)
