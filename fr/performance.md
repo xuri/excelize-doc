@@ -1,6 +1,6 @@
 # Performance
 
-Les performances indiquées ci-dessous indiquent le temps d'exécution et l'utilisation de la mémoire pour les feuilles de calcul de taille `N` lignes x `50` colonnes avec un mélange 50/50 de chaînes et de nombres. Les chiffres proviennent d'une machine de milieu de gamme arbitraire (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Les chiffres spécifiques varient d'une machine à l'autre, mais les tendances devraient être les mêmes.
+Les performances indiquées ci-dessous indiquent le temps d'exécution et l'utilisation de la mémoire pour les feuilles de calcul de taille `N` lignes x `50` colonnes avec un mélange 50/50 de chaînes et de nombres. Les chiffres proviennent d'une machine de milieu de gamme arbitraire (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Les chiffres spécifiques varient d'une machine à l'autre, mais les tendances devraient être les mêmes.
 
 <table>
     <tr>

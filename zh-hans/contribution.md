@@ -20,7 +20,7 @@ Microsoft Excel&trade; 2007 版本后支持基于 XML 的文档格式 OOXML (Off
 
 ## 报告问题 {#Issue}
 
-欢迎您为此项目贡献代码，提出建议或问题、修复 Bug 以及参与讨论对新功能的想法。请在 [GitHub Issue](https://github.com/360EntSecGroup-Skylar/excelize/issues) 页面提交您的问题，提问时请先搜索问题列表，确认之前没有重复的问题，并尽量使用英语并按照 Issue 模版提供详细的信息。
+欢迎您为此项目贡献代码，提出建议或问题、修复 Bug 以及参与讨论对新功能的想法。请在 [GitHub Issue](https://github.com/xuri/excelize/issues) 页面提交您的问题，提问时请先搜索问题列表，确认之前没有重复的问题，并尽量使用英语并按照 Issue 模版提供详细的信息。
 
 下面是提问所需要的信息（如果是新功能请求则不需要这些）：
 

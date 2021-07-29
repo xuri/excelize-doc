@@ -1,6 +1,6 @@
 # Производительность
 
-Ниже приведены показатели производительности и использования памяти для листов столбцов размера `N` rows x `50` с комбинацией строк и чисел 50/50. Цифры взяты из произвольной машины среднего уровня (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Конкретные цифры будут варьироваться от машины к машине.
+Ниже приведены показатели производительности и использования памяти для листов столбцов размера `N` rows x `50` с комбинацией строк и чисел 50/50. Цифры взяты из произвольной машины среднего уровня (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Конкретные цифры будут варьироваться от машины к машине.
 
 <table>
     <tr>

@@ -7,13 +7,13 @@
 - التركيب
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize
+go get github.com/xuri/excelize
 ```
 
 - إذا كانت إدارة الحزمة مع [Go Modules](https://blog.golang.org/using-go-modules)، يرجى تثبيت مع الأمر التالي.
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize/v2
+go get github.com/xuri/excelize/v2
 ```
 
 ## ترقيه {#update}
@@ -21,7 +21,7 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 - ترقيه
 
 ```bash
-go get -u github.com/360EntSecGroup-Skylar/excelize/v2
+go get -u github.com/xuri/excelize/v2
 ```
 
 ## قم بإنشاء مستند جدول بيانات {#NewFile}
@@ -34,7 +34,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -68,7 +68,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -107,7 +107,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -172,7 +172,7 @@ import (
     _ "image/jpeg"
     _ "image/png"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

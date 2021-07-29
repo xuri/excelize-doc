@@ -4,11 +4,11 @@
 
 EXCELIZE - это библиотека, написанная на чистом Go, предоставляющая набор функций, которые позволяют записывать и читать файлы XLSX / XLSM / XLTM / XLTX. Поддерживает чтение и запись электронных таблиц, созданных в Microsoft Excel 2007 и более поздних версиях. Поддерживает сложные компоненты благодаря высокой совместимости и предоставляет потоковый API для генерации или чтения данных из листа с огромными объемами данных. Эта библиотека нуждается в версии 1.15 или более поздней.
 
-- Исходный код: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
-- вопрос: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
-- go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
+- Исходный код: [github.com/xuri/excelize](https://github.com/xuri/excelize)
+- вопрос: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
+- go.dev: [pkg.go.dev/github.com/xuri/excelize/v2?tab=doc](https://pkg.go.dev/github.com/xuri/excelize/v2?tab=doc)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Последняя версия: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Последняя версия: [v2.4.0](https://github.com/xuri/excelize/releases/latest)
 - Время обновления документа: 3 Июль 2021 г.
 
 ## Миссия проекта

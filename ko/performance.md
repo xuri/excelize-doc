@@ -1,6 +1,6 @@
 # 성능
 
-아래 성능 수치는 문자열과 숫자가 50/50으로 혼합된 크기 `N` 행 x `50` 열의 워크시트에 대한 실행 시간 및 메모리 사용량을 보여 준다. 수치는 임의의 미드 레인지, 기계에서 가져온 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). 특정 수치는 기계마다 다르지만 추세는 동일해야 합니다.
+아래 성능 수치는 문자열과 숫자가 50/50으로 혼합된 크기 `N` 행 x `50` 열의 워크시트에 대한 실행 시간 및 메모리 사용량을 보여 준다. 수치는 임의의 미드 레인지, 기계에서 가져온 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). 특정 수치는 기계마다 다르지만 추세는 동일해야 합니다.
 
 <table>
     <tr>

@@ -7,13 +7,13 @@ L'utilisation de la dernière version de la bibliothèque Excelize nécessite Go
 - Installation
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize
+go get github.com/xuri/excelize
 ```
 
 - Si votre gestion de package avec des [Go Modules](https://blog.golang.org/using-go-modules), veuillez installer avec la commande suivante.
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize/v2
+go get github.com/xuri/excelize/v2
 ```
 
 ## Mise à niveau {#update}
@@ -21,7 +21,7 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 - Mise à niveau
 
 ```bash
-go get -u github.com/360EntSecGroup-Skylar/excelize/v2
+go get -u github.com/xuri/excelize/v2
 ```
 
 ## Créer un document Excel {#NewFile}
@@ -34,7 +34,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -63,7 +63,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -102,7 +102,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -161,7 +161,7 @@ import (
     _ "image/jpeg"
     _ "image/png"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

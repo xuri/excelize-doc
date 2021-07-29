@@ -7,13 +7,13 @@
 - 安裝命令
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize
+go get github.com/xuri/excelize
 ```
 
 - 如果您使用 [Go Modules](https://blog.golang.org/using-go-modules) 管理軟體包，請使用下面的命令來安裝最新版本。
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize/v2
+go get github.com/xuri/excelize/v2
 ```
 
 ## 更新 {#update}
@@ -21,7 +21,7 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 - 更新命令
 
 ```bash
-go get -u github.com/360EntSecGroup-Skylar/excelize/v2
+go get -u github.com/xuri/excelize/v2
 ```
 
 ## 創建 Excel 文檔 {#NewFile}
@@ -34,7 +34,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -63,7 +63,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -102,7 +102,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -140,7 +140,7 @@ import (
     _ "image/png"
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

@@ -4,11 +4,11 @@
 
 Excelize ist eine Bibliothek, die in reinem Go geschrieben wurde und eine Reihe von Funktionen bereitstellt, mit denen Sie in XLSX / XLSM / XLTM / XLTX-Dateien schreiben und sie aus ihnen lesen können. Unterstützt das Lesen und Schreiben von Tabellenkalkulationsdokumenten, die von Microsoft Excel&trade; 2007 und höher generiert wurden. Unterstützt komplexe Komponenten durch hohe Kompatibilität und bereitgestellte Streaming-API zum Generieren oder Lesen von Daten aus einem Arbeitsblatt mit riesigen Datenmengen. Diese Bibliothek benötigt Go Version 1.15 oder höher.
 
-- Quellcode: [github.com/360EntSecGroup-Skylar/excelize](https://github.com/360EntSecGroup-Skylar/excelize)
-- Problem: [github.com/360EntSecGroup-Skylar/excelize/issues](https://github.com/360EntSecGroup-Skylar/excelize/issues)
-- go.dev: [pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc](https://pkg.go.dev/github.com/360EntSecGroup-Skylar/excelize/v2?tab=doc)
+- Quellcode: [github.com/xuri/excelize](https://github.com/xuri/excelize)
+- Problem: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
+- go.dev: [pkg.go.dev/github.com/xuri/excelize/v2?tab=doc](https://pkg.go.dev/github.com/xuri/excelize/v2?tab=doc)
 - Lizenzen: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Letzte Version: [v2.4.0](https://github.com/360EntSecGroup-Skylar/excelize/releases/latest)
+- Letzte Version: [v2.4.0](https://github.com/xuri/excelize/releases/latest)
 - Dokument Aktualisierungszeit: Juli 3, 2021
 
 ## Project mission

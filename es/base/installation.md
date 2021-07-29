@@ -7,13 +7,13 @@ Using the latest version Excelize library require to Go version 1.15 or later.
 - Instalación
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize
+go get github.com/xuri/excelize
 ```
 
 - Si la administración de paquetes con [Go Modules](https://blog.golang.org/using-go-modules), instálelo con el siguiente comando.
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize/v2
+go get github.com/xuri/excelize/v2
 ```
 
 ## Actualizar {#update}
@@ -21,7 +21,7 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 - Actualizar
 
 ```bash
-go get -u github.com/360EntSecGroup-Skylar/excelize/v2
+go get -u github.com/xuri/excelize/v2
 ```
 
 ## Crear una hoja de cálculo {#NewFile}
@@ -34,7 +34,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -63,7 +63,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -102,7 +102,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -161,7 +161,7 @@ import (
     _ "image/jpeg"
     _ "image/png"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

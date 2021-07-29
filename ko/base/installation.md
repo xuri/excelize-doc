@@ -7,13 +7,13 @@
 - 설치 명령
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize
+go get github.com/xuri/excelize
 ```
 
 - [Go Modules](https://blog.golang.org/using-go-modules) 로 패키지를 관리하는 경우 다음 명령으로 설치하십시오.
 
 ```bash
-go get github.com/360EntSecGroup-Skylar/excelize/v2
+go get github.com/xuri/excelize/v2
 ```
 
 ## 업데이트 {#update}
@@ -21,7 +21,7 @@ go get github.com/360EntSecGroup-Skylar/excelize/v2
 - 업데이트 명령
 
 ```bash
-go get -u github.com/360EntSecGroup-Skylar/excelize/v2
+go get -u github.com/xuri/excelize/v2
 ```
 
 ## Excel 문서 만들기 {#NewFile}
@@ -34,7 +34,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -63,7 +63,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -102,7 +102,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -163,7 +163,7 @@ import (
     _ "image/jpeg"
     _ "image/png"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

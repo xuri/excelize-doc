@@ -1,6 +1,6 @@
 # Leistung
 
-Die folgenden Leistungsdaten zeigen die Ausführungszeit und die Speichernutzung für Arbeitsblätter mit der Größe `N` Zeilen x `50` Spalten mit einer 50/50-Mischung aus Zeichenfolgen und Zahlen. Die Zahlen stammen von einer beliebigen Maschine mittlerer Reichweite (Betriebssystem: macOS Catalina Version 10.15.7, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB, 2400 MHz DDR4, Festplatte: 1 TB, Go-Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
+Die folgenden Leistungsdaten zeigen die Ausführungszeit und die Speichernutzung für Arbeitsblätter mit der Größe `N` Zeilen x `50` Spalten mit einer 50/50-Mischung aus Zeichenfolgen und Zahlen. Die Zahlen stammen von einer beliebigen Maschine mittlerer Reichweite (Betriebssystem: macOS Catalina Version 10.15.7, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB, 2400 MHz DDR4, Festplatte: 1 TB, Go-Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
 
 <table>
     <tr>

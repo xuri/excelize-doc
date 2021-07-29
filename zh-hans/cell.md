@@ -258,7 +258,7 @@ func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 
 ```go
 err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/360EntSecGroup-Skylar/excelize", "External")
+    "https://github.com/xuri/excelize", "External")
 // 为单元格设置字体和下划线样式
 style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)
@@ -288,7 +288,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

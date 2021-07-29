@@ -1,6 +1,6 @@
 # 性能数据
 
-下面的性能数据展示了创建 `N` 行 `50` 列工作表所执行时间和内存使用情况，其中单元格的值均为 6 个文本字符。测试环境基于普通个人计算机 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290))。具体数据会因机器而异，但趋势应该是一样的。
+下面的性能数据展示了创建 `N` 行 `50` 列工作表所执行时间和内存使用情况，其中单元格的值均为 6 个文本字符。测试环境基于普通个人计算机 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290))。具体数据会因机器而异，但趋势应该是一样的。
 
 <table>
     <tr>

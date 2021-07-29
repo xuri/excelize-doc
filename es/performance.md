@@ -1,6 +1,6 @@
 # Rendimiento
 
-Las siguientes cifras de rendimiento muestran el tiempo de ejecución y el uso de memoria para hojas de trabajo de tamaño `N` filas x `50` columnas con una mezcla 50/50 de cadenas y números. Las cifras se han tomado de una máquina arbitraria de rango medio (SO: macOS Catalina versión 10.15.7, CPU: Intel Core i5 a 3.4 GHz, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Versión Go: `go1.15.7 darwin/amd64`, Confirmar: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
+Las siguientes cifras de rendimiento muestran el tiempo de ejecución y el uso de memoria para hojas de trabajo de tamaño `N` filas x `50` columnas con una mezcla 50/50 de cadenas y números. Las cifras se han tomado de una máquina arbitraria de rango medio (SO: macOS Catalina versión 10.15.7, CPU: Intel Core i5 a 3.4 GHz, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Versión Go: `go1.15.7 darwin/amd64`, Confirmar: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
 
 <table>
     <tr>

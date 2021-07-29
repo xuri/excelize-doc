@@ -1,6 +1,6 @@
 # 性能資料
 
-下面的性能資料展示了創建 `N` 行 `50` 列工作表所執行時間和記憶體使用情況，其中儲存格包含字符串和數字的 1:1 混合。測試環境基於普通個人計算機 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290))。具體資料會因機器而異，但趨勢應該是一樣的。
+下面的性能資料展示了創建 `N` 行 `50` 列工作表所執行時間和記憶體使用情況，其中儲存格包含字符串和數字的 1:1 混合。測試環境基於普通個人計算機 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290))。具體資料會因機器而異，但趨勢應該是一樣的。
 
 <table>
     <tr>

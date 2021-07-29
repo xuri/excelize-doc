@@ -1,6 +1,6 @@
 # Performance
 
-The performance figures below show execution time and memory usage for worksheets of size `N` rows x `50` columns with a 50/50 mixture of strings and numbers. The figures are taken from an arbitrary, mid-range, machine (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/360EntSecGroup-Skylar/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
+The performance figures below show execution time and memory usage for worksheets of size `N` rows x `50` columns with a 50/50 mixture of strings and numbers. The figures are taken from an arbitrary, mid-range, machine (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290)). Specific figures will vary from machine to machine but the trends should be the same.
 
 <table>
     <tr>

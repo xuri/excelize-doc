@@ -258,7 +258,7 @@ SetCellHyperLink предоставляет функцию для установ
 
 ```go
 err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/360EntSecGroup-Skylar/excelize", "External")
+    "https://github.com/xuri/excelize", "External")
 // Задайте стиль шрифта и подчеркивания для ячейки
 style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)
@@ -288,7 +288,7 @@ package main
 import (
     "fmt"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {

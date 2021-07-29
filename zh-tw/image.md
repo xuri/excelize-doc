@@ -19,7 +19,7 @@ import (
     _ "image/jpeg"
     _ "image/png"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func main() {
     if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
         "x_offset": 15,
         "y_offset": 10,
-        "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize",
+        "hyperlink": "https://github.com/xuri/excelize",
         "hyperlink_type": "External",
         "print_obj": true,
         "lock_aspect_ratio": false,
@@ -75,7 +75,7 @@ import (
     _ "image/jpeg"
     "io/ioutil"
 
-    "github.com/360EntSecGroup-Skylar/excelize/v2"
+    "github.com/xuri/excelize/v2"
 )
 
 func main() {
