@@ -6,10 +6,10 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 
 - شفرة المصدر: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - المساله: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
-- go.dev: [pkg.go.dev/github.com/xuri/excelize/v2?tab=doc](https://pkg.go.dev/github.com/xuri/excelize/v2?tab=doc)
+- go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- الإصدار الأخير: [v2.4.0](https://github.com/xuri/excelize/releases/latest)
-- وقت تحديث المستند: يوليو 3, 2021
+- الإصدار الأخير: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
+- وقت تحديث المستند: أغسطس 2, 2021
 
 ## بعثة المشروع
 
