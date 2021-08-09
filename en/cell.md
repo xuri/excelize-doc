@@ -398,7 +398,7 @@ GetCellRichText provides a function to get the rich text of cells by given works
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned.
+The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned. All cells' values will be the same in a merged range.
 
 ## Get all cell value by cols {#GetCols}
 
@@ -476,7 +476,7 @@ The cell style index is obtained from the given worksheet name (case sensitive) 
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-Merge cells based on the given worksheet name (case sensitive) and cell coordinate regions. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
+Merge cells based on the given worksheet name (case sensitive) and cell coordinate regions. Merging cells only keeps the upper-left cell value, and discards the other values. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

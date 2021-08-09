@@ -398,7 +398,7 @@ GetCellRichText fournit une fonction pour obtenir le texte enrichi des cellules 
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée.
+La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée. Les valeurs de toutes les cellules seront les mêmes dans une plage fusionnée.
 
 ## Obtenir toutes les valeurs des cellules par colonnes {#GetCols}
 
@@ -476,7 +476,7 @@ L'index de style de cellule est obtenu à partir du nom de feuille de calcul don
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-Fusionner des cellules en fonction du nom de feuille de calcul donné (sensible à la casse) et des régions de coordonnées de cellule. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Sheet1`:
+Fusionner des cellules en fonction du nom de feuille de calcul donné (sensible à la casse) et des régions de coordonnées de cellule. La fusion de cellules ne conserve que la valeur de la cellule supérieure gauche et ignore les autres valeurs. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

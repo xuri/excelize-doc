@@ -398,7 +398,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。
+根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。合并区域内所有单元格的值都相同。
 
 ## 按列获取全部单元格的值 {#GetCols}
 
@@ -476,7 +476,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标区域合并单元格。例如，合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
+根据给定的工作表名（大小写敏感）和单元格坐标区域合并单元格。合并区域内仅保留左上角单元格的值，其他单元格的值将被忽略。例如，合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

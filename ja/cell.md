@@ -398,7 +398,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-指定されたワークシートとセルの座標に基づいてセルの値を取得し、戻り値を `string` 型に変換します。 セルの書式をセルの値に適用できる場合は、アプリの後の値が返され、それ以外の場合は元の値が返されます。
+指定されたワークシートとセルの座標に基づいてセルの値を取得すると、戻り値は `string` 型に変換されます。セルの値にセル書式を適用できる場合は、適用された値が返されます。差し込み印刷範囲内のすべてのセルの値は同じです。
 
 ## 列ごとにすべてのセル値を取得する {#GetCols}
 
@@ -476,7 +476,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-指定されたワークシート名 (大文字小文字を区別する) とセルの座標領域に従ってセルを結合します。 たとえば、`Sheet1` という名前のワークシートの `D3:E9` 領域のセルを結合します。
+指定したシート名 (大文字と小文字に敏感) とセルの座標範囲に基づいてセルを結合します。結合領域内には左上のセルの値のみが保持され、他のセルの値は無視されます。たとえば、`Sheet1` という名前のワークシートの `D3:E9` 領域のセルを結合します。
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

@@ -398,7 +398,7 @@ GetCellRichText proporciona una función para obtener el texto enriquecido de la
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-El valor de la celda se recupera de acuerdo con la hoja de trabajo y las coordenadas de la celda dadas, y el valor de retorno se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de una celda, se devolverá el valor aplicado; de lo contrario, se devolverá el valor original.
+El valor de la celda se recupera de acuerdo con la hoja de trabajo y las coordenadas de la celda dadas, y el valor de retorno se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de una celda, se devolverá el valor aplicado; de lo contrario, se devolverá el valor original. Los valores de todas las celdas serán los mismos en un rango combinado.
 
 ## Obtener todo el valor de celda por columnas {#GetCols}
 
@@ -476,7 +476,7 @@ El índice de estilo de celda se obtiene a partir del nombre de la hoja de traba
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-Fusionar celdas según el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las regiones de coordenadas de celda. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Sheet1`:
+Fusionar celdas según el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las regiones de coordenadas de celda. La combinación de celdas solo conserva el valor de la celda superior izquierda y descarta los demás valores. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

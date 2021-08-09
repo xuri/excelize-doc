@@ -398,7 +398,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다.
+셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다. 병합 범위 내의 모든 셀의 값은 동일합니다.
 
 ## 열로 모든 셀 값 가져 오기 {#GetCols}
 
@@ -476,7 +476,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-지정된 워크시트 이름(대/소문자 구분) 및 셀 좌표 영역을 기반으로 셀을 병합합니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다.
+지정된 시트 이름(대/소문자에 민감한) 및 셀 좌표 범위를 기반으로 셀을 병합합니다. 병합 범위 내에서는 왼쪽 위 셀의 값만 유지되며 다른 셀의 값은 무시됩니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다.
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

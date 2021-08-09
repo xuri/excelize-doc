@@ -398,7 +398,7 @@ GetCellRichText bietet eine Funktion zum Abrufen des Rich-Textes von Zellen anha
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben.
+Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben. Die Werte aller Zellen sind in einem zusammengeführten Bereich gleich.
 
 ## Abrufen des gesamten Zellenwerts nach Spalten {#GetCols}
 
@@ -476,7 +476,7 @@ Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen (Groß- und Klein
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinatenbereichen zusammen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Sheet1` zusammen:
+Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinatenbereichen zusammen. Beim Zusammenführen von Zellen wird nur der obere linke Zellenwert beibehalten und die anderen Werte verworfen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Sheet1` zusammen:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")

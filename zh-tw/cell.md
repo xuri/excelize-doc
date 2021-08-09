@@ -398,7 +398,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 func (f *File) GetCellValue(sheet, axis string) (string, error)
 ```
 
-根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。
+根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
 
 ## 按欄獲取全部儲存格的值 {#GetCols}
 
@@ -476,7 +476,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hcell, vcell string) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標區域合併儲存格。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
+根據給定的工作表名（大小寫敏感）和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被忽略。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
