@@ -4,7 +4,8 @@ Optionen definieren die Optionen für eine offene Kalkulationstabelle.
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 Beachten Sie, dass die excelize nur unterstützt entschlüsseln und nicht unterstützen Verschlüsselung derzeit, die Tabelle von [`Save()`](workbook.md#Save) und [`SaveAs()`](workbook.md#SaveAs) gespeichert wird ohne Passwort ungeschützt sein.
+
+`UnzipSizeLimit` gibt die Entpack-Größenbeschränkung in Bytes beim Öffnen der Tabelle an, die Standardgrößenbeschränkung beträgt 16GB.
 
 ## Offener Datenstrom {#OpenReader}
 

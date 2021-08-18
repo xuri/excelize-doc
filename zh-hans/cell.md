@@ -94,7 +94,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。样式索引可以通过 [`NewStyle`](style.md#NewStyle) 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。
+根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。样式索引可以通过 [`NewStyle`](style.md#NewStyle) 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。SetCellStyle 将覆盖单元格的已有样式，而不会将样式与已有样式叠加或合并。
 
 - 例1，为名为 `Sheet1` 的工作表 `D7` 单元格设置边框样式：
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-根据给定的工作表名（大小写敏感）按行获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。
+根据给定的工作表名（大小写敏感）按行获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。GetRows 获取带有值或公式单元格的行，行尾连续为空的单元格将被跳过。
 
 例如，按行获取并遍历输出名为 `Sheet1` 的工作表上的所有单元格的值：
 

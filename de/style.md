@@ -983,7 +983,7 @@ Zelle `Sheet1!A6` in der Excel-Anwendung: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle bietet eine Funktion zum Festlegen des Spaltenstils anhand des angegebenen Arbeitsblattnamens, des Spaltenbereichs und der Stil-ID.
+SetColStyle bietet eine Funktion zum Festlegen des Spaltenstils anhand des angegebenen Arbeitsblattnamens, des Spaltenbereichs und der Stil-ID. Beachten Sie, dass dadurch die vorhandenen Stile für die Spalten überschrieben werden. Stile werden nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
 
 Stellen Sie zum Beispiel den Stil der Spalte `H` auf `Sheet1` ein:
 
@@ -995,6 +995,22 @@ Legen Sie den Stil der Spalten `C:F` auf `Sheet1` fest:
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## Zeilenstil festlegen {#SetRowStyle}
+
+SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des angegebenen Arbeitsblattnamens, Zeilenbereichs und der Stil-ID. Beachten Sie, dass dadurch die vorhandenen Stile für die Zeilen überschrieben werden. Der Stil wird nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
+
+Legen Sie zum Beispiel den Stil von Zeile 1 auf `Sheet1` fest:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, style)
+```
+
+Legen Sie den Stil der Zeilen 1 bis 10 auf `Sheet1` fest:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, 10, style)
 ```
 
 ## Festlegen der Standardschriftart {#SetDefaultFont}

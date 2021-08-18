@@ -4,7 +4,8 @@ Options 는 열려있는 스프레드 시트에 대한 옵션을 정의합니다
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 Excelize 는 현재 암호화를 지원하지 않고 해독 만 지원하므로 [`Save()`](workbook.md#Save) 및 [`SaveAs()`](workbook.md#SaveAs) 로 저장된 스프레드 시트는 보호되지 않은 암호가 없습니다.
+
+`UnzipSizeLimit` 은 스프레드시트를 열 때 압축 해제 크기 제한을 바이트 단위로 지정했으며 기본 크기 제한은 16GB 입니다.
 
 ## 열린 데이터 스트림 {#OpenReader}
 

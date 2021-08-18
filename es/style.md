@@ -983,7 +983,7 @@ Celda `Sheet1!A6` en la aplicación Excel: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle proporciona una función para establecer el estilo de las columnas por nombre de hoja de trabajo, rango de columnas e ID de estilo determinados.
+SetColStyle proporciona una función para establecer el estilo de las columnas por nombre de hoja de trabajo, rango de columnas e ID de estilo determinados. Tenga en cuenta que esto sobrescribirá los estilos existentes para las columnas, no agregará ni fusionará el estilo con los estilos existentes.
 
 Por ejemplo, establezca el estilo de la columna `H` en `Sheet1`:
 
@@ -995,6 +995,22 @@ Establecer el estilo de las columnas `C:F` en `Sheet1`:
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## Establecer estilo de fila {#SetRowStyle}
+
+SetRowStyle proporciona una función para establecer el estilo de las filas por nombre de hoja de trabajo, rango de filas e ID de estilo dados. Tenga en cuenta que esto sobrescribirá los estilos existentes para las filas, no agregará ni fusionará el estilo con los estilos existentes.
+
+Por ejemplo, establezca el estilo de la fila 1 en `Sheet1`:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, style)
+```
+
+Establecer el estilo de las filas 1 a 10 en `Sheet1`:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, 10, style)
 ```
 
 ## Establecer fuente predeterminada {#SetDefaultFont}

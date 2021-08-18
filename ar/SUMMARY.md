@@ -164,6 +164,7 @@
   * [تسطير الخط](style.md#underline)
   * [تنسيق الأرقام](style.md#number_format)
   * [تعيين نمط العمود](style.md#SetColStyle)
+  * [تعيين نمط الصف](style.md#SetRowStyle)
   * [تعيين الخط الافتراضي](style.md#SetDefaultFont)
 * [تدفق الكتابة](stream.md)
   * [الحصول على دفق الكاتب](stream.md#NewStreamWriter)

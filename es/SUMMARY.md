@@ -164,6 +164,7 @@
   * [Subrayado de fuente](style.md#underline)
   * [Formato de número](style.md#number_format)
   * [Establecer estilo de columna](style.md#SetColStyle)
+  * [Establecer estilo de fila](style.md#SetRowStyle)
   * [Establecer fuente predeterminada](style.md#SetDefaultFont)
 * [Escritura en streaming](stream.md)
   * [Obtener escritor de flujo](stream.md#NewStreamWriter)

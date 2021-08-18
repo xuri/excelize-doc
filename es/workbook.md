@@ -4,7 +4,8 @@ Las opciones definen las opciones para la hoja de cálculo abierta.
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 Tenga en cuenta que el excelize sólo es compatible con descifrar y no es compatible cifrar actualmente, la hoja de cálculo guardada por [`Save()`](workbook.md#Save) y [`SaveAs()`](workbook.md#SaveAs) estará sin una contraseña desprotegida.
+
+`UnzipSizeLimit` especificó el límite de tamaño de descompresión en bytes al abrir la hoja de cálculo, el límite de tamaño predeterminado es 16GB.
 
 ## Flujo de datos abiertos {#OpenReader}
 

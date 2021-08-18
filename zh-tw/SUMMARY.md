@@ -164,6 +164,7 @@
   * [字型下划線](style.md#underline)
   * [數字自定義格式](style.md#number_format)
   * [設定欄樣式](style.md#SetColStyle)
+  * [設定列樣式](style.md#SetRowStyle)
   * [設定默認字型](style.md#SetDefaultFont)
 * [流式寫入](stream.md)
   * [獲取流式寫入器](stream.md#NewStreamWriter)

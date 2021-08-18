@@ -94,7 +94,7 @@ SetCellStr bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts einer Ze
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle bietet eine Funktion zum Hinzufügen von Stilattributen für Zellen anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Stil-ID. Stilindizes können mit der Funktion [`NewStyle`](style.md#NewStyle) abgerufen werden. Beachten Sie, dass die Rahmen vom Typ `diagonalDown` und `diagonalUp` dieselbe Farbe im selben Koordinatenbereich verwenden sollten.
+SetCellStyle bietet eine Funktion zum Hinzufügen von Stilattributen für Zellen anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Stil-ID. Stilindizes können mit der Funktion [`NewStyle`](style.md#NewStyle) abgerufen werden. Beachten Sie, dass die Rahmen vom Typ `diagonalDown` und `diagonalUp` dieselbe Farbe im selben Koordinatenbereich verwenden sollten. SetCellStyle überschreibt die vorhandenen Stile für die Zelle, fügt Stile nicht an oder führt sie mit vorhandenen Stilen zusammen.
 
 - Beispiel 1: Erstellen Sie Ränder der Zelle `D7` auf `Sheet1`:
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-Ruft den Wert aller Zellen nach Zeilen im Arbeitsblatt ab, basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten), der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet.
+Ruft den Wert aller Zellen nach Zeilen im Arbeitsblatt ab, basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten), der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows holte die Zeilen mit Wert- oder Formelzellen, die am Ende ständig leere Zelle wird übersprungen.
 
 Abrufen und Durchlaufen des Werts aller Zellen in Zeilen in einem Arbeitsblatt mit dem Namen `Sheet1`:
 

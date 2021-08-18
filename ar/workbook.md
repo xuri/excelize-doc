@@ -4,7 +4,8 @@
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 لاحظ أن excelize يدعم فقط فك التشفير ولا يدعم التشفير حاليًا ، وسيكون جدول البيانات المحفوظ بواسطة [`Save()`](workbook.md#Save) و [`SaveAs()`](workbook.md#SaveAs) بدون كلمة مرور غير محمية.
+
+حدد `UnzipSizeLimit` حد حجم فك الضغط بالبايت عند فتح جدول البيانات ، والحد الأقصى للحجم الافتراضي هو 16 غيغابايت.
 
 ## فتح دفق البيانات {#OpenReader}
 

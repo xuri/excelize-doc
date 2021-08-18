@@ -164,6 +164,7 @@
   * [Schriftunterstreichung](style.md#underline)
   * [Zahlenformat](style.md#number_format)
   * [Spaltenstil festlegen](style.md#SetColStyle)
+  * [Zeilenstil festlegen](style.md#SetRowStyle)
   * [Festlegen der Standardschriftart](style.md#SetDefaultFont)
 * [Streaming-Schreiben](stream.md)
   * [Stream-Writer abrufen](stream.md#NewStreamWriter)

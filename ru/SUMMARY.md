@@ -164,6 +164,7 @@
   * [Подчеркивание шрифта](style.md#underline)
   * [Формат номера](style.md#number_format)
   * [Установить стиль столбца](style.md#SetColStyle)
+  * [Установить стиль строки](style.md#SetRowStyle)
   * [Установить шрифт по умолчанию](style.md#SetDefaultFont)
 * [Потоковое создать файл](stream.md)
   * [Получить потокового писателя](stream.md#NewStreamWriter)

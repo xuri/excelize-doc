@@ -983,7 +983,7 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-根據給定的工作表名稱、欄區域和樣式索引設定欄樣式。
+根據給定的工作表名稱、欄區域和樣式索引設定欄樣式。請注意，這將覆蓋欄的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 例1，為名稱為 `Sheet1` 的工作表中的 `H` 欄設定樣式：
 
@@ -995,6 +995,22 @@ err = f.SetColStyle("Sheet1", "H", style)
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## 設定列樣式 {#SetRowStyle}
+
+根據給定的工作表名稱、列區域和樣式索引設定列樣式。請注意，這將覆蓋列的已有樣式，而不會將樣式與已有樣式疊加或合併。
+
+例1，為名稱為 `Sheet1` 的工作表的第 1 列設定樣式:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, style)
+```
+
+例2，為名稱為 `Sheet1` 的工作表的第 1 至 10 列設定樣式:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, 10, style)
 ```
 
 ## 設定默認字型 {#SetDefaultFont}

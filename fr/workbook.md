@@ -4,7 +4,8 @@ Options définit les options de la feuille de calcul ouverte.
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 Notez que Excelize ne prend en charge que le déchiffrement et ne prend pas en charge le chiffrement actuellement, la feuille de calcul enregistrée par [`Save()`](workbook.md#Save) et [`SaveAs()`](workbook.md#SaveAs) sera sans mot de passe non protégée.
+
+`UnzipSizeLimit` a spécifié la taille limite de décompression en octets à l'ouverture de la feuille de calcul, la taille limite par défaut est de 16GB.
 
 ## Flux de données ouvert {#OpenReader}
 

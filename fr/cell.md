@@ -94,7 +94,7 @@ SetCellStr fournit une fonction pour définir la valeur du type de chaîne d'une
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle fournit la fonction pour ajouter l'attribut de style pour les cellules par nom de feuille de calcul donné, zone de coordonnées et ID de style. Les index de style peuvent être obtenus avec la fonction [`NewStyle`](style.md#NewStyle). Notez que les bordures de type `diagonalDown` et` diagonalUp` doivent utiliser la même couleur dans la même zone de coordonnées.
+SetCellStyle fournit la fonction pour ajouter l'attribut de style pour les cellules par nom de feuille de calcul donné, zone de coordonnées et ID de style. Les index de style peuvent être obtenus avec la fonction [`NewStyle`](style.md#NewStyle). Notez que les bordures de type `diagonalDown` et` diagonalUp` doivent utiliser la même couleur dans la même zone de coordonnées. SetCellStyle écrasera les styles existants pour la cellule, il n'ajoutera ni ne fusionnera le style avec les styles existants.
 
 - Exemple 1, créez une bordure de la cellule `D7` sur `Sheet1`:
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-Obtient la valeur de toutes les cellules par lignes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
+Obtient la valeur de toutes les cellules par lignes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, la cellule de queue continuellement vide sera ignorée.
 
 Par exemple, obtenez et parcourez la valeur de toutes les cellules par lignes sur une feuille de calcul nommée `Sheet1`:
 

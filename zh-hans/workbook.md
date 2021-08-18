@@ -4,7 +4,8 @@ Options 定义了打开电子表格的选项。
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 请注意，目前 Excelize 支持解密带有密码保护的电子表格文档，但不支持加密，通过 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存后的电子表格文档将不受密码保护。
+
+`UnzipSizeLimit` 用以指定打开电子表格文档时的解压缩大小限制（以字节为单位），默认大小限制为 16GB。
 
 ## 打开数据流 {#OpenReader}
 

@@ -4,7 +4,8 @@ Options は、開いているスプレッドシートのオプションを定義
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 現在、Excelize は復号化のみをサポートしており、暗号化はサポートしていません。[`Save()`](workbook.md#Save) および [`SaveAs()`](workbook.md#SaveAs) で保存されたスプレッドシートは、パスワードなしで保護されていません。
+
+`UnzipSizeLimit` は、スプレッドシートを開くときに解凍サイズの制限をバイト単位で指定しました。デフォルトのサイズ制限は 16GB です。
 
 ## データストリームを開く {#OpenReader}
 

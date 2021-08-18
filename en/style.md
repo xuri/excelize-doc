@@ -983,7 +983,7 @@ Cell `Sheet1!A6` in the Excel Application: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID.
+SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID. Note that this will overwrite the existing styles for the columns, it won't append or merge style with existing styles.
 
 For example set style of column `H` on `Sheet1`:
 
@@ -995,6 +995,22 @@ Set style of columns `C:F` on `Sheet1`:
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## Set row style {#SetRowStyle}
+
+SetRowStyle provides a function to set the style of rows by given worksheet name, row range, and style ID. Note that this will overwrite the existing styles for the rows, it won't append or merge style with existing styles.
+
+For example set style of row 1 on `Sheet1`:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, style)
+```
+
+Set style of rows 1 to 10 on `Sheet1`:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, 10, style)
 ```
 
 ## Set default font {#SetDefaultFont}

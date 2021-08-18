@@ -94,7 +94,7 @@ SetCellStr provides a function to set the string type value of a cell. The total
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same coordinate area.
+SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same coordinate area. SetCellStyle will overwrite the existing styles for the cell, it won't append or merge style with existing styles.
 
 - Example 1, create borders of cell `D7` on `Sheet1`:
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-Gets the value of all cells by rows on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used.
+Gets the value of all cells by rows on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used. GetRows fetched the rows with value or formula cells, the tail continuously empty cell will be skipped.
 
 For example, get and traverse the value of all cells by rows on a worksheet named `Sheet1`:
 

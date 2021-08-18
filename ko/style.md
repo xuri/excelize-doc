@@ -983,7 +983,7 @@ Excel 응용 프로그램의 셀 `Sheet1!A6`: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle 지정된 워크 시트 이름, 열 범위 및 스타일 ID 에 의해 열의 스타일을 설정하는 기능을 제공합니다.
+SetColStyle 지정된 워크 시트 이름, 열 범위 및 스타일 ID 에 의해 열의 스타일을 설정하는 기능을 제공합니다. 이렇게 하면 열의 기존 스타일을 덮어쓰며 기존 스타일과 스타일을 추가하거나 병합하지 않습니다.
 
 예를 들어 `Sheet1` 에서 `H` 열의 스타일 집합:
 
@@ -995,6 +995,22 @@ err = f.SetColStyle("Sheet1", "H", style)
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## 행 스타일 설정 {#SetRowStyle}
+
+SetRowStyle 은 주어진 워크시트 이름, 행 범위 및 스타일 ID로 행의 스타일을 설정하는 기능을 제공합니다. 이것은 행의 기존 스타일을 덮어쓰며 기존 스타일과 스타일을 추가하거나 병합하지 않습니다.
+
+예를 들어 `Sheet1` 에서 행 1의 스타일을 설정합니다:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, style)
+```
+
+`Sheet1` 에서 행 1 - 10 의 스타일 설정:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, 10, style)
 ```
 
 ## 기본 글꼴 설정 {#SetDefaultFont}

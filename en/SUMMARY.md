@@ -164,6 +164,7 @@
   * [Font underline](style.md#underline)
   * [Number format](style.md#number_format)
   * [Set column style](style.md#SetColStyle)
+  * [Set row style](style.md#SetRowStyle)
   * [Set default font](style.md#SetDefaultFont)
 * [Streaming write](stream.md)
   * [Get stream writer](stream.md#NewStreamWriter)

@@ -94,7 +94,7 @@ SetCellStr 셀의 문자열 형식 값을 설정하는 함수를 제공합니다
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다.
+SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다. SetCellStyle 은 셀의 기존 스타일을 덮어쓰며 기존 스타일에 스타일을 추가하거나 병합하지 않습니다.
 
 - 예제 1 에서 `Sheet1` 에서 셀 `D7` 의 테두리를 만듭니다:
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 모든 셀 값을 행 단위로 가져옵니다. 2 차원 배열로 반환되며, 여기서 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다.
+주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 모든 셀 값을 행 단위로 가져옵니다. 2 차원 배열로 반환되며, 여기서 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다. GetRows 가 값 또는 수식 셀이 있는 행을 가져오면 꼬리 부분이 계속 비어 있는 셀은 건너뜁니다.
 
 예를 들어,` Sheet1` 이라는 워크 시트에서 모든 셀의 값을 행으로 가로지 릅니다.
 

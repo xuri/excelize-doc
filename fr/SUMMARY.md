@@ -164,6 +164,7 @@
   * [Police soulignée](style.md#underline)
   * [Format de nombre](style.md#number_format)
   * [Définir le style de colonne](style.md#SetColStyle)
+  * [Définir le style de ligne](style.md#SetRowStyle)
   * [Définir la police par défaut](style.md#SetDefaultFont)
 * [Écriture en flux](stream.md)
   * [Obtenez le flux écrivain](stream.md#NewStreamWriter)

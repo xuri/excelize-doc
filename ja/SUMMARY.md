@@ -164,6 +164,7 @@
   * [フォントの下線](style.md#underline)
   * [デジタルカスタムフォーマット](style.md#number_format)
   * [列のスタイル設定](style.md#SetColStyle)
+  * [行スタイルを設定する](style.md#SetRowStyle)
   * [既定のフォントを設定する](style.md#SetDefaultFont)
 * [ストリーミング書き込み](stream.md)
   * [ストリームライターを取得する](stream.md#NewStreamWriter)

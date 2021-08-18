@@ -94,7 +94,7 @@ SetCellStr proporciona una función para establecer el valor del tipo de cadena 
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-SetCellStyle proporciona una función para agregar atributos de estilo para celdas por nombre de hoja de trabajo, área de coordenadas e ID de estilo dados. Los índices de estilo se pueden obtener con la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que los bordes de tipo `diagonalDown` y `diagonalUp` deben usar el mismo color en la misma área de coordenadas.
+SetCellStyle proporciona una función para agregar atributos de estilo para celdas por nombre de hoja de trabajo, área de coordenadas e ID de estilo dados. Los índices de estilo se pueden obtener con la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que los bordes de tipo `diagonalDown` y `diagonalUp` deben usar el mismo color en la misma área de coordenadas. SetCellStyle sobrescribirá los estilos existentes para la celda, no agregará ni fusionará el estilo con los estilos existentes.
 
 - Ejemplo 1, cree bordes de celda `D7` en `Sheet1`:
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-Obtiene el valor de todas las celdas por filas en la hoja de trabajo en función del nombre de la hoja de trabajo dada (distingue entre mayúsculas y minúsculas), devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original.
+Obtiene el valor de todas las celdas por filas en la hoja de trabajo en función del nombre de la hoja de trabajo dada (distingue entre mayúsculas y minúsculas), devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de fórmula o valor, la cola de celda continuamente vacía se omitirá.
 
 Por ejemplo, obtenga y recorra el valor de todas las celdas por filas en una hoja de trabajo llamada `Sheet1`:
 

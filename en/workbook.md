@@ -4,7 +4,8 @@ Options define the options for open spreadsheet.
 
 ```go
 type Options struct {
-    Password string
+    Password       string
+    UnzipSizeLimit int64
 }
 ```
 
@@ -32,6 +33,8 @@ if err != nil {
 ```
 
 Note that the excelize just support decrypt and not support encrypt currently, the spreadsheet saved by [`Save()`](workbook.md#Save) and [`SaveAs()`](workbook.md#SaveAs) will be without password unprotected.
+
+`UnzipSizeLimit` specified the unzip size limit in bytes on open the spreadsheet, the default size limit is 16GB.
 
 ## Open data stream {#OpenReader}
 

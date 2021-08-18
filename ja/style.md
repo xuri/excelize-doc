@@ -983,7 +983,7 @@ Excel アプリケーションのセル `Sheet1!A6`: `martes, 04 de Julio de 201
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle は、指定されたワークシート名、列範囲、およびスタイル ID によって列のスタイルを設定する関数を提供します。
+SetColStyle は、指定されたワークシート名、列範囲、およびスタイル ID によって列のスタイルを設定する関数を提供します。これにより、列の既存のスタイルが上書きされ、スタイルが既存のスタイルに追加またはマージされないことに注意してください。
 
 たとえば、`Sheet1` の列 `H` のスタイルを設定します。
 
@@ -995,6 +995,22 @@ err = f.SetColStyle("Sheet1", "H", style)
 
 ```go
 err = f.SetColStyle("Sheet1", "C:F", style)
+```
+
+## 行スタイルを設定する {#SetRowStyle}
+
+SetRowStyle は、指定されたワークシート名、行範囲、およびスタイル ID によって行のスタイルを設定する関数を提供します。これにより、行の既存のスタイルが上書きされ、スタイルが既存のスタイルに追加またはマージされないことに注意してください。
+
+たとえば、`Sheet1` の行1のスタイルを設定します:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, style)
+```
+
+`Sheet1` の行1から10のスタイルを設定します:
+
+```go
+err = f.SetRowStyle("Sheet1", 1, 10, style)
 ```
 
 ## 既定のフォントを設定する {#SetDefaultFont}

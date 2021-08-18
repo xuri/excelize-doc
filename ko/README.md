@@ -9,7 +9,7 @@ Excelize 는 순수 Go로 작성된 라이브러리로 XLSX / XLSM / XLTM / XLTX
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- 문서 업데이트 시간: 2021 년 8 월 10 일
+- 문서 업데이트 시간: 2021 년 8 월 19 일
 
 ## 프로젝트 미션
 
@@ -36,7 +36,6 @@ Excelize 의 목표는 OOXML (Office Open XML) 표준을 준수하는 xlsx 파�
 - [Skype Community](https://join.skype.com/YW3OFS5QjYcV?source=qr-ios): <a href="../images/skype_group@2x.png" title="Excelize Skype Community" target="_blank">join via QR Code</a>
 - [Line Community](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" title="Excelize Line Community" target="_blank">join via QR Code</a>
 - [DingTalk Group ID](https://qr.dingtalk.com/action/joingroup?code=v1,k1,ydu1Um4a+7sGezVdHJjsH2BifuEaXGW4Gkw7czNk25A=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize DingTalk Group" target="_blank">join via QR Code</a>
-- [Lark Group](https://applink.larksuite.com/TJow9o9): <a href="../images/lark_group@2x.png" title="Excelize Lark Group" target="_blank">join via QR Code</a>
 - [QQ Group ID](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ Group ID" target="_blank">join via QR Code</a>
 - Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize Excelize WeChat Community" target="_blank">join via QR Code</a>
 - Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>

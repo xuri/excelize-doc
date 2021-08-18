@@ -94,7 +94,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。
+根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 - 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定邊框樣式：
 
@@ -430,7 +430,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string) ([][]string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
+根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過。
 
 例如，按列獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
