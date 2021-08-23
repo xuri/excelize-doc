@@ -56,9 +56,27 @@ func main() {
 }
 ```
 
-LinkType define dos tipos de hipervínculos `External` para un sitio web o `Location` para moverse a una de las celdas de este libro. Cuando el `hyperlink_type` es `Location`, las coordenadas deben comenzar con `#`.
+El parámetro opcional `autofit` especifica si el tamaño de la imagen se ajusta automáticamente a la celda, el valor predeterminado es `false`.
 
-El posicionamiento define dos tipos de posición de una imagen en una hoja de cálculo de Excel, `oneCell` (Mover pero no dimensionar con celdas) o "absoluto" (No mover ni dimensionar con celdas). Si no establece este parámetro, el `positioning` predeterminado es mover y dimensionar con celdas.
+El parámetro opcional `hyperlink` especifica el hipervínculo de la imagen.
+
+El parámetro opcional `hyperlink_type` define dos tipos de hipervínculo `External` para el sitio web o `Location` para moverse a una de las celdas de este libro de trabajo. Cuando el `hyperlink_type` es `Location`, las coordenadas deben comenzar con `#`.
+
+El parámetro opcional `positioning` define dos tipos de posición de una imagen en una hoja de cálculo de Excel, `oneCell` (mover pero no dimensionar con celdas) o `absolute` (no mover ni dimensionar con celdas). Si no configura este parámetro, la posición predeterminada es mover y tamaño con celdas.
+
+El parámetro opcional `print_obj` indica si la imagen se imprime cuando se imprime la hoja de trabajo, el valor predeterminado de eso es `true`.
+
+El parámetro opcional `lock_aspect_ratio` indica si se bloquea la relación de aspecto de la imagen, el valor predeterminado es `false`.
+
+El parámetro opcional `locked` indica si se bloquea la imagen. Bloquear un objeto no tiene ningún efecto a menos que la hoja esté protegida.
+
+El parámetro opcional `x_offset` especifica el desplazamiento horizontal de la imagen con la celda, el valor predeterminado es 0.
+
+El parámetro opcional `x_scale` especifica la escala horizontal de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
+
+El parámetro opcional `y_offset` especifica el desplazamiento vertical de la imagen con la celda, cuyo valor predeterminado es 0.
+
+El parámetro opcional `y_scale` especifica la escala vertical de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error

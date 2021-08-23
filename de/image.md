@@ -56,9 +56,27 @@ func main() {
 }
 ```
 
-LinkType definiert zwei Arten von Hyperlinks: `External` für eine Website oder `Location` für das Verschieben in eine der Zellen in dieser Arbeitsmappe. Wenn der `hyperlink_type` `Location` ist, müssen die Koordinaten mit `#` beginnen.
+Der optionale Parameter `autofit` gibt an, ob die Bildgröße automatisch in die Zelle passt, der Standardwert dafür ist `false`.
 
-Die Positionierung definiert zwei Arten der Position eines Bildes in einer Excel-Tabelle: `oneCell` (Verschieben, aber keine Größe mit Zellen) oder "absolut" (Nicht verschieben oder Größe mit Zellen). Wenn Sie diesen Parameter nicht einstellen, ist die Standardeinstellung `positioning` Verschieben und Größe mit Zellen.
+Der optionale Parameter `hyperlink` spezifiziert den Hyperlink des Bildes.
+
+Der optionale Parameter `hyperlink_type` definiert zwei Arten von Hyperlinks `External` für die Website oder `Location` zum Verschieben in eine der Zellen in dieser Arbeitsmappe. Wenn der `hyperlink_type` `Location` ist, müssen die Koordinaten mit `#` beginnen.
+
+Der optionale Parameter `positioning` definiert zwei Arten der Position eines Bildes in einer Excel-Tabelle, `oneCell` (Verschieben, aber nicht mit Zellen skalieren) oder `absolute` (Nicht verschieben oder mit Zellen skalieren). Wenn Sie diesen Parameter nicht festlegen, ist die Standardpositionierung Verschieben und Größe mit Zellen.
+
+Der optionale Parameter `print_obj` gibt an, ob das Bild gedruckt wird, wenn das Arbeitsblatt gedruckt wird, der Standardwert dafür ist `true`.
+
+Der optionale Parameter `lock_aspect_ratio` gibt an, ob das Seitenverhältnis für das Bild gesperrt ist, der Standardwert dafür ist `false`.
+
+Der optionale Parameter `locked` gibt an, ob das Bild gesperrt ist. Das Sperren eines Objekts hat keine Auswirkung, es sei denn, das Blatt ist geschützt.
+
+Der optionale Parameter `x_offset` gibt den horizontalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
+
+Der optionale Parameter `x_scale` spezifiziert die horizontale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+
+Der optionale Parameter `y_offset` gibt den vertikalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
+
+Der optionale Parameter `y_scale` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error

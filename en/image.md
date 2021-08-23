@@ -56,9 +56,27 @@ func main() {
 }
 ```
 
-LinkType defines two types of hyperlinks `External` for a website or `Location` for moving to one of the cells in this workbook. When the `hyperlink_type` is `Location`, coordinates need to start with `#`.
+The optional parameter `autofit` specifies if make image size auto fits the cell, the default value of that is `false`.
 
-Positioning defines two types of the position of a picture in an Excel spreadsheet, `oneCell` (Move but don't size with cells) or "absolute" (Don't move or size with cells). If you don't set this parameter, the default `positioning` is move and size with cells.
+The optional parameter `hyperlink` specifies the hyperlink of the image.
+
+The optional parameter `hyperlink_type` defines two types of hyperlink `External` for the website or `Location` for moving to one of the cells in this workbook. When the `hyperlink_type` is `Location`, coordinates need to start with `#`.
+
+The optional parameter `positioning` defines two types of the position of a picture in an Excel spreadsheet, `oneCell` (Move but don't size with cells) or `absolute` (Don't move or size with cells). If you don't set this parameter, the default positioning is move and size with cells.
+
+The optional parameter `print_obj` indicates whether the image is printed when the worksheet is printed, the default value of that is `true`.
+
+The optional parameter `lock_aspect_ratio` indicates whether lock aspect ratio for the image, the default value of that is `false`.
+
+The optional parameter `locked` indicates whether lock the image. Locking an object has no effect unless the sheet is protected.
+
+The optional parameter `x_offset` specifies the horizontal offset of the image with the cell, the default value of that is 0.
+
+The optional parameter `x_scale` specifies the horizontal scale of images, the default value of that is 1.0 which presents 100%.
+
+The optional parameter `y_offset` specifies the vertical offset of the image with the cell, the default value of that is 0.
+
+The optional parameter `y_scale` specifies the vertical scale of images, the default value of that is 1.0 which presents 100%.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error

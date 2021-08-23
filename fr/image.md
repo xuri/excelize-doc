@@ -56,9 +56,27 @@ func main() {
 }
 ```
 
-LinkType définit deux types d'hyperliens `External` pour un site Web ou `Location` pour passer à l'une des cellules de ce classeur. Lorsque le `hyperlink_type` est `Location`, les coordonnées doivent commencer par `#`.
+Le paramètre facultatif `autofit` spécifie si make image size auto s'adapte à la cellule, la valeur par défaut est `false`.
 
-Le positionnement définit deux types de position d'une image dans une feuille de calcul Excel, `oneCell` (Déplacer mais pas dimensionner avec des cellules) ou "absolu" (Ne pas déplacer ou dimensionner avec des cellules). Si vous ne définissez pas ce paramètre, le `positioning` par défaut est le déplacement et la taille avec les cellules.
+Le paramètre facultatif `hyperlink` spécifie le lien hypertexte de l'image.
+
+Le paramètre facultatif `hyperlink_type` définit deux types de lien hypertexte `External` pour le site Web ou `Location` pour se déplacer vers l'une des cellules de ce classeur. Lorsque le `hyperlink_type` est `Location`, les coordonnées doivent commencer par `#`.
+
+Le paramètre facultatif `positioning` définit deux types de position d'une image dans une feuille de calcul Excel, `oneCell` (Déplacer mais ne pas dimensionner avec des cellules) ou `absolute` (Ne pas déplacer ou dimensionner avec des cellules). Si vous ne définissez pas ce paramètre, le positionnement par défaut est le déplacement et la taille avec les cellules.
+
+Le paramètre facultatif `print_obj` indique si l'image est imprimée lors de l'impression de la feuille de calcul, la valeur par défaut est `true`.
+
+Le paramètre optionnel `lock_aspect_ratio` indique si verrouiller le rapport hauteur/largeur de l'image, la valeur par défaut de celui-ci est `false`.
+
+Le paramètre optionnel `locked` indique si verrouiller l'image. Le verrouillage d'un objet n'a d'effet que si la feuille est protégée.
+
+Le paramètre facultatif `x_offset` spécifie le décalage horizontal de l'image avec la cellule, la valeur par défaut est 0.
+
+Le paramètre facultatif `x_scale` spécifie l'échelle horizontale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+
+Le paramètre facultatif `y_offset` spécifie le décalage vertical de l'image avec la cellule, la valeur par défaut est 0.
+
+Le paramètre facultatif `y_scale` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error

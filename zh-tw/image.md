@@ -56,9 +56,27 @@ func main() {
 }
 ```
 
-鏈接類別 `hyperlink_type` 支持外部鏈接 `External` 和內部鏈接 `Location` 兩種類別，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
+可選參數 `autofit` 設定是否使圖片尺寸自動適合存儲格，其缺省值為 `false`。
 
-位置屬性 `positioning` 支持 `oneCell`（大小固定，位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類別，當不設定此參數時，默認屬性為大小、位置隨儲存格而改變。
+可選參數 `hyperlink` 用以設定圖片的超鏈接。
+
+可選參數 `hyperlink_type` 設定圖片超鏈接的類型，支持外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到存儲格位置時，坐標需要以 `#` 開始。
+
+可選參數 `positioning` 定義了 Excel 電子錶格中圖片位置屬性支持 `oneCell`（大小固定，位置隨存儲格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設置此參數時，默認屬性為大小、位置隨存儲格而改變。
+
+可選參數 `print_obj` 設定打印工作表時是否打印圖片，其缺省值為 `true`。
+
+可選參數 `lock_aspect_ratio` 設定是否鎖定圖片的縱橫比，其缺省值為 `false。`
+
+可選參數 `locked` 設定是否鎖定圖片。除非工作表受到保護，否則鎖定對象無效。
+
+可選參數 `x_offset` 設定圖片與插入存儲格的水平偏移量，其缺省值為 0。
+
+可選參數 `x_scale` 設定圖片的水平縮放比例，其缺省值為 1.0，表示 100%。
+
+可選參數 `y_offset` 設定圖片與插入存儲格的垂直偏移量，缺省值為 0。
+
+可選參數 `y_scale` 設定圖片的垂直縮放比例，其缺省值為 1.0，表示 100%。
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
