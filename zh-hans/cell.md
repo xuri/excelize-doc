@@ -534,7 +534,39 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标设置取该单元格上的公式。公式的结果可在工作表被 Office Excel 应用程序打开时计算，或通过 [CalcCellValue](cell.md#CalcCellValue) 函数计算单元格的值。
+根据给定的工作表名（大小写敏感）和单元格坐标设置该单元格上的公式。公式的结果可在工作表被 Office Excel 应用程序打开时计算，或通过 [CalcCellValue](cell.md#CalcCellValue) 函数计算单元格的值。若 Excel 应用程序打开工作簿后未对设置的单元格公式进行计算，请在设置公式后调用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除单元格缓存。
+
+- 例1，为名为 `Sheet1` 的工作表 `A3` 单元格设置普通公式 `=SUM(A1,B1)`：
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+```
+
+- 例2，为名为 `Sheet1` 的工作表 `A3` 单元格设置一维纵向常量数组（行数组）公式 `1,2,3`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+```
+
+- 例3，为名为 `Sheet1` 的工作表 `A3` 单元格设置一维横向常量数组（列数组）公式 `"a","b","c"`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+```
+
+- 例4，为名为 `Sheet1` 的工作表 `A3` 单元格设置二维常量数组公式 `{1,2,"a","b"}`:
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
+
+- 例5，为名为 `Sheet1` 的工作表 `A3` 单元格设置区域数组公式 `A1:A2`:
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
 
 ## 获取公式 {#GetCellFormula}
 
@@ -698,6 +730,7 @@ LOG
 LOG10
 LOOKUP
 LOWER
+MATCH
 MAX
 MDETERM
 MEDIAN
@@ -791,5 +824,6 @@ UPPER
 VAR.P
 VARP
 VLOOKUP
+XOR
 YEAR
 ```

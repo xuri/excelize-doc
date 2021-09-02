@@ -534,7 +534,39 @@ GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens a
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-Die Formel in der Zelle wird gemäß dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Einstellungen für die Zellformel verwendet. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen.
+Die Formel in der Zelle wird gemäß dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Einstellungen für die Zellformel verwendet. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
+
+- Beispiel 1: setzen Sie die normale Formel `=SUM(A1,B1)` für die Zelle `A3` auf `Sheet1`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+```
+
+- Beispiel 2: setze eindimensionale vertikale Konstantenarray (Zeilenarray) Formel `1,2,3` für die Zelle `A3` auf `Sheet1`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+```
+
+- Beispiel 3: setze eindimensionales horizontales konstantes Array (Spaltenarray) Formel `"a","b","c"` für die Zelle `A3` auf `Sheet1`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+```
+
+- Beispiel 4: setze die zweidimensionale konstante Arrayformel `{1,2,"a","b"}` für die Zelle `A3` auf `Sheet1`:
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
+
+- Beispiel 5: setze die Range-Array-Formel `A1:A2` für die Zelle `A3` auf `Sheet1`:
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
 
 ## Abrufen der Zellenformel {#GetCellFormula}
 
@@ -698,6 +730,7 @@ LOG
 LOG10
 LOOKUP
 LOWER
+MATCH
 MAX
 MDETERM
 MEDIAN
@@ -791,5 +824,6 @@ UPPER
 VAR.P
 VARP
 VLOOKUP
+XOR
 YEAR
 ```

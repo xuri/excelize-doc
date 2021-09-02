@@ -534,7 +534,39 @@ GetComments récupère tous les commentaires et renvoie une carte de nom de feui
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-La formule sur la cellule est prise en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée.
+La formule sur la cellule est prise en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
+
+- Exemple 1: définissez la formule normale `=SUM(A1,B1)` pour la cellule `A3` sur `Sheet1`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+```
+
+- Exemple 2: définissez la formule de tableau de constantes verticales unidimensionnelles (tableau de lignes) `1,2,3` pour la cellule `A3` sur `Sheet1`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+```
+
+- Exemple 3: définir la formule de tableau constant horizontal unidimensionnel (tableau de colonnes) `"a","b","c"` pour la cellule `A3` sur `Sheet1`:
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+```
+
+- Exemple 4: définissez la formule matricielle constante à deux dimensions `{1,2,"a","b"}` pour la cellule `A3` sur `Sheet1`:
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
+
+- Exemple 5: définir la formule matricielle de plage `A1:A2` pour la cellule `A3` sur `Sheet1`:
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
 
 ## Obtenir la formule cellulaire {#GetCellFormula}
 
@@ -698,6 +730,7 @@ LOG
 LOG10
 LOOKUP
 LOWER
+MATCH
 MAX
 MDETERM
 MEDIAN
@@ -791,5 +824,6 @@ UPPER
 VAR.P
 VARP
 VLOOKUP
+XOR
 YEAR
 ```

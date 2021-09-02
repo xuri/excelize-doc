@@ -534,7 +534,39 @@ GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크�
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다.
+셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다. 엑셀 응용 프로그램이 통합 문서를 열었을 때 수식을 자동으로 계산하지 않으면 셀 수식 기능을 설정한 후 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 를 호출하십시오.
+
+- 예 1: `Sheet1` 의 `A3` 셀에 대해 일반 수식 `=SUM(A1,B1)` 설정
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+```
+
+- 예 2: `Sheet1` 의 `A3` 셀에 대해 1차원 수직 상수 배열(행 배열) 수식 `1,2,3` 을 설정합니다
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+```
+
+- 예 3: `Sheet1` 의 `A3` 셀에 대해 1차원 수평 상수 배열(열 배열) 수식 `"a","b","c"` 를 설정합니다
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+```
+
+- 예 4: `Sheet1` 의 `A3` 셀에 대해 2차원 상수 배열 수식 `{1,2,"a","b"}` 을 설정합니다
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
+
+- 예 5: `Sheet1` 의 `A3` 셀에 대해 범위 배열 수식 `A1:A2` 를 설정합니다.
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
 
 ## 셀 수식 가져 오기 {#GetCellFormula}
 
@@ -698,6 +730,7 @@ LOG
 LOG10
 LOOKUP
 LOWER
+MATCH
 MAX
 MDETERM
 MEDIAN
@@ -791,5 +824,6 @@ UPPER
 VAR.P
 VARP
 VLOOKUP
+XOR
 YEAR
 ```

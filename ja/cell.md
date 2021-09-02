@@ -534,7 +534,39 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-指定されたワークシート名 (大文字小文字の区別) とセルの設定に基づいて、セルの数式を設定します。数式セルの結果は、ワークシートが Office Excel アプリケーションで開かれた場合、または計算されたセル値を取得する場合に [CalcCellValue](cell.md#CalcCellValue) 関数を使用して計算できます。
+指定されたワークシート名 (大文字小文字の区別) とセルの設定に基づいて、セルの数式を設定します。数式セルの結果は、ワークシートが Office Excel アプリケーションで開かれた場合、または計算されたセル値を取得する場合に [CalcCellValue](cell.md#CalcCellValue) 関数を使用して計算できます。Excel アプリケーションがブックを開いたときに数式を自動的に計算しない場合は、セルの数式関数を設定した後に [UpdateLinkedValue](utils.md#UpdateLinkedValue) を呼び出してください。
+
+- 例1: `Sheet1` のセル `A3` に通常の数式 `=SUM(A1,B1)` を設定します
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+```
+
+- 例2: `Sheet1 `のセル `A3` に1次元の垂直定数配列（行配列）式 `1,2,3` を設定します
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+```
+
+- 例3: `Sheet1` のセル `A3` に1次元の水平定数配列（列配列）の数式 `"a","b","c"` を設定します
+
+```go
+err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+```
+
+- 例4: `Sheet1` のセル `A3` に2次元定数配列数式 `{1,2,"a","b"}` を設定します
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
+
+- 例5: `Sheet1` のセル `A3` に範囲配列数式 `A1:A2` を設定します
+
+```go
+ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
+f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+```
 
 ## セル式を取得する {#GetCellFormula}
 
@@ -698,6 +730,7 @@ LOG
 LOG10
 LOOKUP
 LOWER
+MATCH
 MAX
 MDETERM
 MEDIAN
@@ -791,5 +824,6 @@ UPPER
 VAR.P
 VARP
 VLOOKUP
+XOR
 YEAR
 ```
