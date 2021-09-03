@@ -536,36 +536,46 @@ func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) 
 
 La fórmula de la celda se toma de acuerdo con el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado. Si la aplicación de Excel no calcula la fórmula automáticamente cuando se abre el libro, llame a [UpdateLinkedValue](utils.md#UpdateLinkedValue) después de configurar las funciones de la fórmula de la celda.
 
-- Ejemplo 1: establezca la fórmula normal `=SUM(A1,B1)` para la celda `A3` en `Sheet1`:
+- Ejemplo 1, establezca la fórmula normal `=SUM(A1,B1)` para la celda `A3` en `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Ejemplo 2: establezca la fórmula de matriz constante vertical unidimensional (matriz de fila) `1,2,3` para la celda `A3` en `Sheet1`:
+- Ejemplo 2, establezca la fórmula de matriz constante vertical unidimensional (matriz de fila) `1,2,3` para la celda `A3` en `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
 ```
 
-- Ejemplo 3: establezca la fórmula de matriz constante horizontal unidimensional (matriz de columnas) `"a","b","c"` para la celda `A3` en `Sheet1`:
+- Ejemplo 3, establezca la fórmula de matriz constante horizontal unidimensional (matriz de columnas) `"a","b","c"` para la celda `A3` en `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Ejemplo 4: establezca la fórmula de matriz constante bidimensional `{1,2,"a","b"}` para la celda `A3` en `Sheet1`:
+- Ejemplo 4, establezca la fórmula de matriz constante bidimensional `{1,2,"a","b"}` para la celda `A3` en `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Ejemplo 5: establezca la fórmula de matriz de rango `A1:A2` para la celda `A3` en `Sheet1`:
+- Ejemplo 5, establezca la fórmula de matriz de rango `A1:A2` para la celda `A3` en `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Ejemplo 6, establezca la fórmula compartida `=A1+B1` para las celdas `C1:C5` en `Sheet1`,` C1` es la celda maestra:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
+err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 ## Obtener fórmula celular {#GetCellFormula}

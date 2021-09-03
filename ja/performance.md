@@ -1,6 +1,6 @@
 # パフォーマンスデータ
 
-次のパフォーマンスデータは、セルに文字列と数値の1:1 のブレンドが含まれている ` N` 行 `50` 列のワークシートを作成する時間とメモリの使用状況を示しています。 普通のパソコンによるテスト環境 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290))。特定のデータはマシンによって異なりますが、トレンドは同じである必要があります。
+次のパフォーマンスデータは、セルに文字列と数値の1:1 のブレンドが含まれている ` N` 行 `50` 列のワークシートを作成する時間とメモリの使用状況を示しています。普通のパソコンによるテスト環境 (OS: macOS Big Sur version 11.2, CPU: 3.4 GHz Intel Core i5, RAM: 16 GB 2400 MHz DDR4, HDD: 1 TB, Go Version: `go1.15.7 darwin/amd64`, Commit: [`23c73ab`](https://github.com/xuri/excelize/tree/23c73ab527731f9d414e81f7ea15e2ae1a72a290))。特定のデータはマシンによって異なりますが、トレンドは同じである必要があります。
 
 <table>
     <tr>

@@ -541,36 +541,47 @@ func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) 
 
 يتم أخذ الصيغة الموجودة في الخلية وفقًا لاسم ورقة العمل المحدد (حساس لحالة الأحرف) وإعدادات صيغة الخلية. يمكن حساب نتيجة خلية الصيغة عند فتح ورقة العمل بواسطة تطبيق Office Excel أو يمكن أن تستخدم الدالة [CalcCellValue](cell.md#CalcCellValue) أيضاً الحصول على قيمة الخلية المحسوبة. إذا لم يقم تطبيق Excel بحساب الصيغة تلقائيًا عند فتح المصنف ، يرجى الاتصال بـ [UpdateLinkedValue](utils.md#UpdateLinkedValue) بعد تعيين وظائف صيغة الخلية.
 
-- مثال 1: تعيين الصيغة العادية `=SUM(A1,B1)` للخلية `A3` على `Sheet1`:
+- مثال 1 ،  تعيين الصيغة العادية `=SUM(A1,B1)` للخلية `A3` على `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- مثال 2: تعيين صفيف ثابت عمودي أحادي الأبعاد (صف صف الصفيف) الصيغة `1,2,3` للخلية `A3` على `Sheet1`:
+- مثال 2 ،  تعيين صفيف ثابت عمودي أحادي الأبعاد (صف صف الصفيف) الصيغة `1,2,3` للخلية `A3` على `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
 ```
 
-- مثال 3: تعيين صفيف ثابت أفقي أحادي الأبعاد (صفيف عمود) الصيغة `"a","b","c"` للخلية `A3` على `Sheet1`:
+- مثال 3 ،  تعيين صفيف ثابت أفقي أحادي الأبعاد (صفيف عمود) الصيغة `"a","b","c"` للخلية `A3` على `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- مثال 4: تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2,"a","b"}` للخلية `A3` على `Sheet1`:
+- مثال 4 ،  تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2,"a","b"}` للخلية `A3` على `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- مثال 5: تعيين صيغة صفيف النطاق `A1:A2` للخلية `A3` على `Sheet1`:
+- مثال 5 ،  تعيين صيغة صفيف النطاق `A1:A2` للخلية `A3` على `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- مثال 6 ، قم بتعيين الصيغة المشتركة `=A1+B1` للخلايا `C1:C5` في `Sheet1` ، `C1` هي الخلية الرئيسية:
+
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
+err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 ## الحصول على صيغة الخلية {#GetCellFormula}

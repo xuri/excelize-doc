@@ -1012,7 +1012,7 @@ f.DeleteDefinedName(&excelize.DefinedName{
 func (f *File) SetDocProps(docProperties *DocProperties) error
 ```
 
-设置工作簿的核心属性。 可以设置的属性包括:
+设置工作簿的核心属性。可以设置的属性包括:
 
 属性           | 描述
 ---|---

@@ -536,36 +536,46 @@ func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) 
 
 The formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value. If the Excel application doesn't calculate the formula automatically when the workbook has been opened, please call [UpdateLinkedValue](utils.md#UpdateLinkedValue) after setting the cell formula functions.
 
-- Example 1: set normal formula `=SUM(A1,B1)` for the cell `A3` on `Sheet1`:
+- Example 1, set normal formula `=SUM(A1,B1)` for the cell `A3` on `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Example 2: set one-dimensional vertical constant array (row array) formula `1,2,3` for the cell `A3` on `Sheet1`:
+- Example 2, set one-dimensional vertical constant array (row array) formula `1,2,3` for the cell `A3` on `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
 ```
 
-- Example 3: set one-dimensional horizontal constant array (column array) formula `"a","b","c"` for the cell `A3` on `Sheet1`:
+- Example 3, set one-dimensional horizontal constant array (column array) formula `"a","b","c"` for the cell `A3` on `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Example 4: set two-dimensional constant array formula `{1,2,"a","b"}` for the cell `A3` on `Sheet1`:
+- Example 4, set two-dimensional constant array formula `{1,2,"a","b"}` for the cell `A3` on `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Example 5: set range array formula `A1:A2` for the cell `A3` on `Sheet1`:
+- Example 5, set range array formula `A1:A2` for the cell `A3` on `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Example 6, set shared formula `=A1+B1` for the cells `C1:C5` on `Sheet1`, `C1` is the master cell:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
+err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 ## Get cell formula {#GetCellFormula}

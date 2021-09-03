@@ -557,15 +557,25 @@ err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 - 例4，為名為 `Sheet1` 的工作表 `A3` 存儲格設定二維常量數組公式 `{1,2,"a","b"}`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 - 例5，為名為 `Sheet1` 的工作表 `A3` 存儲格設定區域數組公式 `A1:A2`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- 例6, 為名為 `Sheet1` 的工作表 `C1:C5` 區域的存儲格設定共享公式 `=A1+B1`，其中 `C1` 為主存儲格:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
+err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 ## 獲取公式 {#GetCellFormula}

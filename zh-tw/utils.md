@@ -89,7 +89,7 @@ err := f.AutoFilter("Sheet1", "A1", "D4", "")
 err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
-參數 `column` 指定了自動過濾器在過濾範圍內的基準欄。 Excelize 暫不支持自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
+參數 `column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支持自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
 
 為欄設定過濾條件，參數 `expression` 用於指定過濾條件運算，支持下列運算符：
 
@@ -133,7 +133,7 @@ x != *b*     // 不包含 b
 ```
 
 我們還可以使用 `*` 來匹配任何字符或數字，用
-`?` 匹配任何單個字符或數字。除此之外，Office Excel 的自動過濾器不支持其他正則表達式的關鍵字。 Excel 的正則表達式字符可以使用 `~` 進行轉義。
+`?` 匹配任何單個字符或數字。除此之外，Office Excel 的自動過濾器不支持其他正則表達式的關鍵字。Excel 的正則表達式字符可以使用 `~` 進行轉義。
 
 上述示例中的佔位符變數 `x` 可以被任何簡單的字符串替換。實際的佔位符名稱在內部被忽略，所以以下所有表達式的效果都是等同的：
 
@@ -430,7 +430,7 @@ less than|<
 greater than or equal to|>=
 less than or equal to|<=
 
-可以使用上面表格第一欄中的 Office Excel 文本描述字符，或者符號表示方法（`between` 與 `not between` 沒有符號表示法）作為條件式格式運算符。 下面的相關部分顯示了其他條件式格式類別的特定標準。
+可以使用上面表格第一欄中的 Office Excel 文本描述字符，或者符號表示方法（`between` 與 `not between` 沒有符號表示法）作為條件式格式運算符。下面的相關部分顯示了其他條件式格式類別的特定標準。
 
 `value`：該值通常與 `criteria` 參數一起使用，可以用確定的值作為設定儲存格條件式格式的條件參數：
 

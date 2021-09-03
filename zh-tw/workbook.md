@@ -1014,7 +1014,7 @@ f.DeleteDefinedName(&excelize.DefinedName{
 func (f *File) SetDocProps(docProperties *DocProperties) error
 ```
 
-設定活頁簿的核心屬性。 可以設定的屬性包括:
+設定活頁簿的核心屬性。可以設定的屬性包括:
 
 屬性           | 描述
 ---|---

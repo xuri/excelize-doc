@@ -557,15 +557,25 @@ err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 - 例4，为名为 `Sheet1` 的工作表 `A3` 单元格设置二维常量数组公式 `{1,2,"a","b"}`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 - 例5，为名为 `Sheet1` 的工作表 `A3` 单元格设置区域数组公式 `A1:A2`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- 例6, 为名为 `Sheet1` 的工作表 `C1:C5` 区域的单元格设置共享公式 `=A1+B1`，其中 `C1` 为主单元格:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
+err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 ## 获取公式 {#GetCellFormula}

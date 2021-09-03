@@ -532,36 +532,46 @@ func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) 
 
 Формула на ячейке берется согласно заданному имени листа (с учетом регистра) и настройкам формулы ячейки. Результат ячейки формулы может быть рассчитан, когда лист открыт приложением Office Excel или может использовать функцию [CalcCellValue](cell.md#CalcCellValue) также может получить рассчитанное значение ячейки. Если приложение Excel не вычисляет формулу автоматически при открытии книги, вызовите [UpdateLinkedValue](utils.md#UpdateLinkedValue) после установки функций формулы ячейки.
 
-- Пример 1: установите обычную формулу  `=SUM(A1,B1)` для ячейки `A3` на `Sheet1`:
+- Пример 1, установите обычную формулу  `=SUM(A1,B1)` для ячейки `A3` на `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Пример 2: установить одномерный вертикальный постоянный массив (массив строк) формулой `1,2,3` для ячейки `A3` на `Sheet1`:
+- Пример 2, установить одномерный вертикальный постоянный массив (массив строк) формулой `1,2,3` для ячейки `A3` на `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
 ```
 
-- Пример 3: установить одномерный горизонтальный массив констант (массив столбцов) формулой `"a","b","c"` для ячейки `A3` на `Sheet1`:
+- Пример 3, установить одномерный горизонтальный массив констант (массив столбцов) формулой `"a","b","c"` для ячейки `A3` на `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Пример 4: установить двумерную формулу массива констант `{1,2,"a","b"}` для ячейки `A3` на `Sheet1`:
+- Пример 4, установить двумерную формулу массива констант `{1,2,"a","b"}` для ячейки `A3` на `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Пример 5: установить формулу массива диапазонов `A1:A2` для ячейки `A3` на `Sheet1`:
+- Пример 5, установить формулу массива диапазонов `A1:A2` для ячейки `A3` на `Sheet1`:
 
 ```go
-ref, arr := "A3:A3", excelize.STCellFormulaTypeArray
-f.SetCellFormula("Sheet1", "A3", "=A1:A2", excelize.FormulaOpts{Ref: &ref, Type: &arr})
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Пример 6, установить общую формулу `=A1+B1` для ячеек `C1:C5` на `Sheet1`, `C1` - это основная ячейка:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
+err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
 ## Получить формулу ячейки {#GetCellFormula}

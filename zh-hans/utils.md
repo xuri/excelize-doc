@@ -89,7 +89,7 @@ err := f.AutoFilter("Sheet1", "A1", "D4", "")
 err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
 ```
 
-参数 `column` 指定了自动过滤器在过滤范围内的基准列。 Excelize 暂不支持自动过滤器的计算，在设置过滤条件后，如果需要隐藏任何不符合过滤条件的行，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 设置行的可见性。
+参数 `column` 指定了自动过滤器在过滤范围内的基准列。Excelize 暂不支持自动过滤器的计算，在设置过滤条件后，如果需要隐藏任何不符合过滤条件的行，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 设置行的可见性。
 
 为列设置过滤条件，参数 `expression` 用于指定过滤条件运算，支持下列运算符：
 
@@ -133,7 +133,7 @@ x != *b*     // 不包含 b
 ```
 
 我们还可以使用 `*` 来匹配任何字符或数字，用
-`?` 匹配任何单个字符或数字。除此之外，Office Excel 的自动过滤器不支持其他正则表达式的关键字。 Excel 的正则表达式字符可以使用 `~` 进行转义。
+`?` 匹配任何单个字符或数字。除此之外，Office Excel 的自动过滤器不支持其他正则表达式的关键字。Excel 的正则表达式字符可以使用 `~` 进行转义。
 
 上述示例中的占位符变量 `x` 可以被任何简单的字符串替换。实际的占位符名称在内部被忽略，所以以下所有表达式的效果都是等同的：
 
@@ -430,7 +430,7 @@ less than|<
 greater than or equal to|>=
 less than or equal to|<=
 
-可以使用上面表格第一列中的 Office Excel 文本描述字符，或者符号表示方法（`between` 与 `not between` 没有符号表示法）作为条件格式运算符。 下面的相关部分显示了其他条件格式类型的特定标准。
+可以使用上面表格第一列中的 Office Excel 文本描述字符，或者符号表示方法（`between` 与 `not between` 没有符号表示法）作为条件格式运算符。下面的相关部分显示了其他条件格式类型的特定标准。
 
 `value`：该值通常与 `criteria` 参数一起使用，可以用确定的值作为设置单元格条件格式的条件参数：
 

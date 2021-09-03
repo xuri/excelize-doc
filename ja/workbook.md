@@ -121,7 +121,7 @@ NewSheet は、ワークシート名を指定して新しいシートを作成�
 func (f *File) DeleteSheet(name string)
 ```
 
-指定されたワークシート名に基づいて指定されたワークシートを削除する場合は、この方法を慎重に使用してください。削除するワークシートに関連付けられている数式、参照、グラフ、その他の要素に影響します。削除されたワークシートの値を参照する他のコンポーネントがあると、エラーが発生し、ワークブックも開くことができません。 ワークブックにワークシートが1つしか含まれていない場合、このメソッドを呼び出しても効果はありません。
+指定されたワークシート名に基づいて指定されたワークシートを削除する場合は、この方法を慎重に使用してください。削除するワークシートに関連付けられている数式、参照、グラフ、その他の要素に影響します。削除されたワークシートの値を参照する他のコンポーネントがあると、エラーが発生し、ワークブックも開くことができません。ワークブックにワークシートが1つしか含まれていない場合、このメソッドを呼び出しても効果はありません。
 
 ## ワークシートをコピーする {#CopySheet}
 
@@ -152,7 +152,7 @@ func (f *File) SetSheetBackground(sheet, picture string) error
 func (f *File) SetActiveSheet(index int)
 ```
 
-SetActiveSheet は、指定されたインデックスによってワークブックのデフォルトのアクティブシートを設定する関数を提供します。 アクティブなインデックスは、[`GetSheetMap`](sheet.md#GetSheetMap) 関数によって返されるIDとは異なることに注意してください。`0` 以上で、ワークシートの総数よりも少ない必要があります。
+SetActiveSheet は、指定されたインデックスによってワークブックのデフォルトのアクティブシートを設定する関数を提供します。アクティブなインデックスは、[`GetSheetMap`](sheet.md#GetSheetMap) 関数によって返されるIDとは異なることに注意してください。`0` 以上で、ワークシートの総数よりも少ない必要があります。
 
 ## アクティブシートインデックスを取得する {#GetActiveSheetIndex}
 
@@ -168,7 +168,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) SetSheetVisible(name string, visible bool) error
 ```
 
-SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。 ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。 指定したワークシートがアクティブになっている場合、この設定は無効になります。[SheetStateValues Enum](https://docs.microsoft.com/ja-jp/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) で定義されているシート状態値:
+SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。指定したワークシートがアクティブになっている場合、この設定は無効になります。[SheetStateValues Enum](https://docs.microsoft.com/ja-jp/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) で定義されているシート状態値:
 
 |ワークシート状態値|
 |---|
@@ -188,7 +188,7 @@ err := f.SetSheetVisible("Sheet1", false)
 func (f *File) GetSheetVisible(name string) bool
 ```
 
-GetSheetVisible は、与えられたワークシート名でワークシートを見えるようにする機能を提供します。 たとえば、`Sheet1` の可視状態を取得します。
+GetSheetVisible は、与えられたワークシート名でワークシートを見えるようにする機能を提供します。たとえば、`Sheet1` の可視状態を取得します。
 
 ```go
 f.GetSheetVisible("Sheet1")
@@ -503,13 +503,13 @@ After change:
 func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 ```
 
-指定されたワークシート名とページレイアウトパラメータに基づいて、ワークシートのページレイアウトプロパティを設定します。 現在設定でサポートされているページレイアウトプロパティ:
+指定されたワークシート名とページレイアウトパラメータに基づいて、ワークシートのページレイアウトプロパティを設定します。現在設定でサポートされているページレイアウトプロパティ:
 
 - `BlackAndWhite` メソッドを使用してモノクロ印刷 true または false を設定し、既定値は false オフです。
 
 - `FirstPageNumber` メソッドを使用して、ページの開始ページ番号を自動に設定します。
 
-- ページレイアウトの方向は `PageLayoutOrientation` メソッドによって設定され、デフォルトのページレイアウトの方向は「縦」です。 次の表は Excelize のページレイアウト指示の `PageLayoutOrientation` パラメータのリストです：
+- ページレイアウトの方向は `PageLayoutOrientation` メソッドによって設定され、デフォルトのページレイアウトの方向は「縦」です。次の表は Excelize のページレイアウト指示の `PageLayoutOrientation` パラメータのリストです：
 
 パラメータ|方向
 ---|---
@@ -731,7 +731,7 @@ if err := f.SetPageMargins(sheet,
 
 ## ワークシートのページ余白を取得する {#GetPageMargins}
 
-GetPageMargins は、ワークシートのページ余白を取得する関数を提供します。 利用可能なオプション：
+GetPageMargins は、ワークシートのページ余白を取得する関数を提供します。利用可能なオプション：
 
 オプション|タイプ
 ---|---

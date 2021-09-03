@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize は、純粋な Go で記述されたライブラリで、XLSX / XLSM / XLTM / XLTX ファイルの読み書きを可能にする一連の関数を提供します。Microsoft Excel&trade; 2007 以降で生成されたスプレッドシートドキュメントの読み取りと書き込みをサポートします。 高い互換性により複雑なコンポーネントをサポートし、大量のデータを含むワークシートからデータを生成または読み取るためのストリーミング API を提供します。
+Excelize は、純粋な Go で記述されたライブラリで、XLSX / XLSM / XLTM / XLTX ファイルの読み書きを可能にする一連の関数を提供します。Microsoft Excel&trade; 2007 以降で生成されたスプレッドシートドキュメントの読み取りと書き込みをサポートします。高い互換性により複雑なコンポーネントをサポートし、大量のデータを含むワークシートからデータを生成または読み取るためのストリーミング API を提供します。
 
 - ソースコード: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - 問題: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 現在のバージョン: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- ドキュメントの更新：2021年8月24日
+- ドキュメントの更新：2021年9月4日
 
 ## プロジェクトミッション
 
@@ -17,7 +17,7 @@ Excelize の目的は、Office Open XML（OOXML）標準に準拠する xlsx フ
 
 ## Excelizeを使用する理由
 
-場合によっては、既存の Excel ドキュメントコンテンツの読み込み、新しい Excel ドキュメントの作成、既存のドキュメント（テンプレート）に基づく新しい Excel ドキュメントの生成、Excel ドキュメントへのイメージの挿入、チャートなどの Excel ドキュメントをプログラムで操作する必要があります。 テーブルなどの要素。プラットフォーム間でこれらの操作を実装する必要がある場合があります。Excelize はこれらのニーズを容易に満たすことができます。
+場合によっては、既存の Excel ドキュメントコンテンツの読み込み、新しい Excel ドキュメントの作成、既存のドキュメント（テンプレート）に基づく新しい Excel ドキュメントの生成、Excel ドキュメントへのイメージの挿入、チャートなどの Excel ドキュメントをプログラムで操作する必要があります。テーブルなどの要素。プラットフォーム間でこれらの操作を実装する必要がある場合があります。Excelize はこれらのニーズを容易に満たすことができます。
 
 ## 使用中の会社
 
