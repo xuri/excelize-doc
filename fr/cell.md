@@ -395,7 +395,7 @@ GetCellRichText fournit une fonction pour obtenir le texte enrichi des cellules 
 ## Obtenir la valeur de la cellule {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée. Les valeurs de toutes les cellules seront les mêmes dans une plage fusionnée.
@@ -403,7 +403,7 @@ La valeur de la cellule est récupérée en fonction de la feuille de calcul et 
 ## Obtenir toutes les valeurs des cellules par colonnes {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 Obtient la valeur de toutes les cellules par colonnes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
@@ -427,7 +427,7 @@ for _, col := range cols {
 ## Obtenir toutes les valeurs de la cellule par des lignes {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 Obtient la valeur de toutes les cellules par lignes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, la cellule de queue continuellement vide sera ignorée.
@@ -576,6 +576,42 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
 err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Exemple 7, définissez la formule de table `=SUM(Table1[[A]:[B]])` pour la cellule `C2` sur `Sheet1`:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## Obtenir la formule cellulaire {#GetCellFormula}

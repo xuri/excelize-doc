@@ -720,6 +720,82 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[
 
 `bar_color` - Usado para `data_bar`. Igual que `min_color`, ver arriba.
 
+Por ejemplo, resalte los valores más altos y más bajos en un rango de celdas `A1:D4` estableciendo un formato condicional en `Sheet1`:
+
+<p align="center"><img width="938" src="./images/condition_format_01.png" alt="Establecer formato condicional en un rango de celdas"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for r := 1; r <= 4; r++ {
+        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+        }
+    }
+    red, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#9A0511"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#FEC7CE"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "bottom",
+            "criteria": "=",
+            "value": "1",
+            "format": %d
+        }]`, red)); err != nil {
+        fmt.Println(err)
+    }
+    green, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#09600B"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#C7EECF"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "top",
+            "criteria":"=",
+            "value":"1",
+            "format": %d
+        }]`, green)); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ## Eliminar formato condicional {#UnsetConditionalFormat}
 
 ```go

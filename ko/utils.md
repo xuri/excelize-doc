@@ -720,6 +720,81 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[
 
 `bar_color` - `data_bar` 에 사용. `min_color` 와 동일, 위의 참조.
 
+예를 들어 `Sheet1` 에 조건부 서식을 설정하여 `A1:D4` 셀 범위에서 가장 높은 값과 가장 낮은 값을 강조 표시합니다:
+
+<p align="center"><img width="886" src="./images/condition_format_01.png" alt="셀 범위에서 조건부 서식 설정"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for r := 1; r <= 4; r++ {
+        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+        }
+    }
+    red, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#9A0511"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#FEC7CE"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "bottom",
+            "criteria": "=",
+            "value": "1",
+            "format": %d
+        }]`, red)); err != nil {
+        fmt.Println(err)
+    }
+    green, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#09600B"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#C7EECF"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "top",
+            "criteria":"=",
+            "value":"1",
+            "format": %d
+        }]`, green)); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
 
 ## 조건부 서식을 제거합니다 {#UnsetConditionalFormat}
 

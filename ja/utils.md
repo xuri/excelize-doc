@@ -720,6 +720,82 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[
 
 `bar_color` - `data_bar` に使用されます。`min_color` と同じ, 上記を参照してください。
 
+たとえば、`Sheet1` に条件付き書式を設定して、セル `A1:D4` の範囲の最高値と最低値を強調表示します：
+
+<p align="center"><img width="885" src="./images/condition_format_01.png" alt="セル範囲に条件付き書式を設定する"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for r := 1; r <= 4; r++ {
+        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+        }
+    }
+    red, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#9A0511"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#FEC7CE"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "bottom",
+            "criteria": "=",
+            "value": "1",
+            "format": %d
+        }]`, red)); err != nil {
+        fmt.Println(err)
+    }
+    green, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#09600B"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#C7EECF"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "top",
+            "criteria":"=",
+            "value":"1",
+            "format": %d
+        }]`, green)); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ## 条件付きフォーマットを削除 {#UnsetConditionalFormat}
 
 ```go

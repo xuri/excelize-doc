@@ -391,7 +391,7 @@ for cols.Next() {
 ### Spalteniterator - Säulen
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 Rows gibt die aktuellen Spaltenzeilenwerte zurück.
@@ -441,7 +441,7 @@ for rows.Next() {
 ### Ruderiterator - Säulen
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 Spalten geben die Spaltenwerte der aktuellen Zeile zurück.

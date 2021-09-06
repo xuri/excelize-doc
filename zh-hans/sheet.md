@@ -391,7 +391,7 @@ for cols.Next() {
 ### 列迭代器 - 单列操作
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 返回当前列所有行的值。
@@ -441,7 +441,7 @@ for rows.Next() {
 ### 行迭代器 - 单行操作
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 返回当前行所有列的值。

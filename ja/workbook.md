@@ -5,6 +5,7 @@ Options は、開いているスプレッドシートのオプションを定義
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

@@ -715,6 +715,82 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[
 
 `bar_color` - 當條件式格式類別為 `data_bar` 時使用。與 `min_color` 用法相同，參考上述文檔。
 
+例如，為名為 `Sheet1` 的工作表中，通過設定條件格式高亮 `A1:D4` 區域存儲格中的最大值與最小值:
+
+<p align="center"><img width="884" src="./images/condition_format_01.png" alt="通過設定條件格式高亮區域存儲格中的最大值與最小值"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for r := 1; r <= 4; r++ {
+        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+        }
+    }
+    red, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#9A0511"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#FEC7CE"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "bottom",
+            "criteria": "=",
+            "value": "1",
+            "format": %d
+        }]`, red)); err != nil {
+        fmt.Println(err)
+    }
+    green, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#09600B"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#C7EECF"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "top",
+            "criteria":"=",
+            "value":"1",
+            "format": %d
+        }]`, green)); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ## 刪除條件式格式 {#UnsetConditionalFormat}
 
 ```go

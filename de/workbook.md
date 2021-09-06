@@ -5,6 +5,7 @@ Optionen definieren die Optionen für eine offene Kalkulationstabelle.
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

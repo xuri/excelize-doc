@@ -395,7 +395,7 @@ GetCellRichText bietet eine Funktion zum Abrufen des Rich-Textes von Zellen anha
 ## Abrufen des Zellenwerts {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben. Die Werte aller Zellen sind in einem zusammengeführten Bereich gleich.
@@ -403,7 +403,7 @@ Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen
 ## Abrufen des gesamten Zellenwerts nach Spalten {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 Ruft den Wert aller Zellen nach Spalten im Arbeitsblatt ab, basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten), der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet.
@@ -427,7 +427,7 @@ for _, col := range cols {
 ## Abrufen des gesamten Zellenwerts nach Zeilen {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 Ruft den Wert aller Zellen nach Zeilen im Arbeitsblatt ab, basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten), der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows holte die Zeilen mit Wert- oder Formelzellen, die am Ende ständig leere Zelle wird übersprungen.
@@ -578,6 +578,41 @@ err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
+- Beispiel 7, setze die Tabellenformel `=SUM(Table1[[A]:[B]])` für die Zelle `C2` auf `Sheet1`:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
 
 ## Abrufen der Zellenformel {#GetCellFormula}
 

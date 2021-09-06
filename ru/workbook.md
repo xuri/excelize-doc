@@ -5,6 +5,7 @@ Options определяет параметры для открытой элек
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

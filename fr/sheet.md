@@ -391,7 +391,7 @@ for cols.Next() {
 ### Itérateur de colonne - Colonnes
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 Rows renvoie les valeurs de ligne de la colonne actuelle.
@@ -441,7 +441,7 @@ for rows.Next() {
 ### Row itérateur - Colonnes
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 Columns renvoie les valeurs de colonne de la ligne actuelle.

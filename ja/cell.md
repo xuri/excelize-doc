@@ -395,7 +395,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 ## セル値取得 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 指定されたワークシートとセルの座標に基づいてセルの値を取得すると、戻り値は `string` 型に変換されます。セルの値にセル書式を適用できる場合は、適用された値が返されます。差し込み印刷範囲内のすべてのセルの値は同じです。
@@ -403,7 +403,7 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 ## 列ごとにすべてのセル値を取得する {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 指定されたワークシート名（大文字と小文字を区別）に基づいて、ワークシートの列ごとにすべてのセルの値を取得し、2次元配列として返されます。セルの値は `string` タイプに変換されます。 セルのフォーマットをセルの値に適用できる場合は、適用された値が使用されます。それ以外の場合は、元の値が使用されます。
@@ -427,7 +427,7 @@ for _, col := range cols {
 ## 行ごとにすべてのセル値を取得する {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 指定されたワークシート名（大文字と小文字を区別）に基づいて、ワークシートの行ごとにすべてのセルの値を取得し、2次元配列として返されます。セルの値は `string` タイプに変換されます。 セルのフォーマットをセルの値に適用できる場合は、適用された値が使用されます。それ以外の場合は、元の値が使用されます。GetRows は、値セルまたは数式セルを含む行をフェッチしました。末尾の連続して空のセルはスキップされます。
@@ -576,6 +576,42 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
 err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- 例7, `Sheet1` のセル `C2` にテーブル数式 `=SUM(Table1[[A]:[B]])` を設定します：
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## セル式を取得する {#GetCellFormula}

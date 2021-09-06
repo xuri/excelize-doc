@@ -395,7 +395,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 ## 셀 값 가져 오기 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다. 병합 범위 내의 모든 셀의 값은 동일합니다.
@@ -403,7 +403,7 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 ## 열로 모든 셀 값 가져 오기 {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 열을 기준으로 모든 셀의 값을 가져오고 2 차원 배열로 반환되며 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다.
@@ -427,7 +427,7 @@ for _, col := range cols {
 ## 행으로 모든 셀 값 가져 오기 {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 모든 셀 값을 행 단위로 가져옵니다. 2 차원 배열로 반환되며, 여기서 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다. GetRows 가 값 또는 수식 셀이 있는 행을 가져오면 꼬리 부분이 계속 비어 있는 셀은 건너뜁니다.
@@ -576,6 +576,42 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
 err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- 예 7, `Sheet1` 의 `C2` 셀에 대해 테이블 수식 `=SUM(Table1[[A]:[B]])` 를 설정합니다:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## 셀 수식 가져 오기 {#GetCellFormula}

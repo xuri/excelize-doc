@@ -5,6 +5,7 @@ Options 定义了打开电子表格的选项。
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

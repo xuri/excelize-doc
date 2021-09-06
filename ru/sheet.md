@@ -391,7 +391,7 @@ for cols.Next() {
 ### Итератор столбцов - столбцы
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 Rows возвращает значения строк текущего столбца.
@@ -441,7 +441,7 @@ for rows.Next() {
 ### Итератор строк - Столбцы
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 Columns возвращают значения столбцов текущей строки.

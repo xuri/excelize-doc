@@ -395,7 +395,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 ## 獲取儲存格的值 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
@@ -403,7 +403,7 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 ## 按欄獲取全部儲存格的值 {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 根據給定的工作表名（大小寫敏感）按欄獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
@@ -427,7 +427,7 @@ for _, col := range cols {
 ## 按列獲取全部儲存格的值 {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過。
@@ -576,6 +576,42 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
 err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- 例7, 為名為 `Sheet1` 的工作表 `C2` 存儲格設定表格公式 `=SUM(Table1[[A]:[B]])`:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## 獲取公式 {#GetCellFormula}

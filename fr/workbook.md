@@ -5,6 +5,7 @@ Options définit les options de la feuille de calcul ouverte.
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

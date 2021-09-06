@@ -719,6 +719,88 @@ f.SetConditionalFormat("Sheet1", "B1:B10", `[
 
 `bar_color` - يستخدم لـ `data_bar`. مثل `min_color` ، انظر أعلاه.
 
+على سبيل المثال ، قم بتمييز أعلى وأدنى القيم في نطاق من الخلايا `A1:D4` عن طريق تعيين التنسيق الشرطي على `الورقة 1`:
+
+<p align="center"><img width="885" src="./images/condition_format_01.png" alt="عيّن التنسيق الشرطي في نطاق من الخلايا"></p>
+
+```go
+package main
+
+import (
+    "fmt"
+    "math/rand"
+
+    "github.com/xuri/excelize"
+)
+
+func main() {
+    f := excelize.NewFile()
+    f.SetSheetName("Sheet1", "ورقة1")
+    if err := f.SetSheetViewOptions("ورقة1", -1,
+        excelize.RightToLeft(true),
+    ); err != nil {
+        fmt.Println(err)
+    }
+    for r := 1; r <= 4; r++ {
+        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+        if err := f.SetSheetRow("ورقة1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+        }
+    }
+    red, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#9A0511"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#FEC7CE"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("ورقة1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "bottom",
+            "criteria": "=",
+            "value": "1",
+            "format": %d
+        }]`, red)); err != nil {
+        fmt.Println(err)
+    }
+    green, err := f.NewConditionalStyle(`{
+        "font":
+        {
+            "color": "#09600B"
+        },
+        "fill":
+        {
+            "type": "pattern",
+            "color": ["#C7EECF"],
+            "pattern": 1
+        }
+    }`)
+    if err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetConditionalFormat("ورقة1", "A1:D4", fmt.Sprintf(`[
+        {
+            "type": "top",
+            "criteria":"=",
+            "value":"1",
+            "format": %d
+        }]`, green)); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
+```
+
 ## قم بإزالة التنسيق الشرطي {#UnsetConditionalFormat}
 
 ```go

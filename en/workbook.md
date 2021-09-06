@@ -5,6 +5,7 @@ Options define the options for open spreadsheet.
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

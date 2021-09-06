@@ -390,7 +390,7 @@ for cols.Next() {
 ### مُكَرِّد عمود - الأعمدة
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 تُرجع الصفوف قيم صف الأعمدة الحالية.
@@ -440,7 +440,7 @@ for rows.Next() {
 ### مُكَرِّد الصفوف - الأعمدة
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 تُرجع الدالة Columns قيم عمود الصف الحالي.

@@ -5,6 +5,7 @@ Options 는 열려있는 스프레드 시트에 대한 옵션을 정의합니다
 ```go
 type Options struct {
     Password       string
+    RawCellValue   bool
     UnzipSizeLimit int64
 }
 ```

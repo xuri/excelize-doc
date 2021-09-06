@@ -392,7 +392,7 @@ for cols.Next() {
 ### 열 반복자 - 열
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 Rows 는 현재 열 행 값을 반환합니다.
@@ -442,7 +442,7 @@ for rows.Next() {
 ### 행 이터레이터 - 열
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 Columns 는 현재 행의 열 값을 반환합니다.

@@ -391,7 +391,7 @@ for cols.Next() {
 ### Iterador de columnas - Columnas
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 Rows devuelve los valores de fila de la columna actual.
@@ -441,7 +441,7 @@ for rows.Next() {
 ### Iterador de filas - Columnas
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 Columns devuelven los valores de columna de la fila actual.

@@ -391,7 +391,7 @@ for cols.Next() {
 ### 列イテレータ - 列
 
 ```go
-func (cols *Cols) Rows() ([]string, error)
+func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
 Rows は、現在の列の行の値を返します。
@@ -441,7 +441,7 @@ for rows.Next() {
 ### 行イテレーター - 単一行操作
 
 ```go
-func (rows *Rows) Columns() ([]string, error)
+func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
 現在行のすべての列の値を返します。

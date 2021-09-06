@@ -400,7 +400,7 @@ func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err erro
 ## الحصول على قيمة الخلية {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 يتم استرداد قيمة الخلية وفقًا لورقة العمل المحددة وإحداثيات الخلية ، ويتم تحويل قيمة الإرجاع إلى نوع `string`. إذا كان من الممكن تطبيق تنسيق الخلية على قيمة خلية ، فسيتم إرجاع القيمة المطبقة ، وإلا سيتم إرجاع القيمة الأصلية. ستكون جميع قيم الخلايا هي نفسها في النطاق المدمج.
@@ -408,7 +408,7 @@ func (f *File) GetCellValue(sheet, axis string) (string, error)
 ## الحصول على كل قيمة الخلية حسب الأعمدة {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 الحصول على قيمة جميع الخلايا حسب الأعمدة في ورقة العمل بناءً على اسم ورقة العمل المحدد (حساس لحالة الأحرف) ، والتي يتم إرجاعها كمصفوفة ثنائية الأبعاد ، حيث يتم تحويل قيمة الخلية إلى نوع `string`. إذا كان يمكن تطبيق تنسيق الخلية على قيمة الخلية ، فسيتم استخدام القيمة المطبقة ، وإلا فسيتم استخدام القيمة الأصلية.
@@ -432,7 +432,7 @@ for _, col := range cols {
 ## الحصول على كل قيمة الخلية بالصفوف {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 الحصول على قيمة جميع الخلايا حسب الصفوف في ورقة العمل بناءً على اسم ورقة العمل المحدد (حساس لحالة الأحرف) ، والتي يتم إرجاعها كمصفوفة ثنائية الأبعاد ، حيث يتم تحويل قيمة الخلية إلى نوع `string`. إذا كان يمكن تطبيق تنسيق الخلية على قيمة الخلية ، فسيتم استخدام القيمة المطبقة ، وإلا فسيتم استخدام القيمة الأصلية. جلب GetRows الصفوف ذات القيمة أو خلايا الصيغة ، وسيتم تخطي الخلية الفارغة الخلفية باستمرار.
@@ -577,11 +577,46 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 
 - مثال 6 ، قم بتعيين الصيغة المشتركة `=A1+B1` للخلايا `C1:C5` في `Sheet1` ، `C1` هي الخلية الرئيسية:
 
-
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
 err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- مثال 7 ، تعيين صيغة الجدول `=SUM(Table1[[A]:[B]])` للخلية `C2` في `Sheet1`:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## الحصول على صيغة الخلية {#GetCellFormula}

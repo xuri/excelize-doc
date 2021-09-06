@@ -395,7 +395,7 @@ GetCellRichText proporciona una función para obtener el texto enriquecido de la
 ## Obtener valor de celda {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string) (string, error)
+func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
 El valor de la celda se recupera de acuerdo con la hoja de trabajo y las coordenadas de la celda dadas, y el valor de retorno se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de una celda, se devolverá el valor aplicado; de lo contrario, se devolverá el valor original. Los valores de todas las celdas serán los mismos en un rango combinado.
@@ -403,7 +403,7 @@ El valor de la celda se recupera de acuerdo con la hoja de trabajo y las coorden
 ## Obtener todo el valor de celda por columnas {#GetCols}
 
 ```go
-func (f *File) GetCols(sheet string) ([][]string, error)
+func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
 Obtiene el valor de todas las celdas por columnas en la hoja de trabajo en función del nombre de la hoja de trabajo dada (distingue entre mayúsculas y minúsculas), devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original.
@@ -427,7 +427,7 @@ for _, col := range cols {
 ## Obtener todo el valor de celda por filas {#GetRows}
 
 ```go
-func (f *File) GetRows(sheet string) ([][]string, error)
+func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
 Obtiene el valor de todas las celdas por filas en la hoja de trabajo en función del nombre de la hoja de trabajo dada (distingue entre mayúsculas y minúsculas), devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de fórmula o valor, la cola de celda continuamente vacía se omitirá.
@@ -570,12 +570,48 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Ejemplo 6, establezca la fórmula compartida `=A1+B1` para las celdas `C1:C5` en `Sheet1`,` C1` es la celda maestra:
+- Ejemplo 6, establezca la fórmula compartida `=A1+B1` para las celdas `C1:C5` en `Sheet1`, `C1` es la celda maestra:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
 err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Ejemplo 7, establecer la fórmula de tabla `=SUM(Table1[[A]:[B]])` para la celda `C2` en `Sheet1`:
+
+```go
+package main
+
+import (
+    "fmt"
+
+    "github.com/xuri/excelize/v2"
+)
+
+func main() {
+    f := excelize.NewFile()
+    for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddTable("Sheet1", "A1", "C2",
+        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+        fmt.Println(err)
+        return
+    }
+    formulaType := excelize.STCellFormulaTypeDataTable
+    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+        excelize.FormulaOpts{Type: &formulaType}); err != nil {
+        fmt.Println(err)
+        return
+    }
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
+        fmt.Println(err)
+    }
+}
 ```
 
 ## Obtener fórmula celular {#GetCellFormula}
