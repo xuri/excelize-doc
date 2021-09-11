@@ -30,7 +30,11 @@ err := f.AddShape("Sheet1", "G6", `{
         }
     }],
     "width": 180,
-    "height": 90
+    "height": 90,
+    "line":
+    {
+        "width": 1.5
+    }
 }`)
 ```
 

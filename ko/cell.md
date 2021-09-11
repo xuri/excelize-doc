@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다. 병합 범위 내의 모든 셀의 값은 동일합니다.
 
+## 셀 유형 가져오기 {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+GetCellType 은 스프레드시트 파일에서 주어진 워크시트 이름과 축으로 셀의 데이터 유형을 가져오는 기능을 제공합니다.
+
 ## 열로 모든 셀 값 가져 오기 {#GetCols}
 
 ```go

@@ -161,3 +161,16 @@ const (
     DataValidationOperatorNotEqual
 )
 ```
+
+CellType 定义了单元格的数据类型：
+
+```go
+const (
+    CellTypeUnset CellType = iota
+    CellTypeBool
+    CellTypeDate
+    CellTypeError
+    CellTypeNumber
+    CellTypeString
+)
+```

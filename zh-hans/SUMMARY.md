@@ -81,6 +81,7 @@
   * [设置富文本格式](cell.md#SetCellRichText)
   * [获取富文本格式](cell.md#GetCellRichText)
   * [获取单元格的值](cell.md#GetCellValue)
+  * [获取单元格数据类型](cell.md#GetCellType)
   * [按列获取全部单元格的值](cell.md#GetCols)
   * [按行获取全部单元格的值](cell.md#GetRows)
   * [获取超链接](cell.md#GetCellHyperLink)

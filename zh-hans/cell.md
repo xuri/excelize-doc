@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。合并区域内所有单元格的值都相同。
 
+## 获取单元格数据类型 {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+根据给定的工作表、单元格坐标获取指定单元格的数据类型。
+
 ## 按列获取全部单元格的值 {#GetCols}
 
 ```go

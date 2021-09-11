@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben. Die Werte aller Zellen sind in einem zusammengeführten Bereich gleich.
 
+## Holen Sie sich den Zellendatentyp {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+GetCellType bietet eine Funktion zum Abrufen des Datentyps der Zelle anhand des angegebenen Arbeitsblattnamens und der Achse in der Tabellenkalkulationsdatei.
+
 ## Abrufen des gesamten Zellenwerts nach Spalten {#GetCols}
 
 ```go

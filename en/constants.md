@@ -161,3 +161,16 @@ const (
     DataValidationOperatorNotEqual
 )
 ```
+
+CellType is the type of cell value type.
+
+```go
+const (
+    CellTypeUnset CellType = iota
+    CellTypeBool
+    CellTypeDate
+    CellTypeError
+    CellTypeNumber
+    CellTypeString
+)
+```

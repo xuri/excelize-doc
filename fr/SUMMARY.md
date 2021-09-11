@@ -81,6 +81,7 @@
   * [Définir le texte riche pour la cellule](cell.md#SetCellRichText)
   * [Obtenir le texte enrichi de la cellule](cell.md#GetCellRichText)
   * [Obtenir la valeur de la cellule](cell.md#GetCellValue)
+  * [Obtenir le type de cellule](cell.md#GetCellType)
   * [Obtenir toutes les valeurs des cellules par colonnes](cell.md#GetCols)
   * [Obtenir toutes les valeurs de la cellule par des lignes](cell.md#GetRows)
   * [Obtenir un lien hypertexte](cell.md#GetCellHyperLink)

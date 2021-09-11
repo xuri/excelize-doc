@@ -81,6 +81,7 @@
   * [تعيين نص منسق للخلية](cell.md#SetCellRichText)
   * [احصل على نص منسق للخلية](cell.md#GetCellRichText)
   * [الحصول على قيمة الخلية](cell.md#GetCellValue)
+  * [احصل على نوع الخلية](cell.md#GetCellType)
   * [الحصول على كل قيمة الخلية حسب الأعمدة](cell.md#GetCols)
   * [الحصول على كل قيمة الخلية بالصفوف](cell.md#GetRows)
   * [الحصول على ارتباط تشعبي](cell.md#GetCellHyperLink)

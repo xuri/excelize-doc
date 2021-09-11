@@ -161,3 +161,16 @@ const (
     DataValidationOperatorNotEqual
 )
 ```
+
+CellType - это тип типа значения ячейки.
+
+```go
+const (
+    CellTypeUnset CellType = iota
+    CellTypeBool
+    CellTypeDate
+    CellTypeError
+    CellTypeNumber
+    CellTypeString
+)
+```

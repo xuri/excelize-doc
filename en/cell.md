@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned. All cells' values will be the same in a merged range.
 
+## Get cell type {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+GetCellType provides a function to get the cell's data type by given worksheet name and axis in spreadsheet file.
+
 ## Get all cell value by cols {#GetCols}
 
 ```go

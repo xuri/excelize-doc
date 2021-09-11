@@ -161,3 +161,16 @@ const (
     DataValidationOperatorNotEqual
 )
 ```
+
+CellType 은 셀 값 유형의 유형입니다.
+
+```go
+const (
+    CellTypeUnset CellType = iota
+    CellTypeBool
+    CellTypeDate
+    CellTypeError
+    CellTypeNumber
+    CellTypeString
+)
+```

@@ -161,3 +161,16 @@ const (
     DataValidationOperatorNotEqual
 )
 ```
+
+CellType は、セル値タイプのタイプです:
+
+```go
+const (
+    CellTypeUnset CellType = iota
+    CellTypeBool
+    CellTypeDate
+    CellTypeError
+    CellTypeNumber
+    CellTypeString
+)
+```

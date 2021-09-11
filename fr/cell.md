@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée. Les valeurs de toutes les cellules seront les mêmes dans une plage fusionnée.
 
+## Obtenir le type de cellule {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+GetCellType fournit une fonction pour obtenir le type de données de la cellule par nom de feuille de calcul et axe donnés dans un fichier de feuille de calcul.
+
 ## Obtenir toutes les valeurs des cellules par colonnes {#GetCols}
 
 ```go

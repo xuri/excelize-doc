@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
 
+## 獲取存儲格數據類型 {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+根據給定的工作表、儲存格坐標獲取指定儲存格的數據類型。
+
 ## 按欄獲取全部儲存格的值 {#GetCols}
 
 ```go

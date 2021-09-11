@@ -81,6 +81,7 @@
   * [셀에 서식있는 텍스트 설정](cell.md#SetCellRichText)
   * [서식있는 텍스트 형식 가져 오기](cell.md#GetCellRichText)
   * [셀 값 가져 오기](cell.md#GetCellValue)
+  * [셀 유형 가져오기](cell.md#GetCellType)
   * [열로 모든 셀 값 가져 오기](cell.md#GetCols)
   * [행으로 모든 셀 값 가져 오기](cell.md#GetRows)
   * [하이퍼 링크 가져 오기](cell.md#GetCellHyperLink)

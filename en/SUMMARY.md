@@ -81,6 +81,7 @@
   * [Set cell rich text](cell.md#SetCellRichText)
   * [Get cell rich text](cell.md#GetCellRichText)
   * [Get cell value](cell.md#GetCellValue)
+  * [Get cell type](cell.md#GetCellType)
   * [Get all cell value by columns](cell.md#GetCols)
   * [Get all cell value by rows](cell.md#GetRows)
   * [Get hyperlink](cell.md#GetCellHyperLink)

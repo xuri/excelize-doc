@@ -400,6 +400,14 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 
 指定されたワークシートとセルの座標に基づいてセルの値を取得すると、戻り値は `string` 型に変換されます。セルの値にセル書式を適用できる場合は、適用された値が返されます。差し込み印刷範囲内のすべてのセルの値は同じです。
 
+## セルタイプを取得します {#GetCellType}
+
+```go
+func (f *File) GetCellType(sheet, axis string) (CellType, error)
+```
+
+GetCellType は、スプレッドシートファイル内の指定されたワークシート名と軸によってセルのデータ型を取得する関数を提供します。
+
 ## 列ごとにすべてのセル値を取得する {#GetCols}
 
 ```go

@@ -81,6 +81,7 @@
   * [Festlegen von Zell-Richtext](cell.md#SetCellRichText)
   * [Holen Sie sich zellreichen Text](cell.md#GetCellRichText)
   * [Abrufen des Zellenwerts](cell.md#GetCellValue)
+  * [Holen Sie sich den Zellendatentyp](cell.md#GetCellType)
   * [Abrufen des gesamten Zellenwerts nach Spalten](cell.md#GetCols)
   * [Abrufen des gesamten Zellenwerts nach Zeilen](cell.md#GetRows)
   * [Abrufen von Hyperlinks](cell.md#GetCellHyperLink)

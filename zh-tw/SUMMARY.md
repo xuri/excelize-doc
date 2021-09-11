@@ -81,6 +81,7 @@
   * [設定富文本格式](cell.md#SetCellRichText)
   * [獲取富文本格式](cell.md#GetCellRichText)
   * [獲取儲存格的值](cell.md#GetCellValue)
+  * [獲取存儲格數據類型](cell.md#GetCellType)
   * [按欄獲取全部儲存格的值](cell.md#GetCols)
   * [按列獲取全部儲存格的值](cell.md#GetRows)
   * [獲取超鏈接](cell.md#GetCellHyperLink)
