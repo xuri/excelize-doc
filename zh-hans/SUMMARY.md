@@ -14,6 +14,7 @@
   * [打开数据流](workbook.md#OpenReader)
   * [保存](workbook.md#Save)
   * [另存为](workbook.md#SaveAs)
+  * [关闭工作簿](workbook.md#Close)
   * [新建工作表](workbook.md#NewSheet)
   * [删除工作表](workbook.md#DeleteSheet)
   * [复制工作表](workbook.md#CopySheet)

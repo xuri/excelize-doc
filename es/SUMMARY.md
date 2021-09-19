@@ -14,6 +14,7 @@
   * [Flujo de datos abiertos](workbook.md#OpenReader)
   * [Salvar](workbook.md#Save)
   * [Guardar como](workbook.md#SaveAs)
+  * [Cerrar libro de trabajo](workbook.md#Close)
   * [Crear hoja de trabajo](workbook.md#NewSheet)
   * [Eliminar hoja de trabajo](workbook.md#DeleteSheet)
   * [Copiar hoja de trabajo](workbook.md#CopySheet)

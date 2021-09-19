@@ -454,6 +454,9 @@ for _, row := range rows {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## Получить гиперссылку {#GetCellHyperLink}
@@ -695,6 +698,7 @@ CUMIPMT
 CUMPRINC
 DATE
 DATEDIF
+DATEVALUE
 DAY
 DB
 DDB
@@ -878,6 +882,10 @@ UPPER
 VAR.P
 VARP
 VLOOKUP
+WEIBULL
+WEIBULL.DIST
 XOR
 YEAR
+Z.TEST
+ZTEST
 ```

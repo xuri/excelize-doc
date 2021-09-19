@@ -436,6 +436,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 行イテレーター - 単一行操作
@@ -461,6 +464,14 @@ func (rows *Rows) Error() error
 ```
 
 エラーが発生すると、Error は `error` を返します。
+
+### 行イテレーター - 閉じる
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close は、システム一時ディレクトリで開いているワークシート XML ファイルを閉じます。
 
 ## 検索シート {#SearchSheet}
 

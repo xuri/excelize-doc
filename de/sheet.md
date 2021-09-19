@@ -412,7 +412,7 @@ func (cols *Cols) Error() error
 
 Error gibt den `error` zurück, wenn der Fehler auftritt.
 
-## Ruderiterator {#Rows}
+## Zeileniterator {#Rows}
 
 ```go
 func (f *File) Rows(sheet string) (*Rows, error)
@@ -436,9 +436,12 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
-### Ruderiterator - Säulen
+### Zeileniterator - Säulen
 
 ```go
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
@@ -446,7 +449,7 @@ func (rows *Rows) Columns(opts ...Options) ([]string, error)
 
 Spalten geben die Spaltenwerte der aktuellen Zeile zurück.
 
-### Ruderiterator - Durchqueren
+### Zeileniterator - Durchqueren
 
 ```go
 func (rows *Rows) Next() bool
@@ -454,13 +457,21 @@ func (rows *Rows) Next() bool
 
 Next gibt `true` zurück, wenn das nächste Zeilenelement gefunden wird.
 
-### Ruderiterator - Fehlerbehandlung
+### Zeileniterator - Fehlerbehandlung
 
 ```go
 func (rows *Rows) Error() error
 ```
 
 Error gibt den `error` zurück, wenn der Fehler auftritt.
+
+### Zeileniterator - Schließen
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close schließt die geöffnete Arbeitsblatt-XML-Datei im temporären Systemverzeichnis.
 
 ## Suchblatt {#SearchSheet}
 

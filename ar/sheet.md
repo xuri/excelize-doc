@@ -435,6 +435,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### مُكَرِّد الصفوف - الأعمدة
@@ -460,6 +463,14 @@ func (rows *Rows) Error() error
 ```
 
 سيعيد Error الحرف `error` عند حدوث الخطأ.
+
+### مكرر الصف - إغلاق
+
+```go
+func (rows *Rows) Close() error
+```
+
+يغلق Close ملف XML المفتوح لورقة العمل في الدليل المؤقت للنظام.
 
 ## ورقة البحث {#SearchSheet}
 

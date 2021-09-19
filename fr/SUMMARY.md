@@ -14,6 +14,7 @@
   * [Flux de données ouvert](workbook.md#OpenReader)
   * [Enregistrer](workbook.md#Save)
   * [Enregistrer sous](workbook.md#SaveAs)
+  * [Fermer le classeur](workbook.md#Close)
   * [Créer une feuille de calcul](workbook.md#NewSheet)
   * [Supprimer la feuille de calcul](workbook.md#DeleteSheet)
   * [Copier la feuille de calcul](workbook.md#CopySheet)

@@ -436,6 +436,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### Iterador de filas - Columnas
@@ -461,6 +464,14 @@ func (rows *Rows) Error() error
 ```
 
 Error devolverá el `error` cuando se produzca el error.
+
+### Iterador de filas - Cerrar
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close cierra el archivo XML de hoja de trabajo abierto en el directorio temporal del sistema.
 
 ## Hoja de búsqueda {#SearchSheet}
 

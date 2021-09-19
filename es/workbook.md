@@ -1,14 +1,23 @@
 # Libro
 
-Las opciones definen las opciones para la hoja de cálculo abierta.
+`Options` define las opciones para abrir y leer hojas de cálculo.
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` especifica la contraseña de la hoja de cálculo en texto plano.
+
+`RawCellValue` especifica si se aplica el formato de número para el valor de la celda o se obtiene el valor sin procesar.
+
+`UnzipSizeLimit` especifica el límite de tamaño de descompresión en bytes al abrir la hoja de cálculo, este valor debe ser mayor o igual que `WorksheetUnzipMemLimit`, el límite de tamaño predeterminado es 16GB.
+
+`WorksheetUnzipMemLimit` especifica el límite de memoria para descomprimir la hoja de trabajo en bytes, el XML de la hoja de trabajo se extraerá al directorio temporal del sistema cuando el tamaño del archivo supere este valor, este valor debe ser menor o igual a `UnzipSizeLimit`, el valor predeterminado es 16MB.
 
 ## Crear una hoja de cálculo {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-Tenga en cuenta que el excelize sólo es compatible con descifrar y no es compatible cifrar actualmente, la hoja de cálculo guardada por [`Save()`](workbook.md#Save) y [`SaveAs()`](workbook.md#SaveAs) estará sin una contraseña desprotegida.
-
-`UnzipSizeLimit` especificó el límite de tamaño de descompresión en bytes al abrir la hoja de cálculo, el límite de tamaño predeterminado es 16GB.
+Tenga en cuenta que el excelize sólo es compatible con descifrar y no es compatible cifrar actualmente, la hoja de cálculo guardada por [`Save()`](workbook.md#Save) y [`SaveAs()`](workbook.md#SaveAs) estará sin una contraseña desprotegida. Cierre el archivo por [`Close()`](workbook.md#Close) después de abrir la hoja de cálculo.
 
 ## Flujo de datos abiertos {#OpenReader}
 
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 SaveAs proporciona una función para crear o actualizar el archivo de hoja de cálculo en la ruta proporcionada.
+
+## Cerrar libro de trabajo {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+Close cierra y limpia el archivo temporal abierto para la hoja de cálculo.
 
 ## Crear hoja de trabajo {#NewSheet}
 

@@ -1,14 +1,23 @@
 # Arbeitsmappe
 
-Optionen definieren die Optionen für eine offene Kalkulationstabelle.
+`Options` definiert die Optionen zum Öffnen und Lesen von Tabellenkalkulationen.
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` gibt das Passwort der Tabellenkalkulation im Klartext an.
+
+`RawCellValue` gibt an, ob das Zahlenformat für den Zellenwert angewendet oder der Rohwert abgerufen wird.
+
+`UnzipSizeLimit` gibt die Entpack-Größenbeschränkung in Bytes beim Öffnen der Tabelle an. Dieser Wert sollte größer oder gleich `WorksheetUnzipMemLimit` sein, die Standardgrößenbeschränkung beträgt 16GB.
+
+`WorksheetUnzipMemLimit` gibt das Speicherlimit beim Entpacken des Arbeitsblatts in Byte an, Arbeitsblatt-XML wird in das temporäre Systemverzeichnis extrahiert, wenn die Dateigröße diesen Wert überschreitet, dieser Wert sollte kleiner oder gleich `UnzipSizeLimit` sein, der Standardwert ist 16MB.
 
 ## Erstellen einer Kalkulationstabelle {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-Beachten Sie, dass die excelize nur unterstützt entschlüsseln und nicht unterstützen Verschlüsselung derzeit, die Tabelle von [`Save()`](workbook.md#Save) und [`SaveAs()`](workbook.md#SaveAs) gespeichert wird ohne Passwort ungeschützt sein.
-
-`UnzipSizeLimit` gibt die Entpack-Größenbeschränkung in Bytes beim Öffnen der Tabelle an, die Standardgrößenbeschränkung beträgt 16GB.
+Beachten Sie, dass die excelize nur unterstützt entschlüsseln und nicht unterstützen Verschlüsselung derzeit, die Tabelle von [`Save()`](workbook.md#Save) und [`SaveAs()`](workbook.md#SaveAs) gespeichert wird ohne Passwort ungeschützt sein. Schließen Sie die Datei von [`Close()`](workbook.md#Close), nachdem Sie die Tabelle geöffnet haben.
 
 ## Offener Datenstrom {#OpenReader}
 
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 SaveAs bietet eine Funktion zum Erstellen oder Aktualisieren einer Tabellenkalkulationsdatei unter dem angegebenen Pfad.
+
+## Arbeitsmappe schließen {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+Close schließt und bereinigt die geöffnete temporäre Datei für die Kalkulationstabelle.
 
 ## Arbeitsblatt erstellen {#NewSheet}
 

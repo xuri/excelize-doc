@@ -14,6 +14,7 @@
   * [열린 데이터 스트림](workbook.md#OpenReader)
   * [저장](workbook.md#Save)
   * [다른 이름으로 저장](workbook.md#SaveAs)
+  * [통합 문서 닫기](workbook.md#Close)
   * [워크 시트 만들기](workbook.md#NewSheet)
   * [워크 시트 삭제](workbook.md#DeleteSheet)
   * [워크 시트 복사](workbook.md#CopySheet)

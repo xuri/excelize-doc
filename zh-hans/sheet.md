@@ -436,6 +436,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 行迭代器 - 单行操作
@@ -461,6 +464,14 @@ func (rows *Rows) Error() error
 ```
 
 当查找下一行出现错误时将返回 `error`。
+
+### 行迭代器 - 关闭数据流
+
+```go
+func (rows *Rows) Close() error
+```
+
+关闭数据流并清理打开工作表时可能产生的系统磁盘缓存。
 
 ## 在工作表中搜索 {#SearchSheet}
 

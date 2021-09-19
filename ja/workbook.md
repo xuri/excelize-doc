@@ -1,14 +1,23 @@
 # ワークブック
 
-Options は、開いているスプレッドシートのオプションを定義します。
+`Options` は、開いているスプレッドシートのオプションを定義します。
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` は、スプレッドシートのパスワードをプレーンテキストで指定します。
+
+`RawCellValue` は、セル値に数値形式を適用するか、生の値を取得するかを指定します。
+
+`UnzipSizeLimit` は、スプレッドシートを開いたときの解凍サイズの制限をバイト単位で指定します。この値は `WorksheetUnzipMemLimit` 以上である必要があり、デフォルトのサイズ制限は 16GB です。
+
+`WorksheetUnzipMemLimit` は、ワークシートを解凍する際のメモリ制限をバイト単位で指定します。ファイルサイズがこの値を超えると、ワークシート XML がシステム一時ディレクトリに抽出されます。この値は `UnzipSizeLimit` 以下である必要があり、デフォルト値は 16MB です。
 
 ## Excel 文書を作成する {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-現在、Excelize は復号化のみをサポートしており、暗号化はサポートしていません。[`Save()`](workbook.md#Save) および [`SaveAs()`](workbook.md#SaveAs) で保存されたスプレッドシートは、パスワードなしで保護されていません。
-
-`UnzipSizeLimit` は、スプレッドシートを開くときに解凍サイズの制限をバイト単位で指定しました。デフォルトのサイズ制限は 16GB です。
+現在、Excelize は復号化のみをサポートしており、暗号化はサポートしていません。[`Save()`](workbook.md#Save) および [`SaveAs()`](workbook.md#SaveAs) で保存されたスプレッドシートは、パスワードなしで保護されていません。スプレッドシートを開いた後、[`Close()`](workbook.md#Close) でファイルを閉じます。
 
 ## データストリームを開く {#OpenReader}
 
@@ -45,7 +52,7 @@ func OpenReader(r io.Reader, opt ...Options) (*File, error)
 
 OpenReaderは `io.Reader` からデータストリームを読み取り、入力されたスプレッドシートファイルを返します。
 
-たとえば、アップロードテンプレートを処理するHTTPサーバーを作成してから、新しいワークシートが追加された応答ダウンロードファイルを作成します:
+たとえば、アップロードテンプレートを処理する HTTP サーバーを作成してから、新しいワークシートが追加された応答ダウンロードファイルを作成します:
 
 ```go
 package main
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 指定したファイルとして Excel 文書を保存するには `SaveAs` を使います。
+
+## 閉じるワークブック {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+Close は、スプレッドシート用に開いている一時ファイルを閉じてクリーンアップします。
 
 ## ワークシートを作成する {#NewSheet}
 

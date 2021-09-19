@@ -14,6 +14,7 @@
   * [فتح دفق البيانات](workbook.md#OpenReader)
   * [حفظ](workbook.md#Save)
   * [حفظ باسم](workbook.md#SaveAs)
+  * [إغلاق المصنف](workbook.md#Close)
   * [قم بإنشاء ورقة عمل](workbook.md#NewSheet)
   * [احذف ورقة العمل](workbook.md#DeleteSheet)
   * [نسخ ورقة العمل](workbook.md#CopySheet)

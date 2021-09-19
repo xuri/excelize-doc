@@ -1,14 +1,23 @@
 # 活頁簿
 
-Options 定義了打開電子表格檔案的選項。
+`Options` 定義了打開電子表格檔案的選項。
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` 以明文形式指定打開工作簿的密碼，默認值為空。
+
+`RawCellValue` 用以指定讀取存儲格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
+
+`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以字節為單位），該值應大於或等於 `WorksheetUnzipMemLimit`，默認大小限制為 16GB。
+
+`WorksheetUnzipMemLimit` 用以指定解壓每個工作表時的內存限制（以字節為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
 ## 創建 {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-請注意，目前 Excelize 支持解密帶有密碼保護的電子表格檔案，但不支持加密，通過 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存後的電子表格檔案將不受密碼保護。
-
-`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以字節為單位），默認大小限制為 16GB。
+請注意，目前 Excelize 支持解密帶有密碼保護的電子表格檔案，但不支持加密，通過 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存後的電子表格檔案將不受密碼保護。使用 [`Close()`](workbook.md#Close) 關閉已打開的工作簿。
 
 ## 打開數據流 {#OpenReader}
 
@@ -98,7 +105,7 @@ curl: Saved to filename 'Book1.xlsx'
 func (f *File) Save() error
 ```
 
-使用 `Save` 儲存對 Excel 文檔的編輯。
+使用 `Save` 儲存對 Excel 檔案的編輯。
 
 ## 另存為 {#SaveAs}
 
@@ -106,7 +113,15 @@ func (f *File) Save() error
 func (f *File) SaveAs(name string) error
 ```
 
-使用 `SaveAs` 儲存 Excel 文檔為指定檔案。
+使用 `SaveAs` 儲存 Excel 檔案為指定檔案。
+
+## 關閉工作簿 {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+關閉工作簿並清理打開檔案時可能產生的系統磁盤緩存。
 
 ## 新建工作表 {#NewSheet}
 
@@ -806,7 +821,7 @@ func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
 AlignWithMargins | 設定頁眉頁腳頁邊距與頁邊距對齊
 DifferentFirst   | 設定第一頁頁眉和頁腳
 DifferentOddEven | 設定奇數和偶數頁頁眉和頁腳
-ScaleWithDoc     | 設定頁眉和頁腳跟隨文檔縮放
+ScaleWithDoc     | 設定頁眉和頁腳跟隨檔案縮放
 OddFooter        | 奇數頁頁腳控制字符
 OddHeader        | 奇數頁頁眉控制字符
 EvenFooter       | 偶數頁頁腳控制字符
@@ -1019,17 +1034,17 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 屬性           | 描述
 ---|---
-Title          | 文檔標題
-Subject        | 文檔主題
+Title          | 檔案標題
+Subject        | 檔案主題
 Creator        | 創作者
-Keywords       | 文檔關鍵詞
+Keywords       | 檔案關鍵詞
 Description    | 資源內容的說明
 LastModifiedBy | 執行上次修改的用戶
-Language       | 文檔內容的主要語言
+Language       | 檔案內容的主要語言
 Identifier     | 對給定上下文中的資源的明確引用
-Revision       | 文檔修訂版本
-ContentStatus  | 文檔內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
-Category       | 文檔內容的分類
+Revision       | 檔案修訂版本
+ContentStatus  | 檔案內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
+Category       | 檔案內容的分類
 Version        | 版本號，該值由用戶或應用程式設定
 
 例如：

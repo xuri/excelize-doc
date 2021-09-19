@@ -436,6 +436,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### Row iterator - Columns
@@ -461,6 +464,14 @@ func (rows *Rows) Error() error
 ```
 
 Error will return the `error` when the error occurs.
+
+### Row iterator - Close
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close closes the open worksheet XML file in the system temporary directory.
 
 ## Search Sheet {#SearchSheet}
 

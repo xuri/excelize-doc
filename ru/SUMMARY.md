@@ -14,6 +14,7 @@
   * [Сохранить](workbook.md#Save)
   * [Открытый поток данных](workbook.md#OpenReader)
   * [Сохранить как](workbook.md#SaveAs)
+  * [Закрыть книгу](workbook.md#Close)
   * [Создать рабочий лист](workbook.md#NewSheet)
   * [Удалить рабочий лист](workbook.md#DeleteSheet)
   * [Лист копирования](workbook.md#CopySheet)

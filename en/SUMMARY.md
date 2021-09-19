@@ -14,6 +14,7 @@
   * [Open data stream](workbook.md#OpenReader)
   * [Save](workbook.md#Save)
   * [Save as](workbook.md#SaveAs)
+  * [Close workbook](workbook.md#Close)
   * [Create worksheet](workbook.md#NewSheet)
   * [Delete worksheet](workbook.md#DeleteSheet)
   * [Copy worksheet](workbook.md#CopySheet)

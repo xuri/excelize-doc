@@ -1,14 +1,23 @@
 # 工作簿
 
-Options 定义了打开电子表格的选项。
+`Options` 定义了打开电子表格的选项。
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` 以明文形式指定打开工作簿的密码，默认值为空。
+
+`RawCellValue` 用以指定读取单元格值时是否获取原始值，默认值为 `false`（应用数字格式）。
+
+`UnzipSizeLimit` 用以指定打开电子表格文档时的解压缩大小限制（以字节为单位），该值应大于或等于 `WorksheetUnzipMemLimit`，默认大小限制为 16GB。
+
+`WorksheetUnzipMemLimit` 用以指定解压每个工作表时的内存限制（以字节为单位），当大小超过此值时工作表 XML 文件将被解压至系统临时目录，该值应小于或等于 `UnzipSizeLimit`，默认大小限制为 16MB。
 
 ## 创建 {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-请注意，目前 Excelize 支持解密带有密码保护的电子表格文档，但不支持加密，通过 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存后的电子表格文档将不受密码保护。
-
-`UnzipSizeLimit` 用以指定打开电子表格文档时的解压缩大小限制（以字节为单位），默认大小限制为 16GB。
+请注意，目前 Excelize 支持解密带有密码保护的电子表格文档，但不支持加密，通过 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存后的电子表格文档将不受密码保护。使用 [`Close()`](workbook.md#Close) 关闭已打开的工作簿。
 
 ## 打开数据流 {#OpenReader}
 
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 使用 `SaveAs` 保存 Excel 文档为指定文件。
+
+## 关闭工作簿 {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+关闭工作簿并清理打开文档时可能产生的系统磁盘缓存。
 
 ## 新建工作表 {#NewSheet}
 

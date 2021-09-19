@@ -437,6 +437,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### 행 이터레이터 - 열
@@ -462,6 +465,14 @@ func (rows *Rows) Error() error
 ```
 
 Error 는 오류가 발생하면 `error` 를 반환합니다.
+
+### 행 이터레이터 - 닫다
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close 는 시스템 임시 디렉토리에서 열려 있는 워크시트 XML 파일을 닫습니다.
 
 ## 검색 시트 {#SearchSheet}
 

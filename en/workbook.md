@@ -1,14 +1,23 @@
 # Workbook
 
-Options define the options for open spreadsheet.
+`Options` defines the options for open and reading spreadsheets.
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` specifies the password of the spreadsheet in plain text.
+
+`RawCellValue` specifies if apply the number format for the cell value or get the raw value.
+
+`UnzipSizeLimit` specifies the unzip size limit in bytes on open the spreadsheet, this value should be greater than or equal to `WorksheetUnzipMemLimit`, the default size limit is 16GB.
+
+`WorksheetUnzipMemLimit` specifies the memory limit on unzipping worksheet in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `UnzipSizeLimit`, the default value is 16MB.
 
 ## Create Excel document {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-Note that the excelize just support decrypt and not support encrypt currently, the spreadsheet saved by [`Save()`](workbook.md#Save) and [`SaveAs()`](workbook.md#SaveAs) will be without password unprotected.
-
-`UnzipSizeLimit` specified the unzip size limit in bytes on open the spreadsheet, the default size limit is 16GB.
+Note that the excelize just support decrypt and not support encrypt currently, the spreadsheet saved by [`Save()`](workbook.md#Save) and [`SaveAs()`](workbook.md#SaveAs) will be without password unprotected. Close the file by [`Close()`](workbook.md#Close) after opening the spreadsheet.
 
 ## Open data stream {#OpenReader}
 
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 SaveAs provides a function to create or update the spreadsheet file at the provided path.
+
+## Close workbook {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+Close closes and cleanup the open temporary file for the spreadsheet.
 
 ## Create worksheet {#NewSheet}
 

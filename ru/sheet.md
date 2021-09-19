@@ -436,6 +436,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### Итератор строк - Столбцы
@@ -461,6 +464,14 @@ func (rows *Rows) Error() error
 ```
 
 Error вернет `error` при возникновении ошибки.
+
+### Итератор строк - Закрывать
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close закрывает открытый XML-файл рабочего листа во временном каталоге системы.
 
 ## Поиск на листе {#SearchSheet}
 

@@ -1,14 +1,23 @@
 # Classeur
 
-Options définit les options de la feuille de calcul ouverte.
+`Options` définit les options d'ouverture et de lecture des feuilles de calcul.
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` spécifie le mot de passe de la feuille de calcul en texte brut.
+
+`RawCellValue` spécifie si appliquer le format numérique pour la valeur de la cellule ou obtenir la valeur brute.
+
+`UnzipSizeLimit` spécifie la taille limite de décompression en octets à l'ouverture de la feuille de calcul, cette valeur doit être supérieure ou égale à `WorksheetUnzipMemLimit`, la taille limite par défaut est de 16Go.
+
+`WorksheetUnzipMemLimit` spécifie la limite de mémoire pour décompresser la feuille de calcul en octets, la feuille de calcul XML sera extraite dans le répertoire temporaire du système lorsque la taille du fichier dépasse cette valeur, cette valeur doit être inférieure ou égale à `UnzipSizeLimit`, la valeur par défaut est 16Mo.
 
 ## Créer un document Excel {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-Notez que Excelize ne prend en charge que le déchiffrement et ne prend pas en charge le chiffrement actuellement, la feuille de calcul enregistrée par [`Save()`](workbook.md#Save) et [`SaveAs()`](workbook.md#SaveAs) sera sans mot de passe non protégée.
-
-`UnzipSizeLimit` a spécifié la taille limite de décompression en octets à l'ouverture de la feuille de calcul, la taille limite par défaut est de 16GB.
+Notez que Excelize ne prend en charge que le déchiffrement et ne prend pas en charge le chiffrement actuellement, la feuille de calcul enregistrée par [`Save()`](workbook.md#Save) et [`SaveAs()`](workbook.md#SaveAs) sera sans mot de passe non protégée. Fermez le fichier par [`Close()`](workbook.md#Close) après avoir ouvert la feuille de calcul.
 
 ## Flux de données ouvert {#OpenReader}
 
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 SaveAs fournit une fonction pour créer ou mettre à jour un fichier xlsx sur le chemin fourni.
+
+## Fermer le classeur {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+Close ferme et nettoie le fichier temporaire ouvert pour la feuille de calcul.
 
 ## Créer une feuille de calcul {#NewSheet}
 

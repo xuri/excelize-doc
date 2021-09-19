@@ -14,6 +14,7 @@
   * [データストリームを開く](workbook.md#OpenReader)
   * [保存](workbook.md#Save)
   * [名前を付けて保存](workbook.md#SaveAs)
+  * [閉じるワークブック](workbook.md#Close)
   * [ワークシートを作成する](workbook.md#NewSheet)
   * [ワークシートを削除する](workbook.md#DeleteSheet)
   * [ワークシートをコピーする](workbook.md#CopySheet)

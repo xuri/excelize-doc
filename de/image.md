@@ -53,6 +53,9 @@ func main() {
     if err = f.Save(); err != nil {
         fmt.Println(err)
     }
+    if err = f.Close(); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 

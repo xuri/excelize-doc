@@ -1,14 +1,23 @@
 # 통합 문서
 
-Options 는 열려있는 스프레드 시트에 대한 옵션을 정의합니다.
+`Options` 는 열려있는 스프레드 시트에 대한 옵션을 정의합니다.
 
 ```go
 type Options struct {
-    Password       string
-    RawCellValue   bool
-    UnzipSizeLimit int64
+    Password               string
+    RawCellValue           bool
+    UnzipSizeLimit         int64
+    WorksheetUnzipMemLimit int64
 }
 ```
+
+`Password` 는 스프레드시트의 비밀번호를 일반 텍스트로 지정합니다.
+
+`RawCellValue` 는 셀 값에 숫자 형식을 적용할지 아니면 원시 값을 가져올지 지정합니다.
+
+`UnzipSizeLimit` 은 스프레드시트를 열 때 압축 해제 크기 제한을 바이트 단위로 지정합니다. 이 값은 `WorksheetUnzipMemLimit` 이상이어야 하며 기본 크기 제한은 16GB 입니다.
+
+`WorksheetUnzipMemLimit` 은 워크시트 압축 해제 시 메모리 제한을 바이트 단위로 지정합니다. 파일 크기가 이 값을 초과하면 워크시트 XML 이 시스템 임시 디렉토리로 추출됩니다. 이 값은 `UnzipSizeLimit` 보다 작거나 같아야 하며 기본값은 16MB 입니다.
 
 ## Excel 문서 만들기 {#NewFile}
 
@@ -33,9 +42,7 @@ if err != nil {
 }
 ```
 
-Excelize 는 현재 암호화를 지원하지 않고 해독 만 지원하므로 [`Save()`](workbook.md#Save) 및 [`SaveAs()`](workbook.md#SaveAs) 로 저장된 스프레드 시트는 보호되지 않은 암호가 없습니다.
-
-`UnzipSizeLimit` 은 스프레드시트를 열 때 압축 해제 크기 제한을 바이트 단위로 지정했으며 기본 크기 제한은 16GB 입니다.
+Excelize 는 현재 암호화를 지원하지 않고 해독 만 지원하므로 [`Save()`](workbook.md#Save) 및 [`SaveAs()`](workbook.md#SaveAs) 로 저장된 스프레드 시트는 보호되지 않은 암호가 없습니다. 스프레드시트를 연 후 [`Close()`](workbook.md#Close) 로 파일을 닫습니다.
 
 ## 열린 데이터 스트림 {#OpenReader}
 
@@ -107,6 +114,14 @@ func (f *File) SaveAs(name string) error
 ```
 
 Excel 문서를 지정 된 파일로 저장 하려면 `SaveAs` 를 사용 하십시오.
+
+## 통합 문서 닫기 {#Close}
+
+```go
+func (f *File) Close() error
+```
+
+Close 는 스프레드시트에 대해 열려 있는 임시 파일을 닫고 정리합니다.
 
 ## 워크 시트 만들기 {#NewSheet}
 

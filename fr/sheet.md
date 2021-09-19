@@ -410,7 +410,7 @@ Next retournera `true` si la colonne suivante est trouvée.
 func (cols *Cols) Error() error
 ```
 
-Error renverra l '`error` lorsque l'erreur se produit.
+Error renverra le `error` lorsque l'erreur se produit.
 
 ## Row itérateur {#Rows}
 
@@ -436,6 +436,9 @@ for rows.Next() {
     }
     fmt.Println()
 }
+if err = rows.Close(); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ### Row itérateur - Colonnes
@@ -460,7 +463,15 @@ Next retournera `true` si trouver l'élément de ligne suivant.
 func (rows *Rows) Error() error
 ```
 
-Error renverra l '`error` lorsque l'erreur se produit.
+Error renverra le `error` lorsque l'erreur se produit.
+
+### Row itérateur - Fermer
+
+```go
+func (rows *Rows) Close() error
+```
+
+Close ferme le fichier XML de feuille de calcul ouvert dans le répertoire temporaire du système.
 
 ## Rechercher dans la fiche de calcul {#SearchSheet}
 
