@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts 在 StreamWriter.SetRow 中使用，用於設定列樣式。
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## 獲取流式寫入器 {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+流式設置存儲格的值和列樣式：
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## 按行流式寫入工作表 {#SetRow}

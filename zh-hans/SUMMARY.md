@@ -205,6 +205,7 @@
   * [日历](example/calendar.md)
   * [级联列表](example/dependentDropList.md)
 * [常量](constants.md)
+* [变量](variables.md)
 * [性能数据](performance.md)
 * [参与贡献](contribution.md)
 * 版本历史

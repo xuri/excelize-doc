@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts definieren die Optionen für die eingestellte Zeile, sie kann direkt in StreamWriter.SetRow verwendet werden, um den Stil und die Eigenschaften der Zeile anzugeben.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## Stream-Writer abrufen {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+Legen Sie den Zellenwert und den Zeilenstil für ein Arbeitsblatt mit Stream Writer fest:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## Schreiben der Zulaufzeile {#SetRow}

@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts define the options for the set row, it can be used directly in StreamWriter.SetRow to specify the style and properties of the row.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## Get stream writer {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+Set cell value and rows style for a worksheet with stream writer:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## Write sheet row to stream {#SetRow}

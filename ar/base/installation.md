@@ -92,6 +92,9 @@ func main() {
         }
         fmt.Println()
     }
+    if err = f.Close(); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 

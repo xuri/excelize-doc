@@ -205,6 +205,7 @@
   * [التقويم](example/calendar.md)
   * [قائمة المنسدلة التابعة](example/dependentDropList.md)
 * [الثوابت](constants.md)
+* [المتغيرات](variables.md)
 * [أداء](performance.md)
 * [إسهام](contribution.md)
 * الإصدارات الصادرة

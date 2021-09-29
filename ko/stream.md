@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts 는 집합 행에 대한 옵션을 정의하며 StreamWriter.SetRow 에서 직접 사용하여 행의 스타일과 속성을 지정할 수 있습니다.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## 스트림 라이터 받기 {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+스트림 작성기를 사용하여 워크시트의 셀 값 및 행 스타일 설정:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## 스트리밍 할 시트 행 쓰기 {#SetRow}

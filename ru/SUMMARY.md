@@ -205,6 +205,7 @@
   * [Календарь](example/calendar.md)
   * [Зависимый выпадающий список](example/dependentDropList.md)
 * [Константы](constants.md)
+* [Переменные](variables.md)
 * [Производительность](performance.md)
 * [Вклад](contribution.md)
 * Выпущенные версии

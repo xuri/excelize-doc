@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+تحدد RowOpts خيارات الصف المحدد ، ويمكن استخدامها مباشرة في StreamWriter.SetRow لتحديد نمط الصف وخصائصه.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## الحصول على دفق الكاتب {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+تعيين قيمة الخلية ونمط الصفوف لورقة عمل باستخدام كاتب الدفق:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## كتابة صف ورقة إلى الدفق {#SetRow}

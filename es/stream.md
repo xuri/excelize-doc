@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts define las opciones para la fila establecida, se puede usar directamente en StreamWriter.SetRow para especificar el estilo y las propiedades de la fila.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## Obtener escritor de flujo {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+Establezca el valor de celda y el estilo de las filas para una hoja de trabajo con el escritor de flujo:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## Escribir fila de hoja para transmitir {#SetRow}

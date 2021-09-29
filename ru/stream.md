@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts определяет параметры для установленной строки, его можно использовать непосредственно в StreamWriter.SetRow для указания стиля и свойств строки.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## Получить потокового писателя {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+Задайте значение ячейки и стиль строк для рабочего листа с помощью средства записи потока:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## Запись строки листа в поток {#SetRow}

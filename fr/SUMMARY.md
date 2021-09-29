@@ -205,6 +205,7 @@
   * [Calendrier](example/calendar.md)
   * [Liste de dépôt dépendante](example/dependentDropList.md)
 * [Constantes](constants.md)
+* [Variables](variables.md)
 * [Performance](performance.md)
 * [Contribution](contribution.md)
 * Versions publiées

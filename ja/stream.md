@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts は、設定された行のオプションを定義します。StreamWriter.SetRow で直接使用して、行のスタイルとプロパティを指定できます。
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## ストリームライターを取得する {#NewStreamWriter}
 
 ```go
@@ -61,13 +71,21 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 }
 ```
 
-ストリームライターを使用してワークシートのセル値とセル数式を設定します。
+ストリームライターを使用してワークシートのセル値とセル数式を設定します:
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+ストリームライターを使用してワークシートのセル値と行スタイルを設定します:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## ストリームにシート行を書き込む {#SetRow}

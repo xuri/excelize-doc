@@ -21,6 +21,16 @@ type Cell struct {
 }
 ```
 
+RowOpts définit les options de la ligne définie, il peut être utilisé directement dans StreamWriter.SetRow pour spécifier le style et les propriétés de la ligne.
+
+```go
+type RowOpts struct {
+    Height  float64
+    Hidden  bool
+    StyleID int
+}
+```
+
 ## Obtenez le flux écrivain {#NewStreamWriter}
 
 ```go
@@ -68,6 +78,14 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}});
+```
+
+Définissez la valeur de la cellule et le style des lignes d'une feuille de calcul avec le rédacteur de flux:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
 ```
 
 ## Écrire la ligne de feuille au flux {#SetRow}

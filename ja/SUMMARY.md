@@ -205,6 +205,7 @@
   * [カレンダー](example/calendar.md)
   * [依存ドロップリスト](example/dependentDropList.md)
 * [定数](constants.md)
+* [変数](variables.md)
 * [パフォーマンスデータ](performance.md)
 * [参加貢献](contribution.md)
 * バージョン履歴
