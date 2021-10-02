@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## グループワークシート {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets は、指定されたワークシート名でワークシートをグループ化する機能を提供します。 グループワークシートには、アクティブなワークシートが含まれている必要があります。
+
+## ワークシートのグループ化を解除する {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets は、ワークシートのグループ化を解除する機能を提供します。
+
 ## ワークシートの背景 {#SetSheetBackground}
 
 ```go

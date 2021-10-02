@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## أوراق عمل المجموعة {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+توفر GroupSheets وظيفة لتجميع أوراق العمل حسب اسم أوراق العمل المحدد. يجب أن تحتوي أوراق العمل الجماعية على ورقة عمل نشطة.
+
+## فك تجميع أوراق العمل {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+توفر UngroupSheets وظيفة لفك تجميع أوراق العمل.
+
 ## تعيين خلفية ورقة العمل {#SetSheetBackground}
 
 ```go

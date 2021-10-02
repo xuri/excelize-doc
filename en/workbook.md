@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## Group worksheets {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets provides a function to group worksheets by given worksheets names. Group worksheets must contain an active worksheet.
+
+## Ungroup worksheets {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets provides a function to ungroup worksheets.
+
 ## Set worksheet background {#SetSheetBackground}
 
 ```go

@@ -18,6 +18,8 @@
   * [Создать рабочий лист](workbook.md#NewSheet)
   * [Удалить рабочий лист](workbook.md#DeleteSheet)
   * [Лист копирования](workbook.md#CopySheet)
+  * [Рабочие листы группы](workbook.md#GroupSheets)
+  * [Разгруппировать листы](workbook.md#UngroupSheets)
   * [Фон рабочего листа](workbook.md#SetSheetBackground)
   * [Установить рабочий лист по умолчанию](workbook.md#SetActiveSheet)
   * [Получить активный индекс листа](workbook.md#GetActiveSheetIndex)

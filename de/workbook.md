@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## Gruppenarbeitsblätter {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets bietet eine Funktion zum Gruppieren von Arbeitsblättern nach bestimmten Arbeitsblattnamen. Gruppenarbeitsblätter müssen ein aktives Arbeitsblatt enthalten.
+
+## Gruppierung von Arbeitsblättern aufheben {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets bietet eine Funktion zum Aufheben der Gruppierung von Arbeitsblättern.
+
 ## Festlegen des Arbeitsblatthintergrunds {#SetSheetBackground}
 
 ```go

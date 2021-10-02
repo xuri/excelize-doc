@@ -18,6 +18,8 @@
   * [Créer une feuille de calcul](workbook.md#NewSheet)
   * [Supprimer la feuille de calcul](workbook.md#DeleteSheet)
   * [Copier la feuille de calcul](workbook.md#CopySheet)
+  * [Feuilles de travail de groupe](workbook.md#GroupSheets)
+  * [Dissocier les feuilles de calcul](workbook.md#UngroupSheets)
   * [Arrière-plan de la feuille de travail](workbook.md#SetSheetBackground)
   * [Définir la feuille de calcul par défaut](workbook.md#SetActiveSheet)
   * [Obtenir l'index de feuille actif](workbook.md#GetActiveSheetIndex)

@@ -18,6 +18,8 @@
   * [قم بإنشاء ورقة عمل](workbook.md#NewSheet)
   * [احذف ورقة العمل](workbook.md#DeleteSheet)
   * [نسخ ورقة العمل](workbook.md#CopySheet)
+  * [أوراق عمل المجموعة](workbook.md#GroupSheets)
+  * [فك تجميع أوراق العمل](workbook.md#UngroupSheets)
   * [تعيين خلفية ورقة العمل](workbook.md#SetSheetBackground)
   * [تعيين ورقة العمل الافتراضية](workbook.md#SetActiveSheet)
   * [احصل على فهرس الورقة النشط](workbook.md#GetActiveSheetIndex)

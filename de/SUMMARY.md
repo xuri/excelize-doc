@@ -18,6 +18,8 @@
   * [Arbeitsblatt erstellen](workbook.md#NewSheet)
   * [Arbeitsblatt löschen](workbook.md#DeleteSheet)
   * [Arbeitsblatt kopieren](workbook.md#CopySheet)
+  * [Gruppenarbeitsblätter](workbook.md#GroupSheets)
+  * [Gruppierung von Arbeitsblättern aufheben](workbook.md#UngroupSheets)
   * [Festlegen des Arbeitsblatthintergrunds](workbook.md#SetSheetBackground)
   * [Festlegen eines Standardarbeitsblatts](workbook.md#SetActiveSheet)
   * [Aktives Blattindex abrufen](workbook.md#GetActiveSheetIndex)

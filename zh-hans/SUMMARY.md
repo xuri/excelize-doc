@@ -18,6 +18,8 @@
   * [新建工作表](workbook.md#NewSheet)
   * [删除工作表](workbook.md#DeleteSheet)
   * [复制工作表](workbook.md#CopySheet)
+  * [工作表分组](workbook.md#GroupSheets)
+  * [取消工作表分组](workbook.md#UngroupSheets)
   * [设置工作表背景图片](workbook.md#SetSheetBackground)
   * [设置默认工作表](workbook.md#SetActiveSheet)
   * [获取默认工作表索引](workbook.md#GetActiveSheetIndex)

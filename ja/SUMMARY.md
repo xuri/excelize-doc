@@ -18,6 +18,8 @@
   * [ワークシートを作成する](workbook.md#NewSheet)
   * [ワークシートを削除する](workbook.md#DeleteSheet)
   * [ワークシートをコピーする](workbook.md#CopySheet)
+  * [グループワークシート](workbook.md#GroupSheets)
+  * [ワークシートのグループ化を解除する](workbook.md#UngroupSheets)
   * [ワークシートの背景](workbook.md#SetSheetBackground)
   * [デフォルトワークシートを設定する](workbook.md#SetActiveSheet)
   * [アクティブシートインデックスを取得する](workbook.md#GetActiveSheetIndex)

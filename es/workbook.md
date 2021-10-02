@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## Hojas de trabajo grupales {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets proporciona una función para agrupar hojas de trabajo por nombres de hojas de trabajo dados. Las hojas de trabajo grupales deben contener una hoja de trabajo activa.
+
+## Desagrupar hojas de trabajo {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets proporciona una función para desagrupar hojas de trabajo.
+
 ## Establecer el fondo de la hoja de trabajo {#SetSheetBackground}
 
 ```go

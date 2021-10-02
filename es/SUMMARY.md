@@ -18,6 +18,8 @@
   * [Crear hoja de trabajo](workbook.md#NewSheet)
   * [Eliminar hoja de trabajo](workbook.md#DeleteSheet)
   * [Copiar hoja de trabajo](workbook.md#CopySheet)
+  * [Hojas de trabajo grupales](workbook.md#GroupSheets)
+  * [Desagrupar hojas de trabajo](workbook.md#UngroupSheets)
   * [Establecer el fondo de la hoja de trabajo](workbook.md#SetSheetBackground)
   * [Establecer la hoja de trabajo predeterminada](workbook.md#SetActiveSheet)
   * [Obtener índice de hoja activo](workbook.md#GetActiveSheetIndex)

@@ -18,6 +18,8 @@
   * [Create worksheet](workbook.md#NewSheet)
   * [Delete worksheet](workbook.md#DeleteSheet)
   * [Copy worksheet](workbook.md#CopySheet)
+  * [Group worksheets](workbook.md#GroupSheets)
+  * [Ungroup worksheets](workbook.md#UngroupSheets)
   * [Set worksheet background](workbook.md#SetSheetBackground)
   * [Set default worksheet](workbook.md#SetActiveSheet)
   * [Get active sheet index](workbook.md#GetActiveSheetIndex)

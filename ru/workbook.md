@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## Рабочие листы группы {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets предоставляет функцию для группировки листов по заданным именам листов. Рабочие листы групп должны содержать активный рабочий лист.
+
+## Разгруппировать листы {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets предоставляет функцию для разгруппировки листов.
+
 ## Фон рабочего листа {#SetSheetBackground}
 
 ```go

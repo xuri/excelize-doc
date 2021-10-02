@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## 工作表分组 {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+根据给定的工作表名称对工作表进行分组，给定的工作表中需包含默认工作表。
+
+## 取消工作表分组 {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+取消工作表分组。
+
 ## 设置工作表背景图片 {#SetSheetBackground}
 
 ```go

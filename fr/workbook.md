@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## Feuilles de travail de groupe {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets fournit une fonction pour regrouper les feuilles de calcul par noms de feuilles de calcul donnés. Les feuilles de travail de groupe doivent contenir une feuille de travail active.
+
+## Dissocier les feuilles de calcul {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets fournit une fonction pour dissocier les feuilles de calcul.
+
 ## Arrière-plan de la feuille de travail {#SetSheetBackground}
 
 ```go

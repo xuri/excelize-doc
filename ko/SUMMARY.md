@@ -18,6 +18,8 @@
   * [워크 시트 만들기](workbook.md#NewSheet)
   * [워크 시트 삭제](workbook.md#DeleteSheet)
   * [워크 시트 복사](workbook.md#CopySheet)
+  * [그룹 워크시트](workbook.md#GroupSheets)
+  * [워크시트 그룹 해제](workbook.md#UngroupSheets)
   * [워크 시트 배경](workbook.md#SetSheetBackground)
   * [기본 워크 시트 설정](workbook.md#SetActiveSheet)
   * [활성 시트 색인 가져 오기](workbook.md#GetActiveSheetIndex)

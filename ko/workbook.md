@@ -154,6 +154,22 @@ err := f.CopySheet(1, index)
 return err
 ```
 
+## 그룹 워크시트 {#GroupSheets}
+
+```go
+func (f *File) GroupSheets(sheets []string) error
+```
+
+GroupSheets 는 주어진 워크시트 이름으로 워크시트를 그룹화하는 기능을 제공합니다. 그룹 워크시트에는 활성 워크시트가 있어야 합니다.
+
+## 워크시트 그룹 해제 {#UngroupSheets}
+
+```go
+func (f *File) UngroupSheets() error
+```
+
+UngroupSheets 는 워크시트를 그룹 해제하는 기능을 제공합니다.
+
 ## 워크 시트 배경 {#SetSheetBackground}
 
 ```go
