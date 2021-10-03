@@ -2,87 +2,90 @@
 
 ```go
 var (
-    // ErrStreamSetColWidth defined the error message on set column width in
-    // stream writing mode.
+    // ErrStreamSetColWidth определяет сообщение об ошибке при установке
+    // ширины столбца в режиме записи потока.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrColumnNumber defined the error message on receive an invalid column
-    // number.
+    // ErrColumnNumber определил сообщение об ошибке при получении
+    // недопустимого номера столбца.
     ErrColumnNumber = errors.New("column number exceeds maximum limit")
-    // ErrColumnWidth defined the error message on receive an invalid column
-    // width.
+    // ErrColumnWidth определяет сообщение об ошибке при получении
+    // недопустимой ширины столбца.
     ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
-    // ErrOutlineLevel defined the error message on receive an invalid outline
-    // level number.
+    // ErrOutlineLevel определил сообщение об ошибке при получении
+    // недопустимого номера уровня структуры.
     ErrOutlineLevel = errors.New("invalid outline level")
-    // ErrCoordinates defined the error message on invalid coordinates tuples
-    // length.
+    // ErrCoordinates определила сообщение об ошибке при недопустимой длине
+    // кортежей координат.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet defined the error message on given worksheet already
-    // exists.
+    // ErrExistsWorksheet определил сообщение об ошибке на заданном листе,
+    // который уже существует.
     ErrExistsWorksheet = errors.New("the same name worksheet already exists")
-    // ErrTotalSheetHyperlinks defined the error message on hyperlinks count
-    // overflow.
+    // ErrTotalSheetHyperlinks определил сообщение об ошибке при переполнении
+    // счетчика гиперссылок.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
-    // ErrInvalidFormula defined the error message on receive an invalid
-    // formula.
+    // ErrInvalidFormula определил сообщение об ошибке при получении
+    // недопустимой формулы.
     ErrInvalidFormula = errors.New("formula not valid")
-    // ErrAddVBAProject defined the error message on add the VBA project in
-    // the workbook.
+    // ErrAddVBAProject определил сообщение об ошибке при добавлении проекта
+    // VBA в книгу.
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
-    // ErrMaxRows defined the error message on receive a row number exceeds maximum limit.
+    // ErrMaxRows определил сообщение об ошибке при получении номера строки,
+    // превышающей максимальный предел.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
-    // ErrMaxRowHeight defined the error message on receive an invalid row
-    // height.
+    // ErrMaxRowHeight определил сообщение об ошибке при получении
+    // недопустимой высоты строки.
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
-    // ErrImgExt defined the error message on receive an unsupported image
-    // extension.
+    // ErrImgExt определил сообщение об ошибке при получении неподдерживаемого
+    // расширения изображения.
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrMaxFileNameLength defined the error message on receive the file name
-    // length overflow.
+    // ErrMaxFileNameLength определяет сообщение об ошибке при получении
+    // переполнения длины имени файла.
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
-    // ErrEncrypt defined the error message on encryption spreadsheet.
+    // ErrEncrypt определил сообщение об ошибке в электронной таблице
+    // шифрования.
     ErrEncrypt = errors.New("not support encryption currently")
-    // ErrUnknownEncryptMechanism defined the error message on unsupport
-    // encryption mechanism.
+    // ErrUnknownEncryptMechanism определил сообщение об ошибке для
+    // неподдерживаемого механизма шифрования.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism defined the error message on unsupport
-    // encryption mechanism.
+    // ErrUnsupportEncryptMechanism определил сообщение об ошибке для
+    // неподдерживаемого механизма шифрования.
     ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
-    // ErrParameterRequired defined the error message on receive the empty
-    // parameter.
+    // ErrParameterRequired определяет сообщение об ошибке при получении
+    // пустого параметра.
     ErrParameterRequired = errors.New("parameter is required")
-    // ErrParameterInvalid defined the error message on receive the invalid
-    // parameter.
+    // ErrParameterInvalid определяет сообщение об ошибке при получении
+    // недопустимого параметра.
     ErrParameterInvalid = errors.New("parameter is invalid")
-    // ErrDefinedNameScope defined the error message on not found defined name
-    // in the given scope.
+    // ErrDefinedNameScope определил сообщение об ошибке для не найденного
+    // определенного имени в данной области.
     ErrDefinedNameScope = errors.New("no defined name on the scope")
-    // ErrDefinedNameduplicate defined the error message on the same name
-    // already exists on the scope.
-    ErrDefinedNameduplicate = errors.New("the same name already exists on the scope")
-    // ErrCustomNumFmt defined the error message on receive the empty custom number format.
+    // ErrDefinedNameDuplicate определил сообщение об ошибке с тем же именем,
+    // которое уже существует в области.
+    ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
+    // ErrCustomNumFmt определил сообщение об ошибке при получении пустого
+    // пользовательского числового формата.
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
-    // ErrFontLength defined the error message on the length of the font
-    // family name overflow.
+    // ErrFontLength определил сообщение об ошибке о длине переполнения имени
+    // семейства шрифтов.
     ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
-    // ErrFontSize defined the error message on the size of the font is invalid.
+    // ErrFontSize определил сообщение об ошибке о недопустимом размере шрифта.
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
-    // ErrSheetIdx defined the error message on receive the invalid worksheet
-    // index.
+    // ErrSheetIdx определил сообщение об ошибке при получении недопустимого
+    // индекса рабочего листа.
     ErrSheetIdx = errors.New("invalid worksheet index")
-    // ErrGroupSheets defined the error message on group sheets.
+    // ErrGroupSheets определила сообщение об ошибке на групповых листах.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth defined the error message for receiving a
-    // data validation formula length that exceeds the limit.
+    // ErrDataValidationFormulaLenth определил сообщение об ошибке для
+    // получения длины формулы проверки данных, превышающей лимит.
     ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
-    // ErrDataValidationRange defined the error message on set decimal range
-    // exceeds limit.
+    // ErrDataValidationRange определил, что сообщение об ошибке в заданном
+    // десятичном диапазоне превышает предел.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
-    // ErrCellCharsLength defined the error message for receiving a cell
-    // characters length that exceeds the limit.
+    // ErrCellCharsLength определил сообщение об ошибке для получения длины
+    // символа ячейки, превышающей лимит.
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
-    // ErrOptionsUnzipSizeLimit defined the error message for receiving
-    // invalid UnzipSizeLimit and WorksheetUnzipMemLimit.
+    // ErrOptionsUnzipSizeLimit определяет значение ошибки для получения
+    // UnzipSizeLimit и WorksheetUnzipMemLimit без ограничений.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to WorksheetUnzipMemLimit")
 )
 ```

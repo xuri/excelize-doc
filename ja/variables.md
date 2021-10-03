@@ -2,87 +2,64 @@
 
 ```go
 var (
-    // ErrStreamSetColWidth defined the error message on set column width in
-    // stream writing mode.
+    // ErrStreamSetColWidth は、ストリーム書き込みモードでの列幅の設定に関するエラーメッセージを定義しました。
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrColumnNumber defined the error message on receive an invalid column
-    // number.
+    // ErrColumnNumber は、無効な列番号を受信したときのエラーメッセージを定義しました。
     ErrColumnNumber = errors.New("column number exceeds maximum limit")
-    // ErrColumnWidth defined the error message on receive an invalid column
-    // width.
+    // ErrColumnWidth は、無効な列幅を受信したときのエラーメッセージを定義しました。
     ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
-    // ErrOutlineLevel defined the error message on receive an invalid outline
-    // level number.
+    // ErrOutlineLevel は、無効なアウトラインレベル番号を受信したときのエラーメッセージを定義しました。
     ErrOutlineLevel = errors.New("invalid outline level")
-    // ErrCoordinates defined the error message on invalid coordinates tuples
-    // length.
+    // ErrCoordinates は、無効な座標タプルの長さに関するエラーメッセージを定義しました。
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet defined the error message on given worksheet already
-    // exists.
+    // ErrExistsWorksheet は、すでに存在する特定のワークシートにエラーメッセージを定義しました。
     ErrExistsWorksheet = errors.New("the same name worksheet already exists")
-    // ErrTotalSheetHyperlinks defined the error message on hyperlinks count
-    // overflow.
+    // ErrTotalSheetHyperlinks は、ハイパーリンクカウントオーバーフローに関するエラーメッセージを定義しました。
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
-    // ErrInvalidFormula defined the error message on receive an invalid
-    // formula.
+    // ErrInvalidFormula は、無効な数式を受信したときのエラーメッセージを定義しました。
     ErrInvalidFormula = errors.New("formula not valid")
-    // ErrAddVBAProject defined the error message on add the VBA project in
-    // the workbook.
+    // ErrAddVBAProject は、ブックにVBAプロジェクトを追加する際のエラーメッセージを定義しました。
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
-    // ErrMaxRows defined the error message on receive a row number exceeds maximum limit.
+    // ErrMaxRows は、最大制限を超える行番号を受信したときのエラーメッセージを定義しました。
     ErrMaxRows = errors.New("row number exceeds maximum limit")
-    // ErrMaxRowHeight defined the error message on receive an invalid row
-    // height.
+    // ErrMaxRowHeight は、無効な行の高さを受け取ったときのエラーメッセージを定義しました。
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
-    // ErrImgExt defined the error message on receive an unsupported image
-    // extension.
+    // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました。
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrMaxFileNameLength defined the error message on receive the file name
-    // length overflow.
+    // ErrMaxFileNameLength は、ファイル名の長さのオーバーフローを受信したときのエラーメッセージを定義しました。
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
-    // ErrEncrypt defined the error message on encryption spreadsheet.
+    // ErrEncrypt は、暗号化スプレッドシートにエラーメッセージを定義しました。
     ErrEncrypt = errors.New("not support encryption currently")
-    // ErrUnknownEncryptMechanism defined the error message on unsupport
-    // encryption mechanism.
+    // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism defined the error message on unsupport
-    // encryption mechanism.
+    // ErrUnsupportEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
     ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
-    // ErrParameterRequired defined the error message on receive the empty
-    // parameter.
+    // ErrParameterRequired は、空のパラメーターを受信したときのエラーメッセージを定義しました。
     ErrParameterRequired = errors.New("parameter is required")
-    // ErrParameterInvalid defined the error message on receive the invalid
-    // parameter.
+    // ErrParameterInvalid は、無効なパラメーターを受信したときのエラーメッセージを定義しました。
     ErrParameterInvalid = errors.New("parameter is invalid")
-    // ErrDefinedNameScope defined the error message on not found defined name
-    // in the given scope.
+    // ErrDefinedNameScope は、指定されたスコープで定義された名前が見つからないというエラーメッセージを定義しました。
     ErrDefinedNameScope = errors.New("no defined name on the scope")
-    // ErrDefinedNameduplicate defined the error message on the same name
-    // already exists on the scope.
-    ErrDefinedNameduplicate = errors.New("the same name already exists on the scope")
-    // ErrCustomNumFmt defined the error message on receive the empty custom number format.
+    // ErrDefinedNameDuplicate は、スコープにすでに存在する同じ名前でエラーメッセージを定義しました。
+    ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
+    // ErrCustomNumFmt は、空のカスタム数値形式を受信したときのエラーメッセージを定義しました。
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
-    // ErrFontLength defined the error message on the length of the font
-    // family name overflow.
+    // ErrFontLength は、フォントファミリ名のオーバーフローの長さに関するエラーメッセージを定義しました。
     ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
-    // ErrFontSize defined the error message on the size of the font is invalid.
+    // ErrFontSize は、フォントのサイズに関するエラーメッセージが無効であると定義しました。
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
-    // ErrSheetIdx defined the error message on receive the invalid worksheet
-    // index.
+    // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました。
     ErrSheetIdx = errors.New("invalid worksheet index")
-    // ErrGroupSheets defined the error message on group sheets.
+    // ErrGroupSheets は、グループシートにエラーメッセージを定義しました。
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth defined the error message for receiving a
-    // data validation formula length that exceeds the limit.
+    // ErrDataValidationFormulaLenth は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました。
     ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
-    // ErrDataValidationRange defined the error message on set decimal range
-    // exceeds limit.
+    // ErrDataValidationRange は、設定された10進範囲のエラーメッセージが制限を超えると定義しました。
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
-    // ErrCellCharsLength defined the error message for receiving a cell
-    // characters length that exceeds the limit.
+    // ErrCellCharsLength は、制限を超えるセル文字の長さを受信するためのエラーメッセージを定義しました。
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
-    // ErrOptionsUnzipSizeLimit defined the error message for receiving
-    // invalid UnzipSizeLimit and WorksheetUnzipMemLimit.
+    // ErrOptionsUnzipSizeLimit は、無効 なUnzipSizeLimit と WorksheetUnzipMemLimit
+    // を受信した場合のエラーメッセージを定義しました。
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to WorksheetUnzipMemLimit")
 )
 ```

@@ -2,87 +2,90 @@
 
 ```go
 var (
-    // ErrStreamSetColWidth defined the error message on set column width in
-    // stream writing mode.
+    // ErrStreamSetColWidth definió el mensaje de error en el ancho de columna
+    // establecido en el modo de escritura de flujo.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrColumnNumber defined the error message on receive an invalid column
-    // number.
+    // ErrColumnNumber definió el mensaje de error al recibir un número de
+    // columna no válido.
     ErrColumnNumber = errors.New("column number exceeds maximum limit")
-    // ErrColumnWidth defined the error message on receive an invalid column
-    // width.
+    // ErrColumnWidth definió el mensaje de error al recibir un ancho de
+    // columna no válido.
     ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
-    // ErrOutlineLevel defined the error message on receive an invalid outline
-    // level number.
+    // ErrOutlineLevel definió el mensaje de error al recibir un número de
+    // nivel de esquema no válido.
     ErrOutlineLevel = errors.New("invalid outline level")
-    // ErrCoordinates defined the error message on invalid coordinates tuples
-    // length.
+    // ErrCoordinates definió el mensaje de error en la longitud de las tuplas
+    // de coordenadas no válidas.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet defined the error message on given worksheet already
-    // exists.
+    // ErrExistsWorksheet definió el mensaje de error en una hoja de trabajo
+    // determinada que ya existe.
     ErrExistsWorksheet = errors.New("the same name worksheet already exists")
-    // ErrTotalSheetHyperlinks defined the error message on hyperlinks count
-    // overflow.
+    // ErrTotalSheetHyperlinks definió el mensaje de error sobre el
+    // desbordamiento del recuento de hipervínculos.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
-    // ErrInvalidFormula defined the error message on receive an invalid
-    // formula.
+    // ErrInvalidFormula definió el mensaje de error al recibir una fórmula no
+    // válida.
     ErrInvalidFormula = errors.New("formula not valid")
-    // ErrAddVBAProject defined the error message on add the VBA project in
-    // the workbook.
+    // ErrAddVBAProject definió el mensaje de error al agregar el proyecto VBA
+    // en el libro de trabajo.
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
-    // ErrMaxRows defined the error message on receive a row number exceeds maximum limit.
+    // ErrMaxRows definió el mensaje de error al recibir un número de fila que
+    // excede el límite máximo.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
-    // ErrMaxRowHeight defined the error message on receive an invalid row
-    // height.
+    // ErrMaxRowHeight definió el mensaje de error al recibir una altura de
+    // fila no válida.
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
-    // ErrImgExt defined the error message on receive an unsupported image
-    // extension.
+    // ErrImgExt definió el mensaje de error al recibir una extensión de
+    // imagen no admitida.
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrMaxFileNameLength defined the error message on receive the file name
-    // length overflow.
+    // ErrMaxFileNameLength definió el mensaje de error al recibir el
+    // desbordamiento de la longitud del nombre de archivo.
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
-    // ErrEncrypt defined the error message on encryption spreadsheet.
+    // ErrEncrypt definió el mensaje de error en la hoja de cálculo de cifrado.
     ErrEncrypt = errors.New("not support encryption currently")
-    // ErrUnknownEncryptMechanism defined the error message on unsupport
-    // encryption mechanism.
+    // ErrUnknownEncryptMechanism definió el mensaje de error en un mecanismo
+    // de cifrado no compatible.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism defined the error message on unsupport
-    // encryption mechanism.
+    // ErrUnsupportEncryptMechanism definió el mensaje de error en un
+    // mecanismo de cifrado no compatible.
     ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
-    // ErrParameterRequired defined the error message on receive the empty
-    // parameter.
+    // ErrParameterRequired definió el mensaje de error al recibir el
+    // parámetro vacío.
     ErrParameterRequired = errors.New("parameter is required")
-    // ErrParameterInvalid defined the error message on receive the invalid
-    // parameter.
+    // ErrParameterInvalid definió el mensaje de error al recibir el parámetro
+    // no válido.
     ErrParameterInvalid = errors.New("parameter is invalid")
-    // ErrDefinedNameScope defined the error message on not found defined name
-    // in the given scope.
+    // ErrDefinedNameScope definió el mensaje de error en el nombre definido
+    // no encontrado en el alcance dado.
     ErrDefinedNameScope = errors.New("no defined name on the scope")
-    // ErrDefinedNameduplicate defined the error message on the same name
-    // already exists on the scope.
-    ErrDefinedNameduplicate = errors.New("the same name already exists on the scope")
-    // ErrCustomNumFmt defined the error message on receive the empty custom number format.
+    // ErrDefinedNameDuplicate definió el mensaje de error con el mismo nombre
+    // que ya existe en el alcance.
+    ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
+    // ErrCustomNumFmt definió el mensaje de error al recibir el formato de
+    // número personalizado vacío.
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
-    // ErrFontLength defined the error message on the length of the font
-    // family name overflow.
+    // ErrFontLength definió el mensaje de error sobre la longitud del
+    // desbordamiento del nombre de la familia de fuentes.
     ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
-    // ErrFontSize defined the error message on the size of the font is invalid.
+    // ErrFontSize definió que el mensaje de error sobre el tamaño de la
+    // fuente no es válido.
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
-    // ErrSheetIdx defined the error message on receive the invalid worksheet
-    // index.
+    // ErrSheetIdx definió el mensaje de error al recibir el índice de hoja de
+    // trabajo no válido.
     ErrSheetIdx = errors.New("invalid worksheet index")
-    // ErrGroupSheets defined the error message on group sheets.
+    // ErrGroupSheets definió el mensaje de error en las hojas de grupo.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth defined the error message for receiving a
-    // data validation formula length that exceeds the limit.
+    // ErrDataValidationFormulaLenth definió el mensaje de error para recibir
+    // una longitud de fórmula de validación de datos que excede el límite.
     ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
-    // ErrDataValidationRange defined the error message on set decimal range
-    // exceeds limit.
+    // ErrDataValidationRange definió el mensaje de error en un rango decimal
+    // establecido que excede el límite.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
-    // ErrCellCharsLength defined the error message for receiving a cell
-    // characters length that exceeds the limit.
+    // ErrCellCharsLength definió el mensaje de error para recibir la longitud
+    // de un carácter de celda que excede el límite.
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
-    // ErrOptionsUnzipSizeLimit defined the error message for receiving
-    // invalid UnzipSizeLimit and WorksheetUnzipMemLimit.
+    // ErrOptionsUnzipSizeLimit definió el mensaje de error para recibir
+    // UnzipSizeLimit y WorksheetUnzipMemLimit no válidos.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to WorksheetUnzipMemLimit")
 )
 ```

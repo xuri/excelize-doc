@@ -40,8 +40,8 @@ var (
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrDefinedNameScope 定义了在给定范围内找不到指定名称时的错误提示信息
     ErrDefinedNameScope = errors.New("no defined name on the scope")
-    // ErrDefinedNameduplicate 定义了在给定范围内已经存在相同指定名称时的错误提示信息
-    ErrDefinedNameduplicate = errors.New("the same name already exists on the scope")
+    // ErrDefinedNameDuplicate 定义了在给定范围内已经存在相同指定名称时的错误提示信息
+    ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
     // ErrCustomNumFmt 定义了指定自定义数字格式表达式为空时的错误提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength 定义了字体名称长度超出最大限制时的错误提示信息
