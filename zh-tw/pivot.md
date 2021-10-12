@@ -19,6 +19,7 @@ type PivotTableOption struct {
     PageOverThenDown    bool
     MergeItem           bool
     CompactData         bool
+    ShowError           bool
     ShowRowHeaders      bool
     ShowColHeaders      bool
     ShowRowStripes      bool
@@ -32,8 +33,10 @@ PivotTableField 定義了樞紐分析表的欄位屬性。
 
 ```go
 type PivotTableField struct {
+    Compact         bool
     Data            string
     Name            string
+    Outline         bool
     Subtotal        string
     DefaultSubtotal bool
 }

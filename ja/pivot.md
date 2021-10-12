@@ -19,6 +19,7 @@ type PivotTableOption struct {
     PageOverThenDown    bool
     MergeItem           bool
     CompactData         bool
+    ShowError           bool
     ShowRowHeaders      bool
     ShowColHeaders      bool
     ShowRowStripes      bool
@@ -32,8 +33,10 @@ PivotTableField は、ピボットテーブルのフィールド設定を直接�
 
 ```go
 type PivotTableField struct {
+    Compact         bool
     Data            string
     Name            string
+    Outline         bool
     Subtotal        string
     DefaultSubtotal bool
 }

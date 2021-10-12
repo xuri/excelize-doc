@@ -211,6 +211,7 @@
 * [성능](performance.md)
 * [의연금](contribution.md)
 * 릴리스된 버전
+  * [v2.5.0](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)
   * [v2.4.0 (2021-04-19)](releases/v2.4.0.md)
   * [v2.3.2 (2021-01-04)](releases/v2.3.2.md)
