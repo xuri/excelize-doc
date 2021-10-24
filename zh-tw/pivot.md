@@ -29,6 +29,14 @@ type PivotTableOption struct {
 }
 ```
 
+`PivotTableStyleName`: 支持的樞紐分析表樣式:
+
+```text
+PivotStyleLight1 - PivotStyleLight28
+PivotStyleMedium1 - PivotStyleMedium28
+PivotStyleDark1 - PivotStyleDark28
+```
+
 PivotTableField 定義了樞紐分析表的欄位屬性。
 
 ```go

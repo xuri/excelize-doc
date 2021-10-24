@@ -29,6 +29,14 @@ type PivotTableOption struct {
 }
 ```
 
+`PivotTableStyleName`: أسماء أنماط الجدول المحوري المضمنة:
+
+```text
+PivotStyleLight1 - PivotStyleLight28
+PivotStyleMedium1 - PivotStyleMedium28
+PivotStyleDark1 - PivotStyleDark28
+```
+
 يقوم PivotTableField بتعيين الإعدادات الميدانية للجدول المحوري مباشرةً.
 
 ```go

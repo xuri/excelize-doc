@@ -29,6 +29,14 @@ type PivotTableOption struct {
 }
 ```
 
+`PivotTableStyleName`: 支持的数据透视表样式:
+
+```text
+PivotStyleLight1 - PivotStyleLight28
+PivotStyleMedium1 - PivotStyleMedium28
+PivotStyleDark1 - PivotStyleDark28
+```
+
 PivotTableField 定义了数据透视表的字段属性。
 
 ```go

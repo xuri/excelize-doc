@@ -29,6 +29,14 @@ type PivotTableOption struct {
 }
 ```
 
+`PivotTableStyleName`: Los nombres de estilo de la tabla dinámica incorporados:
+
+```text
+PivotStyleLight1 - PivotStyleLight28
+PivotStyleMedium1 - PivotStyleMedium28
+PivotStyleDark1 - PivotStyleDark28
+```
+
 PivotTableField mapea directamente la configuración de campo de la tabla dinámica.
 
 ```go

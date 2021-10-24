@@ -29,6 +29,14 @@ type PivotTableOption struct {
 }
 ```
 
+`PivotTableStyleName`: Die integrierten Stilnamen für Pivot-Tabellen:
+
+```text
+PivotStyleLight1 - PivotStyleLight28
+PivotStyleMedium1 - PivotStyleMedium28
+PivotStyleDark1 - PivotStyleDark28
+```
+
 PivotTableField ordnet die Feldeinstellungen der Pivot-Tabelle direkt zu.
 
 ```go

@@ -81,6 +81,10 @@ func main() {
     fmt.Println(cell)
     // Sheet1 의 모든 셀 가져오기
     rows, err := f.GetRows("Sheet1")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
     for _, row := range rows {
         for _, colCell := range row {
             fmt.Print(colCell, "\t")

@@ -949,6 +949,9 @@ func main() {
         return
     }
     fmt.Println(getCellBgColor(f, "Sheet1", "A1"))
+    if err = f.Close(); err != nil {
+        fmt.Println(err)
+    }
 }
 
 func getCellBgColor(f *excelize.File, sheet, axix string) string {
