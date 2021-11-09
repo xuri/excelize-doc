@@ -126,7 +126,7 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap предоставляет функцию для получения рабочих листов, листов диаграмм, идентификаторов диалоговых листов и карты имен рабочей книги. Например:
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
     return
 }
@@ -388,6 +388,22 @@ for cols.Next() {
 }
 ```
 
+### Итератор столбцов - Номер текущего столбца
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+CurrentCol возвращает номер столбца, представляющий текущий столбец.
+
+### Итератор столбцов - Всего столбцов
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+TotalCols возвращает общее количество столбцов на листе.
+
 ### Итератор столбцов - столбцы
 
 ```go
@@ -440,6 +456,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### Итератор строк - Номер текущей строки
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+CurrentRow возвращает номер строки, представляющей текущую строку.
+
+### Итератор строк - Всего строк
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+TotalRows возвращает общее количество строк на листе.
 
 ### Итератор строк - Столбцы
 

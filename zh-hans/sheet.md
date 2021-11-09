@@ -126,7 +126,7 @@ func (f *File) GetSheetMap() map[int]string
 获取工作簿中以 ID 和名称构成的全部工作表、图表工作表和对话工作表映射表。
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
     return
 }
@@ -388,6 +388,22 @@ for cols.Next() {
 }
 ```
 
+### 列迭代器 - 当前列序号
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+返回当前列序号。
+
+### 行迭代器 - 获取总列数
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+返回当前工作表的累计有效列数。
+
 ### 列迭代器 - 单列操作
 
 ```go
@@ -440,6 +456,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### 行迭代器 - 当前行序号
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+返回当前行序号。
+
+### 行迭代器 - 获取总行数
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+返回当前工作表的累计有效行数。
 
 ### 行迭代器 - 单行操作
 

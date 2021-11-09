@@ -388,6 +388,22 @@ for cols.Next() {
 }
 ```
 
+### Column iterator - Current column number
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+CurrentCol returns the column number that represents the current column.
+
+### Column iterator - Total columns
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+TotalCols returns the total columns count in the worksheet.
+
 ### Column iterator - Columns
 
 ```go
@@ -440,6 +456,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### Row iterator - Current row number
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+CurrentRow returns the row number that represents the current row.
+
+### Row iterator - Total rows
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+TotalRows returns the total rows count in the worksheet.
 
 ### Row iterator - Columns
 

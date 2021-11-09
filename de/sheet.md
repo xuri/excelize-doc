@@ -126,7 +126,7 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap bietet eine Funktion zum Abrufen von Arbeitsblättern, Diagrammblättern, Dialogfeld-IDs und Namenskarten der Arbeitsmappe. Zum Beispiel:
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
     return
 }
@@ -388,6 +388,22 @@ for cols.Next() {
 }
 ```
 
+### Spalteniterator - Aktuelle Spaltennummer
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+CurrentCol gibt die Spaltennummer zurück, die die aktuelle Spalte darstellt.
+
+### Spalteniterator - Gesamtspalten
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+TotalCols gibt die Gesamtspaltenanzahl im Arbeitsblatt zurück.
+
 ### Spalteniterator - Säulen
 
 ```go
@@ -440,6 +456,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### Zeileniterator - Aktuelle Zeilennummer
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+CurrentRow gibt die Zeilennummer zurück, die die aktuelle Zeile darstellt.
+
+### Zeileniterator - Gesamtzeilen
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+TotalRows gibt die Gesamtzahl der Zeilen im Arbeitsblatt zurück.
 
 ### Zeileniterator - Säulen
 

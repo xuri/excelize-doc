@@ -387,6 +387,22 @@ for cols.Next() {
 }
 ```
 
+### مُكَرِّد عمود - رقم العمود الحالي
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+تُرجع CurrentCol رقم العمود الذي يمثل العمود الحالي.
+
+### مُكَرِّد عمود - إجمالي الأعمدة
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+تُرجع TotalCols إجمالي عدد الأعمدة في ورقة العمل.
+
 ### مُكَرِّد عمود - الأعمدة
 
 ```go
@@ -439,6 +455,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### مُكَرِّد الصفوف - رقم الصف الحالي
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+تُرجع CurrentRow رقم الصف الذي يمثل الصف الحالي.
+
+### مُكَرِّد الصفوف - مجموع الصفوف
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+تُرجع TotalRows إجمالي عدد الصفوف في ورقة العمل.
 
 ### مُكَرِّد الصفوف - الأعمدة
 

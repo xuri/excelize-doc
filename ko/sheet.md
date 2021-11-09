@@ -126,7 +126,7 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap 은 통합 문서의 워크 시트, 차트 시트, 대화 상자 시트 ID 및 이름 맵을 가져 오는 기능을 제공합니다. 예를 들면 다음과 같습니다.
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
     return
 }
@@ -389,6 +389,22 @@ for cols.Next() {
 }
 ```
 
+### 열 반복자 - 현재 열 번호
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+CurrentCol 은 현재 열을 나타내는 열 번호를 반환합니다.
+
+### 열 반복자 - 총 열
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+TotalCols 는 워크시트의 총 열 수를 반환합니다.
+
 ### 열 반복자 - 열
 
 ```go
@@ -441,6 +457,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### 행 이터레이터 - 현재 행 번호
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+CurrentRow 는 현재 행을 나타내는 행 번호를 반환합니다.
+
+### 행 이터레이터 - 총 행
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+TotalRows 는 워크시트의 총 행 수를 반환합니다.
 
 ### 행 이터레이터 - 열
 

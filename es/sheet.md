@@ -126,7 +126,7 @@ func (f *File) GetSheetMap() map[int]string
 GetSheetMap proporciona una función para obtener hojas de trabajo, hojas de gráficos, ID de hojas de diálogo y mapas de nombres del libro de trabajo. Por ejemplo:
 
 ```go
-f, err := excelize.OpenFile("./Book1.xlsx")
+f, err := excelize.OpenFile("Book1.xlsx")
 if err != nil {
     return
 }
@@ -388,6 +388,22 @@ for cols.Next() {
 }
 ```
 
+### Iterador de columnas - Número de columna actual
+
+```go
+func (cols *Cols) CurrentCol() int
+```
+
+CurrentCol devuelve el número de columna que representa la columna actual.
+
+### Iterador de columnas - Columnas totales
+
+```go
+func (cols *Cols) TotalCols() int
+```
+
+TotalCols devuelve el recuento total de columnas en la hoja de trabajo.
+
 ### Iterador de columnas - Columnas
 
 ```go
@@ -440,6 +456,22 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
+
+### Iterador de filas - Número de fila actual
+
+```go
+func (rows *Rows) CurrentRow() int
+```
+
+CurrentRow devuelve el número de fila que representa la fila actual.
+
+### Iterador de filas - Filas totales
+
+```go
+func (rows *Rows) TotalRows() int
+```
+
+TotalRows devuelve el recuento total de filas en la hoja de trabajo.
 
 ### Iterador de filas - Columnas
 
