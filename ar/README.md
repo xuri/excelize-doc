@@ -40,8 +40,8 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - [QQ Group ID](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ Group ID" target="_blank">join via QR Code</a>
 - Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize Excelize WeChat Community" target="_blank">join via QR Code</a>
 - Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>
-- Feishu Group: <a href="../images/feishu_group@2x@2x@2x.png" title="Feishu Group" target="_blank">join via QR Code</a>
-- Lark Group: <a href="../images/larksuite_group@2x@2x.png" title="Lark Group" target="_blank">join via QR Code</a>
+- Feishu Group: <a href="../images/feishu_group@2x.png" title="Feishu Group" target="_blank">join via QR Code</a>
+- Lark Group: <a href="../images/larksuite_group@2x.png" title="Lark Group" target="_blank">join via QR Code</a>
 
 ## الراعي إكسلسيز التنمية
 

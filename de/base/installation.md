@@ -10,7 +10,7 @@ Für die Verwendung der neuesten Version Excelize Bibliothek erfordern, um Versi
 go get github.com/xuri/excelize
 ```
 
-- Wenn Ihre Paketverwaltung mit [Go Modules](https://blog.golang.org/using-go-modules), installieren Sie bitte mit dem folgenden Befehl.
+- Wenn Ihre Paketverwaltung mit [Go Modules](https://go.dev/blog/using-go-modules), installieren Sie bitte mit dem folgenden Befehl.
 
 ```bash
 go get github.com/xuri/excelize/v2

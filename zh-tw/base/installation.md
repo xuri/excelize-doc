@@ -10,7 +10,7 @@
 go get github.com/xuri/excelize
 ```
 
-- 如果您使用 [Go Modules](https://blog.golang.org/using-go-modules) 管理軟體包，請使用下面的命令來安裝最新版本。
+- 如果您使用 [Go Modules](https://go.dev/blog/using-go-modules) 管理軟體包，請使用下面的命令來安裝最新版本。
 
 ```bash
 go get github.com/xuri/excelize/v2

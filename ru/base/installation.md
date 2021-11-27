@@ -10,7 +10,7 @@
 go get github.com/xuri/excelize
 ```
 
-- Если ваш пакет управления с помощью [Go Modules](https://blog.golang.org/using-go-modules), пожалуйста, установите с помощью следующей команды.
+- Если ваш пакет управления с помощью [Go Modules](https://go.dev/blog/using-go-modules), пожалуйста, установите с помощью следующей команды.
 
 ```bash
 go get github.com/xuri/excelize/v2

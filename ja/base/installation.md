@@ -10,7 +10,7 @@
 go get github.com/xuri/excelize
 ```
 
-- [Go Modules](https://blog.golang.org/using-go-modules) でパッケージを管理している場合は、次のコマンドでインストールしてください。
+- [Go Modules](https://go.dev/blog/using-go-modules) でパッケージを管理している場合は、次のコマンドでインストールしてください。
 
 ```bash
 go get github.com/xuri/excelize/v2

@@ -10,7 +10,7 @@
 go get github.com/xuri/excelize
 ```
 
-- إذا كانت إدارة الحزمة مع [Go Modules](https://blog.golang.org/using-go-modules)، يرجى تثبيت مع الأمر التالي.
+- إذا كانت إدارة الحزمة مع [Go Modules](https://go.dev/blog/using-go-modules)، يرجى تثبيت مع الأمر التالي.
 
 ```bash
 go get github.com/xuri/excelize/v2

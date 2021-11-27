@@ -50,8 +50,8 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 - [QQ 技术交流群](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ 技术交流群" target="_blank">二维码</a>
 - 微信技术交流群: `hixuri` (请备注: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize 微信技术交流群" target="_blank">二维码</a>
 - 如流技术交流群: `4375928` | <a href="../images/inflow_group@2x.png" title="如流技术交流群" target="_blank">二维码</a>
-- 飞书技术交流群: <a href="../images/feishu_group@2x@2x@2x.png" title="飞书技术交流群" target="_blank">二维码</a>
-- Lark 技术交流群: <a href="../images/larksuite_group@2x@2x.png" title="Lark 技术交流群" target="_blank">二维码</a>
+- 飞书技术交流群: <a href="../images/feishu_group@2x.png" title="飞书技术交流群" target="_blank">二维码</a>
+- Lark 技术交流群: <a href="../images/larksuite_group@2x.png" title="Lark 技术交流群" target="_blank">二维码</a>
 
 ## 商业支持
 

@@ -10,7 +10,7 @@ Using the latest version Excelize library require to Go version 1.15 or later.
 go get github.com/xuri/excelize
 ```
 
-- Si la administración de paquetes con [Go Modules](https://blog.golang.org/using-go-modules), instálelo con el siguiente comando.
+- Si la administración de paquetes con [Go Modules](https://go.dev/blog/using-go-modules), instálelo con el siguiente comando.
 
 ```bash
 go get github.com/xuri/excelize/v2
