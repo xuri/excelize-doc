@@ -517,6 +517,30 @@ GetMergeCells fournit une fonction pour obtenir toutes les cellules fusionnées 
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### Obtenir la valeur de cellule fusionnée
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue renvoie la valeur de cellule fusionnée.
+
+### Obtenez les coordonnées de la cellule en haut à gauche de la plage fusionnée
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis renvoie les coordonnées de la cellule supérieure gauche de la plage fusionnée, par exemple: `C2`.
+
+### Obtenez les coordonnées de la cellule en bas à droite de la plage fusionnée
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis renvoie les coordonnées de la cellule en bas à droite de la plage fusionnée, par exemple: `D4`.
+
 ## Ajouter un commentaire {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

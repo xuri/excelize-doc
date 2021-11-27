@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 SetDefaultFont cambia la fuente predeterminada en el libro.
+
+## Obtener fuente predeterminada {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+GetDefaultFont proporciona el nombre de fuente predeterminado establecido actualmente en el libro de trabajo. La hoja de cálculo generada por la fuente predeterminada de Excel es Calibri.

@@ -170,6 +170,7 @@
   * [Spaltenstil festlegen](style.md#SetColStyle)
   * [Zeilenstil festlegen](style.md#SetRowStyle)
   * [Festlegen der Standardschriftart](style.md#SetDefaultFont)
+  * [Holen Sie sich die Standardschriftart](style.md#GetDefaultFont)
 * [Streaming-Schreiben](stream.md)
   * [Stream-Writer abrufen](stream.md#NewStreamWriter)
   * [Schreiben der Zulaufzeile](stream.md#SetRow)

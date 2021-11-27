@@ -170,6 +170,7 @@
   * [Установить стиль столбца](style.md#SetColStyle)
   * [Установить стиль строки](style.md#SetRowStyle)
   * [Установить шрифт по умолчанию](style.md#SetDefaultFont)
+  * [Получить шрифт по умолчанию](style.md#GetDefaultFont)
 * [Потоковое создать файл](stream.md)
   * [Получить потокового писателя](stream.md#NewStreamWriter)
   * [Запись строки листа в поток](stream.md#SetRow)

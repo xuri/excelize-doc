@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 SetDefaultFont は、ブック内の既定のフォントを変更します。
+
+## デフォルトのフォントを取得する {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+GetDefaultFont は、ブックに現在設定されているデフォルトのフォント名を提供します。Excelize のデフォルトフォントによって生成されるスプレッドシートは Calibri です。

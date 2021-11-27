@@ -170,6 +170,7 @@
   * [Set column style](style.md#SetColStyle)
   * [Set row style](style.md#SetRowStyle)
   * [Set default font](style.md#SetDefaultFont)
+  * [Get default font](style.md#GetDefaultFont)
 * [Streaming write](stream.md)
   * [Get stream writer](stream.md#NewStreamWriter)
   * [Write sheet row to stream](stream.md#SetRow)

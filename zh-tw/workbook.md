@@ -11,7 +11,7 @@ type Options struct {
 }
 ```
 
-`Password` 以明文形式指定打開工作簿的密碼，默認值為空。
+`Password` 以明文形式指定打開活頁簿的密碼，默認值為空。
 
 `RawCellValue` 用以指定讀取存儲格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
 
@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-請注意，目前 Excelize 支持解密帶有密碼保護的電子表格檔案，但不支持加密，通過 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存後的電子表格檔案將不受密碼保護。使用 [`Close()`](workbook.md#Close) 關閉已打開的工作簿。
+請注意，目前 Excelize 支持解密帶有密碼保護的電子表格檔案，但不支持加密，通過 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存後的電子表格檔案將不受密碼保護。使用 [`Close()`](workbook.md#Close) 關閉已打開的活頁簿。
 
 ## 打開數據流 {#OpenReader}
 
@@ -115,13 +115,13 @@ func (f *File) SaveAs(name string) error
 
 使用 `SaveAs` 儲存 Excel 檔案為指定檔案。
 
-## 關閉工作簿 {#Close}
+## 關閉活頁簿 {#Close}
 
 ```go
 func (f *File) Close() error
 ```
 
-關閉工作簿並清理打開檔案時可能產生的系統磁盤緩存。
+關閉活頁簿並清理打開檔案時可能產生的系統磁盤緩存。
 
 ## 新建工作表 {#NewSheet}
 
@@ -129,7 +129,7 @@ func (f *File) Close() error
 func (f *File) NewSheet(name string) int
 ```
 
-根據給定的工作表名稱來創建新工作表，並返回工作表在工作簿中的索引。請注意，在創建新的工作簿時，將包含名為 `Sheet1` 的默認工作表。
+根據給定的工作表名稱來創建新工作表，並返回工作表在活頁簿中的索引。請注意，在創建新的活頁簿時，將包含名為 `Sheet1` 的默認工作表。
 
 ## 刪除工作表 {#DeleteSheet}
 

@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 根据给定的字体名称为工作簿设置默认字体。
+
+## 获取默认字体 {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+获取当前工作簿的默认字体名称。通过 Excelize 创建的工作簿默认字体为 Calibri。

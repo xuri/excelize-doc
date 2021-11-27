@@ -123,7 +123,7 @@ func (f *File) GetSheetIndex(name string) int
 func (f *File) GetSheetMap() map[int]string
 ```
 
-獲取工作簿中以 ID 和名稱構成的全部工作表、圖表工作表和對話工作表映射表。
+獲取活頁簿中以 ID 和名稱構成的全部工作表、圖表工作表和對話工作表映射表。
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")
@@ -141,7 +141,7 @@ for index, name := range f.GetSheetMap() {
 func (f *File) GetSheetList() []string
 ```
 
-獲取與工作簿內順序相一致的，包含工作表、圖表工作表、對話工作表在內的工作表列表。
+獲取與活頁簿內順序相一致的，包含工作表、圖表工作表、對話工作表在內的工作表列表。
 
 ## 設定工作表名稱 {#SetSheetName}
 
@@ -584,7 +584,7 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-根據給定的工作表名稱（大小寫敏感）、起始坐標和 `slice` 類型引用按列賦值。例如，在名為 `Sheet1` 的工作簿第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：
+根據給定的工作表名稱（大小寫敏感）、起始坐標和 `slice` 類型引用按列賦值。例如，在名為 `Sheet1` 的活頁簿第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

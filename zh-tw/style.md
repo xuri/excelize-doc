@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 根據給定的字型名稱為活頁簿設定默認字型。
+
+## 獲取默認字型 {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+獲取當前活頁簿的默認字型名稱。通過 Excelize 創建的活頁簿默認字型為 Calibri。

@@ -18,7 +18,7 @@ var (
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrInvalidFormula 定義了收到無效公式時的錯誤提示信息
     ErrInvalidFormula = errors.New("formula not valid")
-    // ErrAddVBAProject 定義了向工作簿嵌入 VBA 項目發生異常時的錯誤提示信息
+    // ErrAddVBAProject 定義了向活頁簿嵌入 VBA 項目發生異常時的錯誤提示信息
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
     // ErrMaxRows 定義了當列號超出最大限制時的錯誤提示信息
     ErrMaxRows = errors.New("row number exceeds maximum limit")
@@ -26,9 +26,9 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt 定義了不受支持的圖片擴展名的錯誤提示信息
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrMaxFileNameLength 定義了工作簿文件名長度超出最大限制時的錯誤提示信息
+    // ErrMaxFileNameLength 定義了活頁簿文件名長度超出最大限制時的錯誤提示信息
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
-    // ErrEncrypt 定義了加密工作簿時的錯誤提示信息
+    // ErrEncrypt 定義了加密活頁簿時的錯誤提示信息
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism 定義了檢測到未知加密機制時的錯誤提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
@@ -59,7 +59,7 @@ var (
     // ErrCellCharsLength 定義了單個存儲格字符長度超出最大限制時的錯誤提示信息
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
     // ErrOptionsUnzipSizeLimit
-    // 定義了打開工作簿時，「用以指定打開電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
+    // 定義了打開活頁簿時，「用以指定打開電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to WorksheetUnzipMemLimit")
 )
 ```

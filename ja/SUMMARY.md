@@ -170,6 +170,7 @@
   * [列のスタイル設定](style.md#SetColStyle)
   * [行スタイルを設定する](style.md#SetRowStyle)
   * [既定のフォントを設定する](style.md#SetDefaultFont)
+  * [デフォルトのフォントを取得する](style.md#GetDefaultFont)
 * [ストリーミング書き込み](stream.md)
   * [ストリームライターを取得する](stream.md#NewStreamWriter)
   * [ストリームにシート行を書き込む](stream.md#SetRow)

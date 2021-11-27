@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 يقوم SetDefaultFont بتغيير الخط الافتراضي في المصنف.
+
+## احصل على الخط الافتراضي {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+يوفر GetDefaultFont اسم الخط الافتراضي المعين حاليًا في المصنف. جدول البيانات الذي تم إنشاؤه بواسطة الخط الافتراضي excelize هو Calibri.

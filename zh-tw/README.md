@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基於 ECMA-376，ISO/IEC 29500 國際標準。可以使用它來讀取、寫入由 Microsoft Excel&trade; 2007 及以上版本創建的電子錶格檔案。支持 XLSX / XLSM / XLTM / XLTX 等多種檔案格式，高度兼容帶有樣式、圖片(表)、樞紐分析表、切片器等複雜組件的檔案，並提供流式讀寫 API，用於處理包含大規模數據的工作簿。可應用於各類報表平台、雲計算、邊緣計算等系統。使用本類庫要求使用的 Go 語言為 1.15 或更高版本。
+Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基於 ECMA-376，ISO/IEC 29500 國際標準。可以使用它來讀取、寫入由 Microsoft Excel&trade; 2007 及以上版本創建的電子錶格檔案。支持 XLSX / XLSM / XLTM / XLTX 等多種檔案格式，高度兼容帶有樣式、圖片(表)、樞紐分析表、切片器等複雜組件的檔案，並提供流式讀寫 API，用於處理包含大規模數據的活頁簿。可應用於各類報表平台、雲計算、邊緣計算等系統。使用本類庫要求使用的 Go 語言為 1.15 或更高版本。
 
 - Source Code: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - Issue: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- 檔案更新: 2021年11月10日
+- 檔案更新: 2021年11月28日
 
 ## 項目使命
 
@@ -50,6 +50,8 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 - [QQ 技術交流群](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ 技術交流群" target="_blank">二維碼</a>
 - 微信技術交流群: `hixuri` (請備註: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize 微信技術交流群" target="_blank">二維碼</a>
 - 如流技術交流群 ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize 如流技術交流群" target="_blank">二維碼</a>
+- 飛書技術交流群: <a href="../images/feishu_group@2x@2x@2x.png" title="飛書技術交流群" target="_blank">二維碼</a>
+- Lark 技術交流群: <a href="../images/larksuite_group@2x@2x.png" title="Lark 技術交流群" target="_blank">二維碼</a>
 
 ## 商業支援
 

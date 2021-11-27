@@ -522,6 +522,30 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### احصل على قيمة خلية مدمجة
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+إرجاع GetCellValue قيمة الخلية المدمجة.
+
+### احصل على إحداثيات الخلية اليسرى العلوية للنطاق المدمج
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+يُرجع GetStartAxis إحداثيات الخلية اليسرى العلوية للنطاق المدمج ، على سبيل المثال: `C2`.
+
+### احصل على إحداثيات الخلية اليمنى السفلية للنطاق المدمج
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+يُرجع GetEndAxis إحداثيات الخلية اليمنى السفلية للنطاق المدمج ، على سبيل المثال: `D4`.
+
 ## إضافة تعليق {#AddComment}
 
 ```go
@@ -697,6 +721,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -704,6 +730,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -825,6 +854,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -866,6 +896,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -941,13 +972,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

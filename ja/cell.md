@@ -517,6 +517,30 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### 結合されたセルの値を取得する
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue は、結合されたセル値を返します。
+
+### マージされた範囲の左上のセル座標を取得します
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis は、マージされた範囲の左上のセル座標を返します（例：`C2`）。
+
+### マージされた範囲の右下のセル座標を取得します
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis は、マージされた範囲の右下のセル座標を返します（例：`D4`）。
+
 ## コメント追加 {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

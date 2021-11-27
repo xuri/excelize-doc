@@ -170,6 +170,7 @@
   * [设置列样式](style.md#SetColStyle)
   * [设置行样式](style.md#SetRowStyle)
   * [设置默认字体](style.md#SetDefaultFont)
+  * [获取默认字体](style.md#GetDefaultFont)
 * [流式写入](stream.md)
   * [获取流式写入器](stream.md#NewStreamWriter)
   * [按行流式写入工作表](stream.md#SetRow)

@@ -517,6 +517,30 @@ GetMergeCells provides a function to get all merged cells from a worksheet curre
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### Get merged cell value
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue returns merged cell value.
+
+### Get the top left cell coordinates of merged range
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis returns the top left cell coordinates of merged range, for example: `C2`.
+
+### Get the bottom right cell coordinates of merged range
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis returns the bottom right cell coordinates of merged range, for example: `D4`.
+
 ## Add comment {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

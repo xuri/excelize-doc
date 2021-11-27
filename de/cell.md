@@ -517,6 +517,30 @@ GetMergeCells bietet eine Funktion zum Abrufen aller zusammengeführten Zellen a
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### Wert der zusammengeführten Zelle abrufen
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue gibt den zusammengeführten Zellenwert zurück.
+
+### Holen Sie sich die Zellenkoordinaten oben links des zusammengeführten Bereichs
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis gibt die oberen linken Zellenkoordinaten des zusammengeführten Bereichs zurück, zum Beispiel: `C2`.
+
+### Holen Sie sich die unteren rechten Zellenkoordinaten des zusammengeführten Bereichs
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis gibt die unteren rechten Zellenkoordinaten des zusammengeführten Bereichs zurück, zum Beispiel: `D4`.
+
 ## Kommentar hinzufügen {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

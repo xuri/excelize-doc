@@ -517,6 +517,30 @@ GetMergeCells proporciona una función para obtener todas las celdas combinadas 
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### Obtener valor de celda combinada
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue devuelve el valor de la celda combinada.
+
+### Obtenga las coordenadas de la celda superior izquierda del rango combinado
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis devuelve las coordenadas de la celda superior izquierda del rango combinado, por ejemplo: `C2`.
+
+### Obtenga las coordenadas de la celda inferior derecha del rango combinado
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis devuelve las coordenadas de la celda inferior derecha del rango combinado, por ejemplo: `D4`.
+
 ## Añadir comentario {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

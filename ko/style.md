@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 SetDefaultFont 는 통합 문서의 기본 글꼴을 변경합니다.
+
+## 기본 글꼴 가져오기 {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+GetDefaultFont 는 통합 문서에 현재 설정된 기본 글꼴 이름을 제공합니다. Excelize 기본 글꼴로 생성된 스프레드시트는 Calibri 입니다.

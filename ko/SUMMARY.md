@@ -170,6 +170,7 @@
   * [열 스타일 설정](style.md#SetColStyle)
   * [행 스타일 설정](style.md#SetRowStyle)
   * [기본 글꼴 설정](style.md#SetDefaultFont)
+  * [기본 글꼴 가져오기](style.md#GetDefaultFont)
 * [스트리밍 쓰기](stream.md)
   * [스트림 라이터 받기](stream.md#NewStreamWriter)
   * [스트리밍 할 시트 행 쓰기](stream.md#SetRow)

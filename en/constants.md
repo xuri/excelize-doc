@@ -120,6 +120,25 @@ const (
 )
 ```
 
+Excel specifications and limits:
+
+```go
+const (
+    UnzipSizeLimit       = 1000 << 24
+    StreamChunkSize      = 1 << 24
+    MaxFontFamilyLength  = 31
+    MaxFontSize          = 409
+    MaxFileNameLength    = 207
+    MaxFieldLength       = 255
+    MaxColumnWidth       = 255
+    MaxRowHeight         = 409
+    TotalRows            = 1048576
+    TotalColumns         = 16384
+    TotalSheetHyperlinks = 65529
+    TotalCellChars       = 32767
+)
+```
+
 Define the default cell size and EMU (English Metric Units) unit of measurement:
 
 ```go

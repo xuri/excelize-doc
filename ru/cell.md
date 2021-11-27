@@ -517,6 +517,30 @@ GetMergeCells предоставляет функцию для получени�
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### Получить значение объединенной ячейки
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue возвращает значение объединенной ячейки.
+
+### Получить координаты верхней левой ячейки объединенного диапазона
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis возвращает координаты верхней левой ячейки объединенного диапазона, например: `C2`.
+
+### Получить координаты нижней правой ячейки объединенного диапазона
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis возвращает координаты нижней правой ячейки объединенного диапазона, например: `D4`.
+
 ## Добавить комментарий {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

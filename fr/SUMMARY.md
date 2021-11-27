@@ -170,6 +170,7 @@
   * [Définir le style de colonne](style.md#SetColStyle)
   * [Définir le style de ligne](style.md#SetRowStyle)
   * [Définir la police par défaut](style.md#SetDefaultFont)
+  * [Obtenir la police par défaut](style.md#GetDefaultFont)
 * [Écriture en flux](stream.md)
   * [Obtenez le flux écrivain](stream.md#NewStreamWriter)
   * [Écrire la ligne de feuille au flux](stream.md#SetRow)

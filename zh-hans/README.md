@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2021年11月10日
+- 文档更新: 2021年11月28日
 
 ## 项目使命
 
@@ -49,7 +49,9 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 - [钉钉技术交流群](https://qr.dingtalk.com/action/joingroup?code=v1,k1,ydu1Um4a+7sGezVdHJjsH2BifuEaXGW4Gkw7czNk25A=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize 钉钉技术交流群" target="_blank">二维码</a>
 - [QQ 技术交流群](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ 技术交流群" target="_blank">二维码</a>
 - 微信技术交流群: `hixuri` (请备注: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize 微信技术交流群" target="_blank">二维码</a>
-- 如流技术交流群 ID: `4375928` | <a href="../images/inflow_group@2x.png" title="如流技术交流群" target="_blank">二维码</a>
+- 如流技术交流群: `4375928` | <a href="../images/inflow_group@2x.png" title="如流技术交流群" target="_blank">二维码</a>
+- 飞书技术交流群: <a href="../images/feishu_group@2x@2x@2x.png" title="飞书技术交流群" target="_blank">二维码</a>
+- Lark 技术交流群: <a href="../images/larksuite_group@2x@2x.png" title="Lark 技术交流群" target="_blank">二维码</a>
 
 ## 商业支持
 
@@ -64,3 +66,15 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 在您的应用程序使用 Excelize 开发过程中提供技术支持，提供解决方案咨询服务，并可以按小时为基础加入您的团队。
 
 请通过 <a href="mailto: xuri.me@gmail.com">E-mail</a> 与我们取得联系。
+
+## 系列课程
+
+《Go 语言 Excel 文档基础库 Excelize 基础教程》
+
+##### 第一章：Excelize 介绍与基础环境配置
+
+[1.1 Excelize 介绍](https://www.bilibili.com/video/BV12P4y1t7WA)<br>[1.2 macOS 与 Windows 系统搭建 Go 语言开发环境 与 Excelize 安装](https://www.bilibili.com/video/BV1JT4y1o7aR)<br>[1.3 基本概念](https://www.bilibili.com/video/BV1vu411Z7u9)
+
+##### 第二章：Excelize 基本操作
+
+[2.1 基本操作 - 单元格赋值、样式设置与图片图表的综合应用](https://www.bilibili.com/video/BV1hU4y1F7wQ)<br>[2.2 基本操作 - 条件格式、批注和数据验证设置](https://www.bilibili.com/video/BV1HQ4y1Q749)<br>[2.3 基本操作 - CSV 转 XLSX、行高列宽和富文本设置](https://www.bilibili.com/video/BV1US4y1R7t3)<br>[2.4 基本操作 - 数据透视表、形状、公式和文档属性设置](https://www.bilibili.com/video/BV18S4y1d7v5)<br>[2.5 基本操作 - 迷你图、页眉页脚、隐藏与保护工作表](https://www.bilibili.com/video/BV1Sr4y1k7Gf)<br>[2.6 基本操作 - 读取工作簿、工作表、图片与公式计算](https://www.bilibili.com/video/BV1Fq4y1z7ip)

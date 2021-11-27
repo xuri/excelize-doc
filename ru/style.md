@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 SetDefaultFont изменяет шрифт по умолчанию в книге.
+
+## Получить шрифт по умолчанию {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+GetDefaultFont предоставляет имя шрифта по умолчанию, установленное в настоящее время в книге. Электронная таблица, созданная шрифтом по умолчанию excelize, - Calibri.

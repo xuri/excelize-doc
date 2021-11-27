@@ -120,6 +120,25 @@ const (
 )
 ```
 
+下面的常量定義了 Excel 工作表和活頁簿規範與限制：
+
+```go
+const (
+    UnzipSizeLimit       = 1000 << 24
+    StreamChunkSize      = 1 << 24
+    MaxFontFamilyLength  = 31
+    MaxFontSize          = 409
+    MaxFileNameLength    = 207
+    MaxFieldLength       = 255
+    MaxColumnWidth       = 255
+    MaxRowHeight         = 409
+    TotalRows            = 1048576
+    TotalColumns         = 16384
+    TotalSheetHyperlinks = 65529
+    TotalCellChars       = 32767
+)
+```
+
 下面的常量定義了 EMU (English Metric Units) 單位：
 
 ```go

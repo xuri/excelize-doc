@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 SetDefaultFont ändert die Standardschriftart in der Arbeitsmappe.
+
+## Holen Sie sich die Standardschriftart {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+GetDefaultFont stellt den Standardschriftnamen bereit, der derzeit in der Arbeitsmappe festgelegt ist. Die von Excelize-Standardschriftart generierte Kalkulationstabelle ist Calibri.

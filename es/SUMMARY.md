@@ -170,6 +170,7 @@
   * [Establecer estilo de columna](style.md#SetColStyle)
   * [Establecer estilo de fila](style.md#SetRowStyle)
   * [Establecer fuente predeterminada](style.md#SetDefaultFont)
+  * [Obtener fuente predeterminada](style.md#GetDefaultFont)
 * [Escritura en streaming](stream.md)
   * [Obtener escritor de flujo](stream.md#NewStreamWriter)
   * [Escribir fila de hoja para transmitir](stream.md#SetRow)

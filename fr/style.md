@@ -1020,3 +1020,11 @@ func (f *File) SetDefaultFont(fontName string)
 ```
 
 SetDefaultFont modifie la police par défaut du classeur.
+
+## Obtenir la police par défaut {#GetDefaultFont}
+
+```go
+func (f *File) GetDefaultFont() string
+```
+
+GetDefaultFont fournit le nom de police par défaut actuellement défini dans le classeur. La feuille de calcul générée par la police par défaut d'Excelize est Calibri.

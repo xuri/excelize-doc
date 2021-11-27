@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-    // 創建工作簿
+    // 創建活頁簿
     f := excelize.NewFile()
     var (
         monthStyle, titleStyle, dataStyle, blankStyle,
@@ -199,7 +199,7 @@ func main() {
     }
     // 重命名工作表
     f.SetSheetName(sheet, "五月 20")
-    // 保存工作簿
+    // 保存活頁簿
     if err = f.SaveAs("日曆.xlsx"); err != nil {
         fmt.Println(err)
     }

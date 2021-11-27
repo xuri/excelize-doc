@@ -517,6 +517,30 @@ GetMergeCells 는 현재 워크 시트에서 병합 된 모든 셀을 얻을 수
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
+### 병합된 셀 값 가져오기
+
+```go
+func (m *MergeCell) GetCellValue() string
+```
+
+GetCellValue 는 병합된 셀 값을 반환합니다.
+
+### 병합된 범위의 왼쪽 상단 셀 좌표 가져오기
+
+```go
+func (m *MergeCell) GetStartAxis() string
+```
+
+GetStartAxis 는 병합된 범위의 왼쪽 상단 셀 좌표를 반환합니다, 예: `C2`.
+
+### 병합된 범위의 오른쪽 하단 셀 좌표 가져오기
+
+```go
+func (m *MergeCell) GetEndAxis() string
+```
+
+GetEndAxis 는 병합된 범위의 오른쪽 하단 셀 좌표를 반환합니다, 예: `D4`.
+
 ## 의견 추가 {#AddComment}
 
 ```go
@@ -692,6 +716,8 @@ COMBINA
 COMPLEX
 CONCAT
 CONCATENATE
+CONFIDENCE
+CONFIDENCE.NORM
 COS
 COSH
 COT
@@ -699,6 +725,9 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUPDAYBS
+COUPDAYS
+COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
@@ -820,6 +849,7 @@ MID
 MIDB
 MIN
 MINA
+MINUTE
 MIRR
 MOD
 MONTH
@@ -861,6 +891,7 @@ POISSON.DIST
 POISSON
 POWER
 PPMT
+PRICE
 PRICEDISC
 PRICEMAT
 PRODUCT
@@ -936,13 +967,17 @@ VAR.S
 VARA
 VARP
 VARPA
+VDB
 VLOOKUP
 WEEKDAY
 WEIBULL
 WEIBULL.DIST
+XIRR
+XNPV
 XOR
 YEAR
 YEARFRAC
+YIELD
 YIELDDISC
 YIELDMAT
 Z.TEST

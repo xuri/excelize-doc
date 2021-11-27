@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-    // 創建工作簿
+    // 創建活頁簿
     f := excelize.NewFile()
     var (
         // 定義存儲格的值
@@ -129,7 +129,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 保存工作簿
+    // 保存活頁簿
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }

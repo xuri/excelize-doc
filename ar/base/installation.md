@@ -77,6 +77,11 @@ func main() {
         fmt.Println(err)
         return
     }
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // الحصول على قيمة من الخلية حسب اسم ورقة العمل والمحور.
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
@@ -95,9 +100,6 @@ func main() {
             fmt.Print(colCell, "\t")
         }
         fmt.Println()
-    }
-    if err = f.Close(); err != nil {
-        fmt.Println(err)
     }
 }
 ```

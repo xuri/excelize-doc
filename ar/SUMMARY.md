@@ -170,6 +170,7 @@
   * [تعيين نمط العمود](style.md#SetColStyle)
   * [تعيين نمط الصف](style.md#SetRowStyle)
   * [تعيين الخط الافتراضي](style.md#SetDefaultFont)
+  * [احصل على الخط الافتراضي](style.md#GetDefaultFont)
 * [تدفق الكتابة](stream.md)
   * [الحصول على دفق الكاتب](stream.md#NewStreamWriter)
   * [كتابة صف ورقة إلى الدفق](stream.md#SetRow)
