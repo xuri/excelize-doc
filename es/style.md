@@ -1004,13 +1004,13 @@ SetRowStyle proporciona una función para establecer el estilo de las filas por 
 Por ejemplo, establezca el estilo de la fila 1 en `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 Establecer el estilo de las filas 1 a 10 en `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## Establecer fuente predeterminada {#SetDefaultFont}

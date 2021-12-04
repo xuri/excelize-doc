@@ -1004,13 +1004,13 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 例1，为名称为 `Sheet1` 的工作表的第 1 行设置样式:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 例2，为名称为 `Sheet1` 的工作表的第 1 至 10 行设置样式:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## 设置默认字体 {#SetDefaultFont}

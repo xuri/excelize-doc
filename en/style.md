@@ -1004,13 +1004,13 @@ SetRowStyle provides a function to set the style of rows by given worksheet name
 For example set style of row 1 on `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 Set style of rows 1 to 10 on `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## Set default font {#SetDefaultFont}

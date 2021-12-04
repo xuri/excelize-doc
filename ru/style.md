@@ -1004,13 +1004,13 @@ SetRowStyle предоставляет функцию для установки 
 Например, установите стиль строки 1 на `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 Установите стиль строк с 1 по 10 на `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## Установить шрифт по умолчанию {#SetDefaultFont}

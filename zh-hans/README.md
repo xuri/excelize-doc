@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2021年11月28日
+- 文档更新: 2021年12月5日
 
 ## 项目使命
 
@@ -78,3 +78,7 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 ##### 第二章：Excelize 基本操作
 
 [2.1 基本操作 - 单元格赋值、样式设置与图片图表的综合应用](https://www.bilibili.com/video/BV1hU4y1F7wQ)<br>[2.2 基本操作 - 条件格式、批注和数据验证设置](https://www.bilibili.com/video/BV1HQ4y1Q749)<br>[2.3 基本操作 - CSV 转 XLSX、行高列宽和富文本设置](https://www.bilibili.com/video/BV1US4y1R7t3)<br>[2.4 基本操作 - 数据透视表、形状、公式和文档属性设置](https://www.bilibili.com/video/BV18S4y1d7v5)<br>[2.5 基本操作 - 迷你图、页眉页脚、隐藏与保护工作表](https://www.bilibili.com/video/BV1Sr4y1k7Gf)<br>[2.6 基本操作 - 读取工作簿、工作表、图片与公式计算](https://www.bilibili.com/video/BV1Fq4y1z7ip)
+
+##### 第三章：高性能读写
+
+[3.1 高性能读写 - 流式生成包含大规模数据的电子表格文档](https://www.bilibili.com/video/BV1XL4y1p7gV)

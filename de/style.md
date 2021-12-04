@@ -1004,13 +1004,13 @@ SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des a
 Legen Sie zum Beispiel den Stil von Zeile 1 auf `Sheet1` fest:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 Legen Sie den Stil der Zeilen 1 bis 10 auf `Sheet1` fest:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## Festlegen der Standardschriftart {#SetDefaultFont}

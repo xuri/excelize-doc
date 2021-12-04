@@ -1004,13 +1004,13 @@ SetRowStyle は、指定されたワークシート名、行範囲、および�
 たとえば、`Sheet1` の行1のスタイルを設定します:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 `Sheet1` の行1から10のスタイルを設定します:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## 既定のフォントを設定する {#SetDefaultFont}

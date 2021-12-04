@@ -1004,13 +1004,13 @@ SetRowStyle fournit une fonction pour définir le style des lignes par nom de fe
 Par exemple, définissez le style de la ligne 1 sur `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 Définir le style des lignes 1 à 10 sur `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## Définir la police par défaut {#SetDefaultFont}

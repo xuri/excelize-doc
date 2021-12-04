@@ -1004,13 +1004,13 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 على سبيل المثال ، قم بتعيين نمط الصف 1 في `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, style)
+err = f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 عيّن نمط الصفوف من 1 إلى 10 في `Sheet1`:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, style)
+err = f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## تعيين الخط الافتراضي {#SetDefaultFont}
