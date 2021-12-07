@@ -11,6 +11,8 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - 当前版本: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
 - 文档更新: 2021年12月5日
 
+<a href="https://www.oschina.net/project/top_cn_2021/?id=306&ticket=e16f5338704fd6818a9b90cd0ab805f9" title="Excelize 正在参加开源中国 2021 年度开源项目评选" style="color: #cc0000;">Excelize 正在参加开源中国 2021 年度开源项目评选，希望朋友们在活动页面搜索 Excelize 投票支持</a>
+
 ## 项目使命
 
 Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API，以处理符合基于 Office Open XML（OOXML）标准的电子表格文档，借助 Excelize 您可以使用 Go 读取和写入 MS Excel 文件。
