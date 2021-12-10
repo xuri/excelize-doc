@@ -605,7 +605,7 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例6, 為名為 `Sheet1` 的工作表 `C1:C5` 區域的存儲格設定共享公式 `=A1+B1`，其中 `C1` 為主存儲格:
+- 例6，為名為 `Sheet1` 的工作表 `C1:C5` 區域的存儲格設定共享公式 `=A1+B1`，其中 `C1` 為主存儲格:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
@@ -613,7 +613,7 @@ err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例7, 為名為 `Sheet1` 的工作表 `C2` 存儲格設定表格公式 `=SUM(Table1[[A]:[B]])`:
+- 例7，為名為 `Sheet1` 的工作表 `C2` 存儲格設定表格公式 `=SUM(Table1[[A]:[B]])`:
 
 ```go
 package main

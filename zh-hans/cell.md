@@ -605,7 +605,7 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例6, 为名为 `Sheet1` 的工作表 `C1:C5` 区域的单元格设置共享公式 `=A1+B1`，其中 `C1` 为主单元格:
+- 例6，为名为 `Sheet1` 的工作表 `C1:C5` 区域的单元格设置共享公式 `=A1+B1`，其中 `C1` 为主单元格:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
@@ -613,7 +613,7 @@ err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例7, 为名为 `Sheet1` 的工作表 `C2` 单元格设置表格公式 `=SUM(Table1[[A]:[B]])`:
+- 例7，为名为 `Sheet1` 的工作表 `C2` 单元格设置表格公式 `=SUM(Table1[[A]:[B]])`:
 
 ```go
 package main
