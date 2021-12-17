@@ -9,12 +9,16 @@
     "gitbook-plugin-scramble-mailto": "0.1.2",
     "gitbook-plugin-scripts": "1.0.2",
     "gitbook-plugin-search-plus": "1.0.4-alpha-3",
-    "gitbook-plugin-signature": "1.5.2"
+    "gitbook-plugin-signature": "1.5.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
