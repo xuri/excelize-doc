@@ -99,39 +99,16 @@ SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID에 �
 - 예제 1 에서 `Sheet1` 에서 셀 `D7` 의 테두리를 만듭니다:
 
 ```go
-style, err := f.NewStyle(`{
-    "border": [
-    {
-        "type": "left",
-        "color": "0000FF",
-        "style": 3
+style, err := f.NewStyle(&excelize.Style{
+    Border: []excelize.Border{
+        {Type: "left", Color: "0000FF", Style: 3},
+        {Type: "top", Color: "00FF00", Style: 4},
+        {Type: "bottom", Color: "FFFF00", Style: 5},
+        {Type: "right", Color: "FF0000", Style: 6},
+        {Type: "diagonalDown", Color: "A020F0", Style: 7},
+        {Type: "diagonalUp", Color: "A020F0", Style: 8},
     },
-    {
-        "type": "top",
-        "color": "00FF00",
-        "style": 4
-    },
-    {
-        "type": "bottom",
-        "color": "FFFF00",
-        "style": 5
-    },
-    {
-        "type": "right",
-        "color": "FF0000",
-        "style": 6
-    },
-    {
-        "type": "diagonalDown",
-        "color": "A020F0",
-        "style": 7
-    },
-    {
-        "type": "diagonalUp",
-        "color": "A020F0",
-        "style": 8
-    }]
-}`)
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -688,6 +665,7 @@ ATANH
 AVEDEV
 AVERAGE
 AVERAGEA
+AVERAGEIF
 BASE
 BESSELI
 BESSELJ
@@ -725,6 +703,8 @@ COTH
 COUNT
 COUNTA
 COUNTBLANK
+COUNTIF
+COUNTIFS
 COUPDAYBS
 COUPDAYS
 COUPDAYSNC
@@ -814,6 +794,7 @@ IMSQRT
 IMSUB
 IMSUM
 IMTAN
+INDEX
 INT
 INTRATE
 IPMT
@@ -822,10 +803,13 @@ ISBLANK
 ISERR
 ISERROR
 ISEVEN
+ISFORMULA
+ISLOGICAL
 ISNA
 ISNONTEXT
 ISNUMBER
 ISODD
+ISREF
 ISTEXT
 ISO.CEILING
 ISOWEEKNUM
@@ -844,6 +828,8 @@ LOOKUP
 LOWER
 MATCH
 MAX
+MAXA
+MAXIFS
 MDETERM
 MDURATION
 MEDIAN
@@ -851,6 +837,7 @@ MID
 MIDB
 MIN
 MINA
+MINIFS
 MINUTE
 MIRR
 MOD
@@ -877,6 +864,7 @@ OCT2BIN
 OCT2DEC
 OCT2HEX
 ODD
+ODDFPRICE
 OR
 PDURATION
 PERCENTILE.EXC
@@ -925,6 +913,7 @@ RRI
 SEC
 SECH
 SHEET
+SHEETS
 SIGN
 SIN
 SINH
