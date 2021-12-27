@@ -37,6 +37,8 @@
   * [设置名称](workbook.md#SetDefinedName)
   * [获取名称](workbook.md#GetDefinedName)
   * [删除名称](workbook.md#DeleteDefinedName)
+  * [设置工作簿应用程序属性](workbook.md#SetAppProps)
+  * [获取工作簿应用程序属性](workbook.md#GetAppProps)
   * [设置工作簿属性](workbook.md#SetDocProps)
   * [获取工作簿属性](workbook.md#GetDocProps)
 * [工作表](sheet.md)

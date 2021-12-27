@@ -37,6 +37,8 @@
   * [تعيين الاسم المحدد](workbook.md#SetDefinedName)
   * [احصل على اسم محدد](workbook.md#GetDefinedName)
   * [حذف الاسم المحدد](workbook.md#DeleteDefinedName)
+  * [تعيين خصائص التطبيق](workbook.md#SetAppProps)
+  * [احصل على خصائص التطبيق](workbook.md#GetAppProps)
   * [تعيين خصائص الوثيقة](workbook.md#SetDocProps)
   * [احصل على خصائص المستند](workbook.md#GetDocProps)
 * [ورقة عمل](sheet.md)

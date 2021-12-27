@@ -37,6 +37,8 @@
   * [設定名稱](workbook.md#SetDefinedName)
   * [獲取名稱](workbook.md#GetDefinedName)
   * [刪除名稱](workbook.md#DeleteDefinedName)
+  * [設定活頁簿應用程式屬性](workbook.md#SetAppProps)
+  * [獲取活頁簿應用程式屬性](workbook.md#GetAppProps)
   * [設定活頁簿屬性](workbook.md#SetDocProps)
   * [獲取活頁簿屬性](workbook.md#GetDocProps)
 * [工作表](sheet.md)

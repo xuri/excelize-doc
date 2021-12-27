@@ -37,6 +37,8 @@
   * [Установить определенное имя](workbook.md#SetDefinedName)
   * [Получить определенное имя](workbook.md#GetDefinedName)
   * [Удалить определенное имя](workbook.md#DeleteDefinedName)
+  * [Установить свойства приложения](workbook.md#SetAppProps)
+  * [Получить свойства приложения](workbook.md#GetAppProps)
   * [Установить свойства документа](workbook.md#SetDocProps)
   * [Получить свойства документа](workbook.md#GetDocProps)
 * [Рабочий лист](sheet.md)

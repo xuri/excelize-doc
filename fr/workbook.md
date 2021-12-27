@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` spécifie si appliquer le format numérique pour la valeur de la cellule ou obtenir la valeur brute.
 
-`UnzipSizeLimit` spécifie la taille limite de décompression en octets à l'ouverture de la feuille de calcul, cette valeur doit être supérieure ou égale à `WorksheetUnzipMemLimit`, la taille limite par défaut est de 16Go.
+`UnzipSizeLimit` spécifie la taille limite de décompression en octets à l'ouverture de la feuille de calcul, cette valeur doit être supérieure ou égale à `UnzipXMLSizeLimit`, la taille limite par défaut est de 16Go.
 
-`WorksheetUnzipMemLimit` spécifie la limite de mémoire pour décompresser la feuille de calcul en octets, la feuille de calcul XML sera extraite dans le répertoire temporaire du système lorsque la taille du fichier dépasse cette valeur, cette valeur doit être inférieure ou égale à `UnzipSizeLimit`, la valeur par défaut est 16Mo.
+`UnzipXMLSizeLimit` spécifie la limite de mémoire pour décompresser la feuille de calcul et la table de chaînes partagée en octets, la feuille de calcul XML sera extraite dans le répertoire temporaire du système lorsque la taille du fichier dépasse cette valeur, cette valeur doit être inférieure ou égale à `UnzipSizeLimit`, la valeur par défaut la valeur est de 16 Mo.
 
 ## Créer un document Excel {#NewFile}
 
@@ -1024,6 +1024,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
     Scope:    "Sheet2",
 })
 ```
+
+## Définir les propriétés de l'application {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+SetAppProps fournit une fonction pour définir les propriétés de l'application de document. Les propriétés qui peuvent être définies sont :
+
+Propriété | La description
+---|---
+Application       | Le nom de l'application qui a créé ce document.
+ScaleCrop         | Indique le mode d'affichage de la vignette du document. Définissez cet élément sur `true` pour permettre la mise à l'échelle de la vignette du document à l'affichage. Définissez cet élément sur `false` pour permettre le recadrage de la vignette du document afin d'afficher uniquement les sections qui correspondent à l'affichage.
+DocSecurity       | Niveau de sécurité d'un document sous forme de valeur numérique. La sécurité du document est définie comme suit:<br>1 - Le document est protégé par mot de passe.<br>2 - Il est recommandé d'ouvrir le document en lecture seule.<br>3 - Le document doit obligatoirement être ouvert en lecture seule.<br>4 - Le document est verrouillé pour annotation.
+Company           | Le nom d'une société associée au document.
+LinksUpToDate     | Indique si les liens hypertexte d'un document sont à jour. Définissez cet élément sur `true` pour indiquer que les liens hypertexte sont mis à jour. Définissez cet élément sur `false` pour indiquer que les liens hypertexte sont obsolètes.
+HyperlinksChanged | Spécifie qu'un ou plusieurs hyperliens dans cette partie ont été mis à jour exclusivement dans cette partie par un producteur. Le prochain producteur à ouvrir ce document doit mettre à jour les relations des hyperliens avec les nouveaux hyperliens spécifiés dans cette partie.
+AppVersion        | Spécifie la version de l'application qui a produit ce document. Le contenu de cet élément doit être de la forme XX.YYYY où X et Y représentent des valeurs numériques, ou le document doit être considéré comme non conforme.
+
+Par exemple:
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## Obtenir les propriétés de l'application {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+GetAppProps fournit une fonction pour obtenir les propriétés d'application de document.
 
 ## Définir les propriétés du document {#SetDocProps}
 

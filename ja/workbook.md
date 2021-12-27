@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` は、セル値に数値形式を適用するか、生の値を取得するかを指定します。
 
-`UnzipSizeLimit` は、スプレッドシートを開いたときの解凍サイズの制限をバイト単位で指定します。この値は `WorksheetUnzipMemLimit` 以上である必要があり、デフォルトのサイズ制限は 16GB です。
+`UnzipSizeLimit` は、スプレッドシートを開いたときの解凍サイズの制限をバイト単位で指定します。この値は `UnzipXMLSizeLimit` 以上である必要があり、デフォルトのサイズ制限は 16GB です。
 
-`WorksheetUnzipMemLimit` は、ワークシートを解凍する際のメモリ制限をバイト単位で指定します。ファイルサイズがこの値を超えると、ワークシート XML がシステム一時ディレクトリに抽出されます。この値は `UnzipSizeLimit` 以下である必要があり、デフォルト値は 16MB です。
+`UnzipXMLSizeLimit` は、ワークシートと共有文字列テーブルを解凍する際のメモリ制限をバイト単位で指定します。ファイルサイズがこの値を超えると、ワークシートXMLがシステム一時ディレクトリに抽出されます。この値はデフォルトの `UnzipSizeLimit` 以下である必要があります。値は 16MB です。
 
 ## Excel 文書を作成する {#NewFile}
 
@@ -1038,6 +1038,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
 })
 ```
 
+## アプリケーションのプロパティを設定する {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+SetAppProps は、ドキュメントアプリケーションのプロパティを設定する機能を提供します。設定できるプロパティは次のとおりです。
+
+プロパティ      | 説明
+---|---
+Application       | このドキュメントを作成したアプリケーションの名前。
+ScaleCrop         | ドキュメントサムネイルの表示モードを示します。この要素を `true` に設定すると、ドキュメントのサムネイルをディスプレイに合わせて拡大縮小できます。この要素を `false` に設定すると、ドキュメントのサムネイルをトリミングして、表示に合うセクションのみを表示できるようになります。
+DocSecurity       | 数値としてのドキュメントのセキュリティレベル。ドキュメントのセキュリティは次のように定義されます<br>1 - ドキュメントはパスワードで保護されています<br>2 - ドキュメントは読み取り専用として開くことをお勧めします<br>3 - ドキュメントは読み取り専用として開くように強制されます<br>4 - ドキュメントは注釈のためにロックされています
+Company           | ドキュメントに関連付けられている会社の名前。
+LinksUpToDate     | ドキュメント内のハイパーリンクが最新であるかどうかを示します。この要素を `true` に設定して、ハイパーリンクが更新されることを示します。 この要素を `false` に設定して、ハイパーリンクが古くなっていることを示します。
+HyperlinksChanged | この部分の1つ以上のハイパーリンクが、この部分でプロデューサーによって排他的に更新されたことを指定します。このドキュメントを開く次のプロデューサーは、このパートで指定された新しいハイパーリンクでハイパーリンクの関係を更新する必要があります。
+AppVersion        | このドキュメントを作成したアプリケーションのバージョンを指定します。この要素の内容は、XX.YYYY の形式である必要があります。ここで、XとYは数値を表します。そうでない場合、ドキュメントは不適合と見なされます。
+
+例えば：
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## アプリケーションのプロパティを取得する {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+GetAppProps は、ドキュメントアプリケーションのプロパティを取得する関数を提供します。
+
 ## ブックのプロパティを設定する {#SetDocProps}
 
 ```go
@@ -1061,7 +1101,7 @@ ContentStatus  | コンテンツの状態。たとえば、値には "Draft"、"
 Category       | このパッケージの内容の分類。
 Version        | バージョン番号。この値は、ユーザーまたはアプリケーションによって設定されます。
 
-例えば、
+例えば：
 
 ```go
 err := f.SetDocProps(&excelize.DocProperties{

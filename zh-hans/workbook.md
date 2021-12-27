@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` 用以指定读取单元格值时是否获取原始值，默认值为 `false`（应用数字格式）。
 
-`UnzipSizeLimit` 用以指定打开电子表格文档时的解压缩大小限制（以字节为单位），该值应大于或等于 `WorksheetUnzipMemLimit`，默认大小限制为 16GB。
+`UnzipSizeLimit` 用以指定打开电子表格文档时的解压缩大小限制（以字节为单位），该值应大于或等于 `UnzipXMLSizeLimit`，默认大小限制为 16GB。
 
-`WorksheetUnzipMemLimit` 用以指定解压每个工作表时的内存限制（以字节为单位），当大小超过此值时工作表 XML 文件将被解压至系统临时目录，该值应小于或等于 `UnzipSizeLimit`，默认大小限制为 16MB。
+`UnzipXMLSizeLimit` 用以指定解压每个工作表以及共享字符表时的内存限制（以字节为单位），当大小超过此值时工作表 XML 文件将被解压至系统临时目录，该值应小于或等于 `UnzipSizeLimit`，默认大小限制为 16MB。
 
 ## 创建 {#NewFile}
 
@@ -1037,6 +1037,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
     Scope:    "Sheet2",
 })
 ```
+
+## 设置工作簿应用程序属性 {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+设置工作簿的应用程序属性。可以设置的属性包括:
+
+属性           | 描述
+---|---
+Application       | 创建此文档的应用程序的名称
+ScaleCrop         | 指定文档缩略图的显示方式。设置为 `true` 指定将文档缩略图缩放显示，设置为 `false` 指定将文档缩略图剪裁显示
+DocSecurity       | 以数值表示的文档安全级别。文档安全定义为: <br>1 - 文档受密码保护<br>2 - 建议以只读方式打开文档<br>3 - 强制以只读方式打开文档<br>4 - 文档批注被锁定
+Company           | 与文档关联的公司的名称
+LinksUpToDate     | 设置文档中的超链接是否是最新的。设置为 `true` 表示超链接已更新，设置为 `false` 表示超链接已过时
+HyperlinksChanged | 指定下一次打开此文档时是否应使用本部分中指定的新超链接更新超链接关系
+AppVersion        | 指定生成此文档的应用程序的版本。值应为 XX.YYYY 格式，其中 X 和 Y 代表数值，否则文件将不符合标准
+
+例如：
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## 获取工作簿应用程序属性 {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+获取工作簿的应用程序属性。
 
 ## 设置工作簿属性 {#SetDocProps}
 

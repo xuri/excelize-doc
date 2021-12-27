@@ -37,6 +37,8 @@
   * [Definierter Name festlegen](workbook.md#SetDefinedName)
   * [Definierten Namen abrufen](workbook.md#GetDefinedName)
   * [Definierter Name löschen](workbook.md#DeleteDefinedName)
+  * [Anwendungseigenschaften festlegen](workbook.md#SetAppProps)
+  * [Anwendungseigenschaften abrufen](workbook.md#GetAppProps)
   * [Festlegen von Dokumenteigenschaften](workbook.md#SetDocProps)
   * [Abrufen von Dokumenteigenschaften](workbook.md#GetDocProps)
 * [Arbeitsblatt](sheet.md)

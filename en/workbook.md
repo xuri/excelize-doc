@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` specifies if apply the number format for the cell value or get the raw value.
 
-`UnzipSizeLimit` specifies the unzip size limit in bytes on open the spreadsheet, this value should be greater than or equal to `WorksheetUnzipMemLimit`, the default size limit is 16GB.
+`UnzipSizeLimit` specifies the unzip size limit in bytes on open the spreadsheet, this value should be greater than or equal to `UnzipXMLSizeLimit`, the default size limit is 16GB.
 
-`WorksheetUnzipMemLimit` specifies the memory limit on unzipping worksheet in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `UnzipSizeLimit`, the default value is 16MB.
+`UnzipXMLSizeLimit` specifies the memory limit on unzipping worksheet and shared string table in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `UnzipSizeLimit`, the default value is 16MB.
 
 ## Create Excel document {#NewFile}
 
@@ -1047,6 +1047,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
     Scope:    "Sheet2",
 })
 ```
+
+## Set application properties {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+SetAppProps provides a function to set document application properties. The properties that can be set are:
+
+Property       | Description
+---|---
+Application       | The name of the application that created this document.
+ScaleCrop         | Indicates the display mode of the document thumbnail. Set this element to `true` to enable scaling of the document thumbnail to the display. Set this element to `false` to enable cropping of the document thumbnail to show only sections that will fit the display.
+DocSecurity       | Security level of a document as a numeric value. Document security is defined as:<br>1 - Document is password protected.<br>2 - Document is recommended to be opened as read-only.<br>3 - Document is enforced to be opened as read-only.<br>4 - Document is locked for annotation.
+Company           | The name of a company associated with the document.
+LinksUpToDate     | Indicates whether hyperlinks in a document are up-to-date. Set this element to `true` to indicate that hyperlinks are updated. Set this element to `false` to indicate that hyperlinks are outdated.
+HyperlinksChanged | Specifies that one or more hyperlinks in this part were updated exclusively in this part by a producer. The next producer to open this document shall update the hyperlink relationships with the new hyperlinks specified in this part.
+AppVersion        | Specifies the version of the application which produced this document. The content of this element shall be of the form XX.YYYY where X and Y represent numerical values, or the document shall be considered non-conformant.
+
+For example:
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## Get application properties {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+GetAppProps provides a function to get document application properties.
 
 ## Set document properties {#SetDocProps}
 

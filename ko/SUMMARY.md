@@ -37,6 +37,8 @@
   * [이름 설정](workbook.md#SetDefinedName)
   * [이름 가져 오기](workbook.md#GetDefinedName)
   * [정의 된 이름 삭제](workbook.md#DeleteDefinedName)
+  * [애플리케이션 속성 설정](workbook.md#SetAppProps)
+  * [애플리케이션 속성 가져오기](workbook.md#GetAppProps)
   * [통합 문서 속성 설정](workbook.md#SetDocProps)
   * [통합 문서 속성 가져 오기](workbook.md#GetDocProps)
 * [워크 시트](sheet.md)

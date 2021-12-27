@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` 用以指定讀取存儲格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
 
-`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以字節為單位），該值應大於或等於 `WorksheetUnzipMemLimit`，默認大小限制為 16GB。
+`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以字節為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
 
-`WorksheetUnzipMemLimit` 用以指定解壓每個工作表時的內存限制（以字節為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
+`UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以字節為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
 ## 創建 {#NewFile}
 
@@ -1039,6 +1039,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
     Scope:    "Sheet2",
 })
 ```
+
+## 設定活頁簿應用程式屬性 {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+設置活頁簿的應用程式屬性。可以設定的屬性包括:
+
+屬性           | 描述
+---|---
+Application       | 創建此檔案的應用程式的名稱
+ScaleCrop         | 指定檔案縮略圖的顯示方式。設定為 `true` 指定將檔案縮略圖縮放顯示，設定為 `false` 指定將檔案縮略圖剪裁顯示
+DocSecurity       | 以數值表示的檔案安全級別。檔案安全定義為: <br>1 - 檔案受密碼保護<br>2 - 建議以只讀方式打開檔案<br>3 - 強制以只讀方式打開檔案<br>4 - 檔案批注被鎖定
+Company           | 與檔案關聯的公司的名稱
+LinksUpToDate     | 設定檔案中的超鏈接是否是最新的。設定為 `true` 表示超鏈接已更新，設定為 `false` 表示超鏈接已過時
+HyperlinksChanged | 指定下一次打開此檔案時是否應使用本部分中指定的新超鏈接更新超鏈接關係
+AppVersion        | 指定生成此檔案的應用程式的版本。值應為 XX.YYYY 格式，其中 X 和 Y 代表數值，否則文件將不符合標準
+
+例如：
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## 獲取活頁簿應用程式屬性 {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+獲取活頁簿的應用程式屬性。
 
 ## 設定活頁簿屬性 {#SetDocProps}
 

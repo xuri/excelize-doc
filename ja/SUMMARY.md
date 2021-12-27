@@ -37,6 +37,8 @@
   * [名前を設定する](workbook.md#SetDefinedName)
   * [名前を取得する](workbook.md#GetDefinedName)
   * [定義された名前を削除](workbook.md#DeleteDefinedName)
+  * [アプリケーションのプロパティを設定する](workbook.md#SetAppProps)
+  * [アプリケーションのプロパティを取得する](workbook.md#GetAppProps)
   * [ブックのプロパティを設定する](workbook.md#SetDocProps)
   * [ブックのプロパティを取得する](workbook.md#GetDocProps)
 * [ワークシート](sheet.md)

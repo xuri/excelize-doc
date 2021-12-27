@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` gibt an, ob das Zahlenformat für den Zellenwert angewendet oder der Rohwert abgerufen wird.
 
-`UnzipSizeLimit` gibt die Entpack-Größenbeschränkung in Bytes beim Öffnen der Tabelle an. Dieser Wert sollte größer oder gleich `WorksheetUnzipMemLimit` sein, die Standardgrößenbeschränkung beträgt 16GB.
+`UnzipSizeLimit` gibt die Entpack-Größenbeschränkung in Bytes beim Öffnen der Tabelle an. Dieser Wert sollte größer oder gleich `UnzipXMLSizeLimit` sein, die Standardgrößenbeschränkung beträgt 16GB.
 
-`WorksheetUnzipMemLimit` gibt das Speicherlimit beim Entpacken des Arbeitsblatts in Byte an, Arbeitsblatt-XML wird in das temporäre Systemverzeichnis extrahiert, wenn die Dateigröße diesen Wert überschreitet, dieser Wert sollte kleiner oder gleich `UnzipSizeLimit` sein, der Standardwert ist 16MB.
+`UnzipXMLSizeLimit` gibt das Speicherlimit beim Entpacken des Arbeitsblatts und der freigegebenen Stringtabelle in Bytes an. Arbeitsblatt-XML wird in das temporäre Systemverzeichnis extrahiert, wenn die Dateigröße diesen Wert überschreitet. Dieser Wert sollte kleiner oder gleich `UnzipSizeLimit` sein, der Standardeinstellung Wert ist 16MB.
 
 ## Erstellen einer Kalkulationstabelle {#NewFile}
 
@@ -1045,6 +1045,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
     Scope:    "Sheet2",
 })
 ```
+
+## Anwendungseigenschaften festlegen {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+SetAppProps bietet eine Funktion zum Festlegen von Dokumentanwendungseigenschaften. Folgende Eigenschaften können eingestellt werden:
+
+Eigentum       | Beschreibung
+---|---
+Application       | Der Name der Anwendung, die dieses Dokument erstellt hat.
+ScaleCrop         | Zeigt den Anzeigemodus der Dokumentminiaturansicht an. Setzen Sie dieses Element auf `true`, um die Skalierung der Dokumentminiaturansicht auf die Anzeige zu ermöglichen. Setzen Sie dieses Element auf `false`, um das Zuschneiden der Dokumentminiaturansicht zu ermöglichen, um nur Abschnitte anzuzeigen, die in die Anzeige passen.
+DocSecurity       | Sicherheitsstufe eines Dokuments als numerischer Wert. Die Dokumentsicherheit ist wie folgt definiert:<br>1 - Das Dokument ist passwortgeschützt.<br>2 - Es wird empfohlen, dass das Dokument schreibgeschützt geöffnet wird.<br>3 - Das Öffnen des Dokuments wird erzwungen als schreibgeschützt.<br >4 - Dokument ist für Anmerkungen gesperrt.
+Company           | Der Name einer mit dem Dokument verknüpften Firma.
+LinksUpToDate     | Gibt an, ob Hyperlinks in einem Dokument aktuell sind. Setzen Sie dieses Element auf `true`, um anzuzeigen, dass Hyperlinks aktualisiert werden. Setzen Sie dieses Element auf `false`, um anzuzeigen, dass Hyperlinks veraltet sind.
+HyperlinksChanged | Gibt an, dass ein oder mehrere Hyperlinks in diesem Teil ausschließlich in diesem Teil von einem Produzenten aktualisiert wurden. Der nächste Produzent, der dieses Dokument öffnet, aktualisiert die Hyperlink-Beziehungen mit den neuen Hyperlinks, die in diesem Teil angegeben sind.
+AppVersion        | Gibt die Version der Anwendung an, die dieses Dokument erstellt hat. Der Inhalt dieses Elements muss die Form XX.YYYY haben, wobei X und Y numerische Werte darstellen, oder das Dokument gilt als nicht konform.
+
+Zum Beispiel:
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## Anwendungseigenschaften abrufen {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+GetAppProps bietet eine Funktion zum Abrufen von Dokumentanwendungseigenschaften.
 
 ## Festlegen von Dokumenteigenschaften {#SetDocProps}
 

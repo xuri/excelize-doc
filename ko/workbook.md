@@ -4,10 +4,10 @@
 
 ```go
 type Options struct {
-    Password               string
-    RawCellValue           bool
-    UnzipSizeLimit         int64
-    WorksheetUnzipMemLimit int64
+    Password          string
+    RawCellValue      bool
+    UnzipSizeLimit    int64
+    UnzipXMLSizeLimit int64
 }
 ```
 
@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` 는 셀 값에 숫자 형식을 적용할지 아니면 원시 값을 가져올지 지정합니다.
 
-`UnzipSizeLimit` 은 스프레드시트를 열 때 압축 해제 크기 제한을 바이트 단위로 지정합니다. 이 값은 `WorksheetUnzipMemLimit` 이상이어야 하며 기본 크기 제한은 16GB 입니다.
+`UnzipSizeLimit` 은 스프레드시트를 열 때 압축 해제 크기 제한을 바이트 단위로 지정합니다. 이 값은 `UnzipXMLSizeLimit` 이상이어야 하며 기본 크기 제한은 16GB 입니다.
 
-`WorksheetUnzipMemLimit` 은 워크시트 압축 해제 시 메모리 제한을 바이트 단위로 지정합니다. 파일 크기가 이 값을 초과하면 워크시트 XML 이 시스템 임시 디렉토리로 추출됩니다. 이 값은 `UnzipSizeLimit` 보다 작거나 같아야 하며 기본값은 16MB 입니다.
+`UnzipXMLSizeLimit` 은 압축 해제 워크시트 및 공유 문자열 테이블의 메모리 제한을 바이트 단위로 지정합니다. 파일 크기가 이 값을 초과하면 워크시트 XML이 시스템 임시 디렉토리로 추출됩니다. 이 값은 기본값인 `UnzipSizeLimit` 보다 작거나 같아야 합니다. 값은 16MB 입니다.
 
 ## Excel 문서 만들기 {#NewFile}
 
@@ -1041,6 +1041,46 @@ f.DeleteDefinedName(&excelize.DefinedName{
     Scope:    "Sheet2",
 })
 ```
+
+## 애플리케이션 속성 설정 {#SetAppProps}
+
+```go
+func (f *File) SetAppProps(appProperties *AppProperties) error
+```
+
+SetAppProps 는 문서 애플리케이션 속성을 설정하는 기능을 제공합니다. 설정할 수 있는 속성은 다음과 같습니다.
+
+속성            | 기술
+---|---
+Application       | 이 문서를 만든 응용 프로그램의 이름입니다.
+ScaleCrop         | 문서 축소판의 표시 모드를 나타냅니다. 이 요소를 `true` 로 설정하면 문서 축소판을 디스플레이에 맞게 조정할 수 있습니다. 이 요소를 `false` 로 설정하면 디스플레이에 맞는 섹션만 표시하도록 문서 축소판을 잘라낼 수 있습니다.
+DocSecurity       | 숫자 값으로 나타낸 문서의 보안 수준입니다. 문서 보안은 다음과 같이 정의됩니다.<br>1 - 문서가 비밀번호로 보호되어 있습니다<br>2 - 문서를 읽기 전용으로 여는 것이 좋습니다<br>3 - 문서가 읽기 전용으로 열리도록 강제 실행됩니다<br>4 - 문서가 주석을 위해 잠겨 있습니다
+Company           | 문서와 연결된 회사의 이름입니다.
+LinksUpToDate     | 문서의 하이퍼링크가 최신 상태인지 여부를 나타냅니다. 하이퍼링크가 업데이트되었음을 나타내려면 이 요소를 `true` 로 설정합니다. 하이퍼링크가 오래되었음을 나타내려면 이 요소를 `false` 로 설정합니다.
+HyperlinksChanged | 이 부분에 있는 하나 이상의 하이퍼링크가 생산자에 의해 이 부분에서만 독점적으로 업데이트되었음을 지정합니다. 이 문서를 여는 다음 제작자는 이 부분에 지정된 새 하이퍼링크로 하이퍼링크 관계를 업데이트해야 합니다.
+AppVersion        | 이 문서를 생성한 애플리케이션의 버전을 지정합니다. 이 요소의 내용은 XX.YYYY 형식이어야 하며 여기서 X 와 Y 는 숫자 값을 나타내거나 문서는 부적합한 것으로 간주됩니다.
+
+예:
+
+```go
+err := f.SetAppProps(&excelize.AppProperties{
+    Application:       "Microsoft Excel",
+    ScaleCrop:         true,
+    DocSecurity:       3,
+    Company:           "Company Name",
+    LinksUpToDate:     true,
+    HyperlinksChanged: true,
+    AppVersion:        "16.0000",
+})
+```
+
+## 애플리케이션 속성 가져오기 {#GetAppProps}
+
+```go
+func (f *File) GetAppProps() (ret *AppProperties, err error)
+```
+
+GetAppProps 는 문서 응용 프로그램 속성을 가져오는 기능을 제공합니다.
 
 ## 통합 문서 속성 설정 {#SetDocProps}
 
