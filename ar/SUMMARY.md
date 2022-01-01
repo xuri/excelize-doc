@@ -209,6 +209,7 @@
 * أمثلة
   * [التقويم](example/calendar.md)
   * [قائمة المنسدلة التابعة](example/dependentDropList.md)
+  * [قائمة منسدلة متعددة التحديد](example/multiselectDropList.md)
 * [الثوابت](constants.md)
 * [المتغيرات](variables.md)
 * [أداء](performance.md)

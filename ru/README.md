@@ -9,7 +9,7 @@ EXCELIZE - это библиотека, написанная на чистом G
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Последняя версия: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- Время обновления документа: 28 Декабрь 2021 г.
+- Время обновления документа: 2 Январь 2022 г.
 
 ## Миссия проекта
 
@@ -31,6 +31,7 @@ EXCELIZE - это библиотека, написанная на чистом G
 - [Google Group](https://groups.google.com/g/excelize)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/excelize)
 - [Slack Channel](https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw)
+- [Gitter](https://gitter.im/excelize/community)
 - [Community on Telegram](https://t.me/excelize)
 - [Community on Discord](https://discord.gg/MWV8MBQGtv)
 - [Excelize Community on Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)

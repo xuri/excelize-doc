@@ -209,6 +209,7 @@
 * Exemples
   * [Calendrier](example/calendar.md)
   * [Liste de dépôt dépendante](example/dependentDropList.md)
+  * [Liste déroulante à sélection multiple](example/multiselectDropList.md)
 * [Constantes](constants.md)
 * [Variables](variables.md)
 * [Performance](performance.md)

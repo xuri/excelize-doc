@@ -2,7 +2,7 @@
 
 Create dependent drop list in the spreadsheet with Excelize using Go:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Create dependent drop list in the spreadsheet with Excelize using Go"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Create dependent drop list in the spreadsheet with Excelize using Go"></p>
 
 ```go
 package main

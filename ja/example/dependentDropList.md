@@ -2,7 +2,7 @@
 
 Go を使用して、Excel のドキュメントで複数のリストを作成します:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Go を使用して、Excel のドキュメントで複数のリストを作成します"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Go を使用して、Excel のドキュメントで複数のリストを作成します"></p>
 
 ```go
 package main

@@ -209,6 +209,7 @@
 * より多くの例
   * [カレンダー](example/calendar.md)
   * [依存ドロップリスト](example/dependentDropList.md)
+  * [マルチセレクトドロップリスト](example/multiselectDropList.md)
 * [定数](constants.md)
 * [変数](variables.md)
 * [パフォーマンスデータ](performance.md)

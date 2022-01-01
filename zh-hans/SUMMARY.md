@@ -209,6 +209,7 @@
 * 范例
   * [日历](example/calendar.md)
   * [级联列表](example/dependentDropList.md)
+  * [多选列表](example/multiselectDropList.md)
 * [常量](constants.md)
 * [变量](variables.md)
 * [性能数据](performance.md)

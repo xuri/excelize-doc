@@ -2,7 +2,7 @@
 
 أنشئ قائمة منسدلة تابعة في جدول البيانات باستخدام Excelize باستخدام Go:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="أنشئ قائمة منسدلة تابعة في جدول البيانات باستخدام Excelize باستخدام Go"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="أنشئ قائمة منسدلة تابعة في جدول البيانات باستخدام Excelize باستخدام Go"></p>
 
 ```go
 package main

@@ -2,7 +2,7 @@
 
 Créez une liste déroulante dépendante dans la feuille de calcul avec Excelize à l'aide de Go:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Créez une liste déroulante dépendante dans la feuille de calcul avec Excelize à l'aide de Go"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Créez une liste déroulante dépendante dans la feuille de calcul avec Excelize à l'aide de Go"></p>
 
 ```go
 package main

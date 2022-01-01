@@ -9,7 +9,7 @@ Excelize 는 순수 Go로 작성된 라이브러리로 XLSX / XLSM / XLTM / XLTX
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.4.1](https://github.com/xuri/excelize/releases/latest)
-- 문서 업데이트 시간: 2021 년 12 월 28 일
+- 문서 업데이트 시간: 2022 년 1 월 2 일
 
 ## 프로젝트 미션
 
@@ -31,6 +31,7 @@ Excelize 의 목표는 OOXML (Office Open XML) 표준을 준수하는 xlsx 파�
 - [Google Group](https://groups.google.com/g/excelize)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/excelize)
 - [Slack Channel](https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw)
+- [Gitter](https://gitter.im/excelize/community)
 - [Community on Telegram](https://t.me/excelize)
 - [Community on Discord](https://discord.gg/MWV8MBQGtv)
 - [Excelize Community on Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)

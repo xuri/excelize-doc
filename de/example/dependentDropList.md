@@ -2,7 +2,7 @@
 
 Erstellen Sie mit Excelize eine abhängige Dropdown-Liste in der Tabelle mit Go:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Erstellen Sie mit Excelize eine abhängige Dropdown-Liste in der Tabelle mit Go"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Erstellen Sie mit Excelize eine abhängige Dropdown-Liste in der Tabelle mit Go"></p>
 
 ```go
 package main

@@ -2,7 +2,7 @@
 
 Go 를 사용하여 Excelize 로 스프레드 시트에 종속 드롭 목록을 만듭니다:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Go 를 사용하여 Excelize 로 스프레드 시트에 종속 드롭 목록을 만듭니다"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Go 를 사용하여 Excelize 로 스프레드 시트에 종속 드롭 목록을 만듭니다"></p>
 
 ```go
 package main

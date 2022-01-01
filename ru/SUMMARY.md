@@ -209,6 +209,7 @@
 * Примеры
   * [Календарь](example/calendar.md)
   * [Зависимый выпадающий список](example/dependentDropList.md)
+  * [Выпадающий список с множественным выбором](example/multiselectDropList.md)
 * [Константы](constants.md)
 * [Переменные](variables.md)
 * [Производительность](performance.md)

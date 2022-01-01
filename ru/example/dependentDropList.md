@@ -2,7 +2,7 @@
 
 Создайте зависимый выпадающий список в электронной таблице с помощью Excelize с помощью Go:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Создайте зависимый выпадающий список в электронной таблице с помощью Excelize с помощью Go"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Создайте зависимый выпадающий список в электронной таблице с помощью Excelize с помощью Go"></p>
 
 ```go
 package main

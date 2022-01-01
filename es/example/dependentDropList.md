@@ -2,7 +2,7 @@
 
 Cree una lista desplegable dependiente en la hoja de cálculo con Excelize usando Go::
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="Cree una lista desplegable dependiente en la hoja de cálculo con Excelize usando Go:"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="Cree una lista desplegable dependiente en la hoja de cálculo con Excelize usando Go"></p>
 
 ```go
 package main

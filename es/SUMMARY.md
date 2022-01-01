@@ -209,6 +209,7 @@
 * Ejemplos
   * [Calendario](example/calendar.md)
   * [Lista desplegable dependiente](example/dependentDropList.md)
+  * [Lista desplegable de selección múltiple](example/multiselectDropList.md)
 * [Constantes](constants.md)
 * [Variables](variables.md)
 * [Rendimiento](performance.md)

@@ -209,6 +209,7 @@
 * 더 많은 예
   * [달력](example/calendar.md)
   * [종속 드롭 목록](example/dependentDropList.md)
+  * [다중 선택 드롭 목록](example/multiselectDropList.md)
 * [상수](constants.md)
 * [변수](variables.md)
 * [성능](performance.md)

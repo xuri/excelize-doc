@@ -2,7 +2,7 @@
 
 使用 Go 语言在 Excel 文档中创建多级联动菜单列表:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.md.gif" alt="使用 Go 语言在 Excel 文档中创建多级联动菜单列表"></p>
+<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="使用 Go 语言在 Excel 文档中创建多级联动菜单列表"></p>
 
 ```go
 package main
