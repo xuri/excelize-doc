@@ -107,7 +107,7 @@ gap|空距
 span|用直線連接資料點
 zero|零值
 
-通過參數 `vary_colors` 指定是否設置圖表數據系列格式為自動填充顏色，默認值為 `true`。
+通過參數 `vary_colors` 指定是否設定圖表數據系列格式為自動填充顏色，默認值為 `true`。
 
 參數 `format` 提供對圖表偏移、縮放、高寬比設定和打印屬性等參數的設定，其參數與在 [`AddPicture()`](image.md#AddPicture) 函數中所使用的相同。
 

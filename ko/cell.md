@@ -122,7 +122,9 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - 예제 2, `Sheet1` 라는 워크 시트 `D7` 셀에 대한 그라데이션 스타일을 설정:
 
 ```go
-style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Fill: excelize.Fill{Type: "gradient", Color: []string{"#FFFFFF", "#E0EBF5"}, Shading: 1},
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -136,7 +138,9 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - 예제 3, `Sheet1` 이라는 이름의 `D7` 셀에 대한 솔리드 채우기를 설정합니다:
 
 ```go
-style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Fill: excelize.Fill{Type: "pattern", Color: []string{"#E0EBF5"}, Pattern: 1},
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -151,20 +155,19 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Style")
-style, err := f.NewStyle(`{
-    "alignment":
-    {
-        "horizontal": "center",
-        "ident": 1,
-        "justify_last_line": true,
-        "reading_order": 0,
-        "relative_indent": 1,
-        "shrink_to_fit": true,
-        "text_rotation": 45,
-        "vertical": "",
-        "wrap_text": true
-    }
-}`)
+style, err := f.NewStyle(&excelize.Style{
+    Alignment: &excelize.Alignment{
+        Horizontal:      "center",
+        Indent:          1,
+        JustifyLastLine: true,
+        ReadingOrder:    0,
+        RelativeIndent:  1,
+        ShrinkToFit:     true,
+        TextRotation:    45,
+        Vertical:        "",
+        WrapText:        true,
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -178,7 +181,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 f.SetCellValue("Sheet1", "D7", 42920.5)
 f.SetColWidth("Sheet1", "D", "D", 13)
-style, err := f.NewStyle(`{"number_format": 22}`)
+style, err := f.NewStyle(&excelize.Style{NumFmt: 22})
 if err != nil {
     fmt.Println(err)
 }
@@ -193,16 +196,15 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{
-    "font":
-    {
-        "bold": true,
-        "italic": true,
-        "family": "Times New Roman",
-        "size": 36,
-        "color": "#777777"
-    }
-}`)
+style, err := f.NewStyle(&excelize.Style{
+    Font: &excelize.Font{
+        Bold:   true,
+        Italic: true,
+        Family: "Times New Roman",
+        Size:   36,
+        Color:  "#777777",
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -214,7 +216,12 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - 예 7, `Sheet1` 라는 워크 시트 `D7` 셀을 잠그고 숨김:
 
 ```go
-style, err := f.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Protection: &excelize.Protection{
+        Hidden: true,
+        Locked: true,
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -234,10 +241,17 @@ SetCellHyperLink 는 주어진 워크 시트 이름과 링크 URL 주소로 셀 
 - 예제 1, `Sheet1` 이라는 워크시트의 `A3` 셀에 외부 링크를 추가합니다:
 
 ```go
-err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External")
+if err := f.SetCellHyperLink("Sheet1", "A3",
+    "https://github.com/xuri/excelize", "External"); err != nil {
+    fmt.Println(err)
+}
 // Set the font and underline style for the cell
-style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Font: &excelize.Font{Color: "#1265BE", Underline: "single"},
+})
+if err != nil {
+    fmt.Println(err)
+}
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 ```
 

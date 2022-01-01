@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-FormulaOpts 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函數中指定設置特殊公式類型。
+FormulaOpts 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函數中指定設定特殊公式類型。
 
 ```go
 type FormulaOpts struct {
@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-根據給定的工作表名和儲存格坐標設定儲存格的值。指定的坐標不應在表格的第一列範圍，使用字符文本設置複數。
+根據給定的工作表名和儲存格坐標設定儲存格的值。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
 
 |支持的資料類別|
 |---|
@@ -122,7 +122,9 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設定漸變樣式：
 
 ```go
-style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Fill: excelize.Fill{Type: "gradient", Color: []string{"#FFFFFF", "#E0EBF5"}, Shading: 1},
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -136,7 +138,9 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - 例3，為名為 `Sheet1` 的工作表 `D7` 儲存格設定純色填滿：
 
 ```go
-style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Fill: excelize.Fill{Type: "pattern", Color: []string{"#E0EBF5"}, Pattern: 1},
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -151,20 +155,19 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "樣式")
-style, err := f.NewStyle(`{
-    "alignment":
-    {
-        "horizontal": "center",
-        "ident": 1,
-        "justify_last_line": true,
-        "reading_order": 0,
-        "relative_indent": 1,
-        "shrink_to_fit": true,
-        "text_rotation": 45,
-        "vertical": "",
-        "wrap_text": true
-    }
-}`)
+style, err := f.NewStyle(&excelize.Style{
+    Alignment: &excelize.Alignment{
+        Horizontal:      "center",
+        Indent:          1,
+        JustifyLastLine: true,
+        ReadingOrder:    0,
+        RelativeIndent:  1,
+        ShrinkToFit:     true,
+        TextRotation:    45,
+        Vertical:        "",
+        WrapText:        true,
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -178,7 +181,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 f.SetCellValue("Sheet1", "D7", 42920.5)
 f.SetColWidth("Sheet1", "D", "D", 13)
-style, err := f.NewStyle(`{"number_format": 22}`)
+style, err := f.NewStyle(&excelize.Style{NumFmt: 22})
 if err != nil {
     fmt.Println(err)
 }
@@ -193,16 +196,15 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{
-    "font":
-    {
-        "bold": true,
-        "italic": true,
-        "family": "Times New Roman",
-        "size": 36,
-        "color": "#777777"
-    }
-}`)
+style, err := f.NewStyle(&excelize.Style{
+    Font: &excelize.Font{
+        Bold:   true,
+        Italic: true,
+        Family: "Times New Roman",
+        Size:   36,
+        Color:  "#777777",
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -214,7 +216,12 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - 例7，鎖定並隱藏名為 `Sheet1` 的工作表 `D7` 儲存格：
 
 ```go
-style, err := f.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Protection: &excelize.Protection{
+        Hidden: true,
+        Locked: true,
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -234,10 +241,17 @@ func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
 ```go
-err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External")
+if err := f.SetCellHyperLink("Sheet1", "A3",
+    "https://github.com/xuri/excelize", "External"); err != nil {
+    fmt.Println(err)
+}
 // 為儲存格設定字型和下划線樣式
-style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Font: &excelize.Font{Color: "#1265BE", Underline: "single"},
+})
+if err != nil {
+    fmt.Println(err)
+}
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 ```
 
@@ -546,7 +560,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。若 Excel 應用程序打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
+根據給定的工作表名（大小寫敏感）和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 存儲格設定普通公式 `=SUM(A1,B1)`：
 

@@ -45,7 +45,7 @@ streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
 }
-styleID, err := file.NewStyle(`{"font":{"color":"#777777"}}`)
+styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
 }
@@ -71,7 +71,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 }
 ```
 
-流式設置存儲格的公式和值：
+流式設定存儲格的公式和值：
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
@@ -80,7 +80,7 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Formula: "SUM(A1,B1)"}});
 ```
 
-流式設置存儲格的值和列樣式：
+流式設定存儲格的值和列樣式：
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
@@ -123,7 +123,7 @@ err := streamWriter.AddTable("F2", "H6", `{
 }`)
 ```
 
-注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設置表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
+注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
 
 ## 流式合併存儲格 {#MergeCell}
 

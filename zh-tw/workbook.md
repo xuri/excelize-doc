@@ -15,9 +15,9 @@ type Options struct {
 
 `RawCellValue` 用以指定讀取存儲格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
 
-`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以字節為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
+`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以位元組為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
 
-`UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以字節為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
+`UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以位元組為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
 ## 創建 {#NewFile}
 
@@ -1046,7 +1046,7 @@ f.DeleteDefinedName(&excelize.DefinedName{
 func (f *File) SetAppProps(appProperties *AppProperties) error
 ```
 
-設置活頁簿的應用程式屬性。可以設定的屬性包括:
+設定活頁簿的應用程式屬性。可以設定的屬性包括:
 
 屬性           | 描述
 ---|---

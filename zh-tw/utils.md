@@ -1012,7 +1012,7 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 
 該函數提供獲取當前檔案內容 `*bytes.Buffer` 的方法。
 
-## 嵌入 VBA 項目 {#AddVBAProject}
+## 嵌入 VBA 專案 {#AddVBAProject}
 
 ```go
 func (f *File) AddVBAProject(bin string) error

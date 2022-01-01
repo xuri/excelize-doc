@@ -41,7 +41,7 @@ func main() {
             return
         }
     }
-    // 設置數據驗證
+    // 設定數據驗證
     dvRange1 := excelize.NewDataValidation(true)
     dvRange1.Sqref = "D3:D3"
     dvRange1.SetSqrefDropList("$A$1:$B$1", true)
@@ -56,7 +56,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 設置自定義名稱
+    // 設定自定義名稱
     if err = f.SetDefinedName(&excelize.DefinedName{
         Name:     "Fruits",
         RefersTo: "Sheet1!$A$2:$A$6",

@@ -122,7 +122,9 @@ Les quatre bordures de la cellule `D7` sont définies avec des styles et des cou
 - Exemple 2, définition du style de dégradé pour la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-style, err := f.NewStyle(`{"fill":{"type":"gradient","color":["#FFFFFF","#E0EBF5"],"shading":1}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Fill: excelize.Fill{Type: "gradient", Color: []string{"#FFFFFF", "#E0EBF5"}, Shading: 1},
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -136,7 +138,9 @@ La cellule `D7` est définie avec le remplissage de couleur de l'effet de dégra
 - Exemple 3, définissez un remplissage solide pour la cellule `D7` nommée `Sheet1`:
 
 ```go
-style, err := f.NewStyle(`{"fill":{"type":"pattern","color":["#E0EBF5"],"pattern":1}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Fill: excelize.Fill{Type: "pattern", Color: []string{"#E0EBF5"}, Pattern: 1},
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -151,20 +155,19 @@ La cellule `D7` est définie avec un remplissage solide.
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Style")
-style, err := f.NewStyle(`{
-    "alignment":
-    {
-        "horizontal": "center",
-        "ident": 1,
-        "justify_last_line": true,
-        "reading_order": 0,
-        "relative_indent": 1,
-        "shrink_to_fit": true,
-        "text_rotation": 45,
-        "vertical": "",
-        "wrap_text": true
-    }
-}`)
+style, err := f.NewStyle(&excelize.Style{
+    Alignment: &excelize.Alignment{
+        Horizontal:      "center",
+        Indent:          1,
+        JustifyLastLine: true,
+        ReadingOrder:    0,
+        RelativeIndent:  1,
+        ShrinkToFit:     true,
+        TextRotation:    45,
+        Vertical:        "",
+        WrapText:        true,
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -178,7 +181,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```go
 f.SetCellValue("Sheet1", "D7", 42920.5)
 f.SetColWidth("Sheet1", "D", "D", 13)
-style, err := f.NewStyle(`{"number_format": 22}`)
+style, err := f.NewStyle(&excelize.Style{NumFmt: 22})
 if err != nil {
     fmt.Println(err)
 }
@@ -193,16 +196,15 @@ La cellule `D7` est définie sur le format de l'heure. Notez que lorsque la larg
 
 ```go
 f.SetCellValue("Sheet1", "D7", "Excel")
-style, err := f.NewStyle(`{
-    "font":
-    {
-        "bold": true,
-        "italic": true,
-        "family": "Times New Roman",
-        "size": 36,
-        "color": "#777777"
-    }
-}`)
+style, err := f.NewStyle(&excelize.Style{
+    Font: &excelize.Font{
+        Bold:   true,
+        Italic: true,
+        Family: "Times New Roman",
+        Size:   36,
+        Color:  "#777777",
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -214,7 +216,12 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 - Exemple 7, verrouillage et masquage de la cellule `D7` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-style, err := f.NewStyle(`{"protection":{"hidden":true, "locked":true}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Protection: &excelize.Protection{
+        Hidden: true,
+        Locked: true,
+    },
+})
 if err != nil {
     fmt.Println(err)
 }
@@ -234,10 +241,17 @@ SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellul
 - Exemple 1, ajout d'un lien externe à la cellule `A3` de la feuille de calcul nommée `Sheet1`:
 
 ```go
-err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External")
+if err := f.SetCellHyperLink("Sheet1", "A3",
+    "https://github.com/xuri/excelize", "External"); err != nil {
+    fmt.Println(err)
+}
 // Définir le style de police et de soulignement pour la cellule
-style, err := f.NewStyle(`{"font":{"color":"#1265BE","underline":"single"}}`)
+style, err := f.NewStyle(&excelize.Style{
+    Font: &excelize.Font{Color: "#1265BE", Underline: "single"},
+})
+if err != nil {
+    fmt.Println(err)
+}
 err = f.SetCellStyle("Sheet1", "A3", "A3", style)
 ```
 

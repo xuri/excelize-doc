@@ -2,7 +2,7 @@
 
 ```go
 var (
-    // ErrStreamSetColWidth 定義了在流式寫入模式下設置欄寬度時的錯誤提示信息
+    // ErrStreamSetColWidth 定義了在流式寫入模式下設定欄寬度時的錯誤提示信息
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrColumnNumber 定義了收到無效欄名時的錯誤提示信息
     ErrColumnNumber = errors.New("column number exceeds maximum limit")
@@ -18,7 +18,7 @@ var (
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrInvalidFormula 定義了收到無效公式時的錯誤提示信息
     ErrInvalidFormula = errors.New("formula not valid")
-    // ErrAddVBAProject 定義了向活頁簿嵌入 VBA 項目發生異常時的錯誤提示信息
+    // ErrAddVBAProject 定義了向活頁簿嵌入 VBA 專案發生異常時的錯誤提示信息
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
     // ErrMaxRows 定義了當列號超出最大限制時的錯誤提示信息
     ErrMaxRows = errors.New("row number exceeds maximum limit")
@@ -64,7 +64,7 @@ var (
 )
 ```
 
-下列變量定義了 XML 源關係和命名空間列表、相關前綴和引入它的模式：
+下列變數定義了 XML 源關係和命名空間列表、相關前綴和引入它的模式：
 
 ```go
 var (
