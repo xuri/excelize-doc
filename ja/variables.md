@@ -32,8 +32,8 @@ var (
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
-    ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
+    // ErrUnsupportedEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
+    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
     // ErrParameterRequired は、空のパラメーターを受信したときのエラーメッセージを定義しました。
     ErrParameterRequired = errors.New("parameter is required")
     // ErrParameterInvalid は、無効なパラメーターを受信したときのエラーメッセージを定義しました。
@@ -52,8 +52,8 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrGroupSheets は、グループシートにエラーメッセージを定義しました。
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました。
-    ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
+    // ErrDataValidationFormulaLength は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました。
+    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
     // ErrDataValidationRange は、設定された10進範囲のエラーメッセージが制限を超えると定義しました。
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // ErrCellCharsLength は、制限を超えるセル文字の長さを受信するためのエラーメッセージを定義しました。

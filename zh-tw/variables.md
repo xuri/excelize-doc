@@ -32,8 +32,8 @@ var (
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism 定義了檢測到未知加密機制時的錯誤提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism 定義了檢測到不受支持的加密機制時的錯誤提示信息
-    ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
+    // ErrUnsupportedEncryptMechanism 定義了檢測到不受支持的加密機制時的錯誤提示信息
+    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
     // ErrParameterRequired 定義了必要參數為空時的錯誤提示信息
     ErrParameterRequired = errors.New("parameter is required")
     // ErrParameterInvalid 定義了收到無效參數時的錯誤提示信息
@@ -52,8 +52,8 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrGroupSheets 定義了工作表分組異常時的錯誤提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth 定義了數據驗證公式長度超出最大限制時錯誤提示信息
-    ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
+    // ErrDataValidationFormulaLength 定義了數據驗證公式長度超出最大限制時錯誤提示信息
+    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
     // ErrDataValidationRange 定義了指定數據驗證小數範圍無效時的錯誤提示信息
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // ErrCellCharsLength 定義了單個存儲格字符長度超出最大限制時的錯誤提示信息

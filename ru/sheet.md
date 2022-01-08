@@ -531,12 +531,13 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet предоставляет функцию предотвращения случайного или преднамеренного изменения других пользователей, перемещения или удаления данных на листе. Например, защитите `Sheet1` с настройками защиты:
+ProtectSheet предоставляет функцию для предотвращения случайного или преднамеренного изменения, перемещения или удаления данных на листе другими пользователями. Необязательное поле `AlgorithmName` указывает хеш-алгоритм, поддерживает XOR, MD4, MD5, SHA1, SHA256, SHA384 и SHA512. В настоящее время, если хэш-алгоритм не указан, будет использоваться алгоритм XOR по умолчанию. Например, защитите `Sheet1` с помощью параметров защиты:
 
 <p align="center"><img width="914" src="./images/protect_sheet.png" alt="Защитить лист"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+    AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
@@ -548,7 +549,7 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 func (f *File) UnprotectSheet(sheet string) error
 ```
 
-UnprotectSheet предоставляет функцию для снятия защиты листа Excel.
+UnprotectSheet предоставляет функцию для снятия защиты листа, указанного вторым необязательным параметром пароля для снятия защиты листа с проверкой пароля.
 
 ## Удалить столбец {#RemoveCol}
 

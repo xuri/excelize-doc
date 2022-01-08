@@ -531,12 +531,13 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet provides a function to prevent other users from accidentally or deliberately changing, moving, or deleting data in a worksheet. For example, protect `Sheet1` with protection settings:
+ProtectSheet provides a function to prevent other users from accidentally or deliberately changing, moving, or deleting data in a worksheet. The optional field `AlgorithmName` specified hash algorithm, support XOR, MD4, MD5, SHA1, SHA256, SHA384, and SHA512 currently, if no hash algorithm specified, will be using the XOR algorithm as default. For example, protect `Sheet1` with protection settings:
 
 <p align="center"><img width="896" src="./images/protect_sheet.png" alt="Protect Sheet"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+    AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
@@ -548,7 +549,7 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 func (f *File) UnprotectSheet(sheet string) error
 ```
 
-UnprotectSheet provides a function to unprotect an Excel worksheet.
+UnprotectSheet provides a function to remove protection for a sheet, specified the second optional password parameter to remove sheet protection with password verification.
 
 ## Remove column {#RemoveCol}
 

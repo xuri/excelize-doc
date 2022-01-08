@@ -228,8 +228,8 @@ func CellNameToCoordinates(cell string) (int, int, error)
 CellNameToCoordinates преобразует буквенно-цифровое имя ячейки в координаты `[X, Y]` или возвращает ошибку. Например:
 
 ```go
-excelize.CellCoordinates("A1") // returns 1, 1, nil
-excelize.CellCoordinates("Z3") // returns 26, 3, nil
+excelize.CellNameToCoordinates("A1") // returns 1, 1, nil
+excelize.CellNameToCoordinates("Z3") // returns 26, 3, nil
 ```
 
 ## Координаты на имя ячейки {#CoordinatesToCellName}

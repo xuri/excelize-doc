@@ -47,9 +47,9 @@ var (
     // ErrUnknownEncryptMechanism определил сообщение об ошибке для
     // неподдерживаемого механизма шифрования.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism определил сообщение об ошибке для
+    // ErrUnsupportedEncryptMechanism определил сообщение об ошибке для
     // неподдерживаемого механизма шифрования.
-    ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
     // ErrParameterRequired определяет сообщение об ошибке при получении
     // пустого параметра.
     ErrParameterRequired = errors.New("parameter is required")
@@ -75,9 +75,9 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrGroupSheets определила сообщение об ошибке на групповых листах.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth определил сообщение об ошибке для
+    // ErrDataValidationFormulaLength определил сообщение об ошибке для
     // получения длины формулы проверки данных, превышающей лимит.
-    ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
     // ErrDataValidationRange определил, что сообщение об ошибке в заданном
     // десятичном диапазоне превышает предел.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")

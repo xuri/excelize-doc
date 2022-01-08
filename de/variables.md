@@ -47,9 +47,9 @@ var (
     // ErrUnknownEncryptMechanism hat die Fehlermeldung zu einem nicht
     // unterstützten Verschlüsselungsmechanismus definiert.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportEncryptMechanism hat die Fehlermeldung zu einem nicht
+    // ErrUnsupportedEncryptMechanism hat die Fehlermeldung zu einem nicht
     // unterstützten Verschlüsselungsmechanismus definiert.
-    ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
     // ErrParameterRequired definiert die Fehlermeldung beim Empfang des leeren
     // Parameters.
     ErrParameterRequired = errors.New("parameter is required")
@@ -76,9 +76,9 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrGroupSheets definierte die Fehlermeldung auf Gruppenblättern.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLenth definiert die Fehlermeldung für den Empfang
+    // ErrDataValidationFormulaLength definiert die Fehlermeldung für den Empfang
     // einer Datenvalidierungsformellänge, die den Grenzwert überschreitet.
-    ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
     // ErrDataValidationRange definiert die Fehlermeldung, dass ein eingestellter
     // Dezimalbereich den Grenzwert überschreitet.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")

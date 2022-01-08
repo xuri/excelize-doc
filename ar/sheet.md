@@ -530,12 +530,13 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-توفر ProtectSheet وظيفة لمنع المستخدمين الآخرين من تغيير أو نقل أو حذف البيانات في ورقة العمل عن طريق الخطأ أو عن عمد. على سبيل المثال ، حماية `Sheet1` بإعدادات الحماية:
+توفر ProtectSheet وظيفة لمنع المستخدمين الآخرين من تغيير البيانات في ورقة العمل أو نقلها أو حذفها عن طريق الخطأ أو عن عمد. الحقل الاختياري `AlgorithmName` خوارزمية التجزئة المحددة ، ودعم XOR ، MD4 ، MD5 ، SHA1 ، SHA256 ، SHA384 ، و SHA512 حاليًا ، إذا لم يتم تحديد خوارزمية التجزئة ، فسيستخدم خوارزمية XOR كإعداد افتراضي. على سبيل المثال ، حماية `Sheet1` بإعدادات الحماية:
 
 <p align="center"><img width="789" src="./images/protect_sheet.png" alt="حماية الورقة"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+    AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
@@ -547,7 +548,7 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 func (f *File) UnprotectSheet(sheet string) error
 ```
 
-يوفر UnprotectSheet وظيفة لإلغاء حماية ورقة عمل Excel.
+يوفر UnprotectSheet وظيفة لإزالة الحماية للورقة ، وحدد معلمة كلمة المرور الاختيارية الثانية لإزالة حماية الورقة باستخدام التحقق من كلمة المرور.
 
 ## إزالة عمود {#RemoveCol}
 

@@ -531,12 +531,13 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-他のユーザーが誤ってまたは故意にワークシートのデータを変更、移動、または削除することを防止します。たとえば、`Sheet1` という名前のワークシートにパスワード保護を設定しますが、ロックされたセルの選択を許可し、ロックされていないセルを選択し、スキームを編集します。
+ProtectSheet は、他のユーザーがワークシート内のデータを誤ってまたは故意に変更、移動、または削除するのを防ぐ機能を提供します。 オプションのフィールド `AlgorithmName` で指定されたハッシュアルゴリズムは、XOR、MD4、MD5、SHA1、SHA256、SHA384、および SHA512 をサポートし、ハッシュアルゴリズムが指定されていない場合、デフォルトで XOR アルゴリズムを使用します。 たとえば、保護設定で `Sheet1` を保護します:
 
 <p align="center"><img width="933" src="./images/protect_sheet.png" alt="シートを保護する"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+    AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
@@ -548,7 +549,7 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 func (f *File) UnprotectSheet(sheet string) error
 ```
 
-指定されたワークシート名に基づいてワークシートの保護を解除します（大文字と小文字を区別）。
+UnprotectSheet は、シートの保護を削除する機能を提供し、パスワード検証でシート保護を削除するための 2 番目のオプションのパスワードパラメーターを指定しました。
 
 ## 列を削除 {#RemoveCol}
 

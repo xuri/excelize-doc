@@ -227,8 +227,8 @@ func CellNameToCoordinates(cell string) (int, int, error)
 تقوم CellNameToCoordinates بتحويل اسم الخلية الأبجدية الرقمية إلى إحداثيات `[X, Y]` أو إرجاع خطأ. فمثلا:
 
 ```go
-CellCoordinates("A1") // إرجاع 1, 1, nil
-CellCoordinates("Z3") // إرجاع 26, 3, nil
+excelize.CellNameToCoordinates("A1") // إرجاع 1, 1, nil
+excelize.CellNameToCoordinates("Z3") // إرجاع 26, 3, nil
 ```
 
 ## إحداثيات لاسم خلية {#CoordinatesToCellName}

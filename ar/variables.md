@@ -34,8 +34,8 @@ var (
     ErrEncrypt = errors.New("not support encryption currently")
     // حدد ErrUnknownEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // حدد ErrUnsupportEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
-    ErrUnsupportEncryptMechanism = errors.New("unsupport encryption mechanism")
+    // حدد ErrUnsupportedEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
+    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
     // حدد ErrParameterRequired رسالة الخطأ عند تلقي المعلمة الفارغة.
     ErrParameterRequired = errors.New("parameter is required")
     // حدد ErrParameterInvalid رسالة الخطأ عند تلقي المعلمة غير الصالحة.
@@ -56,9 +56,9 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // حدد ErrGroupSheets رسالة الخطأ في أوراق المجموعة.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // حدد ErrDataValidationFormulaLenth رسالة الخطأ لتلقي طول صيغة التحقق من
+    // حدد ErrDataValidationFormulaLength رسالة الخطأ لتلقي طول صيغة التحقق من
     // صحة البيانات الذي يتجاوز الحد.
-    ErrDataValidationFormulaLenth = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
     // حدد ErrDataValidationRange رسالة الخطأ على نطاق عشري معين يتجاوز الحد.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // حدد ErrCellCharsLength رسالة الخطأ لتلقي طول حرف الخلية الذي يتجاوز الحد.

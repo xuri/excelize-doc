@@ -160,7 +160,7 @@ const (
     DataValidationTypeCustom
     DataValidationTypeDate
     DataValidationTypeDecimal
-    DataValidationTypeTextLeng
+    DataValidationTypeTextLength
     DataValidationTypeTime
     DataValidationTypeWhole
 )

@@ -531,12 +531,13 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet fournit une fonction permettant d'empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans une feuille de calcul. Par exemple, protégez `Sheet1` avec les paramètres de protection:
+ProtectSheet fournit une fonction pour empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans une feuille de calcul. Le champ facultatif `AlgorithmName` spécifié l'algorithme de hachage, prend en charge XOR, MD4, MD5, SHA1, SHA256, SHA384 et SHA512 actuellement, si aucun algorithme de hachage n'est spécifié, utilisera l'algorithme XOR par défaut. Par exemple, protégez `Sheet1` avec les paramètres de protection:
 
 <p align="center"><img width="914" src="./images/protect_sheet.png" alt="Protéger la feuille"></p>
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+    AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
@@ -548,7 +549,7 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 func (f *File) UnprotectSheet(sheet string) error
 ```
 
-UnprotectSheet fournit une fonction permettant de ôter la protection de la feuille.
+UnprotectSheet fournit une fonction pour supprimer la protection d'une feuille, spécifié le deuxième paramètre de mot de passe facultatif pour supprimer la protection de la feuille avec vérification du mot de passe.
 
 ## Supprimer la colonne {#RemoveCol}
 
