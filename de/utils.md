@@ -3,7 +3,7 @@
 ## Tabelle {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 AddTable bietet die Methode zum Hinzufügen einer Tabelle zu einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und des Formatsatzes.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Automatischer Filter {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 AutoFilter bietet die Methode zum Hinzufügen eines automatischen Filters in einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Einstellungen. Ein automatischer Filter in Excel ist eine Möglichkeit, einen 2D-Datenbereich anhand einiger einfacher Kriterien zu filtern.

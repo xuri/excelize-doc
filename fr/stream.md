@@ -99,7 +99,7 @@ SetRow écrit un tableau dans la ligne de flux en fonction de la coordonnée de 
 ## Ajouter une table à diffuser {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 AddTable crée un tableau Excel pour StreamWriter en utilisant la zone de coordonnées et le jeu de formats donnés.
@@ -128,7 +128,7 @@ Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. 
 ## Fusionner la cellule pour diffuser {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 MergeCell fournit une fonction pour fusionner les cellules par une zone de coordonnées donnée pour StreamWriter. Ne créez pas de cellule fusionnée qui chevauche une autre cellule fusionnée existante.

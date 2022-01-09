@@ -3,7 +3,7 @@
 ## Таблица {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 AddTable предоставляет метод для добавления таблицы в рабочий лист с помощью заданного имени рабочего листа, области координат и формата.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Авто фильтр {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 AutoFilter предоставляет метод добавления автоматического фильтра в рабочий лист с помощью имени рабочего листа, области координат и настроек. Автофильтр в Excel представляет собой способ фильтрации 2D спектра данных на основе простых критериев.

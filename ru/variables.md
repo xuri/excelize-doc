@@ -73,6 +73,10 @@ var (
     // ErrSheetIdx определил сообщение об ошибке при получении недопустимого
     // индекса рабочего листа.
     ErrSheetIdx = errors.New("invalid worksheet index")
+    // ErrUnprotectSheet определил, что сообщение об ошибке на листе не имеет защиты.
+    ErrUnprotectSheet = errors.New("worksheet has set no protect")
+    // ErrUnprotectSheetPassword определил сообщение об ошибке при удалении защиты листа с ошибкой проверки пароля.
+    ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets определила сообщение об ошибке на групповых листах.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength определил сообщение об ошибке для
@@ -87,6 +91,20 @@ var (
     // ErrOptionsUnzipSizeLimit определяет значение ошибки для получения
     // UnzipSizeLimit и UnzipXMLSizeLimit без ограничений.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
+    // ErrSave определил сообщение об ошибке для сохранения файла.
+    ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
+    // ErrAttrValBool определил сообщение об ошибке для атрибута XML маршала и демаршала логического типа.
+    ErrAttrValBool = errors.New("unexpected child of attrValBool")
+    // ErrSparklineType определил сообщение об ошибке при получении недопустимых параметров спарклайна 'Type'.
+    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrSparklineLocation определил сообщение об ошибке при отсутствующих параметрах 'Location'.
+    ErrSparklineLocation = errors.New("parameter 'Location' is required")
+    // ErrSparklineRange определил сообщение об ошибке при отсутствующих параметрах спарклайна 'Range'.
+    ErrSparklineRange = errors.New("parameter 'Range' is required")
+    // ErrSparkline определил сообщение об ошибке при получении недопустимых параметров спарклайна.
+    ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
+    // ErrSparklineStyle определяет сообщение об ошибке при получении недопустимых параметров 'Style' спарклайна.
+    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
 

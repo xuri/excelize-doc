@@ -3,7 +3,7 @@
 ## テーブル作成 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 AddTable は、ワークシート名、座標領域、および書式設定によってワークシートにテーブルを追加するメソッドを提供します。
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動フィルタ {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 AutoFilter は、ワークシートの名前、座標領域、および設定によってワークシートに自動フィルタを追加する方法を提供します。Excel の自動フィルタは、いくつかの単純な条件に基づいて 2D 範囲のデータをフィルター処理する方法です。

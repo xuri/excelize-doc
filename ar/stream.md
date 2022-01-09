@@ -99,7 +99,7 @@ func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
 ## إضافة جدول إلى تيار {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 يقوم AddTable بإنشاء جدول Excel لـ StreamWriter باستخدام منطقة الإحداثيات المحددة ومجموعة التنسيق.
@@ -128,7 +128,7 @@ err := streamWriter.AddTable("F2", "H6", `{
 ## دمج الخلية للدفق {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 يوفر MergeCell وظيفة لدمج الخلايا بواسطة منطقة إحداثيات معينة لـ StreamWriter. لا تقم بإنشاء خلية مدمجة تتداخل مع خلية مدمجة أخرى موجودة.

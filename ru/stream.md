@@ -99,7 +99,7 @@ SetRow записывает массив в строку потока по за�
 ## Добавить таблицу в поток {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 AddTable создает таблицу Excel для StreamWriter, используя заданную область координат и набор форматов.
@@ -128,7 +128,7 @@ err := streamWriter.AddTable("F2", "H6", `{
 ## Объединить ячейку в поток {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 MergeCell предоставляет функцию объединения ячеек по заданной области координат для StreamWriter. Не создавайте объединенную ячейку, которая перекрывается с другой существующей объединенной ячейкой.

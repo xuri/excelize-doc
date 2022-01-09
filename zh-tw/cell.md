@@ -91,7 +91,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 ## 設定儲存格樣式 {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
+func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
@@ -475,7 +475,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ## 合併儲存格 {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string) error
+func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
 根據給定的工作表名（大小寫敏感）和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被忽略。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
@@ -489,7 +489,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 ## 取消合併儲存格 {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
 根據給定的工作表名（大小寫敏感）和儲存格坐標區域取消合併儲存格。例如，取消合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：

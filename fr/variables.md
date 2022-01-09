@@ -74,6 +74,11 @@ var (
     // ErrSheetIdx a défini le message d'erreur lors de la réception de
     // l'index de feuille de calcul non valide.
     ErrSheetIdx = errors.New("invalid worksheet index")
+    // ErrUnprotectSheet a défini que le message d'erreur sur la feuille de calcul n'a défini aucune protection.
+    ErrUnprotectSheet = errors.New("worksheet has set no protect")
+    // ErrUnprotectSheetPassword a défini le message d'erreur lors de la suppression de la protection
+    // de la feuille avec échec de la vérification du mot de passe.
+    ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets a défini le message d'erreur sur les feuilles de groupe.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength a défini le message d'erreur pour la
@@ -89,6 +94,21 @@ var (
     // ErrOptionsUnzipSizeLimit a défini le message d'erreur pour la réception
     // d'UnzipSizeLimit et de UnzipXMLSizeLimit non valides.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
+    // ErrSave a défini le message d'erreur pour l'enregistrement du fichier.
+    ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
+    // ErrAttrValBool a défini le message d'erreur sur l'attribut XML de type booléen marshal et unmarshal.
+    ErrAttrValBool = errors.New("unexpected child of attrValBool")
+    // ErrSparklineType a défini le message d'erreur lors de la réception des paramètres de type sparkline non valides.
+    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrSparklineLocation a défini le message d'erreur sur les paramètres 'Location' manquants.
+    ErrSparklineLocation = errors.New("parameter 'Location' is required")
+    // ErrSparklineRange a défini le message d'erreur sur les paramètres manquants de sparkline 'Range'.
+    ErrSparklineRange = errors.New("parameter 'Range' is required")
+    // ErrSparkline a défini le message d'erreur lors de la réception des paramètres de sparkline non valides.
+    ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
+    // ErrSparklineStyle a défini le message d'erreur lors de la réception des paramètres 'Style'
+    // de sparkline non valides.
+    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
 

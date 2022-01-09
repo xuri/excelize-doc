@@ -99,7 +99,7 @@ SetRow 는 지정된 시작 좌표와 배열 유형 `slice` 에 대한 포인터
 ## 테이블을 스트리밍합니다 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 지정된 셀 좌표 범위 및 조건부 서식을 기반으로 테이블을 만듭니다.
@@ -128,7 +128,7 @@ err := streamWriter.AddTable("F2", "H6", `{
 ## 셀을 스트리밍병합합니다 {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 지정된 셀 좌표 범위 스트리밍병합 셀을 통해 현재 겹침이 아닌 범위 셀만 병합할 수 있습니다.

@@ -91,7 +91,7 @@ SetCellStr 셀의 문자열 형식 값을 설정하는 함수를 제공합니다
 ## 셀 스타일 설정 {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
+func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
 SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다. SetCellStyle 은 셀의 기존 스타일을 덮어쓰며 기존 스타일에 스타일을 추가하거나 병합하지 않습니다.
@@ -475,7 +475,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ## 셀 병합 {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string) error
+func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
 지정된 시트 이름(대/소문자에 민감한) 및 셀 좌표 범위를 기반으로 셀을 병합합니다. 병합 범위 내에서는 왼쪽 위 셀의 값만 유지되며 다른 셀의 값은 무시됩니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다.
@@ -489,7 +489,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 ## 셀 병합 취소 {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
 UnmergeCell 은 주어진 좌표 영역을 병합 해제하는 기능을 제공합니다. 예를 들어 `Sheet1` 의 `D3:E9` 영역 병합 해제:

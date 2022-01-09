@@ -3,7 +3,7 @@
 ## 创建表格 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 根据给定的工作表名、单元格坐标区域和条件格式创建表格。
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自动过滤器 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 根据给定的工作表名、单元格坐标区域和条件格式创建自动过滤器。Excel 中的自动过滤器可以对一些简单的二维数据数据进行数据筛选。

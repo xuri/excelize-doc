@@ -3,7 +3,7 @@
 ## 創建表格 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建表格。
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動過濾器 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建自動過濾器。Excel 中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。

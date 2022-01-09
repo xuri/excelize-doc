@@ -99,7 +99,7 @@ SetRow escribe una matriz en la fila de flujo mediante una coordenada inicial da
 ## Agregar una tabla para transmitir {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 AddTable crea una tabla de Excel para StreamWriter utilizando el área de coordenadas y el formato establecidos.
@@ -128,7 +128,7 @@ Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabe
 ## Combinar celda para transmitir {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 MergeCell proporciona una función para fusionar celdas por un área de coordenadas determinada para StreamWriter. No cree una celda combinada que se superponga con otra celda combinada existente.

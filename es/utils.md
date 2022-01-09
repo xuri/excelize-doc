@@ -3,7 +3,7 @@
 ## Mesa {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 AddTable proporciona el método para agregar una tabla en una hoja de trabajo por el nombre de la hoja de trabajo, el área de coordenadas y el conjunto de formato dados.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Filtro automático {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 AutoFilter proporciona el método para agregar un filtro automático en una hoja de trabajo por el nombre de la hoja de trabajo, el área de coordenadas y la configuración. Un filtro automático en Excel es una forma de filtrar un rango de datos 2D basado en algunos criterios simples.

@@ -99,7 +99,7 @@ SetRow 通过给定的起始坐标和指向数组类型“切片”的指针将�
 ## 流式创建表格 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 根据给定的单元格坐标区域和条件格式流式创建表格。
@@ -128,7 +128,7 @@ err := streamWriter.AddTable("F2", "H6", `{
 ## 流式合并单元格 {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 通过给定的单元格坐标区域流式合并单元格，当前仅支持合并非交叠区域单元格。

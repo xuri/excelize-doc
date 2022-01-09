@@ -50,6 +50,10 @@ var (
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
     // ErrSheetIdx 는 잘못된 워크시트 인덱스를 수신할 때 오류 메시지를 정의했습니다.
     ErrSheetIdx = errors.New("invalid worksheet index")
+    // ErrUnprotectSheet 는 워크시트의 오류 메시지가 보호를 설정하지 않음을 정의했습니다.
+    ErrUnprotectSheet = errors.New("worksheet has set no protect")
+    // ErrUnprotectSheetPassword 는 암호 확인이 실패한 시트 보호 제거에 대한 오류 메시지를 정의했습니다.
+    ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets 가 그룹 시트에 오류 메시지를 정의했습니다.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength 는 제한을 초과하는 데이터 유효성 검사 공식 길이를 수신하는 오류 메시지를 정의했습니다.
@@ -61,6 +65,20 @@ var (
     // ErrOptionsUnzipSizeLimit 은 잘못된 UnzipSizeLimit 및 UnzipXMLSizeLimit
     // 수신에 대한 오류 메시지를 정의했습니다.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
+    // ErrSave 는 파일 저장에 대한 오류 메시지를 정의했습니다.
+    ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
+    // ErrAttrValBool 은 마샬링 및 비정렬 부울 유형 XML 속성에 대한 오류 메시지를 정의했습니다.
+    ErrAttrValBool = errors.New("unexpected child of attrValBool")
+    // ErrSparklineType 이 잘못된 스파크라인 'Type' 매개변수 수신 시 오류 메시지를 정의했습니다.
+    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrSparklineLocation 은 'Location' 매개변수 누락에 대한 오류 메시지를 정의했습니다.
+    ErrSparklineLocation = errors.New("parameter 'Location' is required")
+    // ErrSparklineRange 는 누락된 스파크라인 'Range' 매개변수에 대한 오류 메시지를 정의했습니다.
+    ErrSparklineRange = errors.New("parameter 'Range' is required")
+    // ErrSparkline 이 잘못된 스파크라인 매개변수 수신 시 오류 메시지를 정의했습니다.
+    ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
+    // ErrSparklineStyle 은 잘못된 스파크라인 'Style' 매개변수 수신 시 오류 메시지를 정의했습니다.
+    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
 

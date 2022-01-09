@@ -99,7 +99,7 @@ SetRow schreibt ein Array in die Stream-Zeile, indem eine Startkoordinate und ei
 ## Fügen Sie eine Tabelle zum Streamen hinzu {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 AddTable erstellt eine Excel-Tabelle für den StreamWriter unter Verwendung des angegebenen Koordinatenbereichs und Formatsatzes.
@@ -128,7 +128,7 @@ Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfze
 ## Zelle zum Streaming zusammenführen {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den StreamWriter. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.

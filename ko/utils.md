@@ -3,7 +3,7 @@
 ## 양식 만들기 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 AddTable 은 지정된 워크 시트 이름, 좌표 영역 및 형식 집합으로 워크 시트에 테이블을 추가하는 방법을 제공합니다.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 자동 필터 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 AutoFilter 는 지정된 워크시트 이름, 좌표 영역 및 설정으로 워크시트에 자동 필터를 추가하는 방법을 제공합니다. Excel 의 자동 필터는 몇 가지 간단한 기준에 따라 2D 데이터 범위를 필터링하는 방법입니다.

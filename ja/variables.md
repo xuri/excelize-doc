@@ -50,6 +50,10 @@ var (
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
     // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました。
     ErrSheetIdx = errors.New("invalid worksheet index")
+    // ErrUnprotectSheet は、ワークシートのエラーメッセージが保護を設定していないことを定義しました。
+    ErrUnprotectSheet = errors.New("worksheet has set no protect")
+    // ErrUnprotectSheetPassword は、パスワード検証に失敗したシート保護の削除に関するエラーメッセージを定義しました。
+    ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets は、グループシートにエラーメッセージを定義しました。
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました。
@@ -61,6 +65,20 @@ var (
     // ErrOptionsUnzipSizeLimit は、無効 なUnzipSizeLimit と UnzipXMLSizeLimit
     // を受信した場合のエラーメッセージを定義しました。
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
+    // ErrSave は、ファイルを保存するためのエラーメッセージを定義しました。
+    ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
+    // ErrAttrValBool は、マーシャルおよびアンマーシャルブール型 XML 属性に関するエラーメッセージを定義しました。
+    ErrAttrValBool = errors.New("unexpected child of attrValBool")
+    // ErrSparklineType は、無効なスパークラインの Type パラメーターを受信したときのエラーメッセージを定義しました。
+    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrSparklineLocation は、Locationパラメーターが欠落している場合のエラーメッセージを定義しました。
+    ErrSparklineLocation = errors.New("parameter 'Location' is required")
+    // ErrSparklineRange は、スパークラインの Range パラメーターが欠落している場合のエラーメッセージを定義しました。
+    ErrSparklineRange = errors.New("parameter 'Range' is required")
+    // ErrSparkline は、無効なスパークラインパラメータを受信したときのエラーメッセージを定義しました。
+    ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
+    // ErrSparklineStyle は、無効なスパークラインの Style パラメータを受信したときのエラーメッセージを定義しました。
+    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
 

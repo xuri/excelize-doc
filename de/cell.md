@@ -91,7 +91,7 @@ SetCellStr bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts einer Ze
 ## Festlegen des Zellstils {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
+func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
 SetCellStyle bietet eine Funktion zum Hinzufügen von Stilattributen für Zellen anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Stil-ID. Stilindizes können mit der Funktion [`NewStyle`](style.md#NewStyle) abgerufen werden. Beachten Sie, dass die Rahmen vom Typ `diagonalDown` und `diagonalUp` dieselbe Farbe im selben Koordinatenbereich verwenden sollten. SetCellStyle überschreibt die vorhandenen Stile für die Zelle, fügt Stile nicht an oder führt sie mit vorhandenen Stilen zusammen.
@@ -475,7 +475,7 @@ Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen (Groß- und Klein
 ## Zusammenführen von Zellen {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string) error
+func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
 Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinatenbereichen zusammen. Beim Zusammenführen von Zellen wird nur der obere linke Zellenwert beibehalten und die anderen Werte verworfen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Sheet1` zusammen:
@@ -489,7 +489,7 @@ Wenn sich der angegebene Zellkoordinatenbereich mit anderen vorhandenen zusammen
 ## Unmerge-Zellen {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
 UnmergeCell bietet eine Funktion zum Aufheben der Zusammenführung eines bestimmten Koordinatenbereichs. Zum Beispiel den Bereich `D3:E9` auf `Sheet1` entfernen:

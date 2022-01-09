@@ -91,7 +91,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 ## セルスタイルの設定 {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
+func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
 指定されたワークシート名、セル座標領域、およびスタイルインデックスに基づいて、セルの値を設定します。スタイルインデックスは [`NewStyle`](style.md#NewStyle) 関数を使用して取得できます。同じ座標領域内の `diagonaldown` と `diagonalup` は同じ色で保持する必要があることに注意してください。SetCellStyle は、セルの既存のスタイルを上書きし、スタイルを既存のスタイルに追加またはマージしません。
@@ -475,7 +475,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ## セルを結合 {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string) error
+func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
 指定したシート名 (大文字と小文字に敏感) とセルの座標範囲に基づいてセルを結合します。結合領域内には左上のセルの値のみが保持され、他のセルの値は無視されます。たとえば、`Sheet1` という名前のワークシートの `D3:E9` 領域のセルを結合します。
@@ -489,7 +489,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 ## セルの結合を解除 {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
 UnmergeCell は、指定された座標領域の結合を解除する機能を提供します。たとえば、`Sheet1` の領域 `D3E9` のマージを解除します:

@@ -50,6 +50,10 @@ var (
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
     // ErrSheetIdx 定義了收到了無效工作表索引時的錯誤提示信息
     ErrSheetIdx = errors.New("invalid worksheet index")
+    // ErrUnprotectSheet 定義了取消保護工作表時的錯誤提示信息
+    ErrUnprotectSheet = errors.New("worksheet has set no protect")
+    // ErrUnprotectSheetPassword 定義了通過密碼驗證取消保護工作表失敗時的錯誤提示信息
+    ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets 定義了工作表分組異常時的錯誤提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength 定義了數據驗證公式長度超出最大限制時錯誤提示信息
@@ -61,6 +65,20 @@ var (
     // ErrOptionsUnzipSizeLimit
     // 定義了打開活頁簿時，「用以指定打開電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
+    // ErrSave 定義了保存活頁簿時的錯誤提示信息
+    ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
+    // ErrAttrValBool 定義了序列化或反序列化 XML 布爾類型值失敗時的錯誤提示信息
+    ErrAttrValBool = errors.New("unexpected child of attrValBool")
+    // ErrSparklineType 定義了創建走勢圖收到無效參數時的錯誤提示信息
+    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrSparklineLocation 定義了創建走勢圖參數缺少 Location 字段時的錯誤提示信息
+    ErrSparklineLocation = errors.New("parameter 'Location' is required")
+    // ErrSparklineRange 定義了創建走勢圖參數缺少 Range 字段時的錯誤提示信息
+    ErrSparklineRange = errors.New("parameter 'Range' is required")
+    // ErrSparkline 定義了收到無效走勢圖創建參數時的錯誤提示信息
+    ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
+    // ErrSparklineStyle 定義了收到無效走勢圖創建樣式參數時的錯誤提示信息
+    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
 

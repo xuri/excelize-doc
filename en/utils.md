@@ -3,7 +3,7 @@
 ## Table {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hcell, vcell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
 AddTable provides the method to add a table in a worksheet by given worksheet name, coordinate area, and format set.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Auto filter {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hcell, vcell, format string) error
+func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
 AutoFilter provides the method to add an auto filter in a worksheet by given worksheet name, coordinate area, and settings. An auto filter in Excel is a way of filtering a 2D range of data based on some simple criteria.

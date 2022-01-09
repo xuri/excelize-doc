@@ -50,6 +50,10 @@ var (
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
     // ErrSheetIdx 定义了收到了无效工作表索引时的错误提示信息
     ErrSheetIdx = errors.New("invalid worksheet index")
+    // ErrUnprotectSheet 定义了取消保护工作表时的错误提示信息
+    ErrUnprotectSheet = errors.New("worksheet has set no protect")
+    // ErrUnprotectSheetPassword 定义了通过密码验证取消保护工作表失败时的错误提示信息
+    ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets 定义了工作表分组异常时的错误提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength 定义了数据验证公式长度超出最大限制时错误提示信息
@@ -61,6 +65,20 @@ var (
     // ErrOptionsUnzipSizeLimit
     // 定义了打开工作簿时，“用以指定打开电子表格文档时的解压缩大小限制参数”和“用以指定解压每个工作表时的内存限制参数”产生冲突时的错误提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
+    // ErrSave 定义了保存工作簿时的错误提示信息
+    ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
+    // ErrAttrValBool 定义了序列化或反序列化 XML 布尔类型值失败时的错误提示信息
+    ErrAttrValBool = errors.New("unexpected child of attrValBool")
+    // ErrSparklineType 定义了创建迷你图收到无效参数时的错误提示信息
+    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrSparklineLocation 定义了创建迷你图参数缺少 Location 字段时的错误提示信息
+    ErrSparklineLocation = errors.New("parameter 'Location' is required")
+    // ErrSparklineRange 定义了创建迷你图参数缺少 Range 字段时的错误提示信息
+    ErrSparklineRange = errors.New("parameter 'Range' is required")
+    // ErrSparkline 定义了收到无效迷你图创建参数时的错误提示信息
+    ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
+    // ErrSparklineStyle 定义了收到无效迷你图创建样式参数时的错误提示信息
+    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
 

@@ -91,7 +91,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 ## تعيين نمط الخلية {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
+func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
 يوفر SetCellStyle وظيفة لإضافة سمة نمط للخلايا من خلال اسم ورقة العمل المعطى ومنطقة الإحداثيات ومعرف النمط. يمكن الحصول على فهارس النمط من خلال وظيفة [`NewStyle`](style.md#NewStyle). لاحظ أن حد النوع `diagonalDown` و `diagonalUp` يجب أن يستخدموا نفس اللون في نفس منطقة الإحداثيات. سيقوم SetCellStyle بالكتابة فوق الأنماط الموجودة للخلية ، ولن يقوم بإلحاق أو دمج النمط مع الأنماط الموجودة.
@@ -480,7 +480,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ## دمج الخلايا {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string) error
+func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
 دمج الخلايا بناءً على اسم ورقة العمل المحدد (حساس لحالة الأحرف) ومناطق إحداثيات الخلية. يؤدي دمج الخلايا إلى الاحتفاظ فقط بقيمة الخلية العلوية اليسرى ، ويتجاهل القيم الأخرى. على سبيل المثال ، ادمج الخلايا في منطقة `D3:E9` في ورقة عمل تسمى `Sheet1`:
@@ -494,7 +494,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 ## خلايا إلغاء الدمج {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
 يوفر UnmergeCell وظيفة لإلغاء دمج منطقة إحداثيات معينة. على سبيل المثال ، إلغاء دمج المنطقة `D3:E9` في `Sheet1`:

@@ -99,7 +99,7 @@ SetRow writes an array to stream row by given starting coordinate and a pointer 
 ## Add table to stream {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hcell, vcell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
 AddTable creates an Excel table for the StreamWriter using the given coordinate area and format set.
@@ -128,7 +128,7 @@ Note that the table must be at least two lines including the header. The header 
 ## Merge cell to stream {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hcell, vcell string) error
+func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
 MergeCell provides a function to merge cells by a given coordinate area for the StreamWriter. Don't create a merged cell that overlaps with another existing merged cell.

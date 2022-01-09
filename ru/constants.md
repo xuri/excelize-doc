@@ -88,7 +88,7 @@ const (
     StrictNameSpaceSpreadSheet                   = "http://purl.oclc.org/ooxml/spreadsheetml/main"
     NameSpaceDublinCore                          = "http://purl.org/dc/elements/1.1/"
     NameSpaceDublinCoreTerms                     = "http://purl.org/dc/terms/"
-    NameSpaceDublinCoreMetadataIntiative         = "http://purl.org/dc/dcmitype/"
+    NameSpaceDublinCoreMetadataInitiative        = "http://purl.org/dc/dcmitype/"
     ContentTypeDrawing                           = "application/vnd.openxmlformats-officedocument.drawing+xml"
     ContentTypeDrawingML                         = "application/vnd.openxmlformats-officedocument.drawingml.chart+xml"
     ContentTypeMacro                             = "application/vnd.ms-excel.sheet.macroEnabled.main+xml"

@@ -91,7 +91,7 @@ SetCellStr proporciona una función para establecer el valor del tipo de cadena 
 ## Establecer estilo de celda {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hcell, vcell string, styleID int) error
+func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
 SetCellStyle proporciona una función para agregar atributos de estilo para celdas por nombre de hoja de trabajo, área de coordenadas e ID de estilo dados. Los índices de estilo se pueden obtener con la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que los bordes de tipo `diagonalDown` y `diagonalUp` deben usar el mismo color en la misma área de coordenadas. SetCellStyle sobrescribirá los estilos existentes para la celda, no agregará ni fusionará el estilo con los estilos existentes.
@@ -475,7 +475,7 @@ El índice de estilo de celda se obtiene a partir del nombre de la hoja de traba
 ## Combinar celdas {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hcell, vcell string) error
+func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
 Fusionar celdas según el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las regiones de coordenadas de celda. La combinación de celdas solo conserva el valor de la celda superior izquierda y descarta los demás valores. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Sheet1`:
@@ -489,7 +489,7 @@ Si el área de coordenadas de celda dada se superpone con otras celdas fusionada
 ## Unmerge celdas {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hcell, vcell string) error
+func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
 UnmergeCell proporciona una función para separar un área de coordenadas determinada. Por ejemplo, separe el área `D3:E9` en `Sheet1`:
