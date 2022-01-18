@@ -44,14 +44,14 @@ func main() {
     // Datenvalidierung einstellen
     dvRange1 := excelize.NewDataValidation(true)
     dvRange1.Sqref = "D3:D3"
-    dvRange1.SetSqrefDropList("$A$1:$B$1", true)
+    dvRange1.SetSqrefDropList("$A$1:$B$1")
     if err = f.AddDataValidation("Sheet1", dvRange1); err != nil {
         fmt.Println(err)
         return
     }
     dvRange2 := excelize.NewDataValidation(true)
     dvRange2.Sqref = "E3:E3"
-    dvRange2.SetSqrefDropList("INDIRECT(D3)", true)
+    dvRange2.SetSqrefDropList("INDIRECT(D3)")
     if err = f.AddDataValidation("Sheet1", dvRange2); err != nil {
         fmt.Println(err)
         return

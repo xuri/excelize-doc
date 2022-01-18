@@ -9,7 +9,7 @@ Excelize は、純粋な Go で記述されたライブラリで、XLSX / XLSM /
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 現在のバージョン: [v2.5.0](https://github.com/xuri/excelize/releases/latest)
-- ドキュメントの更新：2022年1月10日
+- ドキュメントの更新：2022年1月18日
 
 ## プロジェクトミッション
 

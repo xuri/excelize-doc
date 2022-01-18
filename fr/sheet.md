@@ -465,14 +465,6 @@ func (rows *Rows) CurrentRow() int
 
 CurrentRow renvoie le numéro de ligne qui représente la ligne actuelle.
 
-### Row itérateur - Nombre total de lignes
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-TotalRows renvoie le nombre total de lignes dans la feuille de calcul.
-
 ### Row itérateur - Colonnes
 
 ```go

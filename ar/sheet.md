@@ -464,14 +464,6 @@ func (rows *Rows) CurrentRow() int
 
 تُرجع CurrentRow رقم الصف الذي يمثل الصف الحالي.
 
-### مُكَرِّد الصفوف - مجموع الصفوف
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-تُرجع TotalRows إجمالي عدد الصفوف في ورقة العمل.
-
 ### مُكَرِّد الصفوف - الأعمدة
 
 ```go

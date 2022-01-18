@@ -466,14 +466,6 @@ func (rows *Rows) CurrentRow() int
 
 CurrentRow 는 현재 행을 나타내는 행 번호를 반환합니다.
 
-### 행 이터레이터 - 총 행
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-TotalRows 는 워크시트의 총 행 수를 반환합니다.
-
 ### 행 이터레이터 - 열
 
 ```go

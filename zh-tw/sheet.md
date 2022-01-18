@@ -465,14 +465,6 @@ func (rows *Rows) CurrentRow() int
 
 返回當前列序號。
 
-### 列迭代器 - 獲取總列數
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-返回當前工作表的累計有效列數。
-
 ### 列迭代器 - 單列操作
 
 ```go

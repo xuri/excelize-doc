@@ -465,14 +465,6 @@ func (rows *Rows) CurrentRow() int
 
 CurrentRow gibt die Zeilennummer zurück, die die aktuelle Zeile darstellt.
 
-### Zeileniterator - Gesamtzeilen
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-TotalRows gibt die Gesamtzahl der Zeilen im Arbeitsblatt zurück.
-
 ### Zeileniterator - Säulen
 
 ```go

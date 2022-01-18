@@ -465,14 +465,6 @@ func (rows *Rows) CurrentRow() int
 
 CurrentRow は、現在の行を表す行番号を返します。
 
-### 行イテレーター - 合計行数
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-TotalRows は、ワークシートの合計行数を返します。
-
 ### 行イテレーター - 単一行操作
 
 ```go

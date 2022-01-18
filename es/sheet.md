@@ -465,14 +465,6 @@ func (rows *Rows) CurrentRow() int
 
 CurrentRow devuelve el número de fila que representa la fila actual.
 
-### Iterador de filas - Filas totales
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-TotalRows devuelve el recuento total de filas en la hoja de trabajo.
-
 ### Iterador de filas - Columnas
 
 ```go

@@ -465,14 +465,6 @@ func (rows *Rows) CurrentRow() int
 
 CurrentRow returns the row number that represents the current row.
 
-### Row iterator - Total rows
-
-```go
-func (rows *Rows) TotalRows() int
-```
-
-TotalRows returns the total rows count in the worksheet.
-
 ### Row iterator - Columns
 
 ```go

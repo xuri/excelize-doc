@@ -6,6 +6,6 @@ Die Leistungsdaten werden von [diesem Benchmark-Testskript](https://github.com/x
 
 ## Leistungsvergleich ähnlicher Bibliotheken
 
-Die folgende Grafik zeigt den Leistungsvergleich der Klartextmatrix der Generation `102400*50` durch die wichtigsten Open-Source-Excel-Bibliotheken unter Personal Computer (Betriebssystem: macOS Catalina Version 10.15.7, CPU: 3,4 GHz Intel Core i5, RAM: 16 GB) 2400 MHz DDR4, Festplatte: 1 TB), einschließlich Go, Python, Java, PHP und NodeJS.
+Die folgende Grafik zeigt den Leistungsvergleich der Klartextmatrix der Generation `102400*50` durch die wichtigsten Open-Source-Excel-Bibliotheken unter Personal Computer (2.6 GHz 6-Core Intel Core i7, 16 GB 2667 MHz DDR4, 500GB SSD, macOS Big Sur 11.6), einschließlich Go, Python, Java, PHP und NodeJS.
 
-<p align="center"><img width="688" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.png" alt="Leistungsvergleich ähnlicher Bibliotheken"></p>
+<p align="center"><img width="1000" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.svg" alt="Leistungsvergleich ähnlicher Bibliotheken"></p>
