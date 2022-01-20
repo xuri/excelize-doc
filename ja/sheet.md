@@ -388,22 +388,6 @@ for cols.Next() {
 }
 ```
 
-### 列イテレータ - 現在の列番号
-
-```go
-func (cols *Cols) CurrentCol() int
-```
-
-CurrentCol は、現在の列を表す列番号を返します。
-
-### 列イテレータ - 合計列
-
-```go
-func (cols *Cols) TotalCols() int
-```
-
-TotalCols は、ワークシートの合計列数を返します。
-
 ### 列イテレータ - 列
 
 ```go
@@ -456,14 +440,6 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
-
-### 行イテレーター - 現在の行番号
-
-```go
-func (rows *Rows) CurrentRow() int
-```
-
-CurrentRow は、現在の行を表す行番号を返します。
 
 ### 行イテレーター - 単一行操作
 

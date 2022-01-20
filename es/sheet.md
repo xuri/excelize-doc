@@ -388,22 +388,6 @@ for cols.Next() {
 }
 ```
 
-### Iterador de columnas - Número de columna actual
-
-```go
-func (cols *Cols) CurrentCol() int
-```
-
-CurrentCol devuelve el número de columna que representa la columna actual.
-
-### Iterador de columnas - Columnas totales
-
-```go
-func (cols *Cols) TotalCols() int
-```
-
-TotalCols devuelve el recuento total de columnas en la hoja de trabajo.
-
 ### Iterador de columnas - Columnas
 
 ```go
@@ -456,14 +440,6 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
-
-### Iterador de filas - Número de fila actual
-
-```go
-func (rows *Rows) CurrentRow() int
-```
-
-CurrentRow devuelve el número de fila que representa la fila actual.
 
 ### Iterador de filas - Columnas
 

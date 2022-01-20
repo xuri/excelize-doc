@@ -389,22 +389,6 @@ for cols.Next() {
 }
 ```
 
-### 열 반복자 - 현재 열 번호
-
-```go
-func (cols *Cols) CurrentCol() int
-```
-
-CurrentCol 은 현재 열을 나타내는 열 번호를 반환합니다.
-
-### 열 반복자 - 총 열
-
-```go
-func (cols *Cols) TotalCols() int
-```
-
-TotalCols 는 워크시트의 총 열 수를 반환합니다.
-
 ### 열 반복자 - 열
 
 ```go
@@ -457,14 +441,6 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
-
-### 행 이터레이터 - 현재 행 번호
-
-```go
-func (rows *Rows) CurrentRow() int
-```
-
-CurrentRow 는 현재 행을 나타내는 행 번호를 반환합니다.
 
 ### 행 이터레이터 - 열
 

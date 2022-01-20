@@ -388,22 +388,6 @@ for cols.Next() {
 }
 ```
 
-### Itérateur de colonne - Numéro de colonne actuel
-
-```go
-func (cols *Cols) CurrentCol() int
-```
-
-CurrentCol renvoie le numéro de colonne qui représente la colonne actuelle.
-
-### Itérateur de colonne - Colonnes totales
-
-```go
-func (cols *Cols) TotalCols() int
-```
-
-TotalCols renvoie le nombre total de colonnes dans la feuille de calcul.
-
 ### Itérateur de colonne - Colonnes
 
 ```go
@@ -456,14 +440,6 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
-
-### Row itérateur - Numéro de ligne actuel
-
-```go
-func (rows *Rows) CurrentRow() int
-```
-
-CurrentRow renvoie le numéro de ligne qui représente la ligne actuelle.
 
 ### Row itérateur - Colonnes
 

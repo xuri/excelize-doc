@@ -388,22 +388,6 @@ for cols.Next() {
 }
 ```
 
-### 列迭代器 - 当前列序号
-
-```go
-func (cols *Cols) CurrentCol() int
-```
-
-返回当前列序号。
-
-### 行迭代器 - 获取总列数
-
-```go
-func (cols *Cols) TotalCols() int
-```
-
-返回当前工作表的累计有效列数。
-
 ### 列迭代器 - 单列操作
 
 ```go
@@ -456,14 +440,6 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
-
-### 行迭代器 - 当前行序号
-
-```go
-func (rows *Rows) CurrentRow() int
-```
-
-返回当前行序号。
 
 ### 行迭代器 - 单行操作
 

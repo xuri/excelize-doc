@@ -388,22 +388,6 @@ for cols.Next() {
 }
 ```
 
-### Spalteniterator - Aktuelle Spaltennummer
-
-```go
-func (cols *Cols) CurrentCol() int
-```
-
-CurrentCol gibt die Spaltennummer zurück, die die aktuelle Spalte darstellt.
-
-### Spalteniterator - Gesamtspalten
-
-```go
-func (cols *Cols) TotalCols() int
-```
-
-TotalCols gibt die Gesamtspaltenanzahl im Arbeitsblatt zurück.
-
 ### Spalteniterator - Säulen
 
 ```go
@@ -456,14 +440,6 @@ if err = rows.Close(); err != nil {
     fmt.Println(err)
 }
 ```
-
-### Zeileniterator - Aktuelle Zeilennummer
-
-```go
-func (rows *Rows) CurrentRow() int
-```
-
-CurrentRow gibt die Zeilennummer zurück, die die aktuelle Zeile darstellt.
 
 ### Zeileniterator - Säulen
 
