@@ -28,6 +28,8 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // حدد ErrImgExt رسالة الخطأ عند تلقي ملحق صورة غير مدعوم.
     ErrImgExt = errors.New("unsupported image extension")
+    // حدد ErrWorkbookExt رسالة الخطأ عند تلقي ملحق مصنف غير معتمد.
+    ErrWorkbookExt = errors.New("unsupported workbook extension")
     // حدد ErrMaxFileNameLength رسالة الخطأ عند تلقي تجاوز طول اسم الملف.
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
     // حدد ErrEncrypt رسالة الخطأ في جدول بيانات التشفير.

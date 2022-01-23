@@ -38,6 +38,9 @@ var (
     // ErrImgExt определил сообщение об ошибке при получении неподдерживаемого
     // расширения изображения.
     ErrImgExt = errors.New("unsupported image extension")
+    // ErrWorkbookExt определяет сообщение об ошибке при получении
+    // неподдерживаемого расширения книги.
+    ErrWorkbookExt = errors.New("unsupported workbook extension")
     // ErrMaxFileNameLength определяет сообщение об ошибке при получении
     // переполнения длины имени файла.
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")

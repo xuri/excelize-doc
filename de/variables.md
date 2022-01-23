@@ -38,6 +38,9 @@ var (
     // ErrImgExt hat die Fehlermeldung beim Empfang einer nicht unterstützten
     // Bilderweiterung definiert.
     ErrImgExt = errors.New("unsupported image extension")
+    // ErrWorkbookExt hat die Fehlermeldung beim Empfang einer nicht
+    // unterstützten Arbeitsmappenerweiterung definiert.
+    ErrWorkbookExt = errors.New("unsupported workbook extension")
     // ErrMaxFileNameLength definiert die Fehlermeldung beim Empfang des
     // Dateinamenlängenüberlaufs.
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")

@@ -26,6 +26,8 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt 는 지원되지 않는 이미지 확장자를 수신할 때 오류 메시지를 정의했습니다.
     ErrImgExt = errors.New("unsupported image extension")
+    // ErrWorkbookExt 는 지원되지 않는 통합 문서 확장을 수신할 때 오류 메시지를 정의했습니다.
+    ErrWorkbookExt = errors.New("unsupported workbook extension")
     // ErrMaxFileNameLength 는 파일 이름 길이 오버플로 수신 시 오류 메시지를 정의했습니다.
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
     // ErrEncrypt 가 암호화 스프레드시트에 오류 메시지를 정의했습니다.

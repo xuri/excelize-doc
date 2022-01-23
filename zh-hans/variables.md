@@ -26,6 +26,8 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt 定义了不受支持的图片扩展名的错误提示信息
     ErrImgExt = errors.New("unsupported image extension")
+    // ErrWorkbookExt 定义了不受支持的工作簿扩展名的错误提示信息
+    ErrWorkbookExt = errors.New("unsupported workbook extension")
     // ErrMaxFileNameLength 定义了工作簿文件名长度超出最大限制时的错误提示信息
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
     // ErrEncrypt 定义了加密工作簿时的错误提示信息

@@ -26,6 +26,8 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました。
     ErrImgExt = errors.New("unsupported image extension")
+    // ErrWorkbookExt は、サポートされていないブック拡張機能を受信したときのエラーメッセージを定義しました。
+    ErrWorkbookExt = errors.New("unsupported workbook extension")
     // ErrMaxFileNameLength は、ファイル名の長さのオーバーフローを受信したときのエラーメッセージを定義しました。
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
     // ErrEncrypt は、暗号化スプレッドシートにエラーメッセージを定義しました。
