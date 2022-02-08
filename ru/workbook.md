@@ -342,14 +342,16 @@ SetSheetViewOptions устанавливает параметры просмот
 
 Необязательный параметр просмотра|Тип
 ---|---
-DefaultGridColor|bool
-RightToLeft|bool
-ShowFormulas|bool
-ShowGridLines|bool
-ShowRowColHeaders|bool
-ZoomScale|float64
-TopLeftCell|string
-ShowZeros|bool
+DefaultGridColor | bool
+ShowFormulas | bool
+ShowGridLines | bool
+ShowRowColHeaders | bool
+ShowZeros | bool
+RightToLeft | bool
+ShowRuler | bool
+View | string
+TopLeftCell | string
+ZoomScale | float64
 
 - Пример 1:
 
@@ -365,17 +367,19 @@ const sheet = "Sheet1"
 
 if err := f.SetSheetViewOptions(sheet, 0,
     excelize.DefaultGridColor(false),
-    excelize.RightToLeft(false),
     excelize.ShowFormulas(true),
     excelize.ShowGridLines(true),
     excelize.ShowRowColHeaders(true),
-    excelize.ZoomScale(80),
+    excelize.RightToLeft(false),
+    excelize.ShowRuler(false),
+    excelize.View("pageLayout"),
     excelize.TopLeftCell("C3"),
+    excelize.ZoomScale(80),
 ); err != nil {
     fmt.Println(err)
 }
 
-var zoomScale excelize.ZoomScale
+var zoomScale ZoomScale
 fmt.Println("Default:")
 fmt.Println("- zoomScale: 80")
 
@@ -423,14 +427,16 @@ GetSheetViewOptions получает значение параметров пр�
 
 Необязательный параметр просмотра|Тип
 ---|---
-DefaultGridColor|bool
-RightToLeft|bool
-ShowFormulas|bool
-ShowGridLines|bool
-ShowRowColHeaders|bool
-ZoomScale|float64
-TopLeftCell|string
-ShowZeros|bool
+DefaultGridColor | bool
+ShowFormulas | bool
+ShowGridLines | bool
+ShowRowColHeaders | bool
+ShowZeros | bool
+RightToLeft | bool
+ShowRuler | bool
+View | string
+TopLeftCell | string
+ZoomScale | float64
 
 - Пример 1, чтобы получить параметры свойства сетки для последнего представления на листе с именем `Sheet1`:
 
@@ -442,50 +448,48 @@ err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
 - Пример 2:
 
 ```go
-f := excelize.NewFile()
+f := NewFile()
 const sheet = "Sheet1"
 
 var (
     defaultGridColor  excelize.DefaultGridColor
-    rightToLeft       excelize.RightToLeft
     showFormulas      excelize.ShowFormulas
     showGridLines     excelize.ShowGridLines
-    showZeros         excelize.ShowZeros
     showRowColHeaders excelize.ShowRowColHeaders
-    zoomScale         excelize.ZoomScale
+    showZeros         excelize.ShowZeros
+    rightToLeft       excelize.RightToLeft
+    showRuler         excelize.ShowRuler
+    view              excelize.View
     topLeftCell       excelize.TopLeftCell
+    zoomScale         excelize.ZoomScale
 )
 
 if err := f.GetSheetViewOptions(sheet, 0,
     &defaultGridColor,
-    &rightToLeft,
     &showFormulas,
     &showGridLines,
-    &showZeros,
     &showRowColHeaders,
-    &zoomScale,
+    &showZeros,
+    &rightToLeft,
+    &showRuler,
+    &view,
     &topLeftCell,
+    &zoomScale,
 ); err != nil {
     fmt.Println(err)
 }
 
 fmt.Println("Default:")
 fmt.Println("- defaultGridColor:", defaultGridColor)
-fmt.Println("- rightToLeft:", rightToLeft)
 fmt.Println("- showFormulas:", showFormulas)
 fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showZeros:", showZeros)
 fmt.Println("- showRowColHeaders:", showRowColHeaders)
-fmt.Println("- zoomScale:", zoomScale)
+fmt.Println("- showZeros:", showZeros)
+fmt.Println("- rightToLeft:", rightToLeft)
+fmt.Println("- showRuler:", showRuler)
+fmt.Println("- view:", view)
 fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    fmt.Println(err)
-}
+fmt.Println("- zoomScale:", zoomScale)
 
 if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
     fmt.Println(err)
@@ -503,9 +507,26 @@ if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
     fmt.Println(err)
 }
 
+if err := f.SetSheetViewOptions(sheet, 0, excelize.View("pageLayout")); err != nil {
+    fmt.Println(err)
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &view); err != nil {
+    fmt.Println(err)
+}
+
+if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
+    fmt.Println(err)
+}
+
+if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
+    fmt.Println(err)
+}
+
 fmt.Println("After change:")
 fmt.Println("- showGridLines:", showGridLines)
 fmt.Println("- showZeros:", showZeros)
+fmt.Println("- view:", view)
 fmt.Println("- topLeftCell:", topLeftCell)
 ```
 
@@ -514,16 +535,19 @@ fmt.Println("- topLeftCell:", topLeftCell)
 ```text
 Default:
 - defaultGridColor: true
-- rightToLeft: false
 - showFormulas: false
 - showGridLines: true
-- showZeros: true
 - showRowColHeaders: true
-- zoomScale: 0
+- showZeros: true
+- rightToLeft: false
+- showRuler: true
+- view: normal
 - topLeftCell: ""
+- zoomScale: 0
 After change:
 - showGridLines: false
 - showZeros: false
+- view: pageLayout
 - topLeftCell: B2
 ```
 

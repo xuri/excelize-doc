@@ -9,7 +9,7 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - الإصدار الأخير: [v2.5.0](https://github.com/xuri/excelize/releases/latest)
-- وقت تحديث المستند: كانون الثاني 24, 2022
+- وقت تحديث المستند: شهر فبراير 9, 2022
 
 ## بعثة المشروع
 
