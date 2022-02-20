@@ -787,6 +787,10 @@ if err := f.SetPageMargins(sheet,
 
 ## ワークシートのページ余白を取得する {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins は、ワークシートのページ余白を取得する関数を提供します。利用可能なオプション：
 
 オプション|タイプ
@@ -844,6 +848,60 @@ Defaults:
 - marginTop: 0.75
 ```
 
+## ブックのプロパティを設定する {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions は、ブックのプロパティを設定する関数を提供します。利用可能なオプション:
+
+オプション|タイプ
+---|---
+CodeName|string
+
+たとえば、ブックのプロパティを設定します:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## ブックのプロパティを取得する {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions は、ブックのプロパティを取得する関数を提供します。利用可能なオプション:
+
+オプション|タイプ
+---|---
+CodeName|string
+
+たとえば、ブックのプロパティを取得します:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+出力:
+
+```text
+Defaults:
+- codeName: ""
+```
+
 ## ヘッダとフッタを設定する {#SetHeaderFooter}
 
 ```go
@@ -854,7 +912,7 @@ SetHeaderFooter は、与えられたワークシート名と制御文字によ�
 
 ヘッダーとフッターは、次の設定フィールドを使って指定します。
 
-Fields           | Description
+田畑           | 説明
 ---|---
 AlignWithMargins | Align header footer margins with page margins
 DifferentFirst   | Different first-page header and footer indicator
@@ -872,8 +930,8 @@ FirstHeader      | First Page Header
 <table>
     <thead>
         <tr>
-            <th>Formatting Code</th>
-            <th>Description</th>
+            <th>書式設定コード</th>
+            <th>説明</th>
         </tr>
     </thead>
     <tbody>
@@ -1102,7 +1160,7 @@ func (f *File) GetAppProps() (ret *AppProperties, err error)
 
 GetAppProps は、ドキュメントアプリケーションのプロパティを取得する関数を提供します。
 
-## ブックのプロパティを設定する {#SetDocProps}
+## ドキュメントのプロパティを設定する {#SetDocProps}
 
 ```go
 func (f *File) SetDocProps(docProperties *DocProperties) error
@@ -1146,7 +1204,7 @@ err := f.SetDocProps(&excelize.DocProperties{
 })
 ```
 
-## ブックのプロパティを取得する {#GetDocProps}
+## ドキュメントのプロパティを取得する {#GetDocProps}
 
 ```go
 func (f *File) GetDocProps() (*DocProperties, error)

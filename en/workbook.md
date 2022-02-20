@@ -795,6 +795,10 @@ if err := f.SetPageMargins(sheet,
 
 ## Get worksheet page margins {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins provides a function to get worksheet page margins. Available options:
 
 Options|Type
@@ -850,6 +854,60 @@ Defaults:
 - marginLeft: 0.7
 - marginRight: 0.7
 - marginTop: 0.75
+```
+
+## Set workbook properties {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions provides a function to sets workbook properties. Available options:
+
+Options|Type
+---|---
+CodeName|string
+
+For example, set properties for workbook:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## Get workbook properties {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions provides a function to gets workbook properties. Available options:
+
+Options|Type
+---|---
+CodeName|string
+
+For example, get properties of workbook:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+Output:
+
+```text
+Defaults:
+- codeName: ""
 ```
 
 ## Set header and footer {#SetHeaderFooter}

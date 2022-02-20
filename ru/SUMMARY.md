@@ -33,6 +33,8 @@
   * [Получить макет страницы листа](workbook.md#GetPageLayout)
   * [Задать поля страницы листа](workbook.md#SetPageMargins)
   * [Получить поля страницы листа](workbook.md#GetPageMargins)
+  * [Установить свойства книги](workbook.md#SetWorkbookPrOptions)
+  * [Получить свойства книги](workbook.md#GetWorkbookPrOptions)
   * [Установить верхний и нижний колонтитулы](workbook.md#SetHeaderFooter)
   * [Установить определенное имя](workbook.md#SetDefinedName)
   * [Получить определенное имя](workbook.md#GetDefinedName)

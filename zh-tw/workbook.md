@@ -789,6 +789,10 @@ if err := f.SetPageMargins(sheet,
 
 ## 獲取工作表頁邊距 {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 根據給定的工作表名稱和頁邊距參數獲取工作表的頁邊距。頁邊距可選參數：
 
 參數|資料類別
@@ -844,6 +848,60 @@ Defaults:
 - marginLeft: 0.7
 - marginRight: 0.7
 - marginTop: 0.75
+```
+
+## 設定活頁簿屬性 {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions 用於設定活頁簿的屬性。可選參數：
+
+參數|資料類別
+---|---
+CodeName|string
+
+- 例如，設定活頁簿屬性:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## 獲取活頁簿屬性 {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions 用於獲取活頁簿的屬性。可選參數：
+
+參數|資料類別
+---|---
+CodeName|string
+
+- 例如，獲取活頁簿屬性:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+得到輸出：
+
+```text
+Defaults:
+- codeName: ""
 ```
 
 ## 設定頁眉和頁腳 {#SetHeaderFooter}
@@ -1104,7 +1162,7 @@ func (f *File) GetAppProps() (ret *AppProperties, err error)
 
 獲取活頁簿的應用程式屬性。
 
-## 設定活頁簿屬性 {#SetDocProps}
+## 設定檔案屬性 {#SetDocProps}
 
 ```go
 func (f *File) SetDocProps(docProperties *DocProperties) error
@@ -1148,7 +1206,7 @@ err := f.SetDocProps(&excelize.DocProperties{
 })
 ```
 
-## 獲取活頁簿屬性 {#GetDocProps}
+## 獲取檔案屬性 {#GetDocProps}
 
 ```go
 func (f *File) GetDocProps() (*DocProperties, error)

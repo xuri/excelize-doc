@@ -793,6 +793,10 @@ if err := f.SetPageMargins(sheet,
 
 ## Abrufen von Arbeitsblattseitenrändern {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins bietet eine Funktion zum Abrufen von Arbeitsblattseitenrändern. Verfügbare Optionen:
 
 Options|Typ
@@ -848,6 +852,60 @@ Defaults:
 - marginLeft: 0.7
 - marginRight: 0.7
 - marginTop: 0.75
+```
+
+## Arbeitsmappeneigenschaften festlegen {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions bietet eine Funktion zum Festlegen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
+
+Options|Typ
+---|---
+CodeName|string
+
+- Legen Sie beispielsweise Eigenschaften für die Arbeitsmappe fest:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## Arbeitsmappeneigenschaften abrufen {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions bietet eine Funktion zum Abrufen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
+
+Options|Typ
+---|---
+CodeName|string
+
+- Rufen Sie beispielsweise die Eigenschaften der Arbeitsmappe ab:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+Ausgabe:
+
+```text
+Defaults:
+- codeName: ""
 ```
 
 ## Kopf- und Fußzeile einstellen {#SetHeaderFooter}

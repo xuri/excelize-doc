@@ -33,6 +33,8 @@
   * [احصل على تخطيط صفحة ورقة العمل](workbook.md#GetPageLayout)
   * [تعيين هوامش صفحة ورقة العمل](workbook.md#SetPageMargins)
   * [احصل على هوامش صفحة ورقة العمل](workbook.md#GetPageMargins)
+  * [تعيين خصائص المصنف](workbook.md#SetWorkbookPrOptions)
+  * [احصل على خصائص المصنف](workbook.md#GetWorkbookPrOptions)
   * [تعيين الرأس والتذييل](workbook.md#SetHeaderFooter)
   * [تعيين الاسم المحدد](workbook.md#SetDefinedName)
   * [احصل على اسم محدد](workbook.md#GetDefinedName)

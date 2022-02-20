@@ -33,6 +33,8 @@
   * [Abrufen des Layouts der Arbeitsblattseite](workbook.md#GetPageLayout)
   * [Festlegen von Arbeitsblattseitenrändern](workbook.md#SetPageMargins)
   * [Abrufen von Arbeitsblattseitenrändern](workbook.md#GetPageMargins)
+  * [Arbeitsmappeneigenschaften festlegen](workbook.md#SetWorkbookPrOptions)
+  * [Arbeitsmappeneigenschaften abrufen](workbook.md#GetWorkbookPrOptions)
   * [Kopf- und Fußzeile einstellen](workbook.md#SetHeaderFooter)
   * [Definierter Name festlegen](workbook.md#SetDefinedName)
   * [Definierten Namen abrufen](workbook.md#GetDefinedName)

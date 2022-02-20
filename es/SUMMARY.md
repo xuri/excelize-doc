@@ -33,6 +33,8 @@
   * [Obtener el diseño de la página de la hoja de trabajo](workbook.md#GetPageLayout)
   * [Establecer márgenes de página de hoja de cálculo](workbook.md#SetPageMargins)
   * [Obtener márgenes de página de la hoja de trabajo](workbook.md#GetPageMargins)
+  * [Establecer las propiedades del libro de trabajo](workbook.md#SetWorkbookPrOptions)
+  * [Obtener propiedades del libro de trabajo](workbook.md#GetWorkbookPrOptions)
   * [Establecer encabezado y pie de página](workbook.md#SetHeaderFooter)
   * [Establecer nombre definido](workbook.md#SetDefinedName)
   * [Obtener el nombre definido](workbook.md#GetDefinedName)

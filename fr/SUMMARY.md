@@ -33,6 +33,8 @@
   * [Obtenir la mise en page de feuille de calcul](workbook.md#GetPageLayout)
   * [Définissez les marges de page de feuille de calcul](workbook.md#SetPageMargins)
   * [Obtenir les marges des pages de la feuille de calcul](workbook.md#GetPageMargins)
+  * [Définir les propriétés du classeur](workbook.md#SetWorkbookPrOptions)
+  * [Obtenir les propriétés du classeur](workbook.md#GetWorkbookPrOptions)
   * [Définir l'en-tête et le pied de page](workbook.md#SetHeaderFooter)
   * [Définir le nom défini](workbook.md#SetDefinedName)
   * [Obtenir le nom défini](workbook.md#GetDefinedName)

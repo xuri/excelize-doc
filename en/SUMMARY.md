@@ -33,6 +33,8 @@
   * [Get worksheet page layout](workbook.md#GetPageLayout)
   * [Set worksheet page margins](workbook.md#SetPageMargins)
   * [Get worksheet page margins](workbook.md#GetPageMargins)
+  * [Set workbook properties](workbook.md#SetWorkbookPrOptions)
+  * [Get workbook properties](workbook.md#GetWorkbookPrOptions)
   * [Set header and footer](workbook.md#SetHeaderFooter)
   * [Set defined name](workbook.md#SetDefinedName)
   * [Get defined name](workbook.md#GetDefinedName)

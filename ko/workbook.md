@@ -791,6 +791,10 @@ if err := f.SetPageMargins(sheet,
 
 ## 워크 시트 페이지 여백 가져 오기 {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins 는 워크 시트 페이지 여백을 얻는 기능을 제공합니다. 사용 가능한 옵션:
 
 옵션|유형
@@ -848,6 +852,60 @@ Defaults:
 - marginTop: 0.75
 ```
 
+## 통합 문서 속성 설정 {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions 는 통합 문서 속성을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
+
+옵션|유형
+---|---
+CodeName|string
+
+예를 들어 통합 문서의 속성을 설정합니다.
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## 통합 문서 속성 가져오기 {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions 는 통합 문서 속성을 가져오는 기능을 제공합니다. 사용 가능한 옵션:
+
+옵션|유형
+---|---
+CodeName|string
+
+예를 들어 통합 문서의 속성을 가져옵니다:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+출력:
+
+```text
+Defaults:
+- codeName: ""
+```
+
 ## 머리글 및 바닥 글 설정 {#SetHeaderFooter}
 
 ```go
@@ -858,7 +916,7 @@ SetHeaderFooter 는 주어진 워크 시트 이름과 제어 문자로 머리글
 
 머리글과 바닥 글은 다음 설정 필드를 사용하여 지정됩니다.
 
-Fields           | Description
+필드           | 설명
 ---|---
 AlignWithMargins | Align header footer margins with page margins
 DifferentFirst   | Different first-page header and footer indicator
@@ -876,8 +934,8 @@ FirstHeader      | First Page Header
 <table>
     <thead>
         <tr>
-            <th>Formatting Code</th>
-            <th>Description</th>
+            <th>서식 코드</th>
+            <th>설명</th>
         </tr>
     </thead>
     <tbody>
@@ -1106,7 +1164,7 @@ func (f *File) GetAppProps() (ret *AppProperties, err error)
 
 GetAppProps 는 문서 응용 프로그램 속성을 가져오는 기능을 제공합니다.
 
-## 통합 문서 속성 설정 {#SetDocProps}
+## 문서 속성 설정 {#SetDocProps}
 
 ```go
 func (f *File) SetDocProps(docProperties *DocProperties) error
@@ -1150,7 +1208,7 @@ err := f.SetDocProps(&excelize.DocProperties{
 })
 ```
 
-## 통합 문서 속성 가져 오기 {#GetDocProps}
+## 문서 속성 가져오기 {#GetDocProps}
 
 ```go
 func (f *File) GetDocProps() (*DocProperties, error)

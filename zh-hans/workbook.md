@@ -787,6 +787,10 @@ if err := f.SetPageMargins(sheet,
 
 ## 获取工作表页边距 {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 根据给定的工作表名称和页边距参数获取工作表的页边距。页边距可选参数：
 
 参数|数据类型
@@ -842,6 +846,60 @@ Defaults:
 - marginLeft: 0.7
 - marginRight: 0.7
 - marginTop: 0.75
+```
+
+## 设置工作簿属性 {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions 用于设置工作簿属性。可选参数：
+
+参数|数据类型
+---|---
+CodeName|string
+
+- 例如，设置工作簿属性:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## 获取工作簿属性 {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions 用于获取工作簿属性。可选参数：
+
+参数|数据类型
+---|---
+CodeName|string
+
+- 例如，获取工作簿属性:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+得到输出：
+
+```text
+Defaults:
+- codeName: ""
 ```
 
 ## 设置页眉和页脚 {#SetHeaderFooter}
@@ -1102,7 +1160,7 @@ func (f *File) GetAppProps() (ret *AppProperties, err error)
 
 获取工作簿的应用程序属性。
 
-## 设置工作簿属性 {#SetDocProps}
+## 设置文档属性 {#SetDocProps}
 
 ```go
 func (f *File) SetDocProps(docProperties *DocProperties) error
@@ -1146,7 +1204,7 @@ err := f.SetDocProps(&excelize.DocProperties{
 })
 ```
 
-## 获取工作簿属性 {#GetDocProps}
+## 获取文档属性 {#GetDocProps}
 
 ```go
 func (f *File) GetDocProps() (*DocProperties, error)

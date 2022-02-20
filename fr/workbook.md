@@ -762,7 +762,7 @@ func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
 
 SetPageMargins fournit une fonction permettant de définir les marges des pages de la feuille de calcul. Options disponibles:
 
-Options|Type
+Options|Tapez
 ---|---
 PageMarginBotom|float64
 PageMarginFooter|float64
@@ -791,9 +791,13 @@ if err := f.SetPageMargins(sheet,
 
 ## Obtenir les marges des pages de la feuille de calcul {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins fournit une fonction pour obtenir les marges des pages de la feuille de calcul. Options disponibles:
 
-Options|Type
+Options|Tapez
 ---|---
 PageMarginBotom|float64
 PageMarginFooter|float64
@@ -848,6 +852,60 @@ Defaults:
 - marginTop: 0.75
 ```
 
+## Définir les propriétés du classeur {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions fournit une fonction pour définir les propriétés du classeur. Options disponibles:
+
+Options|Tapez
+---|---
+CodeName|string
+
+Par exemple, définissez les propriétés du classeur:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## Obtenir les propriétés du classeur {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions fournit une fonction pour obtenir les propriétés du classeur. Options disponibles:
+
+Options|Tapez
+---|---
+CodeName|string
+
+Par exemple, obtenez les propriétés du classeur:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+Résultat:
+
+```text
+Defaults:
+- codeName: ""
+```
+
 ## Définir l'en-tête et le pied de page {#SetHeaderFooter}
 
 ```go
@@ -858,128 +916,128 @@ SetHeaderFooter fournit une fonction permettant de définir les en-têtes et les
 
 Les en-têtes et les pieds de page sont spécifiés à l'aide des champs de paramètres suivants:
 
-Fields           | Description
+Champs｜La description
 ---|---
-AlignWithMargins | Align header footer margins with page margins
-DifferentFirst   | Different first-page header and footer indicator
-DifferentOddEven | Different odd and even page headers and footers indicator
-ScaleWithDoc     | Scale header and footer with document scaling
-OddFooter        | Odd Page Footer
-OddHeader        | Odd Header
-EvenFooter       | Even Page Footer
-EvenHeader       | Even Page Header
-FirstFooter      | First Page Footer
-FirstHeader      | First Page Header
+AlignWithMargins | Aligner les marges de l'en-tête et du pied de page avec les marges de la page
+DifferentFirst   | Indicateur d'en-tête et de pied de page de première page différent
+DifferentOddEven | Différents en-têtes et pieds de page pairs et impairs
+ScaleWithDoc     | Mettre à l'échelle l'en-tête et le pied de page avec la mise à l'échelle du document
+OddFooter        | Pied de page impair
+OddHeader        | En-tête impair
+EvenFooter       | Pied de page pair
+EvenHeader       | En-tête de page pair
+FirstFooter      | Pied de page de la première page
+FirstHeader      | En-tête de la première page
 
 Les codes de formatage suivants peuvent être utilisés dans 6 champs de type chaîne: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
 
 <table>
     <thead>
         <tr>
-            <th>Formatting Code</th>
-            <th>Description</th>
+            <th>Code de formatage</th>
+            <th>La description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>&amp;&amp;</code></td>
-            <td>The character &quot;&amp;&quot;</td>
+            <td>Le caractère &quot;&amp;&quot;</td>
         </tr>
         <tr>
             <td><code>&amp;font-size</code></td>
-            <td>Size of the text font, where font-size is a decimal font size in points</td>
+            <td>Taille de la police du texte, où font-size est une taille de police décimale en points</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;font name,font type&quot;</code></td>
-            <td>A text font-name string, font name, and a text font-type string, font type</td>
+            <td>Une chaîne de texte de nom de police, nom de police et une chaîne de texte de type de police, type de police</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;-,Regular&quot;</code></td>
-            <td>Regular text format. Toggles bold and italic modes to off</td>
+            <td>Format de texte normal. Désactive les modes gras et italique</td>
         </tr>
         <tr>
             <td><code>&amp;A</code></td>
-            <td>Current worksheet&#39;s tab name</td>
+            <td>Nom de l&#39;onglet de la feuille de calcul en cours</td>
         </tr>
         <tr>
             <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
-            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+            <td>Format de texte en gras, de désactivé à activé, ou vice versa. Le mode par défaut est désactivé</td>
         </tr>
         <tr>
             <td><code>&amp;D</code></td>
-            <td>Current date</td>
+            <td>Date actuelle</td>
         </tr>
         <tr>
             <td><code>&amp;C</code></td>
-            <td>Center section</td>
+            <td>Partie centrale</td>
         </tr>
         <tr>
             <td><code>&amp;E</code></td>
-            <td>Double-underline text format</td>
+            <td>Format de texte à double soulignement</td>
         </tr>
         <tr>
             <td><code>&amp;F</code></td>
-            <td>Current workbook&#39;s file name</td>
+            <td>Nom de fichier du classeur actuel</td>
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background</td>
+            <td>Objet de dessin en arrière-plan</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
-            <td>Shadow text format</td>
+            <td>Format de texte ombré</td>
         </tr>
         <tr>
             <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
-            <td>Italic text format</td>
+            <td>Format de texte en italique</td>
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+            <td>Couleur de la police du texte<br>Une couleur RGB est spécifiée comme RRGGBB<br>Une couleur de thème est spécifiée comme TTSNNN où TT est l&#39;ID de couleur de thème, S est soit &quot;+&quot; ou &quot;-&quot; de la valeur de teinte/nuance, et NNN est la valeur de teinte/nuance</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>
-            <td>Left section</td>
+            <td>Partie gauche</td>
         </tr>
         <tr>
             <td><code>&amp;N</code></td>
-            <td>Total number of pages</td>
+            <td>Nombre total de pages</td>
         </tr>
         <tr>
             <td><code>&amp;O</code></td>
-            <td>Outline text format</td>
+            <td>Format de texte de contour</td>
         </tr>
         <tr>
             <td><code>&amp;P[[+\|-]n]</code></td>
-            <td>Without the optional suffix, the current page number in decimal</td>
+            <td>Sans le suffixe facultatif, le numéro de la page actuelle en décimal</td>
         </tr>
         <tr>
             <td><code>&amp;R</code></td>
-            <td>Right section</td>
+            <td>Partie droite</td>
         </tr>
         <tr>
             <td><code>&amp;S</code></td>
-            <td>Strikethrough text format</td>
+            <td>Format de texte barré</td>
         </tr>
         <tr>
             <td><code>&amp;T</code></td>
-            <td>Current time</td>
+            <td>Heure actuelle</td>
         </tr>
         <tr>
             <td><code>&amp;U</code></td>
-            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+            <td>Format de texte à simple soulignement. Si le mode double souligné est activé, l&#39;occurrence suivante dans un spécificateur de section désactive le mode double souligné; sinon, il bascule le mode de soulignement simple, de désactivé à activé, ou vice versa. Le mode par défaut est désactivé</td>
         </tr>
         <tr>
             <td><code>&amp;X</code></td>
-            <td>Superscript text format</td>
+            <td>Format de texte en exposant</td>
         </tr>
         <tr>
             <td><code>&amp;Y</code></td>
-            <td>Subscript text format</td>
+            <td>Format de texte en indice</td>
         </tr>
         <tr>
             <td><code>&amp;Z</code></td>
-            <td>Current workbook&#39;s file path</td>
+            <td>Chemin d&#39;accès au fichier du classeur actuel</td>
         </tr>
     </tbody>
 </table>

@@ -793,6 +793,10 @@ if err := f.SetPageMargins(sheet,
 
 ## Obtener márgenes de página de la hoja de trabajo {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins proporciona una función para obtener márgenes de página de hoja de cálculo. Opciones disponibles:
 
 Opciones|Tipo
@@ -848,6 +852,60 @@ Defaults:
 - marginLeft: 0.7
 - marginRight: 0.7
 - marginTop: 0.75
+```
+
+## Establecer las propiedades del libro de trabajo {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookPrOptions proporciona una función para establecer las propiedades del libro. Opciones Disponibles:
+
+Opciones|Tipo
+---|---
+CodeName|string
+
+Por ejemplo, establezca propiedades para el libro de trabajo:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## Obtener propiedades del libro de trabajo {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookPrOptions proporciona una función para obtener las propiedades del libro de trabajo. Opciones Disponibles:
+
+Opciones|Tipo
+---|---
+CodeName|string
+
+Por ejemplo, obtenga las propiedades del libro de trabajo:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+Salida:
+
+```text
+Defaults:
+- codeName: ""
 ```
 
 ## Establecer encabezado y pie de página {#SetHeaderFooter}

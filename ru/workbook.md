@@ -791,6 +791,10 @@ if err := f.SetPageMargins(sheet,
 
 ## Получить поля страницы листа {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 GetPageMargins предоставляет функцию для получения полей страницы рабочего листа. Доступные Варианты:
 
 Параметры|Тип
@@ -848,6 +852,60 @@ Defaults:
 - marginTop: 0.75
 ```
 
+## Установить свойства книги {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+SetWorkbookProOptions предоставляет функцию для установки свойств книги. Доступные Варианты:
+
+Параметры|Тип
+---|---
+CodeName|string
+
+Например, задайте свойства для книги:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## Получить свойства книги {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+GetWorkbookProOptions предоставляет функцию для получения свойств книги. Доступные Варианты:
+
+Параметры|Тип
+---|---
+CodeName|string
+
+Например, получить свойства книги:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+Вывод:
+
+```text
+Defaults:
+- codeName: ""
+```
+
 ## Установить верхний и нижний колонтитулы {#SetHeaderFooter}
 
 ```go
@@ -858,7 +916,7 @@ SetHeaderFooter предоставляет функцию установки в�
 
 Верхние и нижние колонтитулы указываются с помощью следующих полей настроек:
 
-Fields           | Description
+Поля | Описание
 ---|---
 AlignWithMargins | Align header footer margins with page margins
 DifferentFirst   | Different first-page header and footer indicator
@@ -876,8 +934,8 @@ FirstHeader      | First Page Header
 <table>
     <thead>
         <tr>
-            <th>Formatting Code</th>
-            <th>Description</th>
+            <th>Код форматирования</th>
+            <th>Описание</th>
         </tr>
     </thead>
     <tbody>

@@ -798,6 +798,10 @@ if err := f.SetPageMargins(sheet,
 
 ## احصل على هوامش صفحة ورقة العمل {#GetPageMargins}
 
+```go
+func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+```
+
 يوفر GetPageMargins وظيفة للحصول على هوامش صفحة ورقة العمل. الخيارات المتاحة:
 
 خيارات|اكتب
@@ -853,6 +857,60 @@ Defaults:
 - marginLeft: 0.7
 - marginRight: 0.7
 - marginTop: 0.75
+```
+
+## تعيين خصائص المصنف {#SetWorkbookPrOptions}
+
+```go
+func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+```
+
+يوفر SetWorkbookPrOptions دالة لتعيين خصائص المصنف. الخيارات المتاحة:
+
+خيارات|اكتب
+---|---
+CodeName|string
+
+- فمثلا, تعيين خصائص المصنف:
+
+```go
+f := excelize.NewFile()
+if err := f.SetWorkbookPrOptions(
+    excelize.CodeName("code"),
+); err != nil {
+    fmt.Println(err)
+}
+```
+
+## احصل على خصائص المصنف {#GetWorkbookPrOptions}
+
+```go
+func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+```
+
+يوفر GetWorkbookPrOptions دالة للحصول على خصائص المصنف. الخيارات المتاحة:
+
+خيارات|اكتب
+---|---
+CodeName|string
+
+- فمثلا, احصل على خصائص المصنف:
+
+```go
+f := excelize.NewFile()
+var codeName excelize.CodeName
+if err := f.GetWorkbookPrOptions(&codeName); err != nil {
+    fmt.Println(err)
+}
+fmt.Println("Defaults:")
+fmt.Printf("- codeName: %q\n", codeName)
+```
+
+انتاج:
+
+```text
+Defaults:
+- codeName: ""
 ```
 
 ## تعيين الرأس والتذييل {#SetHeaderFooter}
