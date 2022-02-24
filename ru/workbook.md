@@ -918,16 +918,16 @@ SetHeaderFooter предоставляет функцию установки в�
 
 Поля | Описание
 ---|---
-AlignWithMargins | Align header footer margins with page margins
-DifferentFirst   | Different first-page header and footer indicator
-DifferentOddEven | Different odd and even page headers and footers indicator
-ScaleWithDoc     | Scale header and footer with document scaling
-OddFooter        | Odd Page Footer
-OddHeader        | Odd Header
-EvenFooter       | Even Page Footer
-EvenHeader       | Even Page Header
-FirstFooter      | First Page Footer
-FirstHeader      | First Page Header
+AlignWithMargins | Выравнивание полей нижнего колонтитула с полями страницы
+DifferentFirst   | Различные индикаторы верхнего и нижнего колонтитула первой страницы
+DifferentOddEven | Различные нечетные и четные заголовки страниц и индикатор нижних колонтитулов
+ScaleWithDoc     | Масштабирование верхнего и нижнего колонтитула с масштабированием документа
+OddFooter        | Нижний колонтитул нечетной страницы
+OddHeader        | Нечетный заголовок
+EvenFooter       | Нижний колонтитул четной страницы
+EvenHeader       | Заголовок четной страницы
+FirstFooter      | Нижний колонтитул первой страницы
+FirstHeader      | Заголовок первой страницы
 
 Следующие коды форматирования могут использоваться в 6 полях строкового типа: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
 
@@ -941,103 +941,103 @@ FirstHeader      | First Page Header
     <tbody>
         <tr>
             <td><code>&amp;&amp;</code></td>
-            <td>The character &quot;&amp;&quot;</td>
+            <td>Персонаж &quot;&amp;&quot;</td>
         </tr>
         <tr>
             <td><code>&amp;font-size</code></td>
-            <td>Size of the text font, where font-size is a decimal font size in points</td>
+            <td>Размер шрифта текста, где font-size — десятичный размер шрифта в пунктах</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;font name,font type&quot;</code></td>
-            <td>A text font-name string, font name, and a text font-type string, font type</td>
+            <td>Текстовая строка font-name, имя шрифта и текстовая строка font-type, тип шрифта</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;-,Regular&quot;</code></td>
-            <td>Regular text format. Toggles bold and italic modes to off</td>
+            <td>Обычный текстовый формат. Отключает полужирный и курсивный режимы</td>
         </tr>
         <tr>
             <td><code>&amp;A</code></td>
-            <td>Current worksheet&#39;s tab name</td>
+            <td>Имя вкладки текущего рабочего листа</td>
         </tr>
         <tr>
             <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
-            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+            <td>Формат полужирного текста, от выкл. к вкл. или наоборот. Режим по умолчанию выключен</td>
         </tr>
         <tr>
             <td><code>&amp;D</code></td>
-            <td>Current date</td>
+            <td>Текущая дата</td>
         </tr>
         <tr>
             <td><code>&amp;C</code></td>
-            <td>Center section</td>
+            <td>Центральная часть</td>
         </tr>
         <tr>
             <td><code>&amp;E</code></td>
-            <td>Double-underline text format</td>
+            <td>Формат текста с двойным подчеркиванием</td>
         </tr>
         <tr>
             <td><code>&amp;F</code></td>
-            <td>Current workbook&#39;s file name</td>
+            <td>Имя файла текущей книги</td>
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background</td>
+            <td>Объект рисования в качестве фона</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
-            <td>Shadow text format</td>
+            <td>Формат теневого текста</td>
         </tr>
         <tr>
             <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
-            <td>Italic text format</td>
+            <td>Курсивный текстовый формат</td>
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+            <td>Цвет шрифта текста<br>Цвет RGB указан как RRGGBB<br>Цвет темы указывается как TTSNNN, где TT — это идентификатор цвета темы, S — это &quot;+&quot; или &quot;-&quot; значения оттенка/оттенка, а NNN — это значение оттенка/оттенка.</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>
-            <td>Left section</td>
+            <td>Левая часть</td>
         </tr>
         <tr>
             <td><code>&amp;N</code></td>
-            <td>Total number of pages</td>
+            <td>Общее количество страниц</td>
         </tr>
         <tr>
             <td><code>&amp;O</code></td>
-            <td>Outline text format</td>
+            <td>Контурный текстовый формат</td>
         </tr>
         <tr>
             <td><code>&amp;P[[+\|-]n]</code></td>
-            <td>Without the optional suffix, the current page number in decimal</td>
+            <td>Без дополнительного суффикса номер текущей страницы в десятичном формате</td>
         </tr>
         <tr>
             <td><code>&amp;R</code></td>
-            <td>Right section</td>
+            <td>Правая часть</td>
         </tr>
         <tr>
             <td><code>&amp;S</code></td>
-            <td>Strikethrough text format</td>
+            <td>Формат зачеркнутого текста</td>
         </tr>
         <tr>
             <td><code>&amp;T</code></td>
-            <td>Current time</td>
+            <td>Текущее время</td>
         </tr>
         <tr>
             <td><code>&amp;U</code></td>
-            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+            <td>Формат текста с одним подчеркиванием. Если режим двойного подчеркивания включен, следующее вхождение в описателе раздела отключает режим двойного подчеркивания; в противном случае он переключает режим одинарного подчеркивания с выключенного на включенный или наоборот. Режим по умолчанию выключен</td>
         </tr>
         <tr>
             <td><code>&amp;X</code></td>
-            <td>Superscript text format</td>
+            <td>Надстрочный текстовый формат</td>
         </tr>
         <tr>
             <td><code>&amp;Y</code></td>
-            <td>Subscript text format</td>
+            <td>Текстовый формат нижнего индекса</td>
         </tr>
         <tr>
             <td><code>&amp;Z</code></td>
-            <td>Current workbook&#39;s file path</td>
+            <td>Путь к файлу текущей книги</td>
         </tr>
     </tbody>
 </table>

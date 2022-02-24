@@ -918,16 +918,16 @@ SetHeaderFooter 는 주어진 워크 시트 이름과 제어 문자로 머리글
 
 필드           | 설명
 ---|---
-AlignWithMargins | Align header footer margins with page margins
-DifferentFirst   | Different first-page header and footer indicator
-DifferentOddEven | Different odd and even page headers and footers indicator
-ScaleWithDoc     | Scale header and footer with document scaling
-OddFooter        | Odd Page Footer
-OddHeader        | Odd Header
-EvenFooter       | Even Page Footer
-EvenHeader       | Even Page Header
-FirstFooter      | First Page Footer
-FirstHeader      | First Page Header
+AlignWithMargins | 머리글 바닥글 여백을 페이지 여백에 맞추기
+DifferentFirst   | 다른 첫 페이지 머리글 및 바닥글 표시기
+DifferentOddEven | 다른 홀수 및 짝수 페이지 머리글 및 바닥글 표시기
+ScaleWithDoc     | 문서 크기 조정으로 머리글 및 바닥글 크기 조정
+OddFooter        | 홀수 페이지 바닥글
+OddHeader        | 홀수 헤더
+EvenFooter       | 짝수 페이지 바닥글
+EvenHeader       | 짝수 페이지 머리글
+FirstFooter      | 첫 페이지 바닥글
+FirstHeader      | 첫 페이지 머리글
 
 다음 형식 코드는 6 개의 문자열 형식 필드에서 사용할 수 있습니다: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
 
@@ -941,103 +941,103 @@ FirstHeader      | First Page Header
     <tbody>
         <tr>
             <td><code>&amp;&amp;</code></td>
-            <td>The character &quot;&amp;&quot;</td>
+            <td>캐릭터 &quot;&amp;&quot;</td>
         </tr>
         <tr>
             <td><code>&amp;font-size</code></td>
-            <td>Size of the text font, where font-size is a decimal font size in points</td>
+            <td>텍스트 글꼴의 크기입니다. 여기서 font-size 는 소수점 글꼴 크기 (포인트 단위) 입니다</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;font name,font type&quot;</code></td>
-            <td>A text font-name string, font name, and a text font-type string, font type</td>
+            <td>텍스트 글꼴 이름 문자열, 글꼴 이름 및 텍스트 글꼴 유형 문자열, 글꼴 유형</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;-,Regular&quot;</code></td>
-            <td>Regular text format. Toggles bold and italic modes to off</td>
+            <td>일반 텍스트 형식입니다. 굵게 및 기울임꼴 모드를 끕니다</td>
         </tr>
         <tr>
             <td><code>&amp;A</code></td>
-            <td>Current worksheet&#39;s tab name</td>
+            <td>현재 워크시트의 탭 이름</td>
         </tr>
         <tr>
             <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
-            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+            <td>굵은 텍스트 형식, 끄기에서 켜기 또는 그 반대로. 기본 모드는 꺼져 있습니다</td>
         </tr>
         <tr>
             <td><code>&amp;D</code></td>
-            <td>Current date</td>
+            <td>현재 날짜</td>
         </tr>
         <tr>
             <td><code>&amp;C</code></td>
-            <td>Center section</td>
+            <td>중앙 섹션</td>
         </tr>
         <tr>
             <td><code>&amp;E</code></td>
-            <td>Double-underline text format</td>
+            <td>이중 밑줄 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;F</code></td>
-            <td>Current workbook&#39;s file name</td>
+            <td>현재 통합 문서의 파일 이름</td>
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background</td>
+            <td>배경으로 개체 그리기</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
-            <td>Shadow text format</td>
+            <td>그림자 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
-            <td>Italic text format</td>
+            <td>기울임꼴 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+            <td>텍스트 글꼴 색상<br>RGB 색상은 RRGGBB 로 지정됩니다<br>테마 색상은 TTSNNN으로 지정되며, 여기서 TT는 테마 색상 ID이고, S는 색조/음영 값의 &quot;+&quot; 또는 &quot;-&quot; 이며, NNN은 색조/음영 값입니다</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>
-            <td>Left section</td>
+            <td>왼쪽 섹션</td>
         </tr>
         <tr>
             <td><code>&amp;N</code></td>
-            <td>Total number of pages</td>
+            <td>총 페이지 수</td>
         </tr>
         <tr>
             <td><code>&amp;O</code></td>
-            <td>Outline text format</td>
+            <td>개요 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;P[[+\|-]n]</code></td>
-            <td>Without the optional suffix, the current page number in decimal</td>
+            <td>선택적 접미사가 없으면 현재 페이지 번호 (10 진수)</td>
         </tr>
         <tr>
             <td><code>&amp;R</code></td>
-            <td>Right section</td>
+            <td>오른쪽 섹션</td>
         </tr>
         <tr>
             <td><code>&amp;S</code></td>
-            <td>Strikethrough text format</td>
+            <td>취소선 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;T</code></td>
-            <td>Current time</td>
+            <td>현재 시간</td>
         </tr>
         <tr>
             <td><code>&amp;U</code></td>
-            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+            <td>단일 밑줄 텍스트 형식입니다. 이중 밑줄 모드가 켜져 있는 경우 섹션 지정자가 다음에 나타나면 이중 밑줄 모드가 해제됩니다. 그렇지 않으면 단일 밑줄 모드를 끄기에서 켜기 또는 그 반대로 전환합니다. 기본 모드는 꺼져 있습니다</td>
         </tr>
         <tr>
             <td><code>&amp;X</code></td>
-            <td>Superscript text format</td>
+            <td>위 첨자 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;Y</code></td>
-            <td>Subscript text format</td>
+            <td>첨자 텍스트 형식</td>
         </tr>
         <tr>
             <td><code>&amp;Z</code></td>
-            <td>Current workbook&#39;s file path</td>
+            <td>현재 통합 문서의 파일 경로</td>
         </tr>
     </tbody>
 </table>

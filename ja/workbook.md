@@ -914,16 +914,16 @@ SetHeaderFooter は、与えられたワークシート名と制御文字によ�
 
 田畑           | 説明
 ---|---
-AlignWithMargins | Align header footer margins with page margins
-DifferentFirst   | Different first-page header and footer indicator
-DifferentOddEven | Different odd and even page headers and footers indicator
-ScaleWithDoc     | Scale header and footer with document scaling
-OddFooter        | Odd Page Footer
-OddHeader        | Odd Header
-EvenFooter       | Even Page Footer
-EvenHeader       | Even Page Header
-FirstFooter      | First Page Footer
-FirstHeader      | First Page Header
+AlignWithMargins | ヘッダーフッターの余白をページの余白に揃えます
+DifferentFirst   | 別の最初のページのヘッダーとフッターのインジケーター
+DifferentOddEven | 異なる奇数ページと偶数ページのヘッダーとフッターのインジケーター
+ScaleWithDoc     | ドキュメントスケーリングを使用してヘッダーとフッターをスケーリングします
+OddFooter        | 奇数ページのフッター
+OddHeader        | 奇数ヘッダー
+EvenFooter       | ページフッターも
+EvenHeader       | ページヘッダーも
+FirstFooter      | 最初のページのフッター
+FirstHeader      | 最初のページのヘッダー
 
 以下のフォーマットコードは、6 つの文字列型フィールドで使用できます。`OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
 
@@ -937,103 +937,103 @@ FirstHeader      | First Page Header
     <tbody>
         <tr>
             <td><code>&amp;&amp;</code></td>
-            <td>The character &quot;&amp;&quot;</td>
+            <td>キャラクター &quot;&amp;&quot;</td>
         </tr>
         <tr>
             <td><code>&amp;font-size</code></td>
-            <td>Size of the text font, where font-size is a decimal font size in points</td>
+            <td>テキストフォントのサイズ。font-size はポイント単位の 10 進数のフォントサイズです</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;font name,font type&quot;</code></td>
-            <td>A text font-name string, font name, and a text font-type string, font type</td>
+            <td>テキストフォント名文字列、フォント名、およびテキストフォントタイプ文字列、フォントタイプ</td>
         </tr>
         <tr>
             <td><code>&amp;&quot;-,Regular&quot;</code></td>
-            <td>Regular text format. Toggles bold and italic modes to off</td>
+            <td>通常のテキスト形式。太字と斜体のモードをオフに切り替えます</td>
         </tr>
         <tr>
             <td><code>&amp;A</code></td>
-            <td>Current worksheet&#39;s tab name</td>
+            <td>現在のワークシートのタブ名</td>
         </tr>
         <tr>
             <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
-            <td>Bold text format, from off to on, or vice versa. The default mode is off</td>
+            <td>太字のテキスト形式、オフからオン、またはその逆。デフォルトモードはオフです</td>
         </tr>
         <tr>
             <td><code>&amp;D</code></td>
-            <td>Current date</td>
+            <td>現在の日付</td>
         </tr>
         <tr>
             <td><code>&amp;C</code></td>
-            <td>Center section</td>
+            <td>センターセクション</td>
         </tr>
         <tr>
             <td><code>&amp;E</code></td>
-            <td>Double-underline text format</td>
+            <td>二重下線テキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;F</code></td>
-            <td>Current workbook&#39;s file name</td>
+            <td>現在のブックのファイル名</td>
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background</td>
+            <td>背景としてオブジェクトを描画します</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
-            <td>Shadow text format</td>
+            <td>シャドウテキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;I</code> or <code>&amp;&quot;-,Italic&quot;</code></td>
-            <td>Italic text format</td>
+            <td>斜体のテキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>Text font color<br>An RGB Color is specified as RRGGBB<br>A Theme Color is specified as TTSNNN where TT is the theme color Id, S is either &quot;+&quot; or &quot;-&quot; of the tint/shade value, and NNN is the tint/shade value</td>
+            <td>テキストフォントの色<br>RGB カラーは RRGGBB として指定されます<br>テーマカラーは TTSNNN として指定されます。ここで、TTはテーマカラーID、S は &quot;+&quot; のいずれかです。または &quot;-&quot; ティント/シェード値の、そしてNNNはティント/シェード値です</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>
-            <td>Left section</td>
+            <td>左セクション</td>
         </tr>
         <tr>
             <td><code>&amp;N</code></td>
-            <td>Total number of pages</td>
+            <td>総ページ数</td>
         </tr>
         <tr>
             <td><code>&amp;O</code></td>
-            <td>Outline text format</td>
+            <td>アウトラインテキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;P[[+\|-]n]</code></td>
-            <td>Without the optional suffix, the current page number in decimal</td>
+            <td>オプションのサフィックスがない場合、現在のページ番号（10進数）</td>
         </tr>
         <tr>
             <td><code>&amp;R</code></td>
-            <td>Right section</td>
+            <td>右セクション</td>
         </tr>
         <tr>
             <td><code>&amp;S</code></td>
-            <td>Strikethrough text format</td>
+            <td>取り消し線のテキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;T</code></td>
-            <td>Current time</td>
+            <td>現在の時刻</td>
         </tr>
         <tr>
             <td><code>&amp;U</code></td>
-            <td>Single-underline text format. If double-underline mode is on, the next occurrence in a section specifier toggles double-underline mode to off; otherwise, it toggles single-underline mode, from off to on, or vice versa. The default mode is off</td>
+            <td>一重下線のテキスト形式。二重下線モードがオンの場合、セクション指定子で次に発生すると、二重下線モードがオフに切り替わります。それ以外の場合は、単一下線モードをオフからオンに、またはその逆に切り替えます。デフォルトモードはオフです</td>
         </tr>
         <tr>
             <td><code>&amp;X</code></td>
-            <td>Superscript text format</td>
+            <td>上付きテキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;Y</code></td>
-            <td>Subscript text format</td>
+            <td>下付きテキスト形式</td>
         </tr>
         <tr>
             <td><code>&amp;Z</code></td>
-            <td>Current workbook&#39;s file path</td>
+            <td>現在のブックのファイルパス</td>
         </tr>
     </tbody>
 </table>
