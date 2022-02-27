@@ -862,6 +862,7 @@ SetWorkbookPrOptions fournit une fonction pour définir les propriétés du clas
 
 Options|Tapez
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 Par exemple, définissez les propriétés du classeur:
@@ -869,6 +870,7 @@ Par exemple, définissez les propriétés du classeur:
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -885,17 +887,25 @@ GetWorkbookPrOptions fournit une fonction pour obtenir les propriétés du class
 
 Options|Tapez
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 Par exemple, obtenez les propriétés du classeur:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -903,6 +913,7 @@ Résultat:
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -981,7 +992,7 @@ Les codes de formatage suivants peuvent être utilisés dans 6 champs de type ch
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Objet de dessin en arrière-plan</td>
+            <td>Objet de dessin en arrière-plan (Non pris en charge actuellement)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>

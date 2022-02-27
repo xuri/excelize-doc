@@ -858,6 +858,7 @@ SetWorkbookPrOptions 用于设置工作簿属性。可选参数：
 
 参数|数据类型
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - 例如，设置工作簿属性:
@@ -865,6 +866,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -881,17 +883,25 @@ GetWorkbookPrOptions 用于获取工作簿属性。可选参数：
 
 参数|数据类型
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - 例如，获取工作簿属性:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -899,6 +909,7 @@ fmt.Printf("- codeName: %q\n", codeName)
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -977,7 +988,7 @@ FirstHeader      | 首页页眉控制字符
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>将指定对象做为背景</td>
+            <td>将指定对象做为背景（暂不支持）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>

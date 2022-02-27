@@ -864,6 +864,7 @@ SetWorkbookPrOptions proporciona una función para establecer las propiedades de
 
 Opciones|Tipo
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 Por ejemplo, establezca propiedades para el libro de trabajo:
@@ -871,6 +872,7 @@ Por ejemplo, establezca propiedades para el libro de trabajo:
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -887,17 +889,25 @@ GetWorkbookPrOptions proporciona una función para obtener las propiedades del l
 
 Opciones|Tipo
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 Por ejemplo, obtenga las propiedades del libro de trabajo:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -905,6 +915,7 @@ Salida:
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -983,7 +994,7 @@ Los siguientes códigos de formato se pueden utilizar en 6 campos de tipo de cad
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Dibujar objeto como fondo</td>
+            <td>Dibujar objeto como fondo (No es compatible actualmente)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>

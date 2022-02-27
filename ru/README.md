@@ -9,7 +9,7 @@ EXCELIZE - это библиотека, написанная на чистом G
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Последняя версия: [v2.5.0](https://github.com/xuri/excelize/releases/latest)
-- Время обновления документа: 21 Февраль 2022 г.
+- Время обновления документа: 27 Февраль 2022 г.
 
 ## Миссия проекта
 

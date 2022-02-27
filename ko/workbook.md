@@ -862,6 +862,7 @@ SetWorkbookPrOptions 는 통합 문서 속성을 설정하는 기능을 제공�
 
 옵션|유형
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 예를 들어 통합 문서의 속성을 설정합니다.
@@ -869,6 +870,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -885,17 +887,25 @@ GetWorkbookPrOptions 는 통합 문서 속성을 가져오는 기능을 제공�
 
 옵션|유형
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 예를 들어 통합 문서의 속성을 가져옵니다:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -903,6 +913,7 @@ fmt.Printf("- codeName: %q\n", codeName)
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -981,7 +992,7 @@ FirstHeader      | 첫 페이지 머리글
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>배경으로 개체 그리기</td>
+            <td>배경으로 개체 그리기（現在サポートされていません）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -993,7 +1004,7 @@ FirstHeader      | 첫 페이지 머리글
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>텍스트 글꼴 색상<br>RGB 색상은 RRGGBB 로 지정됩니다<br>테마 색상은 TTSNNN으로 지정되며, 여기서 TT는 테마 색상 ID이고, S는 색조/음영 값의 &quot;+&quot; 또는 &quot;-&quot; 이며, NNN은 색조/음영 값입니다</td>
+            <td>텍스트 글꼴 색상<br>RGB 색상은 RRGGBB 로 지정됩니다<br>테마 색상은 TTSNNN 으로 지정되며, 여기서 TT 는 테마 색상 ID 이고, S 는 색조/음영 값의 &quot;+&quot; 또는 &quot;-&quot; 이며, NNN 은 색조/음영 값입니다</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>

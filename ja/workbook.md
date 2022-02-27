@@ -858,6 +858,7 @@ SetWorkbookPrOptions は、ブックのプロパティを設定する関数を�
 
 オプション|タイプ
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 たとえば、ブックのプロパティを設定します:
@@ -865,6 +866,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -881,17 +883,25 @@ GetWorkbookPrOptions は、ブックのプロパティを取得する関数を�
 
 オプション|タイプ
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 たとえば、ブックのプロパティを取得します:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -899,6 +909,7 @@ fmt.Printf("- codeName: %q\n", codeName)
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -977,7 +988,7 @@ FirstHeader      | 最初のページのヘッダー
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>背景としてオブジェクトを描画します</td>
+            <td>背景としてオブジェクトを描画します（現在サポートされていません）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -989,7 +1000,7 @@ FirstHeader      | 最初のページのヘッダー
         </tr>
         <tr>
             <td><code>&amp;K</code></td>
-            <td>テキストフォントの色<br>RGB カラーは RRGGBB として指定されます<br>テーマカラーは TTSNNN として指定されます。ここで、TTはテーマカラーID、S は &quot;+&quot; のいずれかです。または &quot;-&quot; ティント/シェード値の、そしてNNNはティント/シェード値です</td>
+            <td>テキストフォントの色<br>RGB カラーは RRGGBB として指定されます<br>テーマカラーは TTSNNN として指定されます。ここで、TT はテーマカラー ID、S は &quot;+&quot; のいずれかです。または &quot;-&quot; ティント/シェード値の、そして NNN はティント/シェード値です</td>
         </tr>
         <tr>
             <td><code>&amp;L</code></td>

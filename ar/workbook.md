@@ -869,6 +869,7 @@ func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
 
 خيارات|اكتب
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - فمثلا, تعيين خصائص المصنف:
@@ -876,6 +877,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -892,17 +894,25 @@ func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
 
 خيارات|اكتب
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - فمثلا, احصل على خصائص المصنف:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -910,6 +920,7 @@ fmt.Printf("- codeName: %q\n", codeName)
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -988,7 +999,7 @@ FirstHeader      | رأس الصفحة الأولى
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>كائن رسومي كخلفية</td>
+            <td>كائن رسومي كخلفية (لا يدعم حاليا)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>

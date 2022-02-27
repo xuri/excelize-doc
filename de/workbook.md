@@ -864,6 +864,7 @@ SetWorkbookPrOptions bietet eine Funktion zum Festlegen von Arbeitsmappeneigensc
 
 Options|Typ
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - Legen Sie beispielsweise Eigenschaften für die Arbeitsmappe fest:
@@ -871,6 +872,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -887,17 +889,25 @@ GetWorkbookPrOptions bietet eine Funktion zum Abrufen von Arbeitsmappeneigenscha
 
 Options|Typ
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - Rufen Sie beispielsweise die Eigenschaften der Arbeitsmappe ab:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -905,6 +915,7 @@ Ausgabe:
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -983,7 +994,7 @@ Die folgenden Formatierungscodes können in Feldern mit 6 Zeichenfolgentypen ver
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Objekt als Hintergrund zeichnen</td>
+            <td>Objekt als Hintergrund zeichnen (wird derzeit nicht unterstützt)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>

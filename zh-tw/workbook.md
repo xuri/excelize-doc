@@ -860,6 +860,7 @@ SetWorkbookPrOptions 用於設定活頁簿的屬性。可選參數：
 
 參數|資料類別
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - 例如，設定活頁簿屬性:
@@ -867,6 +868,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -883,17 +885,25 @@ GetWorkbookPrOptions 用於獲取活頁簿的屬性。可選參數：
 
 參數|資料類別
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 - 例如，獲取活頁簿屬性:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -901,6 +911,7 @@ fmt.Printf("- codeName: %q\n", codeName)
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -979,7 +990,7 @@ FirstHeader      | 首頁頁眉控制字符
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>將指定對象做為背景</td>
+            <td>將指定對象做為背景（暫不支持）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>

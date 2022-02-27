@@ -866,6 +866,7 @@ SetWorkbookPrOptions provides a function to sets workbook properties. Available 
 
 Options|Type
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 For example, set properties for workbook:
@@ -873,6 +874,7 @@ For example, set properties for workbook:
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
     fmt.Println(err)
@@ -889,17 +891,25 @@ GetWorkbookPrOptions provides a function to gets workbook properties. Available 
 
 Options|Type
 ---|---
+FilterPrivacy|bool
 CodeName|string
 
 For example, get properties of workbook:
 
 ```go
 f := excelize.NewFile()
-var codeName excelize.CodeName
+var (
+    filterPrivacy excelize.FilterPrivacy
+    codeName      excelize.CodeName
+)
+if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
 
@@ -907,6 +917,7 @@ Output:
 
 ```text
 Defaults:
+- filterPrivacy: true
 - codeName: ""
 ```
 
@@ -985,7 +996,7 @@ The following formatting codes can be used in 6 string type fields: `OddHeader`,
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background</td>
+            <td>Drawing object as background (Not support currently)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
