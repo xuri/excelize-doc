@@ -236,7 +236,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。
+根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定存儲格的超鏈接而不影響存儲格的值，若需設定存儲格的值，請通過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函數另行設定。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
@@ -685,6 +685,8 @@ BESSELI
 BESSELJ
 BESSELK
 BESSELY
+BETAINV
+BETA.INV
 BIN2DEC
 BIN2HEX
 BIN2OCT
@@ -710,6 +712,7 @@ CONCAT
 CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
+CORREL
 COS
 COSH
 COT
@@ -725,6 +728,8 @@ COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
+COVAR
+COVARIANCE.P
 CSC
 CSCH
 CUMIPMT
@@ -757,21 +762,32 @@ ERROR.TYPE
 EVEN
 EXACT
 EXP
+EXPON.DIST
+EXPONDIST
 FACT
 FACTDOUBLE
 FALSE
 FIND
 FINDB
+F.INV
+F.INV.RT
+FINV
 FISHER
 FISHERINV
 FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
+FORMULATEXT
 FV
 FVSCHEDULE
 GAMMA
+GAMMA.DIST
+GAMMADIST
+GAMMA.INV
+GAMMAINV
 GAMMALN
+GAUSS
 GCD
 GEOMEAN
 GESTEP
@@ -811,6 +827,7 @@ IMSUB
 IMSUM
 IMTAN
 INDEX
+INDIRECT
 INT
 INTRATE
 IPMT
@@ -949,6 +966,9 @@ SUBSTITUTE
 SUM
 SUMIF
 SUMSQ
+SUMX2MY2
+SUMX2PY2
+SUMXMY2
 SWITCH
 SYD
 T
@@ -966,6 +986,7 @@ TRIM
 TRIMMEAN
 TRUE
 TRUNC
+TYPE
 UNICHAR
 UNICODE
 UPPER

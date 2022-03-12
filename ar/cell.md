@@ -236,7 +236,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-يوفر SetCellHyperLink وظيفة لتعيين الارتباطات التشعبية للخلايا عن طريق اسم ورقة العمل وعنوان URL للرابط. يعرّف LinkType نوعين من الارتباطات التشعبية  `External` لموقع الويب أو `Location` للانتقال إلى إحدى الخلايا في هذا المصنف. الحد الأقصى للارتباطات التشعبية في ورقة العمل هو `65530`. أدناه مثال على ارتباط خارجي.
+يوفر SetCellHyperLink وظيفة لتعيين الارتباطات التشعبية للخلايا عن طريق اسم ورقة العمل وعنوان URL للرابط. يعرّف LinkType نوعين من الارتباطات التشعبية `External` لموقع الويب أو `Location` للانتقال إلى إحدى الخلايا في هذا المصنف. الحد الأقصى للارتباطات التشعبية في ورقة العمل هو `65530`. تُستخدم هذه الوظيفة فقط لتعيين الارتباط التشعبي للخلية ولا تؤثر على قيمة الخلية. إذا كنت بحاجة إلى تعيين قيمة الخلية ، فالرجاء استخدام الوظائف الأخرى مثل [`SetCellStyle`](cell.md#SetCellStyle) أو [`SetSheetRow`](sheet.md#SetSheetRow). أدناه مثال على ارتباط خارجي.
 
 - مثال 1 ، إضافة ارتباط خارجي إلى الخلية `A3` من ورقة العمل المسماة `Sheet1`:
 
@@ -690,6 +690,8 @@ BESSELI
 BESSELJ
 BESSELK
 BESSELY
+BETAINV
+BETA.INV
 BIN2DEC
 BIN2HEX
 BIN2OCT
@@ -715,6 +717,7 @@ CONCAT
 CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
+CORREL
 COS
 COSH
 COT
@@ -730,6 +733,8 @@ COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
+COVAR
+COVARIANCE.P
 CSC
 CSCH
 CUMIPMT
@@ -762,21 +767,32 @@ ERROR.TYPE
 EVEN
 EXACT
 EXP
+EXPON.DIST
+EXPONDIST
 FACT
 FACTDOUBLE
 FALSE
 FIND
 FINDB
+F.INV
+F.INV.RT
+FINV
 FISHER
 FISHERINV
 FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
+FORMULATEXT
 FV
 FVSCHEDULE
 GAMMA
+GAMMA.DIST
+GAMMADIST
+GAMMA.INV
+GAMMAINV
 GAMMALN
+GAUSS
 GCD
 GEOMEAN
 GESTEP
@@ -816,6 +832,7 @@ IMSUB
 IMSUM
 IMTAN
 INDEX
+INDIRECT
 INT
 INTRATE
 IPMT
@@ -954,6 +971,9 @@ SUBSTITUTE
 SUM
 SUMIF
 SUMSQ
+SUMX2MY2
+SUMX2PY2
+SUMXMY2
 SWITCH
 SYD
 T
@@ -971,6 +991,7 @@ TRIM
 TRIMMEAN
 TRUE
 TRUNC
+TYPE
 UNICHAR
 UNICODE
 UPPER

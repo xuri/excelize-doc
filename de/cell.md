@@ -236,7 +236,7 @@ Schützen Sie das Arbeitsblatt, um eine Zelle zu sperren oder eine Formel auszub
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-SetCellHyperLink bietet eine Funktion zum Festlegen von Zellen-Hyperlinks anhand des angegebenen Arbeitsblattnamens und der Link-URL-Adresse. LinkType definiert zwei Arten von Hyperlinks: `External` für die Website oder `Location` für das Verschieben in eine der Zellen in dieser Arbeitsmappe. Die maximale Anzahl von Hyperlinks in einem Arbeitsblatt beträgt `65530`. Unten finden Sie ein Beispiel für einen externen Link.
+SetCellHyperLink bietet eine Funktion zum Festlegen von Zellen-Hyperlinks anhand des angegebenen Arbeitsblattnamens und der Link-URL-Adresse. LinkType definiert zwei Arten von Hyperlinks: `External` für die Website oder `Location` für das Verschieben in eine der Zellen in dieser Arbeitsmappe. Die maximale Anzahl von Hyperlinks in einem Arbeitsblatt beträgt `65530`. Diese Funktion wird nur verwendet, um den Hyperlink der Zelle festzulegen und hat keinen Einfluss auf den Wert der Zelle. Wenn Sie den Wert der Zelle setzen müssen, verwenden Sie bitte die anderen Funktionen wie [`SetCellStyle`](cell.md#SetCellStyle) oder [`SetSheetRow`](sheet.md#SetSheetRow). Unten finden Sie ein Beispiel für einen externen Link.
 
 - Beispiel 1: Hinzufügen eines externen Links zur `A3`-Zelle des Arbeitsblatts mit dem Namen `Sheet1`:
 
@@ -685,6 +685,8 @@ BESSELI
 BESSELJ
 BESSELK
 BESSELY
+BETAINV
+BETA.INV
 BIN2DEC
 BIN2HEX
 BIN2OCT
@@ -710,6 +712,7 @@ CONCAT
 CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
+CORREL
 COS
 COSH
 COT
@@ -725,6 +728,8 @@ COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
+COVAR
+COVARIANCE.P
 CSC
 CSCH
 CUMIPMT
@@ -757,21 +762,32 @@ ERROR.TYPE
 EVEN
 EXACT
 EXP
+EXPON.DIST
+EXPONDIST
 FACT
 FACTDOUBLE
 FALSE
 FIND
 FINDB
+F.INV
+F.INV.RT
+FINV
 FISHER
 FISHERINV
 FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
+FORMULATEXT
 FV
 FVSCHEDULE
 GAMMA
+GAMMA.DIST
+GAMMADIST
+GAMMA.INV
+GAMMAINV
 GAMMALN
+GAUSS
 GCD
 GEOMEAN
 GESTEP
@@ -811,6 +827,7 @@ IMSUB
 IMSUM
 IMTAN
 INDEX
+INDIRECT
 INT
 INTRATE
 IPMT
@@ -949,6 +966,9 @@ SUBSTITUTE
 SUM
 SUMIF
 SUMSQ
+SUMX2MY2
+SUMX2PY2
+SUMXMY2
 SWITCH
 SYD
 T
@@ -966,6 +986,7 @@ TRIM
 TRIMMEAN
 TRUE
 TRUNC
+TYPE
 UNICHAR
 UNICODE
 UPPER

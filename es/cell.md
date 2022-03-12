@@ -236,7 +236,7 @@ Para bloquear una celda u ocultar una fórmula, proteja la hoja de trabajo. En l
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-SetCellHyperLink proporciona una función para establecer hipervínculos de celda según el nombre de la hoja de trabajo y la dirección URL del enlace. LinkType define dos tipos de hipervínculos `External` para el sitio web o `Location` para moverse a una de las celdas de este libro. El límite máximo de hipervínculos en una hoja de trabajo es `65530`. A continuación se muestra un ejemplo de un enlace externo.
+SetCellHyperLink proporciona una función para establecer hipervínculos de celda según el nombre de la hoja de trabajo y la dirección URL del enlace. LinkType define dos tipos de hipervínculos `External` para el sitio web o `Location` para moverse a una de las celdas de este libro. El límite máximo de hipervínculos en una hoja de trabajo es `65530`. Esta función solo se usa para establecer el hipervínculo de la celda y no afecta el valor de la celda. Si necesita establecer el valor de la celda, utilice las otras funciones como [`SetCellStyle`](cell.md#SetCellStyle) o [`SetSheetRow`](sheet.md#SetSheetRow). A continuación se muestra un ejemplo de un enlace externo.
 
 - Ejemplo 1, agregando un enlace externo a la celda `A3` de la hoja de trabajo llamada `Sheet1`:
 
@@ -685,6 +685,8 @@ BESSELI
 BESSELJ
 BESSELK
 BESSELY
+BETAINV
+BETA.INV
 BIN2DEC
 BIN2HEX
 BIN2OCT
@@ -710,6 +712,7 @@ CONCAT
 CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
+CORREL
 COS
 COSH
 COT
@@ -725,6 +728,8 @@ COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
+COVAR
+COVARIANCE.P
 CSC
 CSCH
 CUMIPMT
@@ -757,21 +762,32 @@ ERROR.TYPE
 EVEN
 EXACT
 EXP
+EXPON.DIST
+EXPONDIST
 FACT
 FACTDOUBLE
 FALSE
 FIND
 FINDB
+F.INV
+F.INV.RT
+FINV
 FISHER
 FISHERINV
 FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
+FORMULATEXT
 FV
 FVSCHEDULE
 GAMMA
+GAMMA.DIST
+GAMMADIST
+GAMMA.INV
+GAMMAINV
 GAMMALN
+GAUSS
 GCD
 GEOMEAN
 GESTEP
@@ -811,6 +827,7 @@ IMSUB
 IMSUM
 IMTAN
 INDEX
+INDIRECT
 INT
 INTRATE
 IPMT
@@ -949,6 +966,9 @@ SUBSTITUTE
 SUM
 SUMIF
 SUMSQ
+SUMX2MY2
+SUMX2PY2
+SUMXMY2
 SWITCH
 SYD
 T
@@ -966,6 +986,7 @@ TRIM
 TRIMMEAN
 TRUE
 TRUNC
+TYPE
 UNICHAR
 UNICODE
 UPPER

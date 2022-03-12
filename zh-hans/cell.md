@@ -236,7 +236,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 ```
 
-根据给定的工作表、单元格坐标、链接资源和资源类型设置单元格的超链接。资源类型分为外部链接地址 `External` 和工作簿内部位置链接 `Location` 两种。每个工作表中的包含最大超链接限制为 `65530` 个。
+根据给定的工作表、单元格坐标、链接资源和资源类型设置单元格的超链接。资源类型分为外部链接地址 `External` 和工作簿内部位置链接 `Location` 两种。每个工作表中的包含最大超链接限制为 `65530` 个。该方法仅设置单元格的超链接而不影响单元格的值，若需设置单元格的值，请通过 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函数另行设置。
 
 - 例1，为名为 `Sheet1` 的工作表 `A3` 单元格添加外部链接：
 
@@ -685,6 +685,8 @@ BESSELI
 BESSELJ
 BESSELK
 BESSELY
+BETAINV
+BETA.INV
 BIN2DEC
 BIN2HEX
 BIN2OCT
@@ -710,6 +712,7 @@ CONCAT
 CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
+CORREL
 COS
 COSH
 COT
@@ -725,6 +728,8 @@ COUPDAYSNC
 COUPNCD
 COUPNUM
 COUPPCD
+COVAR
+COVARIANCE.P
 CSC
 CSCH
 CUMIPMT
@@ -757,21 +762,32 @@ ERROR.TYPE
 EVEN
 EXACT
 EXP
+EXPON.DIST
+EXPONDIST
 FACT
 FACTDOUBLE
 FALSE
 FIND
 FINDB
+F.INV
+F.INV.RT
+FINV
 FISHER
 FISHERINV
 FIXED
 FLOOR
 FLOOR.MATH
 FLOOR.PRECISE
+FORMULATEXT
 FV
 FVSCHEDULE
 GAMMA
+GAMMA.DIST
+GAMMADIST
+GAMMA.INV
+GAMMAINV
 GAMMALN
+GAUSS
 GCD
 GEOMEAN
 GESTEP
@@ -811,6 +827,7 @@ IMSUB
 IMSUM
 IMTAN
 INDEX
+INDIRECT
 INT
 INTRATE
 IPMT
@@ -949,6 +966,9 @@ SUBSTITUTE
 SUM
 SUMIF
 SUMSQ
+SUMX2MY2
+SUMX2PY2
+SUMXMY2
 SWITCH
 SYD
 T
@@ -966,6 +986,7 @@ TRIM
 TRIMMEAN
 TRUE
 TRUNC
+TYPE
 UNICHAR
 UNICODE
 UPPER
