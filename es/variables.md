@@ -51,7 +51,16 @@ var (
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism definió el mensaje de error en un
     // mecanismo de cifrado no compatible.
-    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
+    // ErrUnsupportedHashAlgorithm definió el mensaje de error en el algoritmo
+    // hash no compatible.
+    ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // ErrUnsupportedNumberFormat definió el mensaje de error en la expresión
+    // de formato de número no compatible.
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrPasswordLengthInvalid definió el mensaje de error sobre la longitud
+    // de la contraseña no válida.
+    ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrParameterRequired definió el mensaje de error al recibir el
     // parámetro vacío.
     ErrParameterRequired = errors.New("parameter is required")
@@ -76,11 +85,11 @@ var (
     // ErrSheetIdx definió el mensaje de error al recibir el índice de hoja de
     // trabajo no válido.
     ErrSheetIdx = errors.New("invalid worksheet index")
-    // ErrUnprotectSheet definió que el mensaje de error en la hoja de trabajo no ha configurado
-    // ninguna protección.
+    // ErrUnprotectSheet definió que el mensaje de error en la hoja de trabajo
+    // no ha configurado ninguna protección.
     ErrUnprotectSheet = errors.New("worksheet has set no protect")
-    // ErrUnprotectSheetPassword definió el mensaje de error al eliminar la protección de hoja con
-    // verificación de contraseña fallida.
+    // ErrUnprotectSheetPassword definió el mensaje de error al eliminar la
+    // protección de hoja con verificación de contraseña fallida.
     ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets definió el mensaje de error en las hojas de grupo.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
@@ -98,17 +107,23 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrSave definió el mensaje de error para guardar el archivo.
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
-    // ErrAttrValBool definió el mensaje de error en el atributo XML de tipo booleano marshal y unmarshal.
+    // ErrAttrValBool definió el mensaje de error en el atributo XML de tipo
+    // booleano marshal y unmarshal.
     ErrAttrValBool = errors.New("unexpected child of attrValBool")
-    // ErrSparklineType definió el mensaje de error al recibir los parámetros de tipo de minigráfico no válidos.
+    // ErrSparklineType definió el mensaje de error al recibir los parámetros
+    // de tipo de minigráfico no válidos.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
-    // ErrSparklineLocation definió el mensaje de error sobre los parámetros de 'Location' faltantes
+    // ErrSparklineLocation definió el mensaje de error sobre los parámetros de
+    // 'Location' faltantes
     ErrSparklineLocation = errors.New("parameter 'Location' is required")
-    // ErrSparklineRange definió el mensaje de error sobre los parámetros de 'Range' del minigráfico que faltan
+    // ErrSparklineRange definió el mensaje de error sobre los parámetros de
+    // 'Range' del minigráfico que faltan
     ErrSparklineRange = errors.New("parameter 'Range' is required")
-    // ErrSparkline definió el mensaje de error al recibir los parámetros de chispa no válidos.
+    // ErrSparkline definió el mensaje de error al recibir los parámetros de
+    // chispa no válidos.
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
-    // ErrSparklineStyle definió el mensaje de error al recibir los parámetros de 'Style' del minigráfico no válidos.
+    // ErrSparklineStyle definió el mensaje de error al recibir los parámetros
+    // de 'Style' del minigráfico no válidos.
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```

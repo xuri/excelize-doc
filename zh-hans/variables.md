@@ -35,7 +35,13 @@ var (
     // ErrUnknownEncryptMechanism 定义了检测到未知加密机制时的错误提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism 定义了检测到不受支持的加密机制时的错误提示信息
-    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
+    // ErrUnsupportedHashAlgorithm 定义了检测到不受支持的哈希算法时的错误提示信息
+    ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // ErrUnsupportedNumberFormat 定义了检测到不受支持的数字格式时的错误提示信息
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrPasswordLengthInvalid 定义了密码长度超出限制时的错误提示信息
+    ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrParameterRequired 定义了必要参数为空时的错误提示信息
     ErrParameterRequired = errors.New("parameter is required")
     // ErrParameterInvalid 定义了收到无效参数时的错误提示信息
@@ -65,7 +71,8 @@ var (
     // ErrCellCharsLength 定义了单个单元格字符长度超出最大限制时的错误提示信息
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
     // ErrOptionsUnzipSizeLimit
-    // 定义了打开工作簿时，“用以指定打开电子表格文档时的解压缩大小限制参数”和“用以指定解压每个工作表时的内存限制参数”产生冲突时的错误提示信息
+    // 定义了打开工作簿时，“用以指定打开电子表格文档时的解压缩大小限制参数”和
+    // “用以指定解压每个工作表时的内存限制参数”产生冲突时的错误提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrSave 定义了保存工作簿时的错误提示信息
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")

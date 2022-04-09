@@ -21,7 +21,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 ## تعيين عرض العمود {#SetColWidth}
 
 ```go
-func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
+func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
 يوفر SetColWidth وظيفة لتعيين عرض عمود واحد أو عدة أعمدة. فمثلا:

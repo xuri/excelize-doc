@@ -52,7 +52,16 @@ var (
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism hat die Fehlermeldung zu einem nicht
     // unterstützten Verschlüsselungsmechanismus definiert.
-    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
+    // ErrUnsupportedHashAlgorithm definiert die Fehlermeldung zu einem nicht
+    // unterstützten Hash-Algorithmus.
+    ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // ErrUnsupportedNumberFormat hat die Fehlermeldung für einen nicht
+    // unterstützten Zahlenformatausdruck definiert.
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrPasswordLengthInvalid definiert die Fehlermeldung bei ungültiger
+    // Passwortlänge.
+    ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrParameterRequired definiert die Fehlermeldung beim Empfang des leeren
     // Parameters.
     ErrParameterRequired = errors.New("parameter is required")
@@ -77,10 +86,11 @@ var (
     // ErrSheetIdx hat die Fehlermeldung beim Empfang des ungültigen
     // Arbeitsblattindex definiert.
     ErrSheetIdx = errors.New("invalid worksheet index")
-    // ErrUnprotectSheet definiert die Fehlermeldung auf dem Arbeitsblatt hat keinen Schutz gesetzt.
+    // ErrUnprotectSheet definiert die Fehlermeldung auf dem Arbeitsblatt hat
+    // keinen Schutz gesetzt.
     ErrUnprotectSheet = errors.New("worksheet has set no protect")
-    // ErrUnprotectSheetPassword hat die Fehlermeldung beim Entfernen des Blattschutzes mit fehlgeschlagener
-    // Kennwortüberprüfung definiert.
+    // ErrUnprotectSheetPassword hat die Fehlermeldung beim Entfernen des
+    // Blattschutzes mit fehlgeschlagener Kennwortüberprüfung definiert.
     ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets definierte die Fehlermeldung auf Gruppenblättern.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
@@ -98,18 +108,23 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrSave definiert die Fehlermeldung zum Speichern der Datei.
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
-    // ErrAttrValBool hat die Fehlermeldung für das XML-Attribut vom Typ Marshall und Unmarshal vom
-    // Typ Boolean definiert.
+    // ErrAttrValBool hat die Fehlermeldung für das XML-Attribut vom Typ
+    // Marshall und Unmarshal vom Typ Boolean definiert.
     ErrAttrValBool = errors.New("unexpected child of attrValBool")
-    // ErrSparklineType definierte die Fehlermeldung beim Empfang der ungültigen Sparkline-'Type'-Parameter.
+    // ErrSparklineType definierte die Fehlermeldung beim Empfang der
+    // ungültigen Sparkline-'Type'-Parameter.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
-    // ErrSparklineLocation hat die Fehlermeldung bei fehlenden 'Location'-Parametern definiert.
+    // ErrSparklineLocation hat die Fehlermeldung bei fehlenden
+    // 'Location'-Parametern definiert.
     ErrSparklineLocation = errors.New("parameter 'Location' is required")
-    // ErrSparklineRange hat die Fehlermeldung bei fehlenden Sparkline-'Range'-Parametern definiert.
+    // ErrSparklineRange hat die Fehlermeldung bei fehlenden
+    // Sparkline-'Range'-Parametern definiert.
     ErrSparklineRange = errors.New("parameter 'Range' is required")
-    // ErrSparkline hat die Fehlermeldung beim Empfang der ungültigen Sparkline-Parameter definiert.
+    // ErrSparkline hat die Fehlermeldung beim Empfang der ungültigen
+    // Sparkline-Parameter definiert.
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
-    // ErrSparklineStyle definiert die Fehlermeldung beim Empfang der ungültigen Sparkline-'Style'-Parameter.
+    // ErrSparklineStyle definiert die Fehlermeldung beim Empfang der
+    // ungültigen Sparkline-'Style'-Parameter.
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
@@ -134,4 +149,3 @@ var (
     NameSpaceDocumentPropertiesVariantTypes = xml.Attr{Name: xml.Name{Local: "vt", Space: "xmlns"}, Value: "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"}
 )
 ```
-

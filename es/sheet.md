@@ -21,7 +21,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 ## Establecer el ancho de la columna {#SetColWidth}
 
 ```go
-func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
+func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
 SetColWidth proporciona una función para establecer el ancho de una sola columna o de varias columnas. Por ejemplo:

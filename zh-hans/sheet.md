@@ -21,7 +21,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 ## 设置列宽度 {#SetColWidth}
 
 ```go
-func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
+func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
 根据给定的工作表名称（大小写敏感）、列范围和宽度值设置单个或多个列的宽度。例如设置名为 `Sheet1` 工作表上 `A` 到 `H` 列的宽度为 `20`：

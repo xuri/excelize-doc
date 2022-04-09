@@ -50,7 +50,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ```go
 dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("$E$1:$E$3", true)
+dvRange.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dvRange)
 ```
 

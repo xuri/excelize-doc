@@ -50,7 +50,7 @@ Ejemplo 4, configure la validación de datos en `Sheet1!A7:B8` con la fuente de 
 ```go
 dvRange := excelize.NewDataValidation(true)
 dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("$E$1:$E$3", true)
+dvRange.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dvRange)
 ```
 

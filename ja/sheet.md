@@ -21,7 +21,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 ## 列幅の設定 {#SetColWidth}
 
 ```go
-func (f *File) SetColWidth(sheet, startcol, endcol string, width float64) error
+func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
 指定されたシート名（大文字と小文字を区別）、列範囲、および幅の値に基づいて、単一または複数の列の幅を設定します。たとえば、`Sheet1` という名前の `A` から `H` の列の幅を `20` に設定します。

@@ -35,7 +35,13 @@ var (
     // ErrUnknownEncryptMechanism 定義了檢測到未知加密機制時的錯誤提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism 定義了檢測到不受支持的加密機制時的錯誤提示信息
-    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
+    // ErrUnsupportedHashAlgorithm 定義了檢測到不受支持的哈希算法時的錯誤提示信息
+    ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // ErrUnsupportedNumberFormat 定義了檢測到不受支持的數字格式時的錯誤提示信息
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrPasswordLengthInvalid 定義了密碼長度超出限制時的錯誤提示信息
+    ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrParameterRequired 定義了必要參數為空時的錯誤提示信息
     ErrParameterRequired = errors.New("parameter is required")
     // ErrParameterInvalid 定義了收到無效參數時的錯誤提示信息
@@ -65,7 +71,8 @@ var (
     // ErrCellCharsLength 定義了單個存儲格字符長度超出最大限制時的錯誤提示信息
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
     // ErrOptionsUnzipSizeLimit
-    // 定義了打開活頁簿時，「用以指定打開電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
+    // 定義了打開活頁簿時，「用以指定打開電子錶格檔案時的解壓縮大小限制參數」和
+    //「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrSave 定義了保存活頁簿時的錯誤提示信息
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")

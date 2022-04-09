@@ -37,7 +37,13 @@ var (
     // حدد ErrUnknownEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // حدد ErrUnsupportedEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
-    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
+    ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
+    // حدد ErrUnsupportedHashAlgorithm رسالة الخطأ على خوارزمية تجزئة غير مدعومة.
+    ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // حدد ErrUnsupportedNumberFormat رسالة الخطأ على تعبير تنسيق رقم غير مدعوم.
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // حدد ErrPasswordLengthInvalid رسالة الخطأ بطول كلمة المرور غير الصالحة.
+    ErrPasswordLengthInvalid = errors.New("password length invalid")
     // حدد ErrParameterRequired رسالة الخطأ عند تلقي المعلمة الفارغة.
     ErrParameterRequired = errors.New("parameter is required")
     // حدد ErrParameterInvalid رسالة الخطأ عند تلقي المعلمة غير الصالحة.
@@ -58,7 +64,8 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // حدد ErrUnprotectSheet رسالة الخطأ في ورقة العمل ولم تحدد أي حماية.
     ErrUnprotectSheet = errors.New("worksheet has set no protect")
-    // حدد ErrUnprotectSheetPassword رسالة الخطأ على إزالة حماية الورقة مع فشل التحقق من كلمة المرور.
+    // حدد ErrUnprotectSheetPassword رسالة الخطأ على إزالة حماية الورقة مع فشل
+    // التحقق من كلمة المرور.
     ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // حدد ErrGroupSheets رسالة الخطأ في أوراق المجموعة.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
@@ -67,14 +74,16 @@ var (
     ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
     // حدد ErrDataValidationRange رسالة الخطأ على نطاق عشري معين يتجاوز الحد.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
-    // حدد ErrCellCharsLength رسالة الخطأ لتلقي طول حرف الخلية الذي يتجاوز الحد.
+    // حدد ErrCellCharsLength رسالة الخطأ لتلقي طول حرف الخلية الذي يتجاوز
+    // الحد.
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
     // حدد ErrOptionsUnzipSizeLimit رسالة الخطأ لتلقي UnzipSizeLimit و
     // UnzipXMLSizeLimit غير صالحين.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // حدد ErrSave رسالة الخطأ لحفظ الملف.
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
-    // حدد ErrAttrValBool رسالة الخطأ على سمة XML من النوع المنطقي التنظيمي وغير المنظم.
+    // حدد ErrAttrValBool رسالة الخطأ على سمة XML من النوع المنطقي التنظيمي
+    // وغير المنظم.
     ErrAttrValBool = errors.New("unexpected child of attrValBool")
     // حدد ErrSparklineType رسالة الخطأ عند تلقي معلمات نوع خط المؤشر غير الصالحة.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
@@ -84,7 +93,8 @@ var (
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // حدد ErrSparkline رسالة الخطأ عند تلقي معلمات خط المؤشر غير الصالحة.
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
-    // حدد ErrSparklineStyle رسالة الخطأ عند تلقي معلمات خط المؤشر غير الصالحة 'Style'.
+    // حدد ErrSparklineStyle رسالة الخطأ عند تلقي معلمات خط المؤشر غير
+    // الصالحة 'Style'.
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```

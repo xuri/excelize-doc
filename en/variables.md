@@ -29,7 +29,8 @@ var (
     // ErrAddVBAProject defined the error message on add the VBA project in
     // the workbook.
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
-    // ErrMaxRows defined the error message on receive a row number exceeds maximum limit.
+    // ErrMaxRows defined the error message on receive a row number exceeds
+    // maximum limit.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight defined the error message on receive an invalid row
     // height.
@@ -54,6 +55,9 @@ var (
     // ErrUnsupportedHashAlgorithm defined the error message on unsupported
     // hash algorithm.
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // ErrUnsupportedNumberFormat defined the error message on unsupported
+    // number format expression.
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
     // ErrPasswordLengthInvalid defined the error message on invalid password
     // length.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
@@ -69,7 +73,8 @@ var (
     // ErrDefinedNameduplicate defined the error message on the same name
     // already exists on the scope.
     ErrDefinedNameduplicate = errors.New("the same name already exists on the scope")
-    // ErrCustomNumFmt defined the error message on receive the empty custom number format.
+    // ErrCustomNumFmt defined the error message on receive the empty custom
+    // number format.
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength defined the error message on the length of the font
     // family name overflow.

@@ -2,84 +2,90 @@
 
 ```go
 var (
-    // ErrStreamSetColWidth は、ストリーム書き込みモードでの列幅の設定に関するエラーメッセージを定義しました。
+    // ErrStreamSetColWidth は、ストリーム書き込みモードでの列幅の設定に関するエラーメッセージを定義しました
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrColumnNumber は、無効な列番号を受信したときのエラーメッセージを定義しました。
+    // ErrColumnNumber は、無効な列番号を受信したときのエラーメッセージを定義しました
     ErrColumnNumber = errors.New("column number exceeds maximum limit")
-    // ErrColumnWidth は、無効な列幅を受信したときのエラーメッセージを定義しました。
+    // ErrColumnWidth は、無効な列幅を受信したときのエラーメッセージを定義しました
     ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
-    // ErrOutlineLevel は、無効なアウトラインレベル番号を受信したときのエラーメッセージを定義しました。
+    // ErrOutlineLevel は、無効なアウトラインレベル番号を受信したときのエラーメッセージを定義しました
     ErrOutlineLevel = errors.New("invalid outline level")
-    // ErrCoordinates は、無効な座標タプルの長さに関するエラーメッセージを定義しました。
+    // ErrCoordinates は、無効な座標タプルの長さに関するエラーメッセージを定義しました
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet は、すでに存在する特定のワークシートにエラーメッセージを定義しました。
+    // ErrExistsWorksheet は、すでに存在する特定のワークシートにエラーメッセージを定義しました
     ErrExistsWorksheet = errors.New("the same name worksheet already exists")
-    // ErrTotalSheetHyperlinks は、ハイパーリンクカウントオーバーフローに関するエラーメッセージを定義しました。
+    // ErrTotalSheetHyperlinks は、ハイパーリンクカウントオーバーフローに関するエラーメッセージを定義しました
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
-    // ErrInvalidFormula は、無効な数式を受信したときのエラーメッセージを定義しました。
+    // ErrInvalidFormula は、無効な数式を受信したときのエラーメッセージを定義しました
     ErrInvalidFormula = errors.New("formula not valid")
-    // ErrAddVBAProject は、ブックにVBAプロジェクトを追加する際のエラーメッセージを定義しました。
+    // ErrAddVBAProject は、ブックにVBAプロジェクトを追加する際のエラーメッセージを定義しました
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
-    // ErrMaxRows は、最大制限を超える行番号を受信したときのエラーメッセージを定義しました。
+    // ErrMaxRows は、最大制限を超える行番号を受信したときのエラーメッセージを定義しました
     ErrMaxRows = errors.New("row number exceeds maximum limit")
-    // ErrMaxRowHeight は、無効な行の高さを受け取ったときのエラーメッセージを定義しました。
+    // ErrMaxRowHeight は、無効な行の高さを受け取ったときのエラーメッセージを定義しました
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
-    // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました。
+    // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt は、サポートされていないブック拡張機能を受信したときのエラーメッセージを定義しました。
+    // ErrWorkbookExt は、サポートされていないブック拡張機能を受信したときのエラーメッセージを定義しました
     ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength は、ファイル名の長さのオーバーフローを受信したときのエラーメッセージを定義しました。
+    // ErrMaxFileNameLength は、ファイル名の長さのオーバーフローを受信したときのエラーメッセージを定義しました
     ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
-    // ErrEncrypt は、暗号化スプレッドシートにエラーメッセージを定義しました。
+    // ErrEncrypt は、暗号化スプレッドシートにエラーメッセージを定義しました
     ErrEncrypt = errors.New("not support encryption currently")
-    // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
+    // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
-    // ErrUnsupportedEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました。
-    ErrUnsupportedEncryptMechanism = errors.New("unsupport encryption mechanism")
-    // ErrParameterRequired は、空のパラメーターを受信したときのエラーメッセージを定義しました。
+    // ErrUnsupportedEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました
+    ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
+    // ErrUnsupportedHashAlgorithm は、サポートされていないハッシュアルゴリズムに関するエラーメッセージを定義しました
+    ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
+    // ErrUnsupportedNumberFormat は、サポートされていない数値形式式に関するエラーメッセージを定義しました
+    ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrPasswordLengthInvalid は、無効なパスワードの長さに関するエラーメッセージを定義しました
+    ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrParameterRequired は、空のパラメーターを受信したときのエラーメッセージを定義しました
     ErrParameterRequired = errors.New("parameter is required")
-    // ErrParameterInvalid は、無効なパラメーターを受信したときのエラーメッセージを定義しました。
+    // ErrParameterInvalid は、無効なパラメーターを受信したときのエラーメッセージを定義しました
     ErrParameterInvalid = errors.New("parameter is invalid")
-    // ErrDefinedNameScope は、指定されたスコープで定義された名前が見つからないというエラーメッセージを定義しました。
+    // ErrDefinedNameScope は、指定されたスコープで定義された名前が見つからないというエラーメッセージを定義しました
     ErrDefinedNameScope = errors.New("no defined name on the scope")
-    // ErrDefinedNameDuplicate は、スコープにすでに存在する同じ名前でエラーメッセージを定義しました。
+    // ErrDefinedNameDuplicate は、スコープにすでに存在する同じ名前でエラーメッセージを定義しました
     ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
-    // ErrCustomNumFmt は、空のカスタム数値形式を受信したときのエラーメッセージを定義しました。
+    // ErrCustomNumFmt は、空のカスタム数値形式を受信したときのエラーメッセージを定義しました
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
-    // ErrFontLength は、フォントファミリ名のオーバーフローの長さに関するエラーメッセージを定義しました。
+    // ErrFontLength は、フォントファミリ名のオーバーフローの長さに関するエラーメッセージを定義しました
     ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
-    // ErrFontSize は、フォントのサイズに関するエラーメッセージが無効であると定義しました。
+    // ErrFontSize は、フォントのサイズに関するエラーメッセージが無効であると定義しました
     ErrFontSize = errors.New("font size must be between 1 and 409 points")
-    // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました。
+    // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました
     ErrSheetIdx = errors.New("invalid worksheet index")
-    // ErrUnprotectSheet は、ワークシートのエラーメッセージが保護を設定していないことを定義しました。
+    // ErrUnprotectSheet は、ワークシートのエラーメッセージが保護を設定していないことを定義しました
     ErrUnprotectSheet = errors.New("worksheet has set no protect")
-    // ErrUnprotectSheetPassword は、パスワード検証に失敗したシート保護の削除に関するエラーメッセージを定義しました。
+    // ErrUnprotectSheetPassword は、パスワード検証に失敗したシート保護の削除に関するエラーメッセージを定義しました
     ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
-    // ErrGroupSheets は、グループシートにエラーメッセージを定義しました。
+    // ErrGroupSheets は、グループシートにエラーメッセージを定義しました
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrDataValidationFormulaLength は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました。
+    // ErrDataValidationFormulaLength は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました
     ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
-    // ErrDataValidationRange は、設定された10進範囲のエラーメッセージが制限を超えると定義しました。
+    // ErrDataValidationRange は、設定された10進範囲のエラーメッセージが制限を超えると定義しました
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
-    // ErrCellCharsLength は、制限を超えるセル文字の長さを受信するためのエラーメッセージを定義しました。
+    // ErrCellCharsLength は、制限を超えるセル文字の長さを受信するためのエラーメッセージを定義しました
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
     // ErrOptionsUnzipSizeLimit は、無効 なUnzipSizeLimit と UnzipXMLSizeLimit
-    // を受信した場合のエラーメッセージを定義しました。
+    // を受信した場合のエラーメッセージを定義しました
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
-    // ErrSave は、ファイルを保存するためのエラーメッセージを定義しました。
+    // ErrSave は、ファイルを保存するためのエラーメッセージを定義しました
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
-    // ErrAttrValBool は、マーシャルおよびアンマーシャルブール型 XML 属性に関するエラーメッセージを定義しました。
+    // ErrAttrValBool は、マーシャルおよびアンマーシャルブール型 XML 属性に関するエラーメッセージを定義しました
     ErrAttrValBool = errors.New("unexpected child of attrValBool")
-    // ErrSparklineType は、無効なスパークラインの Type パラメーターを受信したときのエラーメッセージを定義しました。
+    // ErrSparklineType は、無効なスパークラインの Type パラメーターを受信したときのエラーメッセージを定義しました
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
-    // ErrSparklineLocation は、Locationパラメーターが欠落している場合のエラーメッセージを定義しました。
+    // ErrSparklineLocation は、Locationパラメーターが欠落している場合のエラーメッセージを定義しました
     ErrSparklineLocation = errors.New("parameter 'Location' is required")
-    // ErrSparklineRange は、スパークラインの Range パラメーターが欠落している場合のエラーメッセージを定義しました。
+    // ErrSparklineRange は、スパークラインの Range パラメーターが欠落している場合のエラーメッセージを定義しました
     ErrSparklineRange = errors.New("parameter 'Range' is required")
-    // ErrSparkline は、無効なスパークラインパラメータを受信したときのエラーメッセージを定義しました。
+    // ErrSparkline は、無効なスパークラインパラメータを受信したときのエラーメッセージを定義しました
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
-    // ErrSparklineStyle は、無効なスパークラインの Style パラメータを受信したときのエラーメッセージを定義しました。
+    // ErrSparklineStyle は、無効なスパークラインの Style パラメータを受信したときのエラーメッセージを定義しました
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
 )
 ```
