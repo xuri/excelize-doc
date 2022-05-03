@@ -56,6 +56,8 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 |bool|
 |nil|
 
+لاحظ أن تنسيق التاريخ الافتراضي هو `m/d/yy h:mm` لقيمة نوع الوقت. يمكنك ضبط تنسيق الأرقام بطريقة [`SetCellStyle`](cell.md#SetCellStyle). إذا كنت بحاجة إلى تعيين التاريخ المتخصص في Excel مثل 0 يناير 1900 أو 29 فبراير 1900 ، فلا يمكن تمثيل هذه الأوقات في نوع بيانات Go بلغة البرمجة `time.Time`. يرجى تعيين قيمة الخلية كرقم 0 أو 60 ، ثم إنشاء وربط نمط تنسيق رقم التاريخ والوقت للخلية.
+
 ## تعيين قيمة منطقية {#SetCellBool}
 
 ```go
@@ -732,6 +734,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

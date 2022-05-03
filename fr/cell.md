@@ -56,6 +56,8 @@ SetCellValue fournit une fonction pour définir la valeur d'une cellule. Les coo
 |bool|
 |nil|
 
+Notez que le format de date par défaut est `m/d/yy h:mm` de la valeur de type `time.Time`. Vous pouvez définir le format des nombres par la méthode [`SetCellStyle`](cell.md#SetCellStyle). Si vous devez définir la date spécialisée dans Excel comme le 0 janvier 1900 ou le 29 février 1900, ces heures ne peuvent pas être représentées dans le type de données `time.Time` du langage Go. Veuillez définir la valeur de la cellule sur le nombre 0 ou 60, puis créez et liez le style de format de nombre date-heure pour la cellule.
+
 ## Définir la valeur booléenne {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

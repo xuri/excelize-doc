@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.6.0](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2022年4月18日
+- 文档更新: 2022年5月3日
 
 ## 项目使命
 
@@ -47,7 +47,7 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 - [Excelize Community on Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)
 - [Skype Community](https://join.skype.com/YW3OFS5QjYcV?source=qr-ios): <a href="../images/skype_group@2x.png" title="Excelize Skype Community" target="_blank">二维码</a>
 - [Line Community](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" title="Excelize Line Community" target="_blank">二维码</a>
-- [钉钉技术交流群](https://qr.dingtalk.com/action/joingroup?code=v1,k1,ydu1Um4a+7sGezVdHJjsH2BifuEaXGW4Gkw7czNk25A=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize 钉钉技术交流群" target="_blank">二维码</a>
+- [钉钉技术交流群](https://h5.dingtalk.com/circle/healthCheckin.html?dtaction=os&corpId=dingf7955a3077788503103115db31258e39&ed1be3ec=97369f3c&cbdbhh=qwertyuiop): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize 钉钉技术交流群" target="_blank">二维码</a>
 - [QQ 技术交流群](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ 技术交流群" target="_blank">二维码</a>
 - 微信技术交流群: `hixuri` (请备注: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize 微信技术交流群" target="_blank">二维码</a>
 - 如流技术交流群: `4375928` | <a href="../images/inflow_group@2x.png" title="如流技术交流群" target="_blank">二维码</a>

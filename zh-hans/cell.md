@@ -56,6 +56,8 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 |bool|
 |nil|
 
+请注意，此函数默认为 `time.Time` 类型的单元格的值设置 `m/d/yy h:mm` 数字格式，您可通过 [`SetCellStyle`](cell.md#SetCellStyle) 更改该设置。若您需设置无法通过 Go 语言 `time.Time` 类型表示的 Excel 特殊日期，例如 1900 年 1 月 0 日或 1900 年 2 月 29 日，请先设置单元格的值为 0 或 60，再为其设置具有日期数字格式的样式。
+
 ## 设置布尔型值 {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

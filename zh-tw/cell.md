@@ -56,6 +56,8 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 |bool|
 |nil|
 
+請注意，此函數默認為 `time.Time` 類型的存儲格的值設定 `m/d/yy h:mm` 數字格式，您可透過 [`SetCellStyle`](cell.md#SetCellStyle) 更改該設定。若您需設定無法通過 Go 語言 `time.Time` 類型表示的 Excel 特殊日期，例如 1900 年 1 月 0 日或 1900 年 2 月 29 日，請先設定存儲格的值為 0 或 60，再為其設定具有日期數字格式的樣式。
+
 ## 設定布林型值 {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

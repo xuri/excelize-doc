@@ -56,6 +56,8 @@ SetCellValue proporciona una función para establecer el valor de una celda. Las
 |bool|
 |nil|
 
+Tenga en cuenta que el formato de fecha predeterminado es `m/d/yy h:mm` del valor de tipo `time.Time`. Puede establecer el formato de los números mediante el método [`SetCellStyle`](cell.md#SetCellStyle). Si necesita establecer la fecha especializada en Excel, como el 0 de enero de 1900 o el 29 de febrero de 1900, estas horas no se pueden representar en el tipo de datos `time.Time` del lenguaje Go. Establezca el valor de la celda como número 0 o 60, luego cree y vincule el estilo de formato de número de fecha y hora para la celda.
+
 ## Establecer valor booleano {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

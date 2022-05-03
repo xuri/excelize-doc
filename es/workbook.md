@@ -864,6 +864,7 @@ SetWorkbookPrOptions proporciona una función para establecer las propiedades de
 
 Opciones|Tipo
 ---|---
+Date1904|bool
 FilterPrivacy|bool
 CodeName|string
 
@@ -872,6 +873,7 @@ Por ejemplo, establezca propiedades para el libro de trabajo:
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.Date1904(false),
     excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
@@ -889,6 +891,7 @@ GetWorkbookPrOptions proporciona una función para obtener las propiedades del l
 
 Opciones|Tipo
 ---|---
+Date1904|bool
 FilterPrivacy|bool
 CodeName|string
 
@@ -897,9 +900,13 @@ Por ejemplo, obtenga las propiedades del libro de trabajo:
 ```go
 f := excelize.NewFile()
 var (
+    date1904      excelize.Date1904
     filterPrivacy excelize.FilterPrivacy
     codeName      excelize.CodeName
 )
+if err := f.GetWorkbookPrOptions(&date1904); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
     fmt.Println(err)
 }
@@ -907,6 +914,7 @@ if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- date1904: %t\n", date1904)
 fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```

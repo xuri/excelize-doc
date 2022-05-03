@@ -56,6 +56,8 @@ SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표�
 |bool|
 |nil|
 
+기본 날짜 형식은 `time.Time` 유형 값의 `m/d/yy h:mm` 입니다. [`SetCellStyle`](cell.md#SetCellStyle) 방식으로 숫자 형식을 설정할 수 있습니다. 1900 년 1 월 0 일 또는 1900 년 2 월 29 일과 같이 Excel 에서 특수 날짜를 설정해야 하는 경우 이러한 시간은 Go 언어의 `time.Time` 데이터 형식으로 표현할 수 없습니다. 셀 값을 숫자 0 또는 60 으로 설정한 다음 셀에 대한 날짜-시간 숫자 형식 스타일을 만들고 바인딩하십시오.
+
 ## 부울 값 설정 {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

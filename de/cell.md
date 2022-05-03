@@ -56,6 +56,8 @@ SetCellValue bietet eine Funktion zum Festlegen des Werts einer Zelle. Die angeg
 |bool|
 |nil|
 
+Beachten Sie, dass das standardmäßige Datumsformat `m/d/yy h:mm` mit dem Wert `time.Time` ist. Sie können das Zahlenformat mit der Methode [`SetCellStyle`](cell.md#SetCellStyle) festlegen. Wenn Sie das spezielle Datum in Excel wie den 0. Januar 1900 oder den 29. Februar 1900 festlegen müssen, können diese Zeiten nicht im Datentyp `time.Time` der Go-Sprache dargestellt werden. Bitte legen Sie den Zellenwert als Zahl 0 oder 60 fest, erstellen und binden Sie dann den Datum-Uhrzeit-Zahlenformatstil für die Zelle.
+
 ## Festlegen eines booleschen Werts {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

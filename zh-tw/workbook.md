@@ -860,6 +860,7 @@ SetWorkbookPrOptions 用於設定活頁簿的屬性。可選參數：
 
 參數|資料類別
 ---|---
+Date1904|bool
 FilterPrivacy|bool
 CodeName|string
 
@@ -868,6 +869,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.Date1904(false),
     excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
@@ -885,6 +887,7 @@ GetWorkbookPrOptions 用於獲取活頁簿的屬性。可選參數：
 
 參數|資料類別
 ---|---
+Date1904|bool
 FilterPrivacy|bool
 CodeName|string
 
@@ -893,9 +896,13 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 var (
+    date1904      excelize.Date1904
     filterPrivacy excelize.FilterPrivacy
     codeName      excelize.CodeName
 )
+if err := f.GetWorkbookPrOptions(&date1904); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
     fmt.Println(err)
 }
@@ -903,6 +910,7 @@ if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- date1904: %t\n", date1904)
 fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```

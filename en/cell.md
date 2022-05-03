@@ -56,6 +56,8 @@ SetCellValue provides a function to set the value of a cell. The specified coord
 |bool|
 |nil|
 
+Note that default date format is `m/d/yy h:mm` of `time.Time` type value. You can set numbers format by [`SetCellStyle`](cell.md#SetCellStyle) method. If you need to set the specialized date in Excel like January 0, 1900 or February 29, 1900, these times can not representation in Go language `time.Time` data type. Please set the cell value as number 0 or 60, then create and bind the date-time number format style for the cell.
+
 ## Set boolean value {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

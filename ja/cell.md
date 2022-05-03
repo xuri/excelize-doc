@@ -56,6 +56,8 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 |bool|
 |nil|
 
+デフォルトの日付形式は、`time.Time` タイプの値の `m/d/yy h:mm` であることに注意してください。[`SetCellStyle`](cell.md#SetCellStyle) メソッドで数値フォーマットを設定できます。1900 年 1 月 0 日や 1900 年 2 月 29 日などの Excel で特殊な日付を設定する必要がある場合、これらの時刻は Go 言語の `time.Time` データ型で表すことはできません。セルの値を数値 0 または 60 に設定してから、セルの日時数値形式スタイルを作成してバインドしてください。
+
 ## ブール値設定 {#SetCellBool}
 
 ```go
@@ -727,6 +729,7 @@ CONCATENATE
 CONFIDENCE
 CONFIDENCE.NORM
 CONFIDENCE.T
+CONVERT
 CORREL
 COS
 COSH

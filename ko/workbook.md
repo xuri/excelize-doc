@@ -862,6 +862,7 @@ SetWorkbookPrOptions 는 통합 문서 속성을 설정하는 기능을 제공�
 
 옵션|유형
 ---|---
+Date1904|bool
 FilterPrivacy|bool
 CodeName|string
 
@@ -870,6 +871,7 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 if err := f.SetWorkbookPrOptions(
+    excelize.Date1904(false),
     excelize.FilterPrivacy(false),
     excelize.CodeName("code"),
 ); err != nil {
@@ -887,6 +889,7 @@ GetWorkbookPrOptions 는 통합 문서 속성을 가져오는 기능을 제공�
 
 옵션|유형
 ---|---
+Date1904|bool
 FilterPrivacy|bool
 CodeName|string
 
@@ -895,9 +898,13 @@ CodeName|string
 ```go
 f := excelize.NewFile()
 var (
+    date1904      excelize.Date1904
     filterPrivacy excelize.FilterPrivacy
     codeName      excelize.CodeName
 )
+if err := f.GetWorkbookPrOptions(&date1904); err != nil {
+    fmt.Println(err)
+}
 if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
     fmt.Println(err)
 }
@@ -905,6 +912,7 @@ if err := f.GetWorkbookPrOptions(&codeName); err != nil {
     fmt.Println(err)
 }
 fmt.Println("Defaults:")
+fmt.Printf("- date1904: %t\n", date1904)
 fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
 fmt.Printf("- codeName: %q\n", codeName)
 ```
