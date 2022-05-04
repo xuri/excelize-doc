@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-请注意，目前 Excelize 支持解密带有密码保护的电子表格文档，但不支持加密，通过 [`Save()`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存后的电子表格文档将不受密码保护。使用 [`Close()`](workbook.md#Close) 关闭已打开的工作簿。
+请注意，目前 Excelize 支持解密带有密码保护的电子表格文档，但不支持加密，通过 [`Save`](workbook.md#Save) 和 [`SaveAs()`](workbook.md#SaveAs) 保存后的电子表格文档将不受密码保护。使用 [`Close()`](workbook.md#Close) 关闭已打开的工作簿。
 
 ## 打开数据流 {#OpenReader}
 

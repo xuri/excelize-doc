@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-現在、Excelize は復号化のみをサポートしており、暗号化はサポートしていません。[`Save()`](workbook.md#Save) および [`SaveAs()`](workbook.md#SaveAs) で保存されたスプレッドシートは、パスワードなしで保護されていません。スプレッドシートを開いた後、[`Close()`](workbook.md#Close) でファイルを閉じます。
+現在、Excelize は復号化のみをサポートしており、暗号化はサポートしていません。[`Save`](workbook.md#Save) および [`SaveAs()`](workbook.md#SaveAs) で保存されたスプレッドシートは、パスワードなしで保護されていません。スプレッドシートを開いた後、[`Close()`](workbook.md#Close) でファイルを閉じます。
 
 ## データストリームを開く {#OpenReader}
 
