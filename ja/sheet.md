@@ -562,7 +562,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## 改ページを挿入 {#InsertPageBreak}
 
 ```go
-func (f *File) InsertPageBreak(sheet, cell string) (err error)
+func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
 InsertPageBreak は、改ページを作成して、印刷されたページの終了位置と特定のワークシート名と軸による次のページの開始位置を決定します。
@@ -570,7 +570,7 @@ InsertPageBreak は、改ページを作成して、印刷されたページの�
 ## 改ページを削除 {#RemovePageBreak}
 
 ```go
-func (f *File) RemovePageBreak(sheet, cell string) (err error)
+func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak は、指定されたワークシート名と軸による改ページを削除します。

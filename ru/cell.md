@@ -380,7 +380,7 @@ func main() {
 ## Получить форматированный текст ячейки {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 GetCellRichText предоставляет функцию для получения форматированного текста ячеек по заданному листу.
@@ -653,7 +653,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ## Рассчитать значение ячейки {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue предоставляет функцию для получения вычисленного значения ячейки. Эта функция в настоящее время находится в рабочей обработке. Формула массива, формула таблицы и некоторые другие формулы в настоящее время не поддерживаются.

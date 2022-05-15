@@ -562,7 +562,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## 插入分頁符 {#InsertPageBreak}
 
 ```go
-func (f *File) InsertPageBreak(sheet, cell string) (err error)
+func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
 根據給定的工作表名稱和儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便打印的分隔線。
@@ -570,7 +570,7 @@ func (f *File) InsertPageBreak(sheet, cell string) (err error)
 ## 刪除分頁符 {#RemovePageBreak}
 
 ```go
-func (f *File) RemovePageBreak(sheet, cell string) (err error)
+func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 根據給定的工作表名稱和儲存格坐標刪除分頁符。

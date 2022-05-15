@@ -274,7 +274,7 @@ AddChartSheet proporciona el método para crear una hoja de gráfico por un conj
 ## Eliminar gráfico {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart proporciona una función para eliminar gráficos en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados.

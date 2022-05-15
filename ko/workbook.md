@@ -1178,7 +1178,7 @@ err := f.SetAppProps(&excelize.AppProperties{
 ## 애플리케이션 속성 가져오기 {#GetAppProps}
 
 ```go
-func (f *File) GetAppProps() (ret *AppProperties, err error)
+func (f *File) GetAppProps() (*AppProperties, error)
 ```
 
 GetAppProps 는 문서 응용 프로그램 속성을 가져오는 기능을 제공합니다.

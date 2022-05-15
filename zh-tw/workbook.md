@@ -1176,7 +1176,7 @@ err := f.SetAppProps(&excelize.AppProperties{
 ## 獲取活頁簿應用程式屬性 {#GetAppProps}
 
 ```go
-func (f *File) GetAppProps() (ret *AppProperties, err error)
+func (f *File) GetAppProps() (*AppProperties, error)
 ```
 
 獲取活頁簿的應用程式屬性。

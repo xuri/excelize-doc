@@ -274,7 +274,7 @@ func (f *File) AddChartSheet(sheet, format string, combo ...string) error
 ## 删除图表 {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 根据给定的工作表名称和单元格坐标删除图表。

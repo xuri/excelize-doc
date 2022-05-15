@@ -562,7 +562,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Insert page break {#InsertPageBreak}
 
 ```go
-func (f *File) InsertPageBreak(sheet, cell string) (err error)
+func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
 InsertPageBreak create a page break to determine where the printed page ends and where begins the next one by given worksheet name and axis, so the content before the page break will be printed on one page and after the page break on another.
@@ -570,7 +570,7 @@ InsertPageBreak create a page break to determine where the printed page ends and
 ## Remove page break {#RemovePageBreak}
 
 ```go
-func (f *File) RemovePageBreak(sheet, cell string) (err error)
+func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak remove a page break by given worksheet name and axis.

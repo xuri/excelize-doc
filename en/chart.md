@@ -274,7 +274,7 @@ AddChartSheet provides the method to create a chartsheet by given chart format s
 ## Delete chart {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart provides a function to delete charts in a spreadsheet by given worksheet and cell name.

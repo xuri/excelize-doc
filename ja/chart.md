@@ -276,7 +276,7 @@ AddChartSheet は、指定されたグラフ形式セット（オフセット、
 ## チャートを削除 {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart は、指定されたワークシートとセル名でXLSXのグラフを削除する機能を提供します。

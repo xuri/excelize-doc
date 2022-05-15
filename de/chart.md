@@ -274,7 +274,7 @@ AddChartSheet bietet die Methode zum Erstellen eines Diagrammblatts anhand eines
 ## Diagramm löschen {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart bietet eine Funktion zum Löschen von Diagrammen in einer Tabelle anhand des angegebenen Arbeitsblatts und des Zellennamens.

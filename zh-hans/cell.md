@@ -380,7 +380,7 @@ func main() {
 ## 获取富文本格式 {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 根据给定的工作表、单元格坐标获取指定单元格的富文本格式。
@@ -653,7 +653,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ## 计算单元格的值 {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 根据给定的工作表名（大小写敏感）和单元格坐标计算包含公式单元格的值。该方法目前正在开发中，尚未支持数组函数、表格函数和其他部分函数。

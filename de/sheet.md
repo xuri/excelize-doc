@@ -562,7 +562,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Seitenumbruch einfügen {#InsertPageBreak}
 
 ```go
-func (f *File) InsertPageBreak(sheet, cell string) (err error)
+func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
 InsertPageBreak erstellt einen Seitenumbruch, um zu bestimmen, wo die gedruckte Seite endet und wo die nächste beginnt, indem der Name und die Achse des Arbeitsblatts angegeben werden, sodass der Inhalt vor dem Seitenumbruch auf einer Seite und nach dem Seitenumbruch auf einer anderen Seite gedruckt wird.
@@ -570,7 +570,7 @@ InsertPageBreak erstellt einen Seitenumbruch, um zu bestimmen, wo die gedruckte 
 ## Entfernen des Seitenumbruchs {#RemovePageBreak}
 
 ```go
-func (f *File) RemovePageBreak(sheet, cell string) (err error)
+func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak entfernt einen Seitenumbruch anhand des angegebenen Arbeitsblattnamens und der angegebenen Achse.

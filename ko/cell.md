@@ -380,7 +380,7 @@ func main() {
 ## 서식있는 텍스트 형식 가져 오기 {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 지정된 워크 시트 및 셀 좌표에 따라 지정된 셀의 서식있는 텍스트 형식을 가져옵니다.
@@ -653,7 +653,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ## 셀 값 계산 {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue 는 계산 된 셀 값을 가져 오는 함수를 제공합니다. 이 기능은 현재 작업 중입니다. 배열 수식, 테이블 수식 및 일부 다른 수식은 현재 지원되지 않습니다.

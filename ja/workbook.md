@@ -1174,7 +1174,7 @@ err := f.SetAppProps(&excelize.AppProperties{
 ## アプリケーションのプロパティを取得する {#GetAppProps}
 
 ```go
-func (f *File) GetAppProps() (ret *AppProperties, err error)
+func (f *File) GetAppProps() (*AppProperties, error)
 ```
 
 GetAppProps は、ドキュメントアプリケーションのプロパティを取得する関数を提供します。

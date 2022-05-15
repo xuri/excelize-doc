@@ -1187,7 +1187,7 @@ err := f.SetAppProps(&excelize.AppProperties{
 ## احصل على خصائص التطبيق {#GetAppProps}
 
 ```go
-func (f *File) GetAppProps() (ret *AppProperties, err error)
+func (f *File) GetAppProps() (*AppProperties, error)
 ```
 
 يوفر GetAppProps وظيفة للحصول على خصائص تطبيق المستند.

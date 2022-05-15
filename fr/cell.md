@@ -380,7 +380,7 @@ func main() {
 ## Obtenir le texte enrichi de la cellule {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 GetCellRichText fournit une fonction pour obtenir le texte enrichi des cellules par feuille de calcul donnée.
@@ -653,7 +653,7 @@ Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné
 ## Calculer la valeur de la cellule {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue fournit une fonction pour obtenir la valeur de cellule calculée. Cette fonctionnalité est actuellement en cours de traitement. La formule de tableau, la formule de tableau et certaines autres formules ne sont actuellement pas prises en charge.

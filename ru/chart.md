@@ -274,7 +274,7 @@ AddChartSheet предоставляет метод для создания ли
 ## Удалить диаграмму {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart предоставляет функцию для удаления диаграммы в XLSX по заданному рабочему листу и имени ячейки.

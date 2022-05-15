@@ -274,7 +274,7 @@ AddChartSheet fournit la méthode pour créer une feuille de graphique en foncti
 ## Supprimer le graphique {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart fournit une fonction pour supprimer le graphique dans XLSX par feuille de calcul et nom de cellule donnés.

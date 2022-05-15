@@ -385,7 +385,7 @@ func main() {
 ## احصل على نص منسق للخلية {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 يوفر GetCellRichText وظيفة للحصول على نص منسق للخلايا بواسطة ورقة عمل معينة.
@@ -658,7 +658,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ## حساب قيمة الخلية {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 توفر CalcCellValue دالة للحصول على قيمة الخلية المحسوبة. هذه الميزة قيد المعالجة حاليًا. صيغة الصفيف وصيغة الجدول وبعض الصيغ الأخرى غير مدعومة حاليًا.

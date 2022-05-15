@@ -380,7 +380,7 @@ func main() {
 ## Obtener texto enriquecido de celda {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 GetCellRichText proporciona una función para obtener el texto enriquecido de las celdas mediante una hoja de trabajo determinada.
@@ -653,7 +653,7 @@ Obtenga la fórmula en la celda según el nombre de la hoja de trabajo (distingu
 ## Calcular el valor de la celda {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue proporciona una función para obtener el valor de celda calculado. Esta característica está actualmente en proceso de trabajo. La fórmula de matriz, la fórmula de tabla y algunas otras fórmulas no son compatibles actualmente.

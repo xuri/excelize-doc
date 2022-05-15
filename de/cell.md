@@ -380,7 +380,7 @@ func main() {
 ## Holen Sie sich zellreichen Text {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 GetCellRichText bietet eine Funktion zum Abrufen des Rich-Textes von Zellen anhand eines bestimmten Arbeitsblatts.
@@ -653,7 +653,7 @@ Rufen Sie die Formel für die Zelle basierend auf dem angegebenen Arbeitsblattna
 ## Zellenwert berechnen {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue bietet eine Funktion zum Abrufen des berechneten Zellenwerts. Diese Funktion wird derzeit bearbeitet. Array-Formel, Tabellenformel und einige andere Formeln werden derzeit nicht unterstützt.

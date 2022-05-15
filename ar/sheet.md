@@ -561,7 +561,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## إدراج فاصل الصفحات {#InsertPageBreak}
 
 ```go
-func (f *File) InsertPageBreak(sheet, cell string) (err error)
+func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
 يُنشئ InsertPageBreak فاصل صفحات لتحديد مكان انتهاء الصفحة المطبوعة وأين يبدأ الفصل التالي من خلال اسم ومحور ورقة العمل المعينين ، بحيث تتم طباعة المحتوى قبل فاصل الصفحة على صفحة واحدة وبعد فاصل الصفحة على أخرى.
@@ -569,7 +569,7 @@ func (f *File) InsertPageBreak(sheet, cell string) (err error)
 ## إزالة فاصل الصفحات {#RemovePageBreak}
 
 ```go
-func (f *File) RemovePageBreak(sheet, cell string) (err error)
+func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 يقوم RemovePageBreak بإزالة فاصل صفحة من خلال اسم ومحور ورقة العمل المحددين.

@@ -1174,7 +1174,7 @@ err := f.SetAppProps(&excelize.AppProperties{
 ## 获取工作簿应用程序属性 {#GetAppProps}
 
 ```go
-func (f *File) GetAppProps() (ret *AppProperties, err error)
+func (f *File) GetAppProps() (*AppProperties, error)
 ```
 
 获取工作簿的应用程序属性。

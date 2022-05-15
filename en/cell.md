@@ -380,7 +380,7 @@ func main() {
 ## Get cell rich text {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 GetCellRichText provides a function to get the rich text of cells by given worksheet.
@@ -653,7 +653,7 @@ Get the formula on the cell based on the given worksheet name (case sensitive) a
 ## Calculate cell value {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue provides a function to get calculated cell value. This feature is currently in working processing. Array formula, table formula and some other formulas are not supported currently.

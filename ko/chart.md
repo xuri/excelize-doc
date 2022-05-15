@@ -275,7 +275,7 @@ AddChartSheet 는 주어진 차트 형식 세트 (예: 오프셋, 배율, 종횡
 ## 차트 삭제 {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 DeleteChart 는 주어진 워크 시트와 셀 이름으로 XLSX 에서 차트를 삭제하는 기능을 제공합니다.

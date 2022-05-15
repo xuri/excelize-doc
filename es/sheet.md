@@ -562,7 +562,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Insertar salto de página {#InsertPageBreak}
 
 ```go
-func (f *File) InsertPageBreak(sheet, cell string) (err error)
+func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
 InsertPageBreak crea un salto de página para determinar dónde termina la página impresa y dónde comienza la siguiente mediante el nombre y el eje de la hoja de trabajo, por lo que el contenido antes del salto de página se imprimirá en una página y después del salto de página en otra.
@@ -570,7 +570,7 @@ InsertPageBreak crea un salto de página para determinar dónde termina la pági
 ## Eliminar salto de página {#RemovePageBreak}
 
 ```go
-func (f *File) RemovePageBreak(sheet, cell string) (err error)
+func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 Eliminar salto de página Elimina un salto de página por el nombre y el eje de la hoja de trabajo.

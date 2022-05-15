@@ -380,7 +380,7 @@ func main() {
 ## リッチテキスト形式を取得する {#GetCellRichText}
 
 ```go
-func (f *File) GetCellRichText(sheet, cell string) (runs []RichTextRun, err error)
+func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
 指定されたワークシートとセル座標に従って、指定されたセルのリッチテキスト形式を取得します。
@@ -653,7 +653,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ## セル値を計算する {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (result string, err error)
+func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
 CalcCellValue は、計算されたセル値を取得する関数を提供します。この機能は現在処理中です。配列数式、テーブル数式、その他の数式は現在サポートされていません。

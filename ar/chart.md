@@ -279,7 +279,7 @@ func (f *File) AddChartSheet(sheet, format string, combo ...string) error
 ## حذف مخطط {#DeleteChart}
 
 ```go
-func (f *File) DeleteChart(sheet, cell string) (err error)
+func (f *File) DeleteChart(sheet, cell string) error
 ```
 
 يوفر DeleteChart وظيفة لحذف المخططات في جدول بيانات عن طريق اسم الخلية وورقة العمل المحددة.
