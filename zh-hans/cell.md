@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## 设置超链接 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 根据给定的工作表、单元格坐标、链接资源和资源类型设置单元格的超链接。资源类型分为外部链接地址 `External` 和工作簿内部位置链接 `Location` 两种。每个工作表中的包含最大超链接限制为 `65530` 个。该方法仅设置单元格的超链接而不影响单元格的值，若需设置单元格的值，请通过 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函数另行设置。
@@ -243,8 +243,12 @@ func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 - 例1，为名为 `Sheet1` 的工作表 `A3` 单元格添加外部链接：
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // 为单元格设置字体和下划线样式

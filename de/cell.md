@@ -235,7 +235,7 @@ Schützen Sie das Arbeitsblatt, um eine Zelle zu sperren oder eine Formel auszub
 ## Festlegen eines Hyperlinks {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink bietet eine Funktion zum Festlegen von Zellen-Hyperlinks anhand des angegebenen Arbeitsblattnamens und der Link-URL-Adresse. LinkType definiert zwei Arten von Hyperlinks: `External` für die Website oder `Location` für das Verschieben in eine der Zellen in dieser Arbeitsmappe. Die maximale Anzahl von Hyperlinks in einem Arbeitsblatt beträgt `65530`. Diese Funktion wird nur verwendet, um den Hyperlink der Zelle festzulegen und hat keinen Einfluss auf den Wert der Zelle. Wenn Sie den Wert der Zelle setzen müssen, verwenden Sie bitte die anderen Funktionen wie [`SetCellStyle`](cell.md#SetCellStyle) oder [`SetSheetRow`](sheet.md#SetSheetRow). Unten finden Sie ein Beispiel für einen externen Link.
@@ -243,8 +243,12 @@ SetCellHyperLink bietet eine Funktion zum Festlegen von Zellen-Hyperlinks anhand
 - Beispiel 1: Hinzufügen eines externen Links zur `A3`-Zelle des Arbeitsblatts mit dem Namen `Sheet1`:
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // Legen Sie die Schriftart und den Unterstreichungsstil für die Zelle fest

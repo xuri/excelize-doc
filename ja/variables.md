@@ -26,10 +26,10 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt は、サポートされていないブック拡張機能を受信したときのエラーメッセージを定義しました
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength は、ファイル名の長さのオーバーフローを受信したときのエラーメッセージを定義しました
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    // ErrWorkbookFileFormat は、サポートされていないワークブックファイル形式を受信したときのエラーメッセージを定義しました
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // ErrMaxFilePathLength は、ファイルパス長のオーバーフローを受信したときのエラーメッセージを定義しました
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // ErrEncrypt は、暗号化スプレッドシートにエラーメッセージを定義しました
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました
@@ -87,6 +87,8 @@ var (
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
     // ErrSparklineStyle は、無効なスパークラインの Style パラメータを受信したときのエラーメッセージを定義しました
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // ErrWorkbookPassword は、誤ったブックパスワードを受信したときのエラーメッセージを定義しました
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

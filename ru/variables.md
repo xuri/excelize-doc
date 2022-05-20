@@ -38,12 +38,12 @@ var (
     // ErrImgExt определил сообщение об ошибке при получении неподдерживаемого
     // расширения изображения
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt определяет сообщение об ошибке при получении
-    // неподдерживаемого расширения книги
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength определяет сообщение об ошибке при получении
+    // ErrWorkbookFileFormat определил сообщение об ошибке при получении
+    // неподдерживаемого формата файла рабочей книги
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // ErrMaxFilePathLength определяет сообщение об ошибке при получении
     // переполнения длины имени файла
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // ErrEncrypt определил сообщение об ошибке в электронной таблице
     // шифрования
     ErrEncrypt = errors.New("not support encryption currently")
@@ -87,7 +87,8 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrUnprotectSheet определил, что сообщение об ошибке на листе не имеет защиты
     ErrUnprotectSheet = errors.New("worksheet has set no protect")
-    // ErrUnprotectSheetPassword определил сообщение об ошибке при удалении защиты листа с ошибкой проверки пароля
+    // ErrUnprotectSheetPassword определил сообщение об ошибке при удалении
+    // защиты листа с ошибкой проверки пароля
     ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets определила сообщение об ошибке на групповых листах
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
@@ -115,8 +116,12 @@ var (
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // ErrSparkline определил сообщение об ошибке при получении недопустимых параметров спарклайна
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
-    // ErrSparklineStyle определяет сообщение об ошибке при получении недопустимых параметров 'Style' спарклайна
+    // ErrSparklineStyle определяет сообщение об ошибке при получении
+    // недопустимых параметров 'Style' спарклайна
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // ErrWorkbookPassword определил сообщение об ошибке при получении
+    // неправильного пароля рабочей книги
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

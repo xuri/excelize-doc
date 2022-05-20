@@ -26,10 +26,10 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt 定義了不受支持的圖片擴展名的錯誤提示信息
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt 定義了不受支持的活頁簿展名的錯誤提示信息
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength 定義了活頁簿文件名長度超出最大限制時的錯誤提示信息
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    // ErrWorkbookFileFormat 定義了不受支持的活頁簿文件類型的錯誤提示信息
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // ErrMaxFilePathLength 定義了活頁簿存儲路徑長度超出最大限制時的錯誤提示信息
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // ErrEncrypt 定義了加密活頁簿時的錯誤提示信息
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism 定義了檢測到未知加密機制時的錯誤提示信息
@@ -88,6 +88,8 @@ var (
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
     // ErrSparklineStyle 定義了收到無效走勢圖創建樣式參數時的錯誤提示信息
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // ErrWorkbookPassword 定義了打開活頁簿時密碼驗證失敗時的錯誤提示信息
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

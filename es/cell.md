@@ -235,7 +235,7 @@ Para bloquear una celda u ocultar una fórmula, proteja la hoja de trabajo. En l
 ## Establecer hipervínculo {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink proporciona una función para establecer hipervínculos de celda según el nombre de la hoja de trabajo y la dirección URL del enlace. LinkType define dos tipos de hipervínculos `External` para el sitio web o `Location` para moverse a una de las celdas de este libro. El límite máximo de hipervínculos en una hoja de trabajo es `65530`. Esta función solo se usa para establecer el hipervínculo de la celda y no afecta el valor de la celda. Si necesita establecer el valor de la celda, utilice las otras funciones como [`SetCellStyle`](cell.md#SetCellStyle) o [`SetSheetRow`](sheet.md#SetSheetRow). A continuación se muestra un ejemplo de un enlace externo.
@@ -243,8 +243,12 @@ SetCellHyperLink proporciona una función para establecer hipervínculos de celd
 - Ejemplo 1, agregando un enlace externo a la celda `A3` de la hoja de trabajo llamada `Sheet1`:
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // Establecer la fuente y el estilo de subrayado para la celda

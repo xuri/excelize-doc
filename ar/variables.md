@@ -28,10 +28,10 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // حدد ErrImgExt رسالة الخطأ عند تلقي ملحق صورة غير مدعوم.
     ErrImgExt = errors.New("unsupported image extension")
-    // حدد ErrWorkbookExt رسالة الخطأ عند تلقي ملحق مصنف غير معتمد.
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // حدد ErrMaxFileNameLength رسالة الخطأ عند تلقي تجاوز طول اسم الملف.
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    // حدد ErrWorkbookFileFormat رسالة الخطأ عند تلقي تنسيق ملف مصنف غير معتمد.
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // حدد ErrMaxFilePathLength رسالة الخطأ عند تلقي تجاوز طول مسار الملف.
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // حدد ErrEncrypt رسالة الخطأ في جدول بيانات التشفير.
     ErrEncrypt = errors.New("not support encryption currently")
     // حدد ErrUnknownEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
@@ -96,6 +96,9 @@ var (
     // حدد ErrSparklineStyle رسالة الخطأ عند تلقي معلمات خط المؤشر غير
     // الصالحة 'Style'.
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // حدد ErrWorkbookPassword رسالة الخطأ عند تلقي كلمة مرور المصنف غير
+    // الصحيحة.
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

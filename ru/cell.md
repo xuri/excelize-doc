@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## Установить гиперссылку {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink предоставляет функцию для установки гиперссылки на ячейки с помощью заданного имени рабочего листа и URL-адреса URL-адреса. LinkType определяет два типа гиперссылки `External` для сайта или `Location` для перехода к одной из сот в этой книге. Максимальный лимит гиперссылок на листе составляет `65530`. Эта функция используется только для установки гиперссылки ячейки и не влияет на значение ячейки. Если вам нужно установить значение ячейки, используйте другие функции, такие как [`SetCellStyle`](cell.md#SetCellStyle) или [`SetSheetRow`](sheet.md#SetSheetRow). Ниже приведен пример внешней ссылки.
@@ -243,8 +243,12 @@ SetCellHyperLink предоставляет функцию для установ
 - Пример 1, добавление внешней ссылки на ячейку `A3` на листе с именем `Sheet1`:
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // Задайте стиль шрифта и подчеркивания для ячейки

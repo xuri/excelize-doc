@@ -38,12 +38,12 @@ var (
     // ErrImgExt hat die Fehlermeldung beim Empfang einer nicht unterstützten
     // Bilderweiterung definiert.
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt hat die Fehlermeldung beim Empfang einer nicht
-    // unterstützten Arbeitsmappenerweiterung definiert.
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength definiert die Fehlermeldung beim Empfang des
-    // Dateinamenlängenüberlaufs.
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    // ErrWorkbookFileFormat definiert die Fehlermeldung beim Empfang eines
+    // nicht unterstützten Arbeitsmappendateiformats.
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // ErrMaxFilePathLength definierte die Fehlermeldung beim Empfang des
+    // Dateipfadlängenüberlaufs.
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // ErrEncrypt hat die Fehlermeldung in der Verschlüsselungstabelle
     // definiert.
     ErrEncrypt = errors.New("not support encryption currently")
@@ -126,6 +126,9 @@ var (
     // ErrSparklineStyle definiert die Fehlermeldung beim Empfang der
     // ungültigen Sparkline-'Style'-Parameter.
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // ErrWorkbookPassword definiert die Fehlermeldung beim Erhalt des falschen
+    // Arbeitsmappenpassworts.
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

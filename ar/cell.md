@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## تعيين ارتباط تشعبي {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 يوفر SetCellHyperLink وظيفة لتعيين الارتباطات التشعبية للخلايا عن طريق اسم ورقة العمل وعنوان URL للرابط. يعرّف LinkType نوعين من الارتباطات التشعبية `External` لموقع الويب أو `Location` للانتقال إلى إحدى الخلايا في هذا المصنف. الحد الأقصى للارتباطات التشعبية في ورقة العمل هو `65530`. تُستخدم هذه الوظيفة فقط لتعيين الارتباط التشعبي للخلية ولا تؤثر على قيمة الخلية. إذا كنت بحاجة إلى تعيين قيمة الخلية ، فالرجاء استخدام الوظائف الأخرى مثل [`SetCellStyle`](cell.md#SetCellStyle) أو [`SetSheetRow`](sheet.md#SetSheetRow). أدناه مثال على ارتباط خارجي.
@@ -243,8 +243,12 @@ func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 - مثال 1 ، إضافة ارتباط خارجي إلى الخلية `A3` من ورقة العمل المسماة `Sheet1`:
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // عيّن الخط ونمط التسطير للخلية

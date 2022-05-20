@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## ハイパーリンクの設定 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 指定したワークシート、セル座標、リンクされたリソース、およびリソースの種類に基づいて、セルのハイパーリンクを設定します。 リソースの種類は、外部リンクアドレス `External` とブック内部の場所のリンク `Location` 2 種類に分割されます。ワークシート内の最大ハイパーリンク数は `65530` です。この関数は、セルのハイパーリンクを設定するためにのみ使用され、セルの値には影響しません。セルの値を設定する必要がある場合は、[`SetCellStyle`](cell.md#SetCellStyle) や [`SetSheetRow`](sheet.md#SetSheetRow) などの他の関数を使用してください。
@@ -243,8 +243,12 @@ func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 - 例1、ワークシート `A3` セル `Sheet1` という名前の外部リンクを追加します:
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // セルのフォントとアンダースコアのスタイルを設定する

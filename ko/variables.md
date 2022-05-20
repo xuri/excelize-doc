@@ -26,10 +26,10 @@ var (
     ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
     // ErrImgExt 는 지원되지 않는 이미지 확장자를 수신할 때 오류 메시지를 정의했습니다
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt 는 지원되지 않는 통합 문서 확장을 수신할 때 오류 메시지를 정의했습니다
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength 는 파일 이름 길이 오버플로 수신 시 오류 메시지를 정의했습니다
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    // ErrWorkbookFileFormat 은 지원되지 않는 통합 문서 파일 형식을 수신할 때 오류 메시지를 정의했습니다
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // ErrMaxFilePathLength 는 파일 이름 길이 오버플로 수신 시 오류 메시지를 정의했습니다
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // ErrEncrypt 가 암호화 스프레드시트에 오류 메시지를 정의했습니다
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism 이 지원되지 않는 암호화 메커니즘에 대한 오류 메시지를 정의했습니다
@@ -87,6 +87,8 @@ var (
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
     // ErrSparklineStyle 은 잘못된 스파크라인 'Style' 매개변수 수신 시 오류 메시지를 정의했습니다
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // ErrWorkbookPassword 는 잘못된 통합 문서 암호 수신 시 오류 메시지를 정의했습니다
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

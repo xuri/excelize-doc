@@ -235,7 +235,7 @@ To lock a cell or hide a formula, protect the worksheet. On the "Review" tab, cl
 ## Set hyperlink {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink provides a function to set cell hyperlinks by given worksheet name and link URL address. LinkType defines two types of hyperlinks `External` for the website or `Location` for moving to one of the cells in this workbook. The maximum limit of hyperlinks in a worksheet is `65530`. This function is only used to set the hyperlink of the cell and doesn't affect the value of the cell. If you need to set the value of the cell, please use the other functions such as [`SetCellStyle`](cell.md#SetCellStyle) or [`SetSheetRow`](sheet.md#SetSheetRow). Below is an example of an external link.
@@ -243,8 +243,12 @@ SetCellHyperLink provides a function to set cell hyperlinks by given worksheet n
 - Example 1, adding an external link to the `A3` cell of the worksheet named `Sheet1`:
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // Set the font and underline style for the cell

@@ -38,12 +38,12 @@ var (
     // ErrImgExt definió el mensaje de error al recibir una extensión de
     // imagen no admitida.
     ErrImgExt = errors.New("unsupported image extension")
-    // ErrWorkbookExt definió el mensaje de error al recibir una extensión de
-    // libro de trabajo no compatible.
-    ErrWorkbookExt = errors.New("unsupported workbook extension")
-    // ErrMaxFileNameLength definió el mensaje de error al recibir el
+    // ErrWorkbookFileFormat definió el mensaje de error al recibir un formato
+    // de archivo de libro de trabajo no compatible.
+    ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
+    // ErrMaxFilePathLength definió el mensaje de error al recibir el
     // desbordamiento de la longitud del nombre de archivo.
-    ErrMaxFileNameLength = errors.New("file name length exceeds maximum limit")
+    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
     // ErrEncrypt definió el mensaje de error en la hoja de cálculo de cifrado.
     ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism definió el mensaje de error en un mecanismo
@@ -125,6 +125,9 @@ var (
     // ErrSparklineStyle definió el mensaje de error al recibir los parámetros
     // de 'Style' del minigráfico no válidos.
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    // ErrWorkbookPassword definió el mensaje de error al recibir la contraseña
+    // incorrecta del libro.
+    ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```
 

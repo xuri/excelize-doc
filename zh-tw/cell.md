@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## 設定超鏈接 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
+func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定存儲格的超鏈接而不影響存儲格的值，若需設定存儲格的值，請通過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函數另行設定。
@@ -243,8 +243,12 @@ func (f *File) SetCellHyperLink(sheet, axis, link, linkType string) error
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
 ```go
+display, tooltip := "https://github.com/xuri/excelize", "Excelize on GitHub"
 if err := f.SetCellHyperLink("Sheet1", "A3",
-    "https://github.com/xuri/excelize", "External"); err != nil {
+    "https://github.com/xuri/excelize", "External", excelize.HyperlinkOpts{
+        Display: &display,
+        Tooltip: &tooltip,
+    }); err != nil {
     fmt.Println(err)
 }
 // 為儲存格設定字型和下划線樣式
