@@ -23,7 +23,7 @@ var (
     // ErrMaxRows は、最大制限を超える行番号を受信したときのエラーメッセージを定義しました
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight は、無効な行の高さを受け取ったときのエラーメッセージを定義しました
-    ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
     // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました
     ErrImgExt = errors.New("unsupported image extension")
     // ErrWorkbookFileFormat は、サポートされていないワークブックファイル形式を受信したときのエラーメッセージを定義しました
@@ -53,9 +53,9 @@ var (
     // ErrCustomNumFmt は、空のカスタム数値形式を受信したときのエラーメッセージを定義しました
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength は、フォントファミリ名のオーバーフローの長さに関するエラーメッセージを定義しました
-    ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
+    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize は、フォントのサイズに関するエラーメッセージが無効であると定義しました
-    ErrFontSize = errors.New("font size must be between 1 and 409 points")
+    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrUnprotectSheet は、ワークシートのエラーメッセージが保護を設定していないことを定義しました
@@ -65,7 +65,7 @@ var (
     // ErrGroupSheets は、グループシートにエラーメッセージを定義しました
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength は、制限を超えるデータ検証式の長さを受信するためのエラーメッセージを定義しました
-    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
     // ErrDataValidationRange は、設定された10進範囲のエラーメッセージが制限を超えると定義しました
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // ErrCellCharsLength は、制限を超えるセル文字の長さを受信するためのエラーメッセージを定義しました

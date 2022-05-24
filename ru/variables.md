@@ -34,7 +34,7 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight определил сообщение об ошибке при получении
     // недопустимой высоты строки
-    ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
     // ErrImgExt определил сообщение об ошибке при получении неподдерживаемого
     // расширения изображения
     ErrImgExt = errors.New("unsupported image extension")
@@ -79,9 +79,9 @@ var (
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength определил сообщение об ошибке о длине переполнения имени
     // семейства шрифтов
-    ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
+    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize определил сообщение об ошибке о недопустимом размере шрифта
-    ErrFontSize = errors.New("font size must be between 1 and 409 points")
+    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx определил сообщение об ошибке при получении недопустимого
     // индекса рабочего листа
     ErrSheetIdx = errors.New("invalid worksheet index")
@@ -94,7 +94,7 @@ var (
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength определил сообщение об ошибке для
     // получения длины формулы проверки данных, превышающей лимит
-    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
     // ErrDataValidationRange определил, что сообщение об ошибке в заданном
     // десятичном диапазоне превышает предел
     ErrDataValidationRange = errors.New("data validation range exceeds limit")

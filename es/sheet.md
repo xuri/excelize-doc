@@ -499,7 +499,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet proporciona una función para evitar que otros usuarios cambien, muevan o eliminen datos en una hoja de cálculo de forma accidental o deliberada. El campo opcional `AlgorithmName` especifica el algoritmo hash, admite XOR, MD4, MD5, SHA1, SHA256, SHA384 y SHA512 actualmente, si no se especifica ningún algoritmo hash, utilizará el algoritmo XOR de forma predeterminada. Por ejemplo, proteja `Sheet1` con la configuración de protección:
+ProtectSheet proporciona una función para evitar que otros usuarios cambien, muevan o eliminen datos en una hoja de cálculo de forma accidental o deliberada. El campo opcional `AlgorithmName` especifica el algoritmo hash, admite XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 y SHA-512 actualmente, si no se especifica ningún algoritmo hash, utilizará el algoritmo XOR de forma predeterminada. Por ejemplo, proteja `Sheet1` con la configuración de protección:
 
 <p align="center"><img width="876" src="./images/protect_sheet.png" alt="Hoja de protección"></p>
 
@@ -511,10 +511,34 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 })
 ```
 
+FormatSheetProtection asigna directamente la configuración de la protección de la hoja de cálculo.
+
+```go
+type FormatSheetProtection struct {
+    AlgorithmName       string
+    AutoFilter          bool
+    DeleteColumns       bool
+    DeleteRows          bool
+    EditObjects         bool
+    EditScenarios       bool
+    FormatCells         bool
+    FormatColumns       bool
+    FormatRows          bool
+    InsertColumns       bool
+    InsertHyperlinks    bool
+    InsertRows          bool
+    Password            string
+    PivotTables         bool
+    SelectLockedCells   bool
+    SelectUnlockedCells bool
+    Sort                bool
+}
+```
+
 ## Desproteger hoja {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string) error
+func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 UnprotectSheet proporciona una función para eliminar la protección de una hoja, especificó el segundo parámetro de contraseña opcional para eliminar la protección de la hoja con verificación de contraseña.

@@ -25,7 +25,7 @@ var (
     // حدد ErrMaxRows رسالة الخطأ عند تلقي رقم صف يتجاوز الحد الأقصى.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // حدد ErrMaxRowHeight رسالة الخطأ عند تلقي ارتفاع غير صالح للصف.
-    ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
     // حدد ErrImgExt رسالة الخطأ عند تلقي ملحق صورة غير مدعوم.
     ErrImgExt = errors.New("unsupported image extension")
     // حدد ErrWorkbookFileFormat رسالة الخطأ عند تلقي تنسيق ملف مصنف غير معتمد.
@@ -57,9 +57,9 @@ var (
     // حدد ErrCustomNumFmt رسالة الخطأ عند استلام تنسيق الأرقام المخصص الفارغ.
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // حدد ErrFontLength رسالة الخطأ على طول تجاوز اسم عائلة الخط.
-    ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
+    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
     // حدد ErrFontSize رسالة الخطأ على حجم الخط غير صالح.
-    ErrFontSize = errors.New("font size must be between 1 and 409 points")
+    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // حدد ErrSheetIdx رسالة الخطأ عند تلقي فهرس ورقة العمل غير صالح.
     ErrSheetIdx = errors.New("invalid worksheet index")
     // حدد ErrUnprotectSheet رسالة الخطأ في ورقة العمل ولم تحدد أي حماية.
@@ -71,7 +71,7 @@ var (
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // حدد ErrDataValidationFormulaLength رسالة الخطأ لتلقي طول صيغة التحقق من
     // صحة البيانات الذي يتجاوز الحد.
-    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
     // حدد ErrDataValidationRange رسالة الخطأ على نطاق عشري معين يتجاوز الحد.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // حدد ErrCellCharsLength رسالة الخطأ لتلقي طول حرف الخلية الذي يتجاوز

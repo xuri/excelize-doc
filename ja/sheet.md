@@ -499,7 +499,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet は、他のユーザーがワークシート内のデータを誤ってまたは故意に変更、移動、または削除するのを防ぐ機能を提供します。 オプションのフィールド `AlgorithmName` で指定されたハッシュアルゴリズムは、XOR、MD4、MD5、SHA1、SHA256、SHA384、および SHA512 をサポートし、ハッシュアルゴリズムが指定されていない場合、デフォルトで XOR アルゴリズムを使用します。 たとえば、保護設定で `Sheet1` を保護します:
+ProtectSheet は、他のユーザーがワークシート内のデータを誤ってまたは故意に変更、移動、または削除するのを防ぐ機能を提供します。 オプションのフィールド `AlgorithmName` で指定されたハッシュアルゴリズムは、XOR、MD4、MD5、SHA-1、SHA-256、SHA-384、および SHA-512 をサポートし、ハッシュアルゴリズムが指定されていない場合、デフォルトで XOR アルゴリズムを使用します。 たとえば、保護設定で `Sheet1` を保護します:
 
 <p align="center"><img width="933" src="./images/protect_sheet.png" alt="シートを保護する"></p>
 
@@ -511,10 +511,34 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 })
 ```
 
+FormatSheetProtection は、ワークシート保護の設定を直接マップします。
+
+```go
+type FormatSheetProtection struct {
+    AlgorithmName       string
+    AutoFilter          bool
+    DeleteColumns       bool
+    DeleteRows          bool
+    EditObjects         bool
+    EditScenarios       bool
+    FormatCells         bool
+    FormatColumns       bool
+    FormatRows          bool
+    InsertColumns       bool
+    InsertHyperlinks    bool
+    InsertRows          bool
+    Password            string
+    PivotTables         bool
+    SelectLockedCells   bool
+    SelectUnlockedCells bool
+    Sort                bool
+}
+```
+
 ## 無防備シート {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string) error
+func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 UnprotectSheet は、シートの保護を削除する機能を提供し、パスワード検証でシート保護を削除するための 2 番目のオプションのパスワードパラメーターを指定しました。

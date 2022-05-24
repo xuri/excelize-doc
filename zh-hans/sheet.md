@@ -499,7 +499,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-防止其他用户意外或有意更改、移动或删除工作表中的数据。可选字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA1、SHA256、SHA384 或 SHA512，如果未指定哈希算法，默认使用 XOR 算法。例如，将名为 `Sheet1` 的工作表设置密码保护，但是允许选择锁定的单元格、选择未锁定的单元格、编辑方案：
+防止其他用户意外或有意更改、移动或删除工作表中的数据。可选字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默认使用 XOR 算法。例如，将名为 `Sheet1` 的工作表设置密码保护，但是允许选择锁定的单元格、选择未锁定的单元格、编辑方案：
 
 <p align="center"><img width="790" src="./images/protect_sheet.png" alt="保护工作表"></p>
 
@@ -511,10 +511,34 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 })
 ```
 
+FormatSheetProtection 定义了保护工作表的设置选项。
+
+```go
+type FormatSheetProtection struct {
+    AlgorithmName       string
+    AutoFilter          bool
+    DeleteColumns       bool
+    DeleteRows          bool
+    EditObjects         bool
+    EditScenarios       bool
+    FormatCells         bool
+    FormatColumns       bool
+    FormatRows          bool
+    InsertColumns       bool
+    InsertHyperlinks    bool
+    InsertRows          bool
+    Password            string
+    PivotTables         bool
+    SelectLockedCells   bool
+    SelectUnlockedCells bool
+    Sort                bool
+}
+```
+
 ## 取消保护工作表 {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string) error
+func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 根据给定的工作表名称（大小写敏感）取消保护该工作表，指定第二个可选密码参数以通过密码验证来取消工作表保护。

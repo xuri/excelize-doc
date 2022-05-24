@@ -23,7 +23,7 @@ var (
     // ErrMaxRows 定義了當列號超出最大限制時的錯誤提示信息
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight 定義了收到無效列高度時的錯誤提示信息
-    ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
     // ErrImgExt 定義了不受支持的圖片擴展名的錯誤提示信息
     ErrImgExt = errors.New("unsupported image extension")
     // ErrWorkbookFileFormat 定義了不受支持的活頁簿文件類型的錯誤提示信息
@@ -53,9 +53,9 @@ var (
     // ErrCustomNumFmt 定義了指定自定義數字格式表達式為空時的錯誤提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength 定義了字體名稱長度超出最大限制時的錯誤提示信息
-    ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
+    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize 定義了收到無效字號時的錯誤提示信息
-    ErrFontSize = errors.New("font size must be between 1 and 409 points")
+    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx 定義了收到了無效工作表索引時的錯誤提示信息
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrUnprotectSheet 定義了取消保護工作表時的錯誤提示信息
@@ -65,7 +65,7 @@ var (
     // ErrGroupSheets 定義了工作表分組異常時的錯誤提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength 定義了數據驗證公式長度超出最大限制時錯誤提示信息
-    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
     // ErrDataValidationRange 定義了指定數據驗證小數範圍無效時的錯誤提示信息
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // ErrCellCharsLength 定義了單個存儲格字符長度超出最大限制時的錯誤提示信息
@@ -88,7 +88,7 @@ var (
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
     // ErrSparklineStyle 定義了收到無效走勢圖創建樣式參數時的錯誤提示信息
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
-    // ErrWorkbookPassword 定義了打開活頁簿時密碼驗證失敗時的錯誤提示信息
+    // ErrWorkbookPassword 定義了打開活頁簿時密碼驗證失敗的錯誤提示信息
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
 )
 ```

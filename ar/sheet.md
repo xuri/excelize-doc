@@ -498,7 +498,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-توفر ProtectSheet وظيفة لمنع المستخدمين الآخرين من تغيير البيانات في ورقة العمل أو نقلها أو حذفها عن طريق الخطأ أو عن عمد. الحقل الاختياري `AlgorithmName` خوارزمية التجزئة المحددة ، ودعم XOR ، MD4 ، MD5 ، SHA1 ، SHA256 ، SHA384 ، و SHA512 حاليًا ، إذا لم يتم تحديد خوارزمية التجزئة ، فسيستخدم خوارزمية XOR كإعداد افتراضي. على سبيل المثال ، حماية `Sheet1` بإعدادات الحماية:
+توفر ProtectSheet وظيفة لمنع المستخدمين الآخرين من تغيير البيانات في ورقة العمل أو نقلها أو حذفها عن طريق الخطأ أو عن عمد. الحقل الاختياري `AlgorithmName` خوارزمية التجزئة المحددة ، ودعم XOR ، MD4 ، MD5 ، SHA-1 ، SHA-256 ، SHA-384 ، و SHA-512 حاليًا ، إذا لم يتم تحديد خوارزمية التجزئة ، فسيستخدم خوارزمية XOR كإعداد افتراضي. على سبيل المثال ، حماية `Sheet1` بإعدادات الحماية:
 
 <p align="center"><img width="789" src="./images/protect_sheet.png" alt="حماية الورقة"></p>
 
@@ -510,10 +510,34 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 })
 ```
 
+يقوم FormatSheetProtection بتعيين إعدادات حماية ورقة العمل مباشرةً.
+
+```go
+type FormatSheetProtection struct {
+    AlgorithmName       string
+    AutoFilter          bool
+    DeleteColumns       bool
+    DeleteRows          bool
+    EditObjects         bool
+    EditScenarios       bool
+    FormatCells         bool
+    FormatColumns       bool
+    FormatRows          bool
+    InsertColumns       bool
+    InsertHyperlinks    bool
+    InsertRows          bool
+    Password            string
+    PivotTables         bool
+    SelectLockedCells   bool
+    SelectUnlockedCells bool
+    Sort                bool
+}
+```
+
 ## ورقة إلغاء الحماية {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string) error
+func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 يوفر UnprotectSheet وظيفة لإزالة الحماية للورقة ، وحدد معلمة كلمة المرور الاختيارية الثانية لإزالة حماية الورقة باستخدام التحقق من كلمة المرور.

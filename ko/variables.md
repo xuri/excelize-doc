@@ -23,7 +23,7 @@ var (
     // ErrMaxRows 는 최대 제한을 초과하는 행 번호를 수신할 때 오류 메시지를 정의했습니다
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight 는 잘못된 행 높이 수신 시 오류 메시지를 정의했습니다
-    ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
     // ErrImgExt 는 지원되지 않는 이미지 확장자를 수신할 때 오류 메시지를 정의했습니다
     ErrImgExt = errors.New("unsupported image extension")
     // ErrWorkbookFileFormat 은 지원되지 않는 통합 문서 파일 형식을 수신할 때 오류 메시지를 정의했습니다
@@ -53,9 +53,9 @@ var (
     // ErrCustomNumFmt 는 빈 사용자 정의 숫자 형식을 수신할 때 오류 메시지를 정의했습니다
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength 는 글꼴 패밀리 이름 오버플로의 길이에 대한 오류 메시지를 정의했습니다
-    ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
+    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize 는 글꼴 크기가 잘못되었다는 오류 메시지를 정의했습니다
-    ErrFontSize = errors.New("font size must be between 1 and 409 points")
+    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx 는 잘못된 워크시트 인덱스를 수신할 때 오류 메시지를 정의했습니다
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrUnprotectSheet 는 워크시트의 오류 메시지가 보호를 설정하지 않음을 정의했습니다
@@ -65,7 +65,7 @@ var (
     // ErrGroupSheets 가 그룹 시트에 오류 메시지를 정의했습니다
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength 는 제한을 초과하는 데이터 유효성 검사 공식 길이를 수신하는 오류 메시지를 정의했습니다
-    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
     // ErrDataValidationRange 이(가) 설정된 소수 범위가 제한을 초과하는 오류 메시지를 정의했습니다
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // ErrCellCharsLength 는 제한을 초과하는 셀 문자 길이를 수신하는 오류 메시지를 정의했습니다

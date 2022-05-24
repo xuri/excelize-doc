@@ -499,7 +499,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet fournit une fonction pour empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans une feuille de calcul. Le champ facultatif `AlgorithmName` spécifié l'algorithme de hachage, prend en charge XOR, MD4, MD5, SHA1, SHA256, SHA384 et SHA512 actuellement, si aucun algorithme de hachage n'est spécifié, utilisera l'algorithme XOR par défaut. Par exemple, protégez `Sheet1` avec les paramètres de protection:
+ProtectSheet fournit une fonction pour empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans une feuille de calcul. Le champ facultatif `AlgorithmName` spécifié l'algorithme de hachage, prend en charge XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 et SHA-512 actuellement, si aucun algorithme de hachage n'est spécifié, utilisera l'algorithme XOR par défaut. Par exemple, protégez `Sheet1` avec les paramètres de protection:
 
 <p align="center"><img width="914" src="./images/protect_sheet.png" alt="Protéger la feuille"></p>
 
@@ -511,10 +511,34 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 })
 ```
 
+FormatSheetProtection mappe directement les paramètres de protection de la feuille de calcul.
+
+```go
+type FormatSheetProtection struct {
+    AlgorithmName       string
+    AutoFilter          bool
+    DeleteColumns       bool
+    DeleteRows          bool
+    EditObjects         bool
+    EditScenarios       bool
+    FormatCells         bool
+    FormatColumns       bool
+    FormatRows          bool
+    InsertColumns       bool
+    InsertHyperlinks    bool
+    InsertRows          bool
+    Password            string
+    PivotTables         bool
+    SelectLockedCells   bool
+    SelectUnlockedCells bool
+    Sort                bool
+}
+```
+
 ## Ôter la protection de la feuille {#UnprotectedSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string) error
+func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 UnprotectSheet fournit une fonction pour supprimer la protection d'une feuille, spécifié le deuxième paramètre de mot de passe facultatif pour supprimer la protection de la feuille avec vérification du mot de passe.

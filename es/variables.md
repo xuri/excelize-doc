@@ -34,7 +34,7 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight definió el mensaje de error al recibir una altura de
     // fila no válida.
-    ErrMaxRowHeight = errors.New("the height of the row must be smaller than or equal to 409 points")
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
     // ErrImgExt definió el mensaje de error al recibir una extensión de
     // imagen no admitida.
     ErrImgExt = errors.New("unsupported image extension")
@@ -78,10 +78,10 @@ var (
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength definió el mensaje de error sobre la longitud del
     // desbordamiento del nombre de la familia de fuentes.
-    ErrFontLength = errors.New("the length of the font family name must be smaller than or equal to 31")
+    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize definió que el mensaje de error sobre el tamaño de la
     // fuente no es válido.
-    ErrFontSize = errors.New("font size must be between 1 and 409 points")
+    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx definió el mensaje de error al recibir el índice de hoja de
     // trabajo no válido.
     ErrSheetIdx = errors.New("invalid worksheet index")
@@ -95,7 +95,7 @@ var (
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrDataValidationFormulaLength definió el mensaje de error para recibir
     // una longitud de fórmula de validación de datos que excede el límite.
-    ErrDataValidationFormulaLength = errors.New("data validation must be 0-255 characters")
+    ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
     // ErrDataValidationRange definió el mensaje de error en un rango decimal
     // establecido que excede el límite.
     ErrDataValidationRange = errors.New("data validation range exceeds limit")

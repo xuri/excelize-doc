@@ -500,7 +500,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 ```
 
-ProtectSheet 는 다른 사용자가 실수로 또는 의도적으로 워크시트의 데이터를 변경, 이동 또는 삭제하는 것을 방지하는 기능을 제공합니다. 선택적 필드 `AlgorithmName` 지정된 해시 알고리즘은 현재 XOR, MD4, MD5, SHA1, SHA256, SHA384 및 SHA512를 지원하며 해시 알고리즘이 지정되지 않은 경우 기본적으로 XOR 알고리즘을 사용합니다. 예를 들어 보호 설정으로 `Sheet1` 을 보호합니다:
+ProtectSheet 는 다른 사용자가 실수로 또는 의도적으로 워크시트의 데이터를 변경, 이동 또는 삭제하는 것을 방지하는 기능을 제공합니다. 선택적 필드 `AlgorithmName` 지정된 해시 알고리즘은 현재 XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384 및 SHA-512 를 지원하며 해시 알고리즘이 지정되지 않은 경우 기본적으로 XOR 알고리즘을 사용합니다. 예를 들어 보호 설정으로 `Sheet1` 을 보호합니다:
 
 <p align="center"><img width="897" src="./images/protect_sheet.png" alt="시트 보호"></p>
 
@@ -512,10 +512,34 @@ err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
 })
 ```
 
+FormatSheetProtection 은 워크시트 보호 설정을 직접 매핑합니다.
+
+```go
+type FormatSheetProtection struct {
+    AlgorithmName       string
+    AutoFilter          bool
+    DeleteColumns       bool
+    DeleteRows          bool
+    EditObjects         bool
+    EditScenarios       bool
+    FormatCells         bool
+    FormatColumns       bool
+    FormatRows          bool
+    InsertColumns       bool
+    InsertHyperlinks    bool
+    InsertRows          bool
+    Password            string
+    PivotTables         bool
+    SelectLockedCells   bool
+    SelectUnlockedCells bool
+    Sort                bool
+}
+```
+
 ## 보호되지 않은 시트 {#UnprotectSheet}
 
 ```go
-func (f *File) UnprotectSheet(sheet string) error
+func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 UnprotectSheet 는 시트에 대한 보호를 제거하는 기능을 제공하며, 암호 확인으로 시트 보호를 제거하기 위해 두 번째 선택적 암호 매개변수를 지정했습니다.
