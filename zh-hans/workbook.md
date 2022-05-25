@@ -1189,17 +1189,19 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 属性           | 描述
 ---|---
-Title          | 文档标题
-Subject        | 文档主题
-Creator        | 创作者
-Keywords       | 文档关键词
-Description    | 资源内容的说明
-LastModifiedBy | 执行上次修改的用户
-Language       | 文档内容的主要语言
-Identifier     | 对给定上下文中的资源的明确引用
-Revision       | 文档修订版本
-ContentStatus  | 文档内容的状态。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
 Category       | 文档内容的分类
+ContentStatus  | 文档内容的状态。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
+Created        | 文档创建时间
+Creator        | 创作者
+Description    | 资源内容的说明
+Identifier     | 对给定上下文中的资源的明确引用
+Keywords       | 文档关键词
+Language       | 文档内容的主要语言
+LastModifiedBy | 执行上次修改的用户
+Modified       | 文档修改时间
+Revision       | 文档修订版本
+Subject        | 文档主题
+Title          | 文档标题
 Version        | 版本号，该值由用户或应用程序设置
 
 例如：

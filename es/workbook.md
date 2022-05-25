@@ -1197,17 +1197,19 @@ SetDocProps proporciona una función para establecer las propiedades del núcleo
 
 Propiedad      | Descripción
 ---|---
-Title          | El nombre se dio al recurso.
-Subject        | El tema del contenido del recurso.
-Creator        | Una entidad responsable principal de hacer que el contenido del recurso.
-Keywords       | Un conjunto delimitado de palabras clave para admitir la búsqueda y la indexación. Normalmente se trata de una lista de términos que no están disponibles en otras partes de las propiedades.
-Description    | Una explicación del contenido del recurso.
-LastModifiedBy | El usuario que realizó la última modificación. La identificación es específica del entorno.
-Language       | El lenguaje del contenido intelectual del recurso.
-Identifier     | Una referencia inequívoca al recurso dentro de un contexto determinado.
-Revision       | El tema del contenido del recurso.
-ContentStatus  | El estado del contenido. Por ejemplo, los valores pueden incluir "Draft", "Reviewed" y "Final".
 Category       | Una categorización del contenido de este paquete.
+ContentStatus  | El estado del contenido. Por ejemplo, los valores pueden incluir "Draft", "Reviewed" y "Final".
+Created        | La hora de modificación del contenido del recurso.
+Creator        | Una entidad responsable principal de hacer que el contenido del recurso.
+Description    | Una explicación del contenido del recurso.
+Identifier     | Una referencia inequívoca al recurso dentro de un contexto determinado.
+Keywords       | Un conjunto delimitado de palabras clave para admitir la búsqueda y la indexación. Normalmente se trata de una lista de términos que no están disponibles en otras partes de las propiedades.
+Language       | El lenguaje del contenido intelectual del recurso.
+LastModifiedBy | El usuario que realizó la última modificación. La identificación es específica del entorno.
+Modified       | La hora de modificación del contenido del recurso.
+Revision       | El número de revisión del contenido del recurso.
+Subject        | El tema del contenido del recurso.
+Title          | El nombre se dio al recurso.
 Version        | El número de versión. Este valor lo establece el usuario o la aplicación.
 
 Por ejemplo:

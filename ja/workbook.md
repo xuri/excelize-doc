@@ -1189,17 +1189,19 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 プロパティ      | 説明
 ---|---
-Title          | リソースに指定された名前。
-Subject        | リソースのコンテンツのトピック。
-Creator        | 主にリソースのコンテンツを作成するエンティティ。
-Keywords       | 検索とインデックス作成をサポートするキーワードの区切られたセット。これは通常、プロパティ内の他の場所では使用できない用語の一覧です。
-Description    | リソースの内容の説明。
-LastModifiedBy | 最後の変更を実行したユーザー。識別は環境固有です。
-Language       | リソースの知的コンテンツの言語。
-Identifier     | 特定のコンテキスト内のリソースへの明確な参照。
-Revision       | リソースのコンテンツのトピック。
-ContentStatus  | コンテンツの状態。たとえば、値には "Draft"、"Reviewed"、および "Final" が含まれる場合があります。
 Category       | このパッケージの内容の分類。
+ContentStatus  | コンテンツの状態。たとえば、値には "Draft"、"Reviewed"、および "Final" が含まれる場合があります。
+Created        | リソースのコンテンツの作成時間。
+Creator        | 主にリソースのコンテンツを作成するエンティティ。
+Description    | リソースの内容の説明。
+Identifier     | 特定のコンテキスト内のリソースへの明確な参照。
+Keywords       | 検索とインデックス作成をサポートするキーワードの区切られたセット。これは通常、プロパティ内の他の場所では使用できない用語の一覧です。
+Language       | リソースの知的コンテンツの言語。
+LastModifiedBy | 最後の変更を実行したユーザー。識別は環境固有です。
+Modified       | リソースのコンテンツの変更時刻。
+Revision       | リソースのコンテンツのリビジョン番号。
+Subject        | リソースのコンテンツのトピック。
+Title          | リソースに指定された名前。
 Version        | バージョン番号。この値は、ユーザーまたはアプリケーションによって設定されます。
 
 例えば：

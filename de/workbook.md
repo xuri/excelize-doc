@@ -1197,17 +1197,19 @@ SetDocProps bietet eine Funktion zum Festlegen der Eigenschaften des Dokumentker
 
 Eigentum       | Beschreibung
 ---|---
-Title          | Der Name wurde der Ressource gegeben.
-Subject        | Das Thema des Inhalts der Ressource.
-Creator        | Eine Entität, die hauptsächlich für die Erstellung des Inhalts der Ressource verantwortlich ist.
-Keywords       | Eine begrenzte Anzahl von Schlüsselwörtern zur Unterstützung der Suche und Indizierung. Dies ist normalerweise eine Liste von Begriffen, die an keiner anderen Stelle in den Eigenschaften verfügbar sind.
-Description    | Eine Erläuterung des Inhalts der Ressource.
-LastModifiedBy | Der Benutzer, der die letzte Änderung vorgenommen hat. Die Identifizierung ist umgebungsspezifisch.
-Language       | Die Sprache des intellektuellen Inhalts der Ressource.
-Identifier     | Ein eindeutiger Verweis auf die Ressource in einem bestimmten Kontext.
-Revision       | Das Thema des Inhalts der Ressource.
-ContentStatus  | Der Status des Inhalts. Zum Beispiel: Zu den Werten gehören Draft", "Reviewed" und "Final"
 Category       | Eine Kategorisierung des Inhalts dieses Pakets.
+ContentStatus  | Der Status des Inhalts. Zum Beispiel: Zu den Werten gehören Draft", "Reviewed" und "Final"
+Created        | Die Erstellungszeit des Inhalts der Ressource.
+Creator        | Eine Entität, die hauptsächlich für die Erstellung des Inhalts der Ressource verantwortlich ist.
+Description    | Eine Erläuterung des Inhalts der Ressource.
+Identifier     | Ein eindeutiger Verweis auf die Ressource in einem bestimmten Kontext.
+Keywords       | Eine begrenzte Anzahl von Schlüsselwörtern zur Unterstützung der Suche und Indizierung. Dies ist normalerweise eine Liste von Begriffen, die an keiner anderen Stelle in den Eigenschaften verfügbar sind.
+Language       | Die Sprache des intellektuellen Inhalts der Ressource.
+LastModifiedBy | Der Benutzer, der die letzte Änderung vorgenommen hat. Die Identifizierung ist umgebungsspezifisch.
+Modified       | Die Änderungszeit des Inhalts der Ressource.
+Revision       | Die Revisionsnummer des Inhalts der Ressource.
+Subject        | Das Thema des Inhalts der Ressource.
+Title          | Der Name wurde der Ressource gegeben.
 Version        | Die Versionsnummer. Dieser Wert wird vom Benutzer oder von der Anwendung festgelegt.
 
 Zum Beispiel:

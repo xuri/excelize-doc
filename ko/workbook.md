@@ -1193,17 +1193,19 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 속성            | 기술
 ---|---
-Title          | 리소스에 지정된 이름입니다.
-Subject        | 자원 내용의 주제.
-Creator        | 자원의 내용을 만드는 일을 주로 담당하는 주체.
-Keywords       | 검색 및 색인 생성을 지원하는 구분 된 키워드 집합입니다. 일반적으로 속성의 다른 곳에서는 사용할 수없는 용어 목록입니다.
-Description    | 자원의 내용에 대한 설명.
-LastModifiedBy | 마지막 수정을 수행 한 사용자입니다. 식별은 환경에 따라 다릅니다.
-Language       | 자원의 지적 내용의 언어.
-Identifier     | 지정된 컨텍스트 내의 리소스에 대한 모호하지 않은 참조입니다.
-Revision       | 자원 내용의 주제.
-ContentStatus  | 내용의 상태. 예: "Draft", "Reviewed" 및 "Final"
 Category       | 이 패키지의 내용을 분류합니다.
+ContentStatus  | 내용의 상태. 예: "Draft", "Reviewed" 및 "Final"
+Created        | 리소스 콘텐츠의 생성 시간입니다.
+Creator        | 자원의 내용을 만드는 일을 주로 담당하는 주체.
+Description    | 자원의 내용에 대한 설명.
+Identifier     | 지정된 컨텍스트 내의 리소스에 대한 모호하지 않은 참조입니다.
+Keywords       | 검색 및 색인 생성을 지원하는 구분 된 키워드 집합입니다. 일반적으로 속성의 다른 곳에서는 사용할 수없는 용어 목록입니다.
+Language       | 자원의 지적 내용의 언어.
+LastModifiedBy | 마지막 수정을 수행 한 사용자입니다. 식별은 환경에 따라 다릅니다.
+Modified       | 리소스 콘텐츠의 수정된 시간입니다.
+Revision       | 리소스 콘텐츠의 개정 번호입니다.
+Subject        | 자원 내용의 주제.
+Title          | 리소스에 지정된 이름입니다.
 Version        | 버전 번호. 이 값은 사용자 또는 응용 프로그램에 의해 설정됩니다.
 
 예:

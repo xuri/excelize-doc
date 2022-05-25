@@ -1199,17 +1199,19 @@ SetDocProps provides a function to set document core properties. The properties 
 
 Property       | Description
 ---|---
-Title          | The name given to the resource.
-Subject        | The topic of the content of the resource.
-Creator        | An entity primarily responsible for making the content of the resource.
-Keywords       | A delimited set of keywords to support searching and indexing. This is typically a list of terms that are not available elsewhere in the properties.
-Description    | An explanation of the content of the resource.
-LastModifiedBy | The user who performed the last modification. The identification is environment-specific.
-Language       | The language of the intellectual content of the resource.
-Identifier     | An unambiguous reference to the resource within a given context.
-Revision       | The topic of the content of the resource.
-ContentStatus  | The status of the content. For example: Values might include "Draft", "Reviewed" and "Final"
 Category       | A categorization of the content of this package.
+ContentStatus  | The status of the content. For example: Values might include "Draft", "Reviewed" and "Final"
+Created        | The create time of the content of the resource.
+Creator        | An entity primarily responsible for making the content of the resource.
+Description    | An explanation of the content of the resource.
+Identifier     | An unambiguous reference to the resource within a given context.
+Keywords       | A delimited set of keywords to support searching and indexing. This is typically a list of terms that are not available elsewhere in the properties.
+Language       | The language of the intellectual content of the resource.
+LastModifiedBy | The user who performed the last modification. The identification is environment-specific.
+Modified       | The modified time of the content of the resource.
+Revision       | The revision number of the content of the resource.
+Subject        | The topic of the content of the resource.
+Title          | The name given to the resource.
 Version        | The version number. This value is set by the user or by the application.
 
 For example:

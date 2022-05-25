@@ -1176,17 +1176,19 @@ SetDocProps fournit une fonction permettant de définir les propriétés princip
 
 Propriété | La description
 ---|---
-Title          | Le nom donné à la ressource.
-Subject        | Le sujet du contenu de la ressource.
-Creator        | Une entité principalement responsable de la création du contenu de la ressource.
-Keywords       | Un ensemble de mots-clés délimités pour prendre en charge la recherche et l'indexation. Il s'agit généralement d'une liste de termes qui ne sont pas disponibles ailleurs dans les propriétés.
-Description    | Une explication du contenu de la ressource.
-LastModifiedBy | L'utilisateur qui a effectué la dernière modification. L'identification est spécifique à l'environnement.
-Language       | La langue du contenu intellectuel de la ressource.
-Identifier     | Une référence non ambiguë à la ressource dans un contexte donné.
-Revision       | Le sujet du contenu de la ressource.
-ContentStatus  | Le statut du contenu. Par exemple: les valeurs peuvent inclure "Draft", "Reviewed" et "Final"
 Category       | Une catégorisation du contenu de ce paquet.
+ContentStatus  | Le statut du contenu. Par exemple: les valeurs peuvent inclure "Draft", "Reviewed" et "Final"
+Created        | Heure de création du contenu de la ressource.
+Creator        | Une entité principalement responsable de la création du contenu de la ressource.
+Description    | Une explication du contenu de la ressource.
+Identifier     | Une référence non ambiguë à la ressource dans un contexte donné.
+Keywords       | Un ensemble de mots-clés délimités pour prendre en charge la recherche et l'indexation. Il s'agit généralement d'une liste de termes qui ne sont pas disponibles ailleurs dans les propriétés.
+Language       | La langue du contenu intellectuel de la ressource.
+LastModifiedBy | L'utilisateur qui a effectué la dernière modification. L'identification est spécifique à l'environnement.
+Modified       | L'heure modifiée du contenu de la ressource.
+Revision       | Le numéro de révision du contenu de la ressource.
+Subject        | Le sujet du contenu de la ressource.
+Title          | Le nom donné à la ressource.
 Version        | Le numéro de version. Cette valeur est définie par l'utilisateur ou par l'application.
 
 Par exemple:

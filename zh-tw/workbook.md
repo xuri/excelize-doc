@@ -1191,17 +1191,19 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 屬性           | 描述
 ---|---
-Title          | 檔案標題
-Subject        | 檔案主題
-Creator        | 創作者
-Keywords       | 檔案關鍵詞
-Description    | 資源內容的說明
-LastModifiedBy | 執行上次修改的用戶
-Language       | 檔案內容的主要語言
-Identifier     | 對給定上下文中的資源的明確引用
-Revision       | 檔案修訂版本
-ContentStatus  | 檔案內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
 Category       | 檔案內容的分類
+ContentStatus  | 檔案內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
+Created        | 檔案創建時間
+Creator        | 創作者
+Description    | 資源內容的說明
+Identifier     | 對給定上下文中的資源的明確引用
+Keywords       | 檔案關鍵詞
+Language       | 檔案內容的主要語言
+LastModifiedBy | 執行上次修改的用戶
+Modified       | 檔案修改時間
+Revision       | 檔案修訂版本
+Subject        | 檔案主題
+Title          | 檔案標題
 Version        | 版本號，該值由用戶或應用程式設定
 
 例如：
