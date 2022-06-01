@@ -30,8 +30,6 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength は、ファイルパス長のオーバーフローを受信したときのエラーメッセージを定義しました
     ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
-    // ErrEncrypt は、暗号化スプレッドシートにエラーメッセージを定義しました
-    ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました

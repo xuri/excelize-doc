@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-Tenga en cuenta que el excelize sólo es compatible con descifrar y no es compatible cifrar actualmente, la hoja de cálculo guardada por [`Save`](workbook.md#Save) y [`SaveAs()`](workbook.md#SaveAs) estará sin una contraseña desprotegida. Cierre el archivo por [`Close()`](workbook.md#Close) después de abrir la hoja de cálculo.
+Cierre el archivo por [`Close()`](workbook.md#Close) después de abrir la hoja de cálculo.
 
 ## Flujo de datos abiertos {#OpenReader}
 

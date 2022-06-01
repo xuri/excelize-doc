@@ -44,9 +44,6 @@ var (
     // ErrMaxFilePathLength definierte die Fehlermeldung beim Empfang des
     // Dateipfadlängenüberlaufs.
     ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
-    // ErrEncrypt hat die Fehlermeldung in der Verschlüsselungstabelle
-    // definiert.
-    ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism hat die Fehlermeldung zu einem nicht
     // unterstützten Verschlüsselungsmechanismus definiert.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")

@@ -44,9 +44,6 @@ var (
     // ErrMaxFilePathLength определяет сообщение об ошибке при получении
     // переполнения длины имени файла
     ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
-    // ErrEncrypt определил сообщение об ошибке в электронной таблице
-    // шифрования
-    ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism определил сообщение об ошибке для
     // неподдерживаемого механизма шифрования
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")

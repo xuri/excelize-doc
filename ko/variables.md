@@ -30,8 +30,6 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength 는 파일 이름 길이 오버플로 수신 시 오류 메시지를 정의했습니다
     ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
-    // ErrEncrypt 가 암호화 스프레드시트에 오류 메시지를 정의했습니다
-    ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism 이 지원되지 않는 암호화 메커니즘에 대한 오류 메시지를 정의했습니다
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism 이 지원되지 않는 암호화 메커니즘에 대한 오류 메시지를 정의했습니다

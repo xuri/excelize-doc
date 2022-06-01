@@ -32,8 +32,6 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // حدد ErrMaxFilePathLength رسالة الخطأ عند تلقي تجاوز طول مسار الملف.
     ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
-    // حدد ErrEncrypt رسالة الخطأ في جدول بيانات التشفير.
-    ErrEncrypt = errors.New("not support encryption currently")
     // حدد ErrUnknownEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // حدد ErrUnsupportedEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.

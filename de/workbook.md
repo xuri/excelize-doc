@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-Beachten Sie, dass die excelize nur unterstützt entschlüsseln und nicht unterstützen Verschlüsselung derzeit, die Tabelle von [`Save`](workbook.md#Save) und [`SaveAs()`](workbook.md#SaveAs) gespeichert wird ohne Passwort ungeschützt sein. Schließen Sie die Datei von [`Close()`](workbook.md#Close), nachdem Sie die Tabelle geöffnet haben.
+Schließen Sie die Datei von [`Close()`](workbook.md#Close), nachdem Sie die Tabelle geöffnet haben.
 
 ## Offener Datenstrom {#OpenReader}
 

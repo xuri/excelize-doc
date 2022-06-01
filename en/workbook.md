@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-Note that the excelize just support decrypt and not support encrypt currently, the spreadsheet saved by [`Save`](workbook.md#Save) and [`SaveAs()`](workbook.md#SaveAs) will be without password unprotected. Close the file by [`Close()`](workbook.md#Close) after opening the spreadsheet.
+Close the file by [`Close()`](workbook.md#Close) after opening the spreadsheet.
 
 ## Open data stream {#OpenReader}
 

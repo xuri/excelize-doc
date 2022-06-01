@@ -30,8 +30,6 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength 定义了工作簿保存路径长度超出最大限制时的错误提示信息
     ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
-    // ErrEncrypt 定义了加密工作簿时的错误提示信息
-    ErrEncrypt = errors.New("not support encryption currently")
     // ErrUnknownEncryptMechanism 定义了检测到未知加密机制时的错误提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism 定义了检测到不受支持的加密机制时的错误提示信息
