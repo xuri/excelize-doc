@@ -319,7 +319,7 @@ func main() {
             },
         },
         {
-            Text: "italic",
+            Text: "italic ",
             Font: &excelize.Font{
                 Bold:   true,
                 Color:  "e83723",
@@ -350,17 +350,32 @@ func main() {
             },
         },
         {
-            Text: " and ",
+            Text: " superscript",
             Font: &excelize.Font{
-                Size:  14,
-                Color: "ad23e8",
+                Color:     "dbc21f",
+                VertAlign: "superscript",
             },
         },
         {
-            Text: "underline.",
+            Text: " and ",
+            Font: &excelize.Font{
+                Size:      14,
+                Color:     "ad23e8",
+                VertAlign: "baseline",
+            },
+        },
+        {
+            Text: "underline",
             Font: &excelize.Font{
                 Color:     "23e833",
                 Underline: "single",
+            },
+        },
+        {
+            Text: " subscript.",
+            Font: &excelize.Font{
+                Color:     "017505",
+                VertAlign: "subscript",
             },
         },
     }); err != nil {
@@ -782,7 +797,9 @@ DOLLARDE
 DOLLARFR
 DURATION
 EFFECT
+EDATE
 ENCODEURL
+EOMONTH
 ERF
 ERF.PRECISE
 ERFC
@@ -1068,8 +1085,10 @@ VARPA
 VDB
 VLOOKUP
 WEEKDAY
+WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY.INTL
 XIRR
 XLOOKUP
 XNPV

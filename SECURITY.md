@@ -6,4 +6,4 @@ We will dive into any security-related issue as long as your excelize-doc versio
 
 ## Reporting a Vulnerability
 
-Please e-mail us directly at `xuri.me@gmail.com` or use the security issue template on GitHub. In general, public disclosure is made after the issue has been fully identified and a patch is ready to be released. A security issue gets the highest priority assigned and a reply regarding the vulnerability is given within a typical 24 hours. Thank you!
+Please e-mail us directly at `xuri.me at gmail.com` or use the security issue template on GitHub. In general, public disclosure is made after the issue has been fully identified and a patch is ready to be released. A security issue gets the highest priority assigned and a reply regarding the vulnerability is given within a typical 24 hours. Thank you!

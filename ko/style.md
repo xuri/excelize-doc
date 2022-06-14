@@ -37,6 +37,7 @@ type Font struct {
     Size      float64 `json:"size"`
     Strike    bool    `json:"strike"`
     Color     string  `json:"color"`
+    VertAlign string `json:"vertAlign"`
 }
 ```
 
