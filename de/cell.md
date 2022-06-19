@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Ruft den Wert aller Zellen nach Zeilen im Arbeitsblatt ab, basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten), der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows holte die Zeilen mit Wert- oder Formelzellen, die am Ende ständig leere Zelle wird übersprungen.
+GetRows gibt alle Zeilen in einem Blatt mit dem angegebenen Arbeitsblattnamen (Groß-/Kleinschreibung beachten) zurück, der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows die Zeilen mit Wert- oder Formelzellen abgerufen hat, werden die ständig leeren Zellen am Ende jeder Zeile übersprungen, sodass die Länge jeder Zeile möglicherweise inkonsistent ist.
 
 Abrufen und Durchlaufen des Werts aller Zellen in Zeilen in einem Arbeitsblatt mit dem Namen `Sheet1`:
 
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

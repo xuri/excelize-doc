@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## Supprimer la validation des données {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-DeleteDataValidation supprime la validation des données par le nom de feuille de calcul donné et la séquence de référence.
+DeleteDataValidation supprimer la validation des données par le nom de feuille de calcul et la séquence de référence donnés. Toutes les validations de données dans la feuille de calcul seront supprimées si vous ne spécifiez pas le paramètre de séquence de référence.

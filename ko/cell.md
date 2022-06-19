@@ -450,9 +450,9 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 모든 셀 값을 행 단위로 가져옵니다. 2 차원 배열로 반환되며, 여기서 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다. GetRows 가 값 또는 수식 셀이 있는 행을 가져오면 꼬리 부분이 계속 비어 있는 셀은 건너뜁니다.
+GetRows 는 시트의 모든 행을 지정된 워크시트 이름(대소문자 구분)으로 반환하고 2 차원 배열로 반환되며 여기서 셀 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있으면 적용된 값을 사용하고, 그렇지 않으면 원래 값을 사용합니다. GetRows 가 값 또는 수식 셀이 있는 행을 가져오면 각 행의 꼬리에 있는 계속해서 비어 있는 셀을 건너뛰므로 각 행의 길이가 일치하지 않을 수 있습니다.
 
-예를 들어,` Sheet1` 이라는 워크 시트에서 모든 셀의 값을 행으로 가로지 릅니다.
+예를 들어, `Sheet1` 이라는 워크 시트에서 모든 셀의 값을 행으로 가로지 릅니다.
 
 ```go
 rows, err := f.GetRows("Sheet1")
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

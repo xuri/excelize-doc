@@ -447,7 +447,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-傳回當前列所有列的值。
+此函數流式逐列讀取工作表，傳回當前列中各欄存儲格的值，不會跳過工作表尾部的有效空白列。
 
 ### 列迭代器 - 遍歷操作
 

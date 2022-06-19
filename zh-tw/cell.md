@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過。
+根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過，每列中的存儲格數目可能不同。
 
 例如，按列獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

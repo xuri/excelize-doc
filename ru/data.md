@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## Удалить данные проверки {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-DeleteDataValidation удаляет проверку данных по заданному имени рабочего листа и ссылочной последовательности.
+DeleteDataValidation удалить проверку данных по заданному имени рабочего листа и последовательности ссылок. Все проверки данных на листе будут удалены, если не указать параметр эталонной последовательности.

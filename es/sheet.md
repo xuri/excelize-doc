@@ -447,7 +447,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-Columns devuelven los valores de columna de la fila actual.
+Columns devuelve los valores de columna de la fila actual. Esto obtiene los datos de la hoja de trabajo como una secuencia, devuelve cada celda en una fila tal cual y no omitirá las filas vacías al final de la hoja de trabajo.
 
 ### Iterador de filas - Atravesando
 

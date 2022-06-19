@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Obtient la valeur de toutes les cellules par lignes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, la cellule de queue continuellement vide sera ignorée.
+GetRows renvoie toutes les lignes d'une feuille par nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, les cellules continuellement vides à la fin de chaque ligne seront ignorées, de sorte que la longueur de chaque ligne peut être incohérente.
 
 Par exemple, obtenez et parcourez la valeur de toutes les cellules par lignes sur une feuille de calcul nommée `Sheet1`:
 
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

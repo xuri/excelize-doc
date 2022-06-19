@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Gets the value of all cells by rows on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used. GetRows fetched the rows with value or formula cells, the tail continuously empty cell will be skipped.
+GetRows return all the rows in a sheet by given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used. GetRows fetched the rows with value or formula cells, the continually blank cells in the tail of each row will be skipped, so the length of each row may be inconsistent.
 
 For example, get and traverse the value of all cells by rows on a worksheet named `Sheet1`:
 
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

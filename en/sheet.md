@@ -447,7 +447,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-Columns return the current row's column values.
+Columns return the current row's column values. This fetches the worksheet data as a stream, returns each cell in a row as is, and will not skip empty rows in the tail of the worksheet.
 
 ### Row iterator - Traversing
 

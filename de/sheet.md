@@ -447,7 +447,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-Spalten geben die Spaltenwerte der aktuellen Zeile zurück.
+Columns gibt die Spaltenwerte der aktuellen Zeile zurück. Dadurch werden die Arbeitsblattdaten als Stream abgerufen, jede Zelle in einer Zeile unverändert zurückgegeben und keine leeren Zeilen am Ende des Arbeitsblatts übersprungen.
 
 ### Zeileniterator - Durchqueren
 

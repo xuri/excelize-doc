@@ -448,7 +448,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-Columns 는 현재 행의 열 값을 반환합니다.
+Columns 은 현재 행의 열 값을 반환합니다. 이렇게 하면 워크시트 데이터를 스트림으로 가져오고 행의 각 셀을 있는 그대로 반환하며 워크시트 맨 뒤에 있는 빈 행을 건너뛰지 않습니다.
 
 ### 행 이터레이터 - 트래빙
 

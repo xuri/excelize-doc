@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## データ検証の削除 {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-DeleteDataValidation は、指定されたワークシート名と参照シーケンスによるデータ検証を削除します。
+DeleteDataValidation 指定されたワークシート名と参照シーケンスによるデータ検証を削除します。参照シーケンスパラメータを指定しない場合、ワークシート内のすべてのデータ検証が削除されます。

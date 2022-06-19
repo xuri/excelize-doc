@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## حذف التحقق من صحة البيانات {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-يحذف DeleteDataValidation التحقق من صحة البيانات من خلال اسم ورقة العمل المحدد والتسلسل المرجعي.
+DeleteDataValidation يحذف التحقق من صحة البيانات من خلال اسم ورقة العمل المحددة والتسلسل المرجعي. سيتم حذف جميع عمليات التحقق من صحة البيانات في ورقة العمل إذا لم يتم تحديد معلمة تسلسل مرجعي.

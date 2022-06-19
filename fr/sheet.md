@@ -447,7 +447,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-Columns renvoie les valeurs de colonne de la ligne actuelle.
+Columns renvoie les valeurs de colonne de la ligne actuelle. Cela récupère les données de la feuille de calcul sous forme de flux, renvoie chaque cellule d'une ligne telle quelle et n'ignore pas les lignes vides dans la fin de la feuille de calcul.
 
 ### Row itérateur - Traverser
 

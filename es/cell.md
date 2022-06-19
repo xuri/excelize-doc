@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Obtiene el valor de todas las celdas por filas en la hoja de trabajo en función del nombre de la hoja de trabajo dada (distingue entre mayúsculas y minúsculas), devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de fórmula o valor, la cola de celda continuamente vacía se omitirá.
+GetRows devuelve todas las filas de una hoja según el nombre de la hoja de cálculo (distingue entre mayúsculas y minúsculas), devueltas como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de valor o fórmula, las celdas continuamente en blanco en la cola de cada fila se omitirán, por lo que la longitud de cada fila puede ser inconsistente.
 
 Por ejemplo, obtenga y recorra el valor de todas las celdas por filas en una hoja de trabajo llamada `Sheet1`:
 
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

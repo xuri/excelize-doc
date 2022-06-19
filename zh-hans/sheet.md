@@ -447,7 +447,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-返回当前行所有列的值。
+此函数流式逐行读取工作表，返回当前行中各列单元格的值，不会跳过工作表尾部的有效空白行。
 
 ### 行迭代器 - 遍历操作
 

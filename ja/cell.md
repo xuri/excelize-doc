@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-指定されたワークシート名（大文字と小文字を区別）に基づいて、ワークシートの行ごとにすべてのセルの値を取得し、2次元配列として返されます。セルの値は `string` タイプに変換されます。 セルのフォーマットをセルの値に適用できる場合は、適用された値が使用されます。それ以外の場合は、元の値が使用されます。GetRows は、値セルまたは数式セルを含む行をフェッチしました。末尾の連続して空のセルはスキップされます。
+GetRows は、指定されたワークシート名（大文字と小文字を区別）でシート内のすべての行を返し、2 次元配列として返されます。ここで、セルの値は `string` タイプに変換されます。セル形式をセルの値に適用できる場合は、適用された値が使用されます。それ以外の場合は、元の値が使用されます。GetRows は、値セルまたは式セルを含む行をフェッチしました。各行の末尾にある空白のセルはスキップされるため、各行の長さが一致しない場合があります。
 
 たとえば、`Sheet1` という名前のワークシートの行ごとにすべてのセルの値を取得してトラバースします。
 
@@ -778,6 +778,7 @@ DATEDIF
 DATEVALUE
 DAY
 DAYS
+DAYS360
 DB
 DDB
 DEC2BIN
@@ -941,6 +942,8 @@ N
 NA
 NEGBINOM.DIST
 NEGBINOMDIST
+NETWORKDAYS
+NETWORKDAYS.INTL
 NOMINAL
 NORM.DIST
 NORMDIST
@@ -1083,6 +1086,7 @@ WEEKDAY
 WEEKNUM
 WEIBULL
 WEIBULL.DIST
+WORKDAY
 WORKDAY.INTL
 XIRR
 XLOOKUP

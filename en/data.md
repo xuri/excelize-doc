@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## Delete data validation {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-DeleteDataValidation deletes data validation by the given worksheet name and the reference sequence.
+DeleteDataValidation delete data validation by given worksheet name and reference sequence. All data validations in the worksheet will be deleted if not specify reference sequence parameter.

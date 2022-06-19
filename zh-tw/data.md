@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## 刪除資料驗證 {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-根據給定的工作表名和資料驗證區域刪除資料驗證規則。
+根據給定的工作表名和資料驗證區域刪除資料驗證規則。若未指定資料驗證區域，將刪除給定工作表中全部資料驗證區規則。

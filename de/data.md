@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## Datenvalidierung löschen {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-DeleteDataValidation löscht die Datenüberprüfung anhand des angegebenen Arbeitsblattnamens und der Referenzsequenz.
+DeleteDataValidation Löscht die Datenvalidierung anhand des angegebenen Arbeitsblattnamens und der Referenzsequenz. Alle Datenvalidierungen im Arbeitsblatt werden gelöscht, wenn kein Referenzsequenzparameter angegeben wird.

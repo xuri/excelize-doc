@@ -57,7 +57,7 @@ f.AddDataValidation("Sheet1", dvRange)
 ## 데이터 유효성 검사 삭제 {#DeleteDataValidation}
 
 ```go
-func (f *File) DeleteDataValidation(sheet, sqref string) error
+func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-DeleteDataValidation 은 주어진 워크 시트 이름과 참조 순서에 따라 데이터 유효성 검사를 삭제합니다.
+DeleteDataValidation 은 주어진 워크시트 이름과 참조 순서로 데이터 유효성 검사를 삭제합니다. 참조 시퀀스 매개변수를 지정하지 않으면 워크시트의 모든 데이터 유효성 검사가 삭제됩니다.
