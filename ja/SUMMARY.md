@@ -217,6 +217,7 @@
 * [パフォーマンスデータ](performance.md)
 * [参加貢献](contribution.md)
 * バージョン履歴
+  * [v2.6.1](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)
