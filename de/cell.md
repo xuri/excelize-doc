@@ -581,7 +581,7 @@ GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens a
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-Die Formel in der Zelle wird gemäß dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Einstellungen für die Zellformel verwendet. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
+SetCellFormula bietet eine Funktion zum Festlegen der Formel für die Zelle, die gemäß dem angegebenen Arbeitsblattnamen (Groß-/Kleinschreibung) und den Zellformeleinstellungen verwendet wird. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
 
 - Beispiel 1, setzen Sie die normale Formel `=SUM(A1,B1)` für die Zelle `A3` auf `Sheet1`:
 
@@ -675,7 +675,7 @@ Rufen Sie die Formel für die Zelle basierend auf dem angegebenen Arbeitsblattna
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue bietet eine Funktion zum Abrufen des berechneten Zellenwerts. Diese Funktion wird derzeit bearbeitet. Array-Formel, Tabellenformel und einige andere Formeln werden derzeit nicht unterstützt.
+CalcCellValue bietet eine Funktion zum Abrufen des berechneten Zellenwerts. Diese Funktion befindet sich derzeit in Bearbeitung. Iterative Berechnung, implizite Schnittmenge, explizite Schnittmenge, Matrixformel, Tabellenformel und einige andere Formeln werden derzeit nicht unterstützt.
 
 Unterstützte Formeln:
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

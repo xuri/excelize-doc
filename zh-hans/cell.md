@@ -675,7 +675,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标计算包含公式单元格的值。该方法目前正在开发中，尚未支持数组函数、表格函数和其他部分函数。
+根据给定的工作表名（大小写敏感）和单元格坐标计算包含公式单元格的值。该方法目前正在开发中，尚未支持迭代计算、隐式交集、显式交集、数组函数、表格函数和其他部分函数。
 
 支持的函数列表如下：
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

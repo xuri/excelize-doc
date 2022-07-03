@@ -581,7 +581,7 @@ GetComments recupera todos los comentarios y devuelve un mapa del nombre de la h
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-La fórmula de la celda se toma de acuerdo con el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado. Si la aplicación de Excel no calcula la fórmula automáticamente cuando se abre el libro, llame a [UpdateLinkedValue](utils.md#UpdateLinkedValue) después de configurar las funciones de la fórmula de la celda.
+SetCellFormula proporciona una función para establecer la fórmula en la celda que se toma de acuerdo con el nombre de la hoja de trabajo dada (se distingue entre mayúsculas y minúsculas) y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado. Si la aplicación de Excel no calcula la fórmula automáticamente cuando se abre el libro, llame a [UpdateLinkedValue](utils.md#UpdateLinkedValue) después de configurar las funciones de la fórmula de la celda.
 
 - Ejemplo 1, establezca la fórmula normal `=SUM(A1,B1)` para la celda `A3` en `Sheet1`:
 
@@ -675,7 +675,7 @@ Obtenga la fórmula en la celda según el nombre de la hoja de trabajo (distingu
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue proporciona una función para obtener el valor de celda calculado. Esta característica está actualmente en proceso de trabajo. La fórmula de matriz, la fórmula de tabla y algunas otras fórmulas no son compatibles actualmente.
+CalcCellValue proporciona una función para obtener el valor de celda calculado. Esta función se encuentra actualmente en proceso de trabajo. El cálculo iterativo, la intersección implícita, la intersección explícita, la fórmula de matriz, la fórmula de tabla y algunas otras fórmulas no se admiten actualmente.
 
 Fórmulas compatibles:
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

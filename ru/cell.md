@@ -581,7 +581,7 @@ GetComments извлекает все комментарии и возвраща
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-Формула на ячейке берется согласно заданному имени листа (с учетом регистра) и настройкам формулы ячейки. Результат ячейки формулы может быть рассчитан, когда лист открыт приложением Office Excel или может использовать функцию [CalcCellValue](cell.md#CalcCellValue) также может получить рассчитанное значение ячейки. Если приложение Excel не вычисляет формулу автоматически при открытии книги, вызовите [UpdateLinkedValue](utils.md#UpdateLinkedValue) после установки функций формулы ячейки.
+SetCellFormula предоставляет функцию для установки формулы в ячейке в соответствии с заданным именем рабочего листа (с учетом регистра) и настройками формулы ячейки. Результат ячейки формулы может быть рассчитан, когда лист открыт приложением Office Excel или может использовать функцию [CalcCellValue](cell.md#CalcCellValue) также может получить рассчитанное значение ячейки. Если приложение Excel не вычисляет формулу автоматически при открытии книги, вызовите [UpdateLinkedValue](utils.md#UpdateLinkedValue) после установки функций формулы ячейки.
 
 - Пример 1, установите обычную формулу  `=SUM(A1,B1)` для ячейки `A3` на `Sheet1`:
 
@@ -675,7 +675,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue предоставляет функцию для получения вычисленного значения ячейки. Эта функция в настоящее время находится в рабочей обработке. Формула массива, формула таблицы и некоторые другие формулы в настоящее время не поддерживаются.
+CalcCellValue предоставляет функцию для получения рассчитанного значения ячейки. Эта функция в настоящее время находится в рабочей обработке. Итеративное вычисление, неявное пересечение, явное пересечение, формула массива, формула таблицы и некоторые другие формулы в настоящее время не поддерживаются.
 
 Поддерживаемые формулы:
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

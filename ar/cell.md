@@ -586,7 +586,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-يتم أخذ الصيغة الموجودة في الخلية وفقًا لاسم ورقة العمل المحدد (حساس لحالة الأحرف) وإعدادات صيغة الخلية. يمكن حساب نتيجة خلية الصيغة عند فتح ورقة العمل بواسطة تطبيق Office Excel أو يمكن أن تستخدم الدالة [CalcCellValue](cell.md#CalcCellValue) أيضاً الحصول على قيمة الخلية المحسوبة. إذا لم يقم تطبيق Excel بحساب الصيغة تلقائيًا عند فتح المصنف ، يرجى الاتصال بـ [UpdateLinkedValue](utils.md#UpdateLinkedValue) بعد تعيين وظائف صيغة الخلية.
+يوفر SetCellFormula وظيفة لتعيين الصيغة على الخلية يتم أخذها وفقًا لاسم ورقة العمل المحدد (حساس لحالة الأحرف) وإعدادات صيغة الخلية. يمكن حساب نتيجة خلية الصيغة عند فتح ورقة العمل بواسطة تطبيق Office Excel أو يمكن أن تستخدم الدالة [CalcCellValue](cell.md#CalcCellValue) أيضاً الحصول على قيمة الخلية المحسوبة. إذا لم يقم تطبيق Excel بحساب الصيغة تلقائيًا عند فتح المصنف ، يرجى الاتصال بـ [UpdateLinkedValue](utils.md#UpdateLinkedValue) بعد تعيين وظائف صيغة الخلية.
 
 - مثال 1 ،  تعيين الصيغة العادية `=SUM(A1,B1)` للخلية `A3` على `Sheet1`:
 
@@ -680,7 +680,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-توفر CalcCellValue دالة للحصول على قيمة الخلية المحسوبة. هذه الميزة قيد المعالجة حاليًا. صيغة الصفيف وصيغة الجدول وبعض الصيغ الأخرى غير مدعومة حاليًا.
+توفر CalcCellValue دالة للحصول على قيمة الخلية المحسوبة. هذه الميزة قيد المعالجة حاليًا. الحساب التكراري والتقاطع الضمني والتقاطع الصريح وصيغة الصفيف وصيغة الجدول وبعض الصيغ الأخرى غير مدعومة حاليًا.
 
 الصيغ المدعومة:
 
@@ -781,10 +781,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -793,10 +796,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -806,6 +818,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -851,6 +864,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1038,6 +1052,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

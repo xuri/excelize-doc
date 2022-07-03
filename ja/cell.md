@@ -581,7 +581,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-指定されたワークシート名 (大文字小文字の区別) とセルの設定に基づいて、セルの数式を設定します。数式セルの結果は、ワークシートが Office Excel アプリケーションで開かれた場合、または計算されたセル値を取得する場合に [CalcCellValue](cell.md#CalcCellValue) 関数を使用して計算できます。Excel アプリケーションがブックを開いたときに数式を自動的に計算しない場合は、セルの数式関数を設定した後に [UpdateLinkedValue](utils.md#UpdateLinkedValue) を呼び出してください。
+SetCellFormula は、指定されたワークシート名（大文字と小文字を区別）およびセル式の設定に従って、セルに式が取得されるように設定する関数を提供します。数式セルの結果は、ワークシートが Office Excel アプリケーションで開かれた場合、または計算されたセル値を取得する場合に [CalcCellValue](cell.md#CalcCellValue) 関数を使用して計算できます。Excel アプリケーションがブックを開いたときに数式を自動的に計算しない場合は、セルの数式関数を設定した後に [UpdateLinkedValue](utils.md#UpdateLinkedValue) を呼び出してください。
 
 - 例1, `Sheet1` のセル `A3` に通常の数式 `=SUM(A1,B1)` を設定します：
 
@@ -675,7 +675,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue は、計算されたセル値を取得する関数を提供します。この機能は現在処理中です。配列数式、テーブル数式、その他の数式は現在サポートされていません。
+CalcCellValue は、計算されたセル値を取得する関数を提供します。この機能は現在処理中です。反復計算、暗黙的交差、明示的交差、配列式、テーブル式、およびその他のいくつかの式は現在サポートされていません。
 
 サポートされている式：
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

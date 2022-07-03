@@ -581,7 +581,7 @@ GetComments récupère tous les commentaires et renvoie une carte de nom de feui
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-La formule sur la cellule est prise en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
+SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
 
 - Exemple 1, définissez la formule normale `=SUM(A1,B1)` pour la cellule `A3` sur `Sheet1`:
 
@@ -675,7 +675,7 @@ Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue fournit une fonction pour obtenir la valeur de cellule calculée. Cette fonctionnalité est actuellement en cours de traitement. La formule de tableau, la formule de tableau et certaines autres formules ne sont actuellement pas prises en charge.
+CalcCellValue fournit une fonction pour obtenir la valeur de cellule calculée. Cette fonctionnalité est actuellement en cours de traitement. Le calcul itératif, l'intersection implicite, l'intersection explicite, la formule matricielle, la formule de tableau et certaines autres formules ne sont pas pris en charge actuellement.
 
 Formules prises en charge:
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

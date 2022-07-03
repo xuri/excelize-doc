@@ -581,7 +581,7 @@ GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크�
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-셀의 수식은 지정된 워크 시트 이름(대/소문자 구분) 및 셀 수식 설정에 따라 수행됩니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다. 엑셀 응용 프로그램이 통합 문서를 열었을 때 수식을 자동으로 계산하지 않으면 셀 수식 기능을 설정한 후 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 를 호출하십시오.
+SetCellFormula 는 주어진 워크시트 이름 (대소문자 구분) 과 셀 수식 설정에 따라 셀에 수식을 설정하는 기능을 제공합니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다. 엑셀 응용 프로그램이 통합 문서를 열었을 때 수식을 자동으로 계산하지 않으면 셀 수식 기능을 설정한 후 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 를 호출하십시오.
 
 - 예 1, `Sheet1` 의 `A3` 셀에 대해 일반 수식 `=SUM(A1,B1)` 설정:
 
@@ -675,7 +675,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue 는 계산 된 셀 값을 가져 오는 함수를 제공합니다. 이 기능은 현재 작업 중입니다. 배열 수식, 테이블 수식 및 일부 다른 수식은 현재 지원되지 않습니다.
+CalcCellValue 는 계산된 셀 값을 가져오는 함수를 제공합니다. 이 기능은 현재 처리 중입니다. 반복 계산, 암시적 교차, 명시적 교차, 배열 수식, 테이블 수식 및 일부 기타 수식은 현재 지원되지 않습니다.
 
 지원되는 공식 :
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF

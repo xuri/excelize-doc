@@ -581,7 +581,7 @@ GetComments retrieve all comments and return a map of worksheet name to the work
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-The formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value. If the Excel application doesn't calculate the formula automatically when the workbook has been opened, please call [UpdateLinkedValue](utils.md#UpdateLinkedValue) after setting the cell formula functions.
+SetCellFormula provides a function to set the formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value. If the Excel application doesn't calculate the formula automatically when the workbook has been opened, please call [UpdateLinkedValue](utils.md#UpdateLinkedValue) after setting the cell formula functions.
 
 - Example 1, set normal formula `=SUM(A1,B1)` for the cell `A3` on `Sheet1`:
 
@@ -675,7 +675,7 @@ Get the formula on the cell based on the given worksheet name (case sensitive) a
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-CalcCellValue provides a function to get calculated cell value. This feature is currently in working processing. Array formula, table formula and some other formulas are not supported currently.
+CalcCellValue provides a function to get calculated cell value. This feature is currently in working processing. Iterative calculation, implicit intersection, explicit intersection, array formula, table formula and some other formulas are not supported currently.
 
 Supported formulas:
 
@@ -776,10 +776,13 @@ CUMPRINC
 DATE
 DATEDIF
 DATEVALUE
+DAVERAGE
 DAY
 DAYS
 DAYS360
 DB
+DCOUNT
+DCOUNTA
 DDB
 DEC2BIN
 DEC2HEX
@@ -788,10 +791,19 @@ DECIMAL
 DEGREES
 DELTA
 DEVSQ
+DGET
 DISC
+DMAX
+DMIN
 DOLLARDE
 DOLLARFR
+DPRODUCT
+DSTDEV
+DSTDEVP
+DSUM
 DURATION
+DVAR
+DVARP
 EFFECT
 EDATE
 ENCODEURL
@@ -801,6 +813,7 @@ ERF.PRECISE
 ERFC
 ERFC.PRECISE
 ERROR.TYPE
+EUROCONVERT
 EVEN
 EXACT
 EXP
@@ -846,6 +859,7 @@ HEX2DEC
 HEX2OCT
 HLOOKUP
 HOUR
+HYPERLINK
 HYPGEOM.DIST
 HYPGEOMDIST
 IF
@@ -1033,6 +1047,7 @@ STDEV.S
 STDEVA
 STDEVP
 STDEVPA
+STEYX
 SUBSTITUTE
 SUM
 SUMIF
