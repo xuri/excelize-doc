@@ -126,7 +126,7 @@ func (f *File) Close() error
 ## 新建工作表 {#NewSheet}
 
 ```go
-func (f *File) NewSheet(name string) int
+func (f *File) NewSheet(sheet string) int
 ```
 
 根据给定的工作表名称来创建新工作表，并返回工作表在工作簿中的索引。请注意，在创建新的工作簿时，将包含名为 `Sheet1` 的默认工作表。
@@ -134,7 +134,7 @@ func (f *File) NewSheet(name string) int
 ## 删除工作表 {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(name string)
+func (f *File) DeleteSheet(sheet string)
 ```
 
 根据给定的工作表名称删除指定工作表，谨慎使用此方法，这将会影响到与被删除工作表相关联的公式、引用、图表等元素。如果有其他组件引用了被删除工作表上的值，将会引发错误提示，甚至将会导致打开工作簿失败。当工作簿中仅包含一个工作表时，调用此方法无效。
@@ -197,7 +197,7 @@ func (f *File) GetActiveSheetIndex() int
 ## 设置工作表可见性 {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(name string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
 根据给定的工作表名称和可见性参数设置工作表的可见性。一个工作簿中至少包含一个可见工作表。如果给定的工作表为默认工作表，则对其可见性设置无效。工作表可见性状态可参考[工作表状态枚举](https://docs.microsoft.com/zh-cn/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
@@ -217,7 +217,7 @@ err := f.SetSheetVisible("Sheet1", false)
 ## 获取工作表可见性 {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(name string) bool
+func (f *File) GetSheetVisible(sheet string) bool
 ```
 
 根据给定的工作表名称获取工作表可见性设置。例如，获取名为 `Sheet1` 的工作表可见性设置:
@@ -331,7 +331,7 @@ Defaults:
 ## 设置工作表视图属性 {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
 根据给定的工作表名称、视图索引和视图参数设置工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。
@@ -416,7 +416,7 @@ Used correct value:
 ## 获取工作表视图属性 {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
 根据给定的工作表名称、视图索引和视图参数获取工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。

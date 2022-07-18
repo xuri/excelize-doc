@@ -126,7 +126,7 @@ Close schließt und bereinigt die geöffnete temporäre Datei für die Kalkulati
 ## Arbeitsblatt erstellen {#NewSheet}
 
 ```go
-func (f *File) NewSheet(name string) int
+func (f *File) NewSheet(sheet string) int
 ```
 
 NewSheet bietet die Funktion zum Erstellen eines neuen Blatts, indem ein Arbeitsblattname angegeben wird, und gibt den Index der Blätter in der Arbeitsmappe (Spreadsheet) zurück, nachdem es angehängt wurde. Beachten Sie, dass beim Erstellen einer neuen Tabellenkalkulationsdatei das Standardarbeitsblatt mit dem Namen `Sheet1` erstellt wird.
@@ -134,10 +134,10 @@ NewSheet bietet die Funktion zum Erstellen eines neuen Blatts, indem ein Arbeits
 ## Arbeitsblatt löschen {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(name string)
+func (f *File) DeleteSheet(sheet string)
 ```
 
-DeleteSheet bietet eine Funktion zum Löschen von Arbeitsblättern in einer Arbeitsmappe nach einem bestimmten Arbeitsblattnamen. Verwenden Sie diese Methode mit Vorsicht, die sich auf Änderungen in Verweisen wie Formeln, Diagrammen usw. auswirkt. Wenn auf einen Referenzwert des gelöschten Arbeitsblatts verwiesen wird, wird beim Öffnen ein Dateifehler verursacht. Diese Funktion ist ungültig, wenn nur noch ein Arbeitsblatt übrig ist.
+DeleteSheet bietet eine Funktion zum Löschen von Arbeitsblättern in einer Arbeitsmappe nach dem angegebenen Arbeitsblattnamen, bei den Blattnamen wird nicht zwischen Groß- und Kleinschreibung unterschieden. Verwenden Sie diese Methode mit Vorsicht, da sie sich auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn es einen referenzierten Wert des gelöschten Arbeitsblatts gibt, führt dies zu einem Dateifehler, wenn Sie es öffnen. Diese Funktion ist ungültig, wenn nur noch ein Arbeitsblatt übrig ist.
 
 ## Arbeitsblatt kopieren {#CopySheet}
 
@@ -197,7 +197,7 @@ GetActiveSheetIndex bietet eine Funktion zum Abrufen eines aktiven Arbeitsblatts
 ## Set-Arbeitsblatt sichtbar {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(name string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
 SetSheetVisible bietet eine Funktion zum Festlegen eines Arbeitsblatts, das durch den angegebenen Arbeitsblattnamen sichtbar ist. Eine Arbeitsmappe muss mindestens ein sichtbares Arbeitsblatt enthalten. Wenn das angegebene Arbeitsblatt aktiviert wurde, wird diese Einstellung ungültig. Blattzustandswerte, wie in [SheetStateValues Enum](https://docs.microsoft.com/de-de/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) definiert:
@@ -217,7 +217,7 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Arbeitsblatt sichtbar machen {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(name string) bool
+func (f *File) GetSheetVisible(sheet string) bool
 ```
 
 GetSheetVisible bietet eine Funktion, mit der das Arbeitsblatt unter dem angegebenen Arbeitsblattnamen sichtbar gemacht wird. Erhalten Sie beispielsweise den sichtbaren Status von `Sheet1`:
@@ -335,7 +335,7 @@ Defaults:
 ## Festlegen von Arbeitsblattansichtseigenschaften {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
 SetSheetViewOptions legt Optionen für die Blattansicht fest. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (` -1` ist die letzte Ansicht).
@@ -422,7 +422,7 @@ Used correct value:
 ## Abrufen von Arbeitsblattansichtseigenschaften {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
 GetSheetViewOptions ruft den Wert der Optionen für die Blattansicht ab. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (`-1` ist die letzte Ansicht). Verfügbare Optionen:

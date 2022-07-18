@@ -126,7 +126,7 @@ Close 는 스프레드시트에 대해 열려 있는 임시 파일을 닫고 정
 ## 워크 시트 만들기 {#NewSheet}
 
 ```go
-func (f *File) NewSheet(name string) int
+func (f *File) NewSheet(sheet string) int
 ```
 
 NewSheet 는 워크 시트 이름을 지정하여 새 시트를 만드는 기능을 제공하고 추가 된 후 통합 문서 (스프레드 시트)의 시트 인덱스를 반환합니다. 새 스프레드 시트 파일을 만들 때 `Sheet1` 이라는 기본 워크 시트가 생성됩니다.
@@ -134,10 +134,10 @@ NewSheet 는 워크 시트 이름을 지정하여 새 시트를 만드는 기능
 ## 워크 시트 삭제 {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(name string)
+func (f *File) DeleteSheet(sheet string)
 ```
 
-지정 된 워크시트 이름을 기반으로 지정한 워크시트를 삭제 합니다. 이 메서드는 삭제 된 워크시트와 관련 된 수식, 참조, 차트 및 기타 요소에 영향을 주는 주의 해 서 사용 해야 합니다. 삭제 된 워크시트에서 값을 참조 하는 다른 구성 요소가 있는 경우 오류 프롬프트가 발생 하 고 통합 문서를 열지 못하게 됩니다. 하나의 워크시트가 통합 문서에 포함 된 경우이 메서드를 호출 해도 유효 하지 않습니다.
+DeleteSheet 는 지정된 워크 시트 이름으로 통합 문서의 워크 시트를 삭제하는 기능을 제공하며 시트 이름은 대/소문자를 구분하지 않습니다. 이 방법은 수식, 차트 등과 같은 참조의 변경에 영향을 주는 주의해서 사용하십시오. 삭제된 워크시트의 참조된 값이 있으면 워크시트를 열 때 파일 오류가 발생합니다. 이 함수는 워크시트가 하나만 남아 있으면 유효하지 않습니다.
 
 ## 워크 시트 복사 {#CopySheet}
 
@@ -197,7 +197,7 @@ func (f *File) GetActiveSheetIndex() int
 ## 워크 시트 가시성 설정 {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(name string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
 SetSheetVisible 은 지정된 워크 시트 이름으로 표시되는 워크 시트를 설정하는 함수를 제공합니다. 통합 문서에는 최소한 하나의 보이는 워크 시트가 있어야합니다. 지정된 워크 시트가 활성화 된 경우이 설정은 무효화됩니다. [SheetStateValues Enum](https://docs.microsoft.com/ko-kr/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) 에 정의 된 시트 상태 값:
@@ -217,7 +217,7 @@ err := f.SetSheetVisible("Sheet1", false)
 ## 워크 시트 가시성 확보 {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(name string) bool
+func (f *File) GetSheetVisible(sheet string) bool
 ```
 
 GetSheetVisible 은 주어진 워크 시트 이름으로 볼 수있는 워크 시트를 가져 오는 기능을 제공합니다. 예를 들어, `Sheet1` 의 표시 상태 가져 오기:
@@ -335,7 +335,7 @@ Defaults:
 ## 워크 시트보기 속성 설정 {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
 SetSheetViewOptions 는 시트보기 옵션을 설정합니다. `viewIndex` 는 음수 일 수 있으며, 그럴 경우 역으로 계산됩니다 (`-1` 이 마지막보기).
@@ -420,7 +420,7 @@ Used correct value:
 ## 워크 시트 뷰 속성 가져 오기 {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
 지정 된 워크 시트 이름, 뷰 인덱스 및 뷰 매개 변수를 기반으로 워크 시트 보기 속성 가져 오기, `viewIndex` 가 음수 이면 역방향으로 계산 됩니다 (`-1` 은 마지막 보기를 나타냄).

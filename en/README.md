@@ -9,7 +9,7 @@ Excelize is a library written in pure Go providing a set of functions that allow
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Last version: [v2.6.0](https://github.com/xuri/excelize/releases/latest)
-- Document update time: July 4, 2022
+- Document update time: July 19, 2022
 
 ## Project mission
 
@@ -63,3 +63,17 @@ Having a bug ticket, a question or a feature request on our Github issue tracker
 Need help implementing Excelize in your application and you are on a shortage of technology or resources? We are happy to supercharge your imports and exports and can step in your team on an hourly-basis contract.
 
 Please contact us by <a href="mailto: xuri.me@gmail.com">E-mail</a>.
+
+## Excelize Tutorial Video
+
+##### Chapter 1：Introduction and Development Environment Setup
+
+[1.1 Introduction of Excelize](https://youtu.be/HrNmX5WbZY0)<br>[1.2 Go language and Excelize Develop Environment Setup (Windows & Mac)](https://youtu.be/leuW6czJ5mU)<br>[1.3 Basic Concepts](https://youtu.be/ih1N4d6hBdA)
+
+##### Chapter 2: Basic Usage
+
+[2.1 Quickstart, Set Cell Value, Styles, Insert Picture, and Create Chart](https://youtu.be/JkWrAB_9DA0)<br>[2.2 Conditional Formatting Comment and Data Validation](https://youtu.be/U8SQIGKo0Nk)<br>[2.3 Converting CSV to XLSX, Row Height, Column Width, and Rich Text Settings](https://youtu.be/4yjrdMUlckc)<br>2.4 Create Pivot Table, Shape, Cell Formula and Workbook Properties Settings<br>2.5 Sparkline, Header, Footer, Hidden and Worksheet Protection Settings<br>2.6 Reading Workbook, Worksheets, Images, and Formula Calculation
+
+##### Chapter 3：Working with Large Spreadsheet Efficiently
+
+3.1 High-Performance I/O,  Create a  Huge Amounts of Data by Streaming API

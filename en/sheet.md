@@ -110,10 +110,10 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Get sheet index {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
-GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid or the worksheet doesn't exist, it will return an integer type value `-1`.
+GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid or sheet doesn't exist, it will return an integer type value -1.
 
 The obtained index can be used as a parameter to call the [`SetActiveSheet()`](workbook.md#SetActiveSheet) function when setting the workbook default worksheet.
 
@@ -154,7 +154,7 @@ SetSheetName provides a function to set the worksheet name by given the old and 
 ## Set sheet properties {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions provides a function to sets worksheet properties.
@@ -193,7 +193,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## Get sheet properties {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 GetSheetPrOptions provides a function to gets worksheet properties.

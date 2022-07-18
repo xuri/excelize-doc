@@ -198,7 +198,7 @@ func JoinCellName(col string, row int) (string, error)
 func ColumnNameToNumber(name string) (int, error)
 ```
 
-將工作表的欄名（大小寫不敏感）轉換為索引，對於錯誤的欄名格式將傳回錯誤。例如：
+將工作表的欄名（不區分大小寫）轉換為索引，對於錯誤的欄名格式將傳回錯誤。例如：
 
 ```go
 excelize.ColumnNameToNumber("AK") // returns 37, nil

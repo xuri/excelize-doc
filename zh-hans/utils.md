@@ -198,7 +198,7 @@ func JoinCellName(col string, row int) (string, error)
 func ColumnNameToNumber(name string) (int, error)
 ```
 
-将工作表的列名（大小写不敏感）转换为索引，对于错误的列名格式将返回错误。例如：
+将工作表的列名（不区分大小写）转换为索引，对于错误的列名格式将返回错误。例如：
 
 ```go
 excelize.ColumnNameToNumber("AK") // returns 37, nil

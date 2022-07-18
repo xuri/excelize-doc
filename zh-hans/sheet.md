@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-根据给定的工作表名称（大小写敏感）和列名称设置列可见性。例如隐藏名为 `Sheet1` 工作表上的 `D` 列：
+根据给定的工作表名称和列名称设置列可见性。例如隐藏名为 `Sheet1` 工作表上的 `D` 列：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-根据给定的工作表名称（大小写敏感）、列范围和宽度值设置单个或多个列的宽度。例如设置名为 `Sheet1` 工作表上 `A` 到 `H` 列的宽度为 `20`：
+根据给定的工作表名称、列范围和宽度值设置单个或多个列的宽度。例如设置名为 `Sheet1` 工作表上 `A` 到 `H` 列的宽度为 `20`：
 
 ```go
 f := excelize.NewFile()
@@ -37,7 +37,7 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-根据给定的工作表名称（大小写敏感）、行号和高度值设置单行高度。例如设置名为 `Sheet1` 工作表首行的高度为 `50`：
+根据给定的工作表名称、行号和高度值设置单行高度。例如设置名为 `Sheet1` 工作表首行的高度为 `50`：
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)
@@ -49,7 +49,7 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-根据给定的工作表名称（大小写敏感）和行号设置行可见性。例如隐藏名为 `Sheet1` 工作表上第二行：
+根据给定的工作表名称和行号设置行可见性。例如隐藏名为 `Sheet1` 工作表上第二行：
 
 ```go
 err := f.SetRowVisible("Sheet1", 2, false)
@@ -69,7 +69,7 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-根据给定的工作表名称（大小写敏感）和列名获取工作表中指定列的可见性，可见返回值为 `true`，否则为 `false`。例如，获取名为 `Sheet1` 的工作表上 `D` 列的可见性：
+根据给定的工作表名称和列名获取工作表中指定列的可见性，可见返回值为 `true`，否则为 `false`。例如，获取名为 `Sheet1` 的工作表上 `D` 列的可见性：
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -89,7 +89,7 @@ func (f *File) GetColWidth(sheet, col string) (float64, error)
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-根据给定的工作表名称（大小写敏感）和行号获取工作表中指定行的高度。例如，获取名为 `Sheet1` 的工作表首行的高度：
+根据给定的工作表名称和行号获取工作表中指定行的高度。例如，获取名为 `Sheet1` 的工作表首行的高度：
 
 ```go
 height, err := f.GetRowHeight("Sheet1", 1)
@@ -101,7 +101,7 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-根据给定的工作表名称（大小写敏感）和行号获取工作表中指定行的可见性。例如，获取名为 `Sheet1` 的工作表第 2 行的可见性：
+根据给定的工作表名称和行号获取工作表中指定行的可见性。例如，获取名为 `Sheet1` 的工作表第 2 行的可见性：
 
 ```go
 err := f.GetRowVisible("Sheet1", 2)
@@ -110,10 +110,10 @@ err := f.GetRowVisible("Sheet1", 2)
 ## 获取工作表索引 {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
-根据给定的工作表名称（大小写敏感）获取该工作表的索引，如果工作表不存在将返回 `-1`。
+根据给定的工作表名称获取该工作表的索引，如果工作表不存在将返回 `-1`。
 
 获取到的索引可以在设置工作簿默认工作表时，作为调用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函数的参数使用。
 
@@ -149,15 +149,15 @@ func (f *File) GetSheetList() []string
 func (f *File) SetSheetName(oldName, newName string)
 ```
 
-根据给定的新旧工作表名称（大小写敏感）重命名工作表。工作表名称最多允许使用 31 个字符，此功能仅更改工作表的名称，而不会更新与单元格关联的公式或引用中的工作表名称。因此使用此功能重命名工作表后可能导致公式错误或参考引用问题。
+根据给定的新旧工作表名称重命名工作表。工作表名称最多允许使用 31 个字符，此功能仅更改工作表的名称，而不会更新与单元格关联的公式或引用中的工作表名称。因此使用此功能重命名工作表后可能导致公式错误或参考引用问题。
 
 ## 设置工作表属性 {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
-根据给定的工作表名称（大小写敏感）和筛选项设置工作表属性。
+根据给定的工作表名称和筛选项设置工作表属性。
 
 可选属性列表：
 
@@ -193,10 +193,10 @@ if err := f.SetSheetPrOptions(sheet,
 ## 获取工作表属性 {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
-根据给定的工作表名称（大小写敏感）和筛选项获取工作表属性。
+根据给定的工作表名称和筛选项获取工作表属性。
 
 |可选属性|类型|
 |---|---|
@@ -264,7 +264,7 @@ Defaults:
 func (f *File) InsertCol(sheet, column string) error
 ```
 
-根据给定的工作表名称（大小写敏感）和列名称，在指定列前插入空白列。例如，在名为 `Sheet1` 的工作表的 `C` 列前插入空白列：
+根据给定的工作表名称和列名称，在指定列前插入空白列。例如，在名为 `Sheet1` 的工作表的 `C` 列前插入空白列：
 
 ```go
 err := f.InsertCol("Sheet1", "C")
@@ -276,7 +276,7 @@ err := f.InsertCol("Sheet1", "C")
 func (f *File) InsertRow(sheet string, row int) error
 ```
 
-根据给定的工作表名称（大小写敏感）和行号，在指定行前插入空白行。例如，在名为 `Sheet1` 的工作表的第 3 行前插入空白行：
+根据给定的工作表名称和行号，在指定行前插入空白行。例如，在名为 `Sheet1` 的工作表的第 3 行前插入空白行：
 
 ```go
 err := f.InsertRow("Sheet1", 3)
@@ -288,7 +288,7 @@ err := f.InsertRow("Sheet1", 3)
 func (f *File) DuplicateRow(sheet string, row int) error
 ```
 
-根据给定的工作表名称（大小写敏感）和行号，在该行后追加复制。例如，将名为 `Sheet1` 的工作表的第 2 行复制到第 3 行：
+根据给定的工作表名称和行号，在该行后追加复制。例如，将名为 `Sheet1` 的工作表的第 2 行复制到第 3 行：
 
 ```go
 err := f.DuplicateRow("Sheet1", 2)
@@ -302,7 +302,7 @@ err := f.DuplicateRow("Sheet1", 2)
 func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 ```
 
-根据给定的工作表名称（大小写敏感）和行号，在指定行后复制该行。例如，将名为 `Sheet1` 的工作表的第 2 行后复制到第 7 行：
+根据给定的工作表名称和行号，在指定行后复制该行。例如，将名为 `Sheet1` 的工作表的第 2 行后复制到第 7 行：
 
 ```go
 err := f.DuplicateRowTo("Sheet1", 2, 7)
@@ -316,7 +316,7 @@ err := f.DuplicateRowTo("Sheet1", 2, 7)
 func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
-根据给定的工作表名称（大小写敏感）、行号和分级参数创建组。例如，在名为 `Sheet1` 的工作表的第 2 行创建 1 级分组。
+根据给定的工作表名称、行号和分级参数创建组。例如，在名为 `Sheet1` 的工作表的第 2 行创建 1 级分组。
 
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="创建行的分级显示"></p>
 
@@ -330,7 +330,7 @@ err := f.SetRowOutlineLevel("Sheet1", 2, 1)
 func (f *File) SetColOutlineLevel(sheet, col string, level uint8) error
 ```
 
-根据给定的工作表名称（大小写敏感）、列名称和分级参数创建组。例如，在名为 `Sheet1` 的工作表的 `D` 列创建 2 级分组。
+根据给定的工作表名称、列名称和分级参数创建组。例如，在名为 `Sheet1` 的工作表的 `D` 列创建 2 级分组。
 
 <p align="center"><img width="612" src="./images/col_outline_level.png" alt="创建列的分级显示"></p>
 
@@ -344,7 +344,7 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-根据给定的工作表名称（大小写敏感）和行号获取分组级别。例如，获取名为 `Sheet1` 的工作表第 2 行的分组级别。
+根据给定的工作表名称和行号获取分组级别。例如，获取名为 `Sheet1` 的工作表第 2 行的分组级别。
 
 ```go
 err := f.GetRowOutlineLevel("Sheet1", 2)
@@ -356,7 +356,7 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-根据给定的工作表名称（大小写敏感）和列名称获取分组分级。例如，获取名为 `Sheet1` 的工作表的 `D` 列的分组级别。
+根据给定的工作表名称和列名称获取分组分级。例如，获取名为 `Sheet1` 的工作表的 `D` 列的分组级别。
 
 ```go
 level, err := f.GetColOutlineLevel("Sheet1", "D")
@@ -368,7 +368,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-根据给定的工作表名称（大小写敏感）获取该工作表的列迭代器。使用列迭代器进行流式读取遍历单元格：
+根据给定的工作表名称获取该工作表的列迭代器。使用列迭代器进行流式读取遍历单元格：
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -418,7 +418,7 @@ func (cols *Cols) Error() error
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-根据给定的工作表名称（大小写敏感）获取该工作表的行迭代器。使用行迭代器进行流式读取遍历单元格：
+根据给定的工作表名称获取该工作表的行迭代器。使用行迭代器进行流式读取遍历单元格：
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -479,7 +479,7 @@ func (rows *Rows) Close() error
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-根据给定的工作表名称（大小写敏感），单元格值或正则表达式来获取坐标。此函数仅支持字符串和数字的完全匹配，不支持公式计算后的结果、格式化数字和条件搜索。如果搜索结果是合并的单元格，将返回合并区域左上角的坐标。
+根据给定的工作表名称，单元格值或正则表达式来获取坐标。此函数仅支持字符串和数字的完全匹配，不支持公式计算后的结果、格式化数字和条件搜索。如果搜索结果是合并的单元格，将返回合并区域左上角的坐标。
 
 例如，在名为 `Sheet1` 的工作表中搜索值 `100` 的坐标:
 
@@ -541,7 +541,7 @@ type FormatSheetProtection struct {
 func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
-根据给定的工作表名称（大小写敏感）取消保护该工作表，指定第二个可选密码参数以通过密码验证来取消工作表保护。
+根据给定的工作表名称取消保护该工作表，指定第二个可选密码参数以通过密码验证来取消工作表保护。
 
 ## 删除列 {#RemoveCol}
 
@@ -549,7 +549,7 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-根据给定的工作表名称（大小写敏感）和列名称删除指定列。例如，删除名为 `Sheet1` 的 `C` 列：
+根据给定的工作表名称和列名称删除指定列。例如，删除名为 `Sheet1` 的 `C` 列：
 
 ```go
 err := f.RemoveCol("Sheet1", "C")
@@ -563,7 +563,7 @@ err := f.RemoveCol("Sheet1", "C")
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-根据给定的工作表名称（大小写敏感）和行号删除指定行。例如，删除名为 `Sheet1` 的第 `3` 行：
+根据给定的工作表名称和行号删除指定行。例如，删除名为 `Sheet1` 的第 `3` 行：
 
 ```go
 err := f.RemoveRow("Sheet1", 3)
@@ -577,7 +577,7 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-根据给定的工作表名称（大小写敏感）、起始坐标和 `slice` 类型引用按行赋值。例如，在名为 `Sheet1` 的工作簿第 `6` 行上，以 `B6` 单元格作为起始坐标按行赋值：
+根据给定的工作表名称、起始坐标和 `slice` 类型引用按行赋值。例如，在名为 `Sheet1` 的工作簿第 `6` 行上，以 `B6` 单元格作为起始坐标按行赋值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

@@ -426,7 +426,7 @@ GetCellType provides a function to get the cell's data type by given worksheet n
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Gets the value of all cells by columns on the worksheet based on the given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used.
+GetCols gets the value of all cells by columns on the worksheet based on the given worksheet name, returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used.
 
 For example, get and traverse the value of all cells by columns on a worksheet named `Sheet1`:
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-GetRows return all the rows in a sheet by given worksheet name (case sensitive), returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used. GetRows fetched the rows with value or formula cells, the continually blank cells in the tail of each row will be skipped, so the length of each row may be inconsistent.
+GetRows return all the rows in a sheet by given worksheet name, returned as a two-dimensional array, where the value of the cell is converted to the `string` type. If the cell format can be applied to the value of the cell, the applied value will be used, otherwise the original value will be used. GetRows fetched the rows with value or formula cells, the continually blank cells in the tail of each row will be skipped, so the length of each row may be inconsistent.
 
 For example, get and traverse the value of all cells by rows on a worksheet named `Sheet1`:
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-Gets a cell hyperlink based on the given worksheet name (case sensitive) and cell coordinates. If the cell has a hyperlink, it will return `true` and the link address, otherwise it will return `false` and an empty link address.
+GetCellHyperLink gets a cell hyperlink based on the given worksheet name and cell coordinates. If the cell has a hyperlink, it will return `true` and the link address, otherwise it will return `false` and an empty link address.
 
 For example, get a hyperlink to a `H6` cell on a worksheet named `Sheet1`:
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-The cell style index is obtained from the given worksheet name (case sensitive) and cell coordinates, and the obtained index can be used as a parameter to call the `SetCellValue` function when copying the cell style.
+The cell style index is obtained from the given worksheet name and cell coordinates, and the obtained index can be used as a parameter to call the `SetCellValue` function when copying the cell style.
 
 ## Merge cells {#MergeCell}
 
@@ -499,7 +499,7 @@ The cell style index is obtained from the given worksheet name (case sensitive) 
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Merge cells based on the given worksheet name (case sensitive) and cell coordinate regions. Merging cells only keeps the upper-left cell value, and discards the other values. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
+Merge cells based on the given worksheet name and cell coordinate regions. Merging cells only keeps the upper-left cell value, and discards the other values. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -523,7 +523,7 @@ Attention: overlapped areas will also be unmerged.
 
 ## Get merge cells {#GetMergeCells}
 
-GetMergeCells provides a function to get all merged cells from a worksheet currently.
+GetMergeCells provides a function to get all merged cells from a specific worksheet.
 
 ```go
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
@@ -581,7 +581,7 @@ GetComments retrieve all comments and return a map of worksheet name to the work
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-SetCellFormula provides a function to set the formula on the cell is taken according to the given worksheet name (case sensitive) and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value. If the Excel application doesn't calculate the formula automatically when the workbook has been opened, please call [UpdateLinkedValue](utils.md#UpdateLinkedValue) after setting the cell formula functions.
+SetCellFormula provides a function to set the formula on the cell is taken according to the given worksheet name and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value. If the Excel application doesn't calculate the formula automatically when the workbook has been opened, please call [UpdateLinkedValue](utils.md#UpdateLinkedValue) after setting the cell formula functions.
 
 - Example 1, set normal formula `=SUM(A1,B1)` for the cell `A3` on `Sheet1`:
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-Get the formula on the cell based on the given worksheet name (case sensitive) and cell coordinates.
+Get the formula on the cell based on the given worksheet name and cell coordinates.
 
 ## Calculate cell value {#CalcCellValue}
 

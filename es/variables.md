@@ -7,10 +7,10 @@ var (
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrColumnNumber definió el mensaje de error al recibir un número de
     // columna no válido.
-    ErrColumnNumber = errors.New("column number exceeds maximum limit")
+    ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth definió el mensaje de error al recibir un ancho de
     // columna no válido.
-    ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
+    ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
     // ErrOutlineLevel definió el mensaje de error al recibir un número de
     // nivel de esquema no válido.
     ErrOutlineLevel = errors.New("invalid outline level")
@@ -34,7 +34,7 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight definió el mensaje de error al recibir una altura de
     // fila no válida.
-    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrImgExt definió el mensaje de error al recibir una extensión de
     // imagen no admitida.
     ErrImgExt = errors.New("unsupported image extension")
@@ -76,7 +76,7 @@ var (
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength definió el mensaje de error sobre la longitud del
     // desbordamiento del nombre de la familia de fuentes.
-    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
+    ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize definió que el mensaje de error sobre el tamaño de la
     // fuente no es válido.
     ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)

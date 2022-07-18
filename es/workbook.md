@@ -126,7 +126,7 @@ Close cierra y limpia el archivo temporal abierto para la hoja de cálculo.
 ## Crear hoja de trabajo {#NewSheet}
 
 ```go
-func (f *File) NewSheet(name string) int
+func (f *File) NewSheet(sheet string) int
 ```
 
 NewSheet proporciona la función para crear una nueva hoja por un nombre de hoja de cálculo y devuelve el índice de las hojas en el libro (hoja de cálculo) después de anexar. Tenga en cuenta que al crear un nuevo archivo de hoja de cálculo, se creará la hoja de cálculo predeterminada denominada `Sheet1`.
@@ -134,10 +134,10 @@ NewSheet proporciona la función para crear una nueva hoja por un nombre de hoja
 ## Eliminar hoja de trabajo {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(name string)
+func (f *File) DeleteSheet(sheet string)
 ```
 
-DeleteSheet proporciona una función para eliminar hojas de cálculo en un libro de trabajo por nombre de hoja de cálculo dado. Utilice este método con precaución, lo que afectará a los cambios en referencias como fórmulas, gráficos, etc. Si hay algún valor al que se hace referencia de la hoja de trabajo eliminada, se producirá un error de archivo al abrirlo. Esta función no será válida cuando solo quede una hoja de cálculo.
+DeleteSheet proporciona una función para eliminar la hoja de trabajo en un libro de trabajo por el nombre de la hoja de trabajo dado, los nombres de las hojas no distinguen entre mayúsculas y minúsculas. Utilice este método con precaución, ya que afectará los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor de referencia de la hoja de cálculo eliminada, se producirá un error de archivo cuando lo abra. Esta función no será válida cuando solo quede una hoja de trabajo.
 
 ## Copiar hoja de trabajo {#CopySheet}
 
@@ -197,7 +197,7 @@ GetActiveSheetIndex proporciona una función para obtener una hoja de cálculo a
 ## Establecer la hoja de trabajo visible {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(name string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
 SetSheetVisible proporciona una función para establecer la hoja de cálculo visible por el nombre de la hoja de cálculo dado. Un libro de trabajo debe contener al menos una hoja de cálculo visible. Si se ha activado la hoja de cálculo determinada, esta configuración se invalidará. Valores de estado de hoja definidos por [SheetStateValues Enum](https://docs.microsoft.com/es-es/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
@@ -217,7 +217,7 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Obtener la hoja de trabajo visible {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(name string) bool
+func (f *File) GetSheetVisible(sheet string) bool
 ```
 
 GetSheetVisible proporciona una función para que la hoja de cálculo sea visible con el nombre de la hoja de cálculo especificado. Por ejemplo, obtenga el estado visible de `Sheet1`:
@@ -335,7 +335,7 @@ Defaults:
 ## Establecer propiedades de vista de hoja de cálculo {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
 SetSheetViewOptions establece las opciones de vista de hoja. El `viewIndex` puede ser negativo y si es así se cuenta hacia atrás (`-1` es la última vista).
@@ -422,7 +422,7 @@ Used correct value:
 ## Obtener propiedades de vista de hoja de cálculo {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
 GetSheetViewOptions obtiene el valor de las opciones de vista de hoja. El `viewIndex` puede ser negativo y si es así se cuenta hacia atrás (`-1` es la última vista).

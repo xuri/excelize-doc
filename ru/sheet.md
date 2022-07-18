@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Получить индекс рабочего листа {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 GetSheetIndex предоставляет функцию для получения индекса листа рабочей книги по заданному имени листа. Если данное имя листа недопустимо, оно вернет целочисленное значение типа `-1`.
@@ -154,7 +154,7 @@ SetSheetName предоставляет функцию для установки
 ## Установить свойства листа {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions предоставляет функцию для установки свойств листа.
@@ -193,7 +193,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## Получить свойства листа {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 GetSheetPrOptions обеспечивает функцию для получения свойств листа.

@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-与えられたワークシート名（大文字と小文字を区別）と列名に基づいて列の表示/非表示を設定します。例えば、`Sheet1` ワークシートの `D` 列を隠す：
+与えられたワークシート名と列名に基づいて列の表示/非表示を設定します。例えば、`Sheet1` ワークシートの `D` 列を隠す：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-指定されたシート名（大文字と小文字を区別）、列範囲、および幅の値に基づいて、単一または複数の列の幅を設定します。たとえば、`Sheet1` という名前の `A` から `H` の列の幅を `20` に設定します。
+指定されたシート名、列範囲、および幅の値に基づいて、単一または複数の列の幅を設定します。たとえば、`Sheet1` という名前の `A` から `H` の列の幅を `20` に設定します。
 
 ```go
 f := excelize.NewFile()
@@ -37,7 +37,7 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-指定されたシート名（大文字と小文字を区別）、行番号、および高さの値に基づいて単一行の高さを設定します。たとえば、`Sheet1` という名前の最初の行の高さを `50` に設定します。
+指定されたシート名、行番号、および高さの値に基づいて単一行の高さを設定します。たとえば、`Sheet1` という名前の最初の行の高さを `50` に設定します。
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)
@@ -49,7 +49,7 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-指定されたワークシート名（大文字と小文字を区別）と行番号に基づいて行の表示/非表示を設定します。たとえば、`Sheet1` という名前のワークシートの 2 行目を隠します。
+指定されたワークシート名と行番号に基づいて行の表示/非表示を設定します。たとえば、`Sheet1` という名前のワークシートの 2 行目を隠します。
 
 ```go
 err := f.SetRowVisible("Sheet1", 2, false)
@@ -69,7 +69,7 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-指定されたワークシート名（大文字と小文字を区別）と列名に基づいて、ワークシート内の指定された列の可視性を取得します可視の戻り値は `true`、そうでない場合は `false` です。たとえば、`Sheet1` という名前のワークシートの `D` 列の可視性を取得します。
+指定されたワークシート名と列名に基づいて、ワークシート内の指定された列の可視性を取得します可視の戻り値は `true`、そうでない場合は `false` です。たとえば、`Sheet1` という名前のワークシートの `D` 列の可視性を取得します。
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -89,7 +89,7 @@ func (f *File) GetColWidth(sheet, col string) (float64, error)
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-指定されたワークシート名（大文字と小文字を区別）と行番号に基づいて、ワークシート内の指定された行の高さを取得します。たとえば、`Sheet1` という名前のワークシートの最初の行の高さを取得します。
+指定されたワークシート名と行番号に基づいて、ワークシート内の指定された行の高さを取得します。たとえば、`Sheet1` という名前のワークシートの最初の行の高さを取得します。
 
 ```go
 height, err := f.GetRowHeight("Sheet1", 1)
@@ -101,7 +101,7 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-指定されたワークシート名（大文字と小文字を区別）と行番号に基づいて、ワークシート内の指定された行の可視性を取得します。たとえば、`Sheet1`という名前のワークシートの 2 行目の可視性を取得します。
+指定されたワークシート名と行番号に基づいて、ワークシート内の指定された行の可視性を取得します。たとえば、`Sheet1`という名前のワークシートの 2 行目の可視性を取得します。
 
 ```go
 err := f.GetRowVisible("Sheet1", 2)
@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## ワークシートインデックスを取得 {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 GetSheetIndex は、指定されたシート名でブックのシートインデックスを取得する関数を提供します。指定されたシート名が無効な場合、整数型の値 `-1` を返します。
@@ -154,7 +154,7 @@ SetSheetName は、指定された古いワークシート名と新しいワー�
 ## ワークシートのプロパティを設定する {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions は、ワークシートのプロパティを設定する関数を提供します。
@@ -193,10 +193,10 @@ if err := f.SetSheetPrOptions(sheet,
 ## ワークシートのプロパティを取得する {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
-与えられたワークシート名（大文字と小文字を区別）とフィルタリングに基づいてワークシートのプロパティを取得します。
+与えられたワークシート名とフィルタリングに基づいてワークシートのプロパティを取得します。
 
 |オプション属性|タイプ|
 |---|---|
@@ -264,7 +264,7 @@ Defaults:
 func (f *File) InsertCol(sheet, column string) error
 ```
 
-指定されたシート名（大文字と小文字を区別）と列名に基づいて、指定された列の前に空白の列を挿入します。例えば、`Sheet1` という名前のワークシートの `C` 列の前に空白の列を挿入します。
+指定されたシート名と列名に基づいて、指定された列の前に空白の列を挿入します。例えば、`Sheet1` という名前のワークシートの `C` 列の前に空白の列を挿入します。
 
 ```go
 err := f.InsertCol("Sheet1", "C")
@@ -276,7 +276,7 @@ err := f.InsertCol("Sheet1", "C")
 func (f *File) InsertRow(sheet string, row int) error
 ```
 
-指定されたシート名（大文字と小文字を区別）と行インデックスに基づいて、指定された行の前に空白行を挿入します。例えば、`Sheet1` という名前のワークシートの `3` 行目の前に空白行を挿入します。
+指定されたシート名と行インデックスに基づいて、指定された行の前に空白行を挿入します。例えば、`Sheet1` という名前のワークシートの `3` 行目の前に空白行を挿入します。
 
 ```go
 err := f.InsertRow("Sheet1", 3)
@@ -288,7 +288,7 @@ err := f.InsertRow("Sheet1", 3)
 func (f *File) DuplicateRow(sheet string, row int) error
 ```
 
-指定されたワークシート名（大文字と小文字を区別）と行番号に基づいて、行の後に複製を追加します。たとえば、`Sheet1` という名前のワークシートの 2 行目を 3 行目にコピーします。
+指定されたワークシート名と行番号に基づいて、行の後に複製を追加します。たとえば、`Sheet1` という名前のワークシートの 2 行目を 3 行目にコピーします。
 
 ```go
 err := f.DuplicateRow("Sheet1", 2)
@@ -302,7 +302,7 @@ err := f.DuplicateRow("Sheet1", 2)
 func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 ```
 
-指定したシート名（大文字と小文字を区別）と行番号に基づいて、指定した行の後に行がコピーされます。たとえば、`Sheet1` という名前のワークシートの 2 行目を 7 行目にコピーします。
+指定したシート名と行番号に基づいて、指定した行の後に行がコピーされます。たとえば、`Sheet1` という名前のワークシートの 2 行目を 7 行目にコピーします。
 
 ```go
 err := f.DuplicateRowTo("Sheet1", 2, 7)
@@ -316,7 +316,7 @@ err := f.DuplicateRowTo("Sheet1", 2, 7)
 func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
-指定されたワークシート名（大文字と小文字を区別）、行インデックス、および評価パラメータに基づいてグループを作成します。たとえば、`Sheet1` という名前のワークシートの 2 行目にレベル 1 のグループを作成します。
+指定されたワークシート名、行インデックス、および評価パラメータに基づいてグループを作成します。たとえば、`Sheet1` という名前のワークシートの 2 行目にレベル 1 のグループを作成します。
 
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="行のアウトラインを作成する"></p>
 
@@ -330,7 +330,7 @@ err := f.SetRowOutlineLevel("Sheet1", 2, 1)
 func (f *File) SetColOutlineLevel(sheet, col string, level uint8) error
 ```
 
-指定されたワークシート名（大文字と小文字を区別）、列名、および評価パラメータに基づいてグループを作成します。たとえば、`Sheet` という名前のワークシートの `D` 列にレベル 2 のグループを作成します。
+指定されたワークシート名、列名、および評価パラメータに基づいてグループを作成します。たとえば、`Sheet` という名前のワークシートの `D` 列にレベル 2 のグループを作成します。
 
 <p align="center"><img width="612" src="./images/col_outline_level.png" alt="列のアウトラインを作成する"></p>
 
@@ -344,7 +344,7 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-指定されたシート名（大文字と小文字を区別）と行インデックスに基づいてグループ化レベルを取得します。たとえば、`Sheet1` という名前のワークシートの行 2 のグループ化レベルを取得します。
+指定されたシート名と行インデックスに基づいてグループ化レベルを取得します。たとえば、`Sheet1` という名前のワークシートの行 2 のグループ化レベルを取得します。
 
 ```go
 err := f.GetRowOutlineLevel("Sheet1", 2)
@@ -356,7 +356,7 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-指定されたシート名（大文字と小文字を区別）と列名に基づいてグループ化評価を取得します。たとえば、`Sheet1` という名前のワークシートの `D` 列のグループ化レベルを取得します。
+指定されたシート名と列名に基づいてグループ化評価を取得します。たとえば、`Sheet1` という名前のワークシートの `D` 列のグループ化レベルを取得します。
 
 ```go
 level, err := f.GetColOutlineLevel("Sheet1", "D")
@@ -479,7 +479,7 @@ Close は、システム一時ディレクトリで開いているワークシ�
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-指定されたワークシート名（大文字と小文字を区別）、セル値、または正規表現に基づいて座標を取得します。この関数は、文字列と数値の完全一致のみをサポートし、数式計算結果、書式設定された数値、および条件付き検索はサポートしません。検索結果が結合セルの場合は、結合領域の左上隅の座標が返されます。
+指定されたワークシート名、セル値、または正規表現に基づいて座標を取得します。この関数は、文字列と数値の完全一致のみをサポートし、数式計算結果、書式設定された数値、および条件付き検索はサポートしません。検索結果が結合セルの場合は、結合領域の左上隅の座標が返されます。
 
 たとえば、`Sheet1` という名前のワークシートで値 `100` の座標を検索します。
 

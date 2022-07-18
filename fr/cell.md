@@ -426,7 +426,7 @@ GetCellType fournit une fonction pour obtenir le type de données de la cellule 
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Obtient la valeur de toutes les cellules par colonnes sur la feuille de calcul en fonction du nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
+GetCols obtient la valeur de toutes les cellules par colonnes de la feuille de calcul en fonction du nom de feuille de calcul donné, renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
 
 Par exemple, obtenez et parcourez la valeur de toutes les cellules par colonnes dans une feuille de calcul nommée `Sheet1`:
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-GetRows renvoie toutes les lignes d'une feuille par nom de feuille de calcul donné (sensible à la casse), renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, les cellules continuellement vides à la fin de chaque ligne seront ignorées, de sorte que la longueur de chaque ligne peut être incohérente.
+GetRows renvoie toutes les lignes d'une feuille par nom de feuille de calcul donné, renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, les cellules continuellement vides à la fin de chaque ligne seront ignorées, de sorte que la longueur de chaque ligne peut être incohérente.
 
 Par exemple, obtenez et parcourez la valeur de toutes les cellules par lignes sur une feuille de calcul nommée `Sheet1`:
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-Obtient un lien hypertexte de cellule basé sur le nom de feuille de calcul donné (sensible à la casse) et les coordonnées de cellule. Si la cellule a un lien hypertexte, elle retournera `true` et l'adresse du lien, sinon elle retournera `false` et une adresse de lien vide.
+Obtient un lien hypertexte de cellule basé sur le nom de feuille de calcul donné et les coordonnées de cellule. Si la cellule a un lien hypertexte, elle retournera `true` et l'adresse du lien, sinon elle retournera `false` et une adresse de lien vide.
 
 Par exemple, obtenez un lien hypertexte vers une cellule `H6` sur une feuille de calcul nommée `Sheet1`:
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-L'index de style de cellule est obtenu à partir du nom de feuille de calcul donné (sensible à la casse) et des coordonnées de cellule, et l'index obtenu peut être utilisé comme paramètre pour appeler la fonction `SetCellValue` lors de la copie du style de cellule.
+L'index de style de cellule est obtenu à partir du nom de feuille de calcul donné et des coordonnées de cellule, et l'index obtenu peut être utilisé comme paramètre pour appeler la fonction `SetCellValue` lors de la copie du style de cellule.
 
 ## Fusionner les cellules {#MergeCell}
 
@@ -499,7 +499,7 @@ L'index de style de cellule est obtenu à partir du nom de feuille de calcul don
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Fusionner des cellules en fonction du nom de feuille de calcul donné (sensible à la casse) et des régions de coordonnées de cellule. La fusion de cellules ne conserve que la valeur de la cellule supérieure gauche et ignore les autres valeurs. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Sheet1`:
+Fusionner des cellules en fonction du nom de feuille de calcul donné et des régions de coordonnées de cellule. La fusion de cellules ne conserve que la valeur de la cellule supérieure gauche et ignore les autres valeurs. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -581,7 +581,7 @@ GetComments récupère tous les commentaires et renvoie une carte de nom de feui
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné (sensible à la casse) et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
+SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
 
 - Exemple 1, définissez la formule normale `=SUM(A1,B1)` pour la cellule `A3` sur `Sheet1`:
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné (sensible à la casse) et des coordonnées de cellule.
+Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné et des coordonnées de cellule.
 
 ## Calculer la valeur de la cellule {#CalcCellValue}
 

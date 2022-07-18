@@ -126,7 +126,7 @@ Close closes and cleanup the open temporary file for the spreadsheet.
 ## Create worksheet {#NewSheet}
 
 ```go
-func (f *File) NewSheet(name string) int
+func (f *File) NewSheet(sheet string) int
 ```
 
 NewSheet provides the function to create a new sheet by given a worksheet name and returns the index of the sheets in the workbook (spreadsheet) after it appended. Note that when creating a new spreadsheet file, the default worksheet named `Sheet1` will be created.
@@ -134,10 +134,10 @@ NewSheet provides the function to create a new sheet by given a worksheet name a
 ## Delete worksheet {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(name string)
+func (f *File) DeleteSheet(sheet string)
 ```
 
-DeleteSheet provides a function to delete worksheets in a workbook by given worksheet name. Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the deleted worksheet, it will cause a file error when you open it. This function will be invalid when only one worksheet is left.
+DeleteSheet provides a function to delete worksheet in a workbook by given worksheet name. Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the deleted worksheet, it will cause a file error when you open it. This function will be invalid when only one worksheet is left.
 
 ## Copy worksheet {#CopySheet}
 
@@ -197,7 +197,7 @@ GetActiveSheetIndex provides a function to get an active worksheet of the workbo
 ## Set worksheet visible {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(name string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
 SetSheetVisible provides a function to set worksheet visible by given worksheet name. A workbook must contain at least one visible worksheet. If the given worksheet has been activated, this setting will be invalidated. Sheet state values as defined by [SheetStateValues Enum](https://docs.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
@@ -217,7 +217,7 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Get worksheet visible {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(name string) bool
+func (f *File) GetSheetVisible(sheet string) bool
 ```
 
 GetSheetVisible provides a function to get worksheet visible by given worksheet name. For example, get the visible state of `Sheet1`:
@@ -335,7 +335,7 @@ Defaults:
 ## Set worksheet view properties {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
 SetSheetViewOptions sets sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
@@ -422,7 +422,7 @@ Used correct value:
 ## Get worksheet view properties {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
 GetSheetViewOptions gets the value of sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).

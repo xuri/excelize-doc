@@ -426,7 +426,7 @@ GetCellType proporciona una función para obtener el tipo de datos de la celda p
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Obtiene el valor de todas las celdas por columnas en la hoja de trabajo en función del nombre de la hoja de trabajo dada (distingue entre mayúsculas y minúsculas), devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original.
+GetCols obtiene el valor de todas las celdas por columnas en la hoja de trabajo en función del nombre de la hoja de trabajo dado, devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original.
 
 Por ejemplo, obtenga y recorra el valor de todas las celdas por columnas en una hoja de trabajo llamada `Sheet1`:
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-GetRows devuelve todas las filas de una hoja según el nombre de la hoja de cálculo (distingue entre mayúsculas y minúsculas), devueltas como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de valor o fórmula, las celdas continuamente en blanco en la cola de cada fila se omitirán, por lo que la longitud de cada fila puede ser inconsistente.
+GetRows devuelve todas las filas de una hoja por el nombre de la hoja de cálculo dado, devueltas como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de valor o fórmula, las celdas continuamente en blanco en la cola de cada fila se omitirán, por lo que la longitud de cada fila puede ser inconsistente.
 
 Por ejemplo, obtenga y recorra el valor de todas las celdas por filas en una hoja de trabajo llamada `Sheet1`:
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-Obtiene un hipervínculo de celda según el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las coordenadas de la celda. Si la celda tiene un hipervínculo, devolverá `true` y la dirección del enlace; de lo contrario, devolverá `false` y una dirección de enlace vacía.
+Obtiene un hipervínculo de celda según el nombre de la hoja de trabajo y las coordenadas de la celda. Si la celda tiene un hipervínculo, devolverá `true` y la dirección del enlace; de lo contrario, devolverá `false` y una dirección de enlace vacía.
 
 Por ejemplo, obtenga un hipervínculo a una celda `H6` en una hoja de trabajo llamada `Sheet1`:
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-El índice de estilo de celda se obtiene a partir del nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las coordenadas de la celda, y el índice obtenido se puede utilizar como parámetro para llamar a la función `SetCellValue` al copiar el estilo de celda.
+El índice de estilo de celda se obtiene a partir del nombre de la hoja de trabajo y las coordenadas de la celda, y el índice obtenido se puede utilizar como parámetro para llamar a la función `SetCellValue` al copiar el estilo de celda.
 
 ## Combinar celdas {#MergeCell}
 
@@ -499,7 +499,7 @@ El índice de estilo de celda se obtiene a partir del nombre de la hoja de traba
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Fusionar celdas según el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las regiones de coordenadas de celda. La combinación de celdas solo conserva el valor de la celda superior izquierda y descarta los demás valores. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Sheet1`:
+Fusionar celdas según el nombre de la hoja de trabajo y las regiones de coordenadas de celda. La combinación de celdas solo conserva el valor de la celda superior izquierda y descarta los demás valores. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -581,7 +581,7 @@ GetComments recupera todos los comentarios y devuelve un mapa del nombre de la h
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-SetCellFormula proporciona una función para establecer la fórmula en la celda que se toma de acuerdo con el nombre de la hoja de trabajo dada (se distingue entre mayúsculas y minúsculas) y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado. Si la aplicación de Excel no calcula la fórmula automáticamente cuando se abre el libro, llame a [UpdateLinkedValue](utils.md#UpdateLinkedValue) después de configurar las funciones de la fórmula de la celda.
+SetCellFormula proporciona una función para establecer la fórmula en la celda que se toma de acuerdo con el nombre de la hoja de trabajo dada y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado. Si la aplicación de Excel no calcula la fórmula automáticamente cuando se abre el libro, llame a [UpdateLinkedValue](utils.md#UpdateLinkedValue) después de configurar las funciones de la fórmula de la celda.
 
 - Ejemplo 1, establezca la fórmula normal `=SUM(A1,B1)` para la celda `A3` en `Sheet1`:
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-Obtenga la fórmula en la celda según el nombre de la hoja de trabajo (distingue entre mayúsculas y minúsculas) y las coordenadas de la celda.
+Obtenga la fórmula en la celda según el nombre de la hoja de trabajo y las coordenadas de la celda.
 
 ## Calcular el valor de la celda {#CalcCellValue}
 

@@ -5,9 +5,9 @@ var (
     // ErrStreamSetColWidth 定義了在流式寫入模式下設定欄寬度時的錯誤提示信息
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrColumnNumber 定義了收到無效欄名時的錯誤提示信息
-    ErrColumnNumber = errors.New("column number exceeds maximum limit")
+    ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth 定義了收到無效欄寬度時的錯誤提示信息
-    ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
+    ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
     // ErrOutlineLevel 定義了在數據分組時收到無效級別時的錯誤提示信息
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrCoordinates 定義了收到無效存儲格坐標元組時的錯誤提示信息
@@ -23,7 +23,7 @@ var (
     // ErrMaxRows 定義了當列號超出最大限制時的錯誤提示信息
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight 定義了收到無效列高度時的錯誤提示信息
-    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrImgExt 定義了不受支持的圖片擴展名的錯誤提示信息
     ErrImgExt = errors.New("unsupported image extension")
     // ErrWorkbookFileFormat 定義了不受支持的活頁簿文件類型的錯誤提示信息
@@ -51,7 +51,7 @@ var (
     // ErrCustomNumFmt 定義了指定自定義數字格式表達式為空時的錯誤提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength 定義了字體名稱長度超出最大限制時的錯誤提示信息
-    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
+    ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize 定義了收到無效字號時的錯誤提示信息
     ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx 定義了收到了無效工作表索引時的錯誤提示信息

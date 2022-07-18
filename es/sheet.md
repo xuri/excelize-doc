@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Obtener índice de hoja {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 GetSheetIndex proporciona una función para obtener un índice de hoja del libro de trabajo por el nombre de hoja dado. Si el nombre de la hoja dada no es válido o la hoja de trabajo no existe, devolverá un valor de tipo entero `-1`.
@@ -154,7 +154,7 @@ SetSheetName proporciona una función para establecer el nombre de la hoja de tr
 ## Establecer propiedades de hoja {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions proporciona una función para establecer las propiedades de la hoja de trabajo.
@@ -193,7 +193,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## Obtener propiedades de la hoja {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 GetSheetPrOptions proporciona una función para obtener propiedades de la hoja de trabajo.

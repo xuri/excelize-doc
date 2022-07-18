@@ -426,7 +426,7 @@ GetCellType bietet eine Funktion zum Abrufen des Datentyps der Zelle anhand des 
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-Ruft den Wert aller Zellen nach Spalten im Arbeitsblatt ab, basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten), der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet.
+GetCols ruft den Wert aller Zellen nach Spalten auf dem Arbeitsblatt basierend auf dem angegebenen Arbeitsblattnamen ab und wird als zweidimensionales Array zurückgegeben, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. Zum Beispiel:
 
 Abrufen und Durchlaufen des Werts aller Zellen durch Spalten in einem Arbeitsblatt mit dem Namen `Sheet1`:
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-GetRows gibt alle Zeilen in einem Blatt mit dem angegebenen Arbeitsblattnamen (Groß-/Kleinschreibung beachten) zurück, der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows die Zeilen mit Wert- oder Formelzellen abgerufen hat, werden die ständig leeren Zellen am Ende jeder Zeile übersprungen, sodass die Länge jeder Zeile möglicherweise inkonsistent ist.
+GetRows gibt alle Zeilen in einem Blatt mit dem angegebenen Arbeitsblattnamen zurück, der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows die Zeilen mit Wert- oder Formelzellen abgerufen hat, werden die ständig leeren Zellen am Ende jeder Zeile übersprungen, sodass die Länge jeder Zeile möglicherweise inkonsistent ist.
 
 Abrufen und Durchlaufen des Werts aller Zellen in Zeilen in einem Arbeitsblatt mit dem Namen `Sheet1`:
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-Ruft einen Zellen-Hyperlink ab, der auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinaten basiert. Wenn die Zelle einen Hyperlink hat, gibt sie `true` und die Linkadresse zurück, andernfalls `false` und eine leere Linkadresse.
+GetCellHyperLink ruft einen Zell-Hyperlink basierend auf dem angegebenen Arbeitsblattnamen und Zellkoordinaten ab. Wenn die Zelle einen Hyperlink hat, gibt sie `true` und die Linkadresse zurück, andernfalls gibt sie `false` und eine leere Linkadresse zurück.
 
 Holen Sie sich beispielsweise einen Hyperlink zu einer `H6`-Zelle in einem Arbeitsblatt mit dem Namen `Sheet1`:
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinaten abgerufen, und der erhaltene Index kann als Parameter zum Aufrufen der Funktion `SetCellValue` beim Kopieren des Zellenstils verwendet werden.
+Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen und den Zellkoordinaten abgerufen, und der erhaltene Index kann als Parameter zum Aufrufen der Funktion `SetCellValue` beim Kopieren des Zellenstils verwendet werden.
 
 ## Zusammenführen von Zellen {#MergeCell}
 
@@ -499,7 +499,7 @@ Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen (Groß- und Klein
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinatenbereichen zusammen. Beim Zusammenführen von Zellen wird nur der obere linke Zellenwert beibehalten und die anderen Werte verworfen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Sheet1` zusammen:
+Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen und den Zellkoordinatenbereichen zusammen. Beim Zusammenführen von Zellen wird nur der obere linke Zellenwert beibehalten und die anderen Werte verworfen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Sheet1` zusammen:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -581,7 +581,7 @@ GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens a
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-SetCellFormula bietet eine Funktion zum Festlegen der Formel für die Zelle, die gemäß dem angegebenen Arbeitsblattnamen (Groß-/Kleinschreibung) und den Zellformeleinstellungen verwendet wird. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
+SetCellFormula bietet eine Funktion zum Festlegen der Formel für die Zelle, die gemäß dem angegebenen Arbeitsblattnamen und den Zellformeleinstellungen verwendet wird. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
 
 - Beispiel 1, setzen Sie die normale Formel `=SUM(A1,B1)` für die Zelle `A3` auf `Sheet1`:
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-Rufen Sie die Formel für die Zelle basierend auf dem angegebenen Arbeitsblattnamen (Groß- und Kleinschreibung beachten) und den Zellkoordinaten ab.
+Rufen Sie die Formel für die Zelle basierend auf dem angegebenen Arbeitsblattnamen und den Zellkoordinaten ab.
 
 ## Zellenwert berechnen {#CalcCellValue}
 

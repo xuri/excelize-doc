@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Abrufen des Blattindexes {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 GetSheetIndex bietet eine Funktion zum Abrufen eines Blattindex der Arbeitsmappe anhand des angegebenen Blattnamens. Wenn der angegebene Blattname ungültig ist oder das Arbeitsblatt nicht vorhanden ist, wird ein ganzzahliger Typwert `-1` zurückgegeben.
@@ -154,7 +154,7 @@ SetSheetName bietet eine Funktion zum Festlegen des Arbeitsblattnamens unter Ang
 ## Festlegen von Blatteigenschaften {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions bietet eine Funktion zum Festlegen von Arbeitsblatteigenschaften.
@@ -193,7 +193,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## Abrufen von Blatteigenschaften {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 GetSheetPrOptions bietet eine Funktion zum Abrufen von Arbeitsblatteigenschaften.

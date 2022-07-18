@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Obtenir l'index de la feuille de calcul {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 GetSheetIndex fournit une fonction pour obtenir un index de feuille du classeur par le nom de feuille donné. Si le nom de feuille donné n'est pas valide, il renverra une valeur de type entier `-1`.
@@ -154,7 +154,7 @@ SetSheetName fournit une fonction pour définir le nom de la feuille de calcul e
 ## Définir les propriétés d'une feuille de calcul {#SetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions fournit une fonction pour définir les propriétés de feuille de calcul.
@@ -193,7 +193,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## Obtenir les propriétés de la feuille de calcul {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 GetSheetPrOptions fournit une fonction pour obtenir des propriétés de feuille de calcul.

@@ -5,9 +5,9 @@ var (
     // ErrStreamSetColWidth は、ストリーム書き込みモードでの列幅の設定に関するエラーメッセージを定義しました
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrColumnNumber は、無効な列番号を受信したときのエラーメッセージを定義しました
-    ErrColumnNumber = errors.New("column number exceeds maximum limit")
+    ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth は、無効な列幅を受信したときのエラーメッセージを定義しました
-    ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
+    ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
     // ErrOutlineLevel は、無効なアウトラインレベル番号を受信したときのエラーメッセージを定義しました
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrCoordinates は、無効な座標タプルの長さに関するエラーメッセージを定義しました
@@ -23,7 +23,7 @@ var (
     // ErrMaxRows は、最大制限を超える行番号を受信したときのエラーメッセージを定義しました
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight は、無効な行の高さを受け取ったときのエラーメッセージを定義しました
-    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrImgExt は、サポートされていない画像拡張を受信したときのエラーメッセージを定義しました
     ErrImgExt = errors.New("unsupported image extension")
     // ErrWorkbookFileFormat は、サポートされていないワークブックファイル形式を受信したときのエラーメッセージを定義しました
@@ -51,7 +51,7 @@ var (
     // ErrCustomNumFmt は、空のカスタム数値形式を受信したときのエラーメッセージを定義しました
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength は、フォントファミリ名のオーバーフローの長さに関するエラーメッセージを定義しました
-    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
+    ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize は、フォントのサイズに関するエラーメッセージが無効であると定義しました
     ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました

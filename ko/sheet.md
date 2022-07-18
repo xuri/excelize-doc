@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## 워크 시트 색인 가져 오기 {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 GetSheetIndex 는 주어진 시트 이름으로 통합 문서의 시트 인덱스를 가져 오는 함수를 제공합니다. 주어진 시트 이름이 유효하지 않으면 정수형 값 `-1` 을 반환합니다.
@@ -155,7 +155,7 @@ SetSheetName 은 이전 및 새 워크 시트 이름으로 워크 시트 이름�
 ## 워크 시트 속성 설정 {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 SetSheetPrOptions 는 워크 시트 속성을 설정하는 기능을 제공합니다.
@@ -194,7 +194,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## 워크 시트 속성 가져 오기 {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 GetSheetPrOptions 워크 시트 속성을 가져옵니다 하는 함수를 제공 합니다.

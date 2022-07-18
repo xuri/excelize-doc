@@ -126,7 +126,7 @@ Close は、スプレッドシート用に開いている一時ファイルを�
 ## ワークシートを作成する {#NewSheet}
 
 ```go
-func (f *File) NewSheet(name string) int
+func (f *File) NewSheet(sheet string) int
 ```
 
 NewSheet は、ワークシート名を指定して新しいシートを作成する関数を提供し、ワークブック（スプレッドシート）に追加された後のシートのインデックスを返します。新しいスプレッドシートファイルを作成すると、`Sheet1`という名前のデフォルトのワークシートが作成されることに注意してください。
@@ -134,10 +134,10 @@ NewSheet は、ワークシート名を指定して新しいシートを作成�
 ## ワークシートを削除する {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(name string)
+func (f *File) DeleteSheet(sheet string)
 ```
 
-指定されたワークシート名に基づいて指定されたワークシートを削除する場合は、この方法を慎重に使用してください。削除するワークシートに関連付けられている数式、参照、グラフ、その他の要素に影響します。削除されたワークシートの値を参照する他のコンポーネントがあると、エラーが発生し、ワークブックも開くことができません。ワークブックにワークシートが1つしか含まれていない場合、このメソッドを呼び出しても効果はありません。
+DeleteSheet は、指定されたワークシート名でブック内のワークシートを削除する機能を提供します。この方法は注意して使用してください。数式やグラフなどの参照の変更に影響します。削除されたワークシートの参照値がある場合、それを開いたときにファイルエラーが発生します。ワークシートが1つしか残っていない場合、この関数は無効になります。
 
 ## ワークシートをコピーする {#CopySheet}
 
@@ -197,7 +197,7 @@ func (f *File) GetActiveSheetIndex() int
 ## ワークシートの表示設定 {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(name string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
 SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。指定したワークシートがアクティブになっている場合、この設定は無効になります。[SheetStateValues Enum](https://docs.microsoft.com/ja-jp/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) で定義されているシート状態値:
@@ -217,7 +217,7 @@ err := f.SetSheetVisible("Sheet1", false)
 ## ワークシートの表示設定を取得する {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(name string) bool
+func (f *File) GetSheetVisible(sheet string) bool
 ```
 
 GetSheetVisible は、与えられたワークシート名でワークシートを見えるようにする機能を提供します。たとえば、`Sheet1` の可視状態を取得します。
@@ -335,7 +335,7 @@ Defaults:
 ## ワークシートビューのプロパティを設定する {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
 SetSheetViewOptions は、シートビューオプションを設定します。`viewIndex` は負の場合があり、その場合は逆方向にカウントされます（`-1` は最後のビューです）。
@@ -422,7 +422,7 @@ Used correct value:
 ## ワークシートビュープロパティを取得する {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(name string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
 ```
 
 指定されたワークシート名、ビューインデックスの取得、およびビューパラメータに基づくワークシートビューのプロパティ，`viewIndex`は負の数にすることができ、もしそうなら、逆方向に数えます（`-1` は最後のビューを表します）。

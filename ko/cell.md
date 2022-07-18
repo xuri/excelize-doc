@@ -96,7 +96,7 @@ SetCellStr 셀의 문자열 형식 값을 설정하는 함수를 제공합니다
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다. SetCellStyle 은 셀의 기존 스타일을 덮어쓰며 기존 스타일에 스타일을 추가하거나 병합하지 않습니다.
+SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID 에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다. SetCellStyle 은 셀의 기존 스타일을 덮어쓰며 기존 스타일에 스타일을 추가하거나 병합하지 않습니다.
 
 - 예제 1 에서 `Sheet1` 에서 셀 `D7` 의 테두리를 만듭니다:
 
@@ -426,7 +426,7 @@ GetCellType 은 스프레드시트 파일에서 주어진 워크시트 이름과
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-주어진 워크 시트 이름 (대소 문자 구분)을 기반으로 워크 시트의 열을 기준으로 모든 셀의 값을 가져오고 2 차원 배열로 반환되며 셀 값은 `string` 형식으로 변환됩니다. 셀 형식을 셀 값에 적용 할 수 있으면 적용된 값이 사용되고 그렇지 않으면 원래 값이 사용됩니다.
+GetCols 는 지정된 워크시트 이름 을 기반으로 워크시트의 모든 셀 값을 가져오고, 2차원 배열로 반환되며, 여기서 셀 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있으면 적용된 값을 사용하고, 그렇지 않으면 원래 값을 사용합니다.
 
 예를 들어, `Sheet1` 이라는 워크 시트에서 열을 기준으로 모든 셀의 값을 가져 오십시오.
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-GetRows 는 시트의 모든 행을 지정된 워크시트 이름(대소문자 구분)으로 반환하고 2 차원 배열로 반환되며 여기서 셀 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있으면 적용된 값을 사용하고, 그렇지 않으면 원래 값을 사용합니다. GetRows 가 값 또는 수식 셀이 있는 행을 가져오면 각 행의 꼬리에 있는 계속해서 비어 있는 셀을 건너뛰므로 각 행의 길이가 일치하지 않을 수 있습니다.
+GetRows 는 시트의 모든 행을 지정된 워크시트 이름 으로 반환하고, 2 차원 배열로 반환되며, 여기서 셀 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있으면 적용된 값을 사용하고, 그렇지 않으면 원래 값을 사용합니다. GetRows 가 값 또는 수식 셀이 있는 행을 가져오면 각 행의 꼬리에 있는 계속해서 비어 있는 셀을 건너뛰므로 각 행의 길이가 일치하지 않을 수 있습니다.
 
 예를 들어, `Sheet1` 이라는 워크 시트에서 모든 셀의 값을 행으로 가로지 릅니다.
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-지정된 워크시트 이름(대/소문자 구분) 및 셀 좌표를 기반으로 셀 하이퍼링크를 가져옵니다. 셀에 하이퍼링크가 있는 경우 `true` 와 링크 주소를 반환하고 그렇지 않으면 `false` 와 빈 링크 주소를 반환합니다.
+지정된 워크시트 이름 및 셀 좌표를 기반으로 셀 하이퍼링크를 가져옵니다. 셀에 하이퍼링크가 있는 경우 `true` 와 링크 주소를 반환하고 그렇지 않으면 `false` 와 빈 링크 주소를 반환합니다.
 
 예를 들어 `Sheet1` 이라는 워크시트에서 `H6` 셀에 대한 하이퍼링크를 가져옵니다.
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-셀 스타일 인덱스는 지정된 워크시트 이름(대/소문자 구분) 및 셀 좌표에서 가져오며, 얻은 인덱스는 셀 스타일을 복사할 때 `SetCellValue` 함수를 호출하는 매개 변수로 사용할 수 있습니다.
+셀 스타일 인덱스는 지정된 워크시트 이름 및 셀 좌표에서 가져오며, 얻은 인덱스는 셀 스타일을 복사할 때 `SetCellValue` 함수를 호출하는 매개 변수로 사용할 수 있습니다.
 
 ## 셀 병합 {#MergeCell}
 
@@ -499,7 +499,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-지정된 시트 이름(대/소문자에 민감한) 및 셀 좌표 범위를 기반으로 셀을 병합합니다. 병합 범위 내에서는 왼쪽 위 셀의 값만 유지되며 다른 셀의 값은 무시됩니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다.
+지정된 시트 이름 및 셀 좌표 범위를 기반으로 셀을 병합합니다. 병합 범위 내에서는 왼쪽 위 셀의 값만 유지되며 다른 셀의 값은 무시됩니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다.
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -581,7 +581,7 @@ GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크�
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-SetCellFormula 는 주어진 워크시트 이름 (대소문자 구분) 과 셀 수식 설정에 따라 셀에 수식을 설정하는 기능을 제공합니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다. 엑셀 응용 프로그램이 통합 문서를 열었을 때 수식을 자동으로 계산하지 않으면 셀 수식 기능을 설정한 후 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 를 호출하십시오.
+SetCellFormula 는 주어진 워크시트 이름 과 셀 수식 설정에 따라 셀에 수식을 설정하는 기능을 제공합니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다. 엑셀 응용 프로그램이 통합 문서를 열었을 때 수식을 자동으로 계산하지 않으면 셀 수식 기능을 설정한 후 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 를 호출하십시오.
 
 - 예 1, `Sheet1` 의 `A3` 셀에 대해 일반 수식 `=SUM(A1,B1)` 설정:
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-지정된 워크시트 이름(대/소문자 구분) 및 셀 좌표를 기반으로 셀에 수식을 가져옵니다.
+지정된 워크시트 이름 및 셀 좌표를 기반으로 셀에 수식을 가져옵니다.
 
 ## 셀 값 계산 {#CalcCellValue}
 

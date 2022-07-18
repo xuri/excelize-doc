@@ -426,7 +426,7 @@ func (f *File) GetCellType(sheet, axis string) (CellType, error)
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根据给定的工作表名（大小写敏感）按列获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。
+根据给定的工作表名按列获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。
 
 例如，按列获取并遍历输出名为 `Sheet1` 的工作表上的所有单元格的值：
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根据给定的工作表名（大小写敏感）按行获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。GetRows 获取带有值或公式单元格的行，行尾连续为空的单元格将被跳过，每行中的单元格数目可能不同。
+根据给定的工作表名按行获取该工作表上全部单元格的值，以二维数组形式返回，其中单元格的值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将使用应用后的值，否则将使用原始值。GetRows 获取带有值或公式单元格的行，行尾连续为空的单元格将被跳过，每行中的单元格数目可能不同。
 
 例如，按行获取并遍历输出名为 `Sheet1` 的工作表上的所有单元格的值：
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标获取单元格超链接，如果该单元格存在超链接，将返回 `true` 和链接地址，否则将返回 `false` 和空的链接地址。
+根据给定的工作表名和单元格坐标获取单元格超链接，如果该单元格存在超链接，将返回 `true` 和链接地址，否则将返回 `false` 和空的链接地址。
 
 例如，获取名为 `Sheet1` 的工作表上坐标为 `H6` 单元格的超链接：
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标获取单元格样式索引，获取到的索引可以在复制单元格样式时，作为调用 `SetCellValue` 函数的参数使用。
+根据给定的工作表名和单元格坐标获取单元格样式索引，获取到的索引可以在复制单元格样式时，作为调用 `SetCellValue` 函数的参数使用。
 
 ## 合并单元格 {#MergeCell}
 
@@ -499,7 +499,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标区域合并单元格。合并区域内仅保留左上角单元格的值，其他单元格的值将被忽略。例如，合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
+根据给定的工作表名和单元格坐标区域合并单元格。合并区域内仅保留左上角单元格的值，其他单元格的值将被忽略。例如，合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -513,7 +513,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标区域取消合并单元格。例如，取消合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
+根据给定的工作表名和单元格坐标区域取消合并单元格。例如，取消合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
 
 ```go
 err := f.UnmergeCell("Sheet1", "D3", "E9")
@@ -523,7 +523,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 
 ## 获取合并单元格 {#GetMergeCells}
 
-根据给定的工作表名（大小写敏感）获取全部合并单元格的坐标区域和值。
+根据给定的工作表名获取全部合并单元格的坐标区域和值。
 
 ```go
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
@@ -581,7 +581,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标设置该单元格上的公式。公式的结果可在工作表被 Office Excel 应用程序打开时计算，或通过 [CalcCellValue](cell.md#CalcCellValue) 函数计算单元格的值。若 Excel 应用程序打开工作簿后未对设置的单元格公式进行计算，请在设置公式后调用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除单元格缓存。
+根据给定的工作表名和单元格坐标设置该单元格上的公式。公式的结果可在工作表被 Office Excel 应用程序打开时计算，或通过 [CalcCellValue](cell.md#CalcCellValue) 函数计算单元格的值。若 Excel 应用程序打开工作簿后未对设置的单元格公式进行计算，请在设置公式后调用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除单元格缓存。
 
 - 例1，为名为 `Sheet1` 的工作表 `A3` 单元格设置普通公式 `=SUM(A1,B1)`：
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标获取该单元格上的公式。
+根据给定的工作表名和单元格坐标获取该单元格上的公式。
 
 ## 计算单元格的值 {#CalcCellValue}
 
@@ -675,7 +675,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-根据给定的工作表名（大小写敏感）和单元格坐标计算包含公式单元格的值。该方法目前正在开发中，尚未支持迭代计算、隐式交集、显式交集、数组函数、表格函数和其他部分函数。
+根据给定的工作表名和单元格坐标计算包含公式单元格的值。该方法目前正在开发中，尚未支持迭代计算、隐式交集、显式交集、数组函数、表格函数和其他部分函数。
 
 支持的函数列表如下：
 

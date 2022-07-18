@@ -7,10 +7,10 @@ var (
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrColumnNumber определил сообщение об ошибке при получении
     // недопустимого номера столбца
-    ErrColumnNumber = errors.New("column number exceeds maximum limit")
+    ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth определяет сообщение об ошибке при получении
     // недопустимой ширины столбца
-    ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
+    ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
     // ErrOutlineLevel определил сообщение об ошибке при получении
     // недопустимого номера уровня структуры
     ErrOutlineLevel = errors.New("invalid outline level")
@@ -34,7 +34,7 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight определил сообщение об ошибке при получении
     // недопустимой высоты строки
-    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrImgExt определил сообщение об ошибке при получении неподдерживаемого
     // расширения изображения
     ErrImgExt = errors.New("unsupported image extension")
@@ -76,7 +76,7 @@ var (
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength определил сообщение об ошибке о длине переполнения имени
     // семейства шрифтов
-    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
+    ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize определил сообщение об ошибке о недопустимом размере шрифта
     ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // ErrSheetIdx определил сообщение об ошибке при получении недопустимого

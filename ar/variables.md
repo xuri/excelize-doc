@@ -6,9 +6,9 @@ var (
     // الدفق.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // حدد ErrColumnNumber رسالة الخطأ عند تلقي رقم عمود غير صالح.
-    ErrColumnNumber = errors.New("column number exceeds maximum limit")
+    ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // حدد ErrColumnWidth رسالة الخطأ عند تلقي عرض عمود غير صالح.
-    ErrColumnWidth = fmt.Errorf("the width of the column must be smaller than or equal to %d characters", MaxColumnWidth)
+    ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
     // حدد ErrOutlineLevel رسالة الخطأ عند تلقي رقم مستوى مخطط تفصيلي غير صالح.
     ErrOutlineLevel = errors.New("invalid outline level")
     // حددت ErrCoordinates رسالة الخطأ على طول مجموعات الإحداثيات غير الصالحة.
@@ -25,7 +25,7 @@ var (
     // حدد ErrMaxRows رسالة الخطأ عند تلقي رقم صف يتجاوز الحد الأقصى.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // حدد ErrMaxRowHeight رسالة الخطأ عند تلقي ارتفاع غير صالح للصف.
-    ErrMaxRowHeight = fmt.Errorf("the height of the row must be smaller than or equal to %d points", MaxRowHeight)
+    ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // حدد ErrImgExt رسالة الخطأ عند تلقي ملحق صورة غير مدعوم.
     ErrImgExt = errors.New("unsupported image extension")
     // حدد ErrWorkbookFileFormat رسالة الخطأ عند تلقي تنسيق ملف مصنف غير معتمد.
@@ -55,7 +55,7 @@ var (
     // حدد ErrCustomNumFmt رسالة الخطأ عند استلام تنسيق الأرقام المخصص الفارغ.
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // حدد ErrFontLength رسالة الخطأ على طول تجاوز اسم عائلة الخط.
-    ErrFontLength = fmt.Errorf("the length of the font family name must be smaller than or equal to %d", MaxFontFamilyLength)
+    ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // حدد ErrFontSize رسالة الخطأ على حجم الخط غير صالح.
     ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
     // حدد ErrSheetIdx رسالة الخطأ عند تلقي فهرس ورقة العمل غير صالح.

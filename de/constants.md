@@ -140,7 +140,8 @@ const (
     MaxRowHeight         = 409
     MinFontSize          = 1
     TotalRows            = 1048576
-    TotalColumns         = 16384
+    MinColumns           = 1
+    MaxColumns           = 16384
     TotalSheetHyperlinks = 65529
     TotalCellChars       = 32767
 )

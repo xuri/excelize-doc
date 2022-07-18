@@ -109,7 +109,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## احصل على فهرس ورقة العمل {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(name string) int
+func (f *File) GetSheetIndex(sheet string) int
 ```
 
 يوفر GetSheetIndex وظيفة للحصول على فهرس ورقة المصنف حسب اسم الورقة المحدد. إذا كان اسم الورقة المحدد غير صالح أو كانت ورقة العمل غير موجودة ، فستُرجع قيمة نوع عدد صحيح `-1`.
@@ -153,7 +153,7 @@ func (f *File) SetSheetName(oldName, newName string)
 ## تعيين خصائص الورقة {#SetSheetPrOptions}
 
 ```go
-func (f *File) SetSheetPrOptions(name string, opts ...SheetPrOption) error
+func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
 ```
 
 يوفر SetSheetPrOptions دالة لتعيين خصائص ورقة العمل.
@@ -192,7 +192,7 @@ if err := f.SetSheetPrOptions(sheet,
 ## الحصول على خصائص ورقة {#GetSheetPrOptions}
 
 ```go
-func (f *File) GetSheetPrOptions(name string, opts ...SheetPrOptionPtr) error
+func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
 ```
 
 يوفر GetSheetPrOptions دالة للحصول على خصائص ورقة العمل.

@@ -426,7 +426,7 @@ func (f *File) GetCellType(sheet, axis string) (CellType, error)
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）按欄獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
+根據給定的工作表名按欄獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
 
 例如，按欄獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
@@ -450,7 +450,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過，每列中的存儲格數目可能不同。
+根據給定的工作表名按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過，每列中的存儲格數目可能不同。
 
 例如，按列獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
@@ -477,7 +477,7 @@ if err = rows.Close(); err != nil {
 func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標獲取儲存格超鏈接，如果該儲存格存在超鏈接，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
+根據給定的工作表名和儲存格坐標獲取儲存格超鏈接，如果該儲存格存在超鏈接，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
 
 例如，獲取名為 `Sheet1` 的工作表上坐標為 `H6` 儲存格的超鏈接：
 
@@ -491,7 +491,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, axis string) (int, error)
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在複製儲存格樣式時，作為調用 `SetCellValue` 函數的參數使用。
+根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在複製儲存格樣式時，作為調用 `SetCellValue` 函數的參數使用。
 
 ## 合併儲存格 {#MergeCell}
 
@@ -499,7 +499,7 @@ func (f *File) GetCellStyle(sheet, axis string) (int, error)
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被忽略。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
+根據給定的工作表名和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被忽略。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -513,7 +513,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標區域取消合併儲存格。例如，取消合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
+根據給定的工作表名和儲存格坐標區域取消合併儲存格。例如，取消合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
 
 ```go
 err := f.UnmergeCell("Sheet1", "D3", "E9")
@@ -523,7 +523,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 
 ## 獲取合併儲存格 {#GetMergeCells}
 
-根據給定的工作表名（大小寫敏感）獲取全部合併儲存格的坐標區域和值。
+根據給定的工作表名獲取全部合併儲存格的坐標區域和值。
 
 ```go
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
@@ -581,7 +581,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
+根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 存儲格設定普通公式 `=SUM(A1,B1)`：
 
@@ -667,7 +667,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, axis string) (string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）和儲存格坐標獲取該儲存格上的公式。
+根據給定的工作表名和儲存格坐標獲取該儲存格上的公式。
 
 ## 計算存儲格的值 {#CalcCellValue}
 
@@ -675,7 +675,7 @@ func (f *File) GetCellFormula(sheet, axis string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string) (string, error)
 ```
 
-根據給定的工作表名（大小寫敏感）和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持迭代計算、隱式交集、顯式交集、數組函數、數組函數、表格函數和其他部分函數。
+根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持迭代計算、隱式交集、顯式交集、數組函數、數組函數、表格函數和其他部分函數。
 
 支持的函數列表如下：
 
