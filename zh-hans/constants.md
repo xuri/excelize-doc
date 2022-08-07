@@ -201,3 +201,23 @@ const (
     CellTypeString
 )
 ```
+
+ColorMappingType 定义了颜色转换枚举类型：
+
+```go
+const (
+    ColorMappingTypeLight1 ColorMappingType = iota
+    ColorMappingTypeDark1
+    ColorMappingTypeLight2
+    ColorMappingTypeDark2
+    ColorMappingTypeAccent1
+    ColorMappingTypeAccent2
+    ColorMappingTypeAccent3
+    ColorMappingTypeAccent4
+    ColorMappingTypeAccent5
+    ColorMappingTypeAccent6
+    ColorMappingTypeHyperlink
+    ColorMappingTypeFollowedHyperlink
+    ColorMappingTypeUnsetValue int = -1
+)
+```

@@ -201,3 +201,23 @@ const (
     CellTypeString
 )
 ```
+
+ColorMappingType - тип преобразования цвета.
+
+```go
+const (
+    ColorMappingTypeLight1 ColorMappingType = iota
+    ColorMappingTypeDark1
+    ColorMappingTypeLight2
+    ColorMappingTypeDark2
+    ColorMappingTypeAccent1
+    ColorMappingTypeAccent2
+    ColorMappingTypeAccent3
+    ColorMappingTypeAccent4
+    ColorMappingTypeAccent5
+    ColorMappingTypeAccent6
+    ColorMappingTypeHyperlink
+    ColorMappingTypeFollowedHyperlink
+    ColorMappingTypeUnsetValue int = -1
+)
+```

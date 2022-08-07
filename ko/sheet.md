@@ -168,7 +168,10 @@ SetSheetPrOptions 는 워크 시트 속성을 설정하는 기능을 제공합�
 |EnableFormatConditionsCalculation|bool|
 |Published|bool|
 |FitToPage|bool|
-|TabColor|string|
+|TabColorIndexed|int|
+|TabColorRGB|string|
+|TabColorTheme|int|
+|TabColorTint|float64|
 |AutoPageBreaks|bool|
 |OutlineSummaryBelow|bool|
 
@@ -183,7 +186,10 @@ if err := f.SetSheetPrOptions(sheet,
     excelize.EnableFormatConditionsCalculation(false),
     excelize.Published(false),
     excelize.FitToPage(true),
-    excelize.TabColor("#FFFF00"),
+    excelize.TabColorIndexed(42),
+    excelize.TabColorRGB("#FFFF00"),
+    excelize.TabColorTheme(ColorMappingTypeLight2),
+    excelize.TabColorTint(0.5),
     excelize.AutoPageBreaks(true),
     excelize.OutlineSummaryBelow(false),
 ); err != nil {
@@ -205,7 +211,10 @@ GetSheetPrOptions 워크 시트 속성을 가져옵니다 하는 함수를 제�
 |EnableFormatConditionsCalculation|bool|
 |Published|bool|
 |FitToPage|bool|
-|TabColor|string|
+|TabColorIndexed|int|
+|TabColorRGB|string|
+|TabColorTheme|int|
+|TabColorTint|float64|
 |AutoPageBreaks|bool|
 |OutlineSummaryBelow|bool|
 
@@ -220,7 +229,10 @@ var (
     enableFormatConditionsCalculation excelize.EnableFormatConditionsCalculation
     published                         excelize.Published
     fitToPage                         excelize.FitToPage
-    tabColor                          excelize.TabColor
+    tabColorIndexed                   excelize.TabColorIndexed
+    tabColorRGB                       excelize.TabColorRGB
+    tabColorTheme                     excelize.TabColorTheme
+    tabColorTint                      excelize.TabColorTint
     autoPageBreaks                    excelize.AutoPageBreaks
     outlineSummaryBelow               excelize.OutlineSummaryBelow
 )
@@ -230,7 +242,10 @@ if err := f.GetSheetPrOptions(sheet,
     &enableFormatConditionsCalculation,
     &published,
     &fitToPage,
-    &tabColor,
+    &tabColorIndexed,
+    &tabColorRGB,
+    &tabColorTheme,
+    &tabColorTint,
     &autoPageBreaks,
     &outlineSummaryBelow,
 ); err != nil {
@@ -241,7 +256,10 @@ fmt.Printf("- codeName: %q\n", codeName)
 fmt.Println("- enableFormatConditionsCalculation:", enableFormatConditionsCalculation)
 fmt.Println("- published:", published)
 fmt.Println("- fitToPage:", fitToPage)
-fmt.Printf("- tabColor: %q\n", tabColor)
+fmt.Printf("- tabColorIndexed: %d\n", tabColorIndexed)
+fmt.Printf("- tabColorRGB: %q\n", tabColorRGB)
+fmt.Printf("- tabColorTheme: %d\n", tabColorTheme)
+fmt.Printf("- tabColorTint: %f\n", tabColorTint)
 fmt.Println("- autoPageBreaks:", autoPageBreaks)
 fmt.Println("- outlineSummaryBelow:", outlineSummaryBelow)
 ```
@@ -254,7 +272,10 @@ Defaults:
 - enableFormatConditionsCalculation: true
 - published: true
 - fitToPage: false
-- tabColor: ""
+- tabColorIndexed: -1
+- tabColorRGB: ""
+- tabColorTheme: -1
+- tabColorTint: 0.000000
 - autoPageBreaks: false
 - outlineSummaryBelow: true
 ```
