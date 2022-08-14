@@ -466,9 +466,6 @@ for _, row := range rows {
     }
     fmt.Println()
 }
-if err = rows.Close(); err != nil {
-    fmt.Println(err)
-}
 ```
 
 ## 獲取超鏈接 {#GetCellHyperLink}

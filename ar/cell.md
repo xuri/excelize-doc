@@ -471,9 +471,6 @@ for _, row := range rows {
     }
     fmt.Println()
 }
-if err = rows.Close(); err != nil {
-    fmt.Println(err)
-}
 ```
 
 ## الحصول على ارتباط تشعبي {#GetCellHyperLink}

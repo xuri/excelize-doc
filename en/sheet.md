@@ -163,7 +163,6 @@ Available options:
 
 |Optional Attribute|Type|
 |---|---|
-|---|---|
 |CodeName|string|
 |EnableFormatConditionsCalculation|bool|
 |Published|bool|
