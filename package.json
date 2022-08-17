@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "gitbook-cli": "2.3.2",
-    "gitbook-plugin-page-footer": "5.4.9",
+    "gitbook-plugin-page-footer": "5.5.0",
     "gitbook-plugin-scramble-mailto": "0.1.2",
     "gitbook-plugin-scripts": "1.0.2",
     "gitbook-plugin-search-plus": "1.0.4-alpha-3",
