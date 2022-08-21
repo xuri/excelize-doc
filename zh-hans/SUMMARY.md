@@ -98,6 +98,7 @@
   * [获取合并单元格](cell.md#GetMergeCells)
   * [添加批注](cell.md#AddComment)
   * [获取批注](cell.md#GetComments)
+  * [删除批注](cell.md#DeleteComment)
   * [设置公式](cell.md#SetCellFormula)
   * [获取公式](cell.md#GetCellFormula)
   * [计算单元格的值](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [性能数据](performance.md)
 * [参与贡献](contribution.md)
 * 版本历史
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

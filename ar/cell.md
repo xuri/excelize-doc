@@ -577,6 +577,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 يقوم GetComments باسترداد جميع التعليقات وإرجاع خريطة اسم ورقة العمل إلى تعليقات ورقة العمل.
 
+## حذف تعليق {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+يوفر DeleteComment طريقة حذف تعليق في ورقة بواسطة ورقة عمل معينة. على سبيل المثال ، احذف التعليق في `Sheet1!$A$30`:
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## تعيين صيغة الخلية {#SetCellFormula}
 
 ```go

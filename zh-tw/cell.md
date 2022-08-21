@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 通過該方法可以獲取全部工作表中的註解。
 
+## 刪除註解 {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+根據給定的工作表名稱、儲存格坐標刪除註解。例如，刪除 `Sheet1!$A$30` 儲存格註解：
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## 設定公式 {#SetCellFormula}
 
 ```go

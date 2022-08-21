@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크시트 주석에 반환합니다.
 
+## 댓글 삭제 {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+DeleteComment 는 주어진 워크시트에 의해 시트의 주석을 삭제하는 방법을 제공합니다. 예를 들어 `Sheet1!$A$30` 에서 댓글을 삭제합니다:
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## 셀 수식 설정 {#SetCellFormula}
 
 ```go

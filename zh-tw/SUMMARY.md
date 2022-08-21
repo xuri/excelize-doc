@@ -98,6 +98,7 @@
   * [獲取合併儲存格](cell.md#GetMergeCells)
   * [添加註解](cell.md#AddComment)
   * [獲取註解](cell.md#GetComments)
+  * [刪除註解](cell.md#DeleteComment)
   * [設定公式](cell.md#SetCellFormula)
   * [獲取公式](cell.md#GetCellFormula)
   * [計算存儲格的值](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [性能資料](performance.md)
 * [參與貢獻](contribution.md)
 * 版本歷史
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

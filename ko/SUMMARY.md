@@ -98,6 +98,7 @@
   * [병합 셀 가져 오기](cell.md#GetMergeCells)
   * [의견 추가](cell.md#AddComment)
   * [의견 가져 오기](cell.md#GetComments)
+  * [댓글 삭제](cell.md#DeleteComment)
   * [셀 수식 설정](cell.md#SetCellFormula)
   * [셀 수식 가져 오기](cell.md#GetCellFormula)
   * [셀 값 계산](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [성능](performance.md)
 * [의연금](contribution.md)
 * 릴리스된 버전
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

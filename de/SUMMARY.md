@@ -98,6 +98,7 @@
   * [Abrufen von Zusammenführungszellen](cell.md#GetMergeCells)
   * [Kommentar hinzufügen](cell.md#AddComment)
   * [Kommentar abrufen](cell.md#GetComments)
+  * [Kommentar löschen](cell.md#DeleteComment)
   * [Festlegen der Zellenformel](cell.md#SetCellFormula)
   * [Abrufen der Zellenformel](cell.md#GetCellFormula)
   * [Zellenwert berechnen](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [Leistung](performance.md)
 * [Beitrag](contribution.md)
 * Freigegebene Versionen
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

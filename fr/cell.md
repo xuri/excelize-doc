@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 GetComments récupère tous les commentaires et renvoie une carte de nom de feuille de calcul dans les commentaires de feuille de calcul.
 
+## Supprimer le commentaire {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+DeleteComment fournit la méthode pour supprimer un commentaire dans une feuille par feuille de calcul donnée. Par exemple, supprimez le commentaire dans `Sheet1!$A$30`:
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## Formule de définition de cellule {#SetCellFormula}
 
 ```go

@@ -98,6 +98,7 @@
   * [Получить ячейки слияния](cell.md#GetMergeCells)
   * [Добавить комментарий](cell.md#AddComment)
   * [Получить комментарий](cell.md#GetComments)
+  * [Удалить комментарий](cell.md#DeleteComment)
   * [Установить формулу ячейки](cell.md#SetCellFormula)
   * [Получить формулу ячейки](cell.md#GetCellFormula)
   * [Рассчитать значение ячейки](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [Производительность](performance.md)
 * [Вклад](contribution.md)
 * Выпущенные версии
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

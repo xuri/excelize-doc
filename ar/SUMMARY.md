@@ -98,6 +98,7 @@
   * [الحصول على خلايا دمج](cell.md#GetMergeCells)
   * [إضافة تعليق](cell.md#AddComment)
   * [الحصول على تعليق](cell.md#GetComments)
+  * [حذف تعليق](cell.md#DeleteComment)
   * [تعيين صيغة الخلية](cell.md#SetCellFormula)
   * [الحصول على صيغة الخلية](cell.md#GetCellFormula)
   * [حساب قيمة الخلية](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [أداء](performance.md)
 * [إسهام](contribution.md)
 * الإصدارات الصادرة
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

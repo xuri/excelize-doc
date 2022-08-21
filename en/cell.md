@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 GetComments retrieve all comments and return a map of worksheet name to the worksheet comments.
 
+## Delete comment {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+DeleteComment provides the method to delete comment in a sheet by given worksheet. For example, delete the comment in `Sheet1!$A$30`:
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## Set cell formula {#SetCellFormula}
 
 ```go

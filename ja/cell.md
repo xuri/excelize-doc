@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 このメソッドを使用すると、すべてのワークシートからコメントを取得できます。
 
+## コメントを削除 {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+DeleteComment は、特定のワークシートでシート内のコメントを削除するメソッドを提供します。 たとえば、`Sheet1!$A$30` のコメントを削除します。
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## セル式の設定 {#SetCellFormula}
 
 ```go

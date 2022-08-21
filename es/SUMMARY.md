@@ -98,6 +98,7 @@
   * [Obtener celdas de combinación](cell.md#GetMergeCells)
   * [Añadir comentario](cell.md#AddComment)
   * [Obtener comentarios](cell.md#GetComments)
+  * [Eliminar comentario](cell.md#DeleteComment)
   * [Establecer fórmula de celda](cell.md#SetCellFormula)
   * [Obtener fórmula celular](cell.md#GetCellFormula)
   * [Calcular el valor de la celda](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [Rendimiento](performance.md)
 * [Contribución](contribution.md)
 * Versiones Publicadas
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

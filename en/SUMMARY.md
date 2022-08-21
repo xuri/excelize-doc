@@ -98,6 +98,7 @@
   * [Get merge cells](cell.md#GetMergeCells)
   * [Add comment](cell.md#AddComment)
   * [Get comment](cell.md#GetComments)
+  * [Delete comment](cell.md#DeleteComment)
   * [Set cell formula](cell.md#SetCellFormula)
   * [Get cell formula](cell.md#GetCellFormula)
   * [Calculate cell value](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [Performance](performance.md)
 * [Contribution](contribution.md)
 * Released Versions
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

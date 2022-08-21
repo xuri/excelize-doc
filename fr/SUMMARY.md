@@ -98,6 +98,7 @@
   * [Obtenir les cellules fusionnées](cell.md#GetMergeCells)
   * [Ajouter un commentaire](cell.md#AddComment)
   * [Obtenir un commentaire](cell.md#GetComments)
+  * [Supprimer le commentaire](cell.md#DeleteComment)
   * [Formule de définition de cellule](cell.md#SetCellFormula)
   * [Obtenir la formule cellulaire](cell.md#GetCellFormula)
   * [Calculer la valeur de la cellule](cell.md#CalcCellValue)
@@ -217,7 +218,7 @@
 * [Performance](performance.md)
 * [Contribution](contribution.md)
 * Versions publiées
-  * [v2.6.1](releases/v2.6.1.md)
+  * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
   * [v2.6.0 (2022-04-11)](releases/v2.6.0.md)
   * [v2.5.0 (2022-01-03)](releases/v2.5.0.md)
   * [v2.4.1 (2021-08-02)](releases/v2.4.1.md)

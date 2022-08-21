@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 通过该方法可以获取全部工作表中的批注。
 
+## 删除批注 {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+根据给定的工作表名称、单元格坐标删除批注。例如，删除 `Sheet1!$A$30` 单元格批注：
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## 设置公式 {#SetCellFormula}
 
 ```go

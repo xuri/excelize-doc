@@ -8,8 +8,8 @@ Excelize is a library written in pure Go providing a set of functions that allow
 - Issue: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Last version: [v2.6.0](https://github.com/xuri/excelize/releases/latest)
-- Document update time: August 15, 2022
+- Last version: [v2.6.1](https://github.com/xuri/excelize/releases/latest)
+- Document update time: August 22, 2022
 
 ## Project mission
 
@@ -76,4 +76,4 @@ Please contact us by <a href="mailto: xuri.me@gmail.com">E-mail</a>.
 
 ##### Chapter 3：Working with Large Spreadsheet Efficiently
 
-3.1 High-Performance I/O,  Create a  Huge Amounts of Data by Streaming API
+[3.1 High-Performance I/O, Create a Huge Amounts of Data by Streaming API](https://youtu.be/mzQhoVrKOz8)

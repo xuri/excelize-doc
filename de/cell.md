@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens an die Arbeitsblattkommentare zurück.
 
+## Kommentar löschen {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+DeleteComment bietet die Methode zum Löschen von Kommentaren in einem Blatt nach gegebenem Arbeitsblatt. Löschen Sie beispielsweise den Kommentar in `Sheet1!$A$30`:
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## Festlegen der Zellenformel {#SetCellFormula}
 
 ```go

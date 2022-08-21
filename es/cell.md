@@ -572,6 +572,18 @@ func (f *File) GetComments() (comments map[string][]Comment)
 
 GetComments recupera todos los comentarios y devuelve un mapa del nombre de la hoja de trabajo a los comentarios de la hoja de trabajo.
 
+## Eliminar comentario {#DeleteComment}
+
+```go
+func (f *File) DeleteComment(sheet, cell string) (err error)
+```
+
+DeleteComment proporciona el método para eliminar comentarios en una hoja por hoja de trabajo dada. Por ejemplo, elimine el comentario en `Sheet1!$A$30`:
+
+```go
+err := f.DeleteComment("Sheet1", "A30")
+```
+
 ## Establecer fórmula de celda {#SetCellFormula}
 
 ```go
