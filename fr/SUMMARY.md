@@ -74,6 +74,7 @@
   * [Ôter la protection de la feuille](sheet.md#UnprotectedSheet)
   * [Supprimer la colonne](sheet.md#RemoveCol)
   * [Supprimer la ligne](sheet.md#RemoveRow)
+  * [Définir les valeurs de colonne](sheet.md#SetSheetCol)
   * [Définir les valeurs de ligne](sheet.md#SetSheetRow)
   * [Insérer un saut de page](sheet.md#InsertPageBreak)
   * [Supprimer le saut de page](sheet.md#RemovePageBreak)

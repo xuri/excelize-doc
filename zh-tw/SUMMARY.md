@@ -74,6 +74,7 @@
   * [取消保護工作表](sheet.md#UnprotectSheet)
   * [刪除欄](sheet.md#RemoveCol)
   * [刪除列](sheet.md#RemoveRow)
+  * [按欄賦值](sheet.md#SetSheetCol)
   * [按列賦值](sheet.md#SetSheetRow)
   * [插入分頁符](sheet.md#InsertPageBreak)
   * [刪除分頁符](sheet.md#RemovePageBreak)

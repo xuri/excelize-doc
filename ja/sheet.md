@@ -486,6 +486,14 @@ func (rows *Rows) Error() error
 
 エラーが発生すると、Error は `error` を返します。
 
+### 行イテレーター - 行オプションの取得
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+GetRowOpts は、現在の行の `RowOpts` を返します。
+
 ### 行イテレーター - 閉じる
 
 ```go
@@ -591,6 +599,18 @@ err := f.RemoveRow("Sheet1", 3)
 ```
 
 この方法は慎重に使用してください。式、グラフなどの参照の変更に影響します。ワークシートの参照値がある場合は、開くとファイルエラーが発生します。excelize は現在これらの参照を部分的にしか更新しません。
+
+## 列の値を設定する {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+SetSheetCol は、指定されたワークシート名、開始座標、および配列型 `slice` へのポインターによって列に配列を書き込みます。たとえば、列 `B` に `Sheet1` のセル `B6` で始まる配列を書き込みます。
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## 行の値を設定 {#SetSheetRow}
 

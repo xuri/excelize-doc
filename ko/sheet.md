@@ -487,6 +487,14 @@ func (rows *Rows) Error() error
 
 Error 는 오류가 발생하면 `error` 를 반환합니다.
 
+### 행 이터레이터 - 행 옵션 가져오기
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+GetRowOpts 는 현재 행의 `RowOpts` 를 반환합니다.
+
 ### 행 이터레이터 - 닫다
 
 ```go
@@ -592,6 +600,18 @@ err := f.RemoveRow("Sheet1", 3)
 ```
 
 수식, 차트 등과 같은 참조의 변경 에 영향을 주는 이 메서드를 주의해서 사용하십시오. 워크 시트에 참조 된 값이 있으면 워크 시트를 열 때 파일 오류가 발생합니다. Excelize 는 현재 이러한 참조를 부분적으로만 업데이트합니다.
+
+## 열 값 설정 {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+SetSheetCol 은 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 배열을 열에 씁니다. 예를 들어, `Sheet1` 의 `B6` 셀로 시작하는 `B` 열에 배열을 씁니다.
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## 행별 지정 {#SetSheetRow}
 

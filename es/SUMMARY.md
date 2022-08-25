@@ -74,6 +74,7 @@
   * [Desproteger hoja](sheet.md#UnprotectSheet)
   * [Eliminar columna](sheet.md#RemoveCol)
   * [Eliminar fila](sheet.md#RemoveRow)
+  * [Establecer valores de columna](sheet.md#SetSheetCol)
   * [Establecer valores de fila](sheet.md#SetSheetRow)
   * [Insertar salto de página](sheet.md#InsertPageBreak)
   * [Eliminar salto de página](sheet.md#RemovePageBreak)

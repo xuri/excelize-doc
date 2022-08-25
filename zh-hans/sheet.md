@@ -486,6 +486,14 @@ func (rows *Rows) Error() error
 
 当查找下一行出现错误时将返回 `error`。
 
+### 行迭代器 - 读取行属性
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+返回当前行的行高、可见性和样式 ID 属性。
+
 ### 行迭代器 - 关闭数据流
 
 ```go
@@ -590,7 +598,19 @@ func (f *File) RemoveRow(sheet string, row int) error
 err := f.RemoveRow("Sheet1", 3)
 ```
 
-请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。excelize 目前仅支持对工作表上部分引用的更新。
+请谨慎使用此方法，这将影响所有对该工作表中原有公式、图表等资源引用的更改。如果该工作表包含任何引用值，在使用此方法后使用 Excel 应用程序打开它时将可能导致文件错误。Excelize 目前仅支持对工作表上部分引用的更新。
+
+## 按列赋值 {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+根据给定的工作表名称、起始坐标和 `slice` 类型引用按列赋值。例如，在名为 `Sheet1` 的工作表 `B` 列上，以 `B6` 单元格作为起始坐标按列赋值：
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## 按行赋值 {#SetSheetRow}
 
@@ -598,7 +618,7 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-根据给定的工作表名称、起始坐标和 `slice` 类型引用按行赋值。例如，在名为 `Sheet1` 的工作簿第 `6` 行上，以 `B6` 单元格作为起始坐标按行赋值：
+根据给定的工作表名称、起始坐标和 `slice` 类型引用按行赋值。例如，在名为 `Sheet1` 的工作表第 `6` 行上，以 `B6` 单元格作为起始坐标按行赋值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

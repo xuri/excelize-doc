@@ -486,6 +486,14 @@ func (rows *Rows) Error() error
 
 Error renverra le `error` lorsque l'erreur se produit.
 
+### Row itérateur - Obtenir les options de ligne
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+GetRowOpts renverra les `RowOpts` de la ligne en cours.
+
 ### Row itérateur - Fermer
 
 ```go
@@ -591,6 +599,18 @@ err := f.RemoveRow("Sheet1", 3)
 ```
 
 Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, une erreur de fichier se produira lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
+
+## Définir les valeurs de colonne {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+SetSheetCol écrit un tableau dans une colonne par nom de feuille de calcul donné, coordonnée de départ et pointeur vers le type de tableau `slice`. Par exemple, écrit un tableau dans la colonne `B` en commençant par la cellule `B6` de la feuille `Sheet1`:
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## Définir les valeurs de ligne {#SetSheetRow}
 

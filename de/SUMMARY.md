@@ -74,6 +74,7 @@
   * [Ungeschützt Arbeitsblatt](sheet.md#UnprotectSheet)
   * [Spalte entfernen](sheet.md#RemoveCol)
   * [Zeile entfernen](sheet.md#RemoveRow)
+  * [Festlegen von Spaltenwerten](sheet.md#SetSheetCol)
   * [Festlegen von Zeilenwerten](sheet.md#SetSheetRow)
   * [Seitenumbruch einfügen](sheet.md#InsertPageBreak)
   * [Entfernen des Seitenumbruchs](sheet.md#RemovePageBreak)

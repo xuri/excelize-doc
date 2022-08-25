@@ -74,6 +74,7 @@
   * [無防備シート](sheet.md#UnprotectSheet)
   * [列を削除](sheet.md#RemoveCol)
   * [行を削除](sheet.md#RemoveRow)
+  * [列の値を設定する](sheet.md#SetSheetCol)
   * [行の値を設定](sheet.md#SetSheetRow)
   * [改ページを挿入](sheet.md#InsertPageBreak)
   * [改ページを削除](sheet.md#RemovePageBreak)

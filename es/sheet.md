@@ -486,6 +486,14 @@ func (rows *Rows) Error() error
 
 Error devolverá el `error` cuando se produzca el error.
 
+### Iterador de filas - Obtener opciones de fila
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+GetRowOpts devolverá los `RowOpts` de la fila actual.
+
 ### Iterador de filas - Cerrar
 
 ```go
@@ -591,6 +599,18 @@ err := f.RemoveRow("Sheet1", 3)
 ```
 
 Utilice este método con precaución, ya que afectará a los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor referenciado de la hoja de trabajo, provocará un error de archivo cuando lo abra. Excelize solo actualiza parcialmente estas referencias actualmente.
+
+## Establecer valores de columna {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+SetSheetCol escribe una matriz en la columna por el nombre de la hoja de cálculo, la coordenada inicial y un puntero al tipo de matriz `slice`. Por ejemplo, escribe una matriz en la columna `B` a partir de la celda `B6` de `Sheet1`:
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## Establecer valores de fila {#SetSheetRow}
 

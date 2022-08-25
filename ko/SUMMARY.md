@@ -74,6 +74,7 @@
   * [보호되지 않은 시트](sheet.md#UnprotectSheet)
   * [열 삭제](sheet.md#RemoveCol)
   * [행 삭제](sheet.md#RemoveRow)
+  * [열 값 설정](sheet.md#SetSheetCol)
   * [행별 지정](sheet.md#SetSheetRow)
   * [페이지 나누기 삽입](sheet.md#InsertPageBreak)
   * [페이지 나누기 제거](sheet.md#RemovePageBreak)

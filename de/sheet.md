@@ -486,6 +486,14 @@ func (rows *Rows) Error() error
 
 Error gibt den `error` zurück, wenn der Fehler auftritt.
 
+### Zeileniterator - Abrufen von Zeilenoptionen
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+GetRowOpts gibt die `RowOpts` der aktuellen Zeile zurück.
+
 ### Zeileniterator - Schließen
 
 ```go
@@ -591,6 +599,18 @@ err := f.RemoveRow("Sheet1", 3)
 ```
 
 Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn das Arbeitsblatt einen referenzierten Wert enthält, verursacht es beim Öffnen einen Dateifehler. Die Excelize aktualisiert diese Referenzen derzeit nur teilweise.
+
+## Festlegen von Spaltenwerten {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+SetSheetCol schreibt ein Array in die Spalte mit dem Namen des Arbeitsblatts, der Startkoordinate und einem Zeiger auf den Arraytyp `slice`. Schreiben Sie beispielsweise ein Array in Spalte `B` und beginnen Sie mit der Zelle `B6` in `Sheet1`:
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## Festlegen von Zeilenwerten {#SetSheetRow}
 

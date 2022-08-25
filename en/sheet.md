@@ -486,6 +486,14 @@ func (rows *Rows) Error() error
 
 Error will return the `error` when the error occurs.
 
+### Row iterator - Get row options
+
+```go
+func (rows *Rows) GetRowOpts() RowOpts
+```
+
+GetRowOpts will return the `RowOpts` of the current row.
+
 ### Row iterator - Close
 
 ```go
@@ -591,6 +599,18 @@ err := f.RemoveRow("Sheet1", 3)
 ```
 
 Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the worksheet, it will cause a file error when you open it. The excelize only partially updates these references currently.
+
+## Set column values {#SetSheetCol}
+
+```go
+func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+```
+
+SetSheetCol writes an array to column by given worksheet name, starting coordinate and a pointer to array type `slice`. For example, writes an array to column `B` start with the cell `B6` on `Sheet1`:
+
+```go
+err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+```
 
 ## Set row values {#SetSheetRow}
 

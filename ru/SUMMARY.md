@@ -74,6 +74,7 @@
   * [Снять защиту листа](sheet.md#UnprotectSheet)
   * [Удалить столбец](sheet.md#RemoveCol)
   * [Удалить строку](sheet.md#RemoveRow)
+  * [Установка значений столбцов](sheet.md#SetSheetCol)
   * [Установить значения строки](sheet.md#SetSheetRow)
   * [Вставить разрыв страницы](sheet.md#InsertPageBreak)
   * [Удалить разрыв страницы](sheet.md#RemovePageBreak)

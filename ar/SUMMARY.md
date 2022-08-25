@@ -74,6 +74,7 @@
   * [ورقة إلغاء الحماية](sheet.md#UnprotectSheet)
   * [إزالة عمود](sheet.md#RemoveCol)
   * [إزالة الصف](sheet.md#RemoveRow)
+  * [قم بتعيين قيم العمود](sheet.md#SetSheetCol)
   * [تعيين قيم الصفوف](sheet.md#SetSheetRow)
   * [إدراج فاصل الصفحات](sheet.md#InsertPageBreak)
   * [إزالة فاصل الصفحات](sheet.md#RemovePageBreak)

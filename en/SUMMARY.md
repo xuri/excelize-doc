@@ -74,6 +74,7 @@
   * [Unprotect Sheet](sheet.md#UnprotectSheet)
   * [Remove column](sheet.md#RemoveCol)
   * [Remove row](sheet.md#RemoveRow)
+  * [Set column values](sheet.md#SetSheetCol)
   * [Set row values](sheet.md#SetSheetRow)
   * [Insert page break](sheet.md#InsertPageBreak)
   * [Remove page break](sheet.md#RemovePageBreak)
