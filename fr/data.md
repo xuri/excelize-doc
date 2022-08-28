@@ -54,6 +54,14 @@ dvRange.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dvRange)
 ```
 
+## Obtenir la validation des données{#GetDataValidations}
+
+```go
+func (f *File) GetDataValidations(sheet string) ([]*DataValidation, error)
+```
+
+GetDataValidations renvoie la liste des validations de données par nom de feuille de calcul donné.
+
 ## Supprimer la validation des données {#DeleteDataValidation}
 
 ```go

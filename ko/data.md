@@ -54,6 +54,14 @@ dvRange.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dvRange)
 ```
 
+## 데이터 유효성 검사 받기 {#GetDataValidations}
+
+```go
+func (f *File) GetDataValidations(sheet string) ([]*DataValidation, error)
+```
+
+GetDataValidations 는 지정된 워크시트 이름별로 데이터 유효성 검사 목록을 반환합니다.
+
 ## 데이터 유효성 검사 삭제 {#DeleteDataValidation}
 
 ```go

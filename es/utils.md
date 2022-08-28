@@ -796,6 +796,14 @@ func main() {
 }
 ```
 
+## Obtener formato condicional {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+GetConditionalFormats devuelve la configuración de formato condicional según el nombre de la hoja de cálculo.
+
 ## Eliminar formato condicional {#UnsetConditionalFormat}
 
 ```go

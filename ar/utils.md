@@ -801,6 +801,14 @@ func main() {
 }
 ```
 
+## احصل على تنسيق شرطي {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+يُرجع GetConditionalFormats إعدادات التنسيق الشرطي حسب اسم ورقة العمل المحدد.
+
 ## قم بإزالة التنسيق الشرطي {#UnsetConditionalFormat}
 
 ```go

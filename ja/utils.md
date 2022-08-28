@@ -796,6 +796,14 @@ func main() {
 }
 ```
 
+## 条件付き書式を取得 {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+GetConditionalFormats は、指定されたワークシート名によって条件付き書式設定を返します。
+
 ## 条件付きフォーマットを削除 {#UnsetConditionalFormat}
 
 ```go

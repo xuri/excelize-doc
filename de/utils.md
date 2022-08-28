@@ -796,6 +796,14 @@ func main() {
 }
 ```
 
+## Bedingtes Format erhalten {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+GetConditionalFormats gibt bedingte Formateinstellungen nach dem angegebenen Arbeitsblattnamen zurück.
+
 ## Entfernen des bedingten Formats {#UnsetConditionalFormat}
 
 ```go

@@ -791,6 +791,14 @@ func main() {
 }
 ```
 
+## 獲取條件式格式 {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+根據給定的工作表名稱獲取該工作表中全部儲存格坐標區域和條件式格式參數。
+
 ## 刪除條件式格式 {#UnsetConditionalFormat}
 
 ```go

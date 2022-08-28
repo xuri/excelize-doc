@@ -796,6 +796,14 @@ func main() {
 }
 ```
 
+## Get conditional format {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+GetConditionalFormats returns conditional format settings by given worksheet name.
+
 ## Remove conditional format {#UnsetConditionalFormat}
 
 ```go

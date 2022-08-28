@@ -796,6 +796,14 @@ func main() {
 }
 ```
 
+## Получить условный формат {GetConditionalFormats}
+
+```go
+func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+```
+
+Метод GetConditionalFormats возвращает параметры условного формата по заданному имени листа.
+
 ## Удалить условный формат {#UnsetConditionalFormat}
 
 ```go
