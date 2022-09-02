@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## 插入欄 {#InsertCol}
+## 插入欄 {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-根據給定的工作表名稱和列名稱，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的 `C` 欄前插入空白列：
+根據給定的工作表名稱、欄名稱和要插入的欄數，在指定列前插入空白欄。例如，在名為 `Sheet1` 的工作表的 `C` 欄前插入 2 欄空白欄：
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## 插入列 {#InsertRow}
+## 插入列 {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-根據給定的工作表名稱和列號，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的第 3 列前插入空白列：
+根據給定的工作表名稱、列號和要插入的列數，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的第 3 列前插入 2 列空白列：
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## 追加複製列 {#DuplicateRow}

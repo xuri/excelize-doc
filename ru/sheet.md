@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## Вставить столбец {#InsertCol}
+## Вставка столбцов {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCol предоставляет функцию для вставки нового столбца перед указателем столбца. Например, создайте новый столбец перед столбцом `C` в `Sheet1`:
+InsertCols предоставляет функцию вставки новых столбцов перед заданным именем столбца и количеством столбцов. Например, создайте два столбца перед столбцом `C` в `Sheet1`:
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## Вставить строку {#InsertRow}
+## Вставка строк {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRow предоставляет функцию для вставки новой строки перед указателем строки. Например, создайте новую строку перед строкой `3` в `Sheet1`:
+InsertRows предоставляет функцию вставки новых строк после заданного номера строки Excel, начиная с `1` и количества строк. Например, создайте две строки перед строкой `3` в `Sheet1`:
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## Добавить дубликат строки {#DuplicateRow}

@@ -280,28 +280,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## 열 삽입 {#InsertCol}
+## 열 삽입 {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCol 은 지정된 열 인덱스 전에 새 열을 삽입하는 기능을 제공합니다. 예를 들어 `Sheet1` 에서 `C`  열 앞에 새 열을 만듭니다.
+InsertCols 는 지정된 열 이름과 열 수 앞에 새 열을 삽입하는 함수를 제공합니다. 예를 들어 `Sheet1` 의 `C` 열 앞에 두 개의 열을 만듭니다.
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## 행 삽입 {#InsertRow}
+## 행 삽입 {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRow 는 1부터 Excel 행 번호가 지정된 후 새 행을 삽입하는 기능을 제공합니다. 예를 들어 `Sheet1` 에서 행 `3` 앞에 새 행을 만듭니다.
+InsertRows 는 `1` 부터 시작하는 지정된 Excel 행 번호 뒤에 새 행을 삽입하는 함수를 제공합니다. 예를 들어 `Sheet1` 에서 행 `3` 앞에 두 행을 만듭니다.
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## 중복 행 추가 {#DuplicateRow}

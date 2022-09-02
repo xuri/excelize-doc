@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## Insert column {#InsertCol}
+## Insert columns {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCol provides a function to insert a new column before given column index. For example, create a new column before column `C` in `Sheet1`:
+InsertCols provides a function to insert new columns before the given column name and number of columns. For example, create two columns before column `C` in `Sheet1`:
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## Insert row {#InsertRow}
+## Insert rows {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRow provides a function to insert a new row after given Excel row number starting from 1. For example, create a new row before row `3` in `Sheet1`:
+InsertRows provides a function to insert new rows after the given Excel row number starting from `1` and number of rows. For example, create two rows before row `3` in `Sheet1`:
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## Append duplicate row {#DuplicateRow}

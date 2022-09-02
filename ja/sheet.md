@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## 列を挿入 {#InsertCol}
+## 列を挿入 {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-指定されたシート名と列名に基づいて、指定された列の前に空白の列を挿入します。例えば、`Sheet1` という名前のワークシートの `C` 列の前に空白の列を挿入します。
+InsertCols には、指定された列名と列数の前に新しい列を挿入する関数が用意されています。たとえば、`Sheet1` の列 `C` の前に 2 つの列を作成します。
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## 行挿入 {#InsertRow}
+## 行挿入 {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-指定されたシート名と行インデックスに基づいて、指定された行の前に空白行を挿入します。例えば、`Sheet1` という名前のワークシートの `3` 行目の前に空白行を挿入します。
+InsertRows は、指定された Excel の行番号の後に `1` から始まる行数と行数の後に新しい行を挿入する関数を提供します。たとえば、`Sheet1` の行 `3` の前に 2 つの行を作成します。
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## 重複行を追加 {#DuplicateRow}

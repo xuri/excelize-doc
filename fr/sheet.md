@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## Insérer une colonne {#InsertCol}
+## Insérer des colonnes {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCol fournit une fonction pour insérer une nouvelle colonne avant l'index de colonne donné. Par exemple, créez une nouvelle colonne avant la colonne `C` dans `Sheet1`:
+InsertCols fournit une fonction permettant d'insérer de nouvelles colonnes avant le nom de colonne et le nombre de colonnes donnés. Par exemple, créez deux colonnes avant la colonne `C` dans `Sheet1`:
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## Insérer une ligne {#InsertRow}
+## Insérer des lignes {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRow fournit une fonction pour insérer une nouvelle ligne avant l'index de ligne donné. Par exemple, créez une nouvelle ligne avant la ligne `3` dans `Sheet1`:
+InsertRows fournit une fonction permettant d'insérer de nouvelles lignes après le numéro de ligne Excel donné à partir de `1` et le nombre de lignes. Par exemple, créez deux lignes avant la ligne `3` dans `Sheet1`:
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## Ajouter une ligne en double {#DuplicateRow}

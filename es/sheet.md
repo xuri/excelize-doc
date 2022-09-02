@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## Insertar columna {#InsertCol}
+## Insertar columnas {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCol proporciona una función para insertar una nueva columna antes del índice de columna dado. Por ejemplo, cree una nueva columna antes de la columna `C` en `Sheet1`:
+InsertCols proporciona una función para insertar nuevas columnas antes del nombre de columna dado y el número de columnas. Por ejemplo, cree dos columnas antes de la columna `C` en `Sheet1`:
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## Insertar fila {#InsertRow}
+## Insertar filas {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRow proporciona una función para insertar una nueva fila después del número de fila de Excel dado a partir de 1. Por ejemplo, cree una nueva fila antes de la fila `3` en `Sheet1`:
+InsertRows proporciona una función para insertar nuevas filas después del número de fila de Excel dado a partir de `1` y el número de filas. Por ejemplo, cree dos filas antes de la fila `3` en `Sheet1`:
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## Anexar fila duplicada {#DuplicateRow}

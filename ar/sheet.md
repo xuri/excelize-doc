@@ -278,28 +278,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## إدراج عمود {#InsertCol}
+## إدراج أعمدة {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-يوفر InsertCol وظيفة لإدراج عمود جديد قبل فهرس العمود المحدد. على سبيل المثال ، أنشئ عمودًا جديدًا قبل العمود `C` في `Sheet1`:
+يوفر InsertCols وظيفة لإدراج أعمدة جديدة قبل اسم العمود المحدد وعدد الأعمدة. على سبيل المثال، أنشئ عمودين قبل العمود `C` في `Sheet1`:
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## إدراج صف {#InsertRow}
+## إدراج صفوف {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-يوفر InsertRow وظيفة لإدراج صف جديد بعد رقم صف Excel المحدد بدءًا من 1. على سبيل المثال ، قم بإنشاء صف جديد قبل الصف `3` في `Sheet1`:
+يوفر InsertRows وظيفة لإدراج صفوف جديدة بعد رقم صف Excel المحدد بدءا من `1` وعدد الصفوف. على سبيل المثال، أنشئ صفين قبل الصف `3` في `Sheet1`:
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## إلحاق صف مكرر {#DuplicateRow}

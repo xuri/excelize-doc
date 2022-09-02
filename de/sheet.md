@@ -279,28 +279,28 @@ Defaults:
 - outlineSummaryBelow: true
 ```
 
-## Spalte einfügen {#InsertCol}
+## Einfügen von Spalten {#InsertCols}
 
 ```go
-func (f *File) InsertCol(sheet, column string) error
+func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCol bietet eine Funktion zum Einfügen einer neuen Spalte vor dem angegebenen Spaltenindex. Erstellen Sie beispielsweise eine neue Spalte vor der Spalte `C` in `Sheet1`:
+InsertCols stellt eine Funktion zum Einfügen neuer Spalten vor dem angegebenen Spaltennamen und der angegebenen Anzahl von Spalten bereit. Erstellen Sie beispielsweise zwei Spalten vor Spalte `C` in `Sheet1`:
 
 ```go
-err := f.InsertCol("Sheet1", "C")
+err := f.InsertCols("Sheet1", "C", 2)
 ```
 
-## Zeile einfügen {#InsertRow}
+## Zeilen einfügen {#InsertRows}
 
 ```go
-func (f *File) InsertRow(sheet string, row int) error
+func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRow bietet eine Funktion zum Einfügen einer neuen Zeile nach der angegebenen Excel-Zeilennummer ab 1. Erstellen Sie beispielsweise eine neue Zeile vor der Zeile `3` in `Sheet1`:
+InsertRows bietet eine Funktion zum Einfügen neuer Zeilen nach der angegebenen Excel-Zeilennummer beginnend mit `1` und der Anzahl der Zeilen. Erstellen Sie beispielsweise zwei Zeilen vor Zeile `3` in `Sheet1`:
 
 ```go
-err := f.InsertRow("Sheet1", 3)
+err := f.InsertRows("Sheet1", 3, 2)
 ```
 
 ## Doppelte Zeile anfügen {#DuplicateRow}
