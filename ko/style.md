@@ -998,6 +998,14 @@ err = f.SetColStyle("Sheet1", "H", style)
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## 열 스타일 가져오기 {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+GetColStyle 은 지정된 워크시트 이름과 열 이름으로 열 스타일 ID를 가져오는 함수를 제공합니다.
+
 ## 행 스타일 설정 {#SetRowStyle}
 
 SetRowStyle 은 주어진 워크시트 이름, 행 범위 및 스타일 ID로 행의 스타일을 설정하는 기능을 제공합니다. 이것은 행의 기존 스타일을 덮어쓰며 기존 스타일과 스타일을 추가하거나 병합하지 않습니다.

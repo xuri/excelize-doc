@@ -174,6 +174,7 @@
   * [フォントの下線](style.md#underline)
   * [デジタルカスタムフォーマット](style.md#number_format)
   * [列のスタイル設定](style.md#SetColStyle)
+  * [列のスタイルを取得する](style.md#GetColStyle)
   * [行スタイルを設定する](style.md#SetRowStyle)
   * [既定のフォントを設定する](style.md#SetDefaultFont)
   * [デフォルトのフォントを取得する](style.md#GetDefaultFont)

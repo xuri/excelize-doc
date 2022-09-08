@@ -796,7 +796,7 @@ func main() {
 }
 ```
 
-## 条件付き書式を取得 {GetConditionalFormats}
+## 条件付き書式を取得 {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
@@ -1007,7 +1007,7 @@ HSLToRGB は HSL トリプルを RGB トリプルに変換します。
 ### Write {#Write}
 
 ```go
-func (f *File) Write(w io.Writer) error
+func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
 書き込みは `io.Writer` に書き込む関数を提供します。
@@ -1015,7 +1015,7 @@ func (f *File) Write(w io.Writer) error
 ### WriteTo {#WriteTo}
 
 ```go
-func (f *File) WriteTo(w io.Writer) (int64, error)
+func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
 WriteTo は、ファイルを書き込む `io.WriterTo` を実装します。

@@ -998,6 +998,14 @@ err = f.SetColStyle("Sheet1", "H", style)
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## 獲取欄樣式 {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+根據給定的工作表名稱和欄名稱獲取欄的樣式索引。
+
 ## 設定列樣式 {#SetRowStyle}
 
 根據給定的工作表名稱、列區域和樣式索引設定列樣式。請注意，這將覆蓋列的已有樣式，而不會將樣式與已有樣式疊加或合併。

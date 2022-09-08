@@ -998,6 +998,14 @@ err = f.SetColStyle("Sheet1", "H", style)
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## الحصول على نمط العمود {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+يوفر GetColStyle وظيفة للحصول على معرف نمط العمود حسب اسم ورقة العمل واسم العمود المحددين.
+
 ## تعيين نمط الصف {#SetRowStyle}
 
 يوفر SetRowStyle وظيفة لتعيين نمط الصفوف حسب اسم ورقة العمل ونطاق الصف ومعرف النمط. لاحظ أن هذا سيؤدي إلى الكتابة فوق الأنماط الموجودة للصفوف ، ولن يقوم بإلحاق أو دمج النمط مع الأنماط الموجودة.

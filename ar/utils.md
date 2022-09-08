@@ -252,7 +252,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 
 يوفر NewConditionalStyle وظيفة لإنشاء نمط للتنسيق الشرطي بتنسيق نمط معين. المعلمات هي نفس الوظيفة [`NewStyle()`](style.md#NewStyle). لاحظ أن حقل اللون يستخدم رمز لون RGB ويدعم فقط تعيين الخط والتعبئة والمحاذاة والحدود حاليًا.
 
-## التنسيق الشرطي {#SetConditionalFormat}
+## تعيين تنسيق شرطي {#SetConditionalFormat}
 
 ```go
 func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
@@ -801,7 +801,7 @@ func main() {
 }
 ```
 
-## احصل على تنسيق شرطي {GetConditionalFormats}
+## احصل على تنسيق شرطي {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
@@ -1012,7 +1012,7 @@ func HSLToRGB(h, s, l float64) (r, g, b uint8)
 ### Write {#Write}
 
 ```go
-func (f *File) Write(w io.Writer) error
+func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
 يوفر Write وظيفة للكتابة إلى `io.Writer`.
@@ -1020,7 +1020,7 @@ func (f *File) Write(w io.Writer) error
 ### WriteTo {#WriteTo}
 
 ```go
-func (f *File) WriteTo(w io.Writer) (int64, error)
+func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
 يقوم WriteTo بتنفيذ `io.WriterTo` لكتابة الملف.

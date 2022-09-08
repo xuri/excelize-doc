@@ -174,6 +174,7 @@
   * [글꼴 밑줄](style.md#underline)
   * [숫자 형식](style.md#number_format)
   * [열 스타일 설정](style.md#SetColStyle)
+  * [열 스타일 가져오기](style.md#GetColStyle)
   * [행 스타일 설정](style.md#SetRowStyle)
   * [기본 글꼴 설정](style.md#SetDefaultFont)
   * [기본 글꼴 가져오기](style.md#GetDefaultFont)

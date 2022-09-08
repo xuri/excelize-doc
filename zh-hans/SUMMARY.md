@@ -174,6 +174,7 @@
   * [字体下划线](style.md#underline)
   * [数字自定义格式](style.md#number_format)
   * [设置列样式](style.md#SetColStyle)
+  * [获取列样式](style.md#GetColStyle)
   * [设置行样式](style.md#SetRowStyle)
   * [设置默认字体](style.md#SetDefaultFont)
   * [获取默认字体](style.md#GetDefaultFont)

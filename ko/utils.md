@@ -796,7 +796,7 @@ func main() {
 }
 ```
 
-## 조건부 형식 가져오기 {GetConditionalFormats}
+## 조건부 형식 가져오기 {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
@@ -1007,7 +1007,7 @@ HSLToRGB 는 HSL 트리플을 RGB 트리플로 변환합니다.
 ### Write {#Write}
 
 ```go
-func (f *File) Write(w io.Writer) error
+func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
 쓰기는 `io.Writer` 에 쓸 수 있는 함수를 제공합니다.
@@ -1015,7 +1015,7 @@ func (f *File) Write(w io.Writer) error
 ### WriteTo {#WriteTo}
 
 ```go
-func (f *File) WriteTo(w io.Writer) (int64, error)
+func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
 WriteTo 파일을 작성 하는 `io.WriterTo` 를 구현 합니다.

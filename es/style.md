@@ -998,6 +998,14 @@ Establecer el estilo de las columnas `C:F` en `Sheet1`:
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## Obtener estilo de columna {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+GetColStyle proporciona una función para obtener el identificador de estilo de columna por nombre de hoja de cálculo y nombre de columna dados.
+
 ## Establecer estilo de fila {#SetRowStyle}
 
 SetRowStyle proporciona una función para establecer el estilo de las filas por nombre de hoja de trabajo, rango de filas e ID de estilo dados. Tenga en cuenta que esto sobrescribirá los estilos existentes para las filas, no agregará ni fusionará el estilo con los estilos existentes.

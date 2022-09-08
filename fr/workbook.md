@@ -47,7 +47,7 @@ Fermez le fichier par [`Close()`](workbook.md#Close) après avoir ouvert la feui
 ## Flux de données ouvert {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader, opt ...Options) (*File, error)
+func OpenReader(r io.Reader, opts ...Options) (*File, error)
 ```
 
 OpenReader lit le flux de données depuis `io.Reader` et renvoie un fichier de feuille de calcul rempli.
@@ -67,22 +67,22 @@ import (
 func process(w http.ResponseWriter, req *http.Request) {
     file, _, err := req.FormFile("file")
     if err != nil {
-        fmt.Fprintf(w, err.Error())
+        fmt.Fprint(w, err.Error())
         return
     }
     defer file.Close()
     f, err := excelize.OpenReader(file)
     if err != nil {
-        fmt.Fprintf(w, err.Error())
+        fmt.Fprint(w, err.Error())
         return
     }
+    f.Path = "Book1.xlsx"
     f.NewSheet("NewSheet")
-    w.Header().Set("Content-Disposition", "attachment; filename=Book1.xlsx")
+    w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", f.Path))
     w.Header().Set("Content-Type", req.Header.Get("Content-Type"))
-    if _, err := f.WriteTo(w); err != nil {
-        fmt.Fprintf(w, err.Error())
+    if err := f.Write(w); err != nil {
+        fmt.Fprint(w, err.Error())
     }
-    return
 }
 
 func main() {
@@ -95,14 +95,13 @@ Testez avec cURL:
 
 ```bash
 curl --location --request GET 'http://127.0.0.1:8090/process' \
---form 'file=@/tmp/template.xlsx' -O -J
-curl: Saved to filename 'Book1.xlsx'
+--form 'file=@/tmp/template.xltx' -O -J
 ```
 
 ## Enregistrer {#Save}
 
 ```go
-func (f *File) Save() error
+func (f *File) Save(opts ...Options) error
 ```
 
 Save fournit une fonction pour remplacer le fichier xlsx avec le chemin d'origine.
@@ -110,7 +109,7 @@ Save fournit une fonction pour remplacer le fichier xlsx avec le chemin d'origin
 ## Enregistrer sous {#SaveAs}
 
 ```go
-func (f *File) SaveAs(name string) error
+func (f *File) SaveAs(name string, opts ...Options) error
 ```
 
 SaveAs fournit une fonction pour créer ou mettre à jour un fichier xlsx sur le chemin fourni.

@@ -253,7 +253,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 
 NewConditionalStyle fournit une fonction pour créer un style pour le format conditionnel par format de style donné. Les paramètres sont les mêmes que la fonction [`NewStyle()`](style.md#NewStyle). Notez que le champ de couleur utilise le code de couleur RGB et uniquement le support pour définir la police, les remplissages, l'alignement et les bordures actuellement.
 
-## Format conditionnel {#SetConditionalFormat}
+## Définir le format conditionnel {#SetConditionalFormat}
 
 ```go
 func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
@@ -796,7 +796,7 @@ func main() {
 }
 ```
 
-## Obtenir le format conditionnel {GetConditionalFormats}
+## Obtenir le format conditionnel {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
@@ -1007,7 +1007,7 @@ HSLToRGB convertit un triple HSL en un triple RGB.
 ### Write {#Write}
 
 ```go
-func (f *File) Write(w io.Writer) error
+func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
 Write fournit une fonction pour écrire dans un `io.Writer`.
@@ -1015,7 +1015,7 @@ Write fournit une fonction pour écrire dans un `io.Writer`.
 ### WriteTo {#WriteTo}
 
 ```go
-func (f *File) WriteTo(w io.Writer) (int64, error)
+func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
 WriteTo implémente `io.WriterTo` pour écrire le fichier.

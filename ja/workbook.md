@@ -47,7 +47,7 @@ if err != nil {
 ## データストリームを開く {#OpenReader}
 
 ```go
-func OpenReader(r io.Reader, opt ...Options) (*File, error)
+func OpenReader(r io.Reader, opts ...Options) (*File, error)
 ```
 
 OpenReaderは `io.Reader` からデータストリームを読み取り、入力されたスプレッドシートファイルを返します。
@@ -67,22 +67,22 @@ import (
 func process(w http.ResponseWriter, req *http.Request) {
     file, _, err := req.FormFile("file")
     if err != nil {
-        fmt.Fprintf(w, err.Error())
+        fmt.Fprint(w, err.Error())
         return
     }
     defer file.Close()
     f, err := excelize.OpenReader(file)
     if err != nil {
-        fmt.Fprintf(w, err.Error())
+        fmt.Fprint(w, err.Error())
         return
     }
+    f.Path = "Book1.xlsx"
     f.NewSheet("NewSheet")
-    w.Header().Set("Content-Disposition", "attachment; filename=Book1.xlsx")
+    w.Header().Set("Content-Disposition", fmt.Sprintf("attachment; filename=%s", f.Path))
     w.Header().Set("Content-Type", req.Header.Get("Content-Type"))
-    if _, err := f.WriteTo(w); err != nil {
-        fmt.Fprintf(w, err.Error())
+    if err := f.Write(w); err != nil {
+        fmt.Fprint(w, err.Error())
     }
-    return
 }
 
 func main() {
@@ -95,14 +95,13 @@ cURLを使用してテストします:
 
 ```bash
 curl --location --request GET 'http://127.0.0.1:8090/process' \
---form 'file=@/tmp/template.xlsx' -O -J
-curl: Saved to filename 'Book1.xlsx'
+--form 'file=@/tmp/template.xltx' -O -J
 ```
 
 ## 保存 {#Save}
 
 ```go
-func (f *File) Save() error
+func (f *File) Save(opts ...Options) error
 ```
 
 Excel 文書に編集内容を保存するには `Save` を使います。
@@ -110,7 +109,7 @@ Excel 文書に編集内容を保存するには `Save` を使います。
 ## 名前を付けて保存 {#SaveAs}
 
 ```go
-func (f *File) SaveAs(name string) error
+func (f *File) SaveAs(name string, opts ...Options) error
 ```
 
 指定したファイルとして Excel 文書を保存するには `SaveAs` を使います。

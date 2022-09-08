@@ -253,7 +253,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 
 NewConditionalStyle предоставляет функцию для создания стиля для условного формата по заданному стилю. Параметры такие же, как и функция [`NewStyle()`](style.md#NewStyle). Обратите внимание, что в цветовом поле используется цветовой код RGB и поддерживается только для установки шрифта, заливок, выравнивания и границ в настоящее время.
 
-## Формат условия {#SetConditionalFormat}
+## Установка условного формата {#SetConditionalFormat}
 
 ```go
 func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
@@ -796,7 +796,7 @@ func main() {
 }
 ```
 
-## Получить условный формат {GetConditionalFormats}
+## Получить условный формат {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
@@ -1008,7 +1008,7 @@ HSLToRGB преобразует тройку HSL в тройку RGB.
 ### Write {#Write}
 
 ```go
-func (f *File) Write(w io.Writer) error
+func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
 Write предоставляет функцию для записи в `io.Writer`.
@@ -1016,7 +1016,7 @@ Write предоставляет функцию для записи в `io.Write
 ### WriteTo {#WriteTo}
 
 ```go
-func (f *File) WriteTo(w io.Writer) (int64, error)
+func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
 WriteTo реализует `io.WriterTo` для записи файла.

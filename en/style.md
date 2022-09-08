@@ -998,6 +998,14 @@ Set style of columns `C:F` on `Sheet1`:
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## Get column style {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+GetColStyle provides a function to get column style ID by given worksheet name and column name.
+
 ## Set row style {#SetRowStyle}
 
 SetRowStyle provides a function to set the style of rows by given worksheet name, row range, and style ID. Note that this will overwrite the existing styles for the rows, it won't append or merge style with existing styles.

@@ -998,6 +998,14 @@ Set style of columns `C:F` on `Sheet1`:
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## Obtenir le style de colonne {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+GetColStyle fournit une fonction pour obtenir l'ID de style de colonne en fonction du nom de la feuille de calcul et du nom de la colonne.
+
 ## Définir le style de ligne {#SetRowStyle}
 
 SetRowStyle fournit une fonction pour définir le style des lignes par nom de feuille de calcul, plage de lignes et ID de style donnés. Notez que cela écrasera les styles existants pour les lignes, il n'ajoutera ni ne fusionnera le style avec les styles existants.

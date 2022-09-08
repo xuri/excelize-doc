@@ -998,6 +998,14 @@ Legen Sie den Stil der Spalten `C:F` auf `Sheet1` fest:
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## Spaltenformat abrufen {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+GetColStyle stellt eine Funktion zum Abrufen der Spaltenformat-ID anhand des angegebenen Arbeitsblattnamens und des Spaltennamens bereit.
+
 ## Zeilenstil festlegen {#SetRowStyle}
 
 SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des angegebenen Arbeitsblattnamens, Zeilenbereichs und der Stil-ID. Beachten Sie, dass dadurch die vorhandenen Stile für die Zeilen überschrieben werden. Der Stil wird nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.

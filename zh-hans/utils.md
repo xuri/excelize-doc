@@ -791,7 +791,7 @@ func main() {
 }
 ```
 
-## 获取条件格式 {GetConditionalFormats}
+## 获取条件格式 {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
@@ -1002,7 +1002,7 @@ func HSLToRGB(h, s, l float64) (r, g, b uint8)
 ### Write {#Write}
 
 ```go
-func (f *File) Write(w io.Writer) error
+func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
 该函数提供方法将当前文件内容写入给定的 `io.Writer`。
@@ -1010,7 +1010,7 @@ func (f *File) Write(w io.Writer) error
 ### WriteTo {#WriteTo}
 
 ```go
-func (f *File) WriteTo(w io.Writer) (int64, error)
+func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
 该函数通过实现 `io.WriterTo` 以保存文件。

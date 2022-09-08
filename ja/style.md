@@ -998,6 +998,14 @@ err = f.SetColStyle("Sheet1", "H", style)
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
+## 列のスタイルを取得する {#GetColStyle}
+
+```go
+func (f *File) GetColStyle(sheet, col string) (int, error)
+```
+
+GetColStyle には、指定されたワークシート名と列名によって列スタイル ID を取得する関数が用意されています。
+
 ## 行スタイルを設定する {#SetRowStyle}
 
 SetRowStyle は、指定されたワークシート名、行範囲、およびスタイル ID によって行のスタイルを設定する関数を提供します。これにより、行の既存のスタイルが上書きされ、スタイルが既存のスタイルに追加またはマージされないことに注意してください。
