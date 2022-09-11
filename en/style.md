@@ -84,7 +84,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle provides a function to create the style for cells by given JSON string or structure pointer. Note that the color field uses RGB color code.
+NewStyle provides a function to create the style for cells by given structure pointer or JSON string. This function is concurrency safe. Note that the color field uses RGB color code.
 
 ### Border {#border}
 
@@ -984,7 +984,7 @@ Cell `Sheet1!A6` in the Excel Application: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID. Note that this will overwrite the existing styles for the columns, it won't append or merge style with existing styles.
+SetColStyle provides a function to set style of columns by given worksheet name, columns range and style ID. This function is concurrency safe. Note that this will overwrite the existing styles for the columns, it won't append or merge style with existing styles.
 
 For example set style of column `H` on `Sheet1`:
 
@@ -1004,7 +1004,7 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 func (f *File) GetColStyle(sheet, col string) (int, error)
 ```
 
-GetColStyle provides a function to get column style ID by given worksheet name and column name.
+GetColStyle provides a function to get column style ID by given worksheet name and column name. This function is concurrency safe.
 
 ## Set row style {#SetRowStyle}
 

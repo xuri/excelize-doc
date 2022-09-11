@@ -84,7 +84,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle fournit une fonction pour créer le style des cellules par une chaîne JSON ou un pointeur de structure donné. Notez que le champ de couleur utilise un code couleur RVB.
+NewStyle fournit une fonction pour créer le style des cellules par une chaîne JSON ou un pointeur de structure donné. Cette fonction est sécurisée pour la concurrence. Notez que le champ de couleur utilise un code couleur RVB.
 
 ### Frontière {#border}
 
@@ -984,7 +984,7 @@ Cellule `Sheet1!A6` dans l'application Excel: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle fournit une fonction permettant de définir le style des colonnes en fonction du nom de la feuille de calcul, de la plage de colonnes et de l'ID de style. Notez que cela écrasera les styles existants pour les colonnes, il n'ajoutera ni ne fusionnera le style avec les styles existants.
+SetColStyle fournit une fonction permettant de définir le style des colonnes en fonction du nom de la feuille de calcul, de la plage de colonnes et de l'ID de style. Cette fonction est sécurisée pour la concurrence. Notez que cela écrasera les styles existants pour les colonnes, il n'ajoutera ni ne fusionnera le style avec les styles existants.
 
 Par exemple, définissez le style de la colonne `H` sur `Sheet1`:
 
@@ -1008,7 +1008,7 @@ GetColStyle fournit une fonction pour obtenir l'ID de style de colonne en foncti
 
 ## Définir le style de ligne {#SetRowStyle}
 
-SetRowStyle fournit une fonction pour définir le style des lignes par nom de feuille de calcul, plage de lignes et ID de style donnés. Notez que cela écrasera les styles existants pour les lignes, il n'ajoutera ni ne fusionnera le style avec les styles existants.
+SetRowStyle fournit une fonction pour définir le style des lignes par nom de feuille de calcul, plage de lignes et ID de style donnés. Cette fonction est sécurisée pour la concurrence. Notez que cela écrasera les styles existants pour les lignes, il n'ajoutera ni ne fusionnera le style avec les styles existants.
 
 Par exemple, définissez le style de la ligne 1 sur `Sheet1`:
 

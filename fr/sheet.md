@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible fournit une fonction pour définir visible d'une seule colonne par nom de feuille de calcul et nom de colonne donné. Par exemple, cachez la colonne `D` dans `Sheet1`:
+SetColVisible fournit une fonction pour définir visible d'une seule colonne par nom de feuille de calcul et nom de colonne donné. Cette fonction est sécurisée pour la concurrence. Par exemple, cachez la colonne `D` dans `Sheet1`:
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-SetColWidth fournit la fonction permettant de définir la largeur d'une ou de plusieurs colonnes. Par exemple:
+SetColWidth fournit la fonction permettant de définir la largeur d'une ou de plusieurs colonnes. Cette fonction est sécurisée pour la concurrence. Par exemple:
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ GetSheetName fournit une fonction pour obtenir le nom de feuille de calcul de XL
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible fournit une fonction permettant d'afficher une seule colonne par nom de feuille de calcul et nom de colonne donnés. Par exemple, obtenez l'état visible de la colonne `D` dans `Sheet1`:
+GetColVisible fournit une fonction permettant d'afficher une seule colonne par nom de feuille de calcul et nom de colonne donnés. Cette fonction est sécurisée pour la concurrence. Par exemple, obtenez l'état visible de la colonne `D` dans `Sheet1`:
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth fournit une fonction permettant d'obtenir la largeur de colonne par nom de feuille de calcul et index de colonne donnés.
+GetColWidth fournit une fonction permettant d'obtenir la largeur de colonne par nom de feuille de calcul et index de colonne donnés. Cette fonction est sécurisée pour la concurrence.
 
 ## Obtenir la hauteur de la rangée {#GetRowHeight}
 
@@ -389,7 +389,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols renvoie un itérateur de colonnes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Par exemple:
+Cols renvoie un itérateur de colonnes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Cette fonction est sécurisée pour la concurrence. Par exemple:
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -439,7 +439,7 @@ Error renverra le `error` lorsque l'erreur se produit.
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows renvoie un itérateur de lignes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Par exemple:
+Rows renvoie un itérateur de lignes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Cette fonction est sécurisée pour la concurrence. Par exemple:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice` Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Sheet1`:
+SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Cette fonction est sécurisée pour la concurrence. Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Sheet1`:
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

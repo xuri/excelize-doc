@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-指定されたワークシート名とセル座標に基づいて、セルの値を設定します。指定された座標は、テーブルの最初の行にあるべきではありません。
+指定されたワークシート名とセル座標に基づいて、セルの値を設定します。この関数は、同時実行セーフをサポートします。指定された座標は、テーブルの最初の行にあるべきではありません。
 
 |サポートされているデータ型|
 |---|
@@ -96,7 +96,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-指定されたワークシート名、セル座標領域、およびスタイルインデックスに基づいて、セルの値を設定します。スタイルインデックスは [`NewStyle`](style.md#NewStyle) 関数を使用して取得できます。同じ座標領域内の `diagonaldown` と `diagonalup` は同じ色で保持する必要があることに注意してください。SetCellStyle は、セルの既存のスタイルを上書きし、スタイルを既存のスタイルに追加またはマージしません。
+指定されたワークシート名、セル座標領域、およびスタイルインデックスに基づいて、セルの値を設定します。この関数は、同時実行セーフをサポートします。スタイルインデックスは [`NewStyle`](style.md#NewStyle) 関数を使用して取得できます。同じ座標領域内の `diagonaldown` と `diagonalup` は同じ色で保持する必要があることに注意してください。SetCellStyle は、セルの既存のスタイルを上書きし、スタイルを既存のスタイルに追加またはマージしません。
 
 - 例1、ワークシート `D7` セル `Sheet1` の境界線のスタイルを設定します:
 
@@ -410,7 +410,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-指定されたワークシートとセルの座標に基づいてセルの値を取得すると、戻り値は `string` 型に変換されます。セルの値にセル書式を適用できる場合は、適用された値が返されます。差し込み印刷範囲内のすべてのセルの値は同じです。
+指定されたワークシートとセルの座標に基づいてセルの値を取得すると、戻り値は `string` 型に変換されます。この関数は、同時実行セーフをサポートします。セルの値にセル書式を適用できる場合は、適用された値が返されます。差し込み印刷範囲内のすべてのセルの値は同じです。
 
 ## セルタイプを取得します {#GetCellType}
 

@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible 지정된 워크 시트 이름과 열 이름으로 단일 열의 표시를 설정 하는 기능을 제공 합니다. 예를 들어 `Sheet1` 에서 열 `D` 를 숨깁니다.
+SetColVisible 지정된 워크 시트 이름과 열 이름으로 단일 열의 표시를 설정 하는 기능을 제공 합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어 `Sheet1` 에서 열 `D` 를 숨깁니다.
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-SetColWidth 는 단일 열 또는 여러 열의 너비를 설정하는 기능을 제공합니다. 예를 들어:
+SetColWidth 는 단일 열 또는 여러 열의 너비를 설정하는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어:
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ GetSheetName 주어진 워크 시트 인덱스에 의해 XLSX 의 워크 시트 
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible 는 지정된 워크시트 이름과 열 이름으로 단일 열을 볼 수 있는 함수를 제공합니다. 예를 들어 `Sheet1` 에서 `D` 열의 표시 상태를 가져옵니다.
+GetColVisible 는 지정된 워크시트 이름과 열 이름으로 단일 열을 볼 수 있는 함수를 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어 `Sheet1` 에서 `D` 열의 표시 상태를 가져옵니다.
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth 는 지정된 워크시트 이름 및 열 인덱스를 통해 열 너비를 얻는 함수를 제공합니다.
+GetColWidth 는 지정된 워크시트 이름 및 열 인덱스를 통해 열 너비를 얻는 함수를 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다.
 
 ## 행 높이 가져 오기 {#GetRowHeight}
 
@@ -390,7 +390,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍에 사용되는 열 반복자를 리턴합니다. 예를 들면 다음과 같습니다.
+Cols 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍에 사용되는 열 반복자를 리턴합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -440,7 +440,7 @@ Error 는 오류가 발생하면 `error` 를 반환합니다.
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍에 사용되는 행 반복자를 반환합니다. 예를 들어:
+Rows 는 큰 데이터가있는 워크 시트의 데이터 읽기 스트리밍에 사용되는 행 반복자를 반환합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -619,7 +619,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-SetSheetRow는 지정된 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행에 배열을 씁니다. 예를 들어 `6` 행에 배열을 `Sheet1` 의 셀 `B6` 로 시작합니다.
+SetSheetRow는 지정된 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행에 배열을 씁니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어 `6` 행에 배열을 `Sheet1` 의 셀 `B6` 로 시작합니다.
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-SetCellValue provides a function to set the value of a cell. The specified coordinates should not be in the first row of the table, a complex number can be set with string text. The following shows the supported data types:
+SetCellValue provides a function to set the value of a cell. This function is concurrency safe. The specified coordinates should not be in the first row of the table, a complex number can be set with string text. The following shows the supported data types:
 
 |Supported data types|
 |---|
@@ -96,7 +96,7 @@ SetCellStr provides a function to set the string type value of a cell. The total
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same coordinate area. SetCellStyle will overwrite the existing styles for the cell, it won't append or merge style with existing styles.
+SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. This function is concurrency safe. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same coordinate area. SetCellStyle will overwrite the existing styles for the cell, it won't append or merge style with existing styles.
 
 - Example 1, create borders of cell `D7` on `Sheet1`:
 
@@ -410,7 +410,7 @@ GetCellRichText provides a function to get the rich text of cells by given works
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned. All cells' values will be the same in a merged range.
+The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. This function is concurrency safe. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned. All cells' values will be the same in a merged range.
 
 ## Get cell type {#GetCellType}
 

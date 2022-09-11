@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible provides a function to set visible of a single column by given worksheet name and column name. For example, hide column `D` in `Sheet1`:
+SetColVisible provides a function to set visible of a single column by given worksheet name and column name. This function is concurrency safe. For example, hide column `D` in `Sheet1`:
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-SetColWidth provides a function to set the width of a single column or multiple columns. For example:
+SetColWidth provides a function to set the width of a single column or multiple columns. This function is concurrency safe. For example:
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ GetSheetName provides a function to get the sheet name of the workbook by the gi
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible provides a function to get visible of a single column by given worksheet name and column name. For example, get the visible state of column `D` in `Sheet1`:
+GetColVisible provides a function to get visible of a single column by given worksheet name and column name. This function is concurrency safe. For example, get the visible state of column `D` in `Sheet1`:
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth provides a function to get the column width by given the worksheet name and column name.
+GetColWidth provides a function to get the column width by given the worksheet name and column name. This function is concurrency safe.
 
 ## Get row height {#GetRowHeight}
 
@@ -389,7 +389,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols returns a column iterator, used for streaming reading data for a worksheet with a large data. For example:
+Cols returns a column iterator, used for streaming reading data for a worksheet with a large data. This function is concurrency safe. For example:
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -439,7 +439,7 @@ Error will return the `error` when the error occurs.
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows returns a rows iterator, used for streaming reading data for a worksheet with a large data. For example:
+Rows returns a rows iterator, used for streaming reading data for a worksheet with a large data. This function is concurrency safe. For example:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-SetSheetRow writes an array to row by given worksheet name, starting coordinate and a pointer to array type `slice`. For example, writes an array to row `6` start with the cell `B6` on `Sheet1`:
+SetSheetRow writes an array to row by given worksheet name, starting coordinate and a pointer to array type `slice`. This function is concurrency safe. For example, writes an array to row `6` start with the cell `B6` on `Sheet1`:
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

@@ -84,7 +84,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle は、与えられた JSON 文字列または構造ポインタによってセルのスタイルを作成する関数を提供します。カラーフィールドは RGB カラーコードを使用することに注意してください。
+NewStyle は、与えられた JSON 文字列または構造ポインタによってセルのスタイルを作成する関数を提供します。この関数は、同時実行セーフをサポートします。カラーフィールドは RGB カラーコードを使用することに注意してください。
 
 ### 枠 {#border}
 
@@ -984,7 +984,7 @@ Excel アプリケーションのセル `Sheet1!A6`: `martes, 04 de Julio de 201
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle は、指定されたワークシート名、列範囲、およびスタイル ID によって列のスタイルを設定する関数を提供します。これにより、列の既存のスタイルが上書きされ、スタイルが既存のスタイルに追加またはマージされないことに注意してください。
+SetColStyle は、指定されたワークシート名、列範囲、およびスタイル ID によって列のスタイルを設定する関数を提供します。これにより、列の既存のスタイルが上書きされ、スタイルが既存のスタイルに追加またはマージされないことに注意してください。この関数は、同時実行セーフをサポートします。
 
 たとえば、`Sheet1` の列 `H` のスタイルを設定します。
 
@@ -1004,7 +1004,7 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 func (f *File) GetColStyle(sheet, col string) (int, error)
 ```
 
-GetColStyle には、指定されたワークシート名と列名によって列スタイル ID を取得する関数が用意されています。
+GetColStyle には、指定されたワークシート名と列名によって列スタイル ID を取得する関数が用意されています。この関数は、同時実行セーフをサポートします。
 
 ## 行スタイルを設定する {#SetRowStyle}
 

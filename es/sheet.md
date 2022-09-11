@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible proporciona una función para establecer la visibilidad de una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Por ejemplo, oculte la columna `D` en `Sheet1`:
+SetColVisible proporciona una función para establecer la visibilidad de una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Esta función es segura para la simultaneidad. Por ejemplo, oculte la columna `D` en `Sheet1`:
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-SetColWidth proporciona una función para establecer el ancho de una sola columna o de varias columnas. Por ejemplo:
+SetColWidth proporciona una función para establecer el ancho de una sola columna o de varias columnas. Esta función es segura para la simultaneidad. Por ejemplo:
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ GetSheetName proporciona una función para obtener el nombre de la hoja del libr
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible proporciona una función para hacer visible una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Por ejemplo, obtenga el estado visible de la columna `D` en `Sheet1`:
+GetColVisible proporciona una función para hacer visible una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Esta función es segura para la simultaneidad. Por ejemplo, obtenga el estado visible de la columna `D` en `Sheet1`:
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth proporciona una función para obtener el ancho de la columna dado el nombre de la hoja de trabajo y el índice de la columna.
+GetColWidth proporciona una función para obtener el ancho de la columna dado el nombre de la hoja de trabajo y el índice de la columna. Esta función es segura para la simultaneidad.
 
 ## Obtener altura de fila {#GetRowHeight}
 
@@ -389,7 +389,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols devuelve un iterador de columna, que se utiliza para transmitir datos de lectura para una hoja de trabajo con datos grandes. Por ejemplo:
+Cols devuelve un iterador de columna, que se utiliza para transmitir datos de lectura para una hoja de trabajo con datos grandes. Esta función es segura para la simultaneidad. Por ejemplo:
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -439,7 +439,7 @@ Error devolverá el `error` cuando se produzca el error.
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows returns a rows iterator, used for streaming reading data for a worksheet with a large data. Por ejemplo:
+Rows returns a rows iterator, used for streaming reading data for a worksheet with a large data. Esta función es segura para la simultaneidad. Por ejemplo:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-SetSheetRow escribe una matriz en una fila según el nombre de la hoja de trabajo, la coordenada inicial y un puntero al tipo de matriz `slice`. Por ejemplo, escribe una matriz en la fila `6` y comienza con la celda `B6` en `Sheet1`:
+SetSheetRow escribe una matriz en una fila según el nombre de la hoja de trabajo, la coordenada inicial y un puntero al tipo de matriz `slice`. Esta función es segura para la simultaneidad. Por ejemplo, escribe una matriz en la fila `6` y comienza con la celda `B6` en `Sheet1`:
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
