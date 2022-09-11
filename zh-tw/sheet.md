@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-根據給定的工作表名稱和欄名稱設定欄可見性。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
+根據給定的工作表名稱和欄名稱設定欄可見性。此功能是併發安全的。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-根據給定的工作表名稱、列範圍和寬度值設定單個或多個列的寬度。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
+根據給定的工作表名稱、列範圍和寬度值設定單個或多個列的寬度。此功能是併發安全的。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-根據給定的工作表名稱和列名獲取工作表中指定列的可見性，可見傳回值為 `true`，否則為 `false`。例如，獲取名為 `Sheet1` 的工作表上 `D` 欄的可見性：
+根據給定的工作表名稱和列名獲取工作表中指定列的可見性，可見傳回值為 `true`，否則為 `false`。此功能是併發安全的。例如，獲取名為 `Sheet1` 的工作表上 `D` 欄的可見性：
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-根據給定的工作表和列名獲取工作表中指定列的寬度。
+根據給定的工作表和列名獲取工作表中指定列的寬度。此功能是併發安全的。
 
 ## 獲取列高度 {#GetRowHeight}
 
@@ -389,7 +389,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-根據給定的工作表名稱獲取該工作表的欄迭代器。使用欄迭代器進行流式讀取遍歷儲存格：
+根據給定的工作表名稱獲取該工作表的欄迭代器。此功能是併發安全的。使用欄迭代器進行流式讀取遍歷儲存格：
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -439,7 +439,7 @@ func (cols *Cols) Error() error
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-根據給定的工作表名稱獲取該工作表的列迭代器。使用列迭代器進行流式讀取遍歷儲存格：
+根據給定的工作表名稱獲取該工作表的列迭代器。此功能是併發安全的。使用列迭代器進行流式讀取遍歷儲存格：
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-根據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：
+根據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。此功能是併發安全的。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

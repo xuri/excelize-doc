@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-يوفر SetColVisible وظيفة لتعيين مرئي لعمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. على سبيل المثال ، إخفاء العمود `D` في `Sheet1`:
+يوفر SetColVisible وظيفة لتعيين مرئي لعمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، إخفاء العمود `D` في `Sheet1`:
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-يوفر SetColWidth وظيفة لتعيين عرض عمود واحد أو عدة أعمدة. فمثلا:
+يوفر SetColWidth وظيفة لتعيين عرض عمود واحد أو عدة أعمدة. هذه الوظيفة آمنة للتزامن. فمثلا:
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-يوفر GetColVisible وظيفة لإظهار عمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. على سبيل المثال ، احصل على الحالة المرئية للعمود `D` في `Sheet1`:
+يوفر GetColVisible وظيفة لإظهار عمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، احصل على الحالة المرئية للعمود `D` في `Sheet1`:
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
 ```
@@ -80,7 +80,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-يوفر GetColWidth وظيفة للحصول على عرض العمود من خلال إعطاء اسم ورقة العمل وفهرس العمود.
+يوفر GetColWidth وظيفة للحصول على عرض العمود من خلال إعطاء اسم ورقة العمل وفهرس العمود. هذه الوظيفة آمنة للتزامن.
 
 ## احصل على ارتفاع الخط {#GetRowHeight}
 
@@ -388,7 +388,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-تقوم Cols بإرجاع مكرر العمود ، المستخدم لدفق بيانات القراءة لورقة عمل ذات بيانات كبيرة. فمثلا:
+تقوم Cols بإرجاع مكرر العمود ، المستخدم لدفق بيانات القراءة لورقة عمل ذات بيانات كبيرة. هذه الوظيفة آمنة للتزامن. فمثلا:
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -438,7 +438,7 @@ func (cols *Cols) Error() error
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-يقوم Rows بإرجاع مكرر الصفوف ، يُستخدم لدفق بيانات القراءة لورقة عمل تحتوي على بيانات كبيرة. فمثلا:
+يقوم Rows بإرجاع مكرر الصفوف ، يُستخدم لدفق بيانات القراءة لورقة عمل تحتوي على بيانات كبيرة. هذه الوظيفة آمنة للتزامن. فمثلا:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-يكتب SetSheetRow مصفوفة إلى صف بواسطة اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع الصفيف `slice` على سبيل المثال ، يكتب مصفوفة في الصف `6` تبدأ بالخلية `B6` في `Sheet1`:
+يكتب SetSheetRow مصفوفة إلى صف بواسطة اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع الصفيف `slice`. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، يكتب مصفوفة في الصف `6` تبدأ بالخلية `B6` في `Sheet1`:
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

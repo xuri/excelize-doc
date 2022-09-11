@@ -1,20 +1,22 @@
 {
-  "name": "gitbook",
+  "name": "excelize-docs",
   "version": "1.0.0",
   "description": "This is docs reference for the excelize library.",
   "main": "index.js",
   "dependencies": {
+    "@snyk/protect": "latest",
     "gitbook-cli": "2.3.2",
+    "gitbook-plugin-favicon":"0.0.2",
+    "gitbook-plugin-language-picker":"0.1.0",
     "gitbook-plugin-page-footer": "5.5.0",
     "gitbook-plugin-scramble-mailto": "0.1.2",
     "gitbook-plugin-scripts": "1.0.2",
     "gitbook-plugin-search-plus": "1.0.4-alpha-3",
     "gitbook-plugin-signature": "1.5.2",
-    "@snyk/protect": "latest"
+    "gitbook-plugin-sitemap-general":"0.1.1"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gitbook build",
     "prepublish": "npm run snyk-protect",
     "snyk-protect": "snyk-protect"
   },

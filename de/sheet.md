@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible bietet eine Funktion zum Festlegen der Sichtbarkeit einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Verstecken Sie beispielsweise die Spalte `D` in `Sheet1`:
+SetColVisible bietet eine Funktion zum Festlegen der Sichtbarkeit einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Verstecken Sie beispielsweise die Spalte `D` in `Sheet1`:
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-SetColWidth bietet eine Funktion zum Festlegen der Breite einer einzelnen Spalte oder mehrerer Spalten. Zum Beispiel:
+SetColWidth bietet eine Funktion zum Festlegen der Breite einer einzelnen Spalte oder mehrerer Spalten. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Zum Beispiel:
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ GetSheetName bietet eine Funktion zum Abrufen des Blattnamens der Arbeitsmappe a
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible bietet eine Funktion zum Anzeigen einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Holen Sie sich zum Beispiel den sichtbaren Zustand der Spalte `D` in `Sheet1`:
+GetColVisible bietet eine Funktion zum Anzeigen einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Holen Sie sich zum Beispiel den sichtbaren Zustand der Spalte `D` in `Sheet1`:
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-GetColWidth bietet eine Funktion zum Abrufen der Spaltenbreite anhand des Arbeitsblattnamens und des Spaltenindex.
+GetColWidth bietet eine Funktion zum Abrufen der Spaltenbreite anhand des Arbeitsblattnamens und des Spaltenindex. Diese Funktion wird für die gleichzeitige Verwendung unterstützt.
 
 ## Abrufen der Zeilenhöhe {#GetRowHeight}
 
@@ -389,7 +389,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols gibt einen Spalteniterator zurück, der zum Streaming von Lesedaten für ein Arbeitsblatt mit großen Datenmengen verwendet wird. Zum Beispiel:
+Cols gibt einen Spalteniterator zurück, der zum Streaming von Lesedaten für ein Arbeitsblatt mit großen Datenmengen verwendet wird. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Zum Beispiel:
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -439,7 +439,7 @@ Error gibt den `error` zurück, wenn der Fehler auftritt.
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows gibt einen Zeileniterator zurück, der zum Streaming von Lesedaten für ein Arbeitsblatt mit großen Datenmengen verwendet wird. Zum Beispiel:
+Rows gibt einen Zeileniterator zurück, der zum Streaming von Lesedaten für ein Arbeitsblatt mit großen Datenmengen verwendet wird. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Zum Beispiel:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-SetSheetRow schreibt ein Array in eine Zeile mit dem angegebenen Arbeitsblattnamen, der Startkoordinate und einem Zeiger auf den Array-Typ `slice`. Schreibt beispielsweise ein Array in die Zeile `6`, beginnend mit der Zelle `B6` auf `Sheet1`:
+SetSheetRow schreibt ein Array in eine Zeile mit dem angegebenen Arbeitsblattnamen, der Startkoordinate und einem Zeiger auf den Array-Typ `slice`. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Schreibt beispielsweise ein Array in die Zeile `6`, beginnend mit der Zelle `B6` auf `Sheet1`:
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

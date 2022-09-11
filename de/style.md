@@ -84,7 +84,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen mithilfe einer bestimmten JSON-Zeichenfolge oder eines Strukturzeigers. Beachten Sie, dass das Farbfeld den RGB-Farbcode verwendet.
+NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen mithilfe einer bestimmten JSON-Zeichenfolge oder eines Strukturzeigers. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass das Farbfeld den RGB-Farbcode verwendet.
 
 ### Grenze {#border}
 
@@ -984,7 +984,7 @@ Zelle `Sheet1!A6` in der Excel-Anwendung: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle bietet eine Funktion zum Festlegen des Spaltenstils anhand des angegebenen Arbeitsblattnamens, des Spaltenbereichs und der Stil-ID. Beachten Sie, dass dadurch die vorhandenen Stile für die Spalten überschrieben werden. Stile werden nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
+SetColStyle bietet eine Funktion zum Festlegen des Spaltenstils anhand des angegebenen Arbeitsblattnamens, des Spaltenbereichs und der Stil-ID. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass dadurch die vorhandenen Stile für die Spalten überschrieben werden. Stile werden nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
 
 Stellen Sie zum Beispiel den Stil der Spalte `H` auf `Sheet1` ein:
 
@@ -1008,7 +1008,7 @@ GetColStyle stellt eine Funktion zum Abrufen der Spaltenformat-ID anhand des ang
 
 ## Zeilenstil festlegen {#SetRowStyle}
 
-SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des angegebenen Arbeitsblattnamens, Zeilenbereichs und der Stil-ID. Beachten Sie, dass dadurch die vorhandenen Stile für die Zeilen überschrieben werden. Der Stil wird nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
+SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des angegebenen Arbeitsblattnamens, Zeilenbereichs und der Stil-ID. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass dadurch die vorhandenen Stile für die Zeilen überschrieben werden. Der Stil wird nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
 
 Legen Sie zum Beispiel den Stil von Zeile 1 auf `Sheet1` fest:
 

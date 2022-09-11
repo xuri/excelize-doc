@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-根据给定的工作表名和单元格坐标设置单元格的值。指定的坐标不应在表格的第一行范围，使用字符文本设置复数。
+根据给定的工作表名和单元格坐标设置单元格的值。此功能是并发安全的。指定的坐标不应在表格的第一行范围，使用字符文本设置复数。
 
 |支持的数据类型|
 |---|
@@ -96,7 +96,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。样式索引可以通过 [`NewStyle`](style.md#NewStyle) 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。SetCellStyle 将覆盖单元格的已有样式，而不会将样式与已有样式叠加或合并。
+根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。此功能是并发安全的。样式索引可以通过 [`NewStyle`](style.md#NewStyle) 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。SetCellStyle 将覆盖单元格的已有样式，而不会将样式与已有样式叠加或合并。
 
 - 例1，为名为 `Sheet1` 的工作表 `D7` 单元格设置边框样式：
 
@@ -410,7 +410,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。合并区域内所有单元格的值都相同。
+根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。合并区域内所有单元格的值都相同。此功能是并发安全的。
 
 ## 获取单元格数据类型 {#GetCellType}
 

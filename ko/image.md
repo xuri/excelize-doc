@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-AddPicture 는 주어진 그림 형식 집합(예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정) 및 파일 경로를 사용하여 시트에 그림을 추가하는 방법을 제공합니다.
+AddPicture 는 주어진 그림 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정) 및 파일 경로를 사용하여 시트에 그림을 추가하는 방법을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다.
 
 예를 들어:
 
@@ -118,7 +118,7 @@ func main() {
 func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
-GetPicture 는 주어진 워크 시트 및 셀 이름으로 XLSX 에 포함 된 그림 기본 이름 및 원시 콘텐츠를 얻을 수 있는 기능을 제공 합니다. 이 함수는 XLSX 에서 파일 이름과 파일 내용을 `[]byte` 데이터 유형으로 반환합니다.
+GetPicture 는 주어진 워크 시트 및 셀 이름으로 XLSX 에 포함 된 그림 기본 이름 및 원시 콘텐츠를 얻을 수 있는 기능을 제공 합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 이 함수는 XLSX 에서 파일 이름과 파일 내용을 `[]byte` 데이터 유형으로 반환합니다.
 
 예를 들어:
 

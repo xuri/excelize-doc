@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等），在对应的单元格上插入图片。
+根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等），在对应的单元格上插入图片。此功能是并发安全的。
 
 例如：
 
@@ -118,7 +118,7 @@ func main() {
 func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
-根据给定的工作表名称和单元格坐标获取工作簿上的图片，将以 `[]byte` 类型返回嵌入在 Excel 文档中的图片。该函数暂不支持获取通过 Kingsoft WPS&trade; 应用程序添加的单元格图片。例如，获取名为 `Sheet1` 的工作表上 `A2` 单元格上的图片：
+根据给定的工作表名称和单元格坐标获取工作簿上的图片，将以 `[]byte` 类型返回嵌入在 Excel 文档中的图片。此功能是并发安全的。该函数暂不支持获取通过 Kingsoft WPS&trade; 应用程序添加的单元格图片。例如，获取名为 `Sheet1` 的工作表上 `A2` 单元格上的图片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")

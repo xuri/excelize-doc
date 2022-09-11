@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표는 테이블의 첫 번째 행에 없어야합니다. 다음은 지원되는 데이터 형식을 보여 주며:
+SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표는 테이블의 첫 번째 행에 없어야합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 다음은 지원되는 데이터 형식을 보여 주며:
 
 |지원되는 데이터 유형|
 |---|
@@ -96,7 +96,7 @@ SetCellStr 셀의 문자열 형식 값을 설정하는 함수를 제공합니다
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID 에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다. SetCellStyle 은 셀의 기존 스타일을 덮어쓰며 기존 스타일에 스타일을 추가하거나 병합하지 않습니다.
+SetCellStyle 지정된 워크 시트 이름, 좌표 영역 및 스타일 ID 에 의해 셀에 대 한 스타일 특성을 추가 하는 기능을 제공 합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 스타일 인덱스는 [`NewStyle`](style.md#NewStyle) 함수로 가져올 수 있습니다. `diagonalDown` 및 `diagonalUp` 유형 테두리는 동일한 좌표 영역에서 동일한 색상을 사용해야 합니다. SetCellStyle 은 셀의 기존 스타일을 덮어쓰며 기존 스타일에 스타일을 추가하거나 병합하지 않습니다.
 
 - 예제 1 에서 `Sheet1` 에서 셀 `D7` 의 테두리를 만듭니다:
 
@@ -410,7 +410,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다. 병합 범위 내의 모든 셀의 값은 동일합니다.
+셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다. 병합 범위 내의 모든 셀의 값은 동일합니다.
 
 ## 셀 유형 가져오기 {#GetCellType}
 

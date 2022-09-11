@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-AddPicture proporciona el método para agregar una imagen a una hoja de trabajo mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y la ruta del archivo.
+AddPicture proporciona el método para agregar una imagen a una hoja de trabajo mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y la ruta del archivo. Esta función es segura para la simultaneidad.
 
 Por ejemplo:
 
@@ -121,7 +121,7 @@ func main() {
 func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
-GetPicture proporciona una función para obtener el nombre base de la imagen y el contenido sin procesar incrustado en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados. Esta función devuelve el nombre del archivo en la hoja de cálculo y el contenido del archivo como tipos de datos `[]byte`.
+GetPicture proporciona una función para obtener el nombre base de la imagen y el contenido sin procesar incrustado en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados. Esta función es segura para la simultaneidad. Esta función devuelve el nombre del archivo en la hoja de cálculo y el contenido del archivo como tipos de datos `[]byte`.
 
 Por ejemplo:
 

@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-AddPicture provides the method to add a picture to a worksheet by given picture format set (such as offset, scale, aspect ratio setting, and print settings) and file path.
+AddPicture provides the method to add a picture to a worksheet by given picture format set (such as offset, scale, aspect ratio setting, and print settings) and file path. This function is concurrency safe.
 
 For example:
 
@@ -118,7 +118,7 @@ func main() {
 func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
-GetPicture provides a function to get picture base name and raw content embed in a spreadsheet by given worksheet and cell name. This function returns the file name in the spreadsheet and file contents as `[]byte` data types.
+GetPicture provides a function to get picture base name and raw content embed in a spreadsheet by given worksheet and cell name. This function is concurrency safe. This function returns the file name in the spreadsheet and file contents as `[]byte` data types.
 
 For example:
 

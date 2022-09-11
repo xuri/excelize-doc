@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture, format string) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等），在對應的儲存格上插入圖片。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等），在對應的儲存格上插入圖片。此功能是併發安全的。
 
 例如：
 
@@ -118,7 +118,7 @@ func main() {
 func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
 ```
 
-根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。該函數暫不支持獲取通過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
+根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。此功能是併發安全的。該函數暫不支持獲取通過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")

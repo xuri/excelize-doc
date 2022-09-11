@@ -6,7 +6,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-与えられたワークシート名と列名に基づいて列の表示/非表示を設定します。例えば、`Sheet1` ワークシートの `D` 列を隠す：
+与えられたワークシート名と列名に基づいて列の表示/非表示を設定します。この関数は、同時実行セーフをサポートします。例えば、`Sheet1` ワークシートの `D` 列を隠す：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -24,7 +24,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-指定されたシート名、列範囲、および幅の値に基づいて、単一または複数の列の幅を設定します。たとえば、`Sheet1` という名前の `A` から `H` の列の幅を `20` に設定します。
+指定されたシート名、列範囲、および幅の値に基づいて、単一または複数の列の幅を設定します。この関数は、同時実行セーフをサポートします。たとえば、`Sheet1` という名前の `A` から `H` の列の幅を `20` に設定します。
 
 ```go
 f := excelize.NewFile()
@@ -69,7 +69,7 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-指定されたワークシート名と列名に基づいて、ワークシート内の指定された列の可視性を取得します可視の戻り値は `true`、そうでない場合は `false` です。たとえば、`Sheet1` という名前のワークシートの `D` 列の可視性を取得します。
+指定されたワークシート名と列名に基づいて、ワークシート内の指定された列の可視性を取得します可視の戻り値は `true`、そうでない場合は `false` です。この関数は、同時実行セーフをサポートします。たとえば、`Sheet1` という名前のワークシートの `D` 列の可視性を取得します。
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -81,7 +81,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-指定されたワークシートと列名に基づいて、ワークシート内の指定された列の幅を取得します。
+指定されたワークシートと列名に基づいて、ワークシート内の指定された列の幅を取得します。この関数は、同時実行セーフをサポートします。
 
 ## 行の高さを取得する {#GetRowHeight}
 
@@ -389,7 +389,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-Cols は列イテレータを返します。これは、大きなデータを含むワークシートのデータをストリーミングして読み取るために使用されます。例えば：
+Cols は列イテレータを返します。これは、大きなデータを含むワークシートのデータをストリーミングして読み取るために使用されます。この関数は、同時実行セーフをサポートします。例えば：
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -439,7 +439,7 @@ func (cols *Cols) Error() error
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-Rows は行イテレータを返します。これは、大きなデータを含むワークシートのデータのストリーミングストリーミングに使用されます。例えば:
+Rows は行イテレータを返します。これは、大きなデータを含むワークシートのデータのストリーミングストリーミングに使用されます。この関数は、同時実行セーフをサポートします。例えば:
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -618,7 +618,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
 ```
 
-SetSheetRow は与えられたワークシート名、開始座標、配列型 `slice` へのポインタで配列を行に書き込みます。例えば、 `Sheet1` の `B6`のセルから始まる行 `6` の配列を書き込みます。
+SetSheetRow は与えられたワークシート名、開始座標、配列型 `slice` へのポインタで配列を行に書き込みます。この関数は、同時実行セーフをサポートします。例えば、 `Sheet1` の `B6`のセルから始まる行 `6` の配列を書き込みます。
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

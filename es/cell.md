@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-SetCellValue proporciona una función para establecer el valor de una celda. Las coordenadas especificadas no deben estar en la primera fila de la tabla. A continuación, se muestran los tipos de datos admitidos:
+SetCellValue proporciona una función para establecer el valor de una celda. Esta función es segura para la simultaneidad. Las coordenadas especificadas no deben estar en la primera fila de la tabla. A continuación, se muestran los tipos de datos admitidos:
 
 |Tipos de datos admitidos|
 |---|
@@ -96,7 +96,7 @@ SetCellStr proporciona una función para establecer el valor del tipo de cadena 
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-SetCellStyle proporciona una función para agregar atributos de estilo para celdas por nombre de hoja de trabajo, área de coordenadas e ID de estilo dados. Los índices de estilo se pueden obtener con la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que los bordes de tipo `diagonalDown` y `diagonalUp` deben usar el mismo color en la misma área de coordenadas. SetCellStyle sobrescribirá los estilos existentes para la celda, no agregará ni fusionará el estilo con los estilos existentes.
+SetCellStyle proporciona una función para agregar atributos de estilo para celdas por nombre de hoja de trabajo, área de coordenadas e ID de estilo dados. Esta función es segura para la simultaneidad. Los índices de estilo se pueden obtener con la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que los bordes de tipo `diagonalDown` y `diagonalUp` deben usar el mismo color en la misma área de coordenadas. SetCellStyle sobrescribirá los estilos existentes para la celda, no agregará ni fusionará el estilo con los estilos existentes.
 
 - Ejemplo 1, cree bordes de celda `D7` en `Sheet1`:
 
@@ -410,7 +410,7 @@ GetCellRichText proporciona una función para obtener el texto enriquecido de la
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-El valor de la celda se recupera de acuerdo con la hoja de trabajo y las coordenadas de la celda dadas, y el valor de retorno se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de una celda, se devolverá el valor aplicado; de lo contrario, se devolverá el valor original. Los valores de todas las celdas serán los mismos en un rango combinado.
+El valor de la celda se recupera de acuerdo con la hoja de trabajo y las coordenadas de la celda dadas, y el valor de retorno se convierte al tipo `string`. Esta función es segura para la simultaneidad. Si el formato de celda se puede aplicar al valor de una celda, se devolverá el valor aplicado; de lo contrario, se devolverá el valor original. Los valores de todas las celdas serán los mismos en un rango combinado.
 
 ## Obtener el tipo de datos de la celda {#GetCellType}
 

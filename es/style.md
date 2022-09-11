@@ -84,7 +84,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle proporciona una función para crear el estilo de las celdas mediante una cadena JSON determinada o un puntero de estructura. Tenga en cuenta que el campo de color utiliza un código de color RGB.
+NewStyle proporciona una función para crear el estilo de las celdas mediante una cadena JSON determinada o un puntero de estructura. Esta función es segura para la simultaneidad. Tenga en cuenta que el campo de color utiliza un código de color RGB.
 
 ### Frontera {#border}
 
@@ -984,7 +984,7 @@ Celda `Sheet1!A6` en la aplicación Excel: `martes, 04 de Julio de 2017`
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-SetColStyle proporciona una función para establecer el estilo de las columnas por nombre de hoja de trabajo, rango de columnas e ID de estilo determinados. Tenga en cuenta que esto sobrescribirá los estilos existentes para las columnas, no agregará ni fusionará el estilo con los estilos existentes.
+SetColStyle proporciona una función para establecer el estilo de las columnas por nombre de hoja de trabajo, rango de columnas e ID de estilo determinados. Esta función es segura para la simultaneidad. Tenga en cuenta que esto sobrescribirá los estilos existentes para las columnas, no agregará ni fusionará el estilo con los estilos existentes.
 
 Por ejemplo, establezca el estilo de la columna `H` en `Sheet1`:
 
@@ -1004,7 +1004,7 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 func (f *File) GetColStyle(sheet, col string) (int, error)
 ```
 
-GetColStyle proporciona una función para obtener el identificador de estilo de columna por nombre de hoja de cálculo y nombre de columna dados.
+GetColStyle proporciona una función para obtener el identificador de estilo de columna por nombre de hoja de cálculo y nombre de columna dados. Esta función es segura para la simultaneidad.
 
 ## Establecer estilo de fila {#SetRowStyle}
 

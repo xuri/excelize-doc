@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-SetCellValue bietet eine Funktion zum Festlegen des Werts einer Zelle. Die angegebenen Koordinaten sollten sich nicht in der ersten Zeile der Tabelle befinden. Im Folgenden werden die unterstützten Datentypen angezeigt:
+SetCellValue bietet eine Funktion zum Festlegen des Werts einer Zelle. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Die angegebenen Koordinaten sollten sich nicht in der ersten Zeile der Tabelle befinden. Im Folgenden werden die unterstützten Datentypen angezeigt:
 
 |Unterstützte Datentypen|
 |---|
@@ -96,7 +96,7 @@ SetCellStr bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts einer Ze
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-SetCellStyle bietet eine Funktion zum Hinzufügen von Stilattributen für Zellen anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Stil-ID. Stilindizes können mit der Funktion [`NewStyle`](style.md#NewStyle) abgerufen werden. Beachten Sie, dass die Rahmen vom Typ `diagonalDown` und `diagonalUp` dieselbe Farbe im selben Koordinatenbereich verwenden sollten. SetCellStyle überschreibt die vorhandenen Stile für die Zelle, fügt Stile nicht an oder führt sie mit vorhandenen Stilen zusammen.
+SetCellStyle bietet eine Funktion zum Hinzufügen von Stilattributen für Zellen anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Stil-ID. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Stilindizes können mit der Funktion [`NewStyle`](style.md#NewStyle) abgerufen werden. Beachten Sie, dass die Rahmen vom Typ `diagonalDown` und `diagonalUp` dieselbe Farbe im selben Koordinatenbereich verwenden sollten. SetCellStyle überschreibt die vorhandenen Stile für die Zelle, fügt Stile nicht an oder führt sie mit vorhandenen Stilen zusammen.
 
 - Beispiel 1: Erstellen Sie Ränder der Zelle `D7` auf `Sheet1`:
 
@@ -410,7 +410,7 @@ GetCellRichText bietet eine Funktion zum Abrufen des Rich-Textes von Zellen anha
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben. Die Werte aller Zellen sind in einem zusammengeführten Bereich gleich.
+Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben. Die Werte aller Zellen sind in einem zusammengeführten Bereich gleich.
 
 ## Holen Sie sich den Zellendatentyp {#GetCellType}
 

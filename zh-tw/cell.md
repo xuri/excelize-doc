@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ```
 
-根據給定的工作表名和儲存格坐標設定儲存格的值。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
+根據給定的工作表名和儲存格坐標設定儲存格的值。此功能是併發安全的。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
 
 |支持的資料類別|
 |---|
@@ -96,7 +96,7 @@ func (f *File) SetCellStr(sheet, axis, value string) error
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
+根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 - 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定邊框樣式：
 
@@ -410,7 +410,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
+根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
 
 ## 獲取存儲格數據類型 {#GetCellType}
 

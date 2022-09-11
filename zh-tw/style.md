@@ -84,7 +84,7 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-通過給定的樣式格式 JSON 或結構體的指針創建樣式並傳回樣式索引。請注意，色彩需要使用 RGB 色域代碼表示。
+通過給定的樣式格式結構體的指針或 JSON 創建樣式並傳回樣式索引。此功能是併發安全的。請注意，色彩需要使用 RGB 色域代碼表示。
 
 ### 邊框 {#border}
 
@@ -984,7 +984,7 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-根據給定的工作表名稱、欄區域和樣式索引設定欄樣式。請注意，這將覆蓋欄的已有樣式，而不會將樣式與已有樣式疊加或合併。
+根據給定的工作表名稱、欄區域和樣式索引設定欄樣式。此功能是併發安全的。請注意，這將覆蓋欄的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 例1，為名稱為 `Sheet1` 的工作表中的 `H` 欄設定樣式：
 
@@ -1004,7 +1004,7 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 func (f *File) GetColStyle(sheet, col string) (int, error)
 ```
 
-根據給定的工作表名稱和欄名稱獲取欄的樣式索引。
+根據給定的工作表名稱和欄名稱獲取欄的樣式索引。此功能是併發安全的。
 
 ## 設定列樣式 {#SetRowStyle}
 
