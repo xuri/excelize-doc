@@ -32,31 +32,31 @@ Vous n'avez PAS besoin d'inclure cette information s'il s'agit d'une FEATURE REQ
 
 ---
 
-** La description **
+**La description**
 
 Décrivez brièvement le problème que vous rencontrez en quelques paragraphes.
 
-** Étapes à suivre pour reproduire le problème: **
+**Étapes à suivre pour reproduire le problème:**
 1.
 2.
 3.
 
-** Décrivez les résultats que vous avez reçus: **
+**Décrivez les résultats que vous avez reçus:**
 
-** Décrivez les résultats que vous attendiez: **
+**Décrivez les résultats que vous attendiez:**
 
-** La sortie de `go version`: **
+**La sortie de `go version`:**
 
 ```text
 (Collez votre sortie ici)
 ```
 
-** Excelize version ou ID de validation: **
+**Excelize version ou ID de validation:**
 
 ```text
 (coller ici)
 ```
 
-** Détails de l'environnement (OS, version Microsoft Excel&trade;, physique, etc.): **
+**Détails de l'environnement (OS, version Microsoft Excel&trade;, physique, etc.):**
 
 ---

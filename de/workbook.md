@@ -337,7 +337,7 @@ Defaults:
 func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
 ```
 
-SetSheetViewOptions legt Optionen für die Blattansicht fest. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (` -1` ist die letzte Ansicht).
+SetSheetViewOptions legt Optionen für die Blattansicht fest. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (`-1` ist die letzte Ansicht).
 
 Verfügbare Optionen:
 

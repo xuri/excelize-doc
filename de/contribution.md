@@ -32,31 +32,31 @@ Sie müssen diese Informationen NICHT angeben, wenn dies eine FUNKTIONSANFRAGE i
 
 ---
 
-** Beschreibung **
+**Beschreibung**
 
 Beschreiben Sie kurz das Problem, das Sie haben, in einigen Absätzen.
 
-** Schritte zum Reproduzieren des Problems: **
+**Schritte zum Reproduzieren des Problems:**
 1.
 2.
 3.
 
-** Beschreiben Sie die Ergebnisse, die Sie erhalten haben: **
+**Beschreiben Sie die Ergebnisse, die Sie erhalten haben:**
 
-** Beschreiben Sie die erwarteten Ergebnisse: **
+**Beschreiben Sie die erwarteten Ergebnisse:**
 
-** Ausgabe von `go version`: **
+**Ausgabe von `go version`:**
 
 ```text
 (Fügen Sie hier Ihre Ausgabe ein)
 ```
 
-** Excelize-Version oder Commit-ID: **
+**Excelize-Version oder Commit-ID:**
 
 ```text
 (hier einfügen)
 ```
 
-** Umgebungsdetails (Betriebssystem, Microsoft Excel&trade; Version, physisch usw.): **
+**Umgebungsdetails (Betriebssystem, Microsoft Excel&trade; Version, physisch usw.):**
 
 ---

@@ -66,14 +66,14 @@ Please contact us by <a href="mailto: xuri.me@gmail.com">E-mail</a>.
 
 ## Excelize Tutorial Video
 
-##### Chapter 1：Introduction and Development Environment Setup
+**Chapter 1：Introduction and Development Environment Setup**
 
 [1.1 Introduction of Excelize](https://youtu.be/HrNmX5WbZY0)<br>[1.2 Go language and Excelize Develop Environment Setup (Windows & Mac)](https://youtu.be/leuW6czJ5mU)<br>[1.3 Basic Concepts](https://youtu.be/ih1N4d6hBdA)
 
-##### Chapter 2: Basic Usage
+**Chapter 2: Basic Usage**
 
 [2.1 Quickstart, Set Cell Value, Styles, Insert Picture, and Create Chart](https://youtu.be/JkWrAB_9DA0)<br>[2.2 Conditional Formatting Comment and Data Validation](https://youtu.be/U8SQIGKo0Nk)<br>[2.3 Converting CSV to XLSX, Row Height, Column Width, and Rich Text Settings](https://youtu.be/4yjrdMUlckc)<br>[2.4 Create Pivot Table, Shape, Cell Formula and Workbook Properties](https://youtu.be/rZ6FYUFNEkA)<br>[2.5 Sparkline, Header, Footer, Hidden and Worksheet Protection Settings](https://youtu.be/siLjtk3KGuo)<br>[2.6 Reading Workbook, Worksheets, Images, and Formula Calculation](https://youtu.be/0X5FyUGjiLc)
 
-##### Chapter 3：Working with Large Spreadsheet Efficiently
+**Chapter 3：Working with Large Spreadsheet Efficiently**
 
 [3.1 High-Performance I/O, Create a Huge Amounts of Data by Streaming API](https://youtu.be/mzQhoVrKOz8)

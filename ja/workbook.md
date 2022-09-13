@@ -571,7 +571,7 @@ func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
 OrientationPortrait | 縦
 OrientationLandscape | 横
 
-- `PageLayoutPaperSize` メソッドでページの用紙サイズを設定するデフォルトのページレイアウトサイズは「レター用紙 8 1/2 × 11 インチ」です。次の表は Excelize のページレイアウトサイズとインデックスの `PageLayoutPaperSize `パラメータの比較です。
+- `PageLayoutPaperSize` メソッドでページの用紙サイズを設定するデフォルトのページレイアウトサイズは「レター用紙 8 1/2 × 11 インチ」です。次の表は Excelize のページレイアウトサイズとインデックスの `PageLayoutPaperSize` パラメータの比較です。
 
 インデックス|用紙サイズ
 ---|---

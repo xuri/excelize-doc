@@ -32,31 +32,31 @@ NO tiene que incluir esta información si se trata de una SOLICITUD DE FUNCIONES
 
 ---
 
-** Descripción **
+**Descripción**
 
 Describe brevemente el problema que tienes en unos pocos párrafos.
 
-** Pasos para reproducir el problema: **
+**Pasos para reproducir el problema:**
 1.
 2.
 3.
 
-** Describe los resultados que recibiste: **
+**Describe los resultados que recibiste:**
 
-** Describe los resultados que esperabas: **
+**Describe los resultados que esperabas:**
 
-** La salida de `go version`: **
+**La salida de `go version`:**
 
 ```text
 (pegue su salida aquí)
 ```
 
-** Excelize versión o ID de confirmación: **
+**Excelize versión o ID de confirmación:**
 
 ```text
 (pegar aquí)
 ```
 
-** Detalles del entorno (OS, versión de Microsoft Excel&trade;, físico, etc.): **
+**Detalles del entorno (OS, versión de Microsoft Excel&trade;, físico, etc.):**
 
 ---

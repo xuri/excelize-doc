@@ -10,7 +10,6 @@ func (f *File) AddChart(sheet, cell, format string, combo ...string) error
 
 次に示すのは、Excelize が作成をサポートするグラフの種類 `type` です:
 
-
 名前 | グラフの種類
 ---|---
 area                        | 2D エリアチャート
@@ -271,7 +270,6 @@ func (f *File) AddChartSheet(sheet, format string, combo ...string) error
 ```
 
 AddChartSheet は、指定されたグラフ形式セット（オフセット、スケール、アスペクト比の設定、印刷設定など）とプロパティセットによってグラフシートを作成するメソッドを提供します。Excelでは、グラフシートはグラフのみを含むワークシートです。
-
 
 ## チャートを削除 {#DeleteChart}
 

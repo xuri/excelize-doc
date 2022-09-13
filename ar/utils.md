@@ -151,6 +151,7 @@ Price < 2000
 ```go
 func (f *File) UpdateLinkedValue() error
 ```
+
 إصلاح UpdateLinkedValue لا يتم تحديث القيم المرتبطة في جدول بيانات في Office Excel 2007 و 2010. ستزيل هذه الوظيفة علامة القيمة عند تلبية خلية لها قيمة مرتبطة. المرجع [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) ملاحظة: بعد فتح ملف جدول البيانات ، سيقوم Excel بتحديث القيمة المرتبطة وإنشاء قيمة جديدة وسيطلب حفظ الملف أم لا.
 
 يظهر تأثير مسح ذاكرة التخزين المؤقت للخلية في المصنف كتعديل على العلامة `<v>` ، على سبيل المثال ، ذاكرة التخزين المؤقت للخلية قبل المسح:

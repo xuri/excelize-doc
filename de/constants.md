@@ -222,4 +222,3 @@ const (
     ColorMappingTypeUnsetValue int = -1
 )
 ```
-

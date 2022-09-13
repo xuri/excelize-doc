@@ -143,7 +143,6 @@ func (f *File) GetSheetList() []string
 
 GetSheetList 는 통합 문서의 워크 시트, 차트 시트 및 대화 상자 시트 이름 목록을 가져 오는 기능을 제공합니다.
 
-
 ## 워크 시트 이름 설정 {#SetSheetName}
 
 ```go

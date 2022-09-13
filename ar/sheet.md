@@ -70,6 +70,7 @@ func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
 يوفر GetColVisible وظيفة لإظهار عمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، احصل على الحالة المرئية للعمود `D` في `Sheet1`:
+
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
 ```
@@ -606,7 +607,6 @@ func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
 ```
 
 يقوم SetSheetCol بكتابة مصفوفة إلى عمود من خلال اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع المصفوفة `slice`. على سبيل المثال ، يكتب صفيفًا في العمود `B` يبدأ بالخلية `B6` في `Sheet1`:
-
 
 ```go
 err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})

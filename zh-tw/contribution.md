@@ -26,11 +26,11 @@ Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Off
 
 ---
 
-** 問題描述 **
+**問題描述**
 
 簡要描述您在使用中所遇到的問題。
 
-** 復現此問題的步驟：**
+**復現此問題的步驟：**
 
 1 .
 
@@ -38,23 +38,23 @@ Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Off
 
 3 .
 
-** 描述得到的結果：**
+**描述得到的結果：**
 
-** 描述預期的結果：**
+**描述預期的結果：**
 
-** `go version` 命令輸出的信息：**
+**`go version` 命令輸出的信息：**
 
 ```text
 （將輸出信息粘貼在此即可）
 ```
 
-** 使用的 Excelize 版本或者 commit ID：**
+**使用的 Excelize 版本或者 commit ID：**
 
 ```text
 （粘貼在此即可）
 ```
 
-** 運行環境詳情 (操作系統, Microsoft Excel&trade; 版本, 物理機器配置等)：**
+**運行環境詳情 (操作系統, Microsoft Excel&trade; 版本, 物理機器配置等)：**
 
 ---
 

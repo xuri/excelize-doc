@@ -32,31 +32,31 @@ Microsoft Excel&trade; 2007 릴리스는 XML 및 ZIP 기술을 기반으로 하�
 
 ---
 
-** Description **
+**Description**
 
 Briefly describe the problem you are having in a few paragraphs.
 
-** Steps to reproduce the issue: **
+**Steps to reproduce the issue:**
 1.
 2.
 3.
 
-** Describe the results you received: **
+**Describe the results you received:**
 
-** Describe the results you expected: **
+**Describe the results you expected:**
 
-** Output of `go version`: **
+**Output of `go version`:**
 
 ```text
 (paste your output here)
 ```
 
-** Excelize version or commit ID: **
+**Excelize version or commit ID:**
 
 ```text
 (paste here)
 ```
 
-** Environment details (OS, Microsoft Excel&trade; version, physical, etc.): **
+**Environment details (OS, Microsoft Excel&trade; version, physical, etc.):**
 
 ---
