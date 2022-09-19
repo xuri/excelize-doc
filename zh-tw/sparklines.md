@@ -9,7 +9,7 @@
 ## 添加走勢圖
 
 ```go
-func (f *File) AddSparkline(sheet string, opt *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
 ```
 
 根據給定的工作表名和走勢圖屬性添加走勢圖。走勢圖是工作表儲存格中直觀表示資料的微型圖表。使用走勢圖以一系列值顯示趨勢（如季節性增加或減少、經濟週期），或突出顯示最大值和最小值。走勢圖在 Excel 2007 中將不會顯示。例如添加組走勢圖：

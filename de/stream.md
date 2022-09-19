@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## Schreiben der Zulaufzeile {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow schreibt ein Array in die Stream-Zeile, indem eine Startkoordinate und ein Zeiger auf den Array-Typ `slice` angegeben werden. Beachten Sie, dass Sie die Methode [`Flush`](stream.md#Flush) aufrufen müssen, um den Streaming-Schreibvorgang zu beenden.

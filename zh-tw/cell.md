@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## 設定儲存格的值 {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 根據給定的工作表名和儲存格坐標設定儲存格的值。此功能是併發安全的。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
@@ -61,7 +61,7 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ## 設定布林型值 {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
 根據給定的工作表名和儲存格坐標設定布林型儲存格的值。
@@ -69,7 +69,7 @@ func (f *File) SetCellBool(sheet, axis string, value bool) error
 ## 設定默認字符型值 {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將不會進行特殊字符過濾。
@@ -77,7 +77,7 @@ func (f *File) SetCellDefault(sheet, axis, value string) error
 ## 設定實數 {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
 根據給定的工作表名和儲存格坐標設定實數儲存格的值。
@@ -85,7 +85,7 @@ func (f *File) SetCellInt(sheet, axis string, value int) error
 ## 設定字符型值 {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被忽略。
@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## 設定超鏈接 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定存儲格的超鏈接而不影響存儲格的值，若需設定存儲格的值，請通過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函數另行設定。
@@ -407,7 +407,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ## 獲取儲存格的值 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
@@ -415,7 +415,7 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ## 獲取存儲格數據類型 {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
 根據給定的工作表、儲存格坐標獲取指定儲存格的數據類型。
@@ -471,7 +471,7 @@ for _, row := range rows {
 ## 獲取超鏈接 {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
 根據給定的工作表名和儲存格坐標獲取儲存格超鏈接，如果該儲存格存在超鏈接，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
@@ -485,7 +485,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## 獲取樣式索引 {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
 根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在複製儲存格樣式時，作為調用 `SetCellValue` 函數的參數使用。
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## 設定公式 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
@@ -673,7 +673,7 @@ func main() {
 ## 獲取公式 {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
 根據給定的工作表名和儲存格坐標獲取該儲存格上的公式。

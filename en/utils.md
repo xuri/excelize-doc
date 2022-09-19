@@ -6,7 +6,7 @@
 func (f *File) AddTable(sheet, hCell, vCell, format string) error
 ```
 
-AddTable provides the method to add a table in a worksheet by given worksheet name, coordinate area, and format set.
+AddTable provides the method to add a table in a worksheet by given worksheet name, range reference, and format set.
 
 - Example 1, create a table of `A1:D5` on `Sheet1`:
 
@@ -31,7 +31,7 @@ err := f.AddTable("Sheet2", "F2", "H6", `{
 }`)
 ```
 
-Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique, and must set the header row data of the table before calling the AddTable function. Multiple tables coordinate areas that can't have an intersection.
+Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique, and must set the header row data of the table before calling the AddTable function. Multiple tables range reference that can't have an intersection.
 
 `table_name`: The name of the table, in the same worksheet name of the table, should be unique.
 
@@ -73,7 +73,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
 ```
 
-AutoFilter provides the method to add an auto filter in a worksheet by given worksheet name, coordinate area, and settings. An auto filter in Excel is a way of filtering a 2D range of data based on some simple criteria.
+AutoFilter provides the method to add an auto filter in a worksheet by given worksheet name, range reference, and settings. An auto filter in Excel is a way of filtering a 2D range of data based on some simple criteria.
 
 Example 1, applying an auto filter to a cell range `A1:D4` in the `Sheet1`:
 
@@ -251,7 +251,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-NewConditionalStyle provides a function to create a style for the conditional format by given style format. The parameters are the same as function [`NewStyle()`](style.md#NewStyle). Note that the color field uses RGB color code and only supports setting the font, fills, alignment, and borders currently.
+NewConditionalStyle provides a function to create a style for the conditional format by given style format. The parameters are the same with the [`NewStyle`](style.md#NewStyle) function. Note that the color field uses RGB color code and only supports setting the font, fills, alignment, and borders currently.
 
 ## Set conditional format {#SetConditionalFormat}
 
@@ -807,10 +807,10 @@ GetConditionalFormats returns conditional format settings by given worksheet nam
 ## Remove conditional format {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, area string) error
+func (f *File) UnsetConditionalFormat(sheet, reference string) error
 ```
 
-UnsetConditionalFormat provides a function to unset the conditional format by given worksheet name and range.
+UnsetConditionalFormat provides a function to unset the conditional format by given worksheet name and range reference.
 
 ## Panes {#SetPanes}
 

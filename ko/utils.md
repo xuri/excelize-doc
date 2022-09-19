@@ -251,7 +251,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-NewConditionalStyle 지정된 스타일 형식에 의해 조건부 형식에 대 한 스타일을 만드는 함수를 제공 합니다. 매개 변수는 함수 [`NewStyle()`](style.md#NewStyle) 와 동일합니다. 색상 필드는 RGB 색상 코드를 사용하고 현재 글꼴, 채우기, 정렬 및 테두리를 설정하기 위해 지원만 사용합니다.
+NewConditionalStyle 지정된 스타일 형식에 의해 조건부 형식에 대 한 스타일을 만드는 함수를 제공 합니다. 매개 변수는 함수 [`NewStyle`](style.md#NewStyle) 와 동일합니다. 색상 필드는 RGB 색상 코드를 사용하고 현재 글꼴, 채우기, 정렬 및 테두리를 설정하기 위해 지원만 사용합니다.
 
 ## 조건 형식 {#SetConditionalFormat}
 
@@ -807,7 +807,7 @@ GetConditionalFormats 는 주어진 워크시트 이름으로 조건부 서식 �
 ## 조건부 서식을 제거합니다 {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, area string) error
+func (f *File) UnsetConditionalFormat(sheet, reference string) error
 ```
 
 UnsetConditionalFormat 은 주어진 워크 시트 이름과 범위에 따라 조건부 서식을 설정 해제하는 기능을 제공합니다.

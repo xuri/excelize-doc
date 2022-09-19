@@ -9,7 +9,7 @@
 ## スパークラインの追加
 
 ```go
-func (f *File) AddSparkline(sheet string, opt *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
 ```
 
 AddSparkline には、指定された書式設定オプションによってワークシートにスパークラインを追加する機能が提供されます。スパークラインは、単一のセルに収まる小さなグラフで、データの傾向を示すために使用されます。スパークラインは Excel 2010 以降の機能です。Excel 2007 で読み取ることができるが、それらは表示されない XLSX ファイルに書き込むことができます。たとえば、グループ化されたスパークラインを追加します。変更は、次の 3 つすべてに適用されます:

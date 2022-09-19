@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## Запись строки листа в поток {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow записывает массив в строку потока по заданной начальной координате и указателю на массив типа `slice`. Обратите внимание, что вы должны вызвать метод [`Flush`](stream.md#Flush), чтобы завершить процесс потоковой записи.

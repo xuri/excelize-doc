@@ -146,7 +146,7 @@ GetSheetList предоставляет функцию для получения
 ## Задать имя листа {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 SetSheetName предоставляет функцию для установки имени листа по заданным именам старого и нового листа. В заголовке листа допускается не более 31 символа, и эта функция изменяет только имя листа и не обновляет имя листа в формуле или ссылке, связанной с ячейкой. Таким образом, может быть ошибка формулы проблемы или отсутствует ссылка.
@@ -603,7 +603,7 @@ err := f.RemoveRow("Sheet1", 3)
 ## Установка значений столбцов {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetCol записывает массив в столбец по заданному имени листа, начальной координате и указателю на тип массива `slice`. Например, записывает массив в столбец `B`, начинающийся с ячейки `B6` на листе `Sheet1`:
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Установить значения строки {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetRow записывает массив в строку по заданному имени рабочего листа, начальной координате и указателю на тип массива `slice`. Эта функция может быть использована для безопасности параллелизма. Например, запись массива в строку `6` начинается с ячейки `B6` на `Sheet1`:

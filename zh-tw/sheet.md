@@ -146,7 +146,7 @@ func (f *File) GetSheetList() []string
 ## 設定工作表名稱 {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 根據給定的新舊工作表名稱重命名工作表。工作表名稱最多允許使用 31 個字符，此功能僅更改工作表的名稱，而不會更新與儲存格關聯的公式或引用中的工作表名稱。因此使用此功能重命名工作表後可能導致公式錯誤或參考引用問題。
@@ -603,7 +603,7 @@ err := f.RemoveRow("Sheet1", 3)
 ## 按欄賦值 {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 根據給定的工作表名稱、起始坐標和 `slice` 類型引用按欄賦值。例如，在名為 `Sheet1` 的工作表 `B` 欄上，以 `B6` 存儲格作為起始坐標按欄賦值：
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## 按列賦值 {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 根據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。此功能是併發安全的。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：

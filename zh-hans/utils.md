@@ -248,7 +248,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-通过给定样式为条件格式创建样式，样式参数与 [`NewStyle()`](style.md#NewStyle) 函数的相同。请注意，使用 RGB 色域颜色代码时，目前仅支持设置字体、填充、对齐和边框的颜色。
+通过给定样式为条件格式创建样式，样式参数与 [`NewStyle`](style.md#NewStyle) 函数的相同。请注意，使用 RGB 色域颜色代码时，目前仅支持设置字体、填充、对齐和边框的颜色。
 
 ## 设置条件格式 {#SetConditionalFormat}
 
@@ -802,7 +802,7 @@ func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
 ## 删除条件格式 {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, area string) error
+func (f *File) UnsetConditionalFormat(sheet, reference string) error
 ```
 
 根据给定的工作表名称和单元格坐标区域删除条件格式。

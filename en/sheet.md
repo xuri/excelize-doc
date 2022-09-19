@@ -146,10 +146,10 @@ GetSheetList provides a function to get worksheets, chart sheets, and dialog she
 ## Set sheet name {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
-SetSheetName provides a function to set the worksheet name by given the old and new worksheet names. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be a problem formula error or reference missing.
+SetSheetName provides a function to set the worksheet name by given the source and target worksheet names. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be a problem formula error or reference missing.
 
 ## Set sheet properties {#SetSheetPrOptions}
 
@@ -508,15 +508,15 @@ Close closes the open worksheet XML file in the system temporary directory.
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-SearchSheet provides a function to get coordinates by given worksheet name, cell value, and regular expression. The function doesn't support searching on the calculated result, formatted numbers and conditional lookup currently. If it is a merged cell, it will return the coordinates of the upper left corner of the merged area.
+SearchSheet provides a function to get cell reference by given worksheet name, cell value, and regular expression. The function doesn't support searching on the calculated result, formatted numbers and conditional lookup currently. If it is a merged cell, it will return the cell reference of the upper left cell of the merged range reference.
 
-For example, search the coordinates of the value of `100` on `Sheet1`:
+For example, search the cell reference of the value of `100` on `Sheet1`:
 
 ```go
 result, err := f.SearchSheet("Sheet1", "100")
 ```
 
-For example, search the coordinates where the numerical value in the range of `0-9` of `Sheet1` is described:
+For example, search the cell reference where the numerical value in the range of `0-9` of `Sheet1` is described:
 
 ```go
 result, err := f.SearchSheet("Sheet1", "[0-9]", true)
@@ -603,10 +603,10 @@ Use this method with caution, which will affect changes in references such as fo
 ## Set column values {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetCol writes an array to column by given worksheet name, starting coordinate and a pointer to array type `slice`. For example, writes an array to column `B` start with the cell `B6` on `Sheet1`:
+SetSheetCol writes an array to column by given worksheet name, starting cell reference and a pointer to array type `slice`. For example, writes an array to column `B` start with the cell `B6` on `Sheet1`:
 
 ```go
 err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
@@ -615,10 +615,10 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Set row values {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetRow writes an array to row by given worksheet name, starting coordinate and a pointer to array type `slice`. This function is concurrency safe. For example, writes an array to row `6` start with the cell `B6` on `Sheet1`:
+SetSheetRow writes an array to row by given worksheet name, starting cell reference and a pointer to array type `slice`. This function is concurrency safe. For example, writes an array to row `6` start with the cell `B6` on `Sheet1`:
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
@@ -630,7 +630,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
-InsertPageBreak create a page break to determine where the printed page ends and where begins the next one by given worksheet name and axis, so the content before the page break will be printed on one page and after the page break on another.
+InsertPageBreak create a page break to determine where the printed page ends and where begins the next one by given worksheet name and cell reference, so the content before the page break will be printed on one page and after the page break on another.
 
 ## Remove page break {#RemovePageBreak}
 
@@ -638,4 +638,4 @@ InsertPageBreak create a page break to determine where the printed page ends and
 func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
-RemovePageBreak remove a page break by given worksheet name and axis.
+RemovePageBreak remove a page break by given worksheet name and cell reference.

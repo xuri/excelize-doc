@@ -30,7 +30,7 @@ func NewFile() *File
 ## افتح {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 يأخذ OpenFile اسم ملف جدول البيانات ويعيد بنية ملف جدول بيانات معبأة له. على سبيل المثال ، افتح جدول بيانات محميًا بكلمة مرور:

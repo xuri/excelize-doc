@@ -30,7 +30,7 @@ NewFile provides a function to create new file by default template. The newly cr
 ## Open {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 OpenFile takes the name of a spreadsheet file and returns a populated spreadsheet file struct for it. For example, open a spreadsheet with password protection:

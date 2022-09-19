@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## 셀 값 설정 {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표는 테이블의 첫 번째 행에 없어야합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 다음은 지원되는 데이터 형식을 보여 주며:
@@ -61,7 +61,7 @@ SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표�
 ## 부울 값 설정 {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
 SetCellBool 은 주어진 워크 시트 이름, 셀 좌표 및 셀 값에 의해 셀의 bool 형식 값을 설정하는 기능을 제공합니다.
@@ -69,7 +69,7 @@ SetCellBool 은 주어진 워크 시트 이름, 셀 좌표 및 셀 값에 의해
 ## RAW 값 설정 {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 SetCellDefault 는 셀을 이스케이프하지 않고 셀의 문자열 형식 값을 기본 형식으로 설정하는 기능을 제공합니다.
@@ -77,7 +77,7 @@ SetCellDefault 는 셀을 이스케이프하지 않고 셀의 문자열 형식 �
 ## 정수 값 설정 {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
 SetCellInt 는 지정된 워크 시트 이름, 셀 좌표 및 셀 값으로 셀의 int 형식 값을 설정하는 기능을 제공합니다.
@@ -85,7 +85,7 @@ SetCellInt 는 지정된 워크 시트 이름, 셀 좌표 및 셀 값으로 셀�
 ## 문자열 값 설정 {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 SetCellStr 셀의 문자열 형식 값을 설정하는 함수를 제공합니다. 셀에 `32767` 문자를 포함할 수 있는 총 문자 수입니다.
@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## 하이퍼 링크 설정 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink 는 주어진 워크 시트 이름과 링크 URL 주소로 셀 하이퍼링크를 설정하는 기능을 제공합니다. LinkType 은 이 통합 문서의 셀 중 하나로 이동하기 위한 웹 사이트용 하이퍼링크 `External` 또는 `Location` 의 두 가지 유형을 정의합니다. 워크시트의 최대 제한 하이퍼링크는 `65530` 입니다. 이 함수는 셀의 하이퍼링크를 설정하는 데만 사용되며 셀의 값에는 영향을 미치지 않습니다. 셀의 값을 설정해야 하는 경우 [`SetCellStyle`](cell.md#SetCellStyle) 또는 [`SetSheetRow`](sheet.md#SetSheetRow) 와 같은 다른 기능을 사용하십시오. 다음은 외부 링크의 예입니다.
@@ -407,7 +407,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ## 셀 값 가져 오기 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 셀의 값은 지정된 워크시트 및 셀 좌표에 따라 검색되고 반환 값은 `string` 유형으로 변환됩니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 셀 형식을 셀 값에 적용할 수 있는 경우 적용된 값이 반환되고 그렇지 않으면 원래 값이 반환됩니다. 병합 범위 내의 모든 셀의 값은 동일합니다.
@@ -415,7 +415,7 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ## 셀 유형 가져오기 {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
 GetCellType 은 스프레드시트 파일에서 주어진 워크시트 이름과 축으로 셀의 데이터 유형을 가져오는 기능을 제공합니다.
@@ -471,7 +471,7 @@ for _, row := range rows {
 ## 하이퍼 링크 가져 오기 {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
 지정된 워크시트 이름 및 셀 좌표를 기반으로 셀 하이퍼링크를 가져옵니다. 셀에 하이퍼링크가 있는 경우 `true` 와 링크 주소를 반환하고 그렇지 않으면 `false` 와 빈 링크 주소를 반환합니다.
@@ -485,7 +485,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## 스타일 색인 가져 오기 {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
 셀 스타일 인덱스는 지정된 워크시트 이름 및 셀 좌표에서 가져오며, 얻은 인덱스는 셀 스타일을 복사할 때 `SetCellValue` 함수를 호출하는 매개 변수로 사용할 수 있습니다.
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## 셀 수식 설정 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 SetCellFormula 는 주어진 워크시트 이름 과 셀 수식 설정에 따라 셀에 수식을 설정하는 기능을 제공합니다. 수식 셀의 결과는 Office Excel 응용 프로그램에서 워크시트를 열거나 [CalcCellValue](cell.md#CalcCellValue) 함수를 사용할 수 있을 때 계산된 셀 값을 얻을 수 있습니다. 엑셀 응용 프로그램이 통합 문서를 열었을 때 수식을 자동으로 계산하지 않으면 셀 수식 기능을 설정한 후 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 를 호출하십시오.
@@ -673,7 +673,7 @@ func main() {
 ## 셀 수식 가져 오기 {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
 지정된 워크시트 이름 및 셀 좌표를 기반으로 셀에 수식을 가져옵니다.

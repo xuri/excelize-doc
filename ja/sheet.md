@@ -146,7 +146,7 @@ GetSheetList は、ワークシート、チャートシート、およびワー�
 ## ワークシート名を設定 {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 SetSheetName は、指定された古いワークシート名と新しいワークシート名でワークシート名を設定する関数を提供します。シートのタイトルには最大 31 文字を使用できます。この関数はシートの名前を変更するだけで、セルに関連付けられた数式または参照のシート名は更新しません。そのため、問題の数式エラーまたは参照が欠落している可能性があります。
@@ -603,7 +603,7 @@ err := f.RemoveRow("Sheet1", 3)
 ## 列の値を設定する {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetCol は、指定されたワークシート名、開始座標、および配列型 `slice` へのポインターによって列に配列を書き込みます。たとえば、列 `B` に `Sheet1` のセル `B6` で始まる配列を書き込みます。
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## 行の値を設定 {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetRow は与えられたワークシート名、開始座標、配列型 `slice` へのポインタで配列を行に書き込みます。この関数は、同時実行セーフをサポートします。例えば、 `Sheet1` の `B6`のセルから始まる行 `6` の配列を書き込みます。

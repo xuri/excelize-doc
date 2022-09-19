@@ -9,7 +9,7 @@ Los minigráficos son una característica de Excel 2010+ que le permite agregar 
 ## Agregar minigráfico
 
 ```go
-func (f *File) AddSparkline(sheet string, opt *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
 ```
 
 AddSparkline proporciona una función para agregar minigráficos a la hoja de trabajo mediante opciones de formato dadas. Los minigráficos son gráficos pequeños que caben en una sola celda y se utilizan para mostrar tendencias en los datos. Los minigráficos son una característica de Excel 2010 y versiones posteriores únicamente. Puede escribirlos en un archivo de hoja de cálculo que pueda leer Excel 2007, pero no se mostrarán. Por ejemplo, agregue un minigráfico agrupado. Los cambios se aplican a los tres:

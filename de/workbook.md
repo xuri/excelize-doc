@@ -30,7 +30,7 @@ NewFile bietet eine Funktion zum Erstellen einer neuen Datei als Standardvorlage
 ## Öffnen {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 OpenFile nimmt den Namen einer Tabellenkalkulationsdatei an und gibt dafür eine aufgefüllte Tabellenkalkulationsdateistruktur zurück. Öffnen Sie beispielsweise eine Kalkulationstabelle mit Kennwortschutz:

@@ -30,7 +30,7 @@ func NewFile() *File
 ## 打開 {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 使用 `OpenFile` 打開已有 Excel 檔案。例如，打開帶有密碼保護的電子表格檔案：

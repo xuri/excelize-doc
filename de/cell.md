@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## Festlegen des Zellenwerts {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 SetCellValue bietet eine Funktion zum Festlegen des Werts einer Zelle. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Die angegebenen Koordinaten sollten sich nicht in der ersten Zeile der Tabelle befinden. Im Folgenden werden die unterstützten Datentypen angezeigt:
@@ -61,7 +61,7 @@ Beachten Sie, dass das standardmäßige Datumsformat `m/d/yy h:mm` mit dem Wert 
 ## Festlegen eines booleschen Werts {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
 SetCellBool bietet eine Funktion zum Festlegen des Bool-Typwerts einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellkoordinaten und des Zellenwerts.
@@ -69,7 +69,7 @@ SetCellBool bietet eine Funktion zum Festlegen des Bool-Typwerts einer Zelle anh
 ## Festlegen des RAW-Werts {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 SetCellDefault bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts einer Zelle als Standardformat, ohne die Zelle zu verlassen.
@@ -77,7 +77,7 @@ SetCellDefault bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts eine
 ## Ganzzahlwert festlegen {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
 SetCellInt bietet eine Funktion zum Festlegen des Int-Typ-Werts einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellkoordinaten und des Zellenwerts.
@@ -85,7 +85,7 @@ SetCellInt bietet eine Funktion zum Festlegen des Int-Typ-Werts einer Zelle anha
 ## Festlegen des Zeichenfolgenwerts {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 SetCellStr bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts einer Zelle. Die Gesamtzahl der Zeichen, die eine Zelle `32767` Zeichen enthalten kann.
@@ -235,7 +235,7 @@ Schützen Sie das Arbeitsblatt, um eine Zelle zu sperren oder eine Formel auszub
 ## Festlegen eines Hyperlinks {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink bietet eine Funktion zum Festlegen von Zellen-Hyperlinks anhand des angegebenen Arbeitsblattnamens und der Link-URL-Adresse. LinkType definiert zwei Arten von Hyperlinks: `External` für die Website oder `Location` für das Verschieben in eine der Zellen in dieser Arbeitsmappe. Die maximale Anzahl von Hyperlinks in einem Arbeitsblatt beträgt `65530`. Diese Funktion wird nur verwendet, um den Hyperlink der Zelle festzulegen und hat keinen Einfluss auf den Wert der Zelle. Wenn Sie den Wert der Zelle setzen müssen, verwenden Sie bitte die anderen Funktionen wie [`SetCellStyle`](cell.md#SetCellStyle) oder [`SetSheetRow`](sheet.md#SetSheetRow). Unten finden Sie ein Beispiel für einen externen Link.
@@ -407,7 +407,7 @@ GetCellRichText bietet eine Funktion zum Abrufen des Rich-Textes von Zellen anha
 ## Abrufen des Zellenwerts {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen Zellkoordinaten abgerufen, und der Rückgabewert wird in den Typ `string` konvertiert. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Wenn das Zellenformat auf den Wert einer Zelle angewendet werden kann, wird der angewendete Wert zurückgegeben, andernfalls wird der ursprüngliche Wert zurückgegeben. Die Werte aller Zellen sind in einem zusammengeführten Bereich gleich.
@@ -415,7 +415,7 @@ Der Wert der Zelle wird gemäß dem angegebenen Arbeitsblatt und den angegebenen
 ## Holen Sie sich den Zellendatentyp {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
 GetCellType bietet eine Funktion zum Abrufen des Datentyps der Zelle anhand des angegebenen Arbeitsblattnamens und der Achse in der Tabellenkalkulationsdatei.
@@ -471,7 +471,7 @@ for _, row := range rows {
 ## Abrufen von Hyperlinks {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
 GetCellHyperLink ruft einen Zell-Hyperlink basierend auf dem angegebenen Arbeitsblattnamen und Zellkoordinaten ab. Wenn die Zelle einen Hyperlink hat, gibt sie `true` und die Linkadresse zurück, andernfalls gibt sie `false` und eine leere Linkadresse zurück.
@@ -485,7 +485,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## Stilindex abrufen {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
 Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen und den Zellkoordinaten abgerufen, und der erhaltene Index kann als Parameter zum Aufrufen der Funktion `SetCellValue` beim Kopieren des Zellenstils verwendet werden.
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## Festlegen der Zellenformel {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 SetCellFormula bietet eine Funktion zum Festlegen der Formel für die Zelle, die gemäß dem angegebenen Arbeitsblattnamen und den Zellformeleinstellungen verwendet wird. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
@@ -673,7 +673,7 @@ func main() {
 ## Abrufen der Zellenformel {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
 Rufen Sie die Formel für die Zelle basierend auf dem angegebenen Arbeitsblattnamen und den Zellkoordinaten ab.

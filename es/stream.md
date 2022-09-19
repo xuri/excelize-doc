@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## Escribir fila de hoja para transmitir {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow escribe una matriz en la fila de flujo mediante una coordenada inicial dada y un puntero al tipo de matriz `slice`. Tenga en cuenta que debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión.

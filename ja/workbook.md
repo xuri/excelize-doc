@@ -30,7 +30,7 @@ func NewFile() *File
 ## 開く {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 既存の Excel 文書を `OpenFile` で開きます。たとえば、パスワード保護された開いているスプレッドシート:

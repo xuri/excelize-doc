@@ -251,7 +251,7 @@ excelize.CoordinatesToCellName(1, 1, true) // regreso "$A$1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-NewConditionalStyle proporciona una función para crear un estilo para el formato condicional por formato de estilo dado. Los parámetros son los mismos que los de la función [`NewStyle()`](style.md#NewStyle). Tenga en cuenta que el campo de color utiliza código de color RGB y solo admite la configuración de fuente, rellenos, alineación y bordes actualmente.
+NewConditionalStyle proporciona una función para crear un estilo para el formato condicional por formato de estilo dado. Los parámetros son los mismos que los de la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que el campo de color utiliza código de color RGB y solo admite la configuración de fuente, rellenos, alineación y bordes actualmente.
 
 ## Establecer formato condicional {#SetConditionalFormat}
 
@@ -807,7 +807,7 @@ GetConditionalFormats devuelve la configuración de formato condicional según e
 ## Eliminar formato condicional {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, area string) error
+func (f *File) UnsetConditionalFormat(sheet, reference string) error
 ```
 
 UnsetConditionalFormat proporciona una función para anular el formato condicional por el nombre y el rango de la hoja de trabajo.

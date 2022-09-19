@@ -146,7 +146,7 @@ func (f *File) GetSheetList() []string
 ## تعيين اسم الورقة {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 يوفر SetSheetName وظيفة لتعيين اسم ورقة العمل من خلال إعطاء أسماء أوراق العمل القديمة والجديدة. يُسمح بـ 31 حرفًا كحد أقصى في عنوان الورقة وهذه الوظيفة تغير فقط اسم الورقة ولن تقوم بتحديث اسم الورقة في الصيغة أو المرجع المرتبط بالخلية. لذلك قد يكون هناك خطأ في صيغة مشكلة أو إشارة مفقودة.
@@ -603,7 +603,7 @@ err := f.RemoveRow("Sheet1", 3)
 ## قم بتعيين قيم العمود {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 يقوم SetSheetCol بكتابة مصفوفة إلى عمود من خلال اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع المصفوفة `slice`. على سبيل المثال ، يكتب صفيفًا في العمود `B` يبدأ بالخلية `B6` في `Sheet1`:
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## تعيين قيم الصفوف {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 يكتب SetSheetRow مصفوفة إلى صف بواسطة اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع الصفيف `slice`. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، يكتب مصفوفة في الصف `6` تبدأ بالخلية `B6` في `Sheet1`:

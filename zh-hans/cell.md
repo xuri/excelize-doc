@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## 设置单元格的值 {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 根据给定的工作表名和单元格坐标设置单元格的值。此功能是并发安全的。指定的坐标不应在表格的第一行范围，使用字符文本设置复数。
@@ -61,7 +61,7 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ## 设置布尔型值 {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
 根据给定的工作表名和单元格坐标设置布尔型单元格的值。
@@ -69,7 +69,7 @@ func (f *File) SetCellBool(sheet, axis string, value bool) error
 ## 设置默认字符型值 {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 根据给定的工作表名和单元格坐标设置字符型单元格的值，字符将不会进行特殊字符过滤。
@@ -77,7 +77,7 @@ func (f *File) SetCellDefault(sheet, axis, value string) error
 ## 设置实数 {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
 根据给定的工作表名和单元格坐标设置实数单元格的值。
@@ -85,7 +85,7 @@ func (f *File) SetCellInt(sheet, axis string, value int) error
 ## 设置字符型值 {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 根据给定的工作表名和单元格坐标设置字符型单元格的值，字符将会进行特殊字符过滤，并且字符串的累计长度应不超过 `32767`，多余的字符将会被忽略。
@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## 设置超链接 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 根据给定的工作表、单元格坐标、链接资源和资源类型设置单元格的超链接。资源类型分为外部链接地址 `External` 和工作簿内部位置链接 `Location` 两种。每个工作表中的包含最大超链接限制为 `65530` 个。该方法仅设置单元格的超链接而不影响单元格的值，若需设置单元格的值，请通过 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函数另行设置。
@@ -407,7 +407,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ## 获取单元格的值 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 根据给定的工作表和单元格坐标获取单元格的值，返回值将转换为 `string` 类型。如果可以将单元格格式应用于单元格的值，将返回应用后的值，否则将返回原始值。合并区域内所有单元格的值都相同。此功能是并发安全的。
@@ -415,7 +415,7 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ## 获取单元格数据类型 {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
 根据给定的工作表、单元格坐标获取指定单元格的数据类型。
@@ -471,7 +471,7 @@ for _, row := range rows {
 ## 获取超链接 {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
 根据给定的工作表名和单元格坐标获取单元格超链接，如果该单元格存在超链接，将返回 `true` 和链接地址，否则将返回 `false` 和空的链接地址。
@@ -485,7 +485,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## 获取样式索引 {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
 根据给定的工作表名和单元格坐标获取单元格样式索引，获取到的索引可以在复制单元格样式时，作为调用 `SetCellValue` 函数的参数使用。
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## 设置公式 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 根据给定的工作表名和单元格坐标设置该单元格上的公式。公式的结果可在工作表被 Office Excel 应用程序打开时计算，或通过 [CalcCellValue](cell.md#CalcCellValue) 函数计算单元格的值。若 Excel 应用程序打开工作簿后未对设置的单元格公式进行计算，请在设置公式后调用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除单元格缓存。
@@ -673,7 +673,7 @@ func main() {
 ## 获取公式 {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
 根据给定的工作表名和单元格坐标获取该单元格上的公式。

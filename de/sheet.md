@@ -146,7 +146,7 @@ GetSheetList bietet eine Funktion zum Abrufen der Arbeitsliste mit Arbeitsblätt
 ## Satzblattname festlegen {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 SetSheetName bietet eine Funktion zum Festlegen des Arbeitsblattnamens unter Angabe der alten und neuen Arbeitsblattnamen. Der Blatttitel darf maximal 31 Zeichen enthalten. Diese Funktion ändert nur den Namen des Blattes und aktualisiert den Blattnamen in der der Zelle zugeordneten Formel oder Referenz nicht. Möglicherweise fehlt ein Problemformelfehler oder eine Referenz.
@@ -603,7 +603,7 @@ Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Refere
 ## Festlegen von Spaltenwerten {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetCol schreibt ein Array in die Spalte mit dem Namen des Arbeitsblatts, der Startkoordinate und einem Zeiger auf den Arraytyp `slice`. Schreiben Sie beispielsweise ein Array in Spalte `B` und beginnen Sie mit der Zelle `B6` in `Sheet1`:
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Festlegen von Zeilenwerten {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetRow schreibt ein Array in eine Zeile mit dem angegebenen Arbeitsblattnamen, der Startkoordinate und einem Zeiger auf den Array-Typ `slice`. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Schreibt beispielsweise ein Array in die Zeile `6`, beginnend mit der Zelle `B6` auf `Sheet1`:

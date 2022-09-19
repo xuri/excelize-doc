@@ -146,7 +146,7 @@ GetSheetList fournit une fonction pour obtenir les feuilles de calcul, les feuil
 ## Définir le nom de la feuille de calcul {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 SetSheetName fournit une fonction pour définir le nom de la feuille de calcul en fonction des anciens et nouveaux noms de feuille de calcul. Un maximum de 31 caractères sont autorisés dans le titre de la feuille et cette fonction ne modifie que le nom de la feuille et ne mettra pas à jour le nom de la feuille dans la formule ou la référence associée à la cellule. Il peut donc y avoir une erreur de formule ou une référence manquante.
@@ -603,7 +603,7 @@ Utilisez cette méthode avec prudence, car elle affectera les modifications de r
 ## Définir les valeurs de colonne {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetCol écrit un tableau dans une colonne par nom de feuille de calcul donné, coordonnée de départ et pointeur vers le type de tableau `slice`. Par exemple, écrit un tableau dans la colonne `B` en commençant par la cellule `B6` de la feuille `Sheet1`:
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Définir les valeurs de ligne {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Cette fonction est sécurisée pour la concurrence. Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Sheet1`:

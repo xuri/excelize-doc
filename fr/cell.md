@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## Définir la valeur de la cellule {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 SetCellValue fournit une fonction pour définir la valeur d'une cellule. Cette fonction est sécurisée pour la concurrence. Les coordonnées spécifiées ne doivent pas figurer dans la première ligne du tableau. Voici les types de données pris en charge:
@@ -61,7 +61,7 @@ Notez que le format de date par défaut est `m/d/yy h:mm` de la valeur de type `
 ## Définir la valeur booléenne {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
 SetCellBool fournit une fonction pour définir la valeur du type booléen d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
@@ -69,7 +69,7 @@ SetCellBool fournit une fonction pour définir la valeur du type booléen d'une 
 ## Définir la valeur RAW {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 SetCellDefault fournit une fonction pour définir la valeur de type chaîne d'une cellule comme format par défaut sans échapper à la cellule.
@@ -77,7 +77,7 @@ SetCellDefault fournit une fonction pour définir la valeur de type chaîne d'un
 ## Définir la valeur entière {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
 SetCellInt fournit une fonction pour définir la valeur de type int d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
@@ -85,7 +85,7 @@ SetCellInt fournit une fonction pour définir la valeur de type int d'une cellul
 ## Définir la valeur de chaîne {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 SetCellStr fournit une fonction pour définir la valeur du type de chaîne d'une cellule. Nombre total de caractères qu'une cellule peut contenir `32767`.
@@ -235,7 +235,7 @@ Pour verrouiller une cellule ou masquer une formule, protégez la feuille de cal
 ## Définir un lien hypertexte {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellule par nom de feuille de calcul donné et adresse URL de lien. LinkType définit deux types d'hyperliens `External` pour site Web ou `Location` pour passer à l'une des cellules de ce classeur. Le nombre maximal d’hyperliens de limite dans une feuille de calcul est `65530`. Cette fonction est uniquement utilisée pour définir le lien hypertexte de la cellule et n'affecte pas la valeur de la cellule. Si vous devez définir la valeur de la cellule, veuillez utiliser les autres fonctions telles que [`SetCellStyle`](cell.md#SetCellStyle) ou [`SetSheetRow`](sheet.md#SetSheetRow). Ce qui suit est un exemple de lien externe.
@@ -407,7 +407,7 @@ GetCellRichText fournit une fonction pour obtenir le texte enrichi des cellules 
 ## Obtenir la valeur de la cellule {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 La valeur de la cellule est récupérée en fonction de la feuille de calcul et des coordonnées de la cellule, et la valeur de retour est convertie en type `string`. Cette fonction est sécurisée pour la concurrence. Si le format de cellule peut être appliqué à la valeur d'une cellule, la valeur appliquée sera renvoyée, sinon la valeur d'origine sera renvoyée. Les valeurs de toutes les cellules seront les mêmes dans une plage fusionnée.
@@ -415,7 +415,7 @@ La valeur de la cellule est récupérée en fonction de la feuille de calcul et 
 ## Obtenir le type de cellule {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
 GetCellType fournit une fonction pour obtenir le type de données de la cellule par nom de feuille de calcul et axe donnés dans un fichier de feuille de calcul.
@@ -471,7 +471,7 @@ for _, row := range rows {
 ## Obtenir un lien hypertexte {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
 Obtient un lien hypertexte de cellule basé sur le nom de feuille de calcul donné et les coordonnées de cellule. Si la cellule a un lien hypertexte, elle retournera `true` et l'adresse du lien, sinon elle retournera `false` et une adresse de lien vide.
@@ -485,7 +485,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## Obtenir l'index de style {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
 L'index de style de cellule est obtenu à partir du nom de feuille de calcul donné et des coordonnées de cellule, et l'index obtenu peut être utilisé comme paramètre pour appeler la fonction `SetCellValue` lors de la copie du style de cellule.
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## Formule de définition de cellule {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
@@ -673,7 +673,7 @@ func main() {
 ## Obtenir la formule cellulaire {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
 Obtenez la formule sur la cellule en fonction du nom de feuille de calcul donné et des coordonnées de cellule.

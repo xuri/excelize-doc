@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## 스트리밍 할 시트 행 쓰기 {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow 는 지정된 시작 좌표와 배열 유형 `slice` 에 대한 포인터를 사용하여 워크시트에 행으로 데이터를 스트리밍합니다. 행을 설정한 후에는 [`Flush`](stream.md#Flush) 함수를 호출하여 스트리밍 쓰기 프로세스를 종료해야 하며 기록된 줄 번호가 증가해야 합니다.

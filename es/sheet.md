@@ -146,7 +146,7 @@ GetSheetList proporciona una función para obtener hojas de trabajo, hojas de gr
 ## Establecer el nombre de la hoja {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 SetSheetName proporciona una función para establecer el nombre de la hoja de trabajo con los nombres antiguos y nuevos de la hoja de trabajo. Se permite un máximo de 31 caracteres en el título de la hoja y esta función solo cambia el nombre de la hoja y no actualizará el nombre de la hoja en la fórmula o referencia asociada con la celda. Por lo tanto, puede haber un error de fórmula de problema o falta una referencia.
@@ -603,7 +603,7 @@ Utilice este método con precaución, ya que afectará a los cambios en las refe
 ## Establecer valores de columna {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetCol escribe una matriz en la columna por el nombre de la hoja de cálculo, la coordenada inicial y un puntero al tipo de matriz `slice`. Por ejemplo, escribe una matriz en la columna `B` a partir de la celda `B6` de `Sheet1`:
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## Establecer valores de fila {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetRow escribe una matriz en una fila según el nombre de la hoja de trabajo, la coordenada inicial y un puntero al tipo de matriz `slice`. Esta función es segura para la simultaneidad. Por ejemplo, escribe una matriz en la fila `6` y comienza con la celda `B6` en `Sheet1`:

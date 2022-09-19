@@ -6,26 +6,28 @@ PivotTableOption mappe directement les paramètres de format du tableau croisé 
 
 ```go
 type PivotTableOption struct {
-    DataRange           string
-    PivotTableRange     string
-    Rows                []PivotTableField
-    Columns             []PivotTableField
-    Data                []PivotTableField
-    Filter              []PivotTableField
-    RowGrandTotals      bool
-    ColGrandTotals      bool
-    ShowDrill           bool
-    UseAutoFormatting   bool
-    PageOverThenDown    bool
-    MergeItem           bool
-    CompactData         bool
-    ShowError           bool
-    ShowRowHeaders      bool
-    ShowColHeaders      bool
-    ShowRowStripes      bool
-    ShowColStripes      bool
-    ShowLastColumn      bool
-    PivotTableStyleName string
+    pivotTableSheetName string
+    DataRange           string            `json:"data_range"`
+    PivotTableRange     string            `json:"pivot_table_range"`
+    Rows                []PivotTableField `json:"rows"`
+    Columns             []PivotTableField `json:"columns"`
+    Data                []PivotTableField `json:"data"`
+    Filter              []PivotTableField `json:"filter"`
+    RowGrandTotals      bool              `json:"row_grand_totals"`
+    ColGrandTotals      bool              `json:"col_grand_totals"`
+    ShowDrill           bool              `json:"show_drill"`
+    UseAutoFormatting   bool              `json:"use_auto_formatting"`
+    PageOverThenDown    bool              `json:"page_over_then_down"`
+    MergeItem           bool              `json:"merge_item"`
+    CompactData         bool              `json:"compact_data"`
+    ShowError           bool              `json:"show_error"`
+    ShowRowHeaders      bool              `json:"show_row_headers"`
+    ShowColHeaders      bool              `json:"show_col_headers"`
+    ShowRowStripes      bool              `json:"show_row_stripes"`
+    ShowColStripes      bool              `json:"show_col_stripes"`
+    ShowLastColumn      bool              `json:"show_last_column"`
+    PivotTableStyleName string            `json:"pivot_table_style_name"`
+    // contains filtered or unexported fields
 }
 ```
 
@@ -41,12 +43,12 @@ PivotTableField mappe directement les paramètres de champ du tableau croisé dy
 
 ```go
 type PivotTableField struct {
-    Compact         bool
-    Data            string
-    Name            string
-    Outline         bool
-    Subtotal        string
-    DefaultSubtotal bool
+    Compact         bool   `json:"compact"`
+    Data            string `json:"data"`
+    Name            string `json:"name"`
+    Outline         bool   `json:"outline"`
+    Subtotal        string `json:"subtotal"`
+    DefaultSubtotal bool   `json:"default_subtotal"`
 }
 ```
 
@@ -71,7 +73,7 @@ Name spécifie le nom du champ de données. Un maximum de `255` caractères est 
 ## Créer un tableau croisé dynamique {#AddPivotTable}
 
 ```go
-func (f *File) AddPivotTable(opt *PivotTableOption) error
+func (f *File) AddPivotTable(opts *PivotTableOption) error
 ```
 
 AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction des options de tableau croisé dynamique données.

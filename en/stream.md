@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## Write sheet row to stream {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow writes an array to stream row by given starting coordinate and a pointer to array type `slice`. Note that, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process.
@@ -102,7 +102,7 @@ SetRow writes an array to stream row by given starting coordinate and a pointer 
 func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
 ```
 
-AddTable creates an Excel table for the StreamWriter using the given coordinate area and format set.
+AddTable creates an Excel table for the StreamWriter using the given cell range and format set.
 
 Example 1, create a table of `A1:D5`:
 
@@ -131,7 +131,7 @@ Note that the table must be at least two lines including the header. The header 
 func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
-MergeCell provides a function to merge cells by a given coordinate area for the StreamWriter. Don't create a merged cell that overlaps with another existing merged cell.
+MergeCell provides a function to merge cells by a given range reference for the StreamWriter. Don't create a merged cell that overlaps with another existing merged cell.
 
 ## Set column width to stream {#SetColWidth}
 

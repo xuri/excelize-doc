@@ -30,7 +30,7 @@ func NewFile() *File
 ## 열기 {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 `OpenFile` 을 사용 하 여 기존 Excel 문서를 엽니다. 예를 들어, 암호로 보호 된 스프레드 시트를 엽니 다:

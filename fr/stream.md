@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## Écrire la ligne de feuille au flux {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow écrit un tableau dans la ligne de flux en fonction de la coordonnée de départ donnée et d'un pointeur vers le type de tableau `slice`. Notez que vous devez appeler la méthode [`Flush`](stream.md#Flush) pour terminer le processus d'écriture en continu.

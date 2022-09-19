@@ -146,7 +146,7 @@ GetSheetList 는 통합 문서의 워크 시트, 차트 시트 및 대화 상자
 ## 워크 시트 이름 설정 {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(oldName, newName string)
+func (f *File) SetSheetName(source, target string)
 ```
 
 SetSheetName 은 이전 및 새 워크 시트 이름으로 워크 시트 이름을 설정하는 기능을 제공합니다. 시트 제목에는 최대 31 자를 사용할 수 있으며이 함수는 시트 이름 만 변경하며 셀과 관련된 수식 또는 참조에서 시트 이름을 업데이트하지 않습니다. 따라서 문제 공식 오류 또는 참조가 없을 수 있습니다.
@@ -603,7 +603,7 @@ err := f.RemoveRow("Sheet1", 3)
 ## 열 값 설정 {#SetSheetCol}
 
 ```go
-func (f *File) SetSheetCol(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetCol 은 주어진 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 배열을 열에 씁니다. 예를 들어, `Sheet1` 의 `B6` 셀로 시작하는 `B` 열에 배열을 씁니다.
@@ -615,7 +615,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 ## 행별 지정 {#SetSheetRow}
 
 ```go
-func (f *File) SetSheetRow(sheet, axis string, slice interface{}) error
+func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
 SetSheetRow는 지정된 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행에 배열을 씁니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어 `6` 행에 배열을 `Sheet1` 의 셀 `B6` 로 시작합니다.

@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## セル値設定 {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 指定されたワークシート名とセル座標に基づいて、セルの値を設定します。この関数は、同時実行セーフをサポートします。指定された座標は、テーブルの最初の行にあるべきではありません。
@@ -61,7 +61,7 @@ func (f *File) SetCellValue(sheet, axis string, value interface{}) error
 ## ブール値設定 {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
 指定されたワークシート名とセル座標に基づいて、ブール型 (Boolean) のセルの値を設定します。
@@ -69,7 +69,7 @@ func (f *File) SetCellBool(sheet, axis string, value bool) error
 ## 既定の文字の種類の値を設定する {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 指定されたワークシート名とセル座標に基づいて、文字セルの値を設定し、特殊文字に対してはフィルタされません。
@@ -77,7 +77,7 @@ func (f *File) SetCellDefault(sheet, axis, value string) error
 ## 実数を設定する {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
 指定されたワークシート名とセル座標に基づいて、実際のセルの値を設定します。
@@ -85,7 +85,7 @@ func (f *File) SetCellInt(sheet, axis string, value int) error
 ## 文字列値の設定 {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 指定したワークシート名とセル座標に基づいて文字セルの値を設定すると、文字は特殊文字でフィルタリングされ、文字列の累積長は `32767` を超えてはならず、余分な文字は無視されます。
@@ -235,7 +235,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ## ハイパーリンクの設定 {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 指定したワークシート、セル座標、リンクされたリソース、およびリソースの種類に基づいて、セルのハイパーリンクを設定します。 リソースの種類は、外部リンクアドレス `External` とブック内部の場所のリンク `Location` 2 種類に分割されます。ワークシート内の最大ハイパーリンク数は `65530` です。この関数は、セルのハイパーリンクを設定するためにのみ使用され、セルの値には影響しません。セルの値を設定する必要がある場合は、[`SetCellStyle`](cell.md#SetCellStyle) や [`SetSheetRow`](sheet.md#SetSheetRow) などの他の関数を使用してください。
@@ -407,7 +407,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ## セル値取得 {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 指定されたワークシートとセルの座標に基づいてセルの値を取得すると、戻り値は `string` 型に変換されます。この関数は、同時実行セーフをサポートします。セルの値にセル書式を適用できる場合は、適用された値が返されます。差し込み印刷範囲内のすべてのセルの値は同じです。
@@ -415,7 +415,7 @@ func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
 ## セルタイプを取得します {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
 GetCellType は、スプレッドシートファイル内の指定されたワークシート名と軸によってセルのデータ型を取得する関数を提供します。
@@ -471,7 +471,7 @@ for _, row := range rows {
 ## ハイパーリンクを取得 {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
 指定されたワークシート名とセル座標に基づいてセルのハイパーリンクを取得し、セルにハイパーリンクがある場合は `true` とリンクアドレスが返され、それ以外の場合は `false` と空のリンクアドレスが返されます。
@@ -485,7 +485,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## スタイルインデックスの取得 {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
 指定されたワークシート名とセルの座標に基づいてセルスタイルのインデックスを取得し、セルのスタイルをコピーするときに `setcellvalue` 関数を呼び出すパラメーターとして使用できるインデックスを取得します。
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## セル式の設定 {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 SetCellFormula は、指定されたワークシート名およびセル式の設定に従って、セルに式が取得されるように設定する関数を提供します。数式セルの結果は、ワークシートが Office Excel アプリケーションで開かれた場合、または計算されたセル値を取得する場合に [CalcCellValue](cell.md#CalcCellValue) 関数を使用して計算できます。Excel アプリケーションがブックを開いたときに数式を自動的に計算しない場合は、セルの数式関数を設定した後に [UpdateLinkedValue](utils.md#UpdateLinkedValue) を呼び出してください。
@@ -673,7 +673,7 @@ func main() {
 ## セル式を取得する {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
 指定されたワークシート名とセルの座標に基づいて、セルの数式を取得します。

@@ -30,7 +30,7 @@ NewFile proporciona una función para crear un nuevo archivo de forma predetermi
 ## Abierto {#OpenFile}
 
 ```go
-func OpenFile(filename string, opt ...Options) (*File, error)
+func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
 OpenFile toma el nombre de un archivo de hoja de cálculo y devuelve una estructura de archivo de hoja de cálculo rellenada para él. Por ejemplo, abra una hoja de cálculo con protección con contraseña:

@@ -30,7 +30,7 @@ type FormulaOpts struct {
 ## Set cell value {#SetCellValue}
 
 ```go
-func (f *File) SetCellValue(sheet, axis string, value interface{}) error
+func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
 SetCellValue provides a function to set the value of a cell. This function is concurrency safe. The specified coordinates should not be in the first row of the table, a complex number can be set with string text. The following shows the supported data types:
@@ -56,20 +56,20 @@ SetCellValue provides a function to set the value of a cell. This function is co
 |bool|
 |nil|
 
-Note that default date format is `m/d/yy h:mm` of `time.Time` type value. You can set numbers format by [`SetCellStyle`](cell.md#SetCellStyle) method. If you need to set the specialized date in Excel like January 0, 1900 or February 29, 1900, these times can not representation in Go language `time.Time` data type. Please set the cell value as number 0 or 60, then create and bind the date-time number format style for the cell.
+Note that default date format is `m/d/yy h:mm` of `time.Time` type value. You can set numbers format by the [`SetCellStyle`](cell.md#SetCellStyle) function. If you need to set the specialized date in Excel like January 0, 1900 or February 29, 1900, these times can not representation in Go language `time.Time` data type. Please set the cell value as number 0 or 60, then create and bind the date-time number format style for the cell.
 
 ## Set boolean value {#SetCellBool}
 
 ```go
-func (f *File) SetCellBool(sheet, axis string, value bool) error
+func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
-SetCellBool provides a function to set the bool type value of a cell by given worksheet name, cell coordinates, and cell value.
+SetCellBool provides a function to set the bool type value of a cell by given worksheet name, cell reference, and cell value.
 
 ## Set RAW value {#SetCellDefault}
 
 ```go
-func (f *File) SetCellDefault(sheet, axis, value string) error
+func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
 SetCellDefault provides a function to set the string type value of a cell as a default format without escaping the cell.
@@ -77,15 +77,15 @@ SetCellDefault provides a function to set the string type value of a cell as a d
 ## Set integer value {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, axis string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
-SetCellInt provides a function to set the int type value of a cell by given worksheet name, cell coordinates, and cell value.
+SetCellInt provides a function to set the int type value of a cell by given worksheet name, cell reference, and cell value.
 
 ## Set string value {#SetCellStr}
 
 ```go
-func (f *File) SetCellStr(sheet, axis, value string) error
+func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
 SetCellStr provides a function to set the string type value of a cell. The total number of characters that a cell can contain `32767` characters.
@@ -96,7 +96,7 @@ SetCellStr provides a function to set the string type value of a cell. The total
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-SetCellStyle provides a function to add style attribute for cells by given worksheet name, coordinate area and style ID. This function is concurrency safe. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same coordinate area. SetCellStyle will overwrite the existing styles for the cell, it won't append or merge style with existing styles.
+SetCellStyle provides a function to add style attribute for cells by given worksheet name, range reference and style ID. This function is concurrency safe. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same range. SetCellStyle will overwrite the existing styles for the cell, it won't append or merge style with existing styles.
 
 - Example 1, create borders of cell `D7` on `Sheet1`:
 
@@ -235,7 +235,7 @@ To lock a cell or hide a formula, protect the worksheet. On the "Review" tab, cl
 ## Set hyperlink {#SetCellHyperLink}
 
 ```go
-func (f *File) SetCellHyperLink(sheet, axis, link, linkType string, opts ...HyperlinkOpts) error
+func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
 SetCellHyperLink provides a function to set cell hyperlinks by given worksheet name and link URL address. LinkType defines two types of hyperlinks `External` for the website or `Location` for moving to one of the cells in this workbook. The maximum limit of hyperlinks in a worksheet is `65530`. This function is only used to set the hyperlink of the cell and doesn't affect the value of the cell. If you need to set the value of the cell, please use the other functions such as [`SetCellStyle`](cell.md#SetCellStyle) or [`SetSheetRow`](sheet.md#SetSheetRow). Below is an example of an external link.
@@ -407,18 +407,18 @@ GetCellRichText provides a function to get the rich text of cells by given works
 ## Get cell value {#GetCellValue}
 
 ```go
-func (f *File) GetCellValue(sheet, axis string, opts ...Options) (string, error)
+func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-The value of the cell is retrieved according to the given worksheet and cell coordinates, and the return value is converted to the `string` type. This function is concurrency safe. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned. All cells' values will be the same in a merged range.
+GetCellValue provides a function to get formatted value from cell by given worksheet name and cell reference in spreadsheet. The return value is converted to the `string` type. This function is concurrency safe. If the cell format can be applied to the value of a cell, the applied value will be returned, otherwise the original value will be returned. All cells' values will be the same in a merged range.
 
 ## Get cell type {#GetCellType}
 
 ```go
-func (f *File) GetCellType(sheet, axis string) (CellType, error)
+func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
-GetCellType provides a function to get the cell's data type by given worksheet name and axis in spreadsheet file.
+GetCellType provides a function to get the cell's data type by given worksheet name and cell reference in spreadsheet file.
 
 ## Get all cell value by cols {#GetCols}
 
@@ -471,10 +471,10 @@ for _, row := range rows {
 ## Get hyperlink {#GetCellHyperLink}
 
 ```go
-func (f *File) GetCellHyperLink(sheet, axis string) (bool, string, error)
+func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
-GetCellHyperLink gets a cell hyperlink based on the given worksheet name and cell coordinates. If the cell has a hyperlink, it will return `true` and the link address, otherwise it will return `false` and an empty link address.
+GetCellHyperLink gets a cell hyperlink based on the given worksheet name and cell reference. If the cell has a hyperlink, it will return `true` and the link address, otherwise it will return `false` and an empty link address.
 
 For example, get a hyperlink to a `H6` cell on a worksheet named `Sheet1`:
 
@@ -485,10 +485,10 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ## Get style index {#GetCellStyle}
 
 ```go
-func (f *File) GetCellStyle(sheet, axis string) (int, error)
+func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-The cell style index is obtained from the given worksheet name and cell coordinates, and the obtained index can be used as a parameter to call the `SetCellValue` function when copying the cell style.
+The cell style index is obtained from the given worksheet name and cell reference, and the obtained index can be used as a parameter to call the `SetCellValue` function when copying the cell style.
 
 ## Merge cells {#MergeCell}
 
@@ -496,13 +496,13 @@ The cell style index is obtained from the given worksheet name and cell coordina
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Merge cells based on the given worksheet name and cell coordinate regions. Merging cells only keeps the upper-left cell value, and discards the other values. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
+MergeCell provides a function to merge cells by given range reference and sheet name. Merging cells only keeps the upper-left cell value, and discards the other values. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
 ```
 
-If the given cell coordinate area overlaps with other existing merged cells, the existing merged cells will be deleted.
+If you create a merged cell that overlaps with another existing merged cell, those merged cells that already exist will be removed.
 
 ## Unmerge cells {#UnmergeCell}
 
@@ -510,7 +510,7 @@ If the given cell coordinate area overlaps with other existing merged cells, the
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-UnmergeCell provides a function to unmerge a given coordinate area. For example unmerge area `D3:E9` on `Sheet1`:
+UnmergeCell provides a function to unmerge a given range reference. For example unmerge area `D3:E9` on `Sheet1`:
 
 ```go
 err := f.UnmergeCell("Sheet1", "D3", "E9")
@@ -534,21 +534,21 @@ func (m *MergeCell) GetCellValue() string
 
 GetCellValue returns merged cell value.
 
-### Get the top left cell coordinates of merged range
+### Get the top left cell reference of merged range
 
 ```go
 func (m *MergeCell) GetStartAxis() string
 ```
 
-GetStartAxis returns the top left cell coordinates of merged range, for example: `C2`.
+GetStartAxis returns the top left cell reference of merged range, for example: `C2`.
 
-### Get the bottom right cell coordinates of merged range
+### Get the bottom right cell reference of merged range
 
 ```go
 func (m *MergeCell) GetEndAxis() string
 ```
 
-GetEndAxis returns the bottom right cell coordinates of merged range, for example: `D4`.
+GetEndAxis returns the bottom right cell reference of merged range, for example: `D4`.
 
 ## Add comment {#AddComment}
 
@@ -578,7 +578,7 @@ GetComments retrieve all comments and return a map of worksheet name to the work
 func (f *File) DeleteComment(sheet, cell string) (err error)
 ```
 
-DeleteComment provides the method to delete comment in a sheet by given worksheet. For example, delete the comment in `Sheet1!$A$30`:
+DeleteComment provides the method to delete comment in a sheet by given worksheet name. For example, delete the comment in `Sheet1!$A$30`:
 
 ```go
 err := f.DeleteComment("Sheet1", "A30")
@@ -587,7 +587,7 @@ err := f.DeleteComment("Sheet1", "A30")
 ## Set cell formula {#SetCellFormula}
 
 ```go
-func (f *File) SetCellFormula(sheet, axis, formula string, opts ...FormulaOpts) error
+func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
 SetCellFormula provides a function to set the formula on the cell is taken according to the given worksheet name and cell formula settings. The result of the formula cell can be calculated when the worksheet is opened by the Office Excel application or can be using the [CalcCellValue](cell.md#CalcCellValue) function also can get the calculated cell value. If the Excel application doesn't calculate the formula automatically when the workbook has been opened, please call [UpdateLinkedValue](utils.md#UpdateLinkedValue) after setting the cell formula functions.
@@ -673,10 +673,10 @@ func main() {
 ## Get cell formula {#GetCellFormula}
 
 ```go
-func (f *File) GetCellFormula(sheet, axis string) (string, error)
+func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
-Get the formula on the cell based on the given worksheet name and cell coordinates.
+GetCellFormula provides a function to get formula from cell by given worksheet name and cell reference in spreadsheet.
 
 ## Calculate cell value {#CalcCellValue}
 

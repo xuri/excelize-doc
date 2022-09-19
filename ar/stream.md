@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## كتابة صف ورقة إلى الدفق {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 يكتب SetRow مصفوفة لصف الدفق بإعطاء إحداثي بداية ومؤشر لنوع المصفوفة `slice`. لاحظ أنه يجب عليك استدعاء طريقة [`Flush`](stream.md#Flush) لإنهاء عملية الكتابة المتدفقة.

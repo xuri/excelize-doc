@@ -77,7 +77,7 @@ func main() {
             fmt.Println(err)
         }
     }()
-    // Get value from the cell by given worksheet name and axis.
+    // Get value from the cell by given worksheet name and cell reference.
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
         fmt.Println(err)

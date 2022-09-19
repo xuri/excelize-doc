@@ -91,7 +91,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 ## 按行流式写入工作表 {#SetRow}
 
 ```go
-func (sw *StreamWriter) SetRow(axis string, slice interface{}) error
+func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
 SetRow 通过给定的起始坐标和指向数组类型“切片”的指针将数据按行流式写入工作表中。请注意，在设置行之后，必须调用 [`Flush`](stream.md#Flush) 函数来结束流式写入过程，并需要确所保写入的行号是递增的。
