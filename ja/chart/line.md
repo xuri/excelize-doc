@@ -31,17 +31,26 @@ func main() {
         {
             "name": "Sheet1!$A$2",
             "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$2:$D$2"
+            "values": "Sheet1!$B$2:$D$2",
+            "line": {
+                "smooth": true
+            }
         },
         {
             "name": "Sheet1!$A$3",
             "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$3:$D$3"
+            "values": "Sheet1!$B$3:$D$3",
+            "line": {
+                "smooth": true
+            }
         },
         {
             "name": "Sheet1!$A$4",
             "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$4:$D$4"
+            "values": "Sheet1!$B$4:$D$4",
+            "line": {
+                "smooth": true
+            }
         }],
         "format":
         {

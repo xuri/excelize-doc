@@ -32,17 +32,26 @@ func main() {
         {
             "name": "Tabelle1!$A$2",
             "categories": "Tabelle1!$B$1:$D$1",
-            "values": "Tabelle1!$B$2:$D$2"
+            "values": "Tabelle1!$B$2:$D$2",
+            "line": {
+                "smooth": true
+            }
         },
         {
             "name": "Tabelle1!$A$3",
             "categories": "Tabelle1!$B$1:$D$1",
-            "values": "Tabelle1!$B$3:$D$3"
+            "values": "Tabelle1!$B$3:$D$3",
+            "line": {
+                "smooth": true
+            }
         },
         {
             "name": "Tabelle1!$A$4",
             "categories": "Tabelle1!$B$1:$D$1",
-            "values": "Tabelle1!$B$4:$D$4"
+            "values": "Tabelle1!$B$4:$D$4",
+            "line": {
+                "smooth": true
+            }
         }],
         "format":
         {

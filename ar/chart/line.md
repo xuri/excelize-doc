@@ -37,17 +37,26 @@ func main() {
         {
             "name": "ورقة1!$A$2",
             "categories": "ورقة1!$B$1:$D$1",
-            "values": "ورقة1!$B$2:$D$2"
+            "values": "ورقة1!$B$2:$D$2",
+            "line": {
+                "smooth": true
+            }
         },
         {
             "name": "ورقة1!$A$3",
             "categories": "ورقة1!$B$1:$D$1",
-            "values": "ورقة1!$B$3:$D$3"
+            "values": "ورقة1!$B$3:$D$3",
+            "line": {
+                "smooth": true
+            }
         },
         {
             "name": "ورقة1!$A$4",
             "categories": "ورقة1!$B$1:$D$1",
-            "values": "ورقة1!$B$4:$D$4"
+            "values": "ورقة1!$B$4:$D$4",
+            "line": {
+                "smooth": true
+            }
         }],
         "format":
         {
