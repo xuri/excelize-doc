@@ -2,10 +2,10 @@
 
 A pivot table is a table of statistics that summarizes the data of a more extensive table (such as from a database, spreadsheet, or business intelligence program). This summary might include sums, averages, or other statistics, which the pivot table groups together in a meaningful way.
 
-PivotTableOption directly maps the format settings of the pivot table.
+PivotTableOptions directly maps the format settings of the pivot table.
 
 ```go
-type PivotTableOption struct {
+type PivotTableOptions struct {
     pivotTableSheetName string
     DataRange           string            `json:"data_range"`
     PivotTableRange     string            `json:"pivot_table_range"`
@@ -73,7 +73,7 @@ Name specifies the name of the data field. Maximum `255` characters are allowed 
 ## Create Pivot Table {#AddPivotTable}
 
 ```go
-func (f *File) AddPivotTable(opts *PivotTableOption) error
+func (f *File) AddPivotTable(opts *PivotTableOptions) error
 ```
 
 AddPivotTable provides the method to add pivot table by given pivot table options.
@@ -108,7 +108,7 @@ func main() {
         f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
         f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
     }
-    if err := f.AddPivotTable(&excelize.PivotTableOption{
+    if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows: []excelize.PivotTableField{

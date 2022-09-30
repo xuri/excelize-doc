@@ -3,7 +3,7 @@
 ## الطاولة {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 ```
 
 يوفر AddTable طريقة لإضافة جدول في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات ومجموعة التنسيق.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## فلتر السيارات {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
+unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 ```
 
 يوفر AutoFilter طريقة لإضافة عامل تصفية تلقائي في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات والإعدادات. يعد عامل التصفية التلقائي في Excel طريقة لتصفية نطاق ثنائي الأبعاد من البيانات بناءً على بعض المعايير البسيطة.
@@ -256,7 +256,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 ## تعيين تنسيق شرطي {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
+func (f *File) SetConditionalFormat(sheet, reference, opts string) error
 ```
 
 يوفر SetConditionalFormat وظيفة لإنشاء قاعدة تنسيق شرطي لقيمة الخلية. التنسيق الشرطي هو إحدى ميزات Office Excel التي تتيح لك تطبيق تنسيق على خلية أو نطاق من الخلايا بناءً على معايير معينة.
@@ -963,8 +963,8 @@ func main() {
     }
 }
 
-func getCellBgColor(f *excelize.File, sheet, axix string) string {
-    styleID, err := f.GetCellStyle(sheet, axix)
+func getCellBgColor(f *excelize.File, sheet, cell string) string {
+    styleID, err := f.GetCellStyle(sheet, cell)
     if err != nil {
         return err.Error()
     }
@@ -1043,7 +1043,10 @@ func (f *File) AddVBAProject(bin string) error
 يوفر AddVBAProject طريقة لإضافة ملف `vbaProject.bin` الذي يحتوي على وظائف و / أو وحدات ماكرو. يجب أن يكون امتداد الملف `.xlsm`. فمثلا:
 
 ```go
-if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
+codeName := "Sheet1"
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    CodeName: &codeName,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {

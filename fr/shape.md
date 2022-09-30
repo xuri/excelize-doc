@@ -3,7 +3,7 @@
 ## Ajouter une forme
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 AddShape fournit la méthode permettant d'ajouter une forme dans une feuille en fonction d'un index de feuille de calcul donné, d'un ensemble de formats de forme (tels que décalage, échelle, paramètres de format et paramètres d'impression) et de propriétés. Par exemple, ajoutez une zone de texte (forme rectale) dans `Sheet1`:

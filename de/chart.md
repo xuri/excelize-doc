@@ -3,7 +3,7 @@
 ## Diagramm hinzufügen {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 AddChart bietet die Methode zum Hinzufügen eines Diagramms zu einem Arbeitsblatt anhand eines bestimmten Diagrammformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen) und festgelegter Eigenschaften.
@@ -266,7 +266,7 @@ func main() {
 ## Diagrammblatt hinzufügen {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 AddChartSheet bietet die Methode zum Erstellen eines Diagrammblatts anhand eines bestimmten Diagrammformatsatzes (z. B. Versatz, Skalierung, Einstellung des Seitenverhältnisses und Druckeinstellungen) und festgelegter Eigenschaften. In Excel ist ein Diagrammblatt ein Arbeitsblatt, das nur ein Diagramm enthält.

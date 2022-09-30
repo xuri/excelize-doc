@@ -2,10 +2,10 @@
 
 樞紐分析表是一種交互式的表，是計算、匯總和分析資料的強大工具，可助你瞭解資料中的對比情況、模式和趨勢。
 
-PivotTableOption 定義了樞紐分析表的屬性。
+PivotTableOptions 定義了樞紐分析表的屬性。
 
 ```go
-type PivotTableOption struct {
+type PivotTableOptions struct {
     pivotTableSheetName string
     DataRange           string            `json:"data_range"`
     PivotTableRange     string            `json:"pivot_table_range"`
@@ -73,7 +73,7 @@ Name 用以指定數值欄位的名稱，最大長度為 `255` 個字符，超�
 ## 創建樞紐分析表 {#AddPivotTable}
 
 ```go
-func (f *File) AddPivotTable(opts *PivotTableOption) error
+func (f *File) AddPivotTable(opts *PivotTableOptions) error
 ```
 
 根據給定的屬性創建樞紐分析表。
@@ -108,7 +108,7 @@ func main() {
         f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
         f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
     }
-    if err := f.AddPivotTable(&excelize.PivotTableOption{
+    if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows: []excelize.PivotTableField{

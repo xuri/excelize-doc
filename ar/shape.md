@@ -3,7 +3,7 @@
 ## أضف الشكل
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 يوفر AddShape طريقة لإضافة شكل في ورقة من خلال فهرس ورقة عمل معين ومجموعة تنسيق الشكل (مثل الإزاحة والقياس وإعدادات نسبة العرض إلى الارتفاع وإعدادات الطباعة) ومجموعة الخصائص. على سبيل المثال ، أضف مربع نص (شكل مستطيل) في "Sheet1":

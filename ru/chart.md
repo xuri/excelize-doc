@@ -3,7 +3,7 @@
 ## Добавить диаграмму {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 AddChart предоставляет метод добавления диаграммы на листе с помощью заданного набора формата диаграммы (например, смещение, масштаб, настройка соотношения сторон и параметры печати) и набор свойств.
@@ -266,7 +266,7 @@ func main() {
 ## Добавить лист диаграммы {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 AddChartSheet предоставляет метод для создания листа диаграммы по заданному набору формата диаграммы (например, смещение, масштаб, настройка соотношения сторон и настройки печати) и набору свойств. В Excel лист диаграммы - это рабочий лист, который содержит только диаграмму.

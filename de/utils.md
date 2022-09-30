@@ -3,7 +3,7 @@
 ## Tabelle {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 ```
 
 AddTable bietet die Methode zum Hinzufügen einer Tabelle zu einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und des Formatsatzes.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Automatischer Filter {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
+unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 ```
 
 AutoFilter bietet die Methode zum Hinzufügen eines automatischen Filters in einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Einstellungen. Ein automatischer Filter in Excel ist eine Möglichkeit, einen 2D-Datenbereich anhand einiger einfacher Kriterien zu filtern.
@@ -256,7 +256,7 @@ NewConditionalStyle bietet eine Funktion zum Erstellen eines Stils für das bedi
 ## Bedingtes Format festlegen {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
+func (f *File) SetConditionalFormat(sheet, reference, opts string) error
 ```
 
 SetConditionalFormat bietet eine Funktion zum Erstellen einer bedingten Formatierungsregel für den Zellenwert. Die bedingte Formatierung ist eine Funktion von Office Excel, mit der Sie ein Format auf eine Zelle oder einen Zellbereich basierend auf bestimmten Kriterien anwenden können.
@@ -957,8 +957,8 @@ func main() {
     }
 }
 
-func getCellBgColor(f *excelize.File, sheet, axix string) string {
-    styleID, err := f.GetCellStyle(sheet, axix)
+func getCellBgColor(f *excelize.File, sheet, cell string) string {
+    styleID, err := f.GetCellStyle(sheet, cell)
     if err != nil {
         return err.Error()
     }
@@ -1037,7 +1037,10 @@ func (f *File) AddVBAProject(bin string) error
 AddVBAProject bietet die Methode zum Hinzufügen der Datei `vbaProject.bin`, die Funktionen und/oder Makros enthält. Die Dateierweiterung sollte `.xlsm` sein. Zum Beispiel:
 
 ```go
-if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
+codeName := "Sheet1"
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    CodeName: &codeName,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {

@@ -3,7 +3,7 @@
 ## Mesa {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 ```
 
 AddTable proporciona el método para agregar una tabla en una hoja de trabajo por el nombre de la hoja de trabajo, el área de coordenadas y el conjunto de formato dados.
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Filtro automático {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
+unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 ```
 
 AutoFilter proporciona el método para agregar un filtro automático en una hoja de trabajo por el nombre de la hoja de trabajo, el área de coordenadas y la configuración. Un filtro automático en Excel es una forma de filtrar un rango de datos 2D basado en algunos criterios simples.
@@ -256,7 +256,7 @@ NewConditionalStyle proporciona una función para crear un estilo para el format
 ## Establecer formato condicional {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
+func (f *File) SetConditionalFormat(sheet, reference, opts string) error
 ```
 
 SetConditionalFormat proporciona una función para crear una regla de formato condicional para el valor de la celda. El formato condicional es una característica de Office Excel que le permite aplicar un formato a una celda o un rango de celdas según ciertos criterios.
@@ -957,8 +957,8 @@ func main() {
     }
 }
 
-func getCellBgColor(f *excelize.File, sheet, axix string) string {
-    styleID, err := f.GetCellStyle(sheet, axix)
+func getCellBgColor(f *excelize.File, sheet, cell string) string {
+    styleID, err := f.GetCellStyle(sheet, cell)
     if err != nil {
         return err.Error()
     }
@@ -1037,7 +1037,10 @@ func (f *File) AddVBAProject(bin string) error
 AddVBAProject proporciona el método para agregar el archivo `vbaProject.bin` que contiene funciones y/o macros. La extensión del archivo debe ser `.xlsm`. Por ejemplo:
 
 ```go
-if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
+codeName := "Sheet1"
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    CodeName: &codeName,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {

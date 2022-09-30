@@ -99,7 +99,7 @@ SetRow writes an array to stream row by given starting coordinate and a pointer 
 ## Add table to stream {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 AddTable creates an Excel table for the StreamWriter using the given cell range and format set.

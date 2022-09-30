@@ -99,7 +99,7 @@ SetRow は、指定された開始座標と配列型 `slice` へのポインタ�
 ## ストリーミングするテーブルを追加する {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 指定したセル座標範囲と条件付き書式に基づいてテーブルをストリーミングします。

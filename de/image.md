@@ -82,7 +82,7 @@ Der optionale Parameter `y_offset` gibt den vertikalen Versatz des Bildes mit de
 Der optionale Parameter `y_scale` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 AddPictureFromBytes bietet die Methode zum Hinzufügen eines Bilds zu einem Blatt anhand eines bestimmten Bildformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen), einer alternativen Textbeschreibung, eines Erweiterungsnamens und eines Dateiinhalts im Typ `[]byte`.

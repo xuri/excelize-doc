@@ -99,7 +99,7 @@ SetRow записывает массив в строку потока по за�
 ## Добавить таблицу в поток {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 AddTable создает таблицу Excel для StreamWriter, используя заданную область координат и набор форматов.

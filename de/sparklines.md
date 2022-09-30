@@ -9,13 +9,13 @@ Sparklines sind eine Funktion von Excel 2010+, mit der Sie Arbeitsblattzellen kl
 ## Sparkline hinzufügen
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 AddSparkline bietet eine Funktion zum Hinzufügen von Sparklines zum Arbeitsblatt durch vorgegebene Formatierungsoptionen. Sparklines sind kleine Diagramme, die in eine einzelne Zelle passen und zum Anzeigen von Datentrends verwendet werden. Sparklines sind eine Funktion von Excel 2010 und höher. Sie können sie in eine Tabellenkalkulationsdatei schreiben, die von Excel 2007 gelesen werden kann, aber nicht angezeigt wird. Fügen Sie beispielsweise eine gruppierte Sparkline hinzu. Änderungen werden auf alle drei angewendet:
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

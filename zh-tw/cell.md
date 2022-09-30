@@ -1,6 +1,6 @@
 # 儲存格
 
-RichTextRun 定義了富文本的屬性。
+`RichTextRun` 定義了富文本的屬性。
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-HyperlinkOpts 用來指定可選的超鏈接屬性，例如要顯示的文字與屏幕提示文字。
+`HyperlinkOpts` 用來指定可選的超鏈接屬性，例如要顯示的文字與屏幕提示文字。
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-FormulaOpts 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函數中指定設定特殊公式類型。
+`FormulaOpts` 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函數中指定設定特殊公式類型。
 
 ```go
 type FormulaOpts struct {
@@ -553,7 +553,7 @@ GetEndAxis 返回合併存儲格區域右下角存儲格的坐標，例如：`D4
 ## 添加註解 {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, format string) error
+func (f *File) AddComment(sheet, cell, opts string) error
 ```
 
 根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被忽略。例如，為 `Sheet1!$A$3` 儲存格添加註解：

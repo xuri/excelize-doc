@@ -3,7 +3,7 @@
 ## 創建表格 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建表格。
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動過濾器 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
+unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建自動過濾器。Excel 中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。
@@ -253,7 +253,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 ## 設定條件式格式 {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
+func (f *File) SetConditionalFormat(sheet, reference, opts string) error
 ```
 
 根據給定的工作表名稱、儲存格坐標區域和格式參數，為儲存格值創建條件式格式設定規則。條件式格式是 Office Excel 的一項功能，它允許您根據特定條件將格式應用於儲存格或一系列儲存格。
@@ -952,8 +952,8 @@ func main() {
     }
 }
 
-func getCellBgColor(f *excelize.File, sheet, axix string) string {
-    styleID, err := f.GetCellStyle(sheet, axix)
+func getCellBgColor(f *excelize.File, sheet, cell string) string {
+    styleID, err := f.GetCellStyle(sheet, cell)
     if err != nil {
         return err.Error()
     }
@@ -1032,7 +1032,10 @@ func (f *File) AddVBAProject(bin string) error
 該函數提供方法將包含函數和/或宏的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm`。例如:
 
 ```go
-if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
+codeName := "Sheet1"
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    CodeName: &codeName,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {

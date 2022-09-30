@@ -3,7 +3,7 @@
 ## 添加图表 {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 根据给定的工作表名称、单元格坐标和图表样式属性插入图表。
@@ -266,7 +266,7 @@ func main() {
 ## 创建图表工作表 {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 根据给定的工作表名称和图表样式属性创建图表工作表，图表样式属性的定义与 [AddChart](chart.md#AddChart) 函数相同。Excel 中的图表工作表是仅包含图表的工作表。

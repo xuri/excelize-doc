@@ -3,7 +3,7 @@
 ## Agregar forma
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 AddShape proporciona el método para agregar forma en una hoja mediante un índice de hoja de trabajo determinado, un conjunto de formato de forma (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y conjunto de propiedades. Por ejemplo, agregue un cuadro de texto (forma rectangular) en `Sheet1`:

@@ -9,13 +9,13 @@ Sparklines являются особенностью Excel 2010, которая 
 ## Добавить Спарклайнов
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 AddSparkline обеспечивает функцию добавления искры в лист, заножая параметры форматирования. Sparklines представляют собой небольшие диаграммы, которые вписываются в одну ячейку и используются для отображения тенденций в данных. Sparklines являются особенностью Excel 2010 и только позже. Вы можете написать их в файл XLSX, который может быть прочитан Excel 2007, но они не будут отображаться. Например, добавьте сгруппированную искру. Изменения применяются ко всем трем:
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

@@ -79,7 +79,7 @@ func main() {
 可選參數 `y_scale` 設定圖片的垂直縮放比例，其缺省值為 1.0，表示 100%。
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。

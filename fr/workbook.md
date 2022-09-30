@@ -334,7 +334,7 @@ Defaults:
 ## Définir les propriétés de la vue de feuille de calcul {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 SetSheetViewOptions définit les options d'affichage des feuilles. Le `viewIndex` peut être négatif et si c'est le cas, il est compté en arrière (`-1` est la dernière vue).
@@ -419,7 +419,7 @@ Used correct value:
 ## Obtenir les propriétés d'affichage de la feuille de calcul {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 GetSheetViewOptions obtient la valeur des options d'affichage de feuille. Le `viewIndex` peut être négatif et si c'est le cas est compté en arrière (`-1` est la dernière vue). Options disponibles:
@@ -553,7 +553,7 @@ After change:
 ## Définir la mise en page de feuille de calcul {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 SetPageLayout fournit une fonction permettant de définir la mise en page de la feuille de calcul. Options disponibles:
@@ -717,7 +717,7 @@ if err := f.SetPageLayout(
 ## Obtenir la mise en page de feuille de calcul {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 GetPageLayout fournit une fonction pour obtenir la mise en page de la feuille de calcul. Options disponibles:
@@ -756,7 +756,7 @@ Defaults:
 ## Définissez les marges de page de feuille de calcul {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 SetPageMargins fournit une fonction permettant de définir les marges des pages de la feuille de calcul. Options disponibles:
@@ -791,7 +791,7 @@ if err := f.SetPageMargins(sheet,
 ## Obtenir les marges des pages de la feuille de calcul {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 GetPageMargins fournit une fonction pour obtenir les marges des pages de la feuille de calcul. Options disponibles:
@@ -854,7 +854,7 @@ Defaults:
 ## Définir les propriétés du classeur {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 SetWorkbookPrOptions fournit une fonction pour définir les propriétés du classeur. Options disponibles:
@@ -881,7 +881,7 @@ if err := f.SetWorkbookPrOptions(
 ## Obtenir les propriétés du classeur {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 GetWorkbookPrOptions fournit une fonction pour obtenir les propriétés du classeur. Options disponibles:
@@ -927,7 +927,7 @@ Defaults:
 ## Définir l'en-tête et le pied de page {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter fournit une fonction permettant de définir les en-têtes et les pieds de page en fonction du nom de la feuille de calcul et des caractères de contrôle.
@@ -1063,7 +1063,7 @@ Les codes de formatage suivants peuvent être utilisés dans 6 champs de type ch
 Par exemple:
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

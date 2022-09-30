@@ -3,7 +3,7 @@
 ## Form hinzufügen
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 AddShape bietet die Methode zum Hinzufügen einer Form zu einem Blatt anhand des angegebenen Arbeitsblattindex, des festgelegten Formformats (z. B. Versatz, Skalierung, Einstellung des Seitenverhältnisses und Druckeinstellungen) und der festgelegten Eigenschaften. Fügen Sie beispielsweise ein Textfeld (Rechteckform) in "Sheet1" hinzu:

@@ -9,13 +9,13 @@
 ## أضف سباركلاين
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 يوفر AddSparkline وظيفة لإضافة خطوط مؤشرات إلى ورقة العمل من خلال خيارات التنسيق المحددة. خطوط المؤشر هي مخططات صغيرة تتلاءم مع خلية واحدة وتُستخدم لإظهار الاتجاهات في البيانات. الخطوط المضيئة هي إحدى ميزات Excel 2010 والإصدارات الأحدث فقط. يمكنك كتابتها في ملف جدول بيانات يمكن قراءته بواسطة Excel 2007 ولكن لن يتم عرضها. على سبيل المثال ، أضف خط مؤشر مجمع. يتم تطبيق التغييرات على الثلاثة:
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

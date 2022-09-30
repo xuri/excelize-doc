@@ -3,7 +3,7 @@
 ## 添加形状
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 根据给定的工作表名、单元格坐标和样式（包括偏移、缩放、拉伸、宽高比和打印属性等）在指定单元格添加形状。例如，在名为 `Sheet1` 的工作表上添加文本框（矩形）：

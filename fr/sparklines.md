@@ -9,13 +9,13 @@ Les [sparklines](https://en.wikipedia.org/wiki/Sparklines) ont été inventés p
 ## Add Sparkline
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 AddSparkline fournit une fonction pour ajouter des graphiques sparkline à la feuille de calcul à l'aide d'options de formatage données. Les graphiques sparkline sont de petits graphiques qui s'inscrivent dans une seule cellule et sont utilisés pour afficher les tendances des données. Les graphiques sparkline sont une fonctionnalité d'Excel 2010 et versions ultérieures uniquement. Vous pouvez les écrire dans un fichier XLSX pouvant être lu par Excel 2007, mais ils ne seront pas affichés. Par exemple, ajoutez un graphique sparkline groupé. Les modifications sont appliquées aux trois:
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

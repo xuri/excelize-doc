@@ -82,7 +82,7 @@ El parámetro opcional `y_offset` especifica el desplazamiento vertical de la im
 El parámetro opcional `y_scale` especifica la escala vertical de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 AddPictureFromBytes proporciona el método para agregar una imagen en una hoja mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión), descripción de texto alternativo, nombre de extensión y contenido de archivo en el tipo `[]byte`.

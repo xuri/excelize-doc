@@ -2,10 +2,10 @@
 
 Un tableau croisé dynamique est un tableau de statistiques qui résume les données d'un tableau plus détaillé (tel qu'une base de données, un tableur ou un programme d'aide à la décision). Ce résumé peut inclure des sommes, des moyennes ou d’autres statistiques que le tableau croisé dynamique regroupe de manière significative.
 
-PivotTableOption mappe directement les paramètres de format du tableau croisé dynamique.
+PivotTableOptions mappe directement les paramètres de format du tableau croisé dynamique.
 
 ```go
-type PivotTableOption struct {
+type PivotTableOptions struct {
     pivotTableSheetName string
     DataRange           string            `json:"data_range"`
     PivotTableRange     string            `json:"pivot_table_range"`
@@ -73,7 +73,7 @@ Name spécifie le nom du champ de données. Un maximum de `255` caractères est 
 ## Créer un tableau croisé dynamique {#AddPivotTable}
 
 ```go
-func (f *File) AddPivotTable(opts *PivotTableOption) error
+func (f *File) AddPivotTable(opts *PivotTableOptions) error
 ```
 
 AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction des options de tableau croisé dynamique données.
@@ -108,7 +108,7 @@ func main() {
         f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
         f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
     }
-    if err := f.AddPivotTable(&excelize.PivotTableOption{
+    if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows: []excelize.PivotTableField{

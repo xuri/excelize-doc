@@ -2,10 +2,10 @@
 
 Una tabla dinámica es una tabla de estadísticas que resume los datos de una tabla más extensa (como la de una base de datos, una hoja de cálculo o un programa de inteligencia empresarial). Este resumen puede incluir sumas, promedios u otras estadísticas, que la tabla dinámica agrupa de manera significativa.
 
-PivotTableOption mapea directamente la configuración de formato de la tabla dinámica.
+PivotTableOptions mapea directamente la configuración de formato de la tabla dinámica.
 
 ```go
-type PivotTableOption struct {
+type PivotTableOptions struct {
     pivotTableSheetName string
     DataRange           string            `json:"data_range"`
     PivotTableRange     string            `json:"pivot_table_range"`
@@ -73,7 +73,7 @@ Nombre especifica el nombre del campo de datos. Se permite un máximo de `255` c
 ## Crear una tabla dinámica {#AddPivotTable}
 
 ```go
-func (f *File) AddPivotTable(opts *PivotTableOption) error
+func (f *File) AddPivotTable(opts *PivotTableOptions) error
 ```
 
 AddPivotTable proporciona el método para agregar una tabla dinámica mediante las opciones de tabla dinámica dadas.
@@ -108,7 +108,7 @@ func main() {
         f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
         f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
     }
-    if err := f.AddPivotTable(&excelize.PivotTableOption{
+    if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows: []excelize.PivotTableField{

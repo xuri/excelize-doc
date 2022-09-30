@@ -99,7 +99,7 @@ SetRow schreibt ein Array in die Stream-Zeile, indem eine Startkoordinate und ei
 ## Fügen Sie eine Tabelle zum Streamen hinzu {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 AddTable erstellt eine Excel-Tabelle für den StreamWriter unter Verwendung des angegebenen Koordinatenbereichs und Formatsatzes.

@@ -2,10 +2,10 @@
 
 피벗 테이블은보다 광범위한 테이블의 데이터 (예 : 데이터베이스, 스프레드 시트 또는 비즈니스 인텔리전스 프로그램)를 요약하는 통계 테이블입니다. 이 요약에는 피벗 테이블이 의미있는 방식으로 그룹화되는 합계, 평균 또는 기타 통계가 포함될 수 있습니다.
 
-PivotTableOption 은 피벗 테이블의 형식 설정을 직접 매핑합니다.
+PivotTableOptions 은 피벗 테이블의 형식 설정을 직접 매핑합니다.
 
 ```go
-type PivotTableOption struct {
+type PivotTableOptions struct {
     pivotTableSheetName string
     DataRange           string            `json:"data_range"`
     PivotTableRange     string            `json:"pivot_table_range"`
@@ -73,7 +73,7 @@ Name 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름�
 ## 피벗 테이블 만들기 {#AddPivotTable}
 
 ```go
-func (f *File) AddPivotTable(opts *PivotTableOption) error
+func (f *File) AddPivotTable(opts *PivotTableOptions) error
 ```
 
 AddPivotTable 은 지정된 피벗 테이블 옵션으로 피벗 테이블을 추가하는 방법을 제공합니다.
@@ -108,7 +108,7 @@ func main() {
         f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
         f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
     }
-    if err := f.AddPivotTable(&excelize.PivotTableOption{
+    if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!$A$1:$E$31",
         PivotTableRange: "Sheet1!$G$2:$M$34",
         Rows: []excelize.PivotTableField{

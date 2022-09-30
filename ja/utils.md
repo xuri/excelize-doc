@@ -3,7 +3,7 @@
 ## テーブル作成 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 ```
 
 AddTable は、ワークシート名、座標領域、および書式設定によってワークシートにテーブルを追加するメソッドを提供します。
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動フィルタ {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
+unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 ```
 
 AutoFilter は、ワークシートの名前、座標領域、および設定によってワークシートに自動フィルタを追加する方法を提供します。Excel の自動フィルタは、いくつかの単純な条件に基づいて 2D 範囲のデータをフィルター処理する方法です。
@@ -256,7 +256,7 @@ NewConditionalStyle には、指定されたスタイル形式で条件付き書
 ## 条件付き書式の設定 {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
+func (f *File) SetConditionalFormat(sheet, reference, opts string) error
 ```
 
 SetConditionalFormat には、セル値の条件付き書式設定規則を作成する関数が提供されます。条件付き書式設定は Office Excel の機能で、特定の条件に基づいてセルまたはセル範囲に書式を適用できます。
@@ -957,8 +957,8 @@ func main() {
     }
 }
 
-func getCellBgColor(f *excelize.File, sheet, axix string) string {
-    styleID, err := f.GetCellStyle(sheet, axix)
+func getCellBgColor(f *excelize.File, sheet, cell string) string {
+    styleID, err := f.GetCellStyle(sheet, cell)
     if err != nil {
         return err.Error()
     }
@@ -1037,7 +1037,10 @@ func (f *File) AddVBAProject(bin string) error
 AddVBAProject は、関数やマクロを含む `vbaProject.bin` ファイルを追加するメソッドを提供します。ファイル拡張子は `.xlsm` である必要があります。例えば:
 
 ```go
-err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); if err != nil {
+codeName := "Sheet1"
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    CodeName: &codeName,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {

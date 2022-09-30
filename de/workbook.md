@@ -334,7 +334,7 @@ Defaults:
 ## Festlegen von Arbeitsblattansichtseigenschaften {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 SetSheetViewOptions legt Optionen für die Blattansicht fest. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (`-1` ist die letzte Ansicht).
@@ -421,7 +421,7 @@ Used correct value:
 ## Abrufen von Arbeitsblattansichtseigenschaften {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 GetSheetViewOptions ruft den Wert der Optionen für die Blattansicht ab. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (`-1` ist die letzte Ansicht). Verfügbare Optionen:
@@ -555,7 +555,7 @@ After change:
 ## Festlegen des Layouts der Arbeitsblattseite {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 SetPageLayout bietet eine Funktion zum Festlegen des Seitenlayouts von Arbeitsblättern. Verfügbare Optionen:
@@ -719,7 +719,7 @@ if err := f.SetPageLayout(
 ## Abrufen des Layouts der Arbeitsblattseite {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 GetPageLayout bietet eine Funktion zum Abrufen des Seitenlayouts des Arbeitsblatts. Verfügbare Optionen:
@@ -758,7 +758,7 @@ Defaults:
 ## Festlegen von Arbeitsblattseitenrändern {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 SetPageMargins bietet eine Funktion zum Festlegen der Seitenränder von Arbeitsblättern. Verfügbare Optionen:
@@ -793,7 +793,7 @@ if err := f.SetPageMargins(sheet,
 ## Abrufen von Arbeitsblattseitenrändern {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 GetPageMargins bietet eine Funktion zum Abrufen von Arbeitsblattseitenrändern. Verfügbare Optionen:
@@ -856,7 +856,7 @@ Defaults:
 ## Arbeitsmappeneigenschaften festlegen {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 SetWorkbookPrOptions bietet eine Funktion zum Festlegen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
@@ -883,7 +883,7 @@ if err := f.SetWorkbookPrOptions(
 ## Arbeitsmappeneigenschaften abrufen {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 GetWorkbookPrOptions bietet eine Funktion zum Abrufen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
@@ -929,7 +929,7 @@ Defaults:
 ## Kopf- und Fußzeile einstellen {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter bietet eine Funktion zum Festlegen von Kopf- und Fußzeilen anhand des angegebenen Arbeitsblattnamens und der Steuerzeichen.
@@ -1065,7 +1065,7 @@ Die folgenden Formatierungscodes können in Feldern mit 6 Zeichenfolgentypen ver
 Zum Beispiel:
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

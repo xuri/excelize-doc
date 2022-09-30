@@ -525,7 +525,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Arbeitsblatt schützen {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
+func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
 ```
 
 ProtectSheet bietet eine Funktion, um zu verhindern, dass andere Benutzer versehentlich oder absichtlich Daten in einem Arbeitsblatt ändern, verschieben oder löschen. Im optionalen Feld `AlgorithmName` angegebener Hash-Algorithmus, unterstützt XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 und SHA-512 derzeit, wenn kein Hash-Algorithmus angegeben ist, wird der XOR-Algorithmus standardmäßig verwendet. Schützen Sie beispielsweise `Sheet1` mit den Schutzeinstellungen:
@@ -533,17 +533,17 @@ ProtectSheet bietet eine Funktion, um zu verhindern, dass andere Benutzer verseh
 <p align="center"><img width="790" src="./images/protect_sheet.png" alt="Arbeitsblatt schützen"></p>
 
 ```go
-err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
     AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
 ```
 
-يقوم FormatSheetProtection بتعيين إعدادات حماية ورقة العمل مباشرةً.
+يقوم SheetProtectionOptions بتعيين إعدادات حماية ورقة العمل مباشرةً.
 
 ```go
-type FormatSheetProtection struct {
+type SheetProtectionOptions struct {
     AlgorithmName       string
     AutoFilter          bool
     DeleteColumns       bool

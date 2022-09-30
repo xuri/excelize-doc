@@ -553,7 +553,7 @@ GetEndAxis renvoie les coordonnées de la cellule en bas à droite de la plage f
 ## Ajouter un commentaire {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, format string) error
+func (f *File) AddComment(sheet, cell, opts string) error
 ```
 
 AddComment fournit la méthode pour ajouter un commentaire dans une feuille par index de feuille de calcul, cellule et ensemble de formats donnés (tels que l'auteur et le texte). Notez que la longueur maximale de l'auteur est 255 et la longueur maximale du texte est 32512. Par exemple, ajoutez un commentaire dans `Sheet1!$A$3`:

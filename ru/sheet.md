@@ -525,7 +525,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Защитить лист {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
+func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
 ```
 
 ProtectSheet предоставляет функцию для предотвращения случайного или преднамеренного изменения, перемещения или удаления данных на листе другими пользователями. Необязательное поле `AlgorithmName` указывает хеш-алгоритм, поддерживает XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 и SHA-512. В настоящее время, если хэш-алгоритм не указан, будет использоваться алгоритм XOR по умолчанию. Например, защитите `Sheet1` с помощью параметров защиты:
@@ -533,17 +533,17 @@ ProtectSheet предоставляет функцию для предотвра
 <p align="center"><img width="914" src="./images/protect_sheet.png" alt="Защитить лист"></p>
 
 ```go
-err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
     AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
 ```
 
-FormatSheetProtection напрямую отображает параметры защиты листа.
+SheetProtectionOptions напрямую отображает параметры защиты листа.
 
 ```go
-type FormatSheetProtection struct {
+type SheetProtectionOptions struct {
     AlgorithmName       string
     AutoFilter          bool
     DeleteColumns       bool

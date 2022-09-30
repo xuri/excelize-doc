@@ -79,7 +79,7 @@ func main() {
 Необязательный параметр `y_scale` определяет вертикальный масштаб изображений, значение по умолчанию - 1.0, что соответствует 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 AddPictureFromBytes предоставляет способ добавления изображения на листе с помощью заданного формата изображения (такого как смещение, масштаб, настройка формата изображения и настройки печати), текстовое описание, имя расширения и содержимое файла в `[]byte`.

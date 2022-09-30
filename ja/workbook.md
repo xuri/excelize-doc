@@ -334,7 +334,7 @@ Defaults:
 ## ワークシートビューのプロパティを設定する {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 SetSheetViewOptions は、シートビューオプションを設定します。`viewIndex` は負の場合があり、その場合は逆方向にカウントされます（`-1` は最後のビューです）。
@@ -421,7 +421,7 @@ Used correct value:
 ## ワークシートビュープロパティを取得する {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 指定されたワークシート名、ビューインデックスの取得、およびビューパラメータに基づくワークシートビューのプロパティ，`viewIndex`は負の数にすることができ、もしそうなら、逆方向に数えます（`-1` は最後のビューを表します）。
@@ -555,7 +555,7 @@ After change:
 ## ワークシートのページレイアウトを設定する {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 指定されたワークシート名とページレイアウトパラメータに基づいて、ワークシートのページレイアウトプロパティを設定します。現在設定でサポートされているページレイアウトプロパティ:
@@ -713,7 +713,7 @@ if err := f.SetPageLayout(
 ## ワークシートのページレイアウトを取得する {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 指定されたシート名とページレイアウトパラメータに基づいて、ワークシートのページレイアウトプロパティを取得します。
@@ -752,7 +752,7 @@ Defaults:
 ## ワークシートのページ余白を設定する {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 SetPageMargins は、ワークシートのページ余白を設定する機能を提供します。利用可能なオプション：
@@ -787,7 +787,7 @@ if err := f.SetPageMargins(sheet,
 ## ワークシートのページ余白を取得する {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 GetPageMargins は、ワークシートのページ余白を取得する関数を提供します。利用可能なオプション：
@@ -850,7 +850,7 @@ Defaults:
 ## ブックのプロパティを設定する {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 SetWorkbookPrOptions は、ブックのプロパティを設定する関数を提供します。利用可能なオプション:
@@ -877,7 +877,7 @@ if err := f.SetWorkbookPrOptions(
 ## ブックのプロパティを取得する {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 GetWorkbookPrOptions は、ブックのプロパティを取得する関数を提供します。利用可能なオプション:
@@ -923,7 +923,7 @@ Defaults:
 ## ヘッダとフッタを設定する {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter は、与えられたワークシート名と制御文字によってヘッダーとフッターを設定する機能を提供します。
@@ -1059,7 +1059,7 @@ FirstHeader      | 最初のページのヘッダー
 例えば：
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

@@ -9,13 +9,13 @@
 ## 添加迷你图
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 根据给定的工作表名和迷你图属性添加迷你图。迷你图是工作表单元格中直观表示数据的微型图表。使用迷你图以一系列值显示趋势（如季节性增加或减少、经济周期），或突出显示最大值和最小值。迷你图在 Excel 2007 中将不会显示。例如添加组迷你图：
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

@@ -3,7 +3,7 @@
 ## グラフを追加する {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 指定したワークシート名、セル座標、およびグラフスタイルのプロパティに基づいてグラフを挿入します。
@@ -266,7 +266,7 @@ func main() {
 ## グラフシートを作成する {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 AddChartSheet は、指定されたグラフ形式セット（オフセット、スケール、アスペクト比の設定、印刷設定など）とプロパティセットによってグラフシートを作成するメソッドを提供します。Excelでは、グラフシートはグラフのみを含むワークシートです。

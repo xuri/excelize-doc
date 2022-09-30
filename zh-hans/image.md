@@ -79,7 +79,7 @@ func main() {
 可选参数 `y_scale` 指定图片的垂直缩放比例，其默认值为 1.0，表示 100%。
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等）、图片描述、图片扩展名和 `[]byte` 类型的图片内容，在对应的单元格上插入图片。

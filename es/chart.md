@@ -3,7 +3,7 @@
 ## Añadir gráfico {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 AddChart proporciona el método para agregar un gráfico en una hoja de trabajo por un conjunto de formato de gráfico dado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y conjunto de propiedades.
@@ -266,7 +266,7 @@ func main() {
 ## Añadir hoja de gráficos {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 AddChartSheet proporciona el método para crear una hoja de gráfico por un conjunto de formato de gráfico dado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y el conjunto de propiedades. En Excel, una hoja de gráfico es una hoja de trabajo que solo contiene un gráfico.

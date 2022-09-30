@@ -79,7 +79,7 @@ The optional parameter `y_offset` specifies the vertical offset of the image wit
 The optional parameter `y_scale` specifies the vertical scale of images, the default value of that is 1.0 which presents 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 AddPictureFromBytes provides the method to add a picture in a sheet by given picture format set (such as offset, scale, aspect ratio setting and print settings), alt text description, extension name and file content in `[]byte` type.

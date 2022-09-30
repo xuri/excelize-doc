@@ -525,7 +525,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## シートを保護する {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
+func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
 ```
 
 ProtectSheet は、他のユーザーがワークシート内のデータを誤ってまたは故意に変更、移動、または削除するのを防ぐ機能を提供します。 オプションのフィールド `AlgorithmName` で指定されたハッシュアルゴリズムは、XOR、MD4、MD5、SHA-1、SHA-256、SHA-384、および SHA-512 をサポートし、ハッシュアルゴリズムが指定されていない場合、デフォルトで XOR アルゴリズムを使用します。 たとえば、保護設定で `Sheet1` を保護します:
@@ -533,17 +533,17 @@ ProtectSheet は、他のユーザーがワークシート内のデータを誤�
 <p align="center"><img width="933" src="./images/protect_sheet.png" alt="シートを保護する"></p>
 
 ```go
-err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
     AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
 ```
 
-FormatSheetProtection は、ワークシート保護の設定を直接マップします。
+SheetProtectionOptions は、ワークシート保護の設定を直接マップします。
 
 ```go
-type FormatSheetProtection struct {
+type SheetProtectionOptions struct {
     AlgorithmName       string
     AutoFilter          bool
     DeleteColumns       bool

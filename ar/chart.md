@@ -3,7 +3,7 @@
 ## أضف الرسم البياني {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 يوفر AddChart طريقة لإضافة مخطط في ورقة عمل من خلال مجموعة تنسيق مخطط معين (مثل الإزاحة والقياس وإعدادات نسبة العرض إلى الارتفاع وإعدادات الطباعة) ومجموعة الخصائص.
@@ -271,7 +271,7 @@ func main() {
 ## أضف ورقة عمل المخطط {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 توفر AddChartSheet طريقة لإنشاء ورقة مخطط من خلال مجموعة تنسيق مخطط معينة (مثل الإزاحة والمقياس وإعداد نسبة العرض إلى الارتفاع وإعدادات الطباعة) ومجموعة الخصائص. في Excel ، ورقة المخطط هي ورقة عمل تحتوي فقط على مخطط.

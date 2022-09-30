@@ -3,7 +3,7 @@
 ## 차트 추가 {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 AddChart 는 지정된 차트 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정) 및 속성 집합을 사용하여 시트에 차트를 추가하는 방법을 제공합니다.
@@ -267,7 +267,7 @@ func main() {
 ## 차트 시트 추가 {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 AddChartSheet 는 주어진 차트 형식 세트 (예: 오프셋, 배율, 종횡비 설정 및 인쇄 설정) 및 속성 세트별로 차트 시트를 작성하는 방법을 제공합니다. Excel 에서 차트 시트는 차트 만 포함 된 워크 시트입니다.

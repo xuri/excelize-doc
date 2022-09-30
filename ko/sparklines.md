@@ -9,13 +9,13 @@
 ## 스파크라인 추가
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 AddSparkline 은 주어진 서식 옵션을 사용하여 워크시트에 스파크라인을 추가하는 기능을 제공합니다. 스파크라인은 단일 셀에 맞는 작은 차트로 데이터의 추세를 표시하는 데 사용됩니다. 스파크 라인은 Excel 2010 이상만의 기능입니다. Excel 2007에서 읽을 수 있지만 표시되지 않는 XLSX 파일에 쓸 수 있습니다. 예를 들어 그룹화된 스파크라인을 추가합니다. 변경 사항은 다음 세 가지 모두에 적용됩니다.
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

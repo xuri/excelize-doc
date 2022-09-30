@@ -99,7 +99,7 @@ SetRow 는 지정된 시작 좌표와 배열 유형 `slice` 에 대한 포인터
 ## 테이블을 스트리밍합니다 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 지정된 셀 좌표 범위 및 조건부 서식을 기반으로 테이블을 만듭니다.

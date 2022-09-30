@@ -9,13 +9,13 @@ Sparklines are a feature of Excel 2010+ which allows you to add small charts to 
 ## Add Sparkline
 
 ```go
-func (f *File) AddSparkline(sheet string, opts *SparklineOption) error
+func (f *File) AddSparkline(sheet string, opts *SparklineOptions) error
 ```
 
 AddSparkline provides a function to add sparklines to the worksheet by given formatting options. Sparklines are small charts that fit in a single cell and are used to show trends in data. Sparklines are a feature of Excel 2010 and later only. You can write them to a spreadsheet file that can be read by Excel 2007 but they won't be displayed. For example, add a grouped sparkline. Changes are applied to all three:
 
 ```go
-err := f.AddSparkline("Sheet1", &excelize.SparklineOption{
+err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
     Location: []string{"A1", "A2", "A3"},
     Range:    []string{"Sheet2!A1:J1", "Sheet2!A2:J2", "Sheet2!A3:J3"},
     Markers:  true,

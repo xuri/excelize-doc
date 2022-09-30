@@ -3,7 +3,7 @@
 ## 创建表格 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, format string) error
+func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 ```
 
 根据给定的工作表名、单元格坐标区域和条件格式创建表格。
@@ -70,7 +70,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自动过滤器 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, hCell, vCell, format string) error
+unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 ```
 
 根据给定的工作表名、单元格坐标区域和条件格式创建自动过滤器。Excel 中的自动过滤器可以对一些简单的二维数据数据进行数据筛选。
@@ -253,7 +253,7 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 ## 设置条件格式 {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, area, formatSet string) error
+func (f *File) SetConditionalFormat(sheet, reference, opts string) error
 ```
 
 根据给定的工作表名称、单元格坐标区域和格式参数，为单元格值创建条件格式设置规则。条件格式是 Office Excel 的一项功能，它允许您根据特定条件将格式应用于单元格或一系列单元格。
@@ -952,8 +952,8 @@ func main() {
     }
 }
 
-func getCellBgColor(f *excelize.File, sheet, axix string) string {
-    styleID, err := f.GetCellStyle(sheet, axix)
+func getCellBgColor(f *excelize.File, sheet, cell string) string {
+    styleID, err := f.GetCellStyle(sheet, cell)
     if err != nil {
         return err.Error()
     }
@@ -1032,7 +1032,10 @@ func (f *File) AddVBAProject(bin string) error
 该函数提供方法将包含函数和/或宏的 `vbaProject.bin` 文件嵌入到 Excel 文档中，文件扩展名应为 `.xlsm`。例如:
 
 ```go
-if err := f.SetSheetPrOptions("Sheet1", excelize.CodeName("Sheet1")); err != nil {
+codeName := "Sheet1"
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    CodeName: &codeName,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.AddVBAProject("vbaProject.bin"); err != nil {

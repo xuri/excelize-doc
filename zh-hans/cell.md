@@ -1,6 +1,6 @@
 # 单元格
 
-RichTextRun 定义了富文本的属性。
+`RichTextRun` 定义了富文本的属性。
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-HyperlinkOpts 用来指定可选的超链接属性，例如要显示的文字与屏幕提示文字。
+`HyperlinkOpts` 用来指定可选的超链接属性，例如要显示的文字与屏幕提示文字。
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-FormulaOpts 用于在 [`SetCellFormula`](cell.md#SetCellFormula) 函数中指定设置特殊公式类型。
+`FormulaOpts` 用于在 [`SetCellFormula`](cell.md#SetCellFormula) 函数中指定设置特殊公式类型。
 
 ```go
 type FormulaOpts struct {
@@ -553,7 +553,7 @@ GetEndAxis 返回合并单元格区域右下角单元格的坐标，例如：`D4
 ## 添加批注 {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, format string) error
+func (f *File) AddComment(sheet, cell, opts string) error
 ```
 
 根据给定的工作表名称、单元格坐标和样式参数（作者与文本信息）添加批注。作者信息最大长度为 255 个字符，最大文本内容长度为 32512 个字符，超出该范围的字符将会被忽略。例如，为 `Sheet1!$A$3` 单元格添加批注：

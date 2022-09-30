@@ -334,7 +334,7 @@ Defaults:
 ## Задать свойства представления листа {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 SetSheetViewOptions устанавливает параметры просмотра листа. `viewIndex` может быть отрицательным и, если это так, считается обратным (`-1` - последний вид). Доступные Варианты:
@@ -419,7 +419,7 @@ Used correct value:
 ## Получить свойства вида листа {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 GetSheetViewOptions получает значение параметров просмотра листа. `viewIndex` может быть отрицательным, и если это так отсчитывается в обратном направлении (`-1` это последний вид). Доступные Варианты:
@@ -553,7 +553,7 @@ After change:
 ## Установить макет страницы листа {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 SetPageLayout предоставляет функцию для установки макета страницы листа Доступные Варианты:
@@ -717,7 +717,7 @@ if err := f.SetPageLayout(
 ## Получить макет страницы листа {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 GetPageLayout предоставляет функцию для получения макета страницы рабочего листа. Доступные Варианты:
@@ -756,7 +756,7 @@ Defaults:
 ## Задать поля страницы листа {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 SetPageMargins предоставляет функцию для установки полей страницы рабочего листа. Доступные Варианты:
@@ -791,7 +791,7 @@ if err := f.SetPageMargins(sheet,
 ## Получить поля страницы листа {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 GetPageMargins предоставляет функцию для получения полей страницы рабочего листа. Доступные Варианты:
@@ -854,7 +854,7 @@ Defaults:
 ## Установить свойства книги {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 SetWorkbookProOptions предоставляет функцию для установки свойств книги. Доступные Варианты:
@@ -881,7 +881,7 @@ if err := f.SetWorkbookPrOptions(
 ## Получить свойства книги {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 GetWorkbookProOptions предоставляет функцию для получения свойств книги. Доступные Варианты:
@@ -927,7 +927,7 @@ Defaults:
 ## Установить верхний и нижний колонтитулы {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter предоставляет функцию установки верхних и нижних колонтитулов по заданному имени рабочего листа и управляющим символам.
@@ -1063,7 +1063,7 @@ FirstHeader      | Заголовок первой страницы
 Например:
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

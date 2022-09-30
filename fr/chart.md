@@ -3,7 +3,7 @@
 ## Ajouter un graphique {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, format string, combo ...string) error
+func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 ```
 
 AddChart fournit la méthode pour ajouter un graphique dans une feuille en fonction d'un ensemble de formats de graphique donné (tel que le décalage, l'échelle, le paramètre de rapport d'aspect et les paramètres d'impression) et le jeu de propriétés.
@@ -266,7 +266,7 @@ func main() {
 ## Créer une feuille de graphique {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, format string, combo ...string) error
+func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
 ```
 
 AddChartSheet fournit la méthode pour créer une feuille de graphique en fonction d'un ensemble de formats de graphique donné (tels que l'offset, l'échelle, le paramètre de rapport hauteur / largeur et les paramètres d'impression) et d'un ensemble de propriétés. Dans Excel, une feuille de graphique est une feuille de calcul qui contient uniquement un graphique.

@@ -99,7 +99,7 @@ SetRow 通過給定的起始坐標和指向數組類別「切片」的指針將�
 ## 流式創建表格 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 根據給定的存儲格坐標區域和條件格式流式創建表格。

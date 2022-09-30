@@ -99,7 +99,7 @@ SetRow écrit un tableau dans la ligne de flux en fonction de la coordonnée de 
 ## Ajouter une table à diffuser {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 AddTable crée un tableau Excel pour StreamWriter en utilisant la zone de coordonnées et le jeu de formats donnés.

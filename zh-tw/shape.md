@@ -3,7 +3,7 @@
 ## 添加圖形
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 根據給定的工作表名、儲存格坐標和樣式（包括偏移、縮放、拉伸、寬高比和打印屬性等）在指定儲存格添加圖形。例如，在名為 `Sheet1` 的工作表上添加文本框（矩形）：

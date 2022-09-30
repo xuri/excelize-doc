@@ -339,7 +339,7 @@ Defaults:
 ## تعيين خصائص عرض ورقة العمل {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 يحدد SetSheetViewOptions خيارات عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه للخلف (`-1` هو العرض الأخير).
@@ -426,7 +426,7 @@ Used correct value:
 ## احصل على خصائص عرض ورقة العمل {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 يحصل GetSheetViewOptions على قيمة خيارات عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه للخلف (`-1` هو العرض الأخير). الخيارات المتاحة:
@@ -560,7 +560,7 @@ After change:
 ## تعيين تخطيط صفحة ورقة العمل {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 يوفر SetPageLayout وظيفة لتعيين تخطيط صفحة ورقة العمل. الخيارات المتاحة:
@@ -724,7 +724,7 @@ if err := f.SetPageLayout(
 ## احصل على تخطيط صفحة ورقة العمل {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 يوفر GetPageLayout وظيفة للحصول على تخطيط صفحة ورقة العمل. الخيارات المتاحة:
@@ -763,7 +763,7 @@ Defaults:
 ## تعيين هوامش صفحة ورقة العمل {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 يوفر SetPageMargins وظيفة لتعيين هوامش صفحة ورقة العمل. الخيارات المتاحة:
@@ -798,7 +798,7 @@ if err := f.SetPageMargins(sheet,
 ## احصل على هوامش صفحة ورقة العمل {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 يوفر GetPageMargins وظيفة للحصول على هوامش صفحة ورقة العمل. الخيارات المتاحة:
@@ -861,7 +861,7 @@ Defaults:
 ## تعيين خصائص المصنف {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 يوفر SetWorkbookPrOptions دالة لتعيين خصائص المصنف. الخيارات المتاحة:
@@ -888,7 +888,7 @@ if err := f.SetWorkbookPrOptions(
 ## احصل على خصائص المصنف {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 يوفر GetWorkbookPrOptions دالة للحصول على خصائص المصنف. الخيارات المتاحة:
@@ -934,7 +934,7 @@ Defaults:
 ## تعيين الرأس والتذييل {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 يوفر SetHeaderFooter وظيفة لتعيين الرؤوس والتذييلات من خلال اسم ورقة العمل المحددة وأحرف التحكم.
@@ -1070,7 +1070,7 @@ FirstHeader      | رأس الصفحة الأولى
 فمثلا:
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

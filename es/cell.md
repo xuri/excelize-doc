@@ -553,7 +553,7 @@ GetEndAxis devuelve las coordenadas de la celda inferior derecha del rango combi
 ## Añadir comentario {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, format string) error
+func (f *File) AddComment(sheet, cell, opts string) error
 ```
 
 AddComment proporciona el método para agregar comentarios en una hoja por índice de hoja de trabajo, celda y conjunto de formato dado (como autor y texto). Tenga en cuenta que la longitud máxima del autor es 255 y la longitud máxima del texto es 32512. Por ejemplo, agregue un comentario en `Sheet1!$A$3`:

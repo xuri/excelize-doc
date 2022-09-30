@@ -99,7 +99,7 @@ SetRow escribe una matriz en la fila de flujo mediante una coordenada inicial da
 ## Agregar una tabla para transmitir {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, format string) error
+func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
 AddTable crea una tabla de Excel para StreamWriter utilizando el área de coordenadas y el formato establecidos.

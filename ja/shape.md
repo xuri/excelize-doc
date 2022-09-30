@@ -3,7 +3,7 @@
 ## 図形を追加する
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 指定したワークシート名、セル座標、およびスタイル (オフセット、ズーム、伸縮、縦横比、印刷プロパティなど) に基づいて、特定のセルに図形を追加します。たとえば、`Sheet1` という名前のワークシートにテキストボックス (四角形) を追加します:

@@ -334,7 +334,7 @@ Defaults:
 ## Establecer propiedades de vista de hoja de cálculo {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 SetSheetViewOptions establece las opciones de vista de hoja. El `viewIndex` puede ser negativo y si es así se cuenta hacia atrás (`-1` es la última vista).
@@ -421,7 +421,7 @@ Used correct value:
 ## Obtener propiedades de vista de hoja de cálculo {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 GetSheetViewOptions obtiene el valor de las opciones de vista de hoja. El `viewIndex` puede ser negativo y si es así se cuenta hacia atrás (`-1` es la última vista).
@@ -557,7 +557,7 @@ After change:
 ## Establecer el diseño de la página de la hoja de trabajo {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 SetPageLayout proporciona una función para establecer el diseño de página de hoja de cálculo. Opciones disponibles:
@@ -721,7 +721,7 @@ if err := f.SetPageLayout(
 ## Obtener el diseño de la página de la hoja de trabajo {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 - `PageLayoutOrientation` proporciona un método para obtener la orientación de la hoja de trabajo
@@ -758,7 +758,7 @@ Defaults:
 ## Establecer márgenes de página de hoja de cálculo {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 SetPageMargins proporciona una función para establecer los márgenes de la página de la hoja de cálculo. Opciones disponibles:
@@ -793,7 +793,7 @@ if err := f.SetPageMargins(sheet,
 ## Obtener márgenes de página de la hoja de trabajo {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 GetPageMargins proporciona una función para obtener márgenes de página de hoja de cálculo. Opciones disponibles:
@@ -856,7 +856,7 @@ Defaults:
 ## Establecer las propiedades del libro de trabajo {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 SetWorkbookPrOptions proporciona una función para establecer las propiedades del libro. Opciones Disponibles:
@@ -883,7 +883,7 @@ if err := f.SetWorkbookPrOptions(
 ## Obtener propiedades del libro de trabajo {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 GetWorkbookPrOptions proporciona una función para obtener las propiedades del libro de trabajo. Opciones Disponibles:
@@ -929,7 +929,7 @@ Defaults:
 ## Establecer encabezado y pie de página {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter proporciona una función para establecer encabezados y pies de página por el nombre de la hoja de cálculo y los caracteres de control.
@@ -1065,7 +1065,7 @@ Los siguientes códigos de formato se pueden utilizar en 6 campos de tipo de cad
 Por ejemplo:
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

@@ -79,7 +79,7 @@ Le paramètre facultatif `y_offset` spécifie le décalage vertical de l'image a
 Le paramètre facultatif `y_scale` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, format, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
 ```
 
 AddPictureFromBytes fournit la méthode pour ajouter une image dans une feuille selon le format d'image défini (décalage, échelle, paramètres de format et paramètres d'impression), la description textuelle, le nom de l'extension et le contenu du fichier dans le type `[]byte`.

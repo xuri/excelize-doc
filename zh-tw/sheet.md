@@ -151,134 +151,6 @@ func (f *File) SetSheetName(source, target string)
 
 根據給定的新舊工作表名稱重命名工作表。工作表名稱最多允許使用 31 個字符，此功能僅更改工作表的名稱，而不會更新與儲存格關聯的公式或引用中的工作表名稱。因此使用此功能重命名工作表後可能導致公式錯誤或參考引用問題。
 
-## 設定工作表屬性 {#SetSheetPrOptions}
-
-```go
-func (f *File) SetSheetPrOptions(sheet string, opts ...SheetPrOption) error
-```
-
-根據給定的工作表名稱和篩選項設定工作表屬性。
-
-可選屬性列表：
-
-|可選屬性|類別|
-|---|---|
-|CodeName|string|
-|EnableFormatConditionsCalculation|bool|
-|Published|bool|
-|FitToPage|bool|
-|TabColorIndexed|int|
-|TabColorRGB|string|
-|TabColorTheme|int|
-|TabColorTint|float64|
-|AutoPageBreaks|bool|
-|OutlineSummaryBelow|bool|
-
-例如：
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetSheetPrOptions(sheet,
-    excelize.CodeName("code"),
-    excelize.EnableFormatConditionsCalculation(false),
-    excelize.Published(false),
-    excelize.FitToPage(true),
-    excelize.TabColorIndexed(42),
-    excelize.TabColorRGB("#FFFF00"),
-    excelize.TabColorTheme(ColorMappingTypeLight2),
-    excelize.TabColorTint(0.5),
-    excelize.AutoPageBreaks(true),
-    excelize.OutlineSummaryBelow(false),
-); err != nil {
-    fmt.Println(err)
-}
-```
-
-## 獲取工作表屬性 {#GetSheetPrOptions}
-
-```go
-func (f *File) GetSheetPrOptions(sheet string, opts ...SheetPrOptionPtr) error
-```
-
-根據給定的工作表名稱和篩選項獲取工作表屬性。
-
-|可選屬性|類別|
-|---|---|
-|CodeName|string|
-|EnableFormatConditionsCalculation|bool|
-|Published|bool|
-|FitToPage|bool|
-|TabColorIndexed|int|
-|TabColorRGB|string|
-|TabColorTheme|int|
-|TabColorTint|float64|
-|AutoPageBreaks|bool|
-|OutlineSummaryBelow|bool|
-
-例如：
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    codeName                          excelize.CodeName
-    enableFormatConditionsCalculation excelize.EnableFormatConditionsCalculation
-    published                         excelize.Published
-    fitToPage                         excelize.FitToPage
-    tabColorIndexed                   excelize.TabColorIndexed
-    tabColorRGB                       excelize.TabColorRGB
-    tabColorTheme                     excelize.TabColorTheme
-    tabColorTint                      excelize.TabColorTint
-    autoPageBreaks                    excelize.AutoPageBreaks
-    outlineSummaryBelow               excelize.OutlineSummaryBelow
-)
-
-if err := f.GetSheetPrOptions(sheet,
-    &codeName,
-    &enableFormatConditionsCalculation,
-    &published,
-    &fitToPage,
-    &tabColorIndexed,
-    &tabColorRGB,
-    &tabColorTheme,
-    &tabColorTint,
-    &autoPageBreaks,
-    &outlineSummaryBelow,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- codeName: %q\n", codeName)
-fmt.Println("- enableFormatConditionsCalculation:", enableFormatConditionsCalculation)
-fmt.Println("- published:", published)
-fmt.Println("- fitToPage:", fitToPage)
-fmt.Printf("- tabColorIndexed: %d\n", tabColorIndexed)
-fmt.Printf("- tabColorRGB: %q\n", tabColorRGB)
-fmt.Printf("- tabColorTheme: %d\n", tabColorTheme)
-fmt.Printf("- tabColorTint: %f\n", tabColorTint)
-fmt.Println("- autoPageBreaks:", autoPageBreaks)
-fmt.Println("- outlineSummaryBelow:", outlineSummaryBelow)
-```
-
-輸出：
-
-```text
-Defaults:
-- codeName: ""
-- enableFormatConditionsCalculation: true
-- published: true
-- fitToPage: false
-- tabColorIndexed: -1
-- tabColorRGB: ""
-- tabColorTheme: -1
-- tabColorTint: 0.000000
-- autoPageBreaks: false
-- outlineSummaryBelow: true
-```
-
 ## 插入欄 {#InsertCols}
 
 ```go
@@ -525,7 +397,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## 保護工作表 {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
+func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
 ```
 
 防止其他用戶意外或有意更改、移動或刪除工作表中的資料。可選字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，為名為 `Sheet1` 的工作表設定密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
@@ -533,17 +405,17 @@ func (f *File) ProtectSheet(sheet string, settings *FormatSheetProtection) error
 <p align="center"><img width="791" src="./images/protect_sheet.png" alt="保護工作表"></p>
 
 ```go
-err := f.ProtectSheet("Sheet1", &excelize.FormatSheetProtection{
+err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
     AlgorithmName: "SHA-512",
     Password:      "password",
     EditScenarios: false,
 })
 ```
 
-FormatSheetProtection 定義了保護工作表的設定選項。
+SheetProtectionOptions 定義了保護工作表的設定選項。
 
 ```go
-type FormatSheetProtection struct {
+type SheetProtectionOptions struct {
     AlgorithmName       string
     AutoFilter          bool
     DeleteColumns       bool

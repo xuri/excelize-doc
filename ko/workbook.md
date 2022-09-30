@@ -334,7 +334,7 @@ Defaults:
 ## 워크 시트보기 속성 설정 {#SetSheetViewOptions}
 
 ```go
-func (f *File) SetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOption) error
+func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
 SetSheetViewOptions 는 시트보기 옵션을 설정합니다. `viewIndex` 는 음수 일 수 있으며, 그럴 경우 역으로 계산됩니다 (`-1` 이 마지막보기).
@@ -419,7 +419,7 @@ Used correct value:
 ## 워크 시트 뷰 속성 가져 오기 {#GetSheetViewOptions}
 
 ```go
-func (f *File) GetSheetViewOptions(sheet string, viewIndex int, opts ...SheetViewOptionPtr) error
+func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
 지정 된 워크 시트 이름, 뷰 인덱스 및 뷰 매개 변수를 기반으로 워크 시트 보기 속성 가져 오기, `viewIndex` 가 음수 이면 역방향으로 계산 됩니다 (`-1` 은 마지막 보기를 나타냄).
@@ -553,7 +553,7 @@ After change:
 ## 워크 시트 페이지 레이아웃 설정 {#SetPageLayout}
 
 ```go
-func (f *File) SetPageLayout(sheet string, opts ...PageLayoutOption) error
+func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
 지정 된 워크시트 이름 및 페이지 레이아웃 매개 변수를 기반으로 워크시트의 페이지 레이아웃 속성을 설정 합니다. 현재 설정에 대해 지원 되는 페이지 레이아웃 속성:
@@ -717,7 +717,7 @@ if err := f.SetPageLayout(
 ## 워크 시트 페이지 레이아웃 가져 오기 {#GetPageLayout}
 
 ```go
-func (f *File) GetPageLayout(sheet string, opts ...PageLayoutOptionPtr) error
+func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
 지정 된 워크시트 이름 및 페이지 레이아웃 매개 변수를 기반으로 워크시트의 페이지 레이아웃 속성을 가져옵니다.
@@ -756,7 +756,7 @@ Defaults:
 ## 워크 시트 페이지 여백 설정 {#SetPageMargins}
 
 ```go
-func (f *File) SetPageMargins(sheet string, opts ...PageMarginsOptions) error
+func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
 SetPageMargins 는 워크 시트 페이지 여백을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
@@ -791,7 +791,7 @@ if err := f.SetPageMargins(sheet,
 ## 워크 시트 페이지 여백 가져 오기 {#GetPageMargins}
 
 ```go
-func (f *File) GetPageMargins(sheet string, opts ...PageMarginsOptionsPtr) error
+func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
 GetPageMargins 는 워크 시트 페이지 여백을 얻는 기능을 제공합니다. 사용 가능한 옵션:
@@ -854,7 +854,7 @@ Defaults:
 ## 통합 문서 속성 설정 {#SetWorkbookPrOptions}
 
 ```go
-func (f *File) SetWorkbookPrOptions(opts ...WorkbookPrOption) error
+func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
 SetWorkbookPrOptions 는 통합 문서 속성을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
@@ -881,7 +881,7 @@ if err := f.SetWorkbookPrOptions(
 ## 통합 문서 속성 가져오기 {#GetWorkbookPrOptions}
 
 ```go
-func (f *File) GetWorkbookPrOptions(opts ...WorkbookPrOptionPtr) error
+func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
 GetWorkbookPrOptions 는 통합 문서 속성을 가져오는 기능을 제공합니다. 사용 가능한 옵션:
@@ -927,7 +927,7 @@ Defaults:
 ## 머리글 및 바닥 글 설정 {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *FormatHeaderFooter) error
+func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter 는 주어진 워크 시트 이름과 제어 문자로 머리글과 바닥 글을 설정하는 기능을 제공합니다.
@@ -1063,7 +1063,7 @@ FirstHeader      | 첫 페이지 머리글
 예:
 
 ```go
-err := f.SetHeaderFooter("Sheet1", &excelize.FormatHeaderFooter{
+err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
     DifferentFirst:   true,
     DifferentOddEven: true,
     OddHeader:        "&R&P",

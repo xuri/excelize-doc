@@ -3,7 +3,7 @@
 ## Add Shape
 
 ```go
-func (f *File) AddShape(sheet, cell, format string) error
+func (f *File) AddShape(sheet, cell, opts string) error
 ```
 
 AddShape provides the method to add shape in a sheet by given worksheet index, shape format set (such as offset, scale, aspect ratio setting and print settings) and properties set. For example, add text box (rect shape) in `Sheet1`:
