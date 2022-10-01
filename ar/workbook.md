@@ -1,6 +1,6 @@
 # دفتر العمل
 
-يحدد `Options` الخيارات لفتح جداول البيانات وقراءتها.
+تحدد `Options` خيارات قراءة وكتابة جداول البيانات.
 
 ```go
 type Options struct {
@@ -225,39 +225,28 @@ func (f *File) GetSheetVisible(sheet string) bool
 f.GetSheetVisible("Sheet1")
 ```
 
-## تعيين خصائص تنسيق ورقة العمل {#SetSheetFormatPr}
+## تعيين خصائص الورقة {#SetSheetProps}
 
 ```go
-func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-يوفر SetSheetFormatPr وظيفة لتعيين خصائص تنسيق ورقة العمل.
-
-الخيارات المتاحة:
-
-معلمة تنسيق اختيارية |اكتب
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
+يوفر SetSheetProps وظيفة لتعيين خصائص ورقة العمل.
 
 على سبيل المثال ، اجعل صفوف ورقة العمل الافتراضية مخفية:
 
-<p align="center"><img width="613" src="./images/sheet_format_pr_01.png" alt="تعيين خصائص تنسيق ورقة العمل"></p>
+<p align="center"><img width="613" src="./images/sheet_format_pr_01.png" alt="تعيين خصائص الورقة"></p>
 
 ```go
-f := excelize.NewFile()
-if err := f.SetSheetViewOptions("Sheet1", -1,
-    excelize.RightToLeft(true),
-); err != nil {
+f, enable := excelize.NewFile(), true
+if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+    RightToLeft: &enable,
+}); err != nil {
     fmt.Println(err)
 }
-const sheet = "Sheet1"
-if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    ZeroHeight: &enable,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
@@ -266,296 +255,29 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("المصنف1.xlsx")
 ```
 
-## احصل على خصائص تنسيق ورقة العمل {#GetSheetFormatPr}
+## الحصول على خصائص ورقة {#GetSheetProps}
 
 ```go
-func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-يوفر GetSheetFormatPr وظيفة للحصول على خصائص تنسيق ورقة العمل.
+يوفر GetSheetProps دالة للحصول على خصائص ورقة العمل.
 
-الخيارات المتاحة:
-
-معلمة تنسيق اختيارية |اكتب
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
-
-فمثلا:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    baseColWidth     excelize.BaseColWidth
-    defaultColWidth  excelize.DefaultColWidth
-    defaultRowHeight excelize.DefaultRowHeight
-    customHeight     excelize.CustomHeight
-    zeroHeight       excelize.ZeroHeight
-    thickTop         excelize.ThickTop
-    thickBottom      excelize.ThickBottom
-)
-
-if err := f.GetSheetFormatPr(sheet,
-    &baseColWidth,
-    &defaultColWidth,
-    &defaultRowHeight,
-    &customHeight,
-    &zeroHeight,
-    &thickTop,
-    &thickBottom,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- baseColWidth:", baseColWidth)
-fmt.Println("- defaultColWidth:", defaultColWidth)
-fmt.Println("- defaultRowHeight:", defaultRowHeight)
-fmt.Println("- customHeight:", customHeight)
-fmt.Println("- zeroHeight:", zeroHeight)
-fmt.Println("- thickTop:", thickTop)
-fmt.Println("- thickBottom:", thickBottom)
-```
-
-الحصول على الإخراج:
-
-```text
-Defaults:
-- baseColWidth: 0
-- defaultColWidth: 0
-- defaultRowHeight: 15
-- customHeight: false
-- zeroHeight: false
-- thickTop: false
-- thickBottom: false
-```
-
-## تعيين خصائص عرض ورقة العمل {#SetSheetViewOptions}
+## تعيين خصائص عرض ورقة العمل {#SetSheetView}
 
 ```go
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-يحدد SetSheetViewOptions خيارات عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه للخلف (`-1` هو العرض الأخير).
+تعيين SetSheetView خصائص عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه تنازليًا (`-1` هو العرض الأخير).
 
-الخيارات المتاحة:
-
-معلمة العرض الاختيارية |اكتب
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- مثال 1:
-
-```go
-err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
-```
-
-- مثال 2:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetSheetViewOptions(sheet, 0,
-    excelize.DefaultGridColor(false),
-    excelize.ShowFormulas(true),
-    excelize.ShowGridLines(true),
-    excelize.ShowRowColHeaders(true),
-    excelize.RightToLeft(false),
-    excelize.ShowRuler(false),
-    excelize.View("pageLayout"),
-    excelize.TopLeftCell("C3"),
-    excelize.ZoomScale(80),
-); err != nil {
-    fmt.Println(err)
-}
-
-var zoomScale ZoomScale
-fmt.Println("Default:")
-fmt.Println("- zoomScale: 80")
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used out of range value:")
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used correct value:")
-fmt.Println("- zoomScale:", zoomScale)
-```
-
-الحصول على الإخراج:
-
-```text
-Default:
-- zoomScale: 80
-Used out of range value:
-- zoomScale: 80
-Used correct value:
-- zoomScale: 123
-```
-
-## احصل على خصائص عرض ورقة العمل {#GetSheetViewOptions}
+## احصل على خصائص عرض ورقة العمل {#GetSheetView}
 
 ```go
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-يحصل GetSheetViewOptions على قيمة خيارات عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه للخلف (`-1` هو العرض الأخير). الخيارات المتاحة:
-
-معلمة العرض الاختيارية |اكتب
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- المثال 1 ، للحصول على إعدادات خاصية خط الشبكة لطريقة العرض الأخيرة في ورقة العمل المسماة `Sheet1`:
-
-```go
-var showGridLines excelize.ShowGridLines
-err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
-```
-
-- المثال 2:
-
-```go
-f := NewFile()
-const sheet = "Sheet1"
-
-var (
-    defaultGridColor  excelize.DefaultGridColor
-    showFormulas      excelize.ShowFormulas
-    showGridLines     excelize.ShowGridLines
-    showRowColHeaders excelize.ShowRowColHeaders
-    showZeros         excelize.ShowZeros
-    rightToLeft       excelize.RightToLeft
-    showRuler         excelize.ShowRuler
-    view              excelize.View
-    topLeftCell       excelize.TopLeftCell
-    zoomScale         excelize.ZoomScale
-)
-
-if err := f.GetSheetViewOptions(sheet, 0,
-    &defaultGridColor,
-    &showFormulas,
-    &showGridLines,
-    &showRowColHeaders,
-    &showZeros,
-    &rightToLeft,
-    &showRuler,
-    &view,
-    &topLeftCell,
-    &zoomScale,
-); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Default:")
-fmt.Println("- defaultGridColor:", defaultGridColor)
-fmt.Println("- showFormulas:", showFormulas)
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showRowColHeaders:", showRowColHeaders)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- rightToLeft:", rightToLeft)
-fmt.Println("- showRuler:", showRuler)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.View("pageLayout")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &view); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("After change:")
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", topLeftCell)
-```
-
-الحصول على الإخراج:
-
-```text
-Default:
-- defaultGridColor: true
-- showFormulas: false
-- showGridLines: true
-- showRowColHeaders: true
-- showZeros: true
-- rightToLeft: false
-- showRuler: true
-- view: normal
-- topLeftCell: ""
-- zoomScale: 0
-After change:
-- showGridLines: false
-- showZeros: false
-- view: pageLayout
-- topLeftCell: B2
-```
+يحصل GetSheetView على قيمة خصائص عرض الورقة. قد يكون `viewIndex` سالبًا وإذا كان الأمر كذلك يتم حسابه تنازليًا (`-1` هو العرض الأخير).
 
 ## تعيين تخطيط صفحة ورقة العمل {#SetPageLayout}
 
@@ -565,18 +287,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 يوفر SetPageLayout وظيفة لتعيين تخطيط صفحة ورقة العمل. الخيارات المتاحة:
 
-- حدد `BlackAndWhite` طباعة أبيض وأسود.
-
-- حدد `FirstPageNumber` رقم أول صفحة مطبوعة. إذا لم يتم تحديد قيمة ، فسيتم افتراض "تلقائي".
-
-- يوفر `PageLayoutOrientation` طريقة لتعيين اتجاه ورقة العمل ، والاتجاه الافتراضي هو "صورة". يوضح ما يلي معلمات الاتجاه التي يدعمها رقم فهرس Excelize:
-
-معامل|اتجاه
----|---
-OrientationPortrait|صورة
-OrientationLandscape|المناظر الطبيعيه
-
-- يوفر `PageLayoutPaperSize` طريقة لتعيين حجم ورق ورقة العمل ، وحجم الورق الافتراضي لورقة العمل هو "ورق إلكتروني (8.5 بوصة في 11 بوصة)". يوضح ما يلي حجم الورق مرتبة حسب رقم فهرس Excelize:
+حدد `Size` حجم ورق ورقة العمل ، وحجم الورق الافتراضي لورقة العمل هو "ورق إلكتروني (8.5 بوصة × 11 بوصة)". يوضح ما يلي حجم الورق مرتبة حسب رقم فهرس Excelize:
 
 فهرس|حجم الورق
 ---|---
@@ -697,26 +408,40 @@ OrientationLandscape|المناظر الطبيعيه
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- حدد `FitToHeight` عدد الصفحات الرأسية التي سيتم احتواؤها.
+حدد `Orientation` المحدد في اتجاه ورقة العمل ، والاتجاه الافتراضي هو "portrait". القيم المحتملة لهذا الحقل هي "portrait" و "landscape".
 
-- عدد FitToWidth المحدد من الصفحات الأفقية ليتم احتواؤها.
+حدد `FirstPageNumber` رقم أول صفحة مطبوعة. إذا لم يتم تحديد قيمة ، فسيتم افتراض "تلقائي".
 
-- يحدد `PageLayoutScale` قياس الطباعة. هذه السمة مقيدة بقيم تتراوح من 10 (10٪) إلى 400 (400٪). يتم تجاوز هذا الإعداد عند استخدام `fitToWidth` و / أو `fitToHeight`.
+حدد `AdjustTo` مقياس الطباعة. هذه السمة مقيدة بقيم تتراوح من 10 (10٪) إلى 400 (400٪). يتم تجاوز هذا الإعداد عند استخدام `FitToWidth` و / أو `FitToHeight`.
 
-- على سبيل المثال ، عيّن تخطيط الصفحة لـ `Sheet1` بطباعة بالأبيض والأسود ، ورقم الصفحة الأول المطبوع من `2` ، وورق A4 صغير الحجم أفقيًا (210 مم × 297 مم) ، وصفحتان عموديتان للملاءمة ، وصفحتان أفقيتان لملاءمتهما و 50٪ مقياس طباعة
+حدد `FitToHeight` عدد الصفحات الرأسية التي سيتم احتواؤها.
+
+حدد `FitToWidth` عدد الصفحات الأفقية التي يجب احتواؤها.
+
+حدد `BlackAndWhite` الطباعة بالأبيض والأسود.
+
+- على سبيل المثال ، عيّن تخطيط الصفحة لـ `Sheet1` بطباعة بالأبيض والأسود ، ورقم الصفحة الأول المطبوع من `2` ، وورق A4 صغير الحجم أفقيًا (210 مم × 297 مم) ، صفحتان رأسيتان للملاءمة وصفحتان أفقيتان لملاءمتهما:
 
 ```go
 f := excelize.NewFile()
-if err := f.SetPageLayout(
-    "Sheet1",
-    excelize.BlackAndWhite(true),
-    excelize.FirstPageNumber(2),
-    excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-    excelize.PageLayoutPaperSize(10),
-    excelize.FitToHeight(2),
-    excelize.FitToWidth(2),
-    excelize.PageLayoutScale(50),
-); err != nil {
+var (
+    size                 = 10
+    orientation          = "landscape"
+    firstPageNumber uint = 2
+    adjustTo        uint = 100
+    fitToHeight          = 2
+    fitToWidth           = 2
+    blackAndWhite        = true
+)
+if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+    Size:            &size,
+    Orientation:     &orientation,
+    FirstPageNumber: &firstPageNumber,
+    AdjustTo:        &adjustTo,
+    FitToHeight:     &fitToHeight,
+    FitToWidth:      &fitToWidth,
+    BlackAndWhite:   &blackAndWhite,
+}); err != nil {
     fmt.Println(err)
 }
 ```
@@ -727,38 +452,7 @@ if err := f.SetPageLayout(
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-يوفر GetPageLayout وظيفة للحصول على تخطيط صفحة ورقة العمل. الخيارات المتاحة:
-
-- يوفر `PageLayoutOrientation` طريقة للحصول على اتجاه ورقة العمل
-- يوفر `PageLayoutPaperSize` طريقة للحصول على حجم ورق ورقة العمل
-
-- فمثلا, الحصول على تخطيط صفحة `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-var (
-    orientation excelize.PageLayoutOrientation
-    paperSize   excelize.PageLayoutPaperSize
-)
-if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- orientation: %q\n", orientation)
-fmt.Printf("- paper size: %d\n", paperSize)
-```
-
-انتاج:
-
-```text
-Defaults:
-- orientation: "portrait"
-- paper size: 1
-```
+يوفر GetPageLayout وظيفة للحصول على تخطيط صفحة ورقة العمل.
 
 ## تعيين هوامش صفحة ورقة العمل {#SetPageMargins}
 
@@ -768,32 +462,16 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 يوفر SetPageMargins وظيفة لتعيين هوامش صفحة ورقة العمل. الخيارات المتاحة:
 
-خيارات|اكتب
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- فمثلا, تعيين هوامش الصفحة لـ `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetPageMargins(sheet,
-    excelize.PageMarginBottom(1.0),
-    excelize.PageMarginFooter(1.0),
-    excelize.PageMarginHeader(1.0),
-    excelize.PageMarginLeft(1.0),
-    excelize.PageMarginRight(1.0),
-    excelize.PageMarginTop(1.0),
-); err != nil {
-    fmt.Println(err)
-}
-```
+خيارات|اكتب|وصف
+---|---|---
+Bottom | *float64 | الأسفل
+Footer | *float64 | تذييل
+Header | *float64 | رأس
+Left | *float64 | اليسار
+Right | *float64 | الصحيح
+Top | *float64 | قمة
+Horizontally | *bool | توسيط في الصفحة: أفقيًا
+Vertically | *bool | توسيط في الصفحة: عموديًا
 
 ## احصل على هوامش صفحة ورقة العمل {#GetPageMargins}
 
@@ -801,135 +479,29 @@ if err := f.SetPageMargins(sheet,
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-يوفر GetPageMargins وظيفة للحصول على هوامش صفحة ورقة العمل. الخيارات المتاحة:
+يوفر GetPageMargins وظيفة للحصول على هوامش صفحة ورقة العمل.
 
-خيارات|اكتب
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- فمثلا, الحصول على هوامش صفحة `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    marginBottom excelize.PageMarginBottom
-    marginFooter excelize.PageMarginFooter
-    marginHeader excelize.PageMarginHeader
-    marginLeft   excelize.PageMarginLeft
-    marginRight  excelize.PageMarginRight
-    marginTop    excelize.PageMarginTop
-)
-
-if err := f.GetPageMargins(sheet,
-    &marginBottom,
-    &marginFooter,
-    &marginHeader,
-    &marginLeft,
-    &marginRight,
-    &marginTop,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- marginBottom:", marginBottom)
-fmt.Println("- marginFooter:", marginFooter)
-fmt.Println("- marginHeader:", marginHeader)
-fmt.Println("- marginLeft:", marginLeft)
-fmt.Println("- marginRight:", marginRight)
-fmt.Println("- marginTop:", marginTop)
-```
-
-انتاج:
-
-```text
-Defaults:
-- marginBottom: 0.75
-- marginFooter: 0.3
-- marginHeader: 0.3
-- marginLeft: 0.7
-- marginRight: 0.7
-- marginTop: 0.75
-```
-
-## تعيين خصائص المصنف {#SetWorkbookPrOptions}
+## تعيين خصائص المصنف {#SetWorkbookProps}
 
 ```go
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-يوفر SetWorkbookPrOptions دالة لتعيين خصائص المصنف. الخيارات المتاحة:
+يوفر SetWorkbookProps دالة لتعيين خصائص المصنف. الخيارات المتاحة:
 
-خيارات|اكتب
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
+خيارات|اكتب|وصف
+---|---|---
+Date1904 | *bool | يشير إلى ما إذا كان سيتم استخدام نظام تاريخ 1900 أو 1904 عند تحويل أوقات التاريخ التسلسلي في المصنف إلى تواريخ.
+FilterPrivacy | *bool | تحدد قيمة منطقية تشير إلى ما إذا كان التطبيق قد قام بفحص المصنف لمعرفة معلومات التعريف الشخصية (PII). إذا تم تعيين هذه العلامة ، فإن التطبيق يحذر المستخدم في أي وقت يقوم فيه المستخدم بإجراء من شأنه إدراج معلومات تحديد الهوية الشخصية في المستند.
+CodeName | *string | يحدد الاسم الرمزي للتطبيق الذي أنشأ هذا المصنف. استخدم هذه السمة لتعقب محتوى الملف في الإصدارات المتزايدة من التطبيق.
 
-- فمثلا, تعيين خصائص المصنف:
-
-```go
-f := excelize.NewFile()
-if err := f.SetWorkbookPrOptions(
-    excelize.Date1904(false),
-    excelize.FilterPrivacy(false),
-    excelize.CodeName("code"),
-); err != nil {
-    fmt.Println(err)
-}
-```
-
-## احصل على خصائص المصنف {#GetWorkbookPrOptions}
+## احصل على خصائص المصنف {#GetWorkbookProps}
 
 ```go
 func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
-يوفر GetWorkbookPrOptions دالة للحصول على خصائص المصنف. الخيارات المتاحة:
-
-خيارات|اكتب
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
-
-- فمثلا, احصل على خصائص المصنف:
-
-```go
-f := excelize.NewFile()
-var (
-    date1904      excelize.Date1904
-    filterPrivacy excelize.FilterPrivacy
-    codeName      excelize.CodeName
-)
-if err := f.GetWorkbookPrOptions(&date1904); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&codeName); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- date1904: %t\n", date1904)
-fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
-fmt.Printf("- codeName: %q\n", codeName)
-```
-
-انتاج:
-
-```text
-Defaults:
-- filterPrivacy: true
-- codeName: ""
-```
+يوفر GetWorkbookProps دالة للحصول على خصائص المصنف.
 
 ## تعيين الرأس والتذييل {#SetHeaderFooter}
 
@@ -1098,9 +670,7 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-يوفر SetDefinedName دالة لتعيين الأسماء المحددة للمصنف أو ورقة العمل. إذا لم يتم تحديد النطاق ، فإن النطاق الافتراضي هو المصنف.
-
-فمثلا:
+يوفر SetDefinedName دالة لتعيين الأسماء المحددة للمصنف أو ورقة العمل. إذا لم يتم تحديد النطاق ، فإن النطاق الافتراضي هو المصنف. فمثلا:
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{
@@ -1199,7 +769,7 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 يوفر SetDocProps وظيفة لتعيين خصائص الوثيقة الأساسية. الخصائص التي يمكن تعيينها هي:
 
-خاصية       | وصف
+خاصية | وصف
 ---|---
 Category       | تصنيف محتوى هذه الحزمة.
 ContentStatus  | حالة المحتوى. فمثلا: قد تتضمن القيم "Draft" و "Reviewed" و "Final"

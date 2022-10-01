@@ -2,7 +2,7 @@
 
 樞紐分析表是一種交互式的表，是計算、匯總和分析資料的強大工具，可助你瞭解資料中的對比情況、模式和趨勢。
 
-PivotTableOptions 定義了樞紐分析表的屬性。
+`PivotTableOptions` 定義了樞紐分析表的屬性。
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // 還包含其他已過濾或未導出的欄位
 }
 ```
 

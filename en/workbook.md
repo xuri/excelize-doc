@@ -1,6 +1,6 @@
 # Workbook
 
-`Options` defines the options for open and reading spreadsheets.
+`Options` defines the options for reading and writing spreadsheets.
 
 ```go
 type Options struct {
@@ -225,34 +225,23 @@ GetSheetVisible provides a function to get worksheet visible by given worksheet 
 f.GetSheetVisible("Sheet1")
 ```
 
-## Set worksheet format properties {#SetSheetFormatPr}
+## Set worksheet properties {#SetSheetProps}
 
 ```go
-func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetFormatPr provides a function to set worksheet formatting properties.
-
-Available options:
-
-Optional format parameter |Type
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
+SetSheetProps provides a function to set worksheet properties.
 
 For example, make worksheet rows default as hidden:
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Set worksheet format properties"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Set worksheet properties"></p>
 
 ```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+f, enable := excelize.NewFile(), true
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    ZeroHeight: &enable,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
@@ -261,298 +250,29 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-## Get worksheet format properties {#GetSheetFormatPr}
+## Get worksheet properties {#GetSheetProps}
 
 ```go
-func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-GetSheetFormatPr provides a function to get worksheet formatting properties.
+GetSheetProps provides a function to get worksheet properties.
 
-Available options:
-
-Optional format parameter |Type
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
-
-For example:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    baseColWidth     excelize.BaseColWidth
-    defaultColWidth  excelize.DefaultColWidth
-    defaultRowHeight excelize.DefaultRowHeight
-    customHeight     excelize.CustomHeight
-    zeroHeight       excelize.ZeroHeight
-    thickTop         excelize.ThickTop
-    thickBottom      excelize.ThickBottom
-)
-
-if err := f.GetSheetFormatPr(sheet,
-    &baseColWidth,
-    &defaultColWidth,
-    &defaultRowHeight,
-    &customHeight,
-    &zeroHeight,
-    &thickTop,
-    &thickBottom,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- baseColWidth:", baseColWidth)
-fmt.Println("- defaultColWidth:", defaultColWidth)
-fmt.Println("- defaultRowHeight:", defaultRowHeight)
-fmt.Println("- customHeight:", customHeight)
-fmt.Println("- zeroHeight:", zeroHeight)
-fmt.Println("- thickTop:", thickTop)
-fmt.Println("- thickBottom:", thickBottom)
-```
-
-Get output:
-
-```text
-Defaults:
-- baseColWidth: 0
-- defaultColWidth: 0
-- defaultRowHeight: 15
-- customHeight: false
-- zeroHeight: false
-- thickTop: false
-- thickBottom: false
-```
-
-## Set worksheet view properties {#SetSheetViewOptions}
+## Set worksheet view properties {#SetSheetView}
 
 ```go
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetViewOptions sets sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
+SetSheetView sets sheet view properties. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
 
-Available options:
-
-Optional view parameter |Type
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- Example 1:
-
-```go
-err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
-```
-
-- Example 2:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetSheetViewOptions(sheet, 0,
-    excelize.DefaultGridColor(false),
-    excelize.ShowFormulas(true),
-    excelize.ShowGridLines(true),
-    excelize.ShowRowColHeaders(true),
-    excelize.RightToLeft(false),
-    excelize.ShowRuler(false),
-    excelize.View("pageLayout"),
-    excelize.TopLeftCell("C3"),
-    excelize.ZoomScale(80),
-); err != nil {
-    fmt.Println(err)
-}
-
-var zoomScale ZoomScale
-fmt.Println("Default:")
-fmt.Println("- zoomScale: 80")
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used out of range value:")
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used correct value:")
-fmt.Println("- zoomScale:", zoomScale)
-```
-
-Get output:
-
-```text
-Default:
-- zoomScale: 80
-Used out of range value:
-- zoomScale: 80
-Used correct value:
-- zoomScale: 123
-```
-
-## Get worksheet view properties {#GetSheetViewOptions}
+## Get worksheet view properties {#GetSheetView}
 
 ```go
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-GetSheetViewOptions gets the value of sheet view options. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
-
-Available options:
-
-Optional view parameter |Type
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- Example 1, to get the gridline property settings for the last view on the worksheet named `Sheet1`:
-
-```go
-var showGridLines excelize.ShowGridLines
-err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
-```
-
-- Example 2:
-
-```go
-f := NewFile()
-const sheet = "Sheet1"
-
-var (
-    defaultGridColor  excelize.DefaultGridColor
-    showFormulas      excelize.ShowFormulas
-    showGridLines     excelize.ShowGridLines
-    showRowColHeaders excelize.ShowRowColHeaders
-    showZeros         excelize.ShowZeros
-    rightToLeft       excelize.RightToLeft
-    showRuler         excelize.ShowRuler
-    view              excelize.View
-    topLeftCell       excelize.TopLeftCell
-    zoomScale         excelize.ZoomScale
-)
-
-if err := f.GetSheetViewOptions(sheet, 0,
-    &defaultGridColor,
-    &showFormulas,
-    &showGridLines,
-    &showRowColHeaders,
-    &showZeros,
-    &rightToLeft,
-    &showRuler,
-    &view,
-    &topLeftCell,
-    &zoomScale,
-); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Default:")
-fmt.Println("- defaultGridColor:", defaultGridColor)
-fmt.Println("- showFormulas:", showFormulas)
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showRowColHeaders:", showRowColHeaders)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- rightToLeft:", rightToLeft)
-fmt.Println("- showRuler:", showRuler)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.View("pageLayout")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &view); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("After change:")
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", topLeftCell)
-```
-
-Get output:
-
-```text
-Default:
-- defaultGridColor: true
-- showFormulas: false
-- showGridLines: true
-- showRowColHeaders: true
-- showZeros: true
-- rightToLeft: false
-- showRuler: true
-- view: normal
-- topLeftCell: ""
-- zoomScale: 0
-After change:
-- showGridLines: false
-- showZeros: false
-- view: pageLayout
-- topLeftCell: B2
-```
+GetSheetView gets the value of sheet view properties. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
 
 ## Set worksheet page layout {#SetPageLayout}
 
@@ -562,18 +282,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 SetPageLayout provides a function to sets worksheet page layout. Available options:
 
-- `BlackAndWhite` specified print black and white.
-
-- `FirstPageNumber` specified the first printed page number. If no value is specified, then "automatic" is assumed.
-
-- `PageLayoutOrientation` provides a method to sets worksheet orientation, the default orientation is "portrait". The following shows the orientation parameters supported by Excelize index number:
-
-Parameter|Orientation
----|---
-OrientationPortrait|portrait
-OrientationLandscape|landscape
-
-- `PageLayoutPaperSize` provides a method to sets worksheet paper size, the default paper size of worksheet is "Letter paper (8.5 in. by 11 in.)". The following shows the paper size sorted by Excelize index number:
+`Size` specified the worksheet paper size, the default paper size of worksheet is "Letter paper (8.5 in. by 11 in.)". The following shows the paper size sorted by Excelize index number:
 
 Index|Paper Size
 ---|---
@@ -694,26 +403,40 @@ Index|Paper Size
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- `FitToHeight` specified the number of vertical pages to fit on.
+`Orientation` specified worksheet orientation, the default orientation is "portrait". The possible values for this field is "portrait" and "landscape".
 
-- `FitToWidth` specified the number of horizontal pages to fit on.
+`FirstPageNumber` specified the first printed page number. If no value is specified, then "automatic" is assumed.
 
-- `PageLayoutScale` defines the print scaling. This attribute is restricted to values ranging from 10 (10%) to 400 (400%). This setting is overridden when `FitToWidth` and/or `FitToHeight` are in use.
+`AdjustTo` specified the print scaling. This attribute is restricted to values ranging from 10 (10%) to 400 (400%). This setting is overridden when `FitToWidth` and/or `FitToHeight` are in use.
 
-- For example, set page layout for `Sheet1` with print black and white, first printed page number from `2`, landscape A4 small paper (210 mm by 297 mm), 2 vertical pages to fit on, 2 horizontal pages to fit on and 50% print scaling:
+`FitToHeight` specified the number of vertical pages to fit on.
+
+`FitToWidth` specified the number of horizontal pages to fit on.
+
+`BlackAndWhite` specified print black and white.
+
+For example, set page layout for `Sheet1` with print black and white, first printed page number from `2`, landscape A4 small paper (210 mm by 297 mm), 2 vertical pages to fit on, and 2 horizontal pages to fit:
 
 ```go
 f := excelize.NewFile()
-if err := f.SetPageLayout(
-    "Sheet1",
-    excelize.BlackAndWhite(true),
-    excelize.FirstPageNumber(2),
-    excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-    excelize.PageLayoutPaperSize(10),
-    excelize.FitToHeight(2),
-    excelize.FitToWidth(2),
-    excelize.PageLayoutScale(50),
-); err != nil {
+var (
+    size                 = 10
+    orientation          = "landscape"
+    firstPageNumber uint = 2
+    adjustTo        uint = 100
+    fitToHeight          = 2
+    fitToWidth           = 2
+    blackAndWhite        = true
+)
+if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+    Size:            &size,
+    Orientation:     &orientation,
+    FirstPageNumber: &firstPageNumber,
+    AdjustTo:        &adjustTo,
+    FitToHeight:     &fitToHeight,
+    FitToWidth:      &fitToWidth,
+    BlackAndWhite:   &blackAndWhite,
+}); err != nil {
     fmt.Println(err)
 }
 ```
@@ -724,38 +447,7 @@ if err := f.SetPageLayout(
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-GetPageLayout provides a function to gets worksheet page layout. Available options:
-
-- `PageLayoutOrientation` provides a method to gets worksheet orientation
-- `PageLayoutPaperSize` provides a method to gets worksheet paper size
-
-- For example, get page layout of `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-var (
-    orientation excelize.PageLayoutOrientation
-    paperSize   excelize.PageLayoutPaperSize
-)
-if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- orientation: %q\n", orientation)
-fmt.Printf("- paper size: %d\n", paperSize)
-```
-
-Output:
-
-```text
-Defaults:
-- orientation: "portrait"
-- paper size: 1
-```
+GetPageLayout provides a function to gets worksheet page layout.
 
 ## Set worksheet page margins {#SetPageMargins}
 
@@ -765,32 +457,16 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 SetPageMargins provides a function to set worksheet page margins. Available options:
 
-Options|Type
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- For example, set page margins of `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetPageMargins(sheet,
-    excelize.PageMarginBottom(1.0),
-    excelize.PageMarginFooter(1.0),
-    excelize.PageMarginHeader(1.0),
-    excelize.PageMarginLeft(1.0),
-    excelize.PageMarginRight(1.0),
-    excelize.PageMarginTop(1.0),
-); err != nil {
-    fmt.Println(err)
-}
-```
+Options|Type|Description
+---|---|---
+Bottom | *float64 | Bottom
+Footer | *float64 | Footer
+Header | *float64 | Header
+Left | *float64 | Left
+Right | *float64 | Right
+Top | *float64 | Top
+Horizontally | *bool | Center on page: Horizontally
+Vertically | *bool | Center on page: Vertically
 
 ## Get worksheet page margins {#GetPageMargins}
 
@@ -798,135 +474,29 @@ if err := f.SetPageMargins(sheet,
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-GetPageMargins provides a function to get worksheet page margins. Available options:
+GetPageMargins provides a function to get worksheet page margins.
 
-Options|Type
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- For example, get page margins of `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    marginBottom excelize.PageMarginBottom
-    marginFooter excelize.PageMarginFooter
-    marginHeader excelize.PageMarginHeader
-    marginLeft   excelize.PageMarginLeft
-    marginRight  excelize.PageMarginRight
-    marginTop    excelize.PageMarginTop
-)
-
-if err := f.GetPageMargins(sheet,
-    &marginBottom,
-    &marginFooter,
-    &marginHeader,
-    &marginLeft,
-    &marginRight,
-    &marginTop,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- marginBottom:", marginBottom)
-fmt.Println("- marginFooter:", marginFooter)
-fmt.Println("- marginHeader:", marginHeader)
-fmt.Println("- marginLeft:", marginLeft)
-fmt.Println("- marginRight:", marginRight)
-fmt.Println("- marginTop:", marginTop)
-```
-
-Output:
-
-```text
-Defaults:
-- marginBottom: 0.75
-- marginFooter: 0.3
-- marginHeader: 0.3
-- marginLeft: 0.7
-- marginRight: 0.7
-- marginTop: 0.75
-```
-
-## Set workbook properties {#SetWorkbookPrOptions}
+## Set workbook properties {#SetWorkbookProps}
 
 ```go
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-SetWorkbookPrOptions provides a function to sets workbook properties. Available options:
+SetWorkbookProps provides a function to sets workbook properties. Available options:
 
-Options|Type
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
+Options|Type|Description
+---|---|---
+Date1904 | *bool | Indicates whether to use a 1900 or 1904 date system when converting serial date-times in the workbook to dates.
+FilterPrivacy | *bool | Specifies a boolean value that indicates whether the application has inspected the workbook for personally identifying information (PII). If this flag is set, the application warns the user any time the user performs an action that will insert PII into the document.
+CodeName | *string | Specifies the codename of the application that created this workbook. Use this attribute to track file content in incremental releases of the application.
 
-For example, set properties for workbook:
-
-```go
-f := excelize.NewFile()
-if err := f.SetWorkbookPrOptions(
-    excelize.Date1904(false),
-    excelize.FilterPrivacy(false),
-    excelize.CodeName("code"),
-); err != nil {
-    fmt.Println(err)
-}
-```
-
-## Get workbook properties {#GetWorkbookPrOptions}
+## Get workbook properties {#GetWorkbookProps}
 
 ```go
 func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
-GetWorkbookPrOptions provides a function to gets workbook properties. Available options:
-
-Options|Type
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
-
-For example, get properties of workbook:
-
-```go
-f := excelize.NewFile()
-var (
-    date1904      excelize.Date1904
-    filterPrivacy excelize.FilterPrivacy
-    codeName      excelize.CodeName
-)
-if err := f.GetWorkbookPrOptions(&date1904); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&codeName); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- date1904: %t\n", date1904)
-fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
-fmt.Printf("- codeName: %q\n", codeName)
-```
-
-Output:
-
-```text
-Defaults:
-- filterPrivacy: true
-- codeName: ""
-```
+GetWorkbookProps provides a function to gets workbook properties.
 
 ## Set header and footer {#SetHeaderFooter}
 
@@ -1095,9 +665,7 @@ This example shows:
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-SetDefinedName provides a function to set the defined names of the workbook or worksheet. If not specified scope, the default scope is the workbook.
-
-For example:
+SetDefinedName provides a function to set the defined names of the workbook or worksheet. If not specified scope, the default scope is the workbook. For example:
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{

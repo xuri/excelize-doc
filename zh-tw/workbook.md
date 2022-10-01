@@ -235,7 +235,7 @@ func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 
 例如，設定名為 `Sheet1` 的工作表中列默認為隱藏：
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="設定工作表格式屬性"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="設定工作表屬性"></p>
 
 ```go
 f, enable := excelize.NewFile(), true
@@ -407,7 +407,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `FirstPageNumber` 屬性用以設定頁面起始頁碼，默認為自動。
 
-`AdjustTo` 屬性用以設定頁面縮放比例，取值範圍 10 至 400，即縮放 10% 至 400%，默認值為 `100` 正常尺寸。
+`AdjustTo` 屬性用以設定頁面縮放比例，取值範圍 10 至 400，即縮放 10% 至 400%，默認值為 `100` 正常尺寸。`FitToHeight` 或 `FitToWidth` 的設定會覆蓋此屬性。
 
 `FitToHeight` 屬性用以設定頁面縮放調整頁寬，默認值為 `1`。
 
@@ -449,13 +449,13 @@ func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 
 根據給定的工作表名稱和頁面佈局參數獲取工作表的頁面佈局屬性。
 
-## 設定工作表頁邊距 {#SetPageMargins}
+## 設定工作表頁邊界 {#SetPageMargins}
 
 ```go
 func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
-根據給定的工作表名稱和頁邊距參數設定工作表的頁邊距。支持設定的頁邊距選項：
+根據給定的工作表名稱和頁邊界參數設定工作表的頁邊界。支持設定的頁邊界選項：
 
 選項 | 類別 | 描述
 ---|---|---
@@ -468,13 +468,13 @@ Top | *float64 | 頂端
 Horizontally | *bool | 頁面置中方式：水平置中
 Vertically | *bool | 頁面置中方式：垂直置中
 
-## 獲取工作表頁邊距 {#GetPageMargins}
+## 獲取工作表頁邊界 {#GetPageMargins}
 
 ```go
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-根據給定的工作表名稱和頁邊距參數獲取工作表的頁邊距。
+根據給定的工作表名稱和頁邊界參數獲取工作表的頁邊界。
 
 ## 設定活頁簿屬性 {#SetWorkbookProps}
 
@@ -510,7 +510,7 @@ func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) erro
 
 欄位           | 描述
 ---|---
-AlignWithMargins | 設定頁眉頁腳頁邊距與頁邊距對齊
+AlignWithMargins | 設定頁眉頁腳邊界與頁邊界對齊
 DifferentFirst   | 設定第一頁頁眉和頁腳
 DifferentOddEven | 設定奇數和偶數頁頁眉和頁腳
 ScaleWithDoc     | 設定頁眉和頁腳跟隨檔案縮放

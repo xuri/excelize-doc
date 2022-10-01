@@ -1,6 +1,6 @@
 # Streaming write
 
-StreamWriter defined the type of stream writer.
+`StreamWriter` defined the type of stream writer.
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-Cell can be used directly in StreamWriter.SetRow to specify a style and a value.
+`Cell` can be used directly in `StreamWriter.SetRow` to specify a style and a value.
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts define the options for the set row, it can be used directly in StreamWriter.SetRow to specify the style and properties of the row.
+`RowOpts` define the options for the set row, it can be used directly in `StreamWriter.SetRow` to specify the style and properties of the row.
 
 ```go
 type RowOpts struct {

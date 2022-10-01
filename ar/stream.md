@@ -1,6 +1,6 @@
 # تدفق الكتابة
 
-حدد StreamWriter نوع كاتب الدفق.
+حدد `StreamWriter` نوع كاتب الدفق.
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-يمكن استخدام الخلية مباشرة في StreamWriter.SetRow لتحديد نمط وقيمة.
+يمكن استخدام `Cell` مباشرةً في `StreamWriter.SetRow` لتحديد نمط وقيمة.
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-تحدد RowOpts خيارات الصف المحدد ، ويمكن استخدامها مباشرة في StreamWriter.SetRow لتحديد نمط الصف وخصائصه.
+تحدد `RowOpts` خيارات الصف المحدد ، ويمكن استخدامها مباشرة في `StreamWriter.SetRow` لتحديد نمط الصف وخصائصه.
 
 ```go
 type RowOpts struct {

@@ -235,7 +235,7 @@ func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 
 例如，设置名为 `Sheet1` 的工作表中行默认为隐藏：
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="设置工作表格式属性"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="设置工作表属性"></p>
 
 ```go
 f, enable := excelize.NewFile(), true
@@ -407,7 +407,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `FirstPageNumber` 属性用以指定页面起始页码，默认为自动。
 
-`AdjustTo` 属性用以指定页面缩放比例，取值范围 10 至 400，即缩放 10% 至 400%，默认值为 `100` 正常尺寸。
+`AdjustTo` 属性用以指定页面缩放比例，取值范围 10 至 400，即缩放 10% 至 400%，默认值为 `100` 正常尺寸。`FitToHeight` 或 `FitToWidth` 的设置会覆盖此属性。
 
 `FitToHeight` 属性用以指定页面缩放调整页宽，默认值为 `1`。
 
@@ -510,7 +510,7 @@ func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) erro
 
 字段 | 描述
 ---|---
-AlignWithMargins | 设定页眉页脚页边距与页边距对齐
+AlignWithMargins | 设定页眉页脚边距与页边距对齐
 DifferentFirst   | 设定第一页页眉和页脚
 DifferentOddEven | 设定奇数和偶数页页眉和页脚
 ScaleWithDoc     | 设定页眉和页脚跟随文档缩放

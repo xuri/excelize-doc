@@ -2,7 +2,7 @@
 
 A pivot table is a table of statistics that summarizes the data of a more extensive table (such as from a database, spreadsheet, or business intelligence program). This summary might include sums, averages, or other statistics, which the pivot table groups together in a meaningful way.
 
-PivotTableOptions directly maps the format settings of the pivot table.
+`PivotTableOptions` directly maps the format settings of the pivot table.
 
 ```go
 type PivotTableOptions struct {
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField directly maps the field settings of the pivot table.
+`PivotTableField` directly maps the field settings of the pivot table.
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-Subtotal specifies the aggregation function that applies to this data field. The default value is `Sum`. The possible values for this attribute are:
+`Subtotal` specifies the aggregation function that applies to this data field. The default value is `Sum`. The possible values for this attribute are:
 
 |Optional Value|
 |---|
@@ -68,7 +68,7 @@ Subtotal specifies the aggregation function that applies to this data field. The
 |Var|
 |Varp|
 
-Name specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
+`Name` specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
 
 ## Create Pivot Table {#AddPivotTable}
 

@@ -2,7 +2,7 @@
 
 الجدول المحوري هو جدول إحصائيات يلخص بيانات جدول أكثر شمولاً (مثل من قاعدة بيانات أو جدول بيانات أو برنامج ذكاء الأعمال). قد يتضمن هذا الملخص مجاميع أو متوسطات أو إحصائيات أخرى ، والتي يقوم الجدول المحوري بتجميعها معًا بطريقة مفيدة.
 
-يقوم PivotTableOptions بتعيين إعدادات التنسيق للجدول المحوري مباشرةً.
+يقوم `PivotTableOptions` بتعيين إعدادات التنسيق للجدول المحوري مباشرةً.
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // يحتوي على حقول مصفاة أو غير مُصدرة
 }
 ```
 
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-يقوم PivotTableField بتعيين الإعدادات الميدانية للجدول المحوري مباشرةً.
+يقوم `PivotTableField` بتعيين الإعدادات الميدانية للجدول المحوري مباشرةً.
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-تحدد Subtotal وظيفة التجميع التي تنطبق على حقل البيانات هذا. القيمة الافتراضية هي `Sum`. القيم المحتملة لهذه السمة هي:
+تحدد `Subtotal` وظيفة التجميع التي تنطبق على حقل البيانات هذا. القيمة الافتراضية هي `Sum`. القيم المحتملة لهذه السمة هي:
 
 |قيمة اختيارية|
 |---|
@@ -68,7 +68,7 @@ type PivotTableField struct {
 |Var|
 |Varp|
 
-يحدد Name اسم حقل البيانات. الحد الأقصى المسموح به `255` حرفًا في اسم حقل البيانات ، وسيتم قطع الأحرف الزائدة.
+يحدد `Name` اسم حقل البيانات. الحد الأقصى المسموح به `255` حرفًا في اسم حقل البيانات ، وسيتم قطع الأحرف الزائدة.
 
 ## إنشاء جدول محوري {#AddPivotTable}
 

@@ -2,7 +2,7 @@
 
 数据透视表是一种交互式的表，是计算、汇总和分析数据的强大工具，可助你了解数据中的对比情况、模式和趋势。
 
-PivotTableOptions 定义了数据透视表的属性。
+`PivotTableOptions` 定义了数据透视表的属性。
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // 还包含其他已过滤或未导出的字段
 }
 ```
 
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField 定义了数据透视表的字段属性。
+`PivotTableField` 定义了数据透视表的字段属性。
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-Subtotal 指定适用于数值字段的聚合函数。默认值为 `Sum`。该属性的可选值如下：
+`Subtotal` 指定适用于数值字段的聚合函数。默认值为 `Sum`。该属性的可选值如下：
 
 |可选值|
 |---|
@@ -68,7 +68,7 @@ Subtotal 指定适用于数值字段的聚合函数。默认值为 `Sum`。该�
 |Var|
 |Varp|
 
-Name 用以指定数值字段的名称，最大长度为 `255` 个字符，超出部分的字符将不会被保留。
+`Name` 用以指定数值字段的名称，最大长度为 `255` 个字符，超出部分的字符将不会被保留。
 
 ## 创建数据透视表 {#AddPivotTable}
 

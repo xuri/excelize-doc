@@ -1,6 +1,6 @@
 # 流式寫入
 
-StreamWriter 用於定義流式寫入器的資料類別。
+`StreamWriter` 用於定義流式寫入器的資料類別。
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-Cell 在 StreamWriter.SetRow 中使用，用於指定存儲格的值、公式和樣式。
+`Cell` 在 `StreamWriter.SetRow` 中使用，用於指定存儲格的值、公式和樣式。
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts 在 StreamWriter.SetRow 中使用，用於設定列樣式。
+`RowOpts` 在 `StreamWriter.SetRow` 中使用，用於設定列樣式。
 
 ```go
 type RowOpts struct {

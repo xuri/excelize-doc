@@ -1,6 +1,6 @@
 # الخليه
 
-يقوم RichTextRun بتعيين إعدادات تشغيل النص المنسق مباشرةً.
+يقوم `RichTextRun` بتعيين إعدادات تشغيل النص المنسق مباشرةً.
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-يمكن تمرير HyperlinkOpts إلى [`SetCellHyperlink`](cell.md#SetCellHyperlink) لتعيين سمات الارتباط التشعبي الاختيارية (مثل النص المراد عرضه ونص تلميح الشاشة).
+يمكن تمرير `HyperlinkOpts` إلى [`SetCellHyperlink`](cell.md#SetCellHyperlink) لتعيين سمات الارتباط التشعبي الاختيارية (مثل النص المراد عرضه ونص تلميح الشاشة).
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-يمكن تمرير FormulaOpts إلى [`SetCellFormula`](cell.md#SetCellFormula) لاستخدام أنواع الصيغ الأخرى.
+يمكن تمرير `FormulaOpts` إلى [`SetCellFormula`](cell.md#SetCellFormula) لاستخدام أنواع الصيغ الأخرى.
 
 ```go
 type FormulaOpts struct {
