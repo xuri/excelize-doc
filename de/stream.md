@@ -1,6 +1,6 @@
 # Streaming-Schreiben
 
-StreamWriter hat den Typ des Stream-Writers definiert.
+`StreamWriter` hat den Typ des Stream-Writers definiert.
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-Cell kann direkt in StreamWriter.SetRow verwendet werden, um einen Stil und einen Wert anzugeben.
+`Cell` kann direkt in `StreamWriter.SetRow` verwendet werden, um einen Stil und einen Wert anzugeben.
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts definieren die Optionen für die eingestellte Zeile, sie kann direkt in StreamWriter.SetRow verwendet werden, um den Stil und die Eigenschaften der Zeile anzugeben.
+`RowOpts` definieren die Optionen für die eingestellte Zeile, sie kann direkt in `StreamWriter.SetRow` verwendet werden, um den Stil und die Eigenschaften der Zeile anzugeben.
 
 ```go
 type RowOpts struct {
@@ -37,7 +37,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter gibt die Stream-Writer-Struktur anhand des angegebenen Arbeitsblattnamens zurück, um ein neues Arbeitsblatt mit großen Datenmengen zu generieren. Beachten Sie, dass Sie nach dem Festlegen von Zeilen die [`Flush`](stream.md#Flush) Methode aufrufen müssen, um den Streaming-Schreibvorgang zu beenden und sicherzustellen, dass die Reihenfolge der Zeilennummern aufsteigend ist. Die allgemeine API und die Stream-API können nicht gemischt werden, um Daten in die Arbeitsblätter zu schreiben. Legen Sie beispielsweise Daten für das Arbeitsblatt der Größe `102400` Zeilen x `50` Spalten mit Zahlen und Stil fest:
+NewStreamWriter gibt die Stream-Writer-Struktur anhand des angegebenen Arbeitsblattnamens zurück, um ein neues Arbeitsblatt mit großen Datenmengen zu generieren. Beachten Sie, dass Sie nach dem Festlegen von Zeilen die [`Flush`](stream.md#Flush) Methode aufrufen müssen, um den Streaming-Schreibvorgang zu beenden und sicherzustellen, dass die Reihenfolge der Zeilennummern aufsteigend ist. Verwenden Sie nicht die normalen Modusfunktionen und Streammodusfunktionen, die mit dem Schreiben von Daten auf die Arbeitsblätter gemischt sind. Legen Sie beispielsweise Daten für das Arbeitsblatt der Größe `102400` Zeilen x `50` Spalten mit Zahlen und Stil fest:
 
 ```go
 file := excelize.NewFile()

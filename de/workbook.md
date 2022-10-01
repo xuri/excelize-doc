@@ -1,6 +1,6 @@
 # Arbeitsmappe
 
-`Options` definiert die Optionen zum Öffnen und Lesen von Tabellenkalkulationen.
+`Options` definiert die Optionen zum Lesen und Schreiben von Tabellenkalkulationen.
 
 ```go
 type Options struct {
@@ -225,34 +225,23 @@ GetSheetVisible bietet eine Funktion, mit der das Arbeitsblatt unter dem angegeb
 f.GetSheetVisible("Sheet1")
 ```
 
-## Festlegen von Eigenschaften des Arbeitsblattformats {#SetSheetFormatPr}
+## Festlegen von Blatteigenschaften {#SetSheetProps}
 
 ```go
-func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetFormatPr bietet eine Funktion zum Festlegen von Formatierungseigenschaften von Arbeitsblättern.
-
-Verfügbare Optionen:
-
-Optionaler Formatparameter |Typ
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
+SetSheetProps bietet eine Funktion zum Festlegen von Arbeitsblatteigenschaften.
 
 Legen Sie beispielsweise fest, dass Arbeitsblattzeilen standardmäßig ausgeblendet sind:
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Festlegen der Eigenschaften des Arbeitsblattformats"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Festlegen von Blatteigenschaften"></p>
 
 ```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+f, enable := excelize.NewFile(), true
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    ZeroHeight: &enable,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
@@ -261,296 +250,29 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-## Abrufen von Eigenschaften des Arbeitsblattformats {#GetSheetFormatPr}
+## Abrufen von Blatteigenschaften {#GetSheetProps}
 
 ```go
-func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-GetSheetFormatPr bietet eine Funktion zum Abrufen der Eigenschaften der Arbeitsblattformatierung.
+GetSheetProps bietet eine Funktion zum Abrufen von Arbeitsblatteigenschaften.
 
-Verfügbare Optionen:
-
-Optionaler Formatparameter |Typ
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
-
-Zum Beispiel:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    baseColWidth     excelize.BaseColWidth
-    defaultColWidth  excelize.DefaultColWidth
-    defaultRowHeight excelize.DefaultRowHeight
-    customHeight     excelize.CustomHeight
-    zeroHeight       excelize.ZeroHeight
-    thickTop         excelize.ThickTop
-    thickBottom      excelize.ThickBottom
-)
-
-if err := f.GetSheetFormatPr(sheet,
-    &baseColWidth,
-    &defaultColWidth,
-    &defaultRowHeight,
-    &customHeight,
-    &zeroHeight,
-    &thickTop,
-    &thickBottom,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- baseColWidth:", baseColWidth)
-fmt.Println("- defaultColWidth:", defaultColWidth)
-fmt.Println("- defaultRowHeight:", defaultRowHeight)
-fmt.Println("- customHeight:", customHeight)
-fmt.Println("- zeroHeight:", zeroHeight)
-fmt.Println("- thickTop:", thickTop)
-fmt.Println("- thickBottom:", thickBottom)
-```
-
-Ausgabe abrufen:
-
-```text
-Defaults:
-- baseColWidth: 0
-- defaultColWidth: 0
-- defaultRowHeight: 15
-- customHeight: false
-- zeroHeight: false
-- thickTop: false
-- thickBottom: false
-```
-
-## Festlegen von Arbeitsblattansichtseigenschaften {#SetSheetViewOptions}
+## Festlegen von Arbeitsblattansichtseigenschaften {#SetSheetView}
 
 ```go
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetViewOptions legt Optionen für die Blattansicht fest. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (`-1` ist die letzte Ansicht).
+SetSheetView legt die Blattansichtseigenschaften fest. Der `viewIndex` darf negativ sein und wird dann rückwärts gezählt (`-1` ist der letzte View).
 
-Verfügbare Optionen:
-
-Optional view parameter |Typ
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- Beispiel 1:
-
-```go
-err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
-```
-
-- Beispiel 2:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetSheetViewOptions(sheet, 0,
-    excelize.DefaultGridColor(false),
-    excelize.ShowFormulas(true),
-    excelize.ShowGridLines(true),
-    excelize.ShowRowColHeaders(true),
-    excelize.RightToLeft(false),
-    excelize.ShowRuler(false),
-    excelize.View("pageLayout"),
-    excelize.TopLeftCell("C3"),
-    excelize.ZoomScale(80),
-); err != nil {
-    fmt.Println(err)
-}
-
-var zoomScale ZoomScale
-fmt.Println("Default:")
-fmt.Println("- zoomScale: 80")
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used out of range value:")
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used correct value:")
-fmt.Println("- zoomScale:", zoomScale)
-```
-
-Ausgabe abrufen:
-
-```text
-Default:
-- zoomScale: 80
-Used out of range value:
-- zoomScale: 80
-Used correct value:
-- zoomScale: 123
-```
-
-## Abrufen von Arbeitsblattansichtseigenschaften {#GetSheetViewOptions}
+## Abrufen von Arbeitsblattansichtseigenschaften {#GetSheetView}
 
 ```go
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-GetSheetViewOptions ruft den Wert der Optionen für die Blattansicht ab. Der `viewIndex` kann negativ sein und wird in diesem Fall rückwärts gezählt (`-1` ist die letzte Ansicht). Verfügbare Optionen:
-
-Optional view parameter |Typ
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- Beispiel 1, um die Eigenschaften der Gitterlinieneigenschaft für die letzte Ansicht im Arbeitsblatt mit dem Namen `Sheet1` abzurufen:
-
-```go
-var showGridLines excelize.ShowGridLines
-err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
-```
-
-- Beispiel 2:
-
-```go
-f := NewFile()
-const sheet = "Sheet1"
-
-var (
-    defaultGridColor  excelize.DefaultGridColor
-    showFormulas      excelize.ShowFormulas
-    showGridLines     excelize.ShowGridLines
-    showRowColHeaders excelize.ShowRowColHeaders
-    showZeros         excelize.ShowZeros
-    rightToLeft       excelize.RightToLeft
-    showRuler         excelize.ShowRuler
-    view              excelize.View
-    topLeftCell       excelize.TopLeftCell
-    zoomScale         excelize.ZoomScale
-)
-
-if err := f.GetSheetViewOptions(sheet, 0,
-    &defaultGridColor,
-    &showFormulas,
-    &showGridLines,
-    &showRowColHeaders,
-    &showZeros,
-    &rightToLeft,
-    &showRuler,
-    &view,
-    &topLeftCell,
-    &zoomScale,
-); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Default:")
-fmt.Println("- defaultGridColor:", defaultGridColor)
-fmt.Println("- showFormulas:", showFormulas)
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showRowColHeaders:", showRowColHeaders)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- rightToLeft:", rightToLeft)
-fmt.Println("- showRuler:", showRuler)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.View("pageLayout")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &view); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("After change:")
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", topLeftCell)
-```
-
-Ausgabe abrufen:
-
-```text
-Default:
-- defaultGridColor: true
-- showFormulas: false
-- showGridLines: true
-- showRowColHeaders: true
-- showZeros: true
-- rightToLeft: false
-- showRuler: true
-- view: normal
-- topLeftCell: ""
-- zoomScale: 0
-After change:
-- showGridLines: false
-- showZeros: false
-- view: pageLayout
-- topLeftCell: B2
-```
+GetSheetView ruft den Wert der Blattansichtseigenschaften ab. Der `viewIndex` darf negativ sein und wird dann rückwärts gezählt (`-1` ist der letzte View).
 
 ## Festlegen des Layouts der Arbeitsblattseite {#SetPageLayout}
 
@@ -560,18 +282,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 SetPageLayout bietet eine Funktion zum Festlegen des Seitenlayouts von Arbeitsblättern. Verfügbare Optionen:
 
-- `BlackAndWhite` spezifizierter Druck Schwarzweiß.
-
-- `FirstPageNumber` hat die erste gedruckte Seitenzahl angegeben. Wenn kein Wert angegeben ist, wird "automatisch" angenommen.
-
-- `PageLayoutOrientation` bietet eine Methode zum Festlegen der Arbeitsblattausrichtung. Die Standardausrichtung ist "porträt". Im Folgenden werden die von der Excelize-Indexnummer unterstützten Orientierungsparameter angezeigt:
-
-Parameter|Orientierung
----|---
-OrientationPortrait|porträt
-OrientationLandscape|landschaft
-
-- `PageLayoutPaperSize` bietet eine Methode zum Festlegen der Arbeitsblattpapiergröße. Die Standardpapiergröße des Arbeitsblatts lautet "Briefpapier (8,5 Zoll x 11 Zoll)". Im Folgenden wird das nach Excelize-Indexnummer sortierte Papierformat angezeigt:
+`Size` gibt die Papiergröße des Arbeitsblatts an, die Standardpapiergröße des Arbeitsblatts ist "Briefpapier (8,5 Zoll x 11 Zoll)". Das Folgende zeigt die Papiergröße, sortiert nach der Excelize-Indexnummer:
 
 Index|Papiergröße
 ---|---
@@ -692,26 +403,40 @@ Index|Papiergröße
 117 | PRC-Umschlag Nr. 9 gedreht (324 mm × 229 mm)
 118 | PRC-Umschlag Nr. 10 gedreht (458 mm × 324 mm)
 
-- `FitToHeight` hat die Anzahl der vertikalen Seiten angegeben, auf die gepasst werden soll.
+`Orientation` gibt die Arbeitsblattausrichtung an, die Standardausrichtung ist `portrait`. Die möglichen Werte für dieses Feld sind `portrait` und `landscape`.
 
-- `FitToWidth` hat die Anzahl der horizontalen Seiten angegeben, auf die gepasst werden soll.
+`FirstPageNumber` gibt die erste gedruckte Seitenzahl an. Wenn kein Wert angegeben ist, wird "automatisch" angenommen.
 
-- `PageLayoutScale` definiert die Druckskalierung. Dieses Attribut ist auf Werte zwischen 10 (10%) und 400 (400%) beschränkt. Diese Einstellung wird überschrieben, wenn "FitToWidth" und / oder "FitToHeight" verwendet werden.
+`AdjustTo` spezifiziert die Druckskalierung. Dieses Attribut ist auf Werte zwischen 10 (10 %) und 400 (400 %) beschränkt. Diese Einstellung wird außer Kraft gesetzt, wenn `FitToWidth` und/oder `FitToHeight` verwendet werden.
 
-- Legen Sie beispielsweise das Seitenlayout für `Sheet1` mit Schwarzweißdruck, erste gedruckte Seitenzahl von `2`, kleines A4-Querformatpapier (210 mm x 297 mm), 2 vertikale Seiten zum Anpassen und 2 horizontale Seiten zum Anpassen fest Ein und 50% Druckskalierung:
+`FitToHeight` gibt die Anzahl der vertikalen Seiten an, auf die angepasst werden soll.
+
+`FitToWidth` gibt die Anzahl der horizontalen Seiten an, die angepasst werden sollen.
+
+`BlackAndWhite` spezifiziert Schwarz-Weiß-Druck.
+
+Legen Sie beispielsweise das Seitenlayout für `Sheet1` mit Schwarzweißdruck, erste gedruckte Seitenzahl von `2`, kleines A4-Querformatpapier (210 mm x 297 mm), 2 vertikale Seiten zum Anpassen und 2 horizontale Seiten zum Anpassen:
 
 ```go
 f := excelize.NewFile()
-if err := f.SetPageLayout(
-    "Sheet1",
-    excelize.BlackAndWhite(true),
-    excelize.FirstPageNumber(2),
-    excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-    excelize.PageLayoutPaperSize(10),
-    excelize.FitToHeight(2),
-    excelize.FitToWidth(2),
-    excelize.PageLayoutScale(50),
-); err != nil {
+var (
+    size                 = 10
+    orientation          = "landscape"
+    firstPageNumber uint = 2
+    adjustTo        uint = 100
+    fitToHeight          = 2
+    fitToWidth           = 2
+    blackAndWhite        = true
+)
+if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+    Size:            &size,
+    Orientation:     &orientation,
+    FirstPageNumber: &firstPageNumber,
+    AdjustTo:        &adjustTo,
+    FitToHeight:     &fitToHeight,
+    FitToWidth:      &fitToWidth,
+    BlackAndWhite:   &blackAndWhite,
+}); err != nil {
     fmt.Println(err)
 }
 ```
@@ -722,38 +447,7 @@ if err := f.SetPageLayout(
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-GetPageLayout bietet eine Funktion zum Abrufen des Seitenlayouts des Arbeitsblatts. Verfügbare Optionen:
-
-- `PageLayoutOrientation` bietet eine Methode zum Abrufen der Arbeitsblattorientierung
-- `PageLayoutPaperSize` bietet eine Methode zum Abrufen der Arbeitsblattpapiergröße
-
-- Zum Beispiel, seitenlayout von `Sheet1` abrufen:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-var (
-    orientation excelize.PageLayoutOrientation
-    paperSize   excelize.PageLayoutPaperSize
-)
-if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- orientation: %q\n", orientation)
-fmt.Printf("- paper size: %d\n", paperSize)
-```
-
-Ausgabe:
-
-```text
-Defaults:
-- orientation: "portrait"
-- paper size: 1
-```
+GetPageLayout bietet eine Funktion zum Abrufen des Seitenlayouts des Arbeitsblatts.
 
 ## Festlegen von Arbeitsblattseitenrändern {#SetPageMargins}
 
@@ -763,32 +457,16 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 SetPageMargins bietet eine Funktion zum Festlegen der Seitenränder von Arbeitsblättern. Verfügbare Optionen:
 
-Options|Typ
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- Zum Beispiel, seitenränder von `Sheet1` einstellen:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetPageMargins(sheet,
-    excelize.PageMarginBottom(1.0),
-    excelize.PageMarginFooter(1.0),
-    excelize.PageMarginHeader(1.0),
-    excelize.PageMarginLeft(1.0),
-    excelize.PageMarginRight(1.0),
-    excelize.PageMarginTop(1.0),
-); err != nil {
-    fmt.Println(err)
-}
-```
+Options|Typ|Beschreibung
+---|---|---
+Bottom | *float64 | Unten
+Footer | *float64 | Fußzeile
+Header | *float64 | Kopfball
+Left | *float64 | Links
+Right | *float64 | Rechts
+Top | *float64 | Oben
+Horizontally | *bool | Auf Seite zentrieren: Horizontal
+Vertically | *bool | Auf Seite zentrieren: Vertikal
 
 ## Abrufen von Arbeitsblattseitenrändern {#GetPageMargins}
 
@@ -796,135 +474,29 @@ if err := f.SetPageMargins(sheet,
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-GetPageMargins bietet eine Funktion zum Abrufen von Arbeitsblattseitenrändern. Verfügbare Optionen:
+GetPageMargins bietet eine Funktion zum Abrufen von Arbeitsblattseitenrändern.
 
-Options|Typ
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- Zum Beispiel, seitenränder von `Sheet1` abrufen:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    marginBottom excelize.PageMarginBottom
-    marginFooter excelize.PageMarginFooter
-    marginHeader excelize.PageMarginHeader
-    marginLeft   excelize.PageMarginLeft
-    marginRight  excelize.PageMarginRight
-    marginTop    excelize.PageMarginTop
-)
-
-if err := f.GetPageMargins(sheet,
-    &marginBottom,
-    &marginFooter,
-    &marginHeader,
-    &marginLeft,
-    &marginRight,
-    &marginTop,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- marginBottom:", marginBottom)
-fmt.Println("- marginFooter:", marginFooter)
-fmt.Println("- marginHeader:", marginHeader)
-fmt.Println("- marginLeft:", marginLeft)
-fmt.Println("- marginRight:", marginRight)
-fmt.Println("- marginTop:", marginTop)
-```
-
-Ausgabe:
-
-```text
-Defaults:
-- marginBottom: 0.75
-- marginFooter: 0.3
-- marginHeader: 0.3
-- marginLeft: 0.7
-- marginRight: 0.7
-- marginTop: 0.75
-```
-
-## Arbeitsmappeneigenschaften festlegen {#SetWorkbookPrOptions}
+## Arbeitsmappeneigenschaften festlegen {#SetWorkbookProps}
 
 ```go
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-SetWorkbookPrOptions bietet eine Funktion zum Festlegen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
+SetWorkbookProps bietet eine Funktion zum Festlegen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
 
-Options|Typ
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
+Options|Typ|Beschreibung
+---|---|---
+Date1904 | *bool | Gibt an, ob beim Konvertieren serieller Datums-/Uhrzeitangaben in der Arbeitsmappe in Datumsangaben ein Datumssystem von 1900 oder 1904 verwendet werden soll.
+FilterPrivacy | *bool | Gibt einen booleschen Wert an, der angibt, ob die Anwendung die Arbeitsmappe auf personenbezogene Daten (Personally Identifying Information, PII) überprüft hat. Wenn dieses Flag gesetzt ist, warnt die Anwendung den Benutzer jedes Mal, wenn der Benutzer eine Aktion ausführt, die PII in das Dokument einfügt.
+CodeName | *string | Gibt den Codenamen der Anwendung an, die diese Arbeitsmappe erstellt hat. Verwenden Sie dieses Attribut, um Dateiinhalte in inkrementellen Versionen der Anwendung nachzuverfolgen.
 
-- Legen Sie beispielsweise Eigenschaften für die Arbeitsmappe fest:
-
-```go
-f := excelize.NewFile()
-if err := f.SetWorkbookPrOptions(
-    excelize.Date1904(false),
-    excelize.FilterPrivacy(false),
-    excelize.CodeName("code"),
-); err != nil {
-    fmt.Println(err)
-}
-```
-
-## Arbeitsmappeneigenschaften abrufen {#GetWorkbookPrOptions}
+## Arbeitsmappeneigenschaften abrufen {#GetWorkbookProps}
 
 ```go
 func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
-GetWorkbookPrOptions bietet eine Funktion zum Abrufen von Arbeitsmappeneigenschaften. Verfügbare Optionen:
-
-Options|Typ
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
-
-- Rufen Sie beispielsweise die Eigenschaften der Arbeitsmappe ab:
-
-```go
-f := excelize.NewFile()
-var (
-    date1904      excelize.Date1904
-    filterPrivacy excelize.FilterPrivacy
-    codeName      excelize.CodeName
-)
-if err := f.GetWorkbookPrOptions(&date1904); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&codeName); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- date1904: %t\n", date1904)
-fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
-fmt.Printf("- codeName: %q\n", codeName)
-```
-
-Ausgabe:
-
-```text
-Defaults:
-- filterPrivacy: true
-- codeName: ""
-```
+GetWorkbookProps bietet eine Funktion zum Abrufen von Arbeitsmappeneigenschaften.
 
 ## Kopf- und Fußzeile einstellen {#SetHeaderFooter}
 
@@ -1093,9 +665,7 @@ Dieses Beispiel zeigt:
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-SetDefinedName bietet eine Funktion zum Festlegen der definierten Namen der Arbeitsmappe oder des Arbeitsblatts. Wenn kein Bereich angegeben ist, ist der Standardbereich die Arbeitsmappe.
-
-Zum Beispiel:
+SetDefinedName bietet eine Funktion zum Festlegen der definierten Namen der Arbeitsmappe oder des Arbeitsblatts. Wenn kein Bereich angegeben ist, ist der Standardbereich die Arbeitsmappe. Zum Beispiel:
 
 ```go
 f.SetDefinedName(&excelize.DefinedName{

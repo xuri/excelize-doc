@@ -2,7 +2,7 @@
 
 Eine Pivot-Tabelle ist eine Statistiktabelle, in der die Daten einer umfangreicheren Tabelle (z. B. aus einer Datenbank, einer Tabelle oder einem Business Intelligence-Programm) zusammengefasst sind. Diese Zusammenfassung kann Summen, Durchschnittswerte oder andere Statistiken enthalten, die in der Pivot-Tabelle auf sinnvolle Weise zusammengefasst werden.
 
-PivotTableOptions ordnet die Formateinstellungen der Pivot-Tabelle direkt zu.
+`PivotTableOptions` ordnet die Formateinstellungen der Pivot-Tabelle direkt zu.
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // enthält gefilterte oder nicht exportierte Felder
 }
 ```
 
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField ordnet die Feldeinstellungen der Pivot-Tabelle direkt zu.
+`PivotTableField` ordnet die Feldeinstellungen der Pivot-Tabelle direkt zu.
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-Zwischensumme gibt die Aggregationsfunktion an, die für dieses Datenfeld gilt. Der Standardwert ist `Sum`. Die möglichen Werte für dieses Attribut sind:
+`Subtotal` gibt die Aggregationsfunktion an, die für dieses Datenfeld gilt. Der Standardwert ist `Sum`. Die möglichen Werte für dieses Attribut sind:
 
 |Optionaler Wert|
 |---|
@@ -68,7 +68,7 @@ Zwischensumme gibt die Aggregationsfunktion an, die für dieses Datenfeld gilt. 
 |Var|
 |Varp|
 
-Name gibt den Namen des Datenfelds an. Im Namen des Datenfelds sind maximal `255` Zeichen zulässig, überschüssige Zeichen werden abgeschnitten.
+`Name` gibt den Namen des Datenfelds an. Im Namen des Datenfelds sind maximal `255` Zeichen zulässig, überschüssige Zeichen werden abgeschnitten.
 
 ## Erstellen einer Pivot-Tabelle {#AddPivotTable}
 

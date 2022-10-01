@@ -408,7 +408,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-حدد `Orientation` المحدد في اتجاه ورقة العمل ، والاتجاه الافتراضي هو "portrait". القيم المحتملة لهذا الحقل هي "portrait" و "landscape".
+حدد `Orientation` المحدد في اتجاه ورقة العمل ، والاتجاه الافتراضي هو `portrait`. القيم المحتملة لهذا الحقل هي `portrait` و `landscape`.
 
 حدد `FirstPageNumber` رقم أول صفحة مطبوعة. إذا لم يتم تحديد قيمة ، فسيتم افتراض "تلقائي".
 

@@ -1,6 +1,6 @@
 # Zelle
 
-RichTextRun ordnet die Einstellungen des Rich-Text-Laufs direkt zu.
+`RichTextRun` ordnet die Einstellungen des Rich-Text-Laufs direkt zu.
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-HyperlinkOpts können an [`SetCellHyperlink`](cell.md#SetCellHyperlink) übergeben werden, um optionale Hyperlink-Attribute festzulegen (z. B. anzugebender Text und Text mit Bildschirmtipps).
+`HyperlinkOpts` können an [`SetCellHyperlink`](cell.md#SetCellHyperlink) übergeben werden, um optionale Hyperlink-Attribute festzulegen (z. B. anzugebender Text und Text mit Bildschirmtipps).
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-FormulaOpts können an [`SetCellFormula`](cell.md#SetCellFormula) übergeben werden, um andere Formeltypen zu verwenden.
+`FormulaOpts` können an [`SetCellFormula`](cell.md#SetCellFormula) übergeben werden, um andere Formeltypen zu verwenden.
 
 ```go
 type FormulaOpts struct {

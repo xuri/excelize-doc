@@ -403,7 +403,7 @@ Index|Paper Size
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-`Orientation` specified worksheet orientation, the default orientation is "portrait". The possible values for this field is "portrait" and "landscape".
+`Orientation` specified worksheet orientation, the default orientation is `portrait`. The possible values for this field is `portrait` and `landscape`.
 
 `FirstPageNumber` specified the first printed page number. If no value is specified, then "automatic" is assumed.
 
