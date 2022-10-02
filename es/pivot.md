@@ -2,7 +2,7 @@
 
 Una tabla dinámica es una tabla de estadísticas que resume los datos de una tabla más extensa (como la de una base de datos, una hoja de cálculo o un programa de inteligencia empresarial). Este resumen puede incluir sumas, promedios u otras estadísticas, que la tabla dinámica agrupa de manera significativa.
 
-PivotTableOptions mapea directamente la configuración de formato de la tabla dinámica.
+`PivotTableOptions` mapea directamente la configuración de formato de la tabla dinámica.
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // contiene campos filtrados o no exportados
 }
 ```
 
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField mapea directamente la configuración de campo de la tabla dinámica.
+`PivotTableField` mapea directamente la configuración de campo de la tabla dinámica.
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-Subtotal especifica la función de agregación que se aplica a este campo de datos. El valor predeterminado es `Sum`. Los posibles valores de este atributo son:
+`Subtotal` especifica la función de agregación que se aplica a este campo de datos. El valor predeterminado es `Sum`. Los posibles valores de este atributo son:
 
 |Valor opcional|
 |---|
@@ -68,7 +68,7 @@ Subtotal especifica la función de agregación que se aplica a este campo de dat
 |Var|
 |Varp|
 
-Nombre especifica el nombre del campo de datos. Se permite un máximo de `255` caracteres en el nombre del campo de datos, los caracteres en exceso se truncarán.
+`Name` especifica el nombre del campo de datos. Se permite un máximo de `255` caracteres en el nombre del campo de datos, el exceso de caracteres se truncará.
 
 ## Crear una tabla dinámica {#AddPivotTable}
 

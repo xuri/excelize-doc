@@ -1,6 +1,6 @@
 # Escritura en streaming
 
-StreamWriter definió el tipo de escritor de flujo.
+`StreamWriter` definió el tipo de escritor de flujo.
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-Cell se puede utilizar directamente en StreamWriter.SetRow para especificar un estilo y un valor.
+`Cell` se puede utilizar directamente en `StreamWriter.SetRow` para especificar un estilo y un valor.
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts define las opciones para la fila establecida, se puede usar directamente en StreamWriter.SetRow para especificar el estilo y las propiedades de la fila.
+`RowOpts` define las opciones para la fila establecida, se puede usar directamente en `StreamWriter.SetRow` para especificar el estilo y las propiedades de la fila.
 
 ```go
 type RowOpts struct {
@@ -37,7 +37,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter devuelve la estructura del escritor de flujo por el nombre de la hoja de trabajo para generar una nueva hoja de trabajo con grandes cantidades de datos. Tenga en cuenta que después de establecer filas, debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión y asegurarse de que el orden de los números de línea sea ascendente, la API común y la API de flujo no se pueden combinar para escribir datos en las hojas de trabajo. Por ejemplo, configure los datos para la hoja de trabajo de tamaño `102400` filas x `50` columnas con números y estilo:
+NewStreamWriter devuelve la estructura del escritor de flujo por el nombre de la hoja de trabajo para generar una nueva hoja de trabajo con grandes cantidades de datos. Tenga en cuenta que después de establecer filas, debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión y asegurarse de que el orden de los números de línea sea ascendente, no utilice las funciones de modo normal y modo de secuencia mezcladas para escribir datos en las hojas de cálculo. Por ejemplo, configure los datos para la hoja de trabajo de tamaño `102400` filas x `50` columnas con números y estilo:
 
 ```go
 file := excelize.NewFile()
