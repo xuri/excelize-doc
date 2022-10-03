@@ -2,7 +2,7 @@
 
 Un tableau croisé dynamique est un tableau de statistiques qui résume les données d'un tableau plus détaillé (tel qu'une base de données, un tableur ou un programme d'aide à la décision). Ce résumé peut inclure des sommes, des moyennes ou d’autres statistiques que le tableau croisé dynamique regroupe de manière significative.
 
-PivotTableOptions mappe directement les paramètres de format du tableau croisé dynamique.
+`PivotTableOptions` mappe directement les paramètres de format du tableau croisé dynamique.
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // contient des champs filtrés ou non exportés
 }
 ```
 
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField mappe directement les paramètres de champ du tableau croisé dynamique.
+`PivotTableField` mappe directement les paramètres de champ du tableau croisé dynamique.
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-Subtotal spécifie la fonction d'agrégation qui s'applique à ce champ de données. La valeur par défaut est `Sum`. Les valeurs possibles pour cet attribut sont:
+`Subtotal` spécifie la fonction d'agrégation qui s'applique à ce champ de données. La valeur par défaut est `Sum`. Les valeurs possibles pour cet attribut sont:
 
 |Valeur facultative|
 |---|
@@ -68,7 +68,7 @@ Subtotal spécifie la fonction d'agrégation qui s'applique à ce champ de donn�
 |Var|
 |Varp|
 
-Name spécifie le nom du champ de données. Un maximum de `255` caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
+`Name` spécifie le nom du champ de données. Un maximum de `255` caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
 
 ## Créer un tableau croisé dynamique {#AddPivotTable}
 

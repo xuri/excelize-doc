@@ -1,6 +1,6 @@
 # Écriture en flux
 
-StreamWriter a défini le type d'écrivain de flux.
+`StreamWriter` a défini le type d'écrivain de flux.
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-Cell peut être utilisée directement dans StreamWriter.SetRow pour spécifier un style et une valeur.
+`Cell` peut être utilisée directement dans `StreamWriter.SetRow` pour spécifier un style et une valeur.
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts définit les options de la ligne définie, il peut être utilisé directement dans StreamWriter.SetRow pour spécifier le style et les propriétés de la ligne.
+`RowOpts` définit les options de la ligne définie, il peut être utilisé directement dans `StreamWriter.SetRow` pour spécifier le style et les propriétés de la ligne.
 
 ```go
 type RowOpts struct {
@@ -37,7 +37,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter renvoie la structure de l'écrivain de flux par un nom de feuille de calcul donné pour générer une nouvelle feuille de calcul avec de grandes quantités de données. Notez qu'après avoir défini des lignes, vous devez appeler la méthode [`Flush`](stream.md#Flush) pour terminer le processus d'écriture en continu et vous assurer que l'ordre des numéros de ligne est croissant, l'API commune et l'API de flux ne peuvent pas être mélangées à l'écriture de données sur les feuilles de calcul. Par exemple, définissez des données pour la feuille de calcul de taille `102400` lignes x `50` colonnes avec des nombres:
+NewStreamWriter renvoie la structure de l'écrivain de flux par un nom de feuille de calcul donné pour générer une nouvelle feuille de calcul avec de grandes quantités de données. Notez qu'après avoir défini des lignes, vous devez appeler la méthode [`Flush`](stream.md#Flush) pour terminer le processus d'écriture en continu et vous assurer que l'ordre des numéros de ligne est croissant, n'utilisez pas les fonctions de mode normal et les fonctions de mode de flux mélangées à l'écriture de données sur les feuilles de calcul. Par exemple, définissez des données pour la feuille de calcul de taille `102400` lignes x `50` colonnes avec des nombres:
 
 ```go
 file := excelize.NewFile()
