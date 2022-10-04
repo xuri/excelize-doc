@@ -1,6 +1,6 @@
 # ストリーミング書き込み
 
-StreamWriter は、ストリームライターのタイプを定義しました。
+`StreamWriter` は、ストリームライターのタイプを定義しました。
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-セルを StreamWriter.SetRow で直接使用して、スタイルと値を指定できます。
+`Cell` は `StreamWriter.SetRow` で直接使用して、スタイルと値を指定できます。
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts は、設定された行のオプションを定義します。StreamWriter.SetRow で直接使用して、行のスタイルとプロパティを指定できます。
+`RowOpts` は、設定された行のオプションを定義します。`StreamWriter.SetRow` で直接使用して、行のスタイルとプロパティを指定できます。
 
 ```go
 type RowOpts struct {
@@ -37,7 +37,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter は、指定されたワークシート名でストリームライター構造体を返し、大量のデータを含む新しいワークシートを生成します。行を設定した後、[`Flush`](stream.md#Flush) メソッドを呼び出してストリーミング書き込みプロセスを終了し、行番号の順序が昇順であることを確認する必要があることに注意してください、通常のAPIをストリーミングAPIと組み合わせて、ワークシートにデータを書き込むことはできません。たとえば、サイズが `102400` 行 x `50` 列のサイズのワークシートにデータを設定します:
+NewStreamWriter は、指定されたワークシート名でストリームライター構造体を返し、大量のデータを含む新しいワークシートを生成します。行を設定した後、[`Flush`](stream.md#Flush) メソッドを呼び出してストリーミング書き込みプロセスを終了し、行番号の順序が昇順であることを確認する必要があることに注意してください、通常モード関数とストリーム モード関数を混在させてワークシートにデータを書き込むことは使用しないでください。たとえば、サイズが `102400` 行 x `50` 列のサイズのワークシートにデータを設定します:
 
 ```go
 file := excelize.NewFile()

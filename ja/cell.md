@@ -1,6 +1,6 @@
 # セル
 
-RichTextRun は、リッチテキストランの設定を直接マップします。
+`RichTextRun` は、リッチテキストランの設定を直接マップします。
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-HyperlinkOpts を [`SetCellHyperlink`](cell.md#SetCellHyperlink) に渡して、オプションのハイパーリンク属性（表示するテキストや画面のヒントテキストなど）を設定できます。
+`HyperlinkOpts` を [`SetCellHyperlink`](cell.md#SetCellHyperlink) に渡して、オプションのハイパーリンク属性（表示するテキストや画面のヒントテキストなど）を設定できます。
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-数式の種類を使用する [`SetCellFormula`](cell.md#SetCellFormula) に渡すことができます。
+`FormulaOpts` を [`SetCellFormula`](cell.md#SetCellFormula) に渡して、他の数式タイプを使用することができます。
 
 ```go
 type FormulaOpts struct {

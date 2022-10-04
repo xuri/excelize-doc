@@ -2,7 +2,7 @@
 
 ピボットテーブルは、より広範なテーブル（データベース、スプレッドシート、ビジネスインテリジェンスプログラムなど）のデータを要約した統計のテーブルです。このサマリーには、合計、平均、またはその他の統計が含まれる場合があります。これらの統計は、ピボットテーブルによって意味のある方法でグループ化されます。
 
-PivotTableOptions は、ピボットテーブルの形式設定を直接マップします。
+`PivotTableOptions` は、ピボットテーブルの形式設定を直接マップします。
 
 ```go
 type PivotTableOptions struct {
@@ -27,7 +27,7 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // フィルタされたフィールドまたはエクスポートされていないフィールドが含まれています
 }
 ```
 
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField は、ピボットテーブルのフィールド設定を直接マップします。
+`PivotTableField` は、ピボットテーブルのフィールド設定を直接マップします。
 
 ```go
 type PivotTableField struct {
