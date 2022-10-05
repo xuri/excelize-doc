@@ -1,6 +1,6 @@
 # 스트리밍 쓰기
 
-StreamWriter 는 스트림 작성기 유형을 정의했습니다.
+`StreamWriter` 는 스트림 작성기 유형을 정의했습니다.
 
 ```go
 type StreamWriter struct {
@@ -11,7 +11,7 @@ type StreamWriter struct {
 }
 ```
 
-Cell 은 StreamWriter.SetRow 에서 직접 사용하여 스타일과 값을 지정할 수 있습니다.
+`Cell` 은 `StreamWriter.SetRow` 에서 직접 사용하여 스타일과 값을 지정할 수 있습니다.
 
 ```go
 type Cell struct {
@@ -21,7 +21,7 @@ type Cell struct {
 }
 ```
 
-RowOpts 는 집합 행에 대한 옵션을 정의하며 StreamWriter.SetRow 에서 직접 사용하여 행의 스타일과 속성을 지정할 수 있습니다.
+`RowOpts` 는 집합 행에 대한 옵션을 정의하며 `StreamWriter.SetRow` 에서 직접 사용하여 행의 스타일과 속성을 지정할 수 있습니다.
 
 ```go
 type RowOpts struct {
@@ -37,7 +37,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 는 주어진 워크 시트 이름으로 스트림 기록기를 반환하여 대량의 데이터가 포함 된 새 워크 시트를 생성합니다. 행을 설정 한 후 스트리밍 쓰기 프로세스를 종료하고 행 번호 순서가 오름차순이되도록 [`Flush`](stream.md#Flush) 메소드를 호출해야합니다. 워크 시트에 데이터를 쓰기 위해 일반 API를 스트리밍 API와 혼합 할 수 없습니다. 예를 들어, 크기가 `102400` 행 x `50` 열인 워크 시트의 데이터를 숫자로 설정하십시오:
+NewStreamWriter 는 주어진 워크 시트 이름으로 스트림 기록기를 반환하여 대량의 데이터가 포함 된 새 워크 시트를 생성합니다. 행을 설정 한 후 스트리밍 쓰기 프로세스를 종료하고 행 번호 순서가 오름차순이되도록 [`Flush`](stream.md#Flush) 메소드를 호출해야합니다. 일반 모드 기능과 스트림 모드 기능을 워크시트에 데이터를 쓰는 데 혼합된 것은 사용하지 마십시오. 예를 들어, 크기가 `102400` 행 x `50` 열인 워크 시트의 데이터를 숫자로 설정하십시오:
 
 ```go
 file := excelize.NewFile()

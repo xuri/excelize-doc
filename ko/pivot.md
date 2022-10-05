@@ -2,7 +2,7 @@
 
 피벗 테이블은보다 광범위한 테이블의 데이터 (예 : 데이터베이스, 스프레드 시트 또는 비즈니스 인텔리전스 프로그램)를 요약하는 통계 테이블입니다. 이 요약에는 피벗 테이블이 의미있는 방식으로 그룹화되는 합계, 평균 또는 기타 통계가 포함될 수 있습니다.
 
-PivotTableOptions 은 피벗 테이블의 형식 설정을 직접 매핑합니다.
+`PivotTableOptions` 은 피벗 테이블의 형식 설정을 직접 매핑합니다.
 
 ```go
 type PivotTableOptions struct {
@@ -27,11 +27,11 @@ type PivotTableOptions struct {
     ShowColStripes      bool              `json:"show_col_stripes"`
     ShowLastColumn      bool              `json:"show_last_column"`
     PivotTableStyleName string            `json:"pivot_table_style_name"`
-    // contains filtered or unexported fields
+    // 필터링되거나 내 보내지 않은 필드를 포함합니다
 }
 ```
 
-`PivotTableStyleName`: 내장 피벗 테이블 스타일 이름:
+`PivotTableStyleName` 내장 피벗 테이블 스타일 이름:
 
 ```text
 PivotStyleLight1 - PivotStyleLight28
@@ -39,7 +39,7 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-PivotTableField 는 피벗 테이블의 필드 설정을 직접 매핑합니다.
+`PivotTableField` 는 피벗 테이블의 필드 설정을 직접 매핑합니다.
 
 ```go
 type PivotTableField struct {
@@ -52,7 +52,7 @@ type PivotTableField struct {
 }
 ```
 
-Subtotal 은이 데이터 필드에 적용되는 집계 함수를 지정합니다. 기본값은 `Sum` 입니다. 이 속성에 가능한 값은 다음과 같습니다.
+`Subtotal` 은이 데이터 필드에 적용되는 집계 함수를 지정합니다. 기본값은 `Sum` 입니다. 이 속성에 가능한 값은 다음과 같습니다.
 
 |선택적 값|
 |---|
@@ -68,7 +68,7 @@ Subtotal 은이 데이터 필드에 적용되는 집계 함수를 지정합니�
 |Var|
 |Varp|
 
-Name 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름에 최대 `255` 자를 사용할 수 있으며 초과 문자는 잘립니다.
+`Name` 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름에 최대 `255` 자를 사용할 수 있으며 초과 문자는 잘립니다.
 
 ## 피벗 테이블 만들기 {#AddPivotTable}
 

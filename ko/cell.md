@@ -1,6 +1,6 @@
 # 세포
 
-RichTextRun 은 서식있는 텍스트 실행의 설정을 직접 맵핑합니다.
+`RichTextRun` 은 서식있는 텍스트 실행의 설정을 직접 맵핑합니다.
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-HyperlinkOpts 는 [`SetCellHyperlink`](cell.md#SetCellHyperlink) 에 전달되어 선택적 하이퍼 링크 속성 (예: 표시 할 텍스트 및 화면 팁 텍스트) 을 설정할 수 있습니다.
+`HyperlinkOpts` 는 [`SetCellHyperlink`](cell.md#SetCellHyperlink) 에 전달되어 선택적 하이퍼 링크 속성 (예: 표시 할 텍스트 및 화면 팁 텍스트) 을 설정할 수 있습니다.
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-FormulaOpts 는 다른 수식 유형을 사용하기 위해 [`SetCellFormula`](cell.md#SetCellFormula) 로 전달할 수 있습니다.
+`FormulaOpts` 는 다른 수식 유형을 사용하기 위해 [`SetCellFormula`](cell.md#SetCellFormula) 로 전달할 수 있습니다.
 
 ```go
 type FormulaOpts struct {

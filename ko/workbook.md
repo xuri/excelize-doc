@@ -1,6 +1,6 @@
 # 통합 문서
 
-`Options` 는 열려있는 스프레드 시트에 대한 옵션을 정의합니다.
+`Options` 은 스프레드 시트를 읽고 쓰는 옵션을 정의합니다.
 
 ```go
 type Options struct {
@@ -225,34 +225,23 @@ GetSheetVisible 은 주어진 워크 시트 이름으로 볼 수있는 워크 �
 f.GetSheetVisible("Sheet1")
 ```
 
-## 워크 시트 형식 속성 설정 {#SetSheetFormatPr}
+## 워크 시트 속성 설정 {#SetSheetProps}
 
 ```go
-func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetFormatPr 은 워크 시트 서식 속성을 설정하는 기능을 제공합니다.
-
-사용 가능한 옵션:
-
-선택적 형식 매개 변수 | 유형
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
+SetSheetProps 는 워크시트 속성을 설정하는 함수를 제공합니다.
 
 예를 들어, 워크 시트 행을 기본적으로 숨김으로 설정하십시오:
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="워크 시트 형식 속성 설정"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="워크 시트 속성 설정"></p>
 
 ```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+f, enable := excelize.NewFile(), true
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    ZeroHeight: &enable,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
@@ -261,294 +250,29 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-## 워크 시트 형식 속성 가져 오기 {#GetSheetFormatPr}
+## 워크 시트 속성 가져 오기 {#GetSheetProps}
 
 ```go
-func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-GetSheetFormatPr 은 워크 시트 서식 속성을 가져 오는 기능을 제공합니다.
+GetSheetProps 는 워크시트 속성을 가져오는 함수를 제공합니다.
 
-사용 가능한 옵션:
-
-선택적 형식 매개 변수 | 유형
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
-
-예를 들면:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    baseColWidth     excelize.BaseColWidth
-    defaultColWidth  excelize.DefaultColWidth
-    defaultRowHeight excelize.DefaultRowHeight
-    customHeight     excelize.CustomHeight
-    zeroHeight       excelize.ZeroHeight
-    thickTop         excelize.ThickTop
-    thickBottom      excelize.ThickBottom
-)
-
-if err := f.GetSheetFormatPr(sheet,
-    &baseColWidth,
-    &defaultColWidth,
-    &defaultRowHeight,
-    &customHeight,
-    &zeroHeight,
-    &thickTop,
-    &thickBottom,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- baseColWidth:", baseColWidth)
-fmt.Println("- defaultColWidth:", defaultColWidth)
-fmt.Println("- defaultRowHeight:", defaultRowHeight)
-fmt.Println("- customHeight:", customHeight)
-fmt.Println("- zeroHeight:", zeroHeight)
-fmt.Println("- thickTop:", thickTop)
-fmt.Println("- thickBottom:", thickBottom)
-```
-
-출력 가져오기:
-
-```text
-Defaults:
-- baseColWidth: 0
-- defaultColWidth: 0
-- defaultRowHeight: 15
-- customHeight: false
-- zeroHeight: false
-- thickTop: false
-- thickBottom: false
-```
-
-## 워크 시트보기 속성 설정 {#SetSheetViewOptions}
+## 워크 시트보기 속성 설정 {#SetSheetView}
 
 ```go
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetViewOptions 는 시트보기 옵션을 설정합니다. `viewIndex` 는 음수 일 수 있으며, 그럴 경우 역으로 계산됩니다 (`-1` 이 마지막보기).
+SetSheetView 는 시트 뷰 속성을 설정합니다. `viewIndex` 는 음수 일 수 있으며 그렇다면 뒤로 계산됩니다 (`-1` 은 마지막 뷰입니다).
 
-선택적 뷰 매개 변수 | 유형
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- 예 1:
-
-```go
-err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
-```
-
-- 예 2:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetSheetViewOptions(sheet, 0,
-    excelize.DefaultGridColor(false),
-    excelize.ShowFormulas(true),
-    excelize.ShowGridLines(true),
-    excelize.ShowRowColHeaders(true),
-    excelize.RightToLeft(false),
-    excelize.ShowRuler(false),
-    excelize.View("pageLayout"),
-    excelize.TopLeftCell("C3"),
-    excelize.ZoomScale(80),
-); err != nil {
-    fmt.Println(err)
-}
-
-var zoomScale ZoomScale
-fmt.Println("Default:")
-fmt.Println("- zoomScale: 80")
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used out of range value:")
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used correct value:")
-fmt.Println("- zoomScale:", zoomScale)
-```
-
-출력 가져오기:
-
-```text
-Default:
-- zoomScale: 80
-Used out of range value:
-- zoomScale: 80
-Used correct value:
-- zoomScale: 123
-```
-
-## 워크 시트 뷰 속성 가져 오기 {#GetSheetViewOptions}
+## 워크 시트 뷰 속성 가져 오기 {#GetSheetView}
 
 ```go
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-지정 된 워크 시트 이름, 뷰 인덱스 및 뷰 매개 변수를 기반으로 워크 시트 보기 속성 가져 오기, `viewIndex` 가 음수 이면 역방향으로 계산 됩니다 (`-1` 은 마지막 보기를 나타냄).
-
-선택적 뷰 매개 변수 | 유형
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- 예 1: `Sheet1` 이라는 워크 시트의 마지막 뷰에 대 한 그리드 선 특성 설정을 가져옵니다.
-
-```go
-var showGridLines excelize.ShowGridLines
-err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
-```
-
-- 예 2:
-
-```go
-f := NewFile()
-const sheet = "Sheet1"
-
-var (
-    defaultGridColor  excelize.DefaultGridColor
-    showFormulas      excelize.ShowFormulas
-    showGridLines     excelize.ShowGridLines
-    showRowColHeaders excelize.ShowRowColHeaders
-    showZeros         excelize.ShowZeros
-    rightToLeft       excelize.RightToLeft
-    showRuler         excelize.ShowRuler
-    view              excelize.View
-    topLeftCell       excelize.TopLeftCell
-    zoomScale         excelize.ZoomScale
-)
-
-if err := f.GetSheetViewOptions(sheet, 0,
-    &defaultGridColor,
-    &showFormulas,
-    &showGridLines,
-    &showRowColHeaders,
-    &showZeros,
-    &rightToLeft,
-    &showRuler,
-    &view,
-    &topLeftCell,
-    &zoomScale,
-); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Default:")
-fmt.Println("- defaultGridColor:", defaultGridColor)
-fmt.Println("- showFormulas:", showFormulas)
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showRowColHeaders:", showRowColHeaders)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- rightToLeft:", rightToLeft)
-fmt.Println("- showRuler:", showRuler)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.View("pageLayout")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &view); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("After change:")
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", topLeftCell)
-```
-
-출력 가져오기:
-
-```text
-Default:
-- defaultGridColor: true
-- showFormulas: false
-- showGridLines: true
-- showRowColHeaders: true
-- showZeros: true
-- rightToLeft: false
-- showRuler: true
-- view: normal
-- topLeftCell: ""
-- zoomScale: 0
-After change:
-- showGridLines: false
-- showZeros: false
-- view: pageLayout
-- topLeftCell: B2
-```
+GetSheetView 는 시트 뷰 속성의 값을 가져옵니다. `viewIndex` 는 음수 일 수 있으며 그렇다면 뒤로 계산됩니다 (`-1` 은 마지막 뷰입니다).
 
 ## 워크 시트 페이지 레이아웃 설정 {#SetPageLayout}
 
@@ -558,18 +282,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 지정 된 워크시트 이름 및 페이지 레이아웃 매개 변수를 기반으로 워크시트의 페이지 레이아웃 속성을 설정 합니다. 현재 설정에 대해 지원 되는 페이지 레이아웃 속성:
 
-- `BlackAndWhite` 방법을 사용하여 단색 인쇄 `true` 또는 `false` 를 설정합니다. 기본값은 `false` 입니다.
-
-- `FirstPageNumber` 방법을 사용하여 페이지 시작 페이지 번호를 기본값으로 설정합니다.
-
-- `PageLayoutOrientation` 메서드로 페이지 레이아웃 방향 설정, 기본 페이지 레이아웃 방향은 "세로" 입니다. 다음 표는 Excelize 에서 페이지 레이아웃 방향의 `PageLayoutOrientation` 매개 변수 목록입니다:
-
-매개 변수 | 방향
----|---
-OrientationPortrait | 세로
-OrientationLandscape | 가로
-
-- `PageLayoutPaperSize` 방법을 사용 하 여 페이지 용지의 크기를 설정 합니다, 기본 페이지 레이아웃 크기는 "Letter paper (8.5 in. by 11 in.)" 입니다. 다음 표는 excel에서 페이지 레이아웃 크기와 인덱스 `PageLayoutPaperSize` 매개 변수를 비교한 것입니다:
+`Size` 방법을 사용 하 여 페이지 용지의 크기를 설정 합니다, 기본 페이지 레이아웃 크기는 "Letter paper (8.5 in. by 11 in.)" 입니다. 다음 표는 excel에서 페이지 레이아웃 크기와 인덱스 `Size` 매개 변수를 비교한 것입니다:
 
 색인 | 용지 크기
 ---|---
@@ -690,26 +403,40 @@ OrientationLandscape | 가로
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- `FitToHeight` 방법을 사용하여 페이지 확대/축소 조정 페이지 너비를 기본값으로 설정합니다.
+`Orientation` 은 워크시트 방향을 지정했으며 기본 방향은 `portrait` 입니다. 이 필드에 사용할 수 있는 값은 `portrait` 와 `landscape` 입니다.
 
-- `FitToWidth` 메서드를 사용하여 페이지 확대/축소 조정 페이지 높이 (기본값 `1`) 를 설정합니다.
+`FirstPageNumber` 는 첫 번째 인쇄된 페이지 번호를 지정했습니다. 값을 지정하지 않으면 "자동" 으로 간주됩니다.
 
-- `PageLayoutScale` 메서드를 사용하여 페이지 배율을 10 에서 400, 즉 10%에서 400%로 설정하고 기본값은 `100` 일반 크기입니다.
+`AdjustTo` 는 인쇄 배율을 지정했습니다. 이 속성은 10(10%) 에서 400(400%) 사이의 값으로 제한됩니다. 이 설정은 `FitToWidth` 및/또는 `FitToHeight` 를 사용 중일 때 재정의됩니다.
 
-- 예를 들어 `Sheet1` 이라는 시트 페이지 레이아웃을 단색 인쇄로 설정하고, 시작 페이지 번호를 `2` 로 설정하고, 가로로, A4(작은) 210× 297mm 용지 사용, 너비 2, 높이 2페이지 및 배율 50% 로 조정합니다.
+`FitToHeight` 는 맞출 세로 페이지 수를 지정했습니다.
+
+`FitToWidth` 는 맞출 가로 페이지의 수를 지정했습니다.
+
+`BlackAndWhite` 는 흑백으로 인쇄를 지정했습니다.
+
+예를 들어 `Sheet1` 이라는 시트 페이지 레이아웃을 단색 인쇄로 설정하고, 시작 페이지 번호를 `2` 로 설정하고, 가로로, A4(작은) 210× 297mm 용지 사용, 2 세로 페이지에 맞게 조정하고 2 개의 가로 페이지를 맞출 수 있습니다:
 
 ```go
 f := excelize.NewFile()
-if err := f.SetPageLayout(
-    "Sheet1",
-    excelize.BlackAndWhite(true),
-    excelize.FirstPageNumber(2),
-    excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-    excelize.PageLayoutPaperSize(10),
-    excelize.FitToHeight(2),
-    excelize.FitToWidth(2),
-    excelize.PageLayoutScale(50),
-); err != nil {
+var (
+    size                 = 10
+    orientation          = "landscape"
+    firstPageNumber uint = 2
+    adjustTo        uint = 100
+    fitToHeight          = 2
+    fitToWidth           = 2
+    blackAndWhite        = true
+)
+if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+    Size:            &size,
+    Orientation:     &orientation,
+    FirstPageNumber: &firstPageNumber,
+    AdjustTo:        &adjustTo,
+    FitToHeight:     &fitToHeight,
+    FitToWidth:      &fitToWidth,
+    BlackAndWhite:   &blackAndWhite,
+}); err != nil {
     fmt.Println(err)
 }
 ```
@@ -720,38 +447,7 @@ if err := f.SetPageLayout(
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-지정 된 워크시트 이름 및 페이지 레이아웃 매개 변수를 기반으로 워크시트의 페이지 레이아웃 속성을 가져옵니다.
-
-- `PageLayoutOrientation` 방법으로 페이지 레이아웃 방향 가져오기
-- `PageLayoutPaperSize` 방법으로 페이지 용지 크기 가져오기
-
-예를 들어 `Sheet1` 이라는 워크시트 페이지 레이아웃 설정을 가져옵니다:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-var (
-    orientation excelize.PageLayoutOrientation
-    paperSize   excelize.PageLayoutPaperSize
-)
-if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- orientation: %q\n", orientation)
-fmt.Printf("- paper size: %d\n", paperSize)
-```
-
-출력:
-
-```text
-Defaults:
-- orientation: "portrait"
-- paper size: 1
-```
+GetPageLayout 은 워크시트 페이지 레이아웃을 가져오는 함수를 제공합니다.
 
 ## 워크 시트 페이지 여백 설정 {#SetPageMargins}
 
@@ -761,32 +457,16 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 SetPageMargins 는 워크 시트 페이지 여백을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
 
-옵션|유형
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- 예를 들어 `Sheet1` 의 페이지 여백을 설정하십시오:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetPageMargins(sheet,
-    excelize.PageMarginBottom(1.0),
-    excelize.PageMarginFooter(1.0),
-    excelize.PageMarginHeader(1.0),
-    excelize.PageMarginLeft(1.0),
-    excelize.PageMarginRight(1.0),
-    excelize.PageMarginTop(1.0),
-); err != nil {
-    fmt.Println(err)
-}
-```
+옵션|유형|설명설명
+---|---|---
+Bottom | *float64 | 아래쪽
+Footer | *float64 | 바닥글
+Header | *float64 | 머리글
+Left | *float64 | 왼쪽
+Right | *float64 | 오른쪽
+Top | *float64 | 위쪽
+Horizontally | *bool | 페이지 중심: 가로로
+Vertically | *bool | 페이지 중앙: 세로
 
 ## 워크 시트 페이지 여백 가져 오기 {#GetPageMargins}
 
@@ -794,135 +474,29 @@ if err := f.SetPageMargins(sheet,
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-GetPageMargins 는 워크 시트 페이지 여백을 얻는 기능을 제공합니다. 사용 가능한 옵션:
+GetPageMargins 는 워크 시트 페이지 여백을 얻는 기능을 제공합니다.
 
-옵션|유형
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- 예를 들어 `Sheet1` 의 페이지 여백을 가져옵니다:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    marginBottom excelize.PageMarginBottom
-    marginFooter excelize.PageMarginFooter
-    marginHeader excelize.PageMarginHeader
-    marginLeft   excelize.PageMarginLeft
-    marginRight  excelize.PageMarginRight
-    marginTop    excelize.PageMarginTop
-)
-
-if err := f.GetPageMargins(sheet,
-    &marginBottom,
-    &marginFooter,
-    &marginHeader,
-    &marginLeft,
-    &marginRight,
-    &marginTop,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- marginBottom:", marginBottom)
-fmt.Println("- marginFooter:", marginFooter)
-fmt.Println("- marginHeader:", marginHeader)
-fmt.Println("- marginLeft:", marginLeft)
-fmt.Println("- marginRight:", marginRight)
-fmt.Println("- marginTop:", marginTop)
-```
-
-출력:
-
-```text
-Defaults:
-- marginBottom: 0.75
-- marginFooter: 0.3
-- marginHeader: 0.3
-- marginLeft: 0.7
-- marginRight: 0.7
-- marginTop: 0.75
-```
-
-## 통합 문서 속성 설정 {#SetWorkbookPrOptions}
+## 통합 문서 속성 설정 {#SetWorkbookProps}
 
 ```go
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-SetWorkbookPrOptions 는 통합 문서 속성을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
+SetWorkbookProps 는 통합 문서 속성을 설정하는 기능을 제공합니다. 사용 가능한 옵션:
 
-옵션|유형
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
+옵션|유형|설명설명
+---|---|---
+Date1904 | *bool | 통합 문서의 직렬 날짜-시간을 날짜로 변환할 때 1900 또는 1904 날짜 시스템을 사용할지 여부를 나타냅니다.
+FilterPrivacy | *bool | 응용 프로그램이 통합 문서에 PII(개인 식별 정보)를 검사했는지 여부를 나타내는 부울 값을 지정합니다. 이 플래그가 설정된 경우 응용 프로그램은 사용자가 문서에 PII를 삽입하는 작업을 수행할 때마다 사용자에게 경고합니다.
+CodeName | *string | 이 통합 문서를 만든 응용 프로그램의 코드 이름을 지정합니다. 이 특성을 사용하여 응용 프로그램의 증분 릴리스에서 파일 콘텐츠를 추적할 수 있습니다.
 
-예를 들어 통합 문서의 속성을 설정합니다.
-
-```go
-f := excelize.NewFile()
-if err := f.SetWorkbookPrOptions(
-    excelize.Date1904(false),
-    excelize.FilterPrivacy(false),
-    excelize.CodeName("code"),
-); err != nil {
-    fmt.Println(err)
-}
-```
-
-## 통합 문서 속성 가져오기 {#GetWorkbookPrOptions}
+## 통합 문서 속성 가져오기 {#GetWorkbookProps}
 
 ```go
 func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
-GetWorkbookPrOptions 는 통합 문서 속성을 가져오는 기능을 제공합니다. 사용 가능한 옵션:
-
-옵션|유형
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
-
-예를 들어 통합 문서의 속성을 가져옵니다:
-
-```go
-f := excelize.NewFile()
-var (
-    date1904      excelize.Date1904
-    filterPrivacy excelize.FilterPrivacy
-    codeName      excelize.CodeName
-)
-if err := f.GetWorkbookPrOptions(&date1904); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&codeName); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- date1904: %t\n", date1904)
-fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
-fmt.Printf("- codeName: %q\n", codeName)
-```
-
-출력:
-
-```text
-Defaults:
-- filterPrivacy: true
-- codeName: ""
-```
+GetWorkbookProps 는 통합 문서 속성을 가져오는 기능을 제공합니다.
 
 ## 머리글 및 바닥 글 설정 {#SetHeaderFooter}
 
