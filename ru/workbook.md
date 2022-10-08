@@ -1,6 +1,6 @@
 # Рабочая книга
 
-`Options` определяет параметры для открытой электронной таблицы.
+`Параметры` определяют параметры чтения и записи электронных таблиц.
 
 ```go
 type Options struct {
@@ -13,7 +13,7 @@ type Options struct {
 
 `Password` указывает пароль электронной таблицы в виде обычного текста.
 
-RawCellValue указывает, применять ли числовой формат для значения ячейки или получить необработанное значение.
+`RawCellValue` указывает, применять ли числовой формат для значения ячейки или получить необработанное значение.
 
 `UnzipSizeLimit` указывает предел размера распакованного архива в байтах при открытии электронной таблицы, это значение должно быть больше или равно `UnzipXMLSizeLimit`, ограничение размера по умолчанию составляет 16ГБ.
 
@@ -225,34 +225,44 @@ GetSheetVisible предоставляет функцию для отображ�
 f.GetSheetVisible("Sheet1")
 ```
 
-## Установить свойства формата листа {#SetSheetFormatPr}
+## Установить свойства листа {#SetSheetProps}
 
 ```go
-func (f *File) SetSheetFormatPr(sheet string, opts ...SheetFormatPrOptions) error
+func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetFormatPr предоставляет функцию для установки свойств форматирования листа.
+SetSheetProps предоставляет функцию для задания свойств листа. Можно задать следующие свойства:
 
-Доступные Варианты:
-
-Необязательный параметр формата | Тип
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
+Параметры|Тип|Описание
+---|---|---
+CodeName                          | `*string`  | Задает стабильное имя листа, которое не должно меняться со временем и не изменяется в результате ввода данных пользователем. Это имя должно использоваться кодом для ссылки на конкретный лист
+EnableFormatConditionsCalculation | `*bool`    | Указание на то, должны ли оцениваться вычисления условного форматирования. Если задано значение false, то минимальные/максимальные значения цветовых шкал или полос данных или пороговых значений в правилах Top N не обновляются. По сути, условное форматирование "calc" выключено
+Published                         | `*bool`    | Указывая, опубликован ли лист, значение по умолчанию равно `true`
+AutoPageBreaks                    | `*bool`    | Указывая, отображается ли на листе автоматические разрывы страниц, значение по умолчанию равно `true`
+FitToPage                         | `*bool`    | Указывая, включен ли параметр печати "По размеру страницы", значение по умолчанию равно `false`
+TabColorIndexed                   | `*int`     | Представляет индексированное значение цвета
+TabColorRGB                       | `*string`  | Представляет стандартное значение цвета ARGB (альфа-красный зеленый синий)
+TabColorTheme                     | `*int`     | Представляет отсчитываемый от нуля индекс в коллекции, ссылаясь на определенное значение, выраженное в части Theme
+TabColorTint                      | `*float64` | Задает значение оттенка, примененное к цвету, значение по умолчанию равно `0.0`
+OutlineSummaryBelow               | `*bool`    | Указывая, отображаются ли сводные строки ниже подробных сведений в структуре, при применении структуры значение по умолчанию равно `true`
+OutlineSummaryRight               | `*bool`    | Указывая, отображаются ли сводные столбцы справа от деталей в структуре, при применении структуры значение по умолчанию равно `true`
+BaseColWidth                      | `*uint8`   | Задает количество символов максимальной ширины цифры шрифта обычного стиля. Это значение не включает заполнение полей или дополнительное заполнение для линий сетки. Это только количество символов, значение по умолчанию `8`
+DefaultColWidth                   | `*float64` | Задает ширину столбца по умолчанию, измеряемую как количество символов максимальной ширины цифры шрифта обычного стиля
+DefaultRowHeight                  | `*float64` | Задает высоту строки по умолчанию, измеряемую в размере точки. Оптимизация, поэтому нам не нужно писать высоту на всех строках. Это может быть выписано, если большинство строк имеют пользовательскую высоту, для достижения оптимизации
+CustomHeight                      | `*bool`    | Задает пользовательскую высоту, значение по умолчанию равно `false`
+ZeroHeight                        | `*bool`    | Указывает, что если строки скрыты, значение по умолчанию равно `false`
+ThickTop                          | `*bool`    | Указывает, что если строки по умолчанию имеют толстую верхнюю границу, то значение по умолчанию равно `false`
+ThickBottom                       | `*bool`    | Указывает, что если строки по умолчанию имеют толстую нижнюю границу, то значение по умолчанию равно `false`
 
 Например, сделать строки на листе по умолчанию скрытыми:
 
-<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Установить свойства формата листа"></p>
+<p align="center"><img width="612" src="./images/sheet_format_pr_01.png" alt="Установить свойства листа"></p>
 
 ```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-if err := f.SetSheetFormatPr("Sheet1", excelize.ZeroHeight(true)); err != nil {
+f, enable := excelize.NewFile(), true
+if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+    ZeroHeight: &enable,
+}); err != nil {
     fmt.Println(err)
 }
 if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
@@ -261,294 +271,42 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-## Получить свойства формата листа {#GetSheetFormatPr}
+## Получить свойства листа {#SetSheetProps}
 
 ```go
-func (f *File) GetSheetFormatPr(sheet string, opts ...SheetFormatPrOptionsPtr) error
+func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-GetSheetFormatPr предоставляет функцию для получения свойств форматирования листа.
+GetSheetProps предоставляет функцию для получения свойств листа. Можно задать следующие свойства:
 
-Доступные Варианты:
+Параметры|Тип|Описание
+---|---|---
+DefaultGridColor  | `*bool`    | Указание на то, что потребляющее приложение должно использовать цвет линий сетки по умолчанию (зависит от системы). Переопределяет любой цвет, указанный в colorId, значение по умолчанию равно `true`
+RightToLeft       | `*bool`    | Указание на то, находится ли лист в режиме отображения «справа налево». В этом режиме столбец A находится в крайнем правом углу, столбец B; на один столбец слева от столбца A и так далее. Также информация в ячейках отображается в формате справа налево, значение по умолчанию равно `false`
+ShowFormulas      | `*bool`    | Указывая, должен ли этот лист отображать формулы, значение по умолчанию равно `false`
+ShowGridLines     | `*bool`    | Указывая, должен ли этот лист отображать линии сетки, значение по умолчанию равно `true`
+ShowRowColHeaders | `*bool`    | Указывая, должен ли лист отображать заголовки строк и столбцов, значение по умолчанию равно `true`
+ShowRuler         | `*bool`    | Указывая, что на этом листе должна отображаться линейка, значение по умолчанию равно `true`
+ShowZeros         | `*bool`    | Указание на то, следует ли "показывать ноль в ячейках, имеющих нулевое значение". При использовании формулы для ссылки на другую ячейку, которая пуста, указанное значение становится `0`, когда флаг `true`, значение по умолчанию `true`
+TopLeftCell       | `*string`  | Задает расположение левой видимой верхней ячейки Расположение левой видимой ячейки в правой нижней панели (в режиме слева направо)
+View              | `*string`  | Указывая, как отображается лист, по умолчанию он использует пустую строку, доступные опции: `normal`, `pageBreakPreview` и `pageLayout`
+ZoomScale         | `*float64` | Задает увеличение масштаба окна для текущего представления, представляющего значения в процентах. Этот атрибут ограничен значениями в диапазоне от `10` до `400`. Горизонтальный и вертикальный масштаб вместе, значение по умолчанию равно `100`
 
-Необязательный параметр формата | Тип
----|---
-BaseColWidth | uint8
-DefaultColWidth | float64
-DefaultRowHeight | float64
-CustomHeight | bool
-ZeroHeight | bool
-ThickTop | bool
-ThickBottom | bool
-
-Например:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    baseColWidth     excelize.BaseColWidth
-    defaultColWidth  excelize.DefaultColWidth
-    defaultRowHeight excelize.DefaultRowHeight
-    customHeight     excelize.CustomHeight
-    zeroHeight       excelize.ZeroHeight
-    thickTop         excelize.ThickTop
-    thickBottom      excelize.ThickBottom
-)
-
-if err := f.GetSheetFormatPr(sheet,
-    &baseColWidth,
-    &defaultColWidth,
-    &defaultRowHeight,
-    &customHeight,
-    &zeroHeight,
-    &thickTop,
-    &thickBottom,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- baseColWidth:", baseColWidth)
-fmt.Println("- defaultColWidth:", defaultColWidth)
-fmt.Println("- defaultRowHeight:", defaultRowHeight)
-fmt.Println("- customHeight:", customHeight)
-fmt.Println("- zeroHeight:", zeroHeight)
-fmt.Println("- thickTop:", thickTop)
-fmt.Println("- thickBottom:", thickBottom)
-```
-
-вывод:
-
-```text
-Defaults:
-- baseColWidth: 0
-- defaultColWidth: 0
-- defaultRowHeight: 15
-- customHeight: false
-- zeroHeight: false
-- thickTop: false
-- thickBottom: false
-```
-
-## Задать свойства представления листа {#SetSheetViewOptions}
+## Задать свойства представления листа {#SetSheetView}
 
 ```go
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetViewOptions устанавливает параметры просмотра листа. `viewIndex` может быть отрицательным и, если это так, считается обратным (`-1` - последний вид). Доступные Варианты:
+SetSheetView задает свойства представления листа. `viewIndex` может быть отрицательным, и если это так, то отсчитывается в обратном порядке (`-1` - последнее представление).
 
-Необязательный параметр просмотра|Тип
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- Пример 1:
-
-```go
-err = f.SetSheetViewOptions("Sheet1", -1, ShowGridLines(false))
-```
-
-- Пример 2:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetSheetViewOptions(sheet, 0,
-    excelize.DefaultGridColor(false),
-    excelize.ShowFormulas(true),
-    excelize.ShowGridLines(true),
-    excelize.ShowRowColHeaders(true),
-    excelize.RightToLeft(false),
-    excelize.ShowRuler(false),
-    excelize.View("pageLayout"),
-    excelize.TopLeftCell("C3"),
-    excelize.ZoomScale(80),
-); err != nil {
-    fmt.Println(err)
-}
-
-var zoomScale ZoomScale
-fmt.Println("Default:")
-fmt.Println("- zoomScale: 80")
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(500)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used out of range value:")
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ZoomScale(123)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &zoomScale); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Used correct value:")
-fmt.Println("- zoomScale:", zoomScale)
-```
-
-вывод:
-
-```text
-Default:
-- zoomScale: 80
-Used out of range value:
-- zoomScale: 80
-Used correct value:
-- zoomScale: 123
-```
-
-## Получить свойства вида листа {#GetSheetViewOptions}
+## Получить свойства вида листа {#GetSheetView}
 
 ```go
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-GetSheetViewOptions получает значение параметров просмотра листа. `viewIndex` может быть отрицательным, и если это так отсчитывается в обратном направлении (`-1` это последний вид). Доступные Варианты:
-
-Необязательный параметр просмотра|Тип
----|---
-DefaultGridColor | bool
-ShowFormulas | bool
-ShowGridLines | bool
-ShowRowColHeaders | bool
-ShowZeros | bool
-RightToLeft | bool
-ShowRuler | bool
-View | string
-TopLeftCell | string
-ZoomScale | float64
-
-- Пример 1, чтобы получить параметры свойства сетки для последнего представления на листе с именем `Sheet1`:
-
-```go
-var showGridLines excelize.ShowGridLines
-err = f.GetSheetViewOptions("Sheet1", -1, &showGridLines)
-```
-
-- Пример 2:
-
-```go
-f := NewFile()
-const sheet = "Sheet1"
-
-var (
-    defaultGridColor  excelize.DefaultGridColor
-    showFormulas      excelize.ShowFormulas
-    showGridLines     excelize.ShowGridLines
-    showRowColHeaders excelize.ShowRowColHeaders
-    showZeros         excelize.ShowZeros
-    rightToLeft       excelize.RightToLeft
-    showRuler         excelize.ShowRuler
-    view              excelize.View
-    topLeftCell       excelize.TopLeftCell
-    zoomScale         excelize.ZoomScale
-)
-
-if err := f.GetSheetViewOptions(sheet, 0,
-    &defaultGridColor,
-    &showFormulas,
-    &showGridLines,
-    &showRowColHeaders,
-    &showZeros,
-    &rightToLeft,
-    &showRuler,
-    &view,
-    &topLeftCell,
-    &zoomScale,
-); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("Default:")
-fmt.Println("- defaultGridColor:", defaultGridColor)
-fmt.Println("- showFormulas:", showFormulas)
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showRowColHeaders:", showRowColHeaders)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- rightToLeft:", rightToLeft)
-fmt.Println("- showRuler:", showRuler)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", `"`+topLeftCell+`"`)
-fmt.Println("- zoomScale:", zoomScale)
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowGridLines(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showGridLines); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.ShowZeros(false)); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &showZeros); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.View("pageLayout")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &view); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.SetSheetViewOptions(sheet, 0, excelize.TopLeftCell("B2")); err != nil {
-    fmt.Println(err)
-}
-
-if err := f.GetSheetViewOptions(sheet, 0, &topLeftCell); err != nil {
-    fmt.Println(err)
-}
-
-fmt.Println("After change:")
-fmt.Println("- showGridLines:", showGridLines)
-fmt.Println("- showZeros:", showZeros)
-fmt.Println("- view:", view)
-fmt.Println("- topLeftCell:", topLeftCell)
-```
-
-вывод:
-
-```text
-Default:
-- defaultGridColor: true
-- showFormulas: false
-- showGridLines: true
-- showRowColHeaders: true
-- showZeros: true
-- rightToLeft: false
-- showRuler: true
-- view: normal
-- topLeftCell: ""
-- zoomScale: 0
-After change:
-- showGridLines: false
-- showZeros: false
-- view: pageLayout
-- topLeftCell: B2
-```
+GetSheetView получает значение свойств представления листа. `viewIndex` может быть отрицательным, и если это так, то отсчитывается в обратном порядке (`-1` - последнее представление).
 
 ## Установить макет страницы листа {#SetPageLayout}
 
@@ -558,18 +316,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 SetPageLayout предоставляет функцию для установки макета страницы листа Доступные Варианты:
 
-- `BlackAndWhite` указывает печать черно-белую.
-
-- `FirstPageNumber` указывает номер первой напечатанной страницы. Если значение не указано, предполагается "автоматический".
-
-- `PageLayoutOrientation` предоставляет метод для установки ориентации листа, по умолчанию это "portrait". Ниже показаны параметры ориентации, поддерживаемые индексным номером Excelize:
-
-Параметр | Ориентация
----|---
-OrientationPortrait|portrait
-OrientationLandscape|landscape
-
-- `PageLayoutPaperSize` предоставляет метод для установки размера бумаги на листе, по умолчанию размер листа составляет "Letter 8S × 11 дюймов". Ниже показан формат бумаги, отсортированный по номеру индекса Excelize:
+`Size` предоставляет метод для установки размера бумаги на листе, по умолчанию размер листа составляет "Letter 8S × 11 дюймов". Ниже показан формат бумаги, отсортированный по номеру индекса Excelize:
 
 Индекс | Размер бумаги
 ---|---
@@ -690,26 +437,40 @@ OrientationLandscape|landscape
 117 | PRC Envelope #9 Rotated (324 mm × 229 mm)
 118 | PRC Envelope #10 Rotated (458 mm × 324 mm)
 
-- `FitToHeight` указывает количество вертикальных страниц, на которых можно разместить.
+`Orientation` указанная ориентация листа, по умолчанию — `portrait`. Возможные значения для этого поля — `portrait` и `landscape`.
 
-- `FitToWidth` указывает количество горизонтальных страниц для размещения.
+`FirstPageNumber` указывает номер первой печатной страницы. Если значение не указано, то предполагается «автоматический».
 
-- `PageLayoutScale` определяет масштаб печати. Этот атрибут ограничен значениями от 10 (10%) до 400 (400%). Этот параметр отменяется при использовании FitToWidth и / или FitToHeight.
+`AdjustTo` указывает масштабирование печати. Этот атрибут ограничен значениями в диапазоне от 10 (10%) до 400 (400%). Этот параметр переопределяется, когда используются `FitToWidth` и/или `FitToHeight`.
 
-- Например, установите макет страницы для `Sheet1` с черно-белой печатью, номер первой напечатанной страницы от `2`, альбомная ориентация на маленькую бумагу A4 (210 мм на 297 мм), 2 вертикальные страницы для размещения на них, 2 горизонтальные страницы для размещения включено и масштабирование печати 50%:
+`FitToHeight` указал количество вертикальных страниц, на которые можно поместиться.
+
+`FitToWidth` указывал количество горизонтальных страниц, на которые можно поместиться.
+
+`BlackAndWhite` указал печать черно-белую.
+
+Например, установите макет страницы для `Sheet1` с черно-белой печатью, номер первой напечатанной страницы от `2`, альбомная ориентация на маленькую бумагу A4 (210 мм на 297 мм), 2 вертикальные страницы для размещения и 2 горизонтальные страницы для размещения:
 
 ```go
 f := excelize.NewFile()
-if err := f.SetPageLayout(
-    "Sheet1",
-    excelize.BlackAndWhite(true),
-    excelize.FirstPageNumber(2),
-    excelize.PageLayoutOrientation(excelize.OrientationLandscape),
-    excelize.PageLayoutPaperSize(10),
-    excelize.FitToHeight(2),
-    excelize.FitToWidth(2),
-    excelize.PageLayoutScale(50),
-); err != nil {
+var (
+    size                 = 10
+    orientation          = "landscape"
+    firstPageNumber uint = 2
+    adjustTo        uint = 100
+    fitToHeight          = 2
+    fitToWidth           = 2
+    blackAndWhite        = true
+)
+if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+    Size:            &size,
+    Orientation:     &orientation,
+    FirstPageNumber: &firstPageNumber,
+    AdjustTo:        &adjustTo,
+    FitToHeight:     &fitToHeight,
+    FitToWidth:      &fitToWidth,
+    BlackAndWhite:   &blackAndWhite,
+}); err != nil {
     fmt.Println(err)
 }
 ```
@@ -720,38 +481,7 @@ if err := f.SetPageLayout(
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-GetPageLayout предоставляет функцию для получения макета страницы рабочего листа. Доступные Варианты:
-
-- `PageLayoutOrientation` предоставляет метод для получения ориентации листа
-- `PageLayoutPaperSize` предоставляет метод для получения размера листа
-
-- Например, получить макет страницы `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-var (
-    orientation excelize.PageLayoutOrientation
-    paperSize   excelize.PageLayoutPaperSize
-)
-if err := f.GetPageLayout("Sheet1", &orientation); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetPageLayout("Sheet1", &paperSize); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- orientation: %q\n", orientation)
-fmt.Printf("- paper size: %d\n", paperSize)
-```
-
-Вывод:
-
-```text
-Defaults:
-- orientation: "portrait"
-- paper size: 1
-```
+GetPageLayout предоставляет функцию для получения макета страницы листа.
 
 ## Задать поля страницы листа {#SetPageMargins}
 
@@ -761,32 +491,16 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 SetPageMargins предоставляет функцию для установки полей страницы рабочего листа. Доступные Варианты:
 
-Параметры|Тип
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- Например, установите поля страницы `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-if err := f.SetPageMargins(sheet,
-    excelize.PageMarginBottom(1.0),
-    excelize.PageMarginFooter(1.0),
-    excelize.PageMarginHeader(1.0),
-    excelize.PageMarginLeft(1.0),
-    excelize.PageMarginRight(1.0),
-    excelize.PageMarginTop(1.0),
-); err != nil {
-    fmt.Println(err)
-}
-```
+Параметры|Тип|Описание
+---|---|---
+Bottom | *float64 | Дно
+Footer | *float64 | Колонтитул
+Header | *float64 | Заголовок
+Left | *float64 | Ліворуч
+Right | *float64 | Правильно
+Top | *float64 | Топ
+Horizontally | *bool | Центр на странице: горизонтально
+Vertically | *bool | По центру на странице: по вертикали
 
 ## Получить поля страницы листа {#GetPageMargins}
 
@@ -794,135 +508,29 @@ if err := f.SetPageMargins(sheet,
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-GetPageMargins предоставляет функцию для получения полей страницы рабочего листа. Доступные Варианты:
+GetPageMargins предоставляет функцию для получения полей страницы рабочего листа.
 
-Параметры|Тип
----|---
-PageMarginBotom|float64
-PageMarginFooter|float64
-PageMarginHeader|float64
-PageMarginLeft|float64
-PageMarginRight|float64
-PageMarginTop|float64
-
-- Например, получить поля страницы `Sheet1`:
-
-```go
-f := excelize.NewFile()
-const sheet = "Sheet1"
-
-var (
-    marginBottom excelize.PageMarginBottom
-    marginFooter excelize.PageMarginFooter
-    marginHeader excelize.PageMarginHeader
-    marginLeft   excelize.PageMarginLeft
-    marginRight  excelize.PageMarginRight
-    marginTop    excelize.PageMarginTop
-)
-
-if err := f.GetPageMargins(sheet,
-    &marginBottom,
-    &marginFooter,
-    &marginHeader,
-    &marginLeft,
-    &marginRight,
-    &marginTop,
-); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Println("- marginBottom:", marginBottom)
-fmt.Println("- marginFooter:", marginFooter)
-fmt.Println("- marginHeader:", marginHeader)
-fmt.Println("- marginLeft:", marginLeft)
-fmt.Println("- marginRight:", marginRight)
-fmt.Println("- marginTop:", marginTop)
-```
-
-Вывод:
-
-```text
-Defaults:
-- marginBottom: 0.75
-- marginFooter: 0.3
-- marginHeader: 0.3
-- marginLeft: 0.7
-- marginRight: 0.7
-- marginTop: 0.75
-```
-
-## Установить свойства книги {#SetWorkbookPrOptions}
+## Установить свойства книги {#SetWorkbookProps}
 
 ```go
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-SetWorkbookProOptions предоставляет функцию для установки свойств книги. Доступные Варианты:
+SetWorkbookProps предоставляет функцию для установки свойств книги. Доступные Варианты:
 
-Параметры|Тип
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
+Параметры|Тип|Описание
+---|---|---
+Date1904 | *bool | Указывает, следует ли использовать систему дат 1900 или 1904 годов при преобразовании последовательной даты и времени в книге в даты.
+FilterPrivacy | *bool | Задает логическое значение, указывающее, проверило ли приложение книгу на наличие личных сведений ( PII). Если этот флаг установлен, приложение предупреждает пользователя каждый раз, когда пользователь выполняет действие, которое вставляет PII в документ.
+CodeName | *string | Задает кодовое имя приложения, создавшего эту книгу. Этот атрибут используется для отслеживания содержимого файла в добавочных выпусках приложения.
 
-Например, задайте свойства для книги:
-
-```go
-f := excelize.NewFile()
-if err := f.SetWorkbookPrOptions(
-    excelize.Date1904(false),
-    excelize.FilterPrivacy(false),
-    excelize.CodeName("code"),
-); err != nil {
-    fmt.Println(err)
-}
-```
-
-## Получить свойства книги {#GetWorkbookPrOptions}
+## Получить свойства книги {#GetWorkbookProps}
 
 ```go
 func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
-GetWorkbookProOptions предоставляет функцию для получения свойств книги. Доступные Варианты:
-
-Параметры|Тип
----|---
-Date1904|bool
-FilterPrivacy|bool
-CodeName|string
-
-Например, получить свойства книги:
-
-```go
-f := excelize.NewFile()
-var (
-    date1904      excelize.Date1904
-    filterPrivacy excelize.FilterPrivacy
-    codeName      excelize.CodeName
-)
-if err := f.GetWorkbookPrOptions(&date1904); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&filterPrivacy); err != nil {
-    fmt.Println(err)
-}
-if err := f.GetWorkbookPrOptions(&codeName); err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Defaults:")
-fmt.Printf("- date1904: %t\n", date1904)
-fmt.Printf("- filterPrivacy: %t\n", filterPrivacy)
-fmt.Printf("- codeName: %q\n", codeName)
-```
-
-Вывод:
-
-```text
-Defaults:
-- filterPrivacy: true
-- codeName: ""
-```
+GetWorkbookProps предоставляет функцию для получения свойств книги.
 
 ## Установить верхний и нижний колонтитулы {#SetHeaderFooter}
 

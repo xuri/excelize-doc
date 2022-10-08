@@ -1,6 +1,6 @@
 # клетка
 
-RichTextRun напрямую отображает настройки прогона расширенного текста.
+`RichTextRun` напрямую отображает настройки прогона расширенного текста.
 
 ```go
 type RichTextRun struct {
@@ -9,7 +9,7 @@ type RichTextRun struct {
 }
 ```
 
-HyperlinkOpts можно передать в [`SetCellHyperlink`](cell.md#SetCellHyperlink) для установки дополнительных атрибутов гиперссылки (например, отображаемого текста и текста подсказки на экране).
+`HyperlinkOpts` можно передать в [`SetCellHyperlink`](cell.md#SetCellHyperlink) для установки дополнительных атрибутов гиперссылки (например, отображаемого текста и текста подсказки на экране).
 
 ```go
 type HyperlinkOpts struct {
@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-FormulaOpts может быть передана [`SetCellFormula`](cell.md#SetCellFormula) для использования других типов формул.
+`FormulaOpts` может быть передана [`SetCellFormula`](cell.md#SetCellFormula) для использования других типов формул.
 
 ```go
 type FormulaOpts struct {
