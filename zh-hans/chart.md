@@ -54,6 +54,7 @@ col3DCylinderStacked        | 三维堆积圆柱图
 col3DCylinderPercentStacked | 三维百分比堆积圆柱图
 doughnut                    | 圆环图
 line                        | 折线图
+line3D                      | 三维折线图
 pie                         | 饼图
 pie3D                       | 三维饼图
 radar                       | 雷达图
@@ -81,19 +82,19 @@ marker|设置折线图和散点图数据系列线型宽度和线端类型。可�
 
 参数|类型|含义
 ---|---|---
-none|bool|指定是否关闭不与图表重叠的图例。默认值为 `false`
-position|string|图例位置
-show_legend_key|bool|指定是否在数据标签中显示图例项标示
+none            | `bool`   | 指定是否关闭不与图表重叠的图例。默认值为 `false`
+position        | `string` | 图例位置
+show_legend_key | `bool`   | 指定是否在数据标签中显示图例项标示
 
 其中参数 `position` 默认值为 `right`，该参数仅在当显示图例（即 `none` 的值为 `false`）时生效。下面是该参数的可选值：
 
 可选值|含义
 ---|---
-top|靠上
-bottom|靠下
-left|靠左
-right|靠右
-top_right|右上
+top       | 靠上
+bottom    | 靠下
+left      | 靠左
+right     | 靠右
+top_right | 右上
 
 其中参数 `show_legend_key` 默认值为 `false`。
 
@@ -103,9 +104,9 @@ top_right|右上
 
 值|含义
 ---|---
-gap|空距
-span|用直线连接数据点
-zero|零值
+gap  | 空距
+span | 用直线连接数据点
+zero | 零值
 
 通过参数 `vary_colors` 指定是否设置图表数据系列格式为自动填充颜色，默认值为 `true`。
 
@@ -115,12 +116,12 @@ zero|零值
 
 参数|类型|默认值|含义
 ---|---|---|---
-show_bubble_size|bool|`false`|气泡大小
-show_cat_name|bool|`true`|类别名称
-show_leader_lines|bool|`false`|显示引导线
-show_percent|bool|`false`|百分比
-show_series_name|bool|`false`|系列名称
-show_val|bool|`false`|值
+show_bubble_size  | `bool` | `false` | 气泡大小
+show_cat_name     | `bool` | `true`  | 类别名称
+show_leader_lines | `bool` | `false` | 显示引导线
+show_percent      | `bool` | `false` | 百分比
+show_series_name  | `bool` | `false` | 系列名称
+show_val          | `bool` | `false` | 值
 
 通过参数 `x_axis` 和 `y_axis` 参数设置坐标轴选项。
 
@@ -128,32 +129,32 @@ show_val|bool|`false`|值
 
 参数|类型|默认值|含义
 ---|---|---|---
-none|bool|`false`|隐藏坐标轴
-major_grid_lines|bool|`false`|主要网格线
-minor_grid_lines|bool|`false`|次要网格线
-tick_label_skip|int|`1`|指定标签间隔单位
-reverse_order|bool|`false`|逆序刻度值
-maximum|int|`0`|最大值，`0` 代表自动
-minimum|int|`0`|最小值，`0` 代表自动
+none             | `bool` | `false` | 隐藏坐标轴
+major_grid_lines | `bool` | `false` | 主要网格线
+minor_grid_lines | `bool` | `false` | 次要网格线
+tick_label_skip  | `int`  | `1`     | 指定标签间隔单位
+reverse_order    | `bool` | `false` | 逆序刻度值
+maximum          | `int`  | `0`     | 最大值，`0` 代表自动
+minimum          | `int`  | `0`     | 最小值，`0` 代表自动
 
 下面是 `y_axis` 参数的可选值：
 
 参数|类型|默认值|含义
 ---|---|---|---
-none|bool|`false`|隐藏坐标轴
-major_grid_lines|bool|`false`|主要网格线
-minor_grid_lines|bool|`false`|次要网格线
-major_unit|float64|`0`|坐标轴主要刻度单位
-reverse_order|bool|`false`|逆序刻度值
-maximum|int|`0`|最大值，`0` 代表自动
-minimum|int|`0`|最小值，`0` 代表自动
+none             | `bool`    | `false` | 隐藏坐标轴
+major_grid_lines | `bool`    | `false` | 主要网格线
+minor_grid_lines | `bool`    | `false` | 次要网格线
+major_unit       | `float64` | `0`     | 坐标轴主要刻度单位
+reverse_order    | `bool`    | `false` | 逆序刻度值
+maximum          | `int`     | `0`     | 最大值，`0` 代表自动
+minimum          | `int`     | `0`     | 最小值，`0` 代表自动
 
 通过可选 `dimension` 对象设置图表的大小，可选参数如下：
 
 参数|类型|默认值|含义
 ---|---|---|---
-height|int|290|高度
-width|int|480|宽度
+height | `int` | 290 | 高度
+width  | `int` | 480 | 宽度
 
 参数 `combo` 用来指定创建组合图表，该图表将两个或多个图表类型组合在一个图表中。例如，在 `Sheet1!$E$1:$L$15` 区域创建一个 簇状柱形图 - 折线图：
 

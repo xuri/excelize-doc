@@ -82,10 +82,11 @@ func main() {
         }
     }
     // 隐藏工作表网格线
-    if err = f.SetSheetViewOptions("Sheet1", 0,
-        excelize.ShowGridLines(false)); err != nil {
+    enable := true
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // 定义边框样式
     border := []excelize.Border{

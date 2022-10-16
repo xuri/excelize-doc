@@ -146,6 +146,7 @@
   * [三维百分比堆积圆柱图](chart/col3DCylinderPercentStacked.md)
   * [圆环图](chart/doughnut.md)
   * [折线图](chart/line.md)
+  * [三维折线图](chart/line3D.md)
   * [饼图](chart/pie.md)
   * [三维饼图](chart/pie3D.md)
   * [雷达图](chart/radar.md)

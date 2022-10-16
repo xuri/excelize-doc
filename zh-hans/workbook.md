@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-根据给定的工作表名称和属性参数设置工作表属性。
+根据给定的工作表名称和属性参数设置工作表属性。支持设置的工作表属性选项：
+
+属性 | 类型 | 描述
+---|---|---
+CodeName                          | `*string`  | 代码名
+EnableFormatConditionsCalculation | `*bool`    | 指定条件格式是否自动计算，默认值为 `true`
+Published                         | `*bool`    | 指定工作表是否发布，默认值为 `true`
+AutoPageBreaks                    | `*bool`    | 指定工作表是否自动分页，默认值为 `true`
+FitToPage                         | `*bool`    | 指定是否开启自适应页面打印，默认值为 `false`
+TabColorIndexed                   | `*int`     | 仅用于向后兼容的索引色值
+TabColorRGB                       | `*string`  | 标准 ARGB 色值
+TabColorTheme                     | `*int`     | 从 `0` 开始的主题颜色索引
+TabColorTint                      | `*float64` | 应用于颜色的色调值，默认值为 `0.0`
+OutlineSummaryBelow               | `*bool`    | 指定分级显示方向，是否在明细数据的下方，默认值为 `true`
+OutlineSummaryRight               | `*bool`    | 指定分级显示方向，是否在明细数据的右侧，默认值为 `true`
+BaseColWidth                      | `*uint8`   | 以字符数为单位表示的基本列宽度，默认值为 `8`
+DefaultColWidth                   | `*float64` | 包含边距和网格线的默认列宽度
+DefaultRowHeight                  | `*float64` | 以磅为单位表示的行高度
+CustomHeight                      | `*bool`    | 指定是否应用自定义行高度，默认值为 `false`
+ZeroHeight                        | `*bool`    | 指定是否默认隐藏行，默认值为 `false`
+ThickTop                          | `*bool`    | 指定默认情况下行是否具有粗上边框，默认值为 `false`
+ThickBottom                       | `*bool`    | 指定默认情况下行是否具有粗下边框，默认值为 `false`
 
 例如，设置名为 `Sheet1` 的工作表中行默认为隐藏：
 
@@ -264,7 +285,20 @@ func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-根据给定的工作表名称、视图索引和视图参数设置工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。
+根据给定的工作表名称、视图索引和视图参数设置工作表视图属性，`viewIndex` 可以是负数，如果是这样，则向后计数（`-1` 代表最后一个视图）。支持设置的工作表视图属性选项：
+
+属性 | 类型 | 描述
+---|---|---
+DefaultGridColor  | `*bool`    | 指定是否使用默认网格线颜色，默认值为 `true`
+RightToLeft       | `*bool`    | 指定是否使用从右到左显示模式，默认值为 `false`
+ShowFormulas      | `*bool`    | 指定工作表是否显示公式，默认值为 `false`
+ShowGridLines     | `*bool`    | 指定工作表是否显示网格线，默认值为 `true`
+ShowRowColHeaders | `*bool`    | 指定工作表是否显示标题行和标题列，默认值为 `true`
+ShowRuler         | `*bool`    | 指定是否在页面布局视图中显示标尺，默认值为 `true`
+ShowZeros         | `*bool`    | 指定是否显示单元格的零值，默认值为 `true`，否则将显示空白
+TopLeftCell       | `*string`  | 指定左上角可见单元格的坐标
+View              | `*string`  | 指示工作表视图类型，枚举值为 `normal`，`pageBreakPreview` 和 `pageLayout`
+ZoomScale         | `*float64` | 以百分比表示的当前视图显示窗口缩放比例，区间范围限于 10 ~ 400，默认值为 `100`
 
 ## 获取工作表视图属性 {#GetSheetView}
 
@@ -459,14 +493,14 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 选项 | 类型 | 描述
 ---|---|---
-Bottom | *float64 | 下
-Footer | *float64 | 页脚
-Header | *float64 | 页眉
-Left | *float64 | 左
-Right | *float64 | 右
-Top | *float64 | 上
-Horizontally | *bool | 页面居中方式：水平
-Vertically | *bool | 页面居中方式：垂直
+Bottom       | `*float64` | 下
+Footer       | `*float64` | 页脚
+Header       | `*float64` | 页眉
+Left         | `*float64` | 左
+Right        | `*float64` | 右
+Top          | `*float64` | 上
+Horizontally | `*bool`    | 页面居中方式：水平
+Vertically   | `*bool`    | 页面居中方式：垂直
 
 ## 获取工作表页边距 {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps 用于设置工作簿属性。支持设置的工作簿属性：
 
 属性 | 类型 | 描述
 ---|---|---
-Date1904 | *bool | 指示工作簿是否使用 1904 日期系统
-FilterPrivacy | *bool | 筛选器隐私，指示应用程序是否检查工作簿中的个人识别信息
-CodeName | *string | 代码名
+Date1904      | `*bool`   | 指示工作簿是否使用 1904 日期系统
+FilterPrivacy | `*bool`   | 筛选器隐私，指示应用程序是否检查工作簿中的个人识别信息
+CodeName      | `*string` | 代码名
 
 ## 获取工作簿属性 {#GetWorkbookProps}
 

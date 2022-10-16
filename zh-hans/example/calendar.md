@@ -192,10 +192,11 @@ func main() {
         }
     }
     // 隐藏工作表网格线
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // 重命名工作表
     f.SetSheetName(sheet, "五月 20")
