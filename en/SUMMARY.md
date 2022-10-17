@@ -146,6 +146,7 @@
   * [3D 100% cylinder stacked column chart](chart/col3DCylinderPercentStacked.md)
   * [Doughnut chart](chart/doughnut.md)
   * [Line chart](chart/line.md)
+  * [3D line chart](chart/line3D.md)
   * [Pie chart](chart/pie.md)
   * [3D pie chart](chart/pie3D.md)
   * [Radar chart](chart/radar.md)

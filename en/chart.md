@@ -81,9 +81,9 @@ Set properties of the chart legend. The options that can be set are:
 
 Parameter|Type|Explanation
 ---|---|---
-none|bool|Specify if show the legend without overlapping the chart. The default value is `false`
-position|string|The position of the chart legend
-show_legend_key|bool|Set the legend keys shall be shown in data labels
+none            | `bool`   | Specify if show the legend without overlapping the chart. The default value is `false`
+position        | `string` | The position of the chart legend
+show_legend_key | `bool`   | Set the legend keys shall be shown in data labels
 
 Set the `position` of the chart legend. The default legend position is `right`. This parameter only takes effect when `none` is `false`. The available positions are:
 
@@ -115,12 +115,12 @@ Set the position of the chart plot area by plot area. The properties that can be
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-show_bubble_size|bool|`false`|Specifies the bubble size shall be shown in a data label.
-show_cat_name|bool|`true`|Category name.
-show_leader_lines|bool|`false`|Specifies that the category name shall be shown in the data label.
-show_percent|bool|`false`|Specifies that the percentage shall be shown in a data label.
-show_series_name|bool|`false`|Specifies that the series name shall be shown in a data label.
-show_val|bool|`false`|Specifies that the value shall be shown in a data label.
+show_bubble_size  | `bool` | `false` | Specifies the bubble size shall be shown in a data label.
+show_cat_name     | `bool` | `true`  | Category name.
+show_leader_lines | `bool` | `false` | Specifies that the category name shall be shown in the data label.
+show_percent      | `bool` | `false` | Specifies that the percentage shall be shown in a data label.
+show_series_name  | `bool` | `false` | Specifies that the series name shall be shown in a data label.
+show_val          | `bool` | `false` | Specifies that the value shall be shown in a data label.
 
 Set the primary horizontal and vertical axis options by `x_axis` and `y_axis`.
 
@@ -128,32 +128,32 @@ The properties of `x_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-none|bool|`false`|Disable axes.
-major_grid_lines|bool|`false`|Specifies major gridlines.
-minor_grid_lines|bool|`false`|Specifies minor gridlines.
-tick_label_skip|int|`1`|Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
-reverse_order|bool|`false`|Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
-maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-minimum|int|`0`|Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+none             | `bool` | `false` | Disable axes.
+major_grid_lines | `bool` | `false` | Specifies major grid lines.
+minor_grid_lines | `bool` | `false` | Specifies minor grid lines.
+tick_label_skip  | `int`  | `1`     | Specifies how many tick labels to skip between label that is drawn. The `tick_label_skip` property is optional. The default value is auto.
+reverse_order    | `bool` | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
+maximum          | `int`  | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+minimum          | `int`  | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
 
 The properties of `y_axis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-none|bool|`false`|Disable axes.
-major_grid_lines|bool|`false`|Specifies major gridlines.
-minor_grid_lines|bool|`false`|Specifies minor gridlines.
-major_unit|float64|`0`|Specifies the distance between major ticks. Shall contain a positive floating-point number. The `major_unit` property is optional. The default value is auto.
-reverse_order|bool|`false`|Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
-maximum|int|`0`|Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-minimum|int|`0`|Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+none             | `bool`    | `false` | Disable axes.
+major_grid_lines | `bool`    | `false` | Specifies major grid lines.
+minor_grid_lines | `bool`    | `false` | Specifies minor grid lines.
+major_unit       | `float64` | `0`     | Specifies the distance between major ticks. Shall contain a positive floating-point number. The `major_unit` property is optional. The default value is auto.
+reverse_order    | `bool`    | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `reverse_order` property is optional.
+maximum          | `int`     | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+minimum          | `int`     | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
 
 Set the chart size by `dimension` property. The dimension property is optional. The properties that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-height|int|290|Height
-width|int|480|Width
+height | `int` | 290 | Height
+width  | `int` | 480 | Width
 
 The parameter `combo` specifies the create a chart that combines two or more chart types in a single chart. For example, create a clustered column - line chart with data `Sheet1!$E$1:$L$15`:
 

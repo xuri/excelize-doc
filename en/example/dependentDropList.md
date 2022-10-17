@@ -82,10 +82,11 @@ func main() {
         }
     }
     // hide gridlines for the worksheet
-    if err = f.SetSheetViewOptions("Sheet1", 0,
-        excelize.ShowGridLines(false)); err != nil {
+    enable := true
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // define the border style
     border := []excelize.Border{

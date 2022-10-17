@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetProps provides a function to set worksheet properties.
+SetSheetProps provides a function to set worksheet properties. The properties that can be set are:
+
+Options|Type|Description
+---|---|---
+CodeName                          | `*string`  | Specifies a stable name of the sheet, which should not change over time, and does not change from user input. This name should be used by code to reference a particular sheet
+EnableFormatConditionsCalculation | `*bool`    | Indicating whether the conditional formatting calculations shall be evaluated. If set to false, then the min/max values of color scales or data bars or threshold values in Top N rules shall not be updated. Essentially the conditional formatting "calc" is off
+Published                         | `*bool`    | Indicating whether the worksheet is published, the default value is `true`
+AutoPageBreaks                    | `*bool`    | Indicating whether the sheet displays Automatic Page Breaks, the default value is `true`
+FitToPage                         | `*bool`    | Indicating whether the Fit to Page print option is enabled, the default value is `false`
+TabColorIndexed                   | `*int`     | Represents the indexed color value
+TabColorRGB                       | `*string`  | Represents the standard ARGB (Alpha Red Green Blue) color value
+TabColorTheme                     | `*int`     | Represents the zero-based index into the collection, referencing a particular value expressed in the Theme part
+TabColorTint                      | `*float64` | Specifies the tint value applied to the color, the default value is `0.0`
+OutlineSummaryBelow               | `*bool`    | Indicating whether summary rows appear below detail in an outline, when applying an outline, the default value is `true`
+OutlineSummaryRight               | `*bool`    | Indicating whether summary columns appear to the right of detail in an outline, when applying an outline, the default value is `true`
+BaseColWidth                      | `*uint8`   | Specifies the number of characters of the maximum digit width of the normal style's font. This value does not include margin padding or extra padding for grid lines. It is only the number of characters, the default value is `8`
+DefaultColWidth                   | `*float64` | Specifies the default column width measured as the number of characters of the maximum digit width of the normal style's font
+DefaultRowHeight                  | `*float64` | Specifies the default row height measured in point size. Optimization so we don't have to write the height on all rows. This can be written out if most rows have custom height, to achieve the optimization
+CustomHeight                      | `*bool`    | Specifies the custom height, the default value is `false`
+ZeroHeight                        | `*bool`    | Specifies if rows are hidden, the default value is `false`
+ThickTop                          | `*bool`    | Specifies if rows have a thick top border by default, the default value is `false`
+ThickBottom                       | `*bool`    | Specifies if rows have a thick bottom border by default, the default value is `false`
 
 For example, make worksheet rows default as hidden:
 
@@ -264,7 +285,20 @@ GetSheetProps provides a function to get worksheet properties.
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetView sets sheet view properties. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view).
+SetSheetView sets sheet view properties. The `viewIndex` may be negative and if so is counted backward (`-1` is the last view). The properties that can be set are:
+
+Options|Type|Description
+---|---|---
+DefaultGridColor  | `*bool`    | Indicating that the consuming application should use the default grid lines color(system dependent). Overrides any color specified in colorId, the default value is `true`
+RightToLeft       | `*bool`    | Indicating whether the sheet is in "right to left" display mode. When in this mode, Column A is on the far right, Column B; is one column left of Column A, and so on. Also, information in cells is displayed in the Right to Left format, the default value is `false`
+ShowFormulas      | `*bool`    | Indicating whether this sheet should display formulas, the default value is `false`
+ShowGridLines     | `*bool`    | Indicating whether this sheet should display grid lines, the default value is `true`
+ShowRowColHeaders | `*bool`    | Indicating whether the sheet should display row and column headings, the default value is `true`
+ShowRuler         | `*bool`    | Indicating this sheet should display ruler, the default value is `true`
+ShowZeros         | `*bool`    | Indicating whether to "show a zero in cells that have zero value". When using a formula to reference another cell which is empty, the referenced value becomes `0` when the flag is `true`, the default value is `true`
+TopLeftCell       | `*string`  | Specifies a location of the top left visible cell Location of the top left visible cell in the bottom right pane (when in Left-to-Right mode)
+View              | `*string`  | Indicating how sheet is displayed, by default it uses empty string, available options: `normal`，`pageBreakPreview` and `pageLayout`
+ZoomScale         | `*float64` | Specifies a window zoom magnification for current view representing percent values. This attribute is restricted to values ranging from `10` to `400`. Horizontal & Vertical scale together, the default value is `100`
 
 ## Get worksheet view properties {#GetSheetView}
 
@@ -459,14 +493,14 @@ SetPageMargins provides a function to set worksheet page margins. Available opti
 
 Options|Type|Description
 ---|---|---
-Bottom | *float64 | Bottom
-Footer | *float64 | Footer
-Header | *float64 | Header
-Left | *float64 | Left
-Right | *float64 | Right
-Top | *float64 | Top
-Horizontally | *bool | Center on page: Horizontally
-Vertically | *bool | Center on page: Vertically
+Bottom       | `*float64` | Bottom
+Footer       | `*float64` | Footer
+Header       | `*float64` | Header
+Left         | `*float64` | Left
+Right        | `*float64` | Right
+Top          | `*float64` | Top
+Horizontally | `*bool`    | Center on page: Horizontally
+Vertically   | `*bool`    | Center on page: Vertically
 
 ## Get worksheet page margins {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps provides a function to sets workbook properties. Available opti
 
 Options|Type|Description
 ---|---|---
-Date1904 | *bool | Indicates whether to use a 1900 or 1904 date system when converting serial date-times in the workbook to dates.
-FilterPrivacy | *bool | Specifies a boolean value that indicates whether the application has inspected the workbook for personally identifying information (PII). If this flag is set, the application warns the user any time the user performs an action that will insert PII into the document.
-CodeName | *string | Specifies the codename of the application that created this workbook. Use this attribute to track file content in incremental releases of the application.
+Date1904      | `*bool`   | Indicates whether to use a 1900 or 1904 date system when converting serial date-times in the workbook to dates.
+FilterPrivacy | `*bool`   | Specifies a boolean value that indicates whether the application has inspected the workbook for personally identifying information (PII). If this flag is set, the application warns the user any time the user performs an action that will insert PII into the document.
+CodeName      | `*string` | Specifies the codename of the application that created this workbook. Use this attribute to track file content in incremental releases of the application.
 
 ## Get workbook properties {#GetWorkbookProps}
 

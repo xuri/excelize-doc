@@ -192,10 +192,11 @@ func main() {
         }
     }
     // hide gridlines for the worksheet
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // rename worksheet
     f.SetSheetName(sheet, "May 20")
