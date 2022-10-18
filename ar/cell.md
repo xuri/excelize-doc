@@ -294,9 +294,10 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.SetSheetViewOptions("Sheet1", -1,
-        excelize.RightToLeft(true),
-    ); err != nil {
+    enable := true
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
     }
     if err := f.SetColWidth("Sheet1", "A", "A", 44); err != nil {

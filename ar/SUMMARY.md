@@ -146,6 +146,7 @@
   * [مخطط عمودي مكدس بأسطوانة ثلاثية الأبعاد 100٪](chart/col3DCylinderPercentStacked.md)
   * [دونات الرسم البياني](chart/doughnut.md)
   * [مخطط خطي](chart/line.md)
+  * [مخطط خطي ثلاثي الأبعاد](chart/line3D.md)
   * [مخطط دائري](chart/pie.md)
   * [مخطط دائري ثلاثي الأبعاد](chart/pie3D.md)
   * [مخطط رادار](chart/radar.md)

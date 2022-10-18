@@ -1,8 +1,8 @@
-# مخطط عمودي ثنائي الأبعاد متفاوت {#col}
+# مخطط خطي ثلاثي الأبعاد {#line3D}
 
-على سبيل المثال ، أضف مخطط عمودي ثنائي الأبعاد متفاوت مثل هذا:
+على سبيل المثال ، أضف مخطط خطي ثلاثي الأبعاد مثل هذا:
 
-<p align="center"><img width="771" src="../images/2d_clustered_column_chart.png" alt="إنشاء مخطط عمودي ثنائي الأبعاد متفاوت باستخدام برنامج excelize باستخدام لغة Go"></p>
+<p align="center"><img width="771" src="../images/3d_line_chart.png" alt="إنشاء مخطط خطي ثلاثي الأبعاد باستخدام برنامج excelize باستخدام لغة Go"></p>
 
 ```go
 package main
@@ -33,7 +33,7 @@ func main() {
         f.SetCellValue("ورقة1", k, v)
     }
     if err := f.AddChart("ورقة1", "E1", `{
-        "type": "col",
+        "type": "line3D",
         "series": [
         {
             "name": "ورقة1!$A$2",
@@ -62,28 +62,28 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "top",
             "show_legend_key": false
         },
         "title":
         {
-            "name": "مخطط عمودي ثنائي الأبعاد متفاوت"
+            "name": "مخطط خطي ثلاثي الأبعاد"
         },
         "plotarea":
         {
-            "show_bubble_size": true,
+            "show_bubble_size": false,
             "show_cat_name": false,
             "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+            "show_percent": false,
+            "show_series_name": false,
+            "show_val": false
         },
         "show_blanks_as": "zero"
     }`); err != nil {
         fmt.Println(err)
     }
     // احفظ جدول البيانات بالمسار المحدد.
-    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

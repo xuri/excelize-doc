@@ -47,9 +47,10 @@ func main() {
         bottom = excelize.Border{Type: "bottom", Style: 1, Color: "DADEE0"}
         fill   = excelize.Fill{Type: "pattern", Color: []string{"EFEFEF"}, Pattern: 1}
     )
-    if err := f.SetSheetViewOptions("Sheet1", -1,
-        excelize.RightToLeft(true),
-    ); err != nil {
+    enable := true
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
     }
     // قم بتعيين قيمة كل خلية
@@ -197,10 +198,11 @@ func main() {
         }
     }
     // إخفاء خطوط الشبكة لورقة العمل
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // إعادة تسمية ورقة العمل
     f.SetSheetName(sheet, "مايو 20")

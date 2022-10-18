@@ -737,9 +737,10 @@ import (
 func main() {
     f := excelize.NewFile()
     f.SetSheetName("Sheet1", "ورقة1")
-    if err := f.SetSheetViewOptions("ورقة1", -1,
-        excelize.RightToLeft(true),
-    ); err != nil {
+    enable := true
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
     }
     for r := 1; r <= 4; r++ {

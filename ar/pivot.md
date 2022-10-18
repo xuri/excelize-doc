@@ -94,9 +94,10 @@ import (
 
 func main() {
     f := excelize.NewFile()
-    if err := f.SetSheetViewOptions("Sheet1", -1,
-        excelize.RightToLeft(true),
-    ); err != nil {
+    enable := true
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
     }
     // قم بإنشاء بعض البيانات في ورقة العمل

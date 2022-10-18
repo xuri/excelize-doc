@@ -19,9 +19,10 @@ func main() {
     values := map[string]int{"A2": 2, "B2": 3, "C2": 3}
     f := excelize.NewFile()
     f.SetSheetName("Sheet1", "ورقة1")
-    if err := f.SetSheetViewOptions("ورقة1", -1,
-        excelize.RightToLeft(true),
-    ); err != nil {
+    enable := true
+    if err := f.SetSheetView("ورقة1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
     }
     for k, v := range categories {

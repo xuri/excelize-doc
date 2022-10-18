@@ -20,9 +20,10 @@ func main() {
         "B2": 7, "C2": 7, "D2": 8, "B3": 5, "C3": 4, "D3": 4, "B4": 2, "C4": 3, "D4": 3}
     f := excelize.NewFile()
     f.SetSheetName("Sheet1", "ورقة1")
-    if err := f.SetSheetViewOptions("ورقة1", -1,
-        excelize.RightToLeft(true),
-    ); err != nil {
+    enable := true
+    if err := f.SetSheetView("ورقة1", -1, &excelize.ViewOptions{
+        RightToLeft: &enable,
+    }); err != nil {
         fmt.Println(err)
     }
     for k, v := range categories {
