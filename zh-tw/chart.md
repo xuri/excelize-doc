@@ -81,9 +81,9 @@ marker|設定折線圖和散點圖數據系列線型寬度和線端類型。可�
 
 參數|類別|含義
 ---|---|---
-none|bool|指定是否關閉不與圖表重疊的圖例。默認值為 `false`
-position|string|圖例位置
-show_legend_key|bool|指定是否在數據標籤中顯示圖例項標示
+none            | `bool`   | 指定是否關閉不與圖表重疊的圖例。默認值為 `false`
+position        | `string` | 圖例位置
+show_legend_key | `bool`   | 指定是否在數據標籤中顯示圖例項標示
 
 其中參數 `position` 默認值為 `right`，該參數僅在當顯示圖例（即 `none` 的值為 `false`）時生效。下面是該參數的可選值：
 
@@ -115,12 +115,12 @@ zero|零值
 
 參數|類別|默認值|含義
 ---|---|---|---
-show_bubble_size|bool|`false`|泡泡大小
-show_cat_name|bool|`true`|類別名稱
-show_leader_lines|bool|`false`|顯示引導線
-show_percent|bool|`false`|百分比
-show_series_name|bool|`false`|系列名稱
-show_val|bool|`false`|值
+show_bubble_size  | `bool` | `false` | 泡泡大小
+show_cat_name     | `bool` | `true`  | 類別名稱
+show_leader_lines | `bool` | `false` | 顯示引導線
+show_percent      | `bool` | `false` | 百分比
+show_series_name  | `bool` | `false` | 系列名稱
+show_val          | `bool` | `false` | 值
 
 通過參數 `x_axis` 和 `y_axis` 參數設定坐標軸選項。
 
@@ -128,32 +128,32 @@ show_val|bool|`false`|值
 
 參數|類別|默認值|含義
 ---|---|---|---
-none|bool|`false`|隱藏坐標軸
-major_grid_lines|bool|`false`|主要網格線
-minor_grid_lines|bool|`false`|次要網格線
-tick_label_skip|int|`1`|指定標籤間隔單位
-reverse_order|bool|`false`|逆序刻度值
-maximum|int|`0`|最大值，`0` 代表自動
-minimum|int|`0`|最小值，`0` 代表自動
+none             | `bool` | `false` | 隱藏坐標軸
+major_grid_lines | `bool` | `false` | 主要網格線
+minor_grid_lines | `bool` | `false` | 次要網格線
+tick_label_skip  | `int`  | `1`     | 指定標籤間隔單位
+reverse_order    | `bool` | `false` | 逆序刻度值
+maximum          | `int`  | `0`     | 最大值，`0` 代表自動
+minimum          | `int`  | `0`     | 最小值，`0` 代表自動
 
 下面是 `y_axis` 參數的可選值：
 
 參數|類別|默認值|含義
 ---|---|---|---
-none|bool|`false`|隱藏坐標軸
-major_grid_lines|bool|`false`|主要網格線
-minor_grid_lines|bool|`false`|次要網格線
-major_unit|float64|`0`|坐標軸主要刻度單位
-reverse_order|bool|`false`|逆序刻度值
-maximum|int|`0`|最大值，`0` 代表自動
-minimum|int|`0`|最小值，`0` 代表自動
+none             | `bool`    | `false` | 隱藏坐標軸
+major_grid_lines | `bool`    | `false` | 主要網格線
+minor_grid_lines | `bool`    | `false` | 次要網格線
+major_unit       | `float64` | `0`     | 坐標軸主要刻度單位
+reverse_order    | `bool`    | `false` | 逆序刻度值
+maximum          | `int`     | `0`     | 最大值，`0` 代表自動
+minimum          | `int`     | `0`     | 最小值，`0` 代表自動
 
 通過可選 `dimension` 對象設定圖表的大小，可選參數如下：
 
 參數|類別|默認值|含義
 ---|---|---|---
-height|int|290|高度
-width|int|480|寬度
+height | `int` | 290 | 高度
+width  | `int` | 480 | 寬度
 
 參數 `combo` 用來指定創建組合圖表，該圖表將兩個或多個圖表類別組合在一個圖表中。例如，在 `Sheet1!$E$1:$L$15` 區域創建一個 群組柱形圖 - 折線圖：
 

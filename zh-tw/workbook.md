@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-根據給定的工作表名稱和屬性參數設定工作表屬性。
+根據給定的工作表名稱和屬性參數設定工作表屬性。支持设置的工作表属性选项：
+
+屬性 | 類型 | 描述
+---|---|---
+CodeName                          | `*string`  | 代碼名
+EnableFormatConditionsCalculation | `*bool`    | 指定條件格式是否自動計算，默認值為 `true`
+Published                         | `*bool`    | 指定工作表是否發佈，默認值為 `true`
+AutoPageBreaks                    | `*bool`    | 指定工作表是否自動分頁，默認值為 `true`
+FitToPage                         | `*bool`    | 指定是否開啓自適應頁面打印，默認值為 `false`
+TabColorIndexed                   | `*int`     | 僅用於向後兼容的索引色值
+TabColorRGB                       | `*string`  | 標準 ARGB 色值
+TabColorTheme                     | `*int`     | 從 `0` 開始的主題顏色索引
+TabColorTint                      | `*float64` | 應用於顏色的色調值，默認值為 `0.0`
+OutlineSummaryBelow               | `*bool`    | 指定分級顯示方向，是否在明細數據的下方，默認值為 `true`
+OutlineSummaryRight               | `*bool`    | 指定分級顯示方向，是否在明細數據的右側，默認值為 `true`
+BaseColWidth                      | `*uint8`   | 以字符數為單位表示的基本列寬度，默認值為 `8`
+DefaultColWidth                   | `*float64` | 包含邊距和網格線的默認欄寬度
+DefaultRowHeight                  | `*float64` | 以磅為單位表示的行高度
+CustomHeight                      | `*bool`    | 指定是否應用自定義列高度，默認值為 `false`
+ZeroHeight                        | `*bool`    | 指定是否默認隱藏列，默認值為 `false`
+ThickTop                          | `*bool`    | 指定默認情況下列是否具有粗上邊框，默認值為 `false`
+ThickBottom                       | `*bool`    | 指定默認情況下列是否具有粗下邊框，默認值為 `false`
 
 例如，設定名為 `Sheet1` 的工作表中列默認為隱藏：
 
@@ -264,7 +285,20 @@ func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
+根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支持设置的工作表檢視属性选项：
+
+屬性 | 類型 | 描述
+---|---|---
+DefaultGridColor  | `*bool`    | 指定是否使用默認網格線顏色，默認值為 `true`
+RightToLeft       | `*bool`    | 指定是否使用從右到左顯示模式，默認值為 `false`
+ShowFormulas      | `*bool`    | 指定工作表是否顯示公式，默認值為 `false`
+ShowGridLines     | `*bool`    | 指定工作表是否顯示網格線，默認值為 `true`
+ShowRowColHeaders | `*bool`    | 指定工作表是否顯示標題列和標題欄，默認值為 `true`
+ShowRuler         | `*bool`    | 指定是否在頁面佈局檢視中顯示標尺，默認值為 `true`
+ShowZeros         | `*bool`    | 指定是否顯示單元格的零值，默認值為 `true`，否則將顯示空白
+TopLeftCell       | `*string`  | 指定左上角可見單元格的坐標
+View              | `*string`  | 指示工作表檢視類型，枚舉值為 `normal`，`pageBreakPreview` 和 `pageLayout`
+ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口縮放比例，區間範圍限於 10 ~ 400，默認值為 `100`
 
 ## 獲取工作表檢視屬性 {#GetSheetView}
 
@@ -459,14 +493,14 @@ func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) erro
 
 選項 | 類別 | 描述
 ---|---|---
-Bottom | *float64 | 底端
-Footer | *float64 | 頁尾
-Header | *float64 | 頁首
-Left | *float64 | 左
-Right | *float64 | 右
-Top | *float64 | 頂端
-Horizontally | *bool | 頁面置中方式：水平置中
-Vertically | *bool | 頁面置中方式：垂直置中
+Bottom       | `*float64` | 底端
+Footer       | `*float64` | 頁尾
+Header       | `*float64` | 頁首
+Left         | `*float64` | 左
+Right        | `*float64` | 右
+Top          | `*float64` | 頂端
+Horizontally | `*bool`    | 頁面置中方式：水平置中
+Vertically   | `*bool`    | 頁面置中方式：垂直置中
 
 ## 獲取工作表頁邊界 {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps 用於設定活頁簿的屬性。支持設定的工作簿屬性
 
 属性 | 类别 | 描述
 ---|---|---
-Date1904 | *bool | 指示工作簿是否使用 1904 日期系統
-FilterPrivacy | *bool | 篩選器隱私，指示應用程序是否檢查工作簿中的個人識別信息
-CodeName | *string | 代碼名
+Date1904      | `*bool`   | 指示工作簿是否使用 1904 日期系統
+FilterPrivacy | `*bool`   | 篩選器隱私，指示應用程序是否檢查工作簿中的個人識別信息
+CodeName      | `*string` | 代碼名
 
 ## 獲取活頁簿屬性 {#GetWorkbookPrOptions}
 
