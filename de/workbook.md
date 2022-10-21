@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetProps bietet eine Funktion zum Festlegen von Arbeitsblatteigenschaften.
+SetSheetProps bietet eine Funktion zum Festlegen von Arbeitsblatteigenschaften. Die Eigenschaften, die festgelegt werden können, sind:
+
+Options|Typ|Beschreibung
+---|---|---
+CodeName                          | `*string`  | Gibt einen stabilen Namen des Blatts an, der sich im Laufe der Zeit nicht ändern sollte und sich nicht durch Benutzereingaben ändert. Dieser Name sollte vom Code verwendet werden, um auf ein bestimmtes Blatt zu verweisen.
+EnableFormatConditionsCalculation | `*bool`    | Gibt an, ob die Berechnungen der bedingten Formatierung ausgewertet werden sollen. Wenn diese Option auf false festgelegt ist, werden die Min/Max-Werte von Farbskalen oder Datenbalken oder Schwellenwerten in Top-N-Regeln nicht aktualisiert. Im Wesentlichen ist die bedingte Formatierung "calc" deaktiviert
+Published                         | `*bool`    | Gibt an, ob das Arbeitsblatt veröffentlicht wurde, und der Standardwert ist `true`
+AutoPageBreaks                    | `*bool`    | Gibt an, ob auf dem Blatt "Automatische Seitenumbrüche" angezeigt werden, ist der Standardwert `true`
+FitToPage                         | `*bool`    | Gibt an, ob die Option An Seite anpassen (Anpassen an Seite drucken) aktiviert ist, und der Standardwert ist `false`
+TabColorIndexed                   | `*int`     | Stellt den indizierten Farbwert dar
+TabColorRGB                       | `*string`  | Stellt den standardmäßigen ARGB-Farbwert (Alpha Red Green Blue) dar
+TabColorTheme                     | `*int`     | Stellt den nullbasierten Index in der Auflistung dar und verweist auf einen bestimmten Wert, der im Designteil ausgedrückt wird
+TabColorTint                      | `*float64` | Gibt den Farbtonwert an, der auf die Farbe angewendet wird, der Standardwert ist `0.0`
+OutlineSummaryBelow               | `*bool`    | Gibt an, ob Zusammenfassungszeilen in einer Gliederung unter dem Detail angezeigt werden, beim Anwenden einer Gliederung ist der Standardwert `true`
+OutlineSummaryRight               | `*bool`    | Gibt an, ob Zusammenfassungsspalten in einer Gliederung rechts vom Detail angezeigt werden, und beim Anwenden einer Gliederung ist der Standardwert `true`
+BaseColWidth                      | `*uint8`   | Gibt die Anzahl der Zeichen der maximalen Ziffernbreite der Schriftart des normalen Stils an. Dieser Wert enthält keinen Randabstand oder zusätzlichen Abstand für Rasterlinien. Es ist nur die Anzahl der Zeichen, der Standardwert ist `8`
+DefaultColWidth                   | `*float64` | Gibt die Standardspaltenbreite an, gemessen als die Anzahl der Zeichen der maximalen Ziffernbreite der Schriftart des normalen Stils
+DefaultRowHeight                  | `*float64` | Gibt die in Punktgröße gemessene Standardzeilenhöhe an. Optimierung, damit wir die Höhe nicht auf alle Zeilen schreiben müssen. Dies kann ausgeschrieben werden, wenn die meisten Zeilen eine benutzerdefinierte Höhe haben, um die Optimierung zu erreichen
+CustomHeight                      | `*bool`    | Gibt die benutzerdefinierte Höhe an, der Standardwert ist `false`
+ZeroHeight                        | `*bool`    | Gibt an, ob Zeilen ausgeblendet sind, der Standardwert ist `false`
+ThickTop                          | `*bool`    | Gibt an, ob Zeilen standardmäßig einen dicken oberen Rahmen haben, der Standardwert ist `false`
+ThickBottom                       | `*bool`    | Gibt an, ob Zeilen standardmäßig einen dicken unteren Rahmen haben, der Standardwert ist `false`
 
 Legen Sie beispielsweise fest, dass Arbeitsblattzeilen standardmäßig ausgeblendet sind:
 
@@ -256,7 +277,20 @@ f.SaveAs("Book1.xlsx")
 func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-GetSheetProps bietet eine Funktion zum Abrufen von Arbeitsblatteigenschaften.
+GetSheetProps bietet eine Funktion zum Abrufen von Arbeitsblatteigenschaften. Die Eigenschaften, die festgelegt werden können, sind:
+
+Options|Typ|Beschreibung
+---|---|---
+DefaultGridColor  | `*bool`    | Gibt an, dass die konsumierende Anwendung die Standardfarbe der Rasterlinien verwenden sollte (systemabhängig). Überschreibt jede in colorId angegebene Farbe, der Standardwert ist `true`
+RightToLeft       | `*bool`    | Gibt an, ob sich das Blatt im Anzeigemodus "von rechts nach links" befindet. In diesem Modus befindet sich Spalte A ganz rechts, Spalte B; ist eine Spalte links von Spalte A usw. Außerdem werden Informationen in Zellen im Format von rechts nach links angezeigt, der Standardwert ist `false`
+ShowFormulas      | `*bool`    | Wenn Sie angeben, ob in diesem Blatt Formeln angezeigt werden sollen, ist der Standardwert `false`
+ShowGridLines     | `*bool`    | Gibt an, ob auf diesem Blatt Rasterlinien angezeigt werden sollen, ist der Standardwert `true`
+ShowRowColHeaders | `*bool`    | Wenn Sie angeben, ob auf dem Blatt Zeilen- und Spaltenüberschriften angezeigt werden sollen, ist der Standardwert `true`
+ShowRuler         | `*bool`    | Wenn Sie angeben, dass auf diesem Blatt ein Lineal angezeigt werden soll, ist der Standardwert `true`
+ShowZeros         | `*bool`    | Gibt an, ob "in Zellen mit Nullwert eine Null angezeigt werden soll". Wenn Sie eine Formel verwenden, um auf eine andere leere Zelle zu verweisen, wird der referenzierte Wert zu `0`, wenn das Flag `true` ist, der Standardwert `true` ist
+TopLeftCell       | `*string`  | Gibt eine Position der oberen linken sichtbaren Zelle an Position der oberen linken sichtbaren Zelle im unteren rechten Bereich an (im Links-nach-Rechts-Modus)
+View              | `*string`  | Um anzugeben, wie das Blatt angezeigt wird, verwendet es standardmäßig eine leere Zeichenfolge, verfügbare Optionen: `normal`, `pageBreakPreview` und `pageLayout`
+ZoomScale         | `*float64` | Gibt eine Fensterzoomvergrößerung für die aktuelle Ansicht an, die Prozentwerte darstellt. Dieses Attribut ist auf Werte im Bereich von `10` bis `400` beschränkt. Horizontale und vertikale Skalierung zusammen, der Standardwert ist `100`
 
 ## Festlegen von Arbeitsblattansichtseigenschaften {#SetSheetView}
 
@@ -459,14 +493,14 @@ SetPageMargins bietet eine Funktion zum Festlegen der Seitenränder von Arbeitsb
 
 Options|Typ|Beschreibung
 ---|---|---
-Bottom | *float64 | Unten
-Footer | *float64 | Fußzeile
-Header | *float64 | Kopfball
-Left | *float64 | Links
-Right | *float64 | Rechts
-Top | *float64 | Oben
-Horizontally | *bool | Auf Seite zentrieren: Horizontal
-Vertically | *bool | Auf Seite zentrieren: Vertikal
+Bottom       | `*float64` | Unten
+Footer       | `*float64` | Fußzeile
+Header       | `*float64` | Kopfball
+Left         | `*float64` | Links
+Right        | `*float64` | Rechts
+Top          | `*float64` | Oben
+Horizontally | `*bool`    | Auf Seite zentrieren: Horizontal
+Vertically   | `*bool`    | Auf Seite zentrieren: Vertikal
 
 ## Abrufen von Arbeitsblattseitenrändern {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps bietet eine Funktion zum Festlegen von Arbeitsmappeneigenschaft
 
 Options|Typ|Beschreibung
 ---|---|---
-Date1904 | *bool | Gibt an, ob beim Konvertieren serieller Datums-/Uhrzeitangaben in der Arbeitsmappe in Datumsangaben ein Datumssystem von 1900 oder 1904 verwendet werden soll.
-FilterPrivacy | *bool | Gibt einen booleschen Wert an, der angibt, ob die Anwendung die Arbeitsmappe auf personenbezogene Daten (Personally Identifying Information, PII) überprüft hat. Wenn dieses Flag gesetzt ist, warnt die Anwendung den Benutzer jedes Mal, wenn der Benutzer eine Aktion ausführt, die PII in das Dokument einfügt.
-CodeName | *string | Gibt den Codenamen der Anwendung an, die diese Arbeitsmappe erstellt hat. Verwenden Sie dieses Attribut, um Dateiinhalte in inkrementellen Versionen der Anwendung nachzuverfolgen.
+Date1904      | `*bool`   | Gibt an, ob beim Konvertieren serieller Datums-/Uhrzeitangaben in der Arbeitsmappe in Datumsangaben ein Datumssystem von 1900 oder 1904 verwendet werden soll.
+FilterPrivacy | `*bool`   | Gibt einen booleschen Wert an, der angibt, ob die Anwendung die Arbeitsmappe auf personenbezogene Daten (Personally Identifying Information, PII) überprüft hat. Wenn dieses Flag gesetzt ist, warnt die Anwendung den Benutzer jedes Mal, wenn der Benutzer eine Aktion ausführt, die PII in das Dokument einfügt.
+CodeName      | `*string` | Gibt den Codenamen der Anwendung an, die diese Arbeitsmappe erstellt hat. Verwenden Sie dieses Attribut, um Dateiinhalte in inkrementellen Versionen der Anwendung nachzuverfolgen.
 
 ## Arbeitsmappeneigenschaften abrufen {#GetWorkbookProps}
 

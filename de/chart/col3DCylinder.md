@@ -1,6 +1,6 @@
 # 3D Zylinder-Säulendiagramm {#col3DCylinder}
 
-For example, add a 3D cylinder column chart that like the this:
+Fügen Sie beispielsweise ein 3D Zylinder-Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cylinder_column_chart.png" alt="Erstelle 3D Zylinder-Säulendiagramm mit Excelize in der Sprache Go"></p>
 

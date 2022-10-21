@@ -1,6 +1,6 @@
 # 3D Pyramidenstapelsäulendiagramm {#col3DPyramidStacked}
 
-For example, add a 3D pyramid stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D Pyramidenstapelsäulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_pyramid_stacked_column_chart.png" alt="Erstelle 3D Pyramidenstapelsäulendiagramm mit Excelize in der Sprache Go"></p>
 

@@ -1,6 +1,6 @@
 # 2D 100% gestapeltes Balkendiagramm {#barPercentStacked}
 
-For example, add a 2D 100% stacked bar chart that like the this:
+Fügen Sie beispielsweise ein 2D 100% gestapeltes Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/2d_percent_stacked_bar_chart.png" alt="Erstelle 2D 100% gestapeltes Balkendiagramm mit Excelize in der Sprache Go"></p>
 

@@ -1,6 +1,6 @@
 # 3D 100% Pyramide gestapelt Säulendiagramm {#col3DPyramidPercentStacked}
 
-For example, add a 3D 100% pyramid stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% Pyramide gestapelt Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_pyramid_percent_stacked_column_chart.png" alt="Erstelle 3D 100% Pyramide gestapelt Säulendiagramm mit Excelize in der Sprache Go"></p>
 

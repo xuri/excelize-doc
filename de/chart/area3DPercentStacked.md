@@ -1,6 +1,6 @@
 # 3D 100% gestapeltes Flächendiagramm {#area3DPercentStacked}
 
-For example, add a 3D 100% stacked area chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% gestapeltes Flächendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_percent_stacked_area_chart.png" alt="Erstelle 3D 100% gestapeltes Flächendiagramm mit Excelize in der Sprache Go"></p>
 

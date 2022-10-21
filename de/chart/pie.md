@@ -1,6 +1,6 @@
 # Kreisdiagramm {#pie}
 
-For example, add a pie chart that like the this:
+Fügen Sie beispielsweise ein Kreisdiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/pie_chart.png" alt="Erstelle Kreisdiagramm mit Excelize in der Sprache Go"></p>
 

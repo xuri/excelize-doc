@@ -146,6 +146,7 @@
   * [3D 100% Zylinder gestapeltsäulendiagramm](chart/col3DCylinderPercentStacked.md)
   * [Donut-Diagramm](chart/doughnut.md)
   * [Liniendiagramm](chart/line.md)
+  * [3D Liniendiagramm](chart/line3D.md)
   * [Kreisdiagramm](chart/pie.md)
   * [3D Kreisdiagramm](chart/pie3D.md)
   * [Netzdiagramm](chart/radar.md)

@@ -1,6 +1,6 @@
 # Konturdiagramm {#contour}
 
-For example, add a contour chart that like the this:
+Fügen Sie beispielsweise ein Konturdiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/contour_chart.png" alt="Erstelle Konturdiagramm mit Excelize in der Sprache Go"></p>
 

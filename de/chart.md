@@ -81,9 +81,9 @@ Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können 
 
 Parameter|Typ|Erläuterung
 ---|---|---
-none|bool|Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm zu überlappen. Der Standardwert ist `false`
-position|string|Die Position der Diagrammlegende
-show_legend_key|bool|Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
+none            | `bool`   | Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm zu überlappen. Der Standardwert ist `false`
+position        | `string` | Die Position der Diagrammlegende
+show_legend_key | `bool`   | Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
 
 Stellen Sie die `position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `none` `false` ist. Die verfügbaren Positionen sind:
 
@@ -115,12 +115,12 @@ Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende 
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-show_bubble_size|bool|`false`|Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
-show_cat_name|bool|`true`|Kategoriename.
-show_leader_lines|bool|`false`|Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
-show_percent|bool|`false`|Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
-show_series_name|bool|`false`|Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
-show_val|bool|`false`|Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
+show_bubble_size  | `bool` | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
+show_cat_name     | `bool` | `true`  | Kategoriename.
+show_leader_lines | `bool` | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
+show_percent      | `bool` | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
+show_series_name  | `bool` | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
+show_val          | `bool` | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
 
 Stellen Sie die primären Optionen für die horizontale und vertikale Achse auf `x_axis` und `y_axis` ein.
 
@@ -128,32 +128,32 @@ Die Eigenschaften von `x_axis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-none|bool|`false`|Achsen deaktivieren.
-major_grid_lines|bool|`false`|Gibt die Hauptgitterlinien an.
-minor_grid_lines|bool|`false`|Gibt kleinere Gitterlinien an.
-tick_label_skip|int|`1`|Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `tick_label_skip` ist optional. Der Standardwert ist auto.
-reverse_order|bool|`false`|Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `reverse_order` ist optional.
-maximum|int|`0`|Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
-minimum|int|`0`|Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+none             | `bool` | `false` | Achsen deaktivieren.
+major_grid_lines | `bool` | `false` | Gibt die Hauptgitterlinien an.
+minor_grid_lines | `bool` | `false` | Gibt kleinere Gitterlinien an.
+tick_label_skip  | `int`  | `1`     | Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `tick_label_skip` ist optional. Der Standardwert ist auto.
+reverse_order    | `bool` | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `reverse_order` ist optional.
+maximum          | `int`  | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
+minimum          | `int`  | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
 
 Die Eigenschaften von `y_axis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-none|bool|`false`|Achsen deaktivieren.
-major_grid_lines|bool|`false`|Gibt die Hauptgitterlinien an.
-minor_grid_lines|bool|`false`|Gibt kleinere Gitterlinien an.
-major_unit|float64|`0`|Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `major_unit` ist optional. Der Standardwert ist auto.
-reverse_order|bool|`false`|Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `reverse_order` ist optional.
-maximum|int|`0`|Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
-minimum|int|`0`|Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+none             | `bool`    | `false` | Achsen deaktivieren.
+major_grid_lines | `bool`    | `false` | Gibt die Hauptgitterlinien an.
+minor_grid_lines | `bool`    | `false` | Gibt kleinere Gitterlinien an.
+major_unit       | `float64` | `0`     | Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `major_unit` ist optional. Der Standardwert ist auto.
+reverse_order    | `bool`    | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `reverse_order` ist optional.
+maximum          | `int`     | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
+minimum          | `int`     | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
 
 Legen Sie die Diagrammgröße anhand der Eigenschaft `dimension` fest. Die Dimensionseigenschaft ist optional. Folgende Eigenschaften können festgelegt werden:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-height|int|290|Height
-width|int|480|Width
+height | `int` | 290 | Height
+width  | `int` | 480 | Width
 
 Der Parameter `combo` gibt an, dass ein Diagramm erstellt wird, das zwei oder mehr Diagrammtypen in einem einzelnen Diagramm kombiniert. Erstellen Sie beispielsweise ein gruppiertes Spalten-Liniendiagramm mit den Daten `Sheet1!$E$1:$L$15`:
 

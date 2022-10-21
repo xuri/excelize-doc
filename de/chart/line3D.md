@@ -1,8 +1,8 @@
-# 3D Kegel-Säulendiagramm {#col3DCone}
+# 3D Liniendiagramm {#line3D}
 
-Fügen Sie beispielsweise ein 3D Kegel-Säulendiagramm wie dieses hinzu:
+Fügen Sie beispielsweise ein 3D Liniendiagramm wie dieses hinzu:
 
-<p align="center"><img width="771" src="../images/3d_cone_column_chart.png" alt="Erstelle 3D Kegel-Säulendiagramm mit Excelize in der Sprache Go"></p>
+<p align="center"><img width="770" src="../images/3d_line_chart.png" alt="Erstelle 3D Liniendiagramm mit Excelize in der Sprache Go"></p>
 
 ```go
 package main
@@ -27,7 +27,7 @@ func main() {
         f.SetCellValue("Tabelle1", k, v)
     }
     if err := f.AddChart("Tabelle1", "E1", `{
-        "type": "col3DCone",
+        "type": "line3D",
         "series": [
         {
             "name": "Tabelle1!$A$2",
@@ -56,21 +56,21 @@ func main() {
         },
         "legend":
         {
-            "position": "left",
+            "position": "top",
             "show_legend_key": false
         },
         "title":
         {
-            "name": "3D Kegel-Säulendiagramm"
+            "name": "3D-Liniendiagramm"
         },
         "plotarea":
         {
-            "show_bubble_size": true,
+            "show_bubble_size": false,
             "show_cat_name": false,
             "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+            "show_percent": false,
+            "show_series_name": false,
+            "show_val": false
         },
         "show_blanks_as": "zero"
     }`); err != nil {

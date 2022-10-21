@@ -1,6 +1,6 @@
 # Donut-Diagramm {#doughnut}
 
-For example, add a pie chart that like the this:
+Fügen Sie beispielsweise ein Donut-Diagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/doughnut_chart.png" alt="Erstelle Donut-Diagramm mit Excelize in der Sprache Go"></p>
 

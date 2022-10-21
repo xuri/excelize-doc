@@ -1,6 +1,6 @@
 # 3D Pyramiden-Pyramiden-Säulendiagramm {#col3DPyramidClustered}
 
-For example, add a 3D pyramid clustered column chart that like the this:
+Fügen Sie beispielsweise ein 3D Pyramiden-Pyramiden-Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_pyramid_clustered_column_chart.png" alt="Erstelle 3D Pyramiden-Pyramiden-Säulendiagramm mit Excelize in der Sprache Go"></p>
 

@@ -192,10 +192,11 @@ func main() {
         }
     }
     // Gitterlinien für das Arbeitsblatt ausblenden
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // Arbeitsblatt umbenennen
     f.SetSheetName(sheet, "Mai 20")

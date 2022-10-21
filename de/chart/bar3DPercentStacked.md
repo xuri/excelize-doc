@@ -1,6 +1,6 @@
 # 3D 100% gestapeltes Balkendiagramm {#bar3DPercentStacked}
 
-For example, add a 3D 100% stacked bar chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% gestapeltes Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_percent_stacked_bar_chart.png" alt="Erstelle 3D 100% gestapeltes Balkendiagramm mit Excelize in der Sprache Go"></p>
 

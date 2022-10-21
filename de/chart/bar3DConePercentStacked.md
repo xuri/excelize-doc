@@ -1,6 +1,6 @@
 # 3D 100% Kegelbalkendiagramm {#bar3DConePercentStacked}
 
-For example, add a 3D 100% cone bar chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% Kegelbalkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cone_percent_stacked_bar_chart.png" alt="Erstelle 3D 100% Kegelbalkendiagramm mit Excelize in der Sprache Go"></p>
 

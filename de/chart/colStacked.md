@@ -1,6 +1,6 @@
 # 2D gestapeltes Säulendiagramm {#colStacked}
 
-For example, add a 2D stacked column chart that like the this:
+Fügen Sie beispielsweise ein 2D gestapeltes Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/2d_stacked_column_chart.png" alt="Erstelle 2D gestapeltes Säulendiagramm mit Excelize in der Sprache Go"></p>
 

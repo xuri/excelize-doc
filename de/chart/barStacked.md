@@ -1,6 +1,6 @@
 # 2D gestapeltes Balkendiagramm {#barStacked}
 
-For example, add a 2D stacked bar chart that like the this:
+Fügen Sie beispielsweise ein 2D gestapeltes Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/2d_stacked_bar_chart.png" alt="Erstelle 2D gestapeltes Balkendiagramm mit Excelize in der Sprache Go"></p>
 

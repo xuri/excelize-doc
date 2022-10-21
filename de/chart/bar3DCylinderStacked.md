@@ -1,6 +1,6 @@
 # 3D Zylinder gestapeltes Balkendiagramm {#bar3DCylinderStacked}
 
-For example, add a 3D cylinder stacked bar chart that like the this:
+Fügen Sie beispielsweise ein 3D Zylinder gestapeltes Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cylinder_stacked_bar_chart.png" alt="Erstelle 3D Zylinder gestapeltes Balkendiagramm mit Excelize in der Sprache Go"></p>
 

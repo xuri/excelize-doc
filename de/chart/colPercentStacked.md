@@ -1,6 +1,6 @@
 # 2D 100% gestapeltes Säulendiagramm {#colPercentStacked}
 
-For example, add a 2D 100% stacked column chart that like the this:
+Fügen Sie beispielsweise ein 2D 100% gestapeltes Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/2d_percent_stacked_column_chart.png" alt="Erstelle 2D 100% gestapeltes Säulendiagramm mit Excelize in der Sprache Go"></p>
 

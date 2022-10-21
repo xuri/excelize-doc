@@ -1,6 +1,6 @@
 # 2D Clusterbalkendiagramm {#bar}
 
-For example, add a 2D clustered bar chart that like the this:
+Fügen Sie beispielsweise ein 2D Clusterbalkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/2d_clustered_bar_chart.png" alt="Erstelle 2D Clusterbalkendiagramm mit Excelize in der Sprache Go"></p>
 

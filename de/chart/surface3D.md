@@ -1,6 +1,6 @@
 # 3D Oberflächendiagramm {#surface3D}
 
-For example, add a 3D surface chart that like the this:
+Fügen Sie beispielsweise ein 3D Oberflächendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_surface_chart.png" alt="Erstelle 3D Oberflächendiagramm mit Excelize in der Sprache Go"></p>
 

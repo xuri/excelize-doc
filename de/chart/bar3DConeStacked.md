@@ -1,6 +1,6 @@
 # 3D Kegel gestapelte Balkendiagramm {#bar3DConeStacked}
 
-For example, add a 3D cone stacked bar chart that like the this:
+Fügen Sie beispielsweise ein 3D Kegel gestapelte Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_cone_stacked_bar_chart.png" alt="Erstelle 3D Kegel gestapelte Balkendiagramm mit Excelize in der Sprache Go"></p>
 

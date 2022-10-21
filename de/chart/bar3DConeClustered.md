@@ -1,6 +1,6 @@
 # 3D Kegel-Cluster-Balkendiagramm {#bar3DConeClustered}
 
-For example, add a 3D cone clustered bar chart that like the this:
+Fügen Sie beispielsweise ein 3D Kegel-Cluster-Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cone_clustered_bar_chart.png" alt="Erstelle 3D Kegel-Cluster-Balkendiagramm mit Excelize in der Sprache Go"></p>
 

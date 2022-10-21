@@ -1,6 +1,6 @@
 # Netzdiagramm {#radar}
 
-For example, add a radar chart that like the this:
+Fügen Sie beispielsweise ein Netzdiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/radar_chart.png" alt="Erstelle Netzdiagramm mit Excelize in der Sprache Go"></p>
 

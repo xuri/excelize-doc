@@ -1,6 +1,6 @@
 # 3D 100% gestapeltes Säulendiagramm {#col3DPercentStacked}
 
-For example, add a 3D 100% stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% gestapeltes Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_percent_stacked_column_chart.png" alt="Erstelle 3D 100% gestapeltes Säulendiagramm mit Excelize in der Sprache Go"></p>
 

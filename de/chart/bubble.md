@@ -1,6 +1,6 @@
 # Blasendiagramm {#bubble}
 
-For example, add a bubble chart that like the this:
+Fügen Sie beispielsweise ein Blasendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/bubble_chart.png" alt="Erstelle Blasendiagramm mit Excelize in der Sprache Go"></p>
 

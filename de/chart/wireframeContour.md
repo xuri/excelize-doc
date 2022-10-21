@@ -1,6 +1,6 @@
 # Wireframe-Konturdiagramm {#wireframeContour}
 
-For example, add a wireframe contour chart that like the this:
+Fügen Sie beispielsweise ein Wireframe-Konturdiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/wireframe_contour_chart.png" alt="Erstelle Wireframe-Konturdiagramm mit Excelize in der Sprache Go"></p>
 

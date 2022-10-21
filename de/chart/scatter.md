@@ -1,6 +1,6 @@
 # Streudiagramm {#scatter}
 
-For example, add a scatter chart that like the this:
+Fügen Sie beispielsweise ein Streudiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/scatter_chart.png" alt="Erstelle Streudiagramm mit Excelize in der Sprache Go"></p>
 

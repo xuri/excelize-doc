@@ -1,6 +1,6 @@
 # 3D Pyramiden-Cluster-Balkendiagramm {#bar3DPyramidClustered}
 
-For example, add a 3D pyramid clustered bar chart that like the this:
+Fügen Sie beispielsweise ein 3D Pyramiden-Cluster-Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_pyramid_clustered_bar_chart.png" alt="Erstelle 3D Pyramiden-Cluster-Balkendiagramm mit Excelize in der Sprache Go"></p>
 

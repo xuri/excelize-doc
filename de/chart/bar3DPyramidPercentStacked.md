@@ -1,6 +1,6 @@
 # 3D 100% Pyramide gestapelt Balkendiagramm {#bar3DPyramidPercentStacked}
 
-For example, add a 3D 100% pyramid stacked bar chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% Pyramide gestapelt Balkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_pyramid_percent_stacked_bar_chart.png" alt="Erstelle 3D 100% Pyramide gestapelt Balkendiagramm mit Excelize in der Sprache Go"></p>
 

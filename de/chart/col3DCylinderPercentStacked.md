@@ -1,6 +1,6 @@
 # 3D 100% Zylinder gestapeltsäulendiagramm {#col3DCylinderPercentStacked}
 
-For example, add a 3D 100% cylinder stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D 100% Zylinder gestapeltsäulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cylinder_percent_stacked_column_chart.png" alt="Erstelle 3D 100% Zylinder gestapeltsäulendiagramm mit Excelize in der Sprache Go"></p>
 

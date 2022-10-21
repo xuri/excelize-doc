@@ -1,6 +1,6 @@
 # 3D Blasendiagramm {#bubble3D}
 
-For example, add a 3D bubble chart that like the this:
+Fügen Sie beispielsweise ein 3D Blasendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_bubble_chart.png" alt="Erstelle 3D Blasendiagramm mit Excelize in der Sprache Go"></p>
 

@@ -1,6 +1,6 @@
 # 3D Kegel gestapeltes Säulendiagramm {#col3DConeStacked}
 
-For example, add a 3D cone stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D Kegel gestapeltes Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cone_stacked_column_chart.png" alt="Erstelle 3D Kegel gestapeltes Säulendiagramm mit Excelize in der Sprache Go"></p>
 

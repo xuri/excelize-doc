@@ -1,6 +1,6 @@
 # 2D Cluster-Säulendiagramm {#col}
 
-For example, add a 2D clustered column chart that like the this:
+Fügen Sie beispielsweise ein 2D Cluster-Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/2d_clustered_column_chart.png" alt="Erstelle 2D Cluster-Säulendiagramm mit Excelize in der Sprache Go"></p>
 

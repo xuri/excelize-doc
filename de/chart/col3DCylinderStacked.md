@@ -1,6 +1,6 @@
 # 3D Zylinder gestapeltes Säulendiagramm {#col3DCylinderStacked}
 
-For example, add a 3D cylinder stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D Zylinder gestapeltes Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cylinder_stacked_column_chart.png" alt="Erstelle 3D Zylinder gestapeltes Säulendiagramm mit Excelize in der Sprache Go"></p>
 

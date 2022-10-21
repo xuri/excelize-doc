@@ -1,6 +1,6 @@
 # 3D gestapeltes Flächendiagramm {#area3DStacked}
 
-For example, add a 3D stacked area chart that like the this:
+Fügen Sie beispielsweise ein 3D gestapeltes Flächendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_stacked_area_chart.png" alt="Erstelle 3D gestapeltes Flächendiagramm mit Excelize in der Sprache Go"></p>
 

@@ -1,6 +1,6 @@
 # 3D Säulendiagramm {#col3D}
 
-For example, add a 3D column chart that like the this:
+Fügen Sie beispielsweise ein 3D Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_column_chart.png" alt="Erstelle 3D Säulendiagramm mit Excelize in der Sprache Go"></p>
 

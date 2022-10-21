@@ -1,6 +1,6 @@
 # 3D Pyramidensäulendiagramm {#col3DPyramid}
 
-For example, add a 3D pyramid column chart that like the this:
+Fügen Sie beispielsweise ein 3D Pyramidensäulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_pyramid_column_chart.png" alt="Erstelle 3D Pyramidensäulendiagramm mit Excelize in der Sprache Go"></p>
 

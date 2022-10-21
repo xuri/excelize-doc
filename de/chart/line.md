@@ -1,6 +1,6 @@
 # Liniendiagramm {#line}
 
-For example, add a line chart that like the this:
+Fügen Sie beispielsweise ein Liniendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/line_chart.png" alt="Erstelle Liniendiagramm mit Excelize in der Sprache Go"></p>
 

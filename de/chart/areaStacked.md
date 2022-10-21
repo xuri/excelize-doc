@@ -1,6 +1,6 @@
 # 2D gestapeltes Flächendiagramm {#areaStacked}
 
-For example, add a 2D stacked area chart that like the this:
+Fügen Sie beispielsweise ein 2D gestapeltes Flächendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/2d_stacked_area_chart.png" alt="Erstelle 2D gestapeltes Flächendiagramm mit Excelize in der Sprache Go"></p>
 

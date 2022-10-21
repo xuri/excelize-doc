@@ -1,6 +1,6 @@
 # 3D Drahtmodell-Oberflächendiagramm {#wireframeSurface3D}
 
-For example, add a 3D wireframe surface chart that like the this:
+Fügen Sie beispielsweise ein 3D Drahtmodell-Oberflächendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_wireframe_contour_chart.png" alt="Erstelle 3D Drahtmodell-Oberflächendiagramm mit Excelize in der Sprache Go"></p>
 

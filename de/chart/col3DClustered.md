@@ -1,6 +1,6 @@
 # 3D Cluster-Säulendiagramm {#col3DClustered}
 
-For example, add a 3D clustered column chart that like the this:
+Fügen Sie beispielsweise ein 3D Cluster-Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_clustered_column_chart.png" alt="Erstelle 3D Cluster-Säulendiagramm mit Excelize in der Sprache Go"></p>
 

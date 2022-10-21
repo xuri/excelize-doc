@@ -1,6 +1,6 @@
 # 3D gestapeltes Säulendiagramm {#col3DStacked}
 
-For example, add a 3D stacked column chart that like the this:
+Fügen Sie beispielsweise ein 3D gestapeltes Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_stacked_column_chart.png" alt="Erstelle 3D gestapeltes Säulendiagramm mit Excelize in der Sprache Go"></p>
 

@@ -1,6 +1,6 @@
 # 3D Clusterbalkendiagramm {#bar3DClustered}
 
-For example, add a 3D clustered bar chart that like the this:
+Fügen Sie beispielsweise ein 3D Clusterbalkendiagramm wie dieses hinzu:
 
 <p align="center"><img width="770" src="../images/3d_clustered_bar_chart.png" alt="Erstelle 3D Clusterbalkendiagramm mit Excelize in der Sprache Go"></p>
 

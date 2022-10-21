@@ -1,6 +1,6 @@
 # 3D Kegel-Cluster-Säulendiagramm {#col3DConeClustered}
 
-For example, add a 3D cone clustered column chart that like the this:
+Fügen Sie beispielsweise ein 3D Kegel-Cluster-Säulendiagramm wie dieses hinzu:
 
 <p align="center"><img width="771" src="../images/3d_cone_clustered_column_chart.png" alt="Erstelle 3D Kegel-Cluster-Säulendiagramm mit Excelize in der Sprache Go"></p>
 
