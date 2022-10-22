@@ -146,6 +146,7 @@
   * [3D 100% цилиндр штабелироваться диаграммы колонки](chart/col3DCylinderPercentStacked.md)
   * [диаграмма пончика](chart/doughnut.md)
   * [линейный график](chart/line.md)
+  * [Трехмерная линейная диаграмма](chart/line3D.md)
   * [круговая диаграмма](chart/pie.md)
   * [3D круговая диаграмма](chart/pie3D.md)
   * [радиолокационная карта](chart/radar.md)
