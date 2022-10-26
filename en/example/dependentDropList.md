@@ -82,9 +82,9 @@ func main() {
         }
     }
     // hide gridlines for the worksheet
-    enable := true
+    disable := false
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
-        RightToLeft: &enable,
+        ShowGridLines: &disable,
     }); err != nil {
         fmt.Println(err)
     }

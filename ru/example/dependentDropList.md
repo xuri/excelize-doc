@@ -82,9 +82,9 @@ func main() {
         }
     }
     // скрыть линии сетки для рабочего листа
-    enable := true
+    disable := false
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
-        RightToLeft: &enable,
+        ShowGridLines: &disable,
     }); err != nil {
         fmt.Println(err)
     }

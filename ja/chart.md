@@ -81,9 +81,9 @@ marker|ラインチャートとスキャッターチャートのデータ系列�
 
 パラメータ | タイプ | 意味
 ---|---|---
-none|bool|チャートと重ならない凡例を閉じるかどうかを指定します。デフォルト値は `false` です
-position|string|凡例の場所
-show_legend_key|bool|データラベルに凡例アイテムラベルを表示するかどうかを指定します
+none            | `bool`   | チャートと重ならない凡例を閉じるかどうかを指定します。デフォルト値は `false` です
+position        | `string` | 凡例の場所
+show_legend_key | `bool`   | データラベルに凡例アイテムラベルを表示するかどうかを指定します
 
 パラメータ `position` のデフォルト値は `right`であり、凡例が表示されている場合にのみ有効になります（つまり、`none` の値は `false` です）。このパラメータのオプションの値は次のとおりです:
 
@@ -115,12 +115,12 @@ zero|0 値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-show_bubble_size|bool|`false`|バブルサイズ
-show_cat_name|bool|`true`|カテゴリ名
-show_leader_lines|bool|`false`|ブートラインの表示
-show_percent|bool|`false`|割合
-show_series_name|bool|`false`|系列名
-show_val|bool|`false`|値
+show_bubble_size  | `bool` | `false` | バブルサイズ
+show_cat_name     | `bool` | `true`  | カテゴリ名
+show_leader_lines | `bool` | `false` | ブートラインの表示
+show_percent      | `bool` | `false` | 割合
+show_series_name  | `bool` | `false` | 系列名
+show_val          | `bool` | `false` | 値
 
 パラメータ `x_axis` と `y_axis` パラメータで軸オプションを設定します。
 
@@ -128,32 +128,32 @@ show_val|bool|`false`|値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-none|bool|`false`|軸を無効にする
-major_grid_lines|bool|`false`|主グリッド線を指定します
-minor_grid_lines|bool|`false`|副グリッド線を指定します
-tick_label_skip|int|`1`|描画されるラベル間でスキップする目盛りラベルの数を指定します。`tick_label_skip` プロパティはオプションです。デフォルト値は auto です
-reverse_order|bool|`false`|逆シーケンススケール値
-maximum|int|`0`|最大値、`0` は自動
-minimum|int|`0`|最小値、`0` は自動
+none             | `bool` | `false` | 軸を無効にする
+major_grid_lines | `bool` | `false` | 主グリッド線を指定します
+minor_grid_lines | `bool` | `false` | 副グリッド線を指定します
+tick_label_skip  | `int`  | `1`     | 描画されるラベル間でスキップする目盛りラベルの数を指定します。`tick_label_skip` プロパティはオプションです。デフォルト値は auto です
+reverse_order    | `bool` | `false` | 逆シーケンススケール値
+maximum          | `int`  | `0`     | 最大値、`0` は自動
+minimum          | `int`  | `0`     | 最小値、`0` は自動
 
 設定できる `y_axis` のプロパティは次のとおりです。
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-none|bool|`false`|軸を無効にする
-major_grid_lines|bool|`false`|主グリッド線を指定します
-minor_grid_lines|bool|`false`|副グリッド線を指定します
-major_unit|float64|`0`|大目盛り間の距離を指定します。正の浮動小数点数を含める必要があります。`major_unit` プロパティはオプションです。デフォルト値は auto です
-reverse_order|bool|`false`|逆シーケンススケール値
-maximum|int|`0`|最大値、`0` は自動
-minimum|int|`0`|最小値、`0` は自動
+none             | `bool`    | `false` | 軸を無効にする
+major_grid_lines | `bool`    | `false` | 主グリッド線を指定します
+minor_grid_lines | `bool`    | `false` | 副グリッド線を指定します
+major_unit       | `float64` | `0`     | 大目盛り間の距離を指定します。正の浮動小数点数を含める必要があります。`major_unit` プロパティはオプションです。デフォルト値は auto です
+reverse_order    | `bool`    | `false` | 逆シーケンススケール値
+maximum          | `int`     | `0`     | 最大値、`0` は自動
+minimum          | `int`     | `0`     | 最小値、`0` は自動
 
 次のオプションパラメーターを使用して、オプションの `dimension` オブジェクトを使用してグラフのサイズを設定します:
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-height|int|290|高さ
-width|int|480|幅
+height | `int` | 290 | 高さ
+width  | `int` | 480 | 幅
 
 パラメータ `combo` は、2つ以上のチャートタイプを1つのチャートに結合するチャートの作成を指定します。たとえば、クラスター化された列を作成します-データ `Sheet1!$E$1:$L$15` の折れ線グラフ：
 

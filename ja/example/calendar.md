@@ -192,10 +192,11 @@ func main() {
         }
     }
     // ワークシートのグリッド線を非表示にする
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // ワークシートの名前を変更する
     f.SetSheetName(sheet, "5月 20")

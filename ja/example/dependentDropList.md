@@ -82,10 +82,11 @@ func main() {
         }
     }
     // ワークシートのグリッド線を非表示にする
-    if err = f.SetSheetViewOptions("Sheet1", 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // 境界線のスタイルを定義する
     border := []excelize.Border{

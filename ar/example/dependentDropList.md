@@ -82,9 +82,10 @@ func main() {
         }
     }
     // إخفاء خطوط الشبكة لورقة العمل
-    enable := true
+    enable, disable := true, false
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
-        RightToLeft: &enable,
+        RightToLeft:   &enable,
+        ShowGridLines: &disable,
     }); err != nil {
         fmt.Println(err)
     }

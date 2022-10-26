@@ -82,9 +82,9 @@ func main() {
         }
     }
     // 隐藏工作表网格线
-    enable := true
+    disable := false
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
-        RightToLeft: &enable,
+        ShowGridLines: &disable,
     }); err != nil {
         fmt.Println(err)
     }
