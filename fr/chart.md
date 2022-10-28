@@ -81,9 +81,9 @@ Définir les propriétés de la légende du graphique. Les options qui peuvent �
 
 Paramètre|Type|Explication
 ---|---|---
-none|bool|Spécifiez si afficher la légende sans chevaucher le graphique. La valeur par défaut est `false`
-position|string|La position de la légende du graphique
-show_legend_key|bool|Définir les clés de légende doivent être affichées dans les étiquettes de données
+none            | `bool`   | Spécifiez si afficher la légende sans chevaucher le graphique. La valeur par défaut est `false`
+position        | `string` | La position de la légende du graphique
+show_legend_key | `bool`   | Définir les clés de légende doivent être affichées dans les étiquettes de données
 
 Définissez la `position` de la légende du graphique. La position par défaut de la légende est `right`. Ce paramètre ne prend effet que lorsque `none` est `false`. Les postes disponibles sont:
 
@@ -115,12 +115,12 @@ Définissez la position de la zone de tracé de graphique par plotarea. Les prop
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-show_bubble_size|bool|`false`|Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
-show_cat_name|bool|`true`|Nom de catégorie
-show_leader_lines|bool|`false`|Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.
-show_percent|bool|`false`|Indique que le pourcentage doit être indiqué dans une étiquette de données.
-show_series_name|bool|`false`|Indique que le nom de la série doit apparaître dans une étiquette de données.
-show_val|bool|`false`|Indique que la valeur doit apparaître dans une étiquette de données.
+show_bubble_size  | `bool` | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
+show_cat_name     | `bool` | `true`  | Nom de catégorie
+show_leader_lines | `bool` | `false` | Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.
+show_percent      | `bool` | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
+show_series_name  | `bool` | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
+show_val          | `bool` | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
 
 Définissez les options de l'axe horizontal et vertical principal par `x_axis` et `y_axis`.
 
@@ -128,32 +128,32 @@ Les propriétés de `x_axis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-none|bool|`false`|Désactiver les axes.
-major_grid_lines|bool|`false`|Spécifie les lignes de grille principales.
-minor_grid_lines|bool|`false`|Spécifie les lignes de grille mineures.
-tick_label_skip|int|`1`|Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété `tick_label_skip` est facultative. La valeur par défaut est auto.
-reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
-maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
-minimum|int|`0`|Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+none             | `bool` | `false` | Désactiver les axes.
+major_grid_lines | `bool` | `false` | Spécifie les lignes de grille principales.
+minor_grid_lines | `bool` | `false` | Spécifie les lignes de grille mineures.
+tick_label_skip  | `int`  | `1`     | Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété `tick_label_skip` est facultative. La valeur par défaut est auto.
+reverse_order    | `bool` | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
+maximum          | `int`  | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
+minimum          | `int`  | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
 
 Les propriétés de `y_axis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-none|bool|`false`|Désactiver les axes.
-major_grid_lines|bool|`false`|Spécifie les lignes de grille principales.
-minor_grid_lines|bool|`false`|Spécifie les lignes de grille mineures.
-major_unit|float64|`0`|Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété major_unit est facultative. La valeur par défaut est auto.
-reverse_order|bool|`false`|Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
-maximum|int|`0`|Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
-minimum|int|`0`|Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+none             | `bool`    | `false` |Désactiver les axes.
+major_grid_lines | `bool`    | `false` | Spécifie les lignes de grille principales.
+minor_grid_lines | `bool`    | `false` | Spécifie les lignes de grille mineures.
+major_unit       | `float64` | `0`     | Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété major_unit est facultative. La valeur par défaut est auto.
+reverse_order    | `bool`    | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `reverse_order` est facultative.
+maximum          | `int`     | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
+minimum          | `int`     | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
 
 Définissez la taille du graphique par la propriété `dimension`. La propriété dimension est facultative. Les propriétés qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-height|int|290|Hauteur
-width|int|480|Largeur
+height | `int` | 290 | Hauteur
+width  | `int` | 480 | Largeur
 
 Le paramètre `combo` spécifie la création d'un graphique qui combine deux ou plusieurs types de graphiques dans un seul graphique. Par exemple, créez un graphique à colonnes groupées avec des données `Sheet1!$E$1:$L$15`:
 

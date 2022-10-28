@@ -1,6 +1,6 @@
 # Classeur
 
-`Options` définit les options de lecture et d’écriture de feuilles de calcul.
+`Options` définit les options de lecture et d'écriture de feuilles de calcul.
 
 ```go
 type Options struct {
@@ -219,7 +219,7 @@ err := f.SetSheetVisible("Sheet1", false)
 func (f *File) GetSheetVisible(sheet string) bool
 ```
 
-GetSheetVisible fournit une fonction permettant d’obtenir une feuille de calcul visible par son nom. Par exemple, obtenez l'état visible de `Sheet1`:
+GetSheetVisible fournit une fonction permettant d'obtenir une feuille de calcul visible par son nom. Par exemple, obtenez l'état visible de `Sheet1`:
 
 ```go
 f.GetSheetVisible("Sheet1")
@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetProps fournit une fonction permettant de définir les propriétés de la feuille de calcul.
+SetSheetProps fournit une fonction permettant de définir les propriétés de la feuille de calcul. Les propriétés qui peuvent être définies sont les suivantes:
+
+Options|Tapez|La description
+---|---|---
+CodeName                          | `*string`  | Spécifie un nom stable de la feuille, qui ne doit pas changer au fil du temps et ne change pas à partir de l'entrée utilisateur. Ce nom doit être utilisé par code pour référencer une feuille particulière
+EnableFormatConditionsCalculation | `*bool`    | Indiquer si les calculs de mise en forme conditionnelle doivent être évalués. Si la valeur est false, les valeurs min/max des échelles de couleurs, des barres de données ou des valeurs seuils dans les règles Top N ne doivent pas être mises à jour. Essentiellement, la mise en forme conditionnelle "calc" est désactivée
+Published                         | `*bool`    | Indiquant si la feuille de calcul est publiée, la valeur par défaut est `true`
+AutoPageBreaks                    | `*bool`    | Indiquant si la feuille affiche Sauts de page automatiques, la valeur par défaut est `true`
+FitToPage                         | `*bool`    | Indiquant si l'option d'impression Ajuster à la page est activée, la valeur par défaut est `false`
+TabColorIndexed                   | `*int`     | Représente la valeur de couleur indexée
+TabColorRGB                       | `*string`  | Représente la valeur de couleur ARGB (Alpha Red Green Blue) standard
+TabColorTheme                     | `*int`     | Représente l'index de base zéro dans la collection, en référençant une valeur particulière exprimée dans la partie Thème
+TabColorTint                      | `*float64` | Spécifie la valeur de teinte appliquée à la couleur, la valeur par défaut est `0.0`
+OutlineSummaryBelow               | `*bool`    | Indiquant si les lignes récapitulatives apparaissent sous les détails dans un plan, lors de l'application d'un plan, la valeur par défaut est `true`
+OutlineSummaryRight               | `*bool`    | Indiquant si les colonnes récapitulatives apparaissent à droite du détail dans un plan, lors de l'application d'un contour, la valeur par défaut est `true`
+BaseColWidth                      | `*uint8`   | Spécifie le nombre de caractères de la largeur de chiffre maximale de la police du style normal. Cette valeur n'inclut pas le remplissage de marge ou le rembourrage supplémentaire pour les lignes de grille. Il s'agit uniquement du nombre de caractères, la valeur par défaut est `8`
+DefaultColWidth                   | `*float64` | Spécifie la largeur de colonne par défaut mesurée comme le nombre de caractères de la largeur de chiffre maximale de la police du style normal
+DefaultRowHeight                  | `*float64` | Spécifie la hauteur de ligne par défaut mesurée en taille de point. Optimisation pour que nous n'ayons pas à écrire la hauteur sur toutes les lignes. Cela peut être écrit si la plupart des lignes ont une hauteur personnalisée, pour atteindre l'optimisation
+CustomHeight                      | `*bool`    | Spécifie la hauteur personnalisée, la valeur par défaut est `false`
+ZeroHeight                        | `*bool`    | Spécifie si les lignes sont masquées, la valeur par défaut est `false`
+ThickTop                          | `*bool`    | Spécifie si les lignes ont une bordure supérieure épaisse par défaut, la valeur par défaut est `false`
+ThickBottom                       | `*bool`    | Spécifie si les lignes ont une bordure inférieure épaisse par défaut, la valeur par défaut est `false`
 
 Par exemple, rendre les lignes de feuille de calcul par défaut masquées:
 
@@ -264,7 +285,20 @@ GetSheetProps fournit une fonction pour obtenir des propriétés de feuille de c
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetView définit les propriétés de l'affichage de feuille. Le `viewIndex` peut être négatif et, le cas échéant, est compté à rebours (`-1` est la dernière vue).
+SetSheetView définit les propriétés de l'affichage de feuille. Le `viewIndex` peut être négatif et, le cas échéant, est compté à rebours (`-1` est la dernière vue). Les propriétés qui peuvent être définies sont les suivantes :
+
+Options|Tapez|La description
+---|---|---
+DefaultGridColor  | `*bool`    | Indiquant que l'application consommatrice doit utiliser la couleur des lignes de grille par défaut (dépendante du système). Remplace toute couleur spécifiée dans colorId, la valeur par défaut est `true`
+RightToLeft       | `*bool`    | Indiquer si la feuille est en mode d'affichage "de droite à gauche". Dans ce mode, la colonne A se trouve à l'extrême droite, la colonne B; est une colonne à gauche de la colonne A, et ainsi de suite. En outre, les informations dans les cellules sont affichées au format de droite à gauche, la valeur par défaut est `false`
+ShowFormulas      | `*bool`    | Indiquant si cette feuille doit afficher des formules, la valeur par défaut est `false`
+ShowGridLines     | `*bool`    | Indiquant si cette feuille doit afficher des lignes de grille, la valeur par défaut est `true`
+ShowRowColHeaders | `*bool`    | Indiquant si la feuille doit afficher des en-têtes de ligne et de colonne, la valeur par défaut est `true`
+ShowRuler         | `*bool`    | Indiquant que cette feuille doit afficher la règle, la valeur par défaut est `true`
+ShowZeros         | `*bool`    | Indiquer s'il faut "afficher un zéro dans les cellules qui ont une valeur nulle". Lorsque vous utilisez une formule pour référencer une autre cellule vide, la valeur référencée devient `0` lorsque l'indicateur est `true`, la valeur par défaut est `true`
+TopLeftCell       | `*string`  | Spécifie un emplacement de la cellule visible en haut à gauche Emplacement de la cellule visible en haut à gauche dans le volet inférieur droit (en mode de gauche à droite)
+View              | `*string`  | Indiquant comment la feuille est affichée, par défaut, elle utilise une chaîne vide, les options disponibles: `normal`, `pageBreakPreview` et `pageLayout`
+ZoomScale         | `*float64` | Spécifie un grossissement de zoom de fenêtre pour la vue actuelle représentant des valeurs en pourcentage. Cet attribut est limité aux valeurs allant de `10` à `400`. Échelle horizontale et verticale ensemble, la valeur par défaut est `100`
 
 ## Obtenir les propriétés d'affichage de la feuille de calcul {#GetSheetView}
 
@@ -459,14 +493,14 @@ SetPageMargins fournit une fonction permettant de définir les marges des pages 
 
 Options|Tapez|La description
 ---|---|---
-Bottom | *float64 | Bas
-Footer | *float64 | Bas de page
-Header | *float64 | Entête
-Left | *float64 | Gauche
-Right | *float64 | Droite
-Top | *float64 | Haut
-Horizontally | *bool | Centrer sur la page: horizontalement
-Vertically | *bool | Centrer sur la page: verticalement
+Bottom       | `*float64` | Bas
+Footer       | `*float64` | Bas de page
+Header       | `*float64` | Entête
+Left         | `*float64` | Gauche
+Right        | `*float64` | Droite
+Top          | `*float64` | Haut
+Horizontally | `*bool`    | Centrer sur la page: horizontalement
+Vertically   | `*bool`    | Centrer sur la page: verticalement
 
 ## Obtenir les marges des pages de la feuille de calcul {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps fournit une fonction pour définir les propriétés du classeur
 
 Options|Tapez|La description
 ---|---|---
-Date1904 | *bool | Indique s'il faut utiliser un système de date 1900 ou 1904 lors de la conversion des dates-heures en série dans le classeur en dates.
-FilterPrivacy | *bool | Spécifie une valeur booléenne qui indique si l'application a inspecté le classeur à la recherche d'informations d'identification personnelle (PII). Si cet indicateur est défini, l'application avertit l'utilisateur chaque fois qu'il effectue une action qui insère des PII dans le document.
-CodeName | *string | Spécifie le nom de code de l'application qui a créé ce classeur. Utilisez cet attribut pour suivre le contenu des fichiers dans les versions incrémentielles de l'application.
+Date1904      | `*bool`   | Indique s'il faut utiliser un système de date 1900 ou 1904 lors de la conversion des dates-heures en série dans le classeur en dates.
+FilterPrivacy | `*bool`   | Spécifie une valeur booléenne qui indique si l'application a inspecté le classeur à la recherche d'informations d'identification personnelle (PII). Si cet indicateur est défini, l'application avertit l'utilisateur chaque fois qu'il effectue une action qui insère des PII dans le document.
+CodeName      | `*string` | Spécifie le nom de code de l'application qui a créé ce classeur. Utilisez cet attribut pour suivre le contenu des fichiers dans les versions incrémentielles de l'application.
 
 ## Obtenir les propriétés du classeur {#GetWorkbookProps}
 

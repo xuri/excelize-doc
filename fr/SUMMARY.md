@@ -146,6 +146,7 @@
   * [3D 100 graphique de colonne cylindre empilé](chart/col3DCylinderPercentStacked.md)
   * [Tableau de donut](chart/doughnut.md)
   * [Graphique en ligne](chart/line.md)
+  * [Graphique en ligne 3D](chart/line3D.md)
   * [Graphique tarte](chart/pie.md)
   * [3D graphique tarte](chart/pie3D.md)
   * [Graphique radar](chart/radar.md)

@@ -154,13 +154,13 @@ Voici le type d'alignement `horizontal` dans les cellules:
 
 Type|Style
 ---|---
-left|Gauche (en retrait)
-center|Centré
-right|Droite (en retrait)
-fill|Remplissage
-justify|Justifié
-centerContinuous|Croix-colonne centrée
-distributed|Alignement décentralisé (en retrait)
+left             | Gauche (en retrait)
+center           | Centré
+right            | Droite (en retrait)
+fill             | Remplissage
+justify          | Justifié
+centerContinuous | Croix-colonne centrée
+distributed      | Alignement décentralisé (en retrait)
 
 #### Alignement vertical
 
@@ -168,10 +168,10 @@ Voici le type d'alignement `vertical` dans les cellules:
 
 Type|Style
 ---|---
-top|Top alignment
-center|Centré
-justify|Justifié
-distributed|Alignement décentralisé
+top         | Top alignment
+center      | Centré
+justify     | Justifié
+distributed | Alignement décentralisé
 
 ### Police soulignée {#underline}
 

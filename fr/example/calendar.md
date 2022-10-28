@@ -192,10 +192,11 @@ func main() {
         }
     }
     // masquer le quadrillage de la feuille de calcul
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // renommer la feuille de calcul
     f.SetSheetName(sheet, "Mai 20")
