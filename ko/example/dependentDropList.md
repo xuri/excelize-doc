@@ -82,10 +82,11 @@ func main() {
         }
     }
     // 워크 시트의 눈금 선 숨기기
-    if err = f.SetSheetViewOptions("Sheet1", 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // 테두리 스타일 정의
     border := []excelize.Border{

@@ -146,6 +146,7 @@
   * [3D 100% 실린더 스택 컬럼 차트](chart/col3DCylinderPercentStacked.md)
   * [도넛 차트](chart/donut.md)
   * [꺾은 선형 차트](chart/line.md)
+  * [3D 꺾은선형 차트](chart/line3D.md)
   * [원형 차트](chart/pie.md)
   * [3D 원형 차트](chart/pie3D.md)
   * [레이더 차트](chart/radar.md)

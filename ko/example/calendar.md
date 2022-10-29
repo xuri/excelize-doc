@@ -192,10 +192,11 @@ func main() {
         }
     }
     // 워크 시트의 눈금 선 숨기기
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // 워크 시트 이름 바꾸기
     f.SetSheetName(sheet, "5월 20")

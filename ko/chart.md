@@ -82,9 +82,9 @@ marker|선형 차트 및 분산 형 차트의 마커를 설정합니다. 선택�
 
 매개 변수|유형|설명
 ---|---|---
-none|bool|차트와 겹치지 않는 범례를 닫을 지 여부를 지정합니다. 기본값은 `false` 입니다
-position|string|차트 범례의 위치
-show_legend_key|bool|데이터 레이블에 범례 항목 레이블을 표시할지 여부를 지정합니다
+none            | `bool`   | 차트와 겹치지 않는 범례를 닫을 지 여부를 지정합니다. 기본값은 `false` 입니다
+position        | `string` | 차트 범례의 위치
+show_legend_key | `bool`   | 데이터 레이블에 범례 항목 레이블을 표시할지 여부를 지정합니다
 
 매개 변수 `position` 의 기본값은 `right` 이며 범례가 표시 될 때만 적용됩니다 (즉, `none` 값이 `false` 임). 다음은이 매개 변수의 선택적 값입니다.
 
@@ -116,12 +116,12 @@ zero|zero value
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-show_bubble_size|bool|`false`|거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
-show_cat_name|bool|`true`|범주 이름
-show_leader_lines|bool|`false`|범주 이름이 데이터 레이블에 표시되도록 지정합니다.
-show_percent|bool|`false`|백분율이 데이터 레이블에 표시되도록 지정합니다.
-show_series_name|bool|`false`|계열 이름이 데이터 레이블에 표시되도록 지정합니다.
-show_val|bool|`false`|값이 데이터 레이블에 표시되도록 지정합니다.
+show_bubble_size  | `bool` | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
+show_cat_name     | `bool` | `true`  | 범주 이름
+show_leader_lines | `bool` | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.
+show_percent      | `bool` | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
+show_series_name  | `bool` | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
+show_val          | `bool` | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
 
 기본 수평 및 세로 축 옵션을 `x_axis` 및 `y_axis` 으로 설정합니다.
 
@@ -129,32 +129,32 @@ show_val|bool|`false`|값이 데이터 레이블에 표시되도록 지정합니
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-none|bool|`false`|축 비활성화.
-major_grid_lines|bool|`false`|주요 눈금 선을 지정합니다.
-minor_grid_lines|bool|`false`|작은 눈금 선을 지정합니다.
-tick_label_skip|int|`1`|그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `tick_label_skip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
-reverse_order|bool|`false`|역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
-maximum|int|`0`|고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
-minimum|int|`0`| 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+none             | `bool` | `false` | 축 비활성화.
+major_grid_lines | `bool` | `false` | 주요 눈금 선을 지정합니다.
+minor_grid_lines | `bool` | `false` | 작은 눈금 선을 지정합니다.
+tick_label_skip  | `int`  | `1`     | 그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `tick_label_skip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
+reverse_order    | `bool` | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
+maximum          | `int`  | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
+minimum          | `int`  | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
 
 설정할 수있는 `y_axis` 의 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-none|bool|`false`|축 비활성화.
-major_grid_lines|bool|`false`|주요 눈금 선을 지정합니다.
-minor_grid_lines|bool|`false`|작은 눈금 선을 지정합니다.
-major_unit|float64|`0`|주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. major_unit 속성은 선택 사항입니다. 기본값은 auto 입니다.
-reverse_order|bool|`false`|역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
-maximum|int|`0`|고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
-minimum|int|`0`| 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+none             | `bool`    | `false` | 축 비활성화.
+major_grid_lines | `bool`    | `false` | 주요 눈금 선을 지정합니다.
+minor_grid_lines | `bool`    | `false` | 작은 눈금 선을 지정합니다.
+major_unit       | `float64` | `0`     | 주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. major_unit 속성은 선택 사항입니다. 기본값은 auto 입니다.
+reverse_order    | `bool`    | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
+maximum          | `int`     | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
+minimum          | `int`     | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
 
 차트 크기를 `dimension` 속성으로 설정합니다. 차원 속성은 선택 사항입니다. 설정할 수 있는 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-height|int|290|높이
-width|int|480|너비
+height | `int` | 290 | 높이
+width  | `int` | 480 | 너비
 
 `combo` 매개 변수는 단일 차트에서 둘 이상의 차트 유형을 결합하는 차트 작성을 지정합니다. 예를 들어, `Sheet1!$E$1:$L$15` 데이터가 포함 된 군집 기둥 형 꺾은 선형 차트를 만듭니다:
 

@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetProps 는 워크시트 속성을 설정하는 함수를 제공합니다.
+SetSheetProps 는 워크시트 속성을 설정하는 함수를 제공합니다. 설정할 수 있는 속성은 다음과 같습니다:
+
+옵션|유형|설명설명
+---|---|---
+CodeName                          | `*string`  | 시간이 지남에 따라 변경되지 않아야 하며 사용자 입력에서 변경되지 않는 시트의 안정적인 이름을 지정합니다. 이 이름은 코드에서 특정 시트를 참조하는 데 사용해야 합니다.
+EnableFormatConditionsCalculation | `*bool`    | 조건부 서식 계산을 평가할지 여부를 나타냅니다. false로 설정된 경우 상위 N 규칙의 색상 배율 또는 데이터 막대 또는 임계값의 최소/최대 값은 업데이트되지 않습니다. 기본적으로 조건부 형식 "calc" 는 꺼져 있습니다.
+Published                         | `*bool`    | 워크시트가 게시되었는지 여부를 나타내는 기본값은 `true` 입니다.
+AutoPageBreaks                    | `*bool`    | 시트에 자동 페이지 나누기가 표시되는지 여부를 나타내는 기본값은 `true` 입니다.
+FitToPage                         | `*bool`    | "페이지에 맞춤" 인쇄 옵션이 활성화되어 있는지 여부를 나타내는 기본값은 `false` 입니다.
+TabColorIndexed                   | `*int`     | 인덱싱된 색상 값을 나타냅니다.
+TabColorRGB                       | `*string`  | 표준 ARGB (알파 빨강 녹색 파랑) 색상 값을 나타냅니다.
+TabColorTheme                     | `*int`     | 컬렉션에 제로 기반 인덱스를 나타내며 테마 파트에 표현된 특정 값을 참조합니다.
+TabColorTint                      | `*float64` | 색상에 적용되는 색조 값을 지정하며, 기본값은 `0.0` 입니다.
+OutlineSummaryBelow               | `*bool`    | 요약 행이 윤곽선의 세부 정보 아래에 나타나는지 여부를 나타내는 경우 윤곽선을 적용할 때 기본값은 `true` 입니다.
+OutlineSummaryRight               | `*bool`    | 요약 열이 윤곽선의 세부 정보 오른쪽에 표시되는지 여부를 나타냅니다. 윤곽선을 적용할 때 기본값은 `true` 입니다.
+BaseColWidth                      | `*uint8`   | 일반 스타일 글꼴의 최대 자릿수 너비의 문자 수를 지정합니다. 이 값에는 격자선에 대한 여백 패딩이나 추가 패딩이 포함되지 않습니다. 문자 수일 뿐이며 기본값은 `8` 입니다.
+DefaultColWidth                   | `*float64` | 일반 스타일 글꼴의 최대 자릿수 너비의 문자 수로 측정된 기본 열 너비를 지정합니다.
+DefaultRowHeight                  | `*float64` | 포인트 크기로 측정된 기본 행 높이를 지정합니다. 최적화를 통해 모든 행에 높이를 쓸 필요가 없습니다. 최적화를 달성하기 위해 대부분의 행에 사용자 정의 높이가있는 경우 작성할 수 있습니다.
+CustomHeight                      | `*bool`    | 사용자 지정 높이를 지정하고, 기본값은 `false` 입니다.
+ZeroHeight                        | `*bool`    | 행이 숨겨져 있는 경우 기본값은 `false` 를 지정합니다.
+ThickTop                          | `*bool`    | 행에 기본적으로 두꺼운 위쪽 테두리가 있는 경우 기본값은 `false` 를 지정합니다.
+ThickBottom                       | `*bool`    | 행에 기본적으로 두꺼운 아래쪽 테두리가 있는지 지정하며 기본값은 `false` 입니다.
 
 예를 들어, 워크 시트 행을 기본적으로 숨김으로 설정하십시오:
 
@@ -264,7 +285,20 @@ GetSheetProps 는 워크시트 속성을 가져오는 함수를 제공합니다.
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetView 는 시트 뷰 속성을 설정합니다. `viewIndex` 는 음수 일 수 있으며 그렇다면 뒤로 계산됩니다 (`-1` 은 마지막 뷰입니다).
+SetSheetView 는 시트 뷰 속성을 설정합니다. `viewIndex` 는 음수 일 수 있으며 그렇다면 뒤로 계산됩니다 (`-1` 은 마지막 뷰입니다). 설정할 수 있는 속성은 다음과 같습니다:
+
+옵션|유형|설명설명
+---|---|---
+DefaultGridColor  | `*bool`    | 사용 중인 응용 프로그램이 기본 격자선 색상(시스템에 따라 다름)을 사용해야 함을 나타냅니다. colorId 에 지정된 모든 색상을 재정의하고 기본값은 `true` 입니다.
+RightToLeft       | `*bool`    | 시트가 "오른쪽에서 왼쪽으로" 표시 모드에 있는지 여부를 나타냅니다. 이 모드에서 A 열은 맨 오른쪽, B 열에 있습니다. 는 A 열의 왼쪽 열 중 하나입니다. 또한 셀의 정보는 오른쪽에서 왼쪽 형식으로 표시되며 기본값은 `false` 입니다.
+ShowFormulas      | `*bool`    | 이 시트에 수식이 표시되어야 하는지 여부를 나타내는 기본값은 `false` 입니다.
+ShowGridLines     | `*bool`    | 이 시트에 격자선을 표시할지 여부를 나타내는 기본값은 `true` 입니다.
+ShowRowColHeaders | `*bool`    | 시트에 행 및 열 머리글이 표시되어야 하는지 여부를 나타내는 기본값은 `true` 입니다.
+ShowRuler         | `*bool`    | 이 시트에 눈금자가 표시되어야 함을 나타내면 기본값은 `true` 입니다.
+ShowZeros         | `*bool`    | "값이 0인 셀에 0 을 표시" 할지 여부를 나타냅니다. 수식을 사용하여 비어 있는 다른 셀을 참조할 때 플래그가 `true` 일 때 참조된 값은 `0` 이 되고 기본값은 `true` 가 됩니다.
+TopLeftCell       | `*string`  | 왼쪽 위에 보이는 셀의 위치를 지정합니다. 오른쪽 아래 창에서 왼쪽 위에 표시되는 셀의 위치 (왼쪽에서 오른쪽 모드인 경우).
+View              | `*string`  | 시트가 표시되는 방식을 나타내며 기본적으로 빈 문자열, 사용 가능한 옵션을 사용합니다: `normal`, `pageBreakPreview` 및 `pageLayout`.
+ZoomScale         | `*float64` | 백분율 값을 나타내는 현재 뷰의 창 확대/축소 배율을 지정합니다. 이 속성은 `10` 에서 `400` 사이의 값으로 제한됩니다. 수평 및 수직 배율을 함께 사용하면 기본값은 `100` 입니다.
 
 ## 워크 시트 뷰 속성 가져 오기 {#GetSheetView}
 
@@ -459,14 +493,14 @@ SetPageMargins 는 워크 시트 페이지 여백을 설정하는 기능을 제�
 
 옵션|유형|설명설명
 ---|---|---
-Bottom | *float64 | 아래쪽
-Footer | *float64 | 바닥글
-Header | *float64 | 머리글
-Left | *float64 | 왼쪽
-Right | *float64 | 오른쪽
-Top | *float64 | 위쪽
-Horizontally | *bool | 페이지 중심: 가로로
-Vertically | *bool | 페이지 중앙: 세로
+Bottom       | `*float64` | 아래쪽
+Footer       | `*float64` | 바닥글
+Header       | `*float64` | 머리글
+Left         | `*float64` | 왼쪽
+Right        | `*float64` | 오른쪽
+Top          | `*float64` | 위쪽
+Horizontally | `*bool`    | 페이지 중심: 가로로
+Vertically   | `*bool`    | 페이지 중앙: 세로
 
 ## 워크 시트 페이지 여백 가져 오기 {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps 는 통합 문서 속성을 설정하는 기능을 제공합니
 
 옵션|유형|설명설명
 ---|---|---
-Date1904 | *bool | 통합 문서의 직렬 날짜-시간을 날짜로 변환할 때 1900 또는 1904 날짜 시스템을 사용할지 여부를 나타냅니다.
-FilterPrivacy | *bool | 응용 프로그램이 통합 문서에 PII(개인 식별 정보)를 검사했는지 여부를 나타내는 부울 값을 지정합니다. 이 플래그가 설정된 경우 응용 프로그램은 사용자가 문서에 PII를 삽입하는 작업을 수행할 때마다 사용자에게 경고합니다.
-CodeName | *string | 이 통합 문서를 만든 응용 프로그램의 코드 이름을 지정합니다. 이 특성을 사용하여 응용 프로그램의 증분 릴리스에서 파일 콘텐츠를 추적할 수 있습니다.
+Date1904      | `*bool`   | 통합 문서의 직렬 날짜-시간을 날짜로 변환할 때 1900 또는 1904 날짜 시스템을 사용할지 여부를 나타냅니다.
+FilterPrivacy | `*bool`   | 응용 프로그램이 통합 문서에 PII(개인 식별 정보)를 검사했는지 여부를 나타내는 부울 값을 지정합니다. 이 플래그가 설정된 경우 응용 프로그램은 사용자가 문서에 PII를 삽입하는 작업을 수행할 때마다 사용자에게 경고합니다.
+CodeName      | `*string` | 이 통합 문서를 만든 응용 프로그램의 코드 이름을 지정합니다. 이 특성을 사용하여 응용 프로그램의 증분 릴리스에서 파일 콘텐츠를 추적할 수 있습니다.
 
 ## 통합 문서 속성 가져오기 {#GetWorkbookProps}
 
