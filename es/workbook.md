@@ -231,7 +231,28 @@ f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-SetSheetProps proporciona una función para establecer las propiedades de la hoja de cálculo.
+SetSheetProps proporciona una función para establecer las propiedades de la hoja de cálculo. Las propiedades que se pueden establecer son:
+
+Opciones|Tipo|Descripción
+---|---|---
+CodeName                          | `*string`  | Especifica un nombre estable de la hoja, que no debe cambiar con el tiempo y no cambia a partir de la entrada del usuario. Este nombre debe ser utilizado por código para hacer referencia a una hoja en particular
+EnableFormatConditionsCalculation | `*bool`    | Indicando si se evaluarán los cálculos de formato condicional. Si se establece en false, los valores mínimos/máximos de las escalas de color o las barras de datos o los valores umbral en las reglas Top N no se actualizarán. Esencialmente, el formato condicional "calc" está desactivado
+Published                         | `*bool`    | Indicando si la hoja de cálculo está publicada, el valor predeterminado es `true`
+AutoPageBreaks                    | `*bool`    | Indicando si la hoja muestra saltos de página automáticos, el valor predeterminado es `true`
+FitToPage                         | `*bool`    | Indicando si la opción de impresión Ajustar a página está habilitada, el valor predeterminado es `false`
+TabColorIndexed                   | `*int`     | Representa el valor de color indizado
+TabColorRGB                       | `*string`  | Representa el valor de color ARGB (Alpha Red Green Blue) estándar
+TabColorTheme                     | `*int`     | Representa el índice basado en cero en la colección, haciendo referencia a un valor determinado expresado en el elemento Tema
+TabColorTint                      | `*float64` | Especifica el valor de tinte aplicado al color, el valor predeterminado es `0.0`
+OutlineSummaryBelow               | `*bool`    | Indicando si las filas de resumen aparecen debajo del detalle en un esquema, al aplicar un contorno, el valor predeterminado es `true`
+OutlineSummaryRight               | `*bool`    | Indicando si las columnas de resumen aparecen a la derecha de detalle en un esquema, al aplicar un esquema, el valor predeterminado es `true`
+BaseColWidth                      | `*uint8`   | Especifica el número de caracteres del ancho máximo de dígitos de la fuente del estilo normal. Este valor no incluye el relleno de margen ni el relleno adicional para las líneas de rejilla. Es solo el número de caracteres, el valor predeterminado es `8`
+DefaultColWidth                   | `*float64` | Especifica el ancho de columna predeterminado medido como el número de caracteres del ancho máximo de dígitos de la fuente del estilo normal
+DefaultRowHeight                  | `*float64` | Especifica la altura de fila predeterminada medida en tamaño de punto. Optimización para que no tengamos que escribir la altura en todas las filas. Esto se puede escribir si la mayoría de las filas tienen altura personalizada, para lograr la optimización
+CustomHeight                      | `*bool`    | Especifica la altura personalizada, el valor predeterminado es `false`
+ZeroHeight                        | `*bool`    | Especifica que si las filas están ocultas, el valor predeterminado es `false`
+ThickTop                          | `*bool`    | Especifica que si las filas tienen un borde superior grueso de forma predeterminada, el valor predeterminado es `false`
+ThickBottom                       | `*bool`    | Especifica que si las filas tienen un borde inferior grueso de forma predeterminada, el valor predeterminado es `false`
 
 Por ejemplo, haga que las filas de la hoja de cálculo sean predeterminadas como ocultas:
 
@@ -264,7 +285,20 @@ GetSheetProps proporciona una función para obtener las propiedades de la hoja d
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-SetSheetView establece las propiedades de la vista de hoja. El `viewIndex` puede ser negativo y, de ser así, se cuenta hacia atrás (`-1` es la última vista).
+SetSheetView establece las propiedades de la vista de hoja. El `viewIndex` puede ser negativo y, de ser así, se cuenta hacia atrás (`-1` es la última vista). Las propiedades que se pueden establecer son:
+
+Opciones|Tipo|Descripción
+---|---|---
+DefaultGridColor  | `*bool`    | Indicando que la aplicación consumidora debe utilizar el color predeterminado de las líneas de cuadrícula (dependiente del sistema). Anula cualquier color especificado en colorId, el valor predeterminado es `true`
+RightToLeft       | `*bool`    | Indicando si la hoja está en modo de visualización "de derecha a izquierda". Cuando está en este modo, la columna A está en el extremo derecho, la columna B; es una columna a la izquierda de la columna A, y así sucesivamente. Además, la información en las celdas se muestra en el formato de derecha a izquierda, el valor predeterminado es `false`
+ShowFormulas      | `*bool`    | Indicando si esta hoja debe mostrar fórmulas, el valor predeterminado es `false`
+ShowGridLines     | `*bool`    | Indicando si esta hoja debe mostrar líneas de cuadrícula, el valor predeterminado es `true`
+ShowRowColHeaders | `*bool`    | Indicando si la hoja debe mostrar encabezados de fila y columna, el valor predeterminado es `true`
+ShowRuler         | `*bool`    | Indicando que esta hoja debe mostrar la regla, el valor predeterminado es `true`
+ShowZeros         | `*bool`    | Indicando si se debe "mostrar un cero en celdas que tienen valor cero". Cuando se utiliza una fórmula para hacer referencia a otra celda que está vacía, el valor referenciado se convierte en `0` cuando el indicador es `true`, el valor predeterminado es `true`
+TopLeftCell       | `*string`  | Especifica una ubicación de la celda visible superior izquierda Ubicación de la celda visible superior izquierda en el panel inferior derecho (cuando está en modo de izquierda a derecha)
+View              | `*string`  | Indicando cómo se muestra la hoja, por defecto utiliza cadena vacía, opciones disponibles: `normal`, `pageBreakPreview` y `pageLayout`
+ZoomScale         | `*float64` | Especifica una ampliación del zoom de ventana para la vista actual que representa los valores porcentuales. Este atributo está restringido a valores que van desde `10` a `400`. Escala horizontal y vertical juntas, el valor predeterminado es `100`
 
 ## Obtener propiedades de vista de hoja de cálculo {#GetSheetView}
 
@@ -459,14 +493,14 @@ SetPageMargins proporciona una función para establecer los márgenes de la pág
 
 Opciones|Tipo|Descripción
 ---|---|---
-Bottom | *float64 | Abajo
-Footer | *float64 | Pie de página
-Header | *float64 | Encabezado
-Left | *float64 | Izquierda
-Right | *float64 | Derecha
-Top | *float64 | Arriba
-Horizontally | *bool | Centrar en la página: Horizontalmente
-Vertically | *bool | Centrar en la página: Verticalmente
+Bottom       | `*float64` | Abajo
+Footer       | `*float64` | Pie de página
+Header       | `*float64` | Encabezado
+Left         | `*float64` | Izquierda
+Right        | `*float64` | Derecha
+Top          | `*float64` | Arriba
+Horizontally | `*bool`    | Centrar en la página: Horizontalmente
+Vertically   | `*bool`    | Centrar en la página: Verticalmente
 
 ## Obtener márgenes de página de la hoja de trabajo {#GetPageMargins}
 
@@ -486,9 +520,9 @@ SetWorkbookProps proporciona una función para establecer las propiedades del li
 
 Opciones|Tipo|Descripción
 ---|---|---
-Date1904 | *bool | Indica si se debe usar un sistema de fechas de 1900 o 1904 al convertir fechas y horas en serie en el libro de trabajo a fechas.
-FilterPrivacy | *bool | Especifica un valor booleano que indica si la aplicación ha inspeccionado el libro en busca de información de identificación personal (PII). Si se establece este indicador, la aplicación advierte al usuario cada vez que realiza una acción que insertará PII en el documento.
-CodeName | *string | Especifica el nombre en clave de la aplicación que creó este libro. Utilice este atributo para realizar un seguimiento del contenido del archivo en las versiones incrementales de la aplicación.
+Date1904      | `*bool`   | Indica si se debe usar un sistema de fechas de 1900 o 1904 al convertir fechas y horas en serie en el libro de trabajo a fechas.
+FilterPrivacy | `*bool`   | Especifica un valor booleano que indica si la aplicación ha inspeccionado el libro en busca de información de identificación personal (PII). Si se establece este indicador, la aplicación advierte al usuario cada vez que realiza una acción que insertará PII en el documento.
+CodeName      | `*string` | Especifica el nombre en clave de la aplicación que creó este libro. Utilice este atributo para realizar un seguimiento del contenido del archivo en las versiones incrementales de la aplicación.
 
 ## Obtener propiedades del libro de trabajo {#GetWorkbookProps}
 

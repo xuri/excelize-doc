@@ -81,9 +81,9 @@ Establezca las propiedades de la leyenda del gráfico. Las opciones que se puede
 
 Parámetro|Tipo|Explicación
 ---|---|---
-none|bool|Especifique si muestra la leyenda sin superponer el gráfico. El valor predeterminado es `false`
-position|string|La posición de la leyenda del gráfico
-show_legend_key|bool|Establecer las claves de leyenda se mostrarán en las etiquetas de datos
+none            | `bool`   | Especifique si muestra la leyenda sin superponer el gráfico. El valor predeterminado es `false`
+position        | `string` | La posición de la leyenda del gráfico
+show_legend_key | `bool`   | Establecer las claves de leyenda se mostrarán en las etiquetas de datos
 
 Establece la `position` de la leyenda del gráfico. La posición predeterminada de la leyenda es `right`. Este parámetro solo tiene efecto cuando `none` es `false`. Las posiciones disponibles son:
 
@@ -115,12 +115,12 @@ Establezca la posición del área de trazado del gráfico por área de trazado. 
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-show_bubble_size|bool|`false`|Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
-show_cat_name|bool|`true`|Nombre de la categoría.
-show_leader_lines|bool|`false`|Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
-show_percent|bool|`false`|Especifica que el porcentaje se mostrará en una etiqueta de datos.
-show_series_name|bool|`false`|Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
-show_val|bool|`false`|Especifica que el valor se mostrará en una etiqueta de datos.
+show_bubble_size  | `bool` | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
+show_cat_name     | `bool` | `true`  | Nombre de la categoría.
+show_leader_lines | `bool` | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
+show_percent      | `bool` | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
+show_series_name  | `bool` | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
+show_val          | `bool` | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
 
 Establezca las opciones principales de eje horizontal y vertical por `x_axis` y `y_axis`.
 
@@ -128,32 +128,32 @@ Las propiedades de `x_axis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-none|bool|`false`|Deshabilitar ejes.
-major_grid_lines|bool|`false`|Especifica las principales líneas de cuadrícula.
-minor_grid_lines|bool|`false`|Especifica líneas de cuadrícula menores.
-tick_label_skip|int|`1`|Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `tick_label_skip` es opcional. El valor predeterminado es automático.
-reverse_order|bool|`false`|Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `reverse_order` es opcional.
-maximum|int|`0`|Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
-minimum|int|`0`|Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+none             | `bool` | `false` | Deshabilitar ejes.
+major_grid_lines | `bool` | `false` | Especifica las principales líneas de cuadrícula.
+minor_grid_lines | `bool` | `false` | Especifica líneas de cuadrícula menores.
+tick_label_skip  | `int`  | `1`     | Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `tick_label_skip` es opcional. El valor predeterminado es automático.
+reverse_order    | `bool` | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `reverse_order` es opcional.
+maximum          | `int`  | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
+minimum          | `int`  | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
 
 Las propiedades de `y_axis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-none|bool|`false`|Deshabilitar ejes.
-major_grid_lines|bool|`false`|Especifica las principales líneas de cuadrícula.
-minor_grid_lines|bool|`false`|Especifica líneas de cuadrícula menores.
-major_unit|float64|`0`|Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `major_unit` es opcional. El valor predeterminado es automático.
-reverse_order|bool|`false`|Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `reverse_order` es opcional.
-maximum|int|`0`|Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
-minimum|int|`0`|Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+none             | `bool`    | `false` | Deshabilitar ejes.
+major_grid_lines | `bool`    | `false` | Especifica las principales líneas de cuadrícula.
+minor_grid_lines | `bool`    | `false` | Especifica líneas de cuadrícula menores.
+major_unit       | `float64` | `0`     | Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `major_unit` es opcional. El valor predeterminado es automático.
+reverse_order    | `bool`    | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `reverse_order` es opcional.
+maximum          | `int`     | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
+minimum          | `int`     | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
 
 Establezca el tamaño del gráfico por la propiedad `dimension`. La propiedad de dimensión es opcional. Las propiedades que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-height|int|290|Altura
-width|int|480|Anchura
+height | `int` | 290 | Altura
+width  | `int` | 480 | Anchura
 
 El parámetro `combo` especifica la creación de un gráfico que combine dos o más tipos de gráficos en un solo gráfico. Por ejemplo, cree un gráfico de líneas y columnas agrupadas con los datos `Sheet1!$E$1:$L$15`:
 

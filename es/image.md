@@ -94,7 +94,7 @@ package main
 
 import (
     _ "image/jpeg"
-    "io/ioutil"
+    "os"
 
     "github.com/xuri/excelize/v2"
 )
@@ -102,7 +102,7 @@ import (
 func main() {
     f := excelize.NewFile()
 
-    file, err := ioutil.ReadFile("image.jpg")
+    file, err := os.ReadFile("image.jpg")
     if err != nil {
         fmt.Println(err)
     }
@@ -136,7 +136,7 @@ if err != nil {
     fmt.Println(err)
     return
 }
-if err := ioutil.WriteFile(file, raw, 0644); err != nil {
+if err := os.WriteFile(file, raw, 0644); err != nil {
     fmt.Println(err)
 }
 ```

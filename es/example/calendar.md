@@ -192,10 +192,11 @@ func main() {
         }
     }
     // ocultar líneas de cuadrícula para la hoja de trabajo
-    if err = f.SetSheetViewOptions(sheet, 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", 0, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // cambiar el nombre de la hoja de trabajo
     f.SetSheetName(sheet, "Mayo 20")

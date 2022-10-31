@@ -146,6 +146,7 @@
   * [Gráfico de columnas apiladas 3D 100% cilindro](chart/col3DCylinderPercentStacked.md)
   * [Gráfico de rosquillas](chart/doughnut.md)
   * [Gráfico de líneas](chart/line.md)
+  * [Gráfico de líneas 3D](chart/line3D.md)
   * [Gráfico circular](chart/pie.md)
   * [Gráfico circular 3D](chart/pie3D.md)
   * [Gráfico de radar](chart/radar.md)

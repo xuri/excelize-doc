@@ -82,10 +82,11 @@ func main() {
         }
     }
     // ocultar líneas de cuadrícula para la hoja de trabajo
-    if err = f.SetSheetViewOptions("Sheet1", 0,
-        excelize.ShowGridLines(false)); err != nil {
+    disable := false
+    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+        ShowGridLines: &disable,
+    }); err != nil {
         fmt.Println(err)
-        return
     }
     // definir el estilo del borde
     border := []excelize.Border{
