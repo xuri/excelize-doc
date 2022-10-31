@@ -964,21 +964,22 @@ func getCellBgColor(f *excelize.File, sheet, cell string) string {
     }
     fillID := *f.Styles.CellXfs.Xf[styleID].FillID
     fgColor := f.Styles.Fills.Fill[fillID].PatternFill.FgColor
-    if fgColor != nil {
-        if fgColor.Theme != nil {
-            children := f.Theme.ThemeElements.ClrScheme.Children
-            if *fgColor.Theme < 4 {
-                dklt := map[int]string{
-                    0: children[1].SysClr.LastClr,
-                    1: children[0].SysClr.LastClr,
-                    2: *children[3].SrgbClr.Val,
-                    3: *children[2].SrgbClr.Val,
-                }
-                return strings.TrimPrefix(
-                    excelize.ThemeColor(dklt[*fgColor.Theme], fgColor.Tint), "FF")
+    if fgColor != nil && f.Theme != nil {
+        if clrScheme := f.Theme.ThemeElements.ClrScheme; fgColor.Theme != nil {
+            if val, ok := map[int]*string{
+                0: &clrScheme.Lt1.SysClr.LastClr,
+                1: &clrScheme.Dk1.SysClr.LastClr,
+                2: clrScheme.Lt2.SrgbClr.Val,
+                3: clrScheme.Dk2.SrgbClr.Val,
+                4: clrScheme.Accent1.SrgbClr.Val,
+                5: clrScheme.Accent2.SrgbClr.Val,
+                6: clrScheme.Accent3.SrgbClr.Val,
+                7: clrScheme.Accent4.SrgbClr.Val,
+                8: clrScheme.Accent5.SrgbClr.Val,
+                9: clrScheme.Accent6.SrgbClr.Val,
+            }[*fgColor.Theme]; ok && val != nil {
+                return strings.TrimPrefix(excelize.ThemeColor(*val, fgColor.Tint), "FF")
             }
-            srgbClr := *children[*fgColor.Theme].SrgbClr.Val
-            return strings.TrimPrefix(excelize.ThemeColor(srgbClr, fgColor.Tint), "FF")
         }
         return strings.TrimPrefix(fgColor.RGB, "FF")
     }

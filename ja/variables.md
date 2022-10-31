@@ -110,3 +110,19 @@ var (
     NameSpaceDocumentPropertiesVariantTypes = xml.Attr{Name: xml.Name{Local: "vt", Space: "xmlns"}, Value: "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"}
 )
 ```
+
+IndexedColorMapping は、インデックス付きカラー値から RGB 値へのデフォルト マッピングのテーブルです。下位互換性を維持するために、0～7 は 8～15 と重複していることに注意してください。一部のレコードでまだ必要な色の従来のインデックス スキーム、および従来の形式との下位互換性。この要素には、カラー インデックス (ゼロ ベース) に対応する一連の RGB カラー値が含まれます。デフォルトのインデックス付きカラー パレットを使用する場合、値は書き出されず、代わりに暗示されます。カラー パレットがデフォルトから変更されると、カラー パレット全体が書き出されます。
+
+```go
+var IndexedColorMapping = []string{
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "800000", "008000", "000080", "808000", "800080", "008080", "C0C0C0", "808080",
+    "9999FF", "993366", "FFFFCC", "CCFFFF", "660066", "FF8080", "0066CC", "CCCCFF",
+    "000080", "FF00FF", "FFFF00", "00FFFF", "800080", "800000", "008080", "0000FF",
+    "00CCFF", "CCFFFF", "CCFFCC", "FFFF99", "99CCFF", "FF99CC", "CC99FF", "FFCC99",
+    "3366FF", "33CCCC", "99CC00", "FFCC00", "FF9900", "FF6600", "666699", "969696",
+    "003366", "339966", "003300", "333300", "993300", "993366", "333399", "333333",
+    "000000", "FFFFFF",
+}
+```

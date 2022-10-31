@@ -149,3 +149,19 @@ var (
     NameSpaceDocumentPropertiesVariantTypes = xml.Attr{Name: xml.Name{Local: "vt", Space: "xmlns"}, Value: "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"}
 )
 ```
+
+IndexedColorMapping ist die Tabelle der Standardzuordnungen vom indizierten Farbwert zum RGB-Wert. Beachten Sie, dass 0-7 redundant zu 8-15 sind, um die Abwärtskompatibilität zu wahren. Ein Legacy-Indexierungsschema für Farben, das für einige Datensätze noch erforderlich ist, und für die Abwärtskompatibilität mit Legacy-Formaten. Dieses Element enthält eine Folge von RGB-Farbwerten, die Farbindizes entsprechen (nullbasiert). Bei Verwendung der standardmäßig indizierten Farbpalette werden die Werte nicht ausgeschrieben, sondern impliziert. Wenn die Farbpalette von der Voreinstellung geändert wurde, wird die gesamte Farbpalette ausgeschrieben.
+
+```go
+var IndexedColorMapping = []string{
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "800000", "008000", "000080", "808000", "800080", "008080", "C0C0C0", "808080",
+    "9999FF", "993366", "FFFFCC", "CCFFFF", "660066", "FF8080", "0066CC", "CCCCFF",
+    "000080", "FF00FF", "FFFF00", "00FFFF", "800080", "800000", "008080", "0000FF",
+    "00CCFF", "CCFFFF", "CCFFCC", "FFFF99", "99CCFF", "FF99CC", "CC99FF", "FFCC99",
+    "3366FF", "33CCCC", "99CC00", "FFCC00", "FF9900", "FF6600", "666699", "969696",
+    "003366", "339966", "003300", "333300", "993300", "993366", "333399", "333333",
+    "000000", "FFFFFF",
+}
+```

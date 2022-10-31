@@ -110,3 +110,19 @@ var (
     NameSpaceDocumentPropertiesVariantTypes = xml.Attr{Name: xml.Name{Local: "vt", Space: "xmlns"}, Value: "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"}
 )
 ```
+
+IndexedColorMapping 은 색인된 색상 값에서 RGB 값으로의 기본 매핑 테이블입니다. 이전 버전과의 호환성을 유지하기 위해 0-7 은 8-15 와 중복됩니다. 일부 레코드 및 레거시 형식과의 역호환성을 위해 여전히 필요한 색상에 대한 레거시 인덱싱 체계입니다. 이 요소는 색상 인덱스 (0 부터 시작) 에 해당하는 RGB 색상 값 시퀀스를 포함합니다. 기본 색인 색상 팔레트를 사용할 때 값이 기록되지 않고 대신 암시됩니다. 색상 팔레트가 기본값에서 수정되면 전체 색상 팔레트가 작성됩니다.
+
+```go
+var IndexedColorMapping = []string{
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "800000", "008000", "000080", "808000", "800080", "008080", "C0C0C0", "808080",
+    "9999FF", "993366", "FFFFCC", "CCFFFF", "660066", "FF8080", "0066CC", "CCCCFF",
+    "000080", "FF00FF", "FFFF00", "00FFFF", "800080", "800000", "008080", "0000FF",
+    "00CCFF", "CCFFFF", "CCFFCC", "FFFF99", "99CCFF", "FF99CC", "CC99FF", "FFCC99",
+    "3366FF", "33CCCC", "99CC00", "FFCC00", "FF9900", "FF6600", "666699", "969696",
+    "003366", "339966", "003300", "333300", "993300", "993366", "333399", "333333",
+    "000000", "FFFFFF",
+}
+```

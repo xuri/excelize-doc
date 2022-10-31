@@ -147,3 +147,19 @@ NameSpaceSpreadSheetExcel2006Main       = xml.Attr{Name: xml.Name{Local: "xne", 
 NameSpaceMacExcel2008Main               = xml.Attr{Name: xml.Name{Local: "mx", Space: "xmlns"}, Value: "http://schemas.microsoft.com/office/mac/excel/2008/main"}
 NameSpaceDocumentPropertiesVariantTypes = xml.Attr{Name: xml.Name{Local: "vt", Space: "xmlns"}, Value: "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"}
 ```
+
+IndexedColorMapping es la tabla de asignaciones predeterminadas del valor de color indexado al valor RGB. Tenga en cuenta que 0-7 son redundantes de 8-15 para preservar la compatibilidad con versiones anteriores. Un esquema de indexación heredado para colores que aún se requiere para algunos registros y para la compatibilidad con versiones anteriores de formatos heredados. Este elemento contiene una secuencia de valores de color RGB que corresponden a índices de color (basados en cero). Cuando se utiliza la paleta de colores indexada predeterminada, los valores no se escriben, sino que están implícitos. Cuando la paleta de colores se ha modificado de forma predeterminada, se escribe toda la paleta de colores.
+
+```go
+var IndexedColorMapping = []string{
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "000000", "FFFFFF", "FF0000", "00FF00", "0000FF", "FFFF00", "FF00FF", "00FFFF",
+    "800000", "008000", "000080", "808000", "800080", "008080", "C0C0C0", "808080",
+    "9999FF", "993366", "FFFFCC", "CCFFFF", "660066", "FF8080", "0066CC", "CCCCFF",
+    "000080", "FF00FF", "FFFF00", "00FFFF", "800080", "800000", "008080", "0000FF",
+    "00CCFF", "CCFFFF", "CCFFCC", "FFFF99", "99CCFF", "FF99CC", "CC99FF", "FFCC99",
+    "3366FF", "33CCCC", "99CC00", "FFCC00", "FF9900", "FF6600", "666699", "969696",
+    "003366", "339966", "003300", "333300", "993300", "993366", "333399", "333333",
+    "000000", "FFFFFF",
+}
+```

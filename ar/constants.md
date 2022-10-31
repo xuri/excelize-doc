@@ -198,8 +198,10 @@ const (
     CellTypeBool
     CellTypeDate
     CellTypeError
+    CellTypeFormula
+    CellTypeInlineString
     CellTypeNumber
-    CellTypeString
+    CellTypeSharedString
 )
 ```
 
