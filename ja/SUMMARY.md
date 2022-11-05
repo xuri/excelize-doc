@@ -181,6 +181,7 @@
   * [ストリームライターを取得する](stream.md#NewStreamWriter)
   * [ストリームにシート行を書き込む](stream.md#SetRow)
   * [ストリーミングするテーブルを追加する](stream.md#AddTable)
+  * [ストリームによるペインの設定](stream.md#SetPanes)
   * [ストリームでマージセル](stream.md#MergeCell)
   * [ストリームの列幅を設定する](stream.md#SetColWidth)
   * [エンディングストリーム](stream.md#Flush)

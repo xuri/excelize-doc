@@ -181,6 +181,7 @@
   * [Obtenez le flux écrivain](stream.md#NewStreamWriter)
   * [Écrire la ligne de feuille au flux](stream.md#SetRow)
   * [Ajouter une table à diffuser](stream.md#AddTable)
+  * [Définir les volets pour la diffusion en continu](stream.md#SetPanes)
   * [Fusionner la cellule pour diffuser](stream.md#MergeCell)
   * [Définir la largeur de la colonne dans le flux](stream.md#SetColWidth)
   * [Flush le flux](stream.md#Flush)

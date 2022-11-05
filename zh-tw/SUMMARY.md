@@ -182,6 +182,7 @@
   * [按列流式寫入工作表](stream.md#SetRow)
   * [流式創建表格](stream.md#AddTable)
   * [流式合併存儲格](stream.md#MergeCell)
+  * [流式設定窗格](stream.md#SetPanes)
   * [流式設定欄寬度](stream.md#SetColWidth)
   * [結束流式寫入](stream.md#Flush)
 * [資料](data.md)

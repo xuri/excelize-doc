@@ -41,6 +41,11 @@ NewStreamWriter return stream writer struct by given worksheet name to generate 
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -130,7 +135,15 @@ err := streamWriter.AddTable("F2", "H6", `{
 }`)
 ```
 
-Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique. Currently only one table is allowed for a StreamWriter. [`AddTable`](stream.md#AddTable) must be called after the rows are written but before `Flush`. See [`AddTable`](utils.md#AddTable) for details on the table format.
+Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique. Currently only one table is allowed for a `StreamWriter`. [`AddTable`](stream.md#AddTable) must be called after the rows are written but before `Flush`. See [`AddTable`](utils.md#AddTable) for details on the table format.
+
+## Set panes to stream {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+SetPanes provides a function to create and remove freeze panes and split panes by given worksheet name and panes options for the `StreamWriter`. Note that you must call the `SetPanes` function before the `SetRow` function.
 
 ## Merge cell to stream {#MergeCell}
 
@@ -138,7 +151,7 @@ Note that the table must be at least two lines including the header. The header 
 func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
-MergeCell provides a function to merge cells by a given range reference for the StreamWriter. Don't create a merged cell that overlaps with another existing merged cell.
+MergeCell provides a function to merge cells by a given range reference for the `StreamWriter`. Don't create a merged cell that overlaps with another existing merged cell.
 
 ## Set column width to stream {#SetColWidth}
 

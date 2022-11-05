@@ -181,6 +181,7 @@
   * [Get stream writer](stream.md#NewStreamWriter)
   * [Write sheet row to stream](stream.md#SetRow)
   * [Add table to stream](stream.md#AddTable)
+  * [Set panes to stream](stream.md#SetPanes)
   * [Merge cell to stream](stream.md#MergeCell)
   * [Set column width to stream](stream.md#SetColWidth)
   * [Flush stream](stream.md#Flush)

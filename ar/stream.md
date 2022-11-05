@@ -41,6 +41,11 @@ func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 لاحظ أن الجدول يجب أن يتكون من سطرين على الأقل بما في ذلك الرأس. يجب أن تحتوي خلايا الرأس على سلاسل ويجب أن تكون فريدة. حاليًا ، يُسمح بجدول واحد فقط لـ StreamWriter. يجب استدعاء [`AddTable`](stream.md#AddTable) بعد كتابة الصفوف ولكن قبل `Flush`. راجع [`AddTable`](utils.md#AddTable) للحصول على تفاصيل حول تنسيق الجدول.
+
+## تعيين جزء النافذة للدفق {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+يوفر SetPanes وظيفة لإنشاء وإزالة أجزاء التجميد وتقسيم الأجزاء عن طريق اسم ورقة العمل وخيارات الأجزاء لـ `StreamWriter`. لاحظ أنه يجب استدعاء الدالة `SetPanes` قبل الدالة [`SetRow`](stream.md#SetRow).
 
 ## دمج الخلية للدفق {#MergeCell}
 

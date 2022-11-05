@@ -181,6 +181,7 @@
   * [Stream-Writer abrufen](stream.md#NewStreamWriter)
   * [Schreiben der Zulaufzeile](stream.md#SetRow)
   * [Fügen Sie eine Tabelle zum Streamen hinzu](stream.md#AddTable)
+  * [Stellen Sie Fensterbereiche auf Stream ein](stream.md#SetPanes)
   * [Zelle zum Streaming zusammenführen](stream.md#MergeCell)
   * [Festlegen der Spaltenbreite für den Stream](stream.md#SetColWidth)
   * [Flush-Stream](stream.md#Flush)

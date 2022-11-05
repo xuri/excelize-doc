@@ -41,6 +41,11 @@ NewStreamWriter は、指定されたワークシート名でストリームラ�
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 表の座標領域は、文字型のヘッダー行とコンテンツ行の少なくとも 2 行をカバーする必要があります。各列ヘッダー行の文字は一意であり、現在、各ワークシートで 1 つのテーブルのみのストリーミングがサポートされ、関数を呼び出す前に [`SetRow`](stream.md#SetRow) を使用してテーブルのヘッダー行データをストリーミングする必要があります。サポートされている表スタイルは、非フロー作成表 [`AddTable`](utils.md#AddTable) と同じです。
+
+## ストリームによるペインの設定 {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+SetPanes は、`StreamWriter` の指定されたワークシート名とペイン オプションによって、フリーズ ペインと分割ペインを作成および削除する機能を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetPanes` 関数を呼び出す必要があることに注意してください。
 
 ## ストリームでマージセル {#MergeCell}
 

@@ -41,6 +41,11 @@ NewStreamWriter 通過給定的工作表名稱傳回流式寫入器，用於生�
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
+
+## 流式设定窗格 {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+通過給定的工作表名稱和窗格樣式參數流式設定凍結窗格，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函數設定窗格。
 
 ## 流式合併存儲格 {#MergeCell}
 

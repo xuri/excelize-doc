@@ -181,6 +181,7 @@
   * [Получить потокового писателя](stream.md#NewStreamWriter)
   * [Запись строки листа в поток](stream.md#SetRow)
   * [Добавить таблицу в поток](stream.md#AddTable)
+  * [Записать оконную панель в поток](stream.md#SetPanes)
   * [Объединить ячейку в поток](stream.md#MergeCell)
   * [Установите ширину столбца в потоке](stream.md#SetColWidth)
   * [Flush поток](stream.md#Flush)

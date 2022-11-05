@@ -41,6 +41,11 @@ NewStreamWriter renvoie la structure de l'écrivain de flux par un nom de feuill
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques. Actuellement, une seule table est autorisée pour un StreamWriter. [`AddTable`](stream.md#AddTable) doit être appelé après l'écriture des lignes mais avant `Flush`. Voir [`AddTable`](utils.md#AddTable) pour plus de détails sur le format de la table.
+
+## Définir les volets pour la diffusion en continu {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+SetPanes fournit une fonction permettant de créer et de supprimer des volets figés et fractionner les volets par nom de feuille de calcul donné et options de volets pour `StreamWriter`. Notez que vous devez appeler la fonction `SetPanes` avant la fonction [`SetRow`](stream.md#SetRow).
 
 ## Fusionner la cellule pour diffuser {#MergeCell}
 

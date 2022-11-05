@@ -41,6 +41,11 @@ NewStreamWriter devuelve la estructura del escritor de flujo por el nombre de la
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas. Actualmente, solo se permite una tabla para StreamWriter. [`AddTable`](stream.md#AddTable) se debe llamar después de que se escriban las filas pero antes de `Flush`. Consulte [`AddTable`](utils.md#AddTable) para obtener detalles sobre el formato de la tabla.
+
+## Establecer paneles para transmitir {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+SetPanes proporciona una función para crear y eliminar paneles congelados y paneles divididos según el nombre de la hoja de trabajo y las opciones de paneles para `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetPanes` antes de la función [`SetRow`](stream.md#SetRow).
 
 ## Combinar celda para transmitir {#MergeCell}
 

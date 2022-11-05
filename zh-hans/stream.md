@@ -41,6 +41,11 @@ NewStreamWriter 通过给定的工作表名称返回流式写入器，用于生�
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 注意，表格坐标区域至少需要包含两行：字符型的标题行和内容行。每列标题行的字符需保证是唯一的，当前仅支持在每个工作表中流式创建一张表格，并且必须在调用该函数前通过 [`SetRow`](stream.md#SetRow) 流式设置表格的标题行数据。支持的表格样式与非流式创建表格 [`AddTable`](utils.md#AddTable) 相同。
+
+## 流式设置窗格 {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+通过给定的工作表名称和窗格样式参数流式设置冻结窗格，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置窗格。
 
 ## 流式合并单元格 {#MergeCell}
 

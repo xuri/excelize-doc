@@ -41,6 +41,11 @@ NewStreamWriter gibt die Stream-Writer-Struktur anhand des angegebenen Arbeitsbl
 
 ```go
 file := excelize.NewFile()
+defer func() {
+    if err := file.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
@@ -131,6 +136,14 @@ err := streamWriter.AddTable("F2", "H6", `{
 ```
 
 Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfzeile enthalten muss. Die Header-Zellen müssen Zeichenfolgen enthalten und eindeutig sein. Derzeit ist nur eine Tabelle für einen StreamWriter zulässig. [`AddTable`](stream.md#AddTable) muss aufgerufen werden, nachdem die Zeilen geschrieben wurden, jedoch vor `Flush`. Weitere Informationen zum Tabellenformat finden Sie unter [`AddTable`](utils.md#AddTable).
+
+## Stellen Sie Fensterbereiche auf Stream ein {#SetPanes}
+
+```go
+func (sw *StreamWriter) SetPanes(panes string) error
+```
+
+SetPanes bietet eine Funktion zum Erstellen und Entfernen von eingefrorenen Fenstern und geteilten Fenstern nach gegebenem Arbeitsblattnamen und Fensteroptionen für den `StreamWriter`. Beachten Sie, dass Sie die Funktion `SetPanes` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen.
 
 ## Zelle zum Streaming zusammenführen {#MergeCell}
 
