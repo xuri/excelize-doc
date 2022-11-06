@@ -561,7 +561,14 @@ AddComment proporciona el método para agregar comentarios en una hoja por índi
 <p align="center"><img width="612" src="./images/comment.png" alt="Agregar un comentario a un documento de Excel"></p>
 
 ```go
-err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"Este es un comentario."}`)
+err := f.AddComment(sheet, excelize.Comment{
+    Cell:   "A3",
+    Author: "Excelize",
+    Runs: []excelize.RichTextRun{
+        {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
+        {Text: "Este es un comentario."},
+    },
+})
 ```
 
 ## Obtener comentarios {#GetComments}

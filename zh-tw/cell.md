@@ -561,7 +561,14 @@ func (f *File) AddComment(sheet, cell, opts string) error
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 文檔中添加註解"></p>
 
 ```go
-err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)
+err := f.AddComment(sheet, excelize.Comment{
+    Cell:   "A3",
+    Author: "Excelize",
+    Runs: []excelize.RichTextRun{
+        {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
+        {Text: "This is a comment."},
+    },
+})
 ```
 
 ## 獲取註解 {#GetComments}

@@ -561,7 +561,14 @@ AddComment fournit la méthode pour ajouter un commentaire dans une feuille par 
 !["Ajouter un commentaire à un document Excel"](./images/comment.png "Ajouter un commentaire à un document Excel")
 
 ```go
-err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)
+err := f.AddComment(sheet, excelize.Comment{
+    Cell:   "A3",
+    Author: "Excelize",
+    Runs: []excelize.RichTextRun{
+        {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
+        {Text: "This is a comment."},
+    },
+})
 ```
 
 ## Obtenir un commentaire {#GetComments}

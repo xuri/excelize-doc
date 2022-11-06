@@ -561,7 +561,14 @@ func (f *File) AddComment(sheet, cell, opts string) error
 <p align="center"><img width="612" src="./images/comment.png" alt="Excel ドキュメントに注釈を追加する"></p>
 
 ```go
-err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)
+err := f.AddComment(sheet, excelize.Comment{
+    Cell:   "A3",
+    Author: "Excelize",
+    Runs: []excelize.RichTextRun{
+        {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
+        {Text: "This is a comment."},
+    },
+})
 ```
 
 ## コメントを得る {#GetComments}

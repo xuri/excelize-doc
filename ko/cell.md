@@ -561,7 +561,14 @@ AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: �
 <p align="center"><img width="612" src="./images/comment.png" alt="Excel 문서에 주석 추가"></p>
 
 ```go
-err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"This is a comment."}`)
+err := f.AddComment(sheet, excelize.Comment{
+    Cell:   "A3",
+    Author: "Excelize",
+    Runs: []excelize.RichTextRun{
+        {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
+        {Text: "This is a comment."},
+    },
+})
 ```
 
 ## 의견 가져 오기 {#GetComments}

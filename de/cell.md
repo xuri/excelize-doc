@@ -561,7 +561,14 @@ AddComment bietet die Methode zum Hinzufügen von Kommentaren zu einem Blatt anh
 <p align="center"><img width="612" src="./images/comment.png" alt="Fügen Sie einem Excel-Dokument einen Kommentar hinzu"></p>
 
 ```go
-err := f.AddComment("Sheet1", "A3", `{"author":"Excelize: ","text":"Dies ist ein Kommentar."}`)
+err := f.AddComment(sheet, excelize.Comment{
+    Cell:   "A3",
+    Author: "Excelize",
+    Runs: []excelize.RichTextRun{
+        {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
+        {Text: "Dies ist ein Kommentar."},
+    },
+})
 ```
 
 ## Kommentar abrufen {#GetComments}
