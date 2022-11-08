@@ -23,11 +23,7 @@ import (
 )
 
 func main() {
-    f, err := excelize.OpenFile("Book1.xlsx")
-    if err != nil {
-        fmt.Println(err)
-        return
-    }
+    f := excelize.NewFile()
     // Fügen Sie ein Bild ein.
     if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
         fmt.Println(err)
@@ -51,9 +47,6 @@ func main() {
     }
     // Speichern Sie die Tabellenkalkulationsdatei mit dem Ursprungspfad.
     if err = f.Save(); err != nil {
-        fmt.Println(err)
-    }
-    if err = f.Close(); err != nil {
         fmt.Println(err)
     }
 }
@@ -131,6 +124,11 @@ if err != nil {
     fmt.Println(err)
     return
 }
+defer func() {
+    if err := f.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 file, raw, err := f.GetPicture("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)

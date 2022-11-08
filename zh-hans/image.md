@@ -126,6 +126,11 @@ if err != nil {
     fmt.Println(err)
     return
 }
+defer func() {
+    if err := f.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 file, raw, err := f.GetPicture("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)

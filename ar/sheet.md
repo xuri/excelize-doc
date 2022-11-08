@@ -130,6 +130,11 @@ f, err := excelize.OpenFile("المصنف1.xlsx")
 if err != nil {
     return
 }
+defer func() {
+    if err := f.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
 for index, name := range f.GetSheetMap() {
     fmt.Println(index, name)
 }
