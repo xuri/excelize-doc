@@ -553,7 +553,7 @@ GetEndAxis returns the bottom right cell reference of merged range, for example:
 ## Add comment {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, opts string) error
+func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
 AddComment provides the method to add comments in a sheet by given worksheet index, cell and format set (such as author and text). Note that the max author length is 255 and the max text length is 32512. For example, add a comment in `Sheet1!$A$3`:

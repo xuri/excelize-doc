@@ -559,7 +559,7 @@ func (m *MergeCell) GetEndAxis() string
 ## إضافة تعليق {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, opts string) error
+func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
 يوفر AddComment طريقة لإضافة التعليقات في ورقة من خلال فهرس ورقة العمل والخلية ومجموعة التنسيق (مثل المؤلف والنص). لاحظ أن الحد الأقصى لطول المؤلف هو 255 والحد الأقصى لطول النص هو 32512. على سبيل المثال ، أضف تعليقًا في `Sheet1!$A$3`:

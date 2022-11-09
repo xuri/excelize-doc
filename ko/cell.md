@@ -553,7 +553,7 @@ GetEndAxis 는 병합된 범위의 오른쪽 하단 셀 좌표를 반환합니�
 ## 의견 추가 {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, opts string) error
+func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
 AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: 작성자 및 텍스트) 을 사용하여 시트에 주석을 추가하는 방법을 제공합니다. 최대 작성자 길이는 255 이고 최대 텍스트 길이는 32512 입니다. 예를 들어 `Sheet1!$A$3` 에 주석을 추가합니다:

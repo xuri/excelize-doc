@@ -553,7 +553,7 @@ GetEndAxis 返回合并单元格区域右下角单元格的坐标，例如：`D4
 ## 添加批注 {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, opts string) error
+func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
 根据给定的工作表名称、单元格坐标和样式参数（作者与文本信息）添加批注。作者信息最大长度为 255 个字符，最大文本内容长度为 32512 个字符，超出该范围的字符将会被忽略。例如，为 `Sheet1!$A$3` 单元格添加批注：

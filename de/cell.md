@@ -553,7 +553,7 @@ GetEndAxis gibt die unteren rechten Zellenkoordinaten des zusammengeführten Ber
 ## Kommentar hinzufügen {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, opts string) error
+func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
 AddComment bietet die Methode zum Hinzufügen von Kommentaren zu einem Blatt anhand eines bestimmten Arbeitsblattindex, einer bestimmten Zelle und eines bestimmten Formatsatzes (z. B. Autor und Text). Beachten Sie, dass die maximale Autorenlänge 255 und die maximale Textlänge 32512 beträgt. Fügen Sie beispielsweise einen Kommentar in `Sheet1!$A$3` hinzu:

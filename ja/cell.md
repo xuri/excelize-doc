@@ -553,7 +553,7 @@ GetEndAxis は、マージされた範囲の右下のセル座標を返します
 ## コメント追加 {#AddComment}
 
 ```go
-func (f *File) AddComment(sheet, cell, opts string) error
+func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
 指定されたワークシート名、セル座標、およびスタイルパラメータ (作成者とテキスト情報) に基づいて注釈を追加します。作成者情報の最大長は 255 文字で、テキストの最大内容は 32512 文字で、その範囲を超える文字は無視されます。たとえば、`Sheet1!$A$3` セルに注釈を追加します。
