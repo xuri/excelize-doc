@@ -495,7 +495,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetRow는 지정된 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행에 배열을 씁니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어 `6` 행에 배열을 `Sheet1` 의 셀 `B6` 로 시작합니다.
+SetSheetRow 는 지정된 워크 시트 이름, 시작 좌표 및 배열 유형 `slice` 에 대한 포인터로 행에 배열을 씁니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 예를 들어 `6` 행에 배열을 `Sheet1` 의 셀 `B6` 로 시작합니다.
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})

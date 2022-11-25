@@ -199,7 +199,7 @@ GetActiveSheetIndex bietet eine Funktion zum Abrufen eines aktiven Arbeitsblatts
 func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
-SetSheetVisible bietet eine Funktion zum Festlegen eines Arbeitsblatts, das durch den angegebenen Arbeitsblattnamen sichtbar ist. Eine Arbeitsmappe muss mindestens ein sichtbares Arbeitsblatt enthalten. Wenn das angegebene Arbeitsblatt aktiviert wurde, wird diese Einstellung ungültig. Blattzustandswerte, wie in [SheetStateValues Enum](https://docs.microsoft.com/de-de/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) definiert:
+SetSheetVisible bietet eine Funktion zum Festlegen eines Arbeitsblatts, das durch den angegebenen Arbeitsblattnamen sichtbar ist. Eine Arbeitsmappe muss mindestens ein sichtbares Arbeitsblatt enthalten. Wenn das angegebene Arbeitsblatt aktiviert wurde, wird diese Einstellung ungültig. Blattzustandswerte, wie in [SheetStateValues Enum](https://learn.microsoft.com/de-de/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) definiert:
 
 |Arbeitsblattstatuswerte|
 |---|

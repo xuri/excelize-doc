@@ -199,7 +199,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
-SetSheetVisible 은 지정된 워크 시트 이름으로 표시되는 워크 시트를 설정하는 함수를 제공합니다. 통합 문서에는 최소한 하나의 보이는 워크 시트가 있어야합니다. 지정된 워크 시트가 활성화 된 경우이 설정은 무효화됩니다. [SheetStateValues Enum](https://docs.microsoft.com/ko-kr/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) 에 정의 된 시트 상태 값:
+SetSheetVisible 은 지정된 워크 시트 이름으로 표시되는 워크 시트를 설정하는 함수를 제공합니다. 통합 문서에는 최소한 하나의 보이는 워크 시트가 있어야합니다. 지정된 워크 시트가 활성화 된 경우이 설정은 무효화됩니다. [SheetStateValues Enum](https://learn.microsoft.com/ko-kr/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) 에 정의 된 시트 상태 값:
 
 |워크 시트 상태 값|
 |---|

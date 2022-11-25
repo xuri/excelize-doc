@@ -199,7 +199,7 @@ GetActiveSheetIndex proporciona una función para obtener una hoja de cálculo a
 func (f *File) SetSheetVisible(sheet string, visible bool) error
 ```
 
-SetSheetVisible proporciona una función para establecer la hoja de cálculo visible por el nombre de la hoja de cálculo dado. Un libro de trabajo debe contener al menos una hoja de cálculo visible. Si se ha activado la hoja de cálculo determinada, esta configuración se invalidará. Valores de estado de hoja definidos por [SheetStateValues Enum](https://docs.microsoft.com/es-es/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
+SetSheetVisible proporciona una función para establecer la hoja de cálculo visible por el nombre de la hoja de cálculo dado. Un libro de trabajo debe contener al menos una hoja de cálculo visible. Si se ha activado la hoja de cálculo determinada, esta configuración se invalidará. Valores de estado de hoja definidos por [SheetStateValues Enum](https://learn.microsoft.com/es-es/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
 
 |Valores de estado de hoja|
 |---|
