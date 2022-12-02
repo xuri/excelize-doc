@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 注意，表格坐标区域至少需要包含两行：字符型的标题行和内容行。每列标题行的字符需保证是唯一的，当前仅支持在每个工作表中流式创建一张表格，并且必须在调用该函数前通过 [`SetRow`](stream.md#SetRow) 流式设置表格的标题行数据。支持的表格样式与非流式创建表格 [`AddTable`](utils.md#AddTable) 相同。
 
+## 流式插入分页符 {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+根据给定的单元格坐标流式插入分页符。分页符是将工作表分成单独的页面以便打印的分隔线。
+
 ## 流式设置窗格 {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-通过给定的工作表名称和窗格样式参数流式设置冻结窗格，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置窗格。
+通过给定的窗格样式参数流式设置冻结窗格，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置窗格。
 
 ## 流式合并单元格 {#MergeCell}
 
