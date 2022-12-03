@@ -106,7 +106,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
-SetRow writes an array to stream row by given starting coordinate and a pointer to array type `slice`. Note that, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process.
+SetRow writes an array to stream rows by giving starting cell reference and a pointer to an array of values. Note that you must call the [`Flush`](stream.md#Flush) function to end the streaming writing process.
 
 ## Add table to stream {#AddTable}
 
@@ -114,7 +114,7 @@ SetRow writes an array to stream row by given starting coordinate and a pointer 
 func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 ```
 
-AddTable creates an Excel table for the StreamWriter using the given cell range and format set.
+AddTable creates an Excel table for the `StreamWriter` using the given cell range and format set.
 
 Example 1, create a table of `A1:D5`:
 
@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique. Currently only one table is allowed for a `StreamWriter`. [`AddTable`](stream.md#AddTable) must be called after the rows are written but before `Flush`. See [`AddTable`](utils.md#AddTable) for details on the table format.
 
+## Insert page break to stream {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+InsertPageBreak creates a page break to determine where the printed page ends and where begins the next one by a given cell reference, the content before the page break will be printed on one page and after the page break on another.
+
 ## Set panes to stream {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-SetPanes provides a function to create and remove freeze panes and split panes by given worksheet name and panes options for the `StreamWriter`. Note that you must call the `SetPanes` function before the `SetRow` function.
+SetPanes provides a function to create and remove freeze panes and split panes by giving panes options for the `StreamWriter`. Note that you must call the `SetPanes` function before the [`SetRow`](stream.md#SetRow) function.
 
 ## Merge cell to stream {#MergeCell}
 
