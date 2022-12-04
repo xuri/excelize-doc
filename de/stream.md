@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfzeile enthalten muss. Die Header-Zellen müssen Zeichenfolgen enthalten und eindeutig sein. Derzeit ist nur eine Tabelle für einen StreamWriter zulässig. [`AddTable`](stream.md#AddTable) muss aufgerufen werden, nachdem die Zeilen geschrieben wurden, jedoch vor `Flush`. Weitere Informationen zum Tabellenformat finden Sie unter [`AddTable`](utils.md#AddTable).
 
+## Seitenumbruch zum Streamen einfügen {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+InsertPageBreak erstellt einen Seitenumbruch, um festzulegen, wo die gedruckte Seite endet und wo die nächste beginnt. Durch einen gegebenen Zellbezug wird der Inhalt vor dem Seitenumbruch auf eine Seite gedruckt und nach dem Seitenumbruch auf eine andere.
+
 ## Stellen Sie Fensterbereiche auf Stream ein {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-SetPanes bietet eine Funktion zum Erstellen und Entfernen von eingefrorenen Fenstern und geteilten Fenstern nach gegebenem Arbeitsblattnamen und Fensteroptionen für den `StreamWriter`. Beachten Sie, dass Sie die Funktion `SetPanes` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen.
+SetPanes bietet eine Funktion zum Erstellen und Entfernen von Einfrierfenstern und geteilten Fenstern, indem es Fensteroptionen für den `StreamWriter` gibt. Beachten Sie, dass Sie die Funktion `SetPanes` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen.
 
 ## Zelle zum Streaming zusammenführen {#MergeCell}
 
