@@ -181,6 +181,7 @@
   * [الحصول على دفق الكاتب](stream.md#NewStreamWriter)
   * [كتابة صف ورقة إلى الدفق](stream.md#SetRow)
   * [إضافة جدول إلى تيار](stream.md#AddTable)
+  * [إدراج فاصل صفحة للدفق](stream.md#InsertPageBreak)
   * [تعيين جزء النافذة للدفق](stream.md#SetPanes)
   * [دمج الخلية للدفق](stream.md#MergeCell)
   * [تعيين عرض العمود في الدفق](stream.md#SetColWidth)

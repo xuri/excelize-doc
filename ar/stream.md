@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 لاحظ أن الجدول يجب أن يتكون من سطرين على الأقل بما في ذلك الرأس. يجب أن تحتوي خلايا الرأس على سلاسل ويجب أن تكون فريدة. حاليًا ، يُسمح بجدول واحد فقط لـ StreamWriter. يجب استدعاء [`AddTable`](stream.md#AddTable) بعد كتابة الصفوف ولكن قبل `Flush`. راجع [`AddTable`](utils.md#AddTable) للحصول على تفاصيل حول تنسيق الجدول.
 
+## إدراج فاصل صفحة للدفق {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+يُنشئ InsertPageBreak فاصل صفحة لتحديد مكان انتهاء الصفحة المطبوعة وأين يبدأ الفصل التالي بمرجع خلية معين ، وستتم طباعة المحتوى قبل فاصل الصفحة على صفحة واحدة وبعد فاصل الصفحة على أخرى.
+
 ## تعيين جزء النافذة للدفق {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-يوفر SetPanes وظيفة لإنشاء وإزالة أجزاء التجميد وتقسيم الأجزاء عن طريق اسم ورقة العمل وخيارات الأجزاء لـ `StreamWriter`. لاحظ أنه يجب استدعاء الدالة `SetPanes` قبل الدالة [`SetRow`](stream.md#SetRow).
+يوفر SetPanes وظيفة لإنشاء وإزالة ألواح التجميد وتقسيم الألواح عن طريق إعطاء خيارات الأجزاء لـ `StreamWriter`. لاحظ أنه يجب استدعاء الدالة `SetPanes` قبل الدالة [`SetRow`](stream.md#SetRow).
 
 ## دمج الخلية للدفق {#MergeCell}
 
