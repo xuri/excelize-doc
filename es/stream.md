@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas. Actualmente, solo se permite una tabla para StreamWriter. [`AddTable`](stream.md#AddTable) se debe llamar después de que se escriban las filas pero antes de `Flush`. Consulte [`AddTable`](utils.md#AddTable) para obtener detalles sobre el formato de la tabla.
 
+## Insertar salto de página para transmitir {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+InsertPageBreak crea un salto de página para determinar dónde termina la página impresa y dónde comienza la siguiente según una referencia de celda dada, el contenido antes del salto de página se imprimirá en una página y después del salto de página en otra.
+
 ## Establecer paneles para transmitir {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-SetPanes proporciona una función para crear y eliminar paneles congelados y paneles divididos según el nombre de la hoja de trabajo y las opciones de paneles para `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetPanes` antes de la función [`SetRow`](stream.md#SetRow).
+SetPanes proporciona una función para crear y eliminar paneles congelados y paneles divididos al brindar opciones de paneles para `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetPanes` antes de la función [`SetRow`](stream.md#SetRow).
 
 ## Combinar celda para transmitir {#MergeCell}
 

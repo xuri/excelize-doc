@@ -181,6 +181,7 @@
   * [Obtener escritor de flujo](stream.md#NewStreamWriter)
   * [Escribir fila de hoja para transmitir](stream.md#SetRow)
   * [Agregar una tabla para transmitir](stream.md#AddTable)
+  * [Insertar salto de página para transmitir](stream.md#InsertPageBreak)
   * [Establecer paneles para transmitir](stream.md#SetPanes)
   * [Combinar celda para transmitir](stream.md#MergeCell)
   * [Establecer el ancho de columna en la secuencia](stream.md#SetColWidth)
