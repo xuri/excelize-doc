@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques. Actuellement, une seule table est autorisée pour un StreamWriter. [`AddTable`](stream.md#AddTable) doit être appelé après l'écriture des lignes mais avant `Flush`. Voir [`AddTable`](utils.md#AddTable) pour plus de détails sur le format de la table.
 
+## Insérer un saut de page pour diffuser {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+InsertPageBreak crée un saut de page pour déterminer où se termine la page imprimée et où commence la suivante par une référence de cellule donnée, le contenu avant le saut de page sera imprimé sur une page et après le saut de page sur une autre.
+
 ## Définir les volets pour la diffusion en continu {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-SetPanes fournit une fonction permettant de créer et de supprimer des volets figés et fractionner les volets par nom de feuille de calcul donné et options de volets pour `StreamWriter`. Notez que vous devez appeler la fonction `SetPanes` avant la fonction [`SetRow`](stream.md#SetRow).
+SetPanes fournit une fonction pour créer et supprimer des volets de gel et des volets fractionnés en donnant des options de volets pour le `StreamWriter`. Notez que vous devez appeler la fonction `SetPanes` avant la fonction [`SetRow`](stream.md#SetRow).
 
 ## Fusionner la cellule pour diffuser {#MergeCell}
 
