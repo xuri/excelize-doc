@@ -42,9 +42,9 @@ err := f.AddShape("Sheet1", "G6", `{
 
 名稱|圖形|預覽
 ---|---|---
-accentBorderCallout1 | 標注：線形（帶邊框和強調線）| <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout1.svg" height="50" width="50"></p>
-accentBorderCallout2 | 標注：彎曲線形（帶邊框和強調線） | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout2.svg" height="50" width="50"></p>
-accentBorderCallout3 | 標注：雙彎曲線形（帶邊框和強調線） | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout3.svg" height="50" width="50"></p>
+accentBorderCallout1 | 標注：線形（帶外框和強調線）| <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout1.svg" height="50" width="50"></p>
+accentBorderCallout2 | 標注：彎曲線形（帶外框和強調線） | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout2.svg" height="50" width="50"></p>
+accentBorderCallout3 | 標注：雙彎曲線形（帶外框和強調線） | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout3.svg" height="50" width="50"></p>
 accentCallout1 | 標注：線形（帶強調線） | <p style="text-align: center;"><img src="../images/shapes/accentCallout1.svg" height="50" width="50"></p>
 accentCallout2 | 標注：彎曲線形（帶強調線） | <p style="text-align: center;"><img src="../images/shapes/accentCallout2.svg" height="50" width="50"></p>
 accentCallout3 | 標注：雙彎曲線形（帶強調線） | <p style="text-align: center;"><img src="../images/shapes/accentCallout3.svg" height="50" width="50"></p>
@@ -74,9 +74,9 @@ borderCallout2 | 標注：彎曲線形 | <p style="text-align: center;"><img src
 borderCallout3 | 標注：雙彎曲線形 | <p style="text-align: center;"><img src="../images/shapes/borderCallout3.svg" height="50" width="50"></p>
 bracePair | 雙大括號 | <p style="text-align: center;"><img src="../images/shapes/bracePair.svg" height="50" width="50"></p>
 bracketPair | 雙括號 | <p style="text-align: center;"><img src="../images/shapes/bracketPair.svg" height="50" width="50"></p>
-callout1 | 標注：線形（無邊框） | <p style="text-align: center;"><img src="../images/shapes/callout1.svg" height="50" width="50"></p>
-callout2 | 標注：彎曲線形（無邊框） | <p style="text-align: center;"><img src="../images/shapes/callout2.svg" height="50" width="50"></p>
-callout3 | 標注：雙彎曲線形（無邊框） | <p style="text-align: center;"><img src="../images/shapes/callout3.svg" height="50" width="50"></p>
+callout1 | 標注：線形（無外框） | <p style="text-align: center;"><img src="../images/shapes/callout1.svg" height="50" width="50"></p>
+callout2 | 標注：彎曲線形（無外框） | <p style="text-align: center;"><img src="../images/shapes/callout2.svg" height="50" width="50"></p>
+callout3 | 標注：雙彎曲線形（無外框） | <p style="text-align: center;"><img src="../images/shapes/callout3.svg" height="50" width="50"></p>
 can | 圓柱體 | <p style="text-align: center;"><img src="../images/shapes/can.svg" height="50" width="50"></p>
 chartPlus | 圖表加上形狀 | <p style="text-align: center;"><img src="../images/shapes/chartPlus.svg" height="50" width="50"></p>
 chartStar | 圖表的星形 | <p style="text-align: center;"><img src="../images/shapes/chartStar.svg" height="50" width="50"></p>

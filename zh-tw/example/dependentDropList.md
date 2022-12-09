@@ -88,7 +88,7 @@ func main() {
     }); err != nil {
         fmt.Println(err)
     }
-    // 定義邊框樣式
+    // 定義外框樣式
     border := []excelize.Border{
         {Type: "top", Style: 1, Color: "cccccc"},
         {Type: "left", Style: 1, Color: "cccccc"},

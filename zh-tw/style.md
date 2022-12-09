@@ -16,7 +16,7 @@ type Alignment struct {
 }
 ```
 
-Border 映射儲存格邊框樣式設定。
+Border 映射儲存格外框樣式設定。
 
 ```go
 type Border struct {
@@ -86,11 +86,19 @@ func (f *File) NewStyle(style interface{}) (int, error)
 
 通過給定的樣式格式結構體的指針或 JSON 創建樣式並傳回樣式索引。此功能是併發安全的。請注意，色彩需要使用 RGB 色域代碼表示。
 
-### 邊框 {#border}
+### 外框 {#border}
 
-下面的表格是 Excelize 中的邊框樣式索引 `type` 和對應的邊框線條樣式：
+下面的表格是 Excelize 中 `Border.Type` 支持的框線類型：
 
-索引|線條樣式|粗細|預覽效果
+類型|說明|類型|說明
+---|---|---|---
+left|左側外框|top|頂部外框
+right|右側外框|bottom|底部外框
+diagonalDown|對角線向下|diagonalUp|對角線向上
+
+下面的表格是 Excelize 中 `Border.Style` 支持的外框線型索引與對應的線型名稱、粗細及預覽效果：
+
+索引|線型名稱|粗細|預覽效果
 ---|---|---|---
 0|無|0|
 1|連續線|1|!["連續線"](../images/style/border_01.png)
@@ -107,21 +115,21 @@ func (f *File) NewStyle(style interface{}) (int, error)
 12|短線與兩個點一組重復線|2|!["短線與兩個點一組重復線"](../images/style/border_12.png)
 13|斜線與點線|2|!["斜線與點線"](../images/style/border_13.png)
 
-Excelize 中的邊框樣式代碼與 Office Excel 應用程式「設定儲存格格式」 - 「邊框」對話框中的關係對照：
+Excelize 中的 `Border.Style` 外框線型索引與 Office Excel 應用程式「設定儲存格格式」 - 「外框」對話框中的關係對照：
 
 索引|預覽效果|索引|預覽效果
 ---|---|---|---
-0||12|!["邊框 12"](../images/style/border_12.png)
-7|!["邊框 7"](../images/style/border_07.png)|13|!["邊框 13"](../images/style/border_13.png)
-4|!["邊框 4"](../images/style/border_04.png)|10|!["邊框 19"](../images/style/border_10.png)
-11|!["邊框 11"](../images/style/border_11.png)|8|!["邊框 8"](../images/style/border_08.png)
-9|!["邊框 9"](../images/style/border_09.png)|2|!["邊框 2"](../images/style/border_02.png)
-3|!["邊框 3"](../images/style/border_03.png)|5|!["邊框 5"](../images/style/border_05.png)
-1|!["邊框 1"](../images/style/border_01.png)|6|!["邊框 6"](../images/style/border_06.png)
+0||12|!["外框 12"](../images/style/border_12.png)
+7|!["外框 7"](../images/style/border_07.png)|13|!["外框 13"](../images/style/border_13.png)
+4|!["外框 4"](../images/style/border_04.png)|10|!["外框 19"](../images/style/border_10.png)
+11|!["外框 11"](../images/style/border_11.png)|8|!["外框 8"](../images/style/border_08.png)
+9|!["外框 9"](../images/style/border_09.png)|2|!["外框 2"](../images/style/border_02.png)
+3|!["外框 3"](../images/style/border_03.png)|5|!["外框 5"](../images/style/border_05.png)
+1|!["外框 1"](../images/style/border_01.png)|6|!["外框 6"](../images/style/border_06.png)
 
 ### 色彩填滿 {#shading}
 
-下面的表格是 Excelize 中儲存格色彩填滿樣式和索引 `shading` 參數的關係對照：
+下面的表格是 Excelize 中儲存格色彩填滿樣式和索引 `Fill.Shading` 參數的關係對照：
 
 索引|樣式|索引|樣式
 ---|---|---|---
@@ -131,7 +139,7 @@ Excelize 中的邊框樣式代碼與 Office Excel 應用程式「設定儲存格
 
 ### 圖案填滿 {#pattern}
 
-下面的表格是 Excelize 中儲存格圖案填滿樣式和索引 `pattern` 參數的關係對照：
+下面的表格是 Excelize 中儲存格圖案填滿樣式和索引 `Fill.Pattern` 參數的關係對照：
 
 索引|樣式|索引|樣式
 ---|---|---|---
@@ -150,7 +158,7 @@ Excelize 中的邊框樣式代碼與 Office Excel 應用程式「設定儲存格
 
 #### 水平對齊方式
 
-下面的表格是 Excelize 中儲存格水平對齊方式 `horizontal` 參數與樣式關係對照表：
+下面的表格是 Excelize 中儲存格水平對齊方式 `Alignment.Horizontal` 參數與樣式關係對照表：
 
 參數|樣式
 ---|---
@@ -164,7 +172,7 @@ distributed|分散對齊（縮進）
 
 #### 垂直對齊方式
 
-下面的表格是 Excelize 中儲存格垂直對齊方式 `vertical` 參數與樣式關係對照表：
+下面的表格是 Excelize 中儲存格垂直對齊方式 `Alignment.Vertical` 參數與樣式關係對照表：
 
 參數|樣式
 ---|---
@@ -175,7 +183,7 @@ distributed|分散對齊
 
 ### 字型下划線 {#underline}
 
-下面的表格是 Excelize 中儲存格字型下划線 `underline` 參數與樣式關係對照表：
+下面的表格是 Excelize 中儲存格字型下划線 `Font.Underline` 參數與樣式關係對照表：
 
 參數|樣式
 ---|---
@@ -184,7 +192,7 @@ double|雙線
 
 ### 數字自定義格式 {#number_format}
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -228,7 +236,7 @@ double|雙線
 
 #### 繁體中文數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與繁體中文 `zh-tw` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與繁體中文 `zh-tw` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -254,7 +262,7 @@ double|雙線
 
 #### 簡體中文數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與簡體中文 `zh-cn` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與簡體中文 `zh-cn` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -280,7 +288,7 @@ double|雙線
 
 #### Unicode 繁體中文字型數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與 Unicode 繁體中文字型 `zh-tw` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與 Unicode 繁體中文字型 `zh-tw` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -306,7 +314,7 @@ double|雙線
 
 #### Unicode 簡體中文字型數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與 Unicode 簡體中文字型 `zh-cn` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與 Unicode 簡體中文字型 `zh-cn` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -332,7 +340,7 @@ double|雙線
 
 #### 日本語數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與日本語 `ja-jp` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與日本語 `ja-jp` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -358,7 +366,7 @@ double|雙線
 
 #### 韓語數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與韓語 `ko-kr` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與韓語 `ko-kr` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -384,7 +392,7 @@ double|雙線
 
 #### Unicode 日本語字型數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與 Unicode 日本語字型 `ja-jp` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與 Unicode 日本語字型 `ja-jp` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -410,7 +418,7 @@ double|雙線
 
 #### Unicode 韓語字型數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與 Unicode 韓語字型 `ko-kr` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與 Unicode 韓語字型 `ko-kr` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -436,7 +444,7 @@ double|雙線
 
 #### 泰國語數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與泰國語 `th-th` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與泰國語 `th-th` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -462,7 +470,7 @@ double|雙線
 
 #### Unicode 泰國語型數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 參數與 Unicode 泰國語字型 `th-th` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與 Unicode 泰國語字型 `th-th` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---

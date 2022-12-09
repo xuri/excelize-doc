@@ -9,7 +9,7 @@ Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.6.1](https://github.com/xuri/excelize/releases/latest)
-- 檔案更新: 2022年11月28日
+- 檔案更新: 2022年12月9日
 
 ## 專案使命
 
@@ -50,6 +50,7 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 - [釘釘技術交流群](https://h5.dingtalk.com/circle/healthCheckin.html?dtaction=os&corpId=dingf7955a3077788503103115db31258e39&ed1be3ec=97369f3c&cbdbhh=qwertyuiop): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize 釘釘技術交流群" target="_blank">二維碼</a>
 - [QQ 技術交流群](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" title="Excelize QQ 技術交流群" target="_blank">二維碼</a>
 - 微信技術交流群: `hixuri` (請備註: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize 微信技術交流群" target="_blank">二維碼</a>
+- 企業微信技術交流群 (請備注: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize 企業微信技術交流群" target="_blank">二維碼</a>
 - 如流技術交流群 ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize 如流技術交流群" target="_blank">二維碼</a>
 - 飛書技術交流群: <a href="../images/feishu_group@2x.png" title="飛書技術交流群" target="_blank">二維碼</a>
 - Lark 技術交流群: <a href="../images/larksuite_group@2x.png" title="Lark 技術交流群" target="_blank">二維碼</a>

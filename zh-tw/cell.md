@@ -98,7 +98,7 @@ func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 
 根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
-- 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定邊框樣式：
+- 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定外框樣式：
 
 ```go
 style, err := f.NewStyle(&excelize.Style{
@@ -117,9 +117,9 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="為儲存格設定邊框樣式"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="為儲存格設定外框樣式"></p>
 
-儲存格 `D7` 的四個邊框被設定了不同的樣式和色彩，這與調用 [`NewStyle`](style.md#NewStyle) 函數時的參數有關，需要設定不同的樣式可參考該章節的文檔。
+儲存格 `D7` 的四個外框被設定了不同的樣式和色彩，這與調用 [`NewStyle`](style.md#NewStyle) 函數時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
 - 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設定漸變樣式：
 

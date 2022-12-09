@@ -166,7 +166,7 @@
 * [走勢圖](sparklines.md)
 * [樣式](style.md)
   * [創建樣式](style.md#NewStyle)
-  * [邊框](style.md#border)
+  * [外框](style.md#border)
   * [色彩填滿](style.md#shading)
   * [圖案填滿](style.md#pattern)
   * [對齊方式](style.md#align)

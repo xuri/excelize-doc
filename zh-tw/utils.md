@@ -248,7 +248,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 func (f *File) NewConditionalStyle(style string) (int, error)
 ```
 
-通過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函數的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和邊框的色彩。
+通過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函數的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和外框的色彩。
 
 ## 設定條件式格式 {#SetConditionalFormat}
 
@@ -483,7 +483,7 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 }]`, format))
 ```
 
-注意：在 Office Excel 中，條件式格式疊加在現有儲存格格式上，並非所有儲存格格式屬性都可以修改。無法在條件式格式中修改的屬性包括：字型名稱、字型大小、上標和下標、對角邊框、所有對齊屬性和所有保護屬性。
+注意：在 Office Excel 中，條件式格式疊加在現有儲存格格式上，並非所有儲存格格式屬性都可以修改。無法在條件式格式中修改的屬性包括：字型名稱、字型大小、上標和下標、對角外框、所有對齊屬性和所有保護屬性。
 
 Office Excel 中內置了一些與條件式格式一起使用的默認樣式。可以使用以下 excelize 設定實現這些樣式效果：
 

@@ -251,8 +251,8 @@ DefaultColWidth                   | `*float64` | 包含邊距和網格線的默�
 DefaultRowHeight                  | `*float64` | 以磅為單位表示的行高度
 CustomHeight                      | `*bool`    | 指定是否應用自定義列高度，默認值為 `false`
 ZeroHeight                        | `*bool`    | 指定是否默認隱藏列，默認值為 `false`
-ThickTop                          | `*bool`    | 指定默認情況下列是否具有粗上邊框，默認值為 `false`
-ThickBottom                       | `*bool`    | 指定默認情況下列是否具有粗下邊框，默認值為 `false`
+ThickTop                          | `*bool`    | 指定默認情況下列是否具有粗上外框，默認值為 `false`
+ThickBottom                       | `*bool`    | 指定默認情況下列是否具有粗下外框，默認值為 `false`
 
 例如，設定名為 `Sheet1` 的工作表中列默認為隱藏：
 

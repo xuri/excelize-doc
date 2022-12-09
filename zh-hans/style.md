@@ -88,9 +88,17 @@ func (f *File) NewStyle(style interface{}) (int, error)
 
 ### 边框 {#border}
 
-下面的表格是 Excelize 中的边框样式索引 `type` 和对应的边框线条样式：
+下面的表格是 Excelize 中 `Border.Type` 支持的边框类型：
 
-索引|线条样式|粗细|预览效果
+类型|说明|类型|说明
+---|---|---|---
+left|左侧边框|top|顶部边框
+right|右侧边框|bottom|底部边框
+diagonalDown|对角线向下|diagonalUp|对角线向上
+
+下面的表格是 Excelize 中 `Border.Style` 支持的边框线型索引与对应的线型名称、粗细及预览效果：
+
+索引|线型名称|粗细|预览效果
 ---|---|---|---
 0|无|0|
 1|连续线|1|!["连续线"](../images/style/border_01.png)
@@ -107,7 +115,7 @@ func (f *File) NewStyle(style interface{}) (int, error)
 12|短线与两个点一组重复线|2|!["短线与两个点一组重复线"](../images/style/border_12.png)
 13|斜线与点线|2|!["斜线与点线"](../images/style/border_13.png)
 
-Excelize 中的边框样式代码与 Office Excel 应用程序“设置单元格格式” - “边框”对话框中的关系对照：
+Excelize 中的 `Border.Style` 边框线型索引与 Office Excel 应用程序“设置单元格格式” - “边框”对话框中的关系对照：
 
 索引|预览效果|索引|预览效果
 ---|---|---|---
@@ -121,7 +129,7 @@ Excelize 中的边框样式代码与 Office Excel 应用程序“设置单元格
 
 ### 颜色填充 {#shading}
 
-下面的表格是 Excelize 中单元格颜色填充样式和索引 `shading` 参数的关系对照：
+下面的表格是 Excelize 中单元格颜色填充样式和索引 `Fill.Shading` 参数的关系对照：
 
 索引|样式|索引|样式
 ---|---|---|---
@@ -131,7 +139,7 @@ Excelize 中的边框样式代码与 Office Excel 应用程序“设置单元格
 
 ### 图案填充 {#pattern}
 
-下面的表格是 Excelize 中单元格图案填充样式和索引 `pattern` 参数的关系对照：
+下面的表格是 Excelize 中单元格图案填充样式和索引 `Fill.Pattern` 参数的关系对照：
 
 索引|样式|索引|样式
 ---|---|---|---
@@ -150,7 +158,7 @@ Excelize 中的边框样式代码与 Office Excel 应用程序“设置单元格
 
 #### 水平对齐方式
 
-下面的表格是 Excelize 中单元格水平对齐方式 `horizontal` 参数与样式关系对照表：
+下面的表格是 Excelize 中单元格水平对齐方式 `Alignment.Horizontal` 参数与样式关系对照表：
 
 参数|样式
 ---|---
@@ -164,7 +172,7 @@ distributed|分散对齐（缩进）
 
 #### 垂直对齐方式
 
-下面的表格是 Excelize 中单元格垂直对齐方式 `vertical` 参数与样式关系对照表：
+下面的表格是 Excelize 中单元格垂直对齐方式 `Alignment.Vertical` 参数与样式关系对照表：
 
 参数|样式
 ---|---
@@ -175,7 +183,7 @@ distributed|分散对齐
 
 ### 字体下划线 {#underline}
 
-下面的表格是 Excelize 中单元格字体下划线 `underline` 参数与样式关系对照表：
+下面的表格是 Excelize 中单元格字体下划线 `Font.Underline` 参数与样式关系对照表：
 
 参数|样式
 ---|---
@@ -184,7 +192,7 @@ double|双线
 
 ### 数字自定义格式 {#number_format}
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -228,7 +236,7 @@ double|双线
 
 #### 繁体中文数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与繁体中文 `zh-tw` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与繁体中文 `zh-tw` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -254,7 +262,7 @@ double|双线
 
 #### 简体中文数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与简体中文 `zh-cn` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与简体中文 `zh-cn` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -280,7 +288,7 @@ double|双线
 
 #### Unicode 繁体中文字型数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与 Unicode 繁体中文字型 `zh-tw` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与 Unicode 繁体中文字型 `zh-tw` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -306,7 +314,7 @@ double|双线
 
 #### Unicode 简体中文字型数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与 Unicode 简体中文字型 `zh-cn` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与 Unicode 简体中文字型 `zh-cn` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -332,7 +340,7 @@ double|双线
 
 #### 日本语数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与日本语 `ja-jp` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与日本语 `ja-jp` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -358,7 +366,7 @@ double|双线
 
 #### 韩语数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与韩语 `ko-kr` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与韩语 `ko-kr` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -384,7 +392,7 @@ double|双线
 
 #### Unicode 日本语字型数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与 Unicode 日本语字型 `ja-jp` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与 Unicode 日本语字型 `ja-jp` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -410,7 +418,7 @@ double|双线
 
 #### Unicode 韩语字型数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与 Unicode 韩语字型 `ko-kr` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与 Unicode 韩语字型 `ko-kr` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -436,7 +444,7 @@ double|双线
 
 #### 泰国语数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与泰国语 `th-th` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与泰国语 `th-th` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
@@ -462,7 +470,7 @@ double|双线
 
 #### Unicode 泰国语型数字自定义格式
 
-下面的表格是 Excelize 中支持的索引 `number_format` 参数与 Unicode 泰国语字型 `th-th` 版本数字自定义格式类型对照表：
+下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 参数与 Unicode 泰国语字型 `th-th` 版本数字自定义格式类型对照表：
 
 索引|类型
 ---|---
