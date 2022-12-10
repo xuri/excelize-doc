@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 表の座標領域は、文字型のヘッダー行とコンテンツ行の少なくとも 2 行をカバーする必要があります。各列ヘッダー行の文字は一意であり、現在、各ワークシートで 1 つのテーブルのみのストリーミングがサポートされ、関数を呼び出す前に [`SetRow`](stream.md#SetRow) を使用してテーブルのヘッダー行データをストリーミングする必要があります。サポートされている表スタイルは、非フロー作成表 [`AddTable`](utils.md#AddTable) と同じです。
 
+## ストリームに改ページを挿入 {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+InsertPageBreak は、特定のセル参照によって、印刷されるページが終了する場所と次のページが開始される場所を決定するために改ページを作成します。改ページの前のコンテンツは 1 つのページに印刷され、改ページの後のコンテンツは別のページに印刷されます。
+
 ## ストリームによるペインの設定 {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-SetPanes は、`StreamWriter` の指定されたワークシート名とペイン オプションによって、フリーズ ペインと分割ペインを作成および削除する機能を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetPanes` 関数を呼び出す必要があることに注意してください。
+SetPanes は、`StreamWriter` にペイン オプションを与えることで、フリーズ ペインと分割ペインを作成および削除する機能を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetPanes` 関数を呼び出さなければならないことに注意してください。
 
 ## ストリームでマージセル {#MergeCell}
 
