@@ -181,6 +181,7 @@
   * [스트림 라이터 받기](stream.md#NewStreamWriter)
   * [스트리밍 할 시트 행 쓰기](stream.md#SetRow)
   * [테이블을 스트리밍합니다](stream.md#AddTable)
+  * [스트림에 페이지 나누기 삽입](stream.md#InsertPageBreak)
   * [스트림에 쓰기 창](stream.md#SetPanes)
   * [셀을 스트리밍병합합니다](stream.md#MergeCell)
   * [스트림에서 열 너비 설정](stream.md#SetColWidth)

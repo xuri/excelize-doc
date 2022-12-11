@@ -137,13 +137,21 @@ err := streamWriter.AddTable("F2", "H6", `{
 
 테이블 좌표 영역은 문자 유형의 제목 줄과 콘텐츠 줄의 두 개 이상의 줄을 덮어씁니다. 각 머리글 행의 문자는 고유해야 하며 현재 각 워크시트에서 하나의 테이블만 스트리밍할 수 있으며 함수를 호출하기 전에 [`SetRow`](stream.md#SetRow) 를 통해 테이블의 머리글 행 데이터를 스트리밍해야 합니다. 지원되는 테이블 스타일은 비스트리밍 테이블 만들기 [`AddTable`](utils.md#AddTable) 과 동일합니다.
 
+## 스트림에 페이지 나누기 삽입 {#InsertPageBreak}
+
+```go
+func (sw *StreamWriter) InsertPageBreak(cell string) error
+```
+
+InsertPageBreak 는 페이지 나누기를 만들어 인쇄된 페이지가 끝나는 위치와 지정된 셀 참조에 의해 다음 페이지가 시작되는 위치를 결정합니다. 페이지 나누기 이전의 내용은 한 페이지에 인쇄되고 페이지 나누기 이후에는 다른 페이지에 인쇄됩니다.
+
 ## 스트림에 쓰기 창 {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes string) error
 ```
 
-SetPanes 는 `StreamWriter` 에 대해 주어진 워크 시트 이름 및 창 옵션으로 고정 창 및 분할 창을 만들고 제거하는 기능을 제공합니다. [`SetRow`](stream.md#SetRow) 함수 앞에 `SetPanes` 함수를 호출해야 합니다.
+SetPanes 는 `StreamWriter` 에 대한 패인 옵션을 제공하여 고정 페인과 분할 페인을 생성 및 제거하는 기능을 제공합니다. [`SetRow`](stream.md#SetRow) 함수보다 먼저 `SetPanes` 함수를 호출해야 합니다.
 
 ## 셀을 스트리밍병합합니다 {#MergeCell}
 
