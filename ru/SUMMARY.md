@@ -181,6 +181,7 @@
   * [Получить потокового писателя](stream.md#NewStreamWriter)
   * [Запись строки листа в поток](stream.md#SetRow)
   * [Добавить таблицу в поток](stream.md#AddTable)
+  * [Вставить разрыв страницы в поток](stream.md#InsertPageBreak)
   * [Записать оконную панель в поток](stream.md#SetPanes)
   * [Объединить ячейку в поток](stream.md#MergeCell)
   * [Установите ширину столбца в потоке](stream.md#SetColWidth)
