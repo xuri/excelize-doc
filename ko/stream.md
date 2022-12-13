@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+	Height       float64
+	Hidden       bool
+	StyleID      int
+	OutlineLevel int
 }
 ```
 
@@ -98,6 +99,14 @@ err := streamWriter.SetRow("A1", []interface{}{
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+```
+
+스트림 기록기를 사용하여 워크시트에 대한 셀 값 및 행 개요 수준 번호를 설정합니다.
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
 ```
 
 ## 스트리밍 할 시트 행 쓰기 {#SetRow}

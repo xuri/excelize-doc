@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+	Height       float64
+	Hidden       bool
+	StyleID      int
+	OutlineLevel int
 }
 ```
 
@@ -98,6 +99,14 @@ Legen Sie den Zellenwert und den Zeilenstil für ein Arbeitsblatt mit Stream Wri
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+```
+
+Legen Sie den Zellenwert und die Nummer der Zeilengliederungsebene für ein Arbeitsblatt mit Stream Writer fest:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
 ```
 
 ## Schreiben der Zulaufzeile {#SetRow}

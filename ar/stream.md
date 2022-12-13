@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+	Height       float64
+	Hidden       bool
+	StyleID      int
+	OutlineLevel int
 }
 ```
 
@@ -98,6 +99,14 @@ err := streamWriter.SetRow("A1", []interface{}{
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+```
+
+قم بتعيين قيمة الخلية ورقم مستوى المخطط التفصيلي للصف لورقة عمل باستخدام كاتب الدفق:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
 ```
 
 ## كتابة صف ورقة إلى الدفق {#SetRow}

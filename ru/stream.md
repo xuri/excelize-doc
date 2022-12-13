@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+	Height       float64
+	Hidden       bool
+	StyleID      int
+	OutlineLevel int
 }
 ```
 
@@ -98,6 +99,14 @@ err := streamWriter.SetRow("A1", []interface{}{
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+```
+
+Задайте значение ячейки и уровня строки для рабочего листа с помощью средства записи потока:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}},
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
 ```
 
 ## Запись строки листа в поток {#SetRow}
