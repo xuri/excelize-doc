@@ -88,7 +88,15 @@ func (f *File) NewStyle(style interface{}) (int, error)
 
 ### الحدود {#border}
 
-يوضح ما يلي أنماط الحدود `type` مرتبة حسب رقم فهرس excelize:
+يوضح الجدول التالي أنواع الحدود المستخدمة في `Border.Type` مدعومة بـ excelize:
+
+النوع|الوصف|النوع|الوصف
+---|---|---|---
+left|الحد الأيسر|top|الحد العلوي
+right|حد أيمن|bottom|حد سفلي
+diagonalDown|حد سفلي قطري|diagonalUp|حد علوي قطري
+
+يوضح الجدول التالي أنماط الحدود المستخدمة في `Border.Style` مدعومة برقم فهرس excelize:
 
 فهرس|أسلوب|خط|معاينة
 ---|---|---|---
@@ -107,7 +115,7 @@ func (f *File) NewStyle(style interface{}) (int, error)
 12|اندفاع دوت دوت|2|!["اندفاع دوت دوت"](../images/style/border_12.png)
 13|اندفاعة مائلة دوت|2|!["اندفاعة مائلة دوت"](../images/style/border_13.png)
 
-يوضح ما يلي `borders` بالترتيب الموضح في مربع حوار Excel:
+يعرض الجدول التالي أنماط الحدود المستخدمة في `Border.Style` بالترتيب الموضح في مربع حوار Excel:
 
 فهرس|معاينة|فهرس|معاينة
 ---|---|---|---
@@ -121,7 +129,7 @@ func (f *File) NewStyle(style interface{}) (int, error)
 
 ### تعبئة اللون {#shading}
 
-The following shows the `shading` styles sorted by excelize index number:
+يوضح الجدول التالي أنماط التظليل المستخدمة في `Fill.Shading` مدعومة برقم مؤشر excelize:
 
 فهرس|أسلوب|فهرس|أسلوب
 ---|---|---|---
@@ -131,7 +139,7 @@ The following shows the `shading` styles sorted by excelize index number:
 
 ### تعبئة النقش {#pattern}
 
-يوضح ما يلي أنماط `pattern` مرتبة حسب رقم فهرس excelize:
+يوضح الجدول التالي أنماط الأنماط المستخدمة في `Fill.Pattern` مدعومة برقم فهرس excelize:
 
 فهرس|أسلوب|فهرس|أسلوب
 ---|---|---|---
@@ -150,7 +158,7 @@ The following shows the `shading` styles sorted by excelize index number:
 
 #### محاذاة أفقية
 
-النوع التالي من المحاذاة `horizontal` في الخلايا:
+يوضح الجدول التالي نوع المحاذاة الأفقية للخلايا المستخدمة في `Alignment.Horizontal`:
 
 اكتب|أسلوب
 ---|---
@@ -164,7 +172,7 @@ distributed|محاذاة لامركزية (مسافة بادئة)
 
 #### انحياز عمودي
 
-النوع التالي من المحاذاة `vertical` في الخلايا:
+يوضح الجدول التالي نوع المحاذاة الرأسية للخلايا المستخدمة في `Alignment.Vertical`:
 
 اكتب|أسلوب
 ---|---
@@ -175,7 +183,7 @@ distributed|المحاذاة اللامركزية
 
 ### تسطير الخط {#underline}
 
-النوع التالي من نمط الخط `underline`:
+يوضح الجدول التالي نوع نمط تسطير الخط المستخدم في `Font.Underline`:
 
 اكتب|أسلوب
 ---|---
@@ -184,7 +192,7 @@ double|خط مزدوج
 
 ### تنسيق الأرقام {#number_format}
 
-يتم عرض تنسيقات جميع اللغات المضمنة في Excel (المعلمة `number_format`) في الجدول التالي:
+يتم عرض تنسيقات جميع اللغات المضمنة في Excel (الحقل `Style.NumFmt`) في الجدول التالي:
 
 فهرس|اكتب
 ---|---

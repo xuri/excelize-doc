@@ -156,12 +156,6 @@ const (
 )
 ```
 
-تعريف XMLHeader يمكن أن يحتوي تعريف XML أيضًا على تصريح مستقل:
-
-```go
-const XMLHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-```
-
 يحدد هذا القسم أنواع التحقق من صحة البيانات.
 
 ```go
