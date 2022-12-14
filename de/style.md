@@ -88,7 +88,15 @@ NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen mithilfe einer
 
 ### Grenze {#border}
 
-Das Folgende zeigt die Randstile `type`, sortiert nach Excelize-Indexnummer:
+Die folgende Tabelle zeigt die in `Border.Type` verwendeten Rahmentypen, die von Excelize unterstützt werden:
+
+Typ|Beschreibung|Typ|Beschreibung
+---|---|---|---
+left|Linker Rand|top|Oberer Rand
+right|Rechter Rand|bottom|Unterer Rand
+diagonalDown|Rand diagonal nach unten|diagonalUp|Rand diagonal nach oben
+
+Die folgende Tabelle zeigt die in `Border.Style` verwendeten Rahmenstile, die von der Excelize-Indexnummer unterstützt werden:
 
 Index|Stil|Linie|Vorschau
 ---|---|---|---
@@ -107,7 +115,7 @@ Index|Stil|Linie|Vorschau
 12|Strich Punkt Punkt|2|!["Strich Punkt Punkt"](../images/style/border_12.png)
 13|SlantDash Punkt|2|!["SlantDash Punkt"](../images/style/border_13.png)
 
-Das Folgende zeigt das `borders` in der Reihenfolge, die im Excel-Dialogfeld angezeigt wird:
+Die folgende Tabelle zeigt die in `Border.Style` verwendeten Rahmenstile in der im Excel-Dialog angezeigten Reihenfolge:
 
 Index|Vorschau|Index|Vorschau
 ---|---|---|---
@@ -121,7 +129,7 @@ Index|Vorschau|Index|Vorschau
 
 ### Farbfüllung {#shading}
 
-Das Folgende zeigt die `shading`-Stile, sortiert nach der Excelize-Indexnummer:
+Die folgende Tabelle zeigt die in `Fill.Shading` verwendeten Schattierungsstile, die von der Excelize-Indexnummer unterstützt werden:
 
 Index|Stil|Index|Stil
 ---|---|---|---
@@ -131,7 +139,7 @@ Index|Stil|Index|Stil
 
 ### Musterfüllung {#pattern}
 
-Das Folgende zeigt die nach Musterindexnummer sortierten `pattern`-Stile:
+Die folgende Tabelle zeigt die in `Fill.Pattern` verwendeten Musterstile, die von der Excelize-Indexnummer unterstützt werden:
 
 Index|Stil|Index|Stil
 ---|---|---|---
@@ -150,7 +158,7 @@ Index|Stil|Index|Stil
 
 #### Horizontale Ausrichtung
 
-Die folgende Art der `horizontal` Ausrichtung in Zellen:
+Die folgende Tabelle zeigt die Art der horizontalen Ausrichtung der Zellen, die in `Alignment.Horizontal` verwendet wird:
 
 Typ|Stil
 ---|---
@@ -164,7 +172,7 @@ distributed|Dezentrale Ausrichtung (eingerückt)
 
 #### Vertikale Ausrichtung
 
-Die folgende Art der `vertical` Ausrichtung in Zellen:
+Die folgende Tabelle zeigt die Art der vertikalen Ausrichtung der Zellen, die in `Alignment.Vertical` verwendet wird:
 
 Typ|Stil
 ---|---
@@ -175,7 +183,7 @@ distributed|Dezentrale Ausrichtung
 
 ### Schriftunterstreichung {#underline}
 
-Die folgende Art von Schriftart `underline`:
+Die folgende Tabelle zeigt den in `Font.Underline` verwendeten Schriftstil für Unterstreichungen:
 
 Typ|Stil
 ---|---
@@ -184,7 +192,7 @@ double|Doppelte Linie
 
 ### Zahlenformat {#number_format}
 
-Die in Excel integrierten Formate für alle Sprachen (der Parameter `number_format`) sind in der folgenden Tabelle aufgeführt:
+Die in Excel integrierten Formate für alle Sprachen (das Feld `Style.NumFmt`) sind in der folgenden Tabelle aufgeführt:
 
 Index|Typ
 ---|---
