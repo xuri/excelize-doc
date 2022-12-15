@@ -88,7 +88,15 @@ NewStyle provides a function to create the style for cells by given structure po
 
 ### Border {#border}
 
-The following shows the border styles `type` sorted by excelize index number:
+The following table shows the border types used in `Border.Type` supported by excelize:
+
+Type|Description|Type|Description
+---|---|---|---
+left|Left border|top|Top border
+right|Right border|bottom|Bottom border
+diagonalDown|Diagonal down border|diagonalUp|Diagonal up border
+
+The following table shows the border styles used in `Border.Style` supported by excelize index number:
 
 Index|Style|Line|Preview
 ---|---|---|---
@@ -107,7 +115,7 @@ Index|Style|Line|Preview
 12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
 13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
 
-The following shows the `borders` in the order shown in the Excel dialog:
+The following table shows the border styles used in `Border.Style` in the order shown in the Excel dialog:
 
 Index|Preview|Index|Preview
 ---|---|---|---
@@ -121,7 +129,7 @@ Index|Preview|Index|Preview
 
 ### Color fill {#shading}
 
-The following shows the `shading` styles sorted by excelize index number:
+The following table shows the shading styles used in `Fill.Shading` supported by excelize index number:
 
 Index|Style|Index|Style
 ---|---|---|---
@@ -131,7 +139,7 @@ Index|Style|Index|Style
 
 ### Pattern fill {#pattern}
 
-The following shows the `pattern` styles sorted by excelize index number:
+The following table shows the pattern styles used in `Fill.Pattern` supported by excelize index number:
 
 Index|Style|Index|Style
 ---|---|---|---
@@ -150,7 +158,7 @@ Index|Style|Index|Style
 
 #### Horizontal alignment
 
-The following type of `horizontal` alignment in cells:
+The following table shows the type of cells' horizontal alignment used in `Alignment.Horizontal`:
 
 Type|Style
 ---|---
@@ -164,7 +172,7 @@ distributed|Decentralized alignment (indented)
 
 #### Vertical alignment
 
-The following type of `vertical` alignment in cells:
+The following table shows the type of cells' vertical alignment used in `Alignment.Vertical`:
 
 Type|Style
 ---|---
@@ -175,7 +183,7 @@ distributed|Decentralized alignment
 
 ### Font underline {#underline}
 
-The following type of font `underline` style:
+The following table shows the type of font underline style used in `Font.Underline`:
 
 Type|Style
 ---|---
@@ -184,7 +192,7 @@ double|Double line
 
 ### Number format {#number_format}
 
-Excel's built-in all languages formats (the `number_format` parameter) are shown in the following table:
+Excel's built-in all languages formats (the `Style.NumFmt` field) are shown in the following table:
 
 Index|Type
 ---|---

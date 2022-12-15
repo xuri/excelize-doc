@@ -156,12 +156,6 @@ const (
 )
 ```
 
-XMLHeader define an XML declaration can also contain a standalone declaration:
-
-```go
-const XMLHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-```
-
 This section defines the data validation types.
 
 ```go
