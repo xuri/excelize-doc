@@ -88,7 +88,15 @@ NewStyle proporciona una función para crear el estilo de las celdas mediante un
 
 ### Frontera {#border}
 
-A continuación se muestran los estilos de borde `type` ordenados por número de índice de Excel:
+La siguiente tabla muestra los tipos de bordes utilizados en `Border.Type` compatibles con Excelize:
+
+Tipo|Descripción|Tipo|Descripción
+---|---|---|---
+left|Borde izquierdo|top|Borde superior
+right|Borde derecho|bottom|Borde inferior
+diagonalDown|Borde diagonal hacia abajo|diagonalUp|Borde diagonal hacia arriba
+
+La siguiente tabla muestra los estilos de borde utilizados en `Border.Style` compatibles con el número de índice de Excelize:
 
 Índice|Estilo|Línea|Vista previa
 ---|---|---|---
@@ -107,7 +115,7 @@ A continuación se muestran los estilos de borde `type` ordenados por número de
 12|Guión Punto Punto|2|!["Guión Punto Punto"](../images/style/border_12.png)
 13|Dash Slant Punto|2|!["Dash Slant Punto"](../images/style/border_13.png)
 
-A continuación se muestran los `bordes` en el orden que se muestra en el cuadro de diálogo de Excel:
+La siguiente tabla muestra los estilos de borde utilizados en `Border.Style` en el orden que se muestra en el cuadro de diálogo de Excel:
 
 Índice|Vista previa|Índice|Vista previa
 ---|---|---|---
@@ -121,7 +129,7 @@ A continuación se muestran los `bordes` en el orden que se muestra en el cuadro
 
 ### Relleno de color {#shading}
 
-A continuación se muestran los estilos de `shading` ordenados por número de índice de Excel:
+La siguiente tabla muestra los estilos de sombreado utilizados en `Fill.Shading` compatibles con el número de índice de Excelize:
 
 Índice|Estilo|Índice|Estilo
 ---|---|---|---
@@ -131,7 +139,7 @@ A continuación se muestran los estilos de `shading` ordenados por número de í
 
 ### Relleno de patrón {#pattern}
 
-A continuación se muestran los estilos de `pattern` ordenados por número de índice de Excel:
+La siguiente tabla muestra los estilos de patrón utilizados en `Fill.Pattern` compatibles con el número de índice de Excelize:
 
 Índice|Estilo|Índice|Estilo
 ---|---|---|---
@@ -150,7 +158,7 @@ A continuación se muestran los estilos de `pattern` ordenados por número de í
 
 #### Alineación horizontal
 
-El siguiente tipo de alineación `horizontal` en las celdas:
+La siguiente tabla muestra el tipo de alineación horizontal de las celdas que se usa en `Alignment.Horizontal`:
 
 Tipo|Estilo
 ---|---
@@ -164,7 +172,7 @@ distributed|Alineación descentralizada (con sangría)
 
 #### Vertical alignment
 
-El siguiente tipo de alineación `vertical` en las celdas:
+La siguiente tabla muestra el tipo de alineación vertical de las celdas que se usa en `Alignment.Vertical`:
 
 Tipo|Estilo
 ---|---
@@ -175,7 +183,7 @@ distributed|Alineación descentralizada
 
 ### Subrayado de fuente {#underline}
 
-El siguiente tipo de estilo de fuente `underline`:
+La siguiente tabla muestra el tipo de estilo de subrayado de fuente utilizado en `Font.Underline`:
 
 Tipo|Estilo
 ---|---
@@ -184,7 +192,7 @@ double|Doble linea
 
 ### Formato de número {#number_format}
 
-Los formatos de todos los idiomas integrados de Excel (el parámetro `number_format`) se muestran en la siguiente tabla:
+Los formatos de todos los idiomas integrados de Excel (el campo `Style.NumFmt`) se muestran en la siguiente tabla:
 
 Índice|Tipo
 ---|---
