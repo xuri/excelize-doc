@@ -30,14 +30,17 @@ Font mappe directement les paramètres de police des polices.
 
 ```go
 type Font struct {
-    Bold      bool    `json:"bold"`
-    Italic    bool    `json:"italic"`
-    Underline string  `json:"underline"`
-    Family    string  `json:"family"`
-    Size      float64 `json:"size"`
-    Strike    bool    `json:"strike"`
-    Color     string  `json:"color"`
-    VertAlign string `json:"vertAlign"`
+    Bold         bool    `json:"bold"`
+    Italic       bool    `json:"italic"`
+    Underline    string  `json:"underline"`
+    Family       string  `json:"family"`
+    Size         float64 `json:"size"`
+    Strike       bool    `json:"strike"`
+    Color        string  `json:"color"`
+    ColorIndexed int     `json:"color_indexed"`
+    ColorTheme   *int    `json:"color_theme"`
+    ColorTint    float64 `json:"color_tint"`
+    VertAlign    string  `json:"vertAlign"`
 }
 ```
 
@@ -84,11 +87,19 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle fournit une fonction pour créer le style des cellules par une chaîne JSON ou un pointeur de structure donné. Cette fonction est sécurisée pour la concurrence. Notez que le champ de couleur utilise un code couleur RVB.
+NewStyle fournit une fonction pour créer le style des cellules par une chaîne JSON ou un pointeur de structure donné. Cette fonction est sécurisée pour la concurrence. Notez que le champ `Font.Color` utilise une couleur RGB représentée en notation hexadécimale `RRGGBB`.
 
 ### Frontière {#border}
 
-Voici les styles de bordure `type` triés par nombre d'index excelize:
+Le tableau suivant montre les types de bordure utilisés dans `Border.Type` pris en charge par Excelize:
+
+Type|Description|Type|Description
+---|---|---|---
+left|Bordure gauche|top|Bordure supérieure
+right|Bordure droite|bottom|Bordure inférieure
+diagonalDown|Bordure diagonale vers le bas|diagonalUp|Bordure diagonale vers le haut
+
+Le tableau suivant montre les styles de bordure utilisés dans `Border.Style` pris en charge par le numéro d'index Excelize:
 
 Index|Style|Ligne|Aperçu
 ---|---|---|---
@@ -107,7 +118,7 @@ Index|Style|Ligne|Aperçu
 12|Dash Point Point|2|!["Dash Point Point"](../images/style/border_12.png)
 13|SlantDash Point|2|!["SlantDash Point"](../images/style/border_13.png)
 
-Voici les `borders` dans l'ordre indiqué dans la boîte de dialogue Excel:
+Le tableau suivant montre les styles de bordure utilisés dans `Border.Style` dans l'ordre indiqué dans la boîte de dialogue Excel:
 
 Index|Aperçu|Index|Aperçu
 ---|---|---|---
@@ -121,7 +132,7 @@ Index|Aperçu|Index|Aperçu
 
 ### Couleur de remplissage {#shading}
 
-Le tableau suivant montre les styles `shading` triés par nombre d'index excelize:
+Le tableau suivant montre les styles d'ombrage utilisés dans `Fill.Shading` pris en charge par le numéro d'index Excelize:
 
 Index|Style|Index|Style
 ---|---|---|---
@@ -131,7 +142,7 @@ Index|Style|Index|Style
 
 ### Remplissage de motif {#pattern}
 
-Le tableau suivant montre les styles `pattern` triés par nombre d'index excelize:
+Le tableau suivant montre les styles de motif utilisés dans `Fill.Pattern` pris en charge par le numéro d'index Excelize:
 
 Index|Style|Index|Style
 ---|---|---|---
@@ -150,7 +161,7 @@ Index|Style|Index|Style
 
 #### Alignement horizontal
 
-Voici le type d'alignement `horizontal` dans les cellules:
+Le tableau suivant montre le type d'alignement horizontal des cellules utilisé dans `Alignment.Horizontal`:
 
 Type|Style
 ---|---
@@ -164,7 +175,7 @@ distributed      | Alignement décentralisé (en retrait)
 
 #### Alignement vertical
 
-Voici le type d'alignement `vertical` dans les cellules:
+Le tableau suivant montre le type d'alignement vertical des cellules utilisé dans `Alignment.Vertical`:
 
 Type|Style
 ---|---
@@ -175,7 +186,7 @@ distributed | Alignement décentralisé
 
 ### Police soulignée {#underline}
 
-Ce qui suit le type de style de police `underline`:
+Le tableau suivant montre le type de style de soulignement de police utilisé dans `Font.Underline`:
 
 Type|Style
 ---|---
@@ -184,7 +195,7 @@ double|Double ligne
 
 ### Format de nombre {#number_format}
 
-Les formats de toutes les langues d'Excel (le paramètre `number_format`) sont présentés dans le tableau suivant:
+Tous les formats de langues intégrés d'Excel (le champ `Style.NumFmt`) sont présentés dans le tableau suivant:
 
 Index|Type
 ---|---
