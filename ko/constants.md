@@ -156,12 +156,6 @@ const (
 )
 ```
 
-XMLHeader 정의 XML 선언에는 독립 실행형 선언도 포함될 수 있습니다:
-
-```go
-const XMLHeader = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-```
-
 이 섹션에서는 데이터 유효성 검사 형식을 정의합니다.
 
 ```go

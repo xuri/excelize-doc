@@ -30,14 +30,17 @@ Font 는 글꼴의 글꼴 설정을 직접 매핑합니다.
 
 ```go
 type Font struct {
-    Bold      bool    `json:"bold"`
-    Italic    bool    `json:"italic"`
-    Underline string  `json:"underline"`
-    Family    string  `json:"family"`
-    Size      float64 `json:"size"`
-    Strike    bool    `json:"strike"`
-    Color     string  `json:"color"`
-    VertAlign string `json:"vertAlign"`
+    Bold         bool    `json:"bold"`
+    Italic       bool    `json:"italic"`
+    Underline    string  `json:"underline"`
+    Family       string  `json:"family"`
+    Size         float64 `json:"size"`
+    Strike       bool    `json:"strike"`
+    Color        string  `json:"color"`
+    ColorIndexed int     `json:"color_indexed"`
+    ColorTheme   *int    `json:"color_theme"`
+    ColorTint    float64 `json:"color_tint"`
+    VertAlign    string  `json:"vertAlign"`
 }
 ```
 
@@ -84,11 +87,19 @@ type Style struct {
 func (f *File) NewStyle(style interface{}) (int, error)
 ```
 
-NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일을 만드는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 색상 필드는 RGB 색상 코드를 사용합니다.
+NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일을 만드는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. `Font.Color` 필드는 `RRGGBB` 16진수 표기법으로 표현되는 RGB 색상을 사용합니다.
 
 ### 테두리 {#border}
 
-다음은 excelize 인덱스 번호로 정렬된 테두리 스타일 `type` 을 보여 주었습니다:
+다음 표는 excelize 에서 지원하는 `Border.Type` 에서 사용되는 테두리 유형을 보여줍니다:
+
+유형|설명|유형|설명
+---|---|---|---
+left|왼쪽 테두리|top|위쪽 테두리
+right|오른쪽 테두리|bottom|하단 테두리
+diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
+
+다음 표는 excelize 인덱스 번호가 지원하는 `Border.Style` 에서 사용되는 테두리 스타일을 보여줍니다:
 
 인덱스|스타일|라인|미리 보기
 ---|---|---|---
@@ -107,7 +118,7 @@ NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일�
 12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
 13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
 
-다음은 Excel 대화 상자에 표시된 순서대로 `borders` 를 보여 주며 다음과 같습니다:
+다음 표는 Excel 대화 상자에 표시된 순서대로 `Border.Style` 에서 사용되는 테두리 스타일을 보여줍니다:
 
 인덱스|미리 보기|인덱스|미리 보기
 ---|---|---|---
@@ -121,7 +132,7 @@ NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일�
 
 ### 색상 채우기 {#shading}
 
-다음은 excelize 인덱스 번호로 정렬된 `shading` 스타일을 보여 주었습니다:
+다음 표는 excelize 인덱스 번호가 지원하는 `Fill.Shading` 에서 사용되는 음영 스타일을 보여줍니다:
 
 인덱스|스타일|인덱스|스타일
 ---|---|---|---
@@ -131,7 +142,7 @@ NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일�
 
 ### 패턴 채우기 {#pattern}
 
-다음은 excelize 인덱스 번호로 정렬된 `pattern` 스타일을 보여 주었습니다:
+다음 표는 Excelize 인덱스 번호가 지원하는 `Fill.Pattern` 에서 사용되는 패턴 스타일을 보여줍니다:
 
 인덱스|스타일|인덱스|스타일
 ---|---|---|---
@@ -150,7 +161,7 @@ NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일�
 
 #### 수평 정렬
 
-셀의 `horizontal` 정렬 유형은 다음과 같은 것입니다:
+다음 표는 `Alignment.Horizontal` 에서 사용되는 셀의 수평 정렬 유형을 보여줍니다:
 
 유형|스타일
 ---|---
@@ -164,7 +175,7 @@ distributed|Decentralized alignment (indented)
 
 #### Vertical alignment
 
-셀의 `vertical` 정렬 유형은 다음과 같은 것입니다:
+다음 표는 `Alignment.Vertical` 에서 사용되는 셀의 수직 정렬 유형을 보여줍니다:
 
 유형|스타일
 ---|---
@@ -175,7 +186,7 @@ distributed|Decentralized alignment
 
 ### 글꼴 밑줄 {#underline}
 
-글꼴 `underline` 스타일의 유형은 다음과 입니다:
+다음 표는 `Font.Underline` 에서 사용되는 글꼴 밑줄 스타일의 유형을 보여줍니다:
 
 유형|스타일
 ---|---
@@ -184,7 +195,7 @@ double|Double line
 
 ### 숫자 형식 {#number_format}
 
-Excel 의 기본 제공 모든 언어 형식 (`number_format` 매개 변수) 은 다음 표에 나와 있습니다:
+Excel의 기본 제공 모든 언어 형식 (`Style.NumFmt` 필드) 은 다음 표에 나와 있습니다:
 
 인덱스|형식
 ---|---
