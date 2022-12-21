@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+    Height       float64
+    Hidden       bool
+    StyleID      int
+    OutlineLevel int
 }
 ```
 
@@ -89,7 +90,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
-    excelize.Cell{Formula: "SUM(A1,B1)"}});
+    excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
 Задайте значение ячейки и стиль строк для рабочего листа с помощью средства записи потока:
@@ -97,7 +98,14 @@ err := streamWriter.SetRow("A1", []interface{}{
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
+```
+
+Задайте значение ячейки и уровня строки для рабочего листа с помощью средства записи потока:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
 ## Запись строки листа в поток {#SetRow}

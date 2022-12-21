@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+    Height       float64
+    Hidden       bool
+    StyleID      int
+    OutlineLevel int
 }
 ```
 
@@ -89,7 +90,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
-    excelize.Cell{Formula: "SUM(A1,B1)"}});
+    excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
 스트림 작성기를 사용하여 워크시트의 셀 값 및 행 스타일 설정:
@@ -97,7 +98,14 @@ err := streamWriter.SetRow("A1", []interface{}{
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
+```
+
+스트림 기록기를 사용하여 워크시트의 셀 값 및 행 개요 수준을 설정합니다:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
 ## 스트리밍 할 시트 행 쓰기 {#SetRow}

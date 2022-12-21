@@ -25,9 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-    Height  float64
-    Hidden  bool
-    StyleID int
+    Height       float64
+    Hidden       bool
+    StyleID      int
+    OutlineLevel int
 }
 ```
 
@@ -89,7 +90,7 @@ Establezca el valor de celda y la fórmula de celda para una hoja de trabajo con
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
-    excelize.Cell{Formula: "SUM(A1,B1)"}});
+    excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
 Establezca el valor de celda y el estilo de las filas para una hoja de trabajo con el escritor de flujo:
@@ -97,7 +98,14 @@ Establezca el valor de celda y el estilo de las filas para una hoja de trabajo c
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
+```
+
+Establezca el valor de celda y el nivel de esquema de fila para una hoja de trabajo con escritor de flujo:
+
+```go
+err := streamWriter.SetRow("A1", []interface{}{
+    excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
 ## Escribir fila de hoja para transmitir {#SetRow}
