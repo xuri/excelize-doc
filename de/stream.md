@@ -25,10 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-	Height       float64
-	Hidden       bool
-	StyleID      int
-	OutlineLevel int
+    Height       float64
+    Hidden       bool
+    StyleID      int
+    OutlineLevel int
 }
 ```
 
@@ -90,7 +90,7 @@ Festlegen des Zellenwerts und der Zellformel für ein Arbeitsblatt mit Stream Wr
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
-    excelize.Cell{Formula: "SUM(A1,B1)"}});
+    excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
 Legen Sie den Zellenwert und den Zeilenstil für ein Arbeitsblatt mit Stream Writer fest:
@@ -98,15 +98,14 @@ Legen Sie den Zellenwert und den Zeilenstil für ein Arbeitsblatt mit Stream Wri
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
 
-Legen Sie den Zellenwert und die Nummer der Zeilengliederungsebene für ein Arbeitsblatt mit Stream Writer fest:
+Legen Sie den Zellenwert und die Zeilengliederungsebene für ein Arbeitsblatt mit Stream Writer fest:
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
-    excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
+    excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
 ## Schreiben der Zulaufzeile {#SetRow}

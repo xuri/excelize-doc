@@ -25,10 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-	Height       float64
-	Hidden       bool
-	StyleID      int
-	OutlineLevel int
+    Height       float64
+    Hidden       bool
+    StyleID      int
+    OutlineLevel int
 }
 ```
 
@@ -90,7 +90,7 @@ Définissez la valeur de la cellule et la formule de la cellule pour une feuille
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
-    excelize.Cell{Formula: "SUM(A1,B1)"}});
+    excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
 Définissez la valeur de la cellule et le style des lignes d'une feuille de calcul avec le rédacteur de flux:
@@ -98,15 +98,14 @@ Définissez la valeur de la cellule et le style des lignes d'une feuille de calc
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
 
-Définissez la valeur de la cellule et le numéro du niveau hiérarchique de la ligne pour une feuille de calcul avec un rédacteur de flux:
+Définissez la valeur de la cellule et le niveau de contour de la ligne pour une feuille de calcul avec un rédacteur de flux:
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
-    excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
+    excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
 ## Écrire la ligne de feuille au flux {#SetRow}

@@ -25,10 +25,10 @@ type Cell struct {
 
 ```go
 type RowOpts struct {
-	Height       float64
-	Hidden       bool
-	StyleID      int
-	OutlineLevel int
+    Height       float64
+    Hidden       bool
+    StyleID      int
+    OutlineLevel int
 }
 ```
 
@@ -90,7 +90,7 @@ Set cell value and cell formula for a worksheet with stream writer:
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
-    excelize.Cell{Formula: "SUM(A1,B1)"}});
+    excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
 Set cell value and rows style for a worksheet with stream writer:
@@ -98,15 +98,14 @@ Set cell value and rows style for a worksheet with stream writer:
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false});
+    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
 
-Set cell value and row outline level number for a worksheet with stream writer:
+Set cell value and row outline level for a worksheet with stream writer:
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
-    excelize.Cell{Value: 1}},
-    excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false, OutlineLevel: 1});
+    excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
 ## Write sheet row to stream {#SetRow}
