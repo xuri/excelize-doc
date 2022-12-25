@@ -13,8 +13,8 @@ var (
     ErrOutlineLevel = errors.New("invalid outline level")
     // حددت ErrCoordinates رسالة الخطأ على طول مجموعات الإحداثيات غير الصالحة.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // حددت ErrExistsWorksheet رسالة الخطأ في ورقة عمل معينة موجودة بالفعل.
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    // حددت ErrExistsSheet رسالة الخطأ في ورقة عمل معينة موجودة بالفعل.
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // حدد ErrTotalSheetHyperlinks رسالة الخطأ على تجاوز عدد الارتباطات
     // التشعبية.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
@@ -97,6 +97,17 @@ var (
     // حدد ErrWorkbookPassword رسالة الخطأ عند تلقي كلمة مرور المصنف غير
     // الصحيحة.
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // حدد ErrSheetNameInvalid رسالة الخطأ عند تلقي اسم الورقة يحتوي على أحرف
+    // غير صالحة.
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // حدد ErrSheetNameSingleQuote رسالة الخطأ على الحرف الأول أو الأخير من اسم
+    // الورقة كان اقتباسًا منفردًا.
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // حدد ErrSheetNameBlank رسالة الخطأ عند تلقي اسم الورقة الفارغة.
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // حدد ErrSheetNameLength رسالة الخطأ عند تلقي اسم الورقة يتجاوز الحد
+    // المسموح به.
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 

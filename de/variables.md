@@ -17,9 +17,9 @@ var (
     // ErrCoordinates definierte die Fehlermeldung bei ungültiger
     // Koordinatentupellänge.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet definierte die Fehlermeldung für ein bestimmtes,
+    // ErrExistsSheet definierte die Fehlermeldung für ein bestimmtes,
     // bereits vorhandenes Arbeitsblatt.
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks definierte die Fehlermeldung zum
     // Hyperlink-Zählerüberlauf.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
@@ -126,6 +126,18 @@ var (
     // ErrWorkbookPassword definiert die Fehlermeldung beim Erhalt des falschen
     // Arbeitsmappenpassworts.
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // ErrSheetNameInvalid hat die Fehlermeldung definiert, wenn der Blattname
+    // ungültige Zeichen enthält.
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // ErrSheetNameSingleQuote definierte die Fehlermeldung, dass das erste oder
+    // letzte Zeichen des Blattnamens ein einfaches Anführungszeichen war.
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // ErrSheetNameBlank definiert die Fehlermeldung beim Empfang des leeren
+    // Blattnamens.
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // ErrSheetNameLength definierte die Fehlermeldung beim Empfang der Länge
+    // des Blattnamens überschreitet das Limit.
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 

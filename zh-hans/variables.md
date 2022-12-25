@@ -12,8 +12,8 @@ var (
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrCoordinates 定义了收到无效单元格坐标元组时的错误提示信息
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet 定义了检测到已有相同名称工作表存在时的错误提示信息
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    // ErrExistsSheet 定义了检测到已有相同名称工作表存在时的错误提示信息
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks 定义了工作表包含的超链接总数超出最大限制时的错误提示信息
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrInvalidFormula 定义了收到无效公式时的错误提示信息
@@ -88,6 +88,14 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrWorkbookPassword 定义了打开工作簿时密码验证失败的错误提示信息
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // ErrSheetNameInvalid 定义了收到带有无效字符的工作表名称时的错误提示信息
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // ErrSheetNameSingleQuote 定义了收到的工作表名称中，第一个或者最后一个字符是单引号时的错误提示信息
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // ErrSheetNameBlank 定义了收到的工作表名称为空时的错误提示信息
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // ErrSheetNameLength 定义了工作表名称长度超出最大限制时的错误提示信息
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 

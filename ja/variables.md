@@ -12,8 +12,8 @@ var (
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrCoordinates は、無効な座標タプルの長さに関するエラーメッセージを定義しました
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet は、すでに存在する特定のワークシートにエラーメッセージを定義しました
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    // ErrExistsSheet は、すでに存在する特定のワークシートにエラーメッセージを定義しました
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks は、ハイパーリンクカウントオーバーフローに関するエラーメッセージを定義しました
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrInvalidFormula は、無効な数式を受信したときのエラーメッセージを定義しました
@@ -87,6 +87,14 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrWorkbookPassword は、誤ったブックパスワードを受信したときのエラーメッセージを定義しました
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // ErrSheetNameInvalid は、シート名に無効な文字が含まれている場合のエラー メッセージを定義しました
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // ErrSheetNameSingleQuote は、シート名の最初または最後の文字のエラー メッセージが一重引用符であると定義しました
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // ErrSheetNameBlank は、空白のシート名を受け取ったときのエラー メッセージを定義しました
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // ErrSheetNameLength は、シート名の長さが制限を超えた場合のエラー メッセージを定義しました
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 

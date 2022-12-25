@@ -17,9 +17,9 @@ var (
     // ErrCoordinates definió el mensaje de error en la longitud de las tuplas
     // de coordenadas no válidas.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet definió el mensaje de error en una hoja de trabajo
+    // ErrExistsSheet definió el mensaje de error en una hoja de trabajo
     // determinada que ya existe.
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks definió el mensaje de error sobre el
     // desbordamiento del recuento de hipervínculos.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
@@ -126,6 +126,18 @@ var (
     // ErrWorkbookPassword definió el mensaje de error al recibir la contraseña
     // incorrecta del libro.
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // ErrSheetNameInvalid definió el mensaje de error al recibir el nombre de
+    // la hoja que contiene caracteres no válidos.
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // ErrSheetNameSingleQuote definió que el mensaje de error en el primer o
+    // último carácter del nombre de la hoja era una comilla simple.
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // ErrSheetNameBlank definió el mensaje de error al recibir el nombre de la
+    // hoja en blanco.
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // ErrSheetNameLength definió el mensaje de error al recibir la longitud del
+    // nombre de la hoja que excede el límite.
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 

@@ -17,9 +17,9 @@ var (
     // ErrCoordinates a défini le message d'erreur sur la longueur des tuples
     // de coordonnées non valides.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet a défini le message d'erreur sur une feuille de
+    // ErrExistsSheet a défini le message d'erreur sur une feuille de
     // calcul donnée qui existe déjà.
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks a défini le message d'erreur sur le dépassement
     // du nombre de liens hypertexte.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
@@ -128,6 +128,18 @@ var (
     // ErrWorkbookPassword a défini le message d'erreur lors de la réception du
     // mot de passe de classeur incorrect.
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // ErrSheetNameInvalid a défini le message d'erreur lors de la réception du
+    // nom de la feuille contenant des caractères non valides.
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // ErrSheetNameSingleQuote défini le message d'erreur sur le premier ou le
+    // dernier caractère du nom de la feuille était un guillemet simple.
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // ErrSheetNameBlank a défini le message d'erreur lors de la réception du
+    // nom de la feuille vierge.
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // ErrSheetNameLength défini le message d'erreur lors de la réception de la
+    // longueur du nom de la feuille dépasse la limite.
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 

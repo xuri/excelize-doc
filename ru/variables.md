@@ -17,9 +17,9 @@ var (
     // ErrCoordinates определила сообщение об ошибке при недопустимой длине
     // кортежей координат
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsWorksheet определил сообщение об ошибке на заданном листе,
+    // ErrExistsSheet определил сообщение об ошибке на заданном листе,
     // который уже существует
-    ErrExistsWorksheet = errors.New("the same name worksheet already exists")
+    ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks определил сообщение об ошибке при переполнении
     // счетчика гиперссылок
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
@@ -119,6 +119,18 @@ var (
     // ErrWorkbookPassword определил сообщение об ошибке при получении
     // неправильного пароля рабочей книги
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
+    // ErrSheetNameInvalid определяет сообщение об ошибке при получении имени
+    // листа, содержащего недопустимые символы
+    ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")
+    // ErrSheetNameSingleQuote определял сообщение об ошибке, когда первый или
+    // последний символ имени листа был одинарной кавычкой
+    ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
+    // ErrSheetNameBlank определяет сообщение об ошибке при получении имени
+    // пустого листа
+    ErrSheetNameBlank = errors.New("the sheet name can not be blank")
+    // ErrSheetNameLength определяет сообщение об ошибке при получении длины
+    // имени листа, превышающей лимит
+    ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
 )
 ```
 
