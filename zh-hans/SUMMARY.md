@@ -43,6 +43,8 @@
   * [获取工作簿应用程序属性](workbook.md#GetAppProps)
   * [设置文档属性](workbook.md#SetDocProps)
   * [获取文档属性](workbook.md#GetDocProps)
+  * [保护工作簿](workbook.md#ProtectWorkbook)
+  * [取消保护工作簿](workbook.md#UnprotectWorkbook)
 * [工作表](sheet.md)
   * [设置列可见性](sheet.md#SetColVisible)
   * [设置列宽度](sheet.md#SetColWidth)

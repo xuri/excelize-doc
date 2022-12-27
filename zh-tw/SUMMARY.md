@@ -43,6 +43,8 @@
   * [獲取活頁簿應用程式屬性](workbook.md#GetAppProps)
   * [設定檔案屬性](workbook.md#SetDocProps)
   * [獲取檔案屬性](workbook.md#GetDocProps)
+  * [保護活頁簿](workbook.md#ProtectWorkbook)
+  * [取消保護活頁簿](workbook.md#UnprotectWorkbook)
 * [工作表](sheet.md)
   * [設定欄可見性](sheet.md#SetColVisible)
   * [設定欄寬度](sheet.md#SetColWidth)

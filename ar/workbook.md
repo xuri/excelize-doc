@@ -125,7 +125,7 @@ func (f *File) Close() error
 ## قم بإنشاء ورقة عمل {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 يوفر NewSheet وظيفة لإنشاء ورقة جديدة من خلال إعطاء اسم ورقة العمل وإرجاع فهرس الأوراق في المصنف (جدول البيانات) بعد إلحاقه. لاحظ أنه عند إنشاء ملف جدول بيانات جديد ، سيتم إنشاء ورقة العمل الافتراضية المسماة `Sheet1`.
@@ -133,7 +133,7 @@ func (f *File) NewSheet(sheet string) int
 ## احذف ورقة العمل {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 يوفر DeleteSheet وظيفة لحذف ورقة العمل في مصنف حسب اسم ورقة العمل المحدد ، وأسماء الأوراق ليست حساسة لحالة الأحرف. استخدم هذه الطريقة بحذر ، مما سيؤثر على التغييرات في المراجع مثل الصيغ والمخططات وما إلى ذلك. إذا كان هناك أي قيمة مرجعية لورقة العمل المحذوفة ، فسوف يتسبب ذلك في حدوث خطأ في الملف عند فتحه. ستكون هذه الوظيفة غير صالحة عند ترك ورقة عمل واحدة فقط.
@@ -196,16 +196,10 @@ func (f *File) GetActiveSheetIndex() int
 ## تعيين ورقة العمل مرئية {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-يوفر SetSheetVisible وظيفة لتعيين ورقة العمل مرئية من خلال اسم ورقة العمل المحدد. يجب أن يحتوي المصنف على ورقة عمل مرئية واحدة على الأقل. إذا تم تنشيط ورقة العمل المحددة ، فسيتم إبطال هذا الإعداد. قيم حالة الورقة على النحو المحدد بواسطة [SheetStateValues Enum](https://learn.microsoft.com/ar-sa/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
-
-|قيم حالة ورقة العمل|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+يوفر SetSheetVisible وظيفة لتعيين ورقة العمل مرئية من خلال اسم ورقة العمل المحدد. يجب أن يحتوي المصنف على ورقة عمل مرئية واحدة على الأقل. إذا تم تنشيط ورقة العمل المحددة ، فسيتم إبطال هذا الإعداد. لا تعمل المعلمة الاختيارية الثالثة `veryHidden` إلا عندما تكون `visible` هي `false`.
 
 على سبيل المثال ، إخفاء `Sheet1`:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## احصل على ورقة العمل مرئية {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 يوفر GetSheetVisible وظيفة لإظهار ورقة العمل من خلال اسم ورقة العمل المحدد. على سبيل المثال ، احصل على الحالة المرئية لـ `Sheet1`:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## تعيين خصائص الورقة {#SetSheetProps}
@@ -848,3 +842,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 يوفر GetDocProps وظيفة للحصول على خصائص المستند الأساسية.
+
+## حماية المصنف {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+يوفر ProtectWorkbook وظيفة لمنع المستخدمين الآخرين من تغيير أو نقل أو حذف البيانات في مصنف عن طريق الخطأ أو عن عمد. الحقل الاختياري `AlgorithmName` خوارزمية التجزئة المحددة ، ودعم XOR و MD4 و MD5 و SHA-1 و SHA2-56 و SHA-384 و SHA-512 حاليًا ، إذا لم يتم تحديد خوارزمية تجزئة ، فسيتم استخدام خوارزمية XOR كإعداد افتراضي. على سبيل المثال ، حماية المصنف بإعدادات الحماية:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions تعيين إعدادات حماية المصنف مباشرة.
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## إلغاء حماية المصنف {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+يوفر UnprotectWorkbook وظيفة لإزالة الحماية للمصنف ، وحدد معلمة كلمة المرور الاختيارية لإزالة حماية المصنف باستخدام التحقق من كلمة المرور.

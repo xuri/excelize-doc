@@ -125,7 +125,7 @@ Close cierra y limpia el archivo temporal abierto para la hoja de cálculo.
 ## Crear hoja de trabajo {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 NewSheet proporciona la función para crear una nueva hoja por un nombre de hoja de cálculo y devuelve el índice de las hojas en el libro (hoja de cálculo) después de anexar. Tenga en cuenta que al crear un nuevo archivo de hoja de cálculo, se creará la hoja de cálculo predeterminada denominada `Sheet1`.
@@ -133,7 +133,7 @@ NewSheet proporciona la función para crear una nueva hoja por un nombre de hoja
 ## Eliminar hoja de trabajo {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 DeleteSheet proporciona una función para eliminar la hoja de trabajo en un libro de trabajo por el nombre de la hoja de trabajo dado, los nombres de las hojas no distinguen entre mayúsculas y minúsculas. Utilice este método con precaución, ya que afectará los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor de referencia de la hoja de cálculo eliminada, se producirá un error de archivo cuando lo abra. Esta función no será válida cuando solo quede una hoja de trabajo.
@@ -196,16 +196,10 @@ GetActiveSheetIndex proporciona una función para obtener una hoja de cálculo a
 ## Establecer la hoja de trabajo visible {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-SetSheetVisible proporciona una función para establecer la hoja de cálculo visible por el nombre de la hoja de cálculo dado. Un libro de trabajo debe contener al menos una hoja de cálculo visible. Si se ha activado la hoja de cálculo determinada, esta configuración se invalidará. Valores de estado de hoja definidos por [SheetStateValues Enum](https://learn.microsoft.com/es-es/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
-
-|Valores de estado de hoja|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+SetSheetVisible proporciona una función para establecer la hoja de cálculo visible por el nombre de la hoja de cálculo dado. Un libro de trabajo debe contener al menos una hoja de cálculo visible. Si se ha activado la hoja de cálculo determinada, esta configuración se invalidará. El tercer parámetro opcional `veryHidden` solo funciona cuando `visible` es `false`.
 
 Por ejemplo, ocultar `Sheet1`:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Obtener la hoja de trabajo visible {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 GetSheetVisible proporciona una función para que la hoja de cálculo sea visible con el nombre de la hoja de cálculo especificado. Por ejemplo, obtenga el estado visible de `Sheet1`:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## Establecer propiedades de hoja {#SetSheetProps}
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps proporciona una función para obtener las propiedades principales del documento.
+
+## Proteger el libro de trabajo {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+ProtectWorkbook proporciona una función para evitar que otros usuarios cambien, muevan o eliminen datos en un libro de forma accidental o deliberada. El algoritmo hash especificado del campo opcional `AlgorithmName`, compatible con XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384 y SHA-512 actualmente, si no se especifica ningún algoritmo hash, utilizará el algoritmo XOR de forma predeterminada. Por ejemplo, proteja el libro de trabajo con la configuración de protección:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions asigna directamente la configuración de la protección del libro.
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## Desproteger libro de trabajo {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+UnprotectWorkbook proporciona una función para eliminar la protección del libro de trabajo, especificó el parámetro de contraseña opcional para eliminar la protección del libro de trabajo con verificación de contraseña.

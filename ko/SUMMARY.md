@@ -43,6 +43,8 @@
   * [애플리케이션 속성 가져오기](workbook.md#GetAppProps)
   * [문서 속성 설정](workbook.md#SetDocProps)
   * [문서 속성 가져오기](workbook.md#GetDocProps)
+  * [통합 문서 보호](workbook.md#ProtectWorkbook)
+  * [통합 문서 보호 해제](workbook.md#UnprotectWorkbook)
 * [워크 시트](sheet.md)
   * [열 가시성 설정](sheet.md#SetColVisible)
   * [열 너비 설정](sheet.md#SetColWidth)

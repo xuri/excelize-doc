@@ -125,7 +125,7 @@ Close は、スプレッドシート用に開いている一時ファイルを�
 ## ワークシートを作成する {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 NewSheet は、ワークシート名を指定して新しいシートを作成する関数を提供し、ワークブック（スプレッドシート）に追加された後のシートのインデックスを返します。新しいスプレッドシートファイルを作成すると、`Sheet1`という名前のデフォルトのワークシートが作成されることに注意してください。
@@ -133,7 +133,7 @@ NewSheet は、ワークシート名を指定して新しいシートを作成�
 ## ワークシートを削除する {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 DeleteSheet は、指定されたワークシート名でブック内のワークシートを削除する機能を提供します。この方法は注意して使用してください。数式やグラフなどの参照の変更に影響します。削除されたワークシートの参照値がある場合、それを開いたときにファイルエラーが発生します。ワークシートが1つしか残っていない場合、この関数は無効になります。
@@ -196,16 +196,10 @@ func (f *File) GetActiveSheetIndex() int
 ## ワークシートの表示設定 {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。指定したワークシートがアクティブになっている場合、この設定は無効になります。[SheetStateValues Enum](https://learn.microsoft.com/ja-jp/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) で定義されているシート状態値:
-
-|ワークシート状態値|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+SetSheetVisible は、与えられたワークシート名でワークシートを見えるように設定する機能を提供します。ワークブックには少なくとも1つの表示可能なワークシートが含まれている必要があります。指定したワークシートがアクティブになっている場合、この設定は無効になります。3 番目のオプションの `veryHidden` パラメーターは、`visible` が `false` の場合にのみ機能します。
 
 例えば `Sheet1` を隠す:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## ワークシートの表示設定を取得する {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 GetSheetVisible は、与えられたワークシート名でワークシートを見えるようにする機能を提供します。たとえば、`Sheet1` の可視状態を取得します。
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## ワークシートのプロパティを設定する {#SetSheetProps}
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 ワークブックのコアとなるプロパティを取得してください。
+
+## ブックを保護する {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+ProtectWorkbook は、他のユーザーが誤ってまたは故意にブック内のデータを変更、移動、または削除するのを防ぐ機能を提供します。 オプション フィールド `AlgorithmName` は、ハッシュ アルゴリズムを指定し、XOR、MD4、MD5、SHA-1、SHA2-56、SHA-384、および SHA-512 をサポートします。現在、ハッシュ アルゴリズムが指定されていない場合、デフォルトとして XOR アルゴリズムが使用されます。 たとえば、保護設定でワークブックを保護します:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions は、ブックの保護の設定を直接マップします。
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## ブックの保護を解除する {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+UnprotectWorkbook は、ワークブックの保護を解除する機能を提供します。オプションのパスワード パラメーターを指定して、パスワードの検証でワークブックの保護を解除します。

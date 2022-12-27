@@ -43,6 +43,8 @@
   * [Obtener propiedades de la aplicación](workbook.md#GetAppProps)
   * [Establecer las propiedades del documento](workbook.md#SetDocProps)
   * [Obtener propiedades del documento](workbook.md#GetDocProps)
+  * [Proteger el libro de trabajo](workbook.md#ProtectWorkbook)
+  * [Desproteger libro de trabajo](workbook.md#UnprotectWorkbook)
 * [Hoja de trabajo](sheet.md)
   * [Establecer visibilidad de columna](sheet.md#SetColVisible)
   * [Establecer el ancho de la columna](sheet.md#SetColWidth)

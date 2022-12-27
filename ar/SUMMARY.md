@@ -43,6 +43,8 @@
   * [احصل على خصائص التطبيق](workbook.md#GetAppProps)
   * [تعيين خصائص الوثيقة](workbook.md#SetDocProps)
   * [احصل على خصائص المستند](workbook.md#GetDocProps)
+  * [حماية المصنف](workbook.md#ProtectWorkbook)
+  * [إلغاء حماية المصنف](workbook.md#UnprotectWorkbook)
 * [ورقة عمل](sheet.md)
   * [تعيين رؤية العمود](sheet.md#SetColVisible)
   * [تعيين عرض العمود](sheet.md#SetColWidth)

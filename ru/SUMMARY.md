@@ -43,6 +43,8 @@
   * [Получить свойства приложения](workbook.md#GetAppProps)
   * [Установить свойства документа](workbook.md#SetDocProps)
   * [Получить свойства документа](workbook.md#GetDocProps)
+  * [Защитить книгу](workbook.md#ProtectWorkbook)
+  * [Снять защиту с книги](workbook.md#UnprotectWorkbook)
 * [Рабочий лист](sheet.md)
   * [Установить видимость столбца](sheet.md#SetColVisible)
   * [Установить ширину столбца](sheet.md#SetColWidth)

@@ -125,7 +125,7 @@ Close schließt und bereinigt die geöffnete temporäre Datei für die Kalkulati
 ## Arbeitsblatt erstellen {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 NewSheet bietet die Funktion zum Erstellen eines neuen Blatts, indem ein Arbeitsblattname angegeben wird, und gibt den Index der Blätter in der Arbeitsmappe (Spreadsheet) zurück, nachdem es angehängt wurde. Beachten Sie, dass beim Erstellen einer neuen Tabellenkalkulationsdatei das Standardarbeitsblatt mit dem Namen `Sheet1` erstellt wird.
@@ -133,7 +133,7 @@ NewSheet bietet die Funktion zum Erstellen eines neuen Blatts, indem ein Arbeits
 ## Arbeitsblatt löschen {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 DeleteSheet bietet eine Funktion zum Löschen von Arbeitsblättern in einer Arbeitsmappe nach dem angegebenen Arbeitsblattnamen, bei den Blattnamen wird nicht zwischen Groß- und Kleinschreibung unterschieden. Verwenden Sie diese Methode mit Vorsicht, da sie sich auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn es einen referenzierten Wert des gelöschten Arbeitsblatts gibt, führt dies zu einem Dateifehler, wenn Sie es öffnen. Diese Funktion ist ungültig, wenn nur noch ein Arbeitsblatt übrig ist.
@@ -196,16 +196,10 @@ GetActiveSheetIndex bietet eine Funktion zum Abrufen eines aktiven Arbeitsblatts
 ## Set-Arbeitsblatt sichtbar {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-SetSheetVisible bietet eine Funktion zum Festlegen eines Arbeitsblatts, das durch den angegebenen Arbeitsblattnamen sichtbar ist. Eine Arbeitsmappe muss mindestens ein sichtbares Arbeitsblatt enthalten. Wenn das angegebene Arbeitsblatt aktiviert wurde, wird diese Einstellung ungültig. Blattzustandswerte, wie in [SheetStateValues Enum](https://learn.microsoft.com/de-de/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) definiert:
-
-|Arbeitsblattstatuswerte|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+SetSheetVisible bietet eine Funktion zum Festlegen eines Arbeitsblatts, das durch den angegebenen Arbeitsblattnamen sichtbar ist. Eine Arbeitsmappe muss mindestens ein sichtbares Arbeitsblatt enthalten. Wenn das angegebene Arbeitsblatt aktiviert wurde, wird diese Einstellung ungültig. Der dritte optionale `veryHidden`-Parameter funktioniert nur, wenn `visible` `false` war.
 
 Geben Sie beispielsweise `Sheet1` aus:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Arbeitsblatt sichtbar machen {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 GetSheetVisible bietet eine Funktion, mit der das Arbeitsblatt unter dem angegebenen Arbeitsblattnamen sichtbar gemacht wird. Erhalten Sie beispielsweise den sichtbaren Status von `Sheet1`:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## Festlegen von Blatteigenschaften {#SetSheetProps}
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps bietet eine Funktion zum Abrufen der Eigenschaften des Dokumentkerns.
+
+## Arbeitsbuch schützen {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+ProtectWorkbook bietet eine Funktion, um zu verhindern, dass andere Benutzer versehentlich oder absichtlich Daten in einer Arbeitsmappe ändern, verschieben oder löschen. Das optionale Feld `AlgorithmName` gibt den Hash-Algorithmus an, unterstützt XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384 und SHA-512, wenn derzeit kein Hash-Algorithmus angegeben ist, wird der XOR-Algorithmus standardmäßig verwendet. Schützen Sie beispielsweise die Arbeitsmappe mit Schutzeinstellungen:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions bildet die Einstellungen des Arbeitsmappenschutzes direkt ab.
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## Schutz der Arbeitsmappe aufheben {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+UnprotectWorkbook bietet eine Funktion zum Aufheben des Schutzes für Arbeitsmappen und gibt den optionalen Kennwortparameter an, um den Arbeitsmappenschutz mit Kennwortüberprüfung zu entfernen.

@@ -43,6 +43,8 @@
   * [Anwendungseigenschaften abrufen](workbook.md#GetAppProps)
   * [Festlegen von Dokumenteigenschaften](workbook.md#SetDocProps)
   * [Abrufen von Dokumenteigenschaften](workbook.md#GetDocProps)
+  * [Arbeitsbuch schützen](workbook.md#ProtectWorkbook)
+  * [Schutz der Arbeitsmappe aufheben](workbook.md#UnprotectWorkbook)
 * [Arbeitsblatt](sheet.md)
   * [Festlegen der Spaltensichtbarkeit](sheet.md#SetColVisible)
   * [Spaltenbreite festlegen](sheet.md#SetColWidth)

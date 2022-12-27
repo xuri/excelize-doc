@@ -125,7 +125,7 @@ Close 는 스프레드시트에 대해 열려 있는 임시 파일을 닫고 정
 ## 워크 시트 만들기 {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 NewSheet 는 워크 시트 이름을 지정하여 새 시트를 만드는 기능을 제공하고 추가 된 후 통합 문서 (스프레드 시트)의 시트 인덱스를 반환합니다. 새 스프레드 시트 파일을 만들 때 `Sheet1` 이라는 기본 워크 시트가 생성됩니다.
@@ -133,7 +133,7 @@ NewSheet 는 워크 시트 이름을 지정하여 새 시트를 만드는 기능
 ## 워크 시트 삭제 {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 DeleteSheet 는 지정된 워크 시트 이름으로 통합 문서의 워크 시트를 삭제하는 기능을 제공하며 시트 이름은 대/소문자를 구분하지 않습니다. 이 방법은 수식, 차트 등과 같은 참조의 변경에 영향을 주는 주의해서 사용하십시오. 삭제된 워크시트의 참조된 값이 있으면 워크시트를 열 때 파일 오류가 발생합니다. 이 함수는 워크시트가 하나만 남아 있으면 유효하지 않습니다.
@@ -196,16 +196,10 @@ func (f *File) GetActiveSheetIndex() int
 ## 워크 시트 가시성 설정 {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-SetSheetVisible 은 지정된 워크 시트 이름으로 표시되는 워크 시트를 설정하는 함수를 제공합니다. 통합 문서에는 최소한 하나의 보이는 워크 시트가 있어야합니다. 지정된 워크 시트가 활성화 된 경우이 설정은 무효화됩니다. [SheetStateValues Enum](https://learn.microsoft.com/ko-kr/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1) 에 정의 된 시트 상태 값:
-
-|워크 시트 상태 값|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+SetSheetVisible 은 지정된 워크 시트 이름으로 표시되는 워크 시트를 설정하는 함수를 제공합니다. 통합 문서에는 최소한 하나의 보이는 워크 시트가 있어야합니다. 지정된 워크 시트가 활성화 된 경우이 설정은 무효화됩니다. 세 번째 선택적 `veryHidden` 매개변수는 `visible` 이 `false` 인 경우에만 작동합니다.
 
 예를 들어,`Sheet1` 을 숨 깁니다.
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## 워크 시트 가시성 확보 {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 GetSheetVisible 은 주어진 워크 시트 이름으로 볼 수있는 워크 시트를 가져 오는 기능을 제공합니다. 예를 들어, `Sheet1` 의 표시 상태 가져 오기:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## 워크 시트 속성 설정 {#SetSheetProps}
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 통합 문서의 핵심 속성을 가져옵니다.
+
+## 통합 문서 보호 {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+ProtectWorkbook 은 다른 사용자가 실수로 또는 의도적으로 통합 문서의 데이터를 변경, 이동 또는 삭제하는 것을 방지하는 기능을 제공합니다. 선택 필드 `AlgorithmName` 은 해시 알고리즘을 지정했으며 현재 XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384 및 SHA-512 를 지원하며 해시 알고리즘이 지정되지 않은 경우 XOR 알고리즘을 기본값으로 사용합니다. 예를 들어 보호 설정으로 통합 문서를 보호합니다:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions 는 통합 문서 보호 설정을 직접 매핑합니다.
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## 통합 문서 보호 해제 {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+UnprotectWorkbook 은 통합 문서에 대한 보호를 제거하는 기능을 제공하며 암호 확인을 통해 통합 문서 보호를 제거하기 위해 선택적 암호 매개 변수를 지정합니다.

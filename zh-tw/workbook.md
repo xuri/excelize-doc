@@ -125,7 +125,7 @@ func (f *File) Close() error
 ## 新建工作表 {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 根據給定的工作表名稱來創建新工作表，並返回工作表在活頁簿中的索引。請注意，在創建新的活頁簿時，將包含名為 `Sheet1` 的默認工作表。
@@ -133,7 +133,7 @@ func (f *File) NewSheet(sheet string) int
 ## 刪除工作表 {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 根據給定的工作表名稱刪除指定工作表，謹慎使用此方法，這將會影響到與被刪除工作表相關聯的公式、引用、圖表等元素。如果有其他組件引用了被刪除工作表上的值，將會引發錯誤提示，甚至將會導致打開活頁簿失敗。當活頁簿中僅包含一個工作表時，調用此方法無效。
@@ -196,16 +196,10 @@ func (f *File) GetActiveSheetIndex() int
 ## 設定工作表可見性 {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-根據給定的工作表名稱和可見性參數設定工作表的可見性。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見性設定無效。工作表可見性狀態可參考[工作表狀態枚舉](https://learn.microsoft.com/zh-tw/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
-
-|工作表狀態枚舉|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+根據給定的工作表名稱和可見性參數設定工作表的可見性。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見性設定無效。第三個可選參數 `veryHidden` 僅在 `visible` 參數值為 `false` 時有效。
 
 例如，隱藏名為 `Sheet1` 的工作表:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## 獲取工作表可見性 {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 根據給定的工作表名稱獲取工作表可見性設定。例如，獲取名為 `Sheet1` 的工作表可見性設定:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## 設定工作表屬性 {#SetSheetProps}
@@ -306,7 +300,7 @@ ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口�
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-根據給定的工作表名稱、檢視索引和檢視參數獲取工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
+根據給定的工作表名稱和檢視索引獲取工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
 
 ## 設定工作表頁面佈局 {#SetPageLayout}
 
@@ -802,14 +796,14 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 ---|---
 Category       | 檔案內容的分類
 ContentStatus  | 檔案內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
-Created        | 檔案創建時間
+Created        | 使用 ISO 8601 UTC 時間格式表示的檔案創建時間，例如 `2019-06-04T22:00:10Z`
 Creator        | 創作者
 Description    | 資源內容的說明
 Identifier     | 對給定上下文中的資源的明確引用
 Keywords       | 檔案關鍵詞
 Language       | 檔案內容的主要語言
 LastModifiedBy | 執行上次修改的用戶
-Modified       | 檔案修改時間
+Modified       | 使用 ISO 8601 UTC 時間格式表示的檔案修改時間，例如 `2019-06-04T22:00:10Z`
 Revision       | 檔案修訂版本
 Subject        | 檔案主題
 Title          | 檔案標題
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 獲取活頁簿的核心屬性。
+
+## 保護活頁簿 {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+使用密碼保護活頁簿的結構，以防止其他用戶查看隱藏的工作表，添加、移動或隱藏工作表以及重命名工作表，選字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，使用密碼保護活頁簿結構：
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions 定義了保護活頁簿的設置選項。
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## 取消保護保護活頁簿 {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+取保護活頁簿，指定可選密碼參數以通過密碼驗證來取消活頁簿保護。

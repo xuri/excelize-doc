@@ -125,7 +125,7 @@ Close ferme et nettoie le fichier temporaire ouvert pour la feuille de calcul.
 ## Créer une feuille de calcul {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 NewSheet fournit la fonction pour créer une nouvelle feuille en donnant un nom de feuille de calcul et renvoie l'index des feuilles dans le classeur (feuille de calcul) après l'ajout. Notez que lors de la création d'un nouveau fichier de feuille de calcul, la feuille de calcul par défaut nommée `Sheet1` sera créée.
@@ -133,7 +133,7 @@ NewSheet fournit la fonction pour créer une nouvelle feuille en donnant un nom 
 ## Supprimer la feuille de calcul {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 DeleteSheet fournit une fonction pour supprimer une feuille de calcul dans un classeur par nom de feuille de calcul donné, les noms de feuille ne sont pas sensibles à la casse. Utilisez cette méthode avec prudence, car cela affectera les modifications apportées aux références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul supprimée, cela provoquera une erreur de fichier lorsque vous l'ouvrirez. Cette fonction sera invalide lorsqu'il ne reste qu'une seule feuille de calcul.
@@ -196,16 +196,10 @@ GetActiveSheetIndex fournit une fonction pour obtenir une feuille active de XLSX
 ## Définir la feuille de calcul visible {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-SetSheetVisible fournit une fonction permettant de définir une feuille de calcul visible par son nom. Un classeur doit contenir au moins une feuille de calcul visible. Si la feuille de calcul donnée a été activée, ce paramètre sera invalidé. Valeurs d'état de la feuille telles que définies par [SheetStateValues Enum](https://learn.microsoft.com/fr-fr/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
-
-|Sheet State Values|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+SetSheetVisible fournit une fonction permettant de définir une feuille de calcul visible par son nom. Un classeur doit contenir au moins une feuille de calcul visible. Si la feuille de calcul donnée a été activée, ce paramètre sera invalidé. Le troisième paramètre optionnel `veryHidden` ne fonctionne que lorsque `visible` était `false`.
 
 Par exemple, masquer `Sheet1`:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Obtenir la feuille de calcul visible {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 GetSheetVisible fournit une fonction permettant d'obtenir une feuille de calcul visible par son nom. Par exemple, obtenez l'état visible de `Sheet1`:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## Définir les propriétés d'une feuille de calcul {#SetSheetProps}
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps fournit une fonction pour obtenir les propriétés de base du document.
+
+## Protéger le classeur {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+ProtectWorkbook fournit une fonction pour empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans un classeur. Le champ facultatif `AlgorithmName` a spécifié l'algorithme de hachage, prend en charge XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384 et SHA-512 actuellement, si aucun algorithme de hachage n'est spécifié, utilisera l'algorithme XOR par défaut. Par exemple, protégez le classeur avec les paramètres de protection:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions mappe directement les paramètres de protection du classeur.
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## Déprotéger le classeur {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+UnprotectWorkbook fournit une fonction pour supprimer la protection du classeur, a spécifié le paramètre de mot de passe facultatif pour supprimer la protection du classeur avec vérification du mot de passe.

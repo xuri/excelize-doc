@@ -43,6 +43,8 @@
   * [アプリケーションのプロパティを取得する](workbook.md#GetAppProps)
   * [ドキュメントのプロパティを設定する](workbook.md#SetDocProps)
   * [ドキュメントのプロパティを取得する](workbook.md#GetDocProps)
+  * [ブックを保護する](workbook.md#ProtectWorkbook)
+  * [ブックの保護を解除する](workbook.md#UnprotectWorkbook)
 * [ワークシート](sheet.md)
   * [列の可視性設定](sheet.md#SetColVisible)
   * [列幅の設定](sheet.md#SetColWidth)

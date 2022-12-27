@@ -125,7 +125,7 @@ Close closes and cleanup the open temporary file for the spreadsheet.
 ## Create worksheet {#NewSheet}
 
 ```go
-func (f *File) NewSheet(sheet string) int
+func (f *File) NewSheet(sheet string) (int, error)
 ```
 
 NewSheet provides the function to create a new sheet by given a worksheet name and returns the index of the sheets in the workbook (spreadsheet) after it appended. Note that when creating a new spreadsheet file, the default worksheet named `Sheet1` will be created.
@@ -133,7 +133,7 @@ NewSheet provides the function to create a new sheet by given a worksheet name a
 ## Delete worksheet {#DeleteSheet}
 
 ```go
-func (f *File) DeleteSheet(sheet string)
+func (f *File) DeleteSheet(sheet string) error
 ```
 
 DeleteSheet provides a function to delete worksheet in a workbook by given worksheet name. Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the deleted worksheet, it will cause a file error when you open it. This function will be invalid when only one worksheet is left.
@@ -196,16 +196,10 @@ GetActiveSheetIndex provides a function to get an active worksheet of the workbo
 ## Set worksheet visible {#SetSheetVisible}
 
 ```go
-func (f *File) SetSheetVisible(sheet string, visible bool) error
+func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-SetSheetVisible provides a function to set worksheet visible by given worksheet name. A workbook must contain at least one visible worksheet. If the given worksheet has been activated, this setting will be invalidated. Sheet state values as defined by [SheetStateValues Enum](https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.sheetstatevalues?view=openxml-2.8.1):
-
-|Sheet State Values|
-|---|
-|visible|
-|hidden|
-|veryHidden|
+SetSheetVisible provides a function to set worksheet visible by given worksheet name. A workbook must contain at least one visible worksheet. If the given worksheet has been activated, this setting will be invalidated. The third optional `veryHidden` parameter only works when `visible` was `false`.
 
 For example, hide `Sheet1`:
 
@@ -216,13 +210,13 @@ err := f.SetSheetVisible("Sheet1", false)
 ## Get worksheet visible {#GetSheetVisible}
 
 ```go
-func (f *File) GetSheetVisible(sheet string) bool
+func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
 GetSheetVisible provides a function to get worksheet visible by given worksheet name. For example, get the visible state of `Sheet1`:
 
 ```go
-f.GetSheetVisible("Sheet1")
+visible, err := f.GetSheetVisible("Sheet1")
 ```
 
 ## Set worksheet properties {#SetSheetProps}
@@ -802,14 +796,14 @@ Property       | Description
 ---|---
 Category       | A categorization of the content of this package.
 ContentStatus  | The status of the content. For example: Values might include "Draft", "Reviewed" and "Final"
-Created        | The create time of the content of the resource.
+Created        | The created time of the content of the resource which represent in ISO 8601 UTC format, for example `2019-06-04T22:00:10Z`.
 Creator        | An entity primarily responsible for making the content of the resource.
 Description    | An explanation of the content of the resource.
 Identifier     | An unambiguous reference to the resource within a given context.
 Keywords       | A delimited set of keywords to support searching and indexing. This is typically a list of terms that are not available elsewhere in the properties.
 Language       | The language of the intellectual content of the resource.
 LastModifiedBy | The user who performed the last modification. The identification is environment-specific.
-Modified       | The modified time of the content of the resource.
+Modified       | The modified time of the content of the resource which represent in ISO 8601 UTC format, for example `2019-06-04T22:00:10Z`.
 Revision       | The revision number of the content of the resource.
 Subject        | The topic of the content of the resource.
 Title          | The name given to the resource.
@@ -843,3 +837,37 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps provides a function to get document core properties.
+
+## Protect workbook {#ProtectWorkbook}
+
+```go
+func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
+```
+
+ProtectWorkbook provides a function to prevent other users from accidentally or deliberately changing, moving, or deleting data in a workbook. The optional field `AlgorithmName` specified hash algorithm, support XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384, and SHA-512 currently, if no hash algorithm specified, will be using the XOR algorithm as default. For example, protect workbook with protection settings:
+
+```go
+err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
+    Password:      "password",
+    LockStructure: true,
+})
+```
+
+WorkbookProtectionOptions directly maps the settings of workbook protection.
+
+```go
+type WorkbookProtectionOptions struct {
+    AlgorithmName string `json:"algorithm_name,omitempty"`
+    Password      string `json:"password,omitempty"`
+    LockStructure bool   `json:"lock_structure,omitempty"`
+    LockWindows   bool   `json:"lock_windows,omitempty"`
+}
+```
+
+## Unprotect workbook {#UnprotectWorkbook}
+
+```go
+func (f *File) UnprotectWorkbook(password ...string) error
+```
+
+UnprotectWorkbook provides a function to remove protection for workbook, specified the optional password parameter to remove workbook protection with password verification.
