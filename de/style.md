@@ -4,15 +4,15 @@ Alignment ordnet die Ausrichtungseinstellungen der Zellen direkt zu.
 
 ```go
 type Alignment struct {
-    Horizontal      string `json:"horizontal"`
-    Indent          int    `json:"indent"`
-    JustifyLastLine bool   `json:"justify_last_line"`
-    ReadingOrder    uint64 `json:"reading_order"`
-    RelativeIndent  int    `json:"relative_indent"`
-    ShrinkToFit     bool   `json:"shrink_to_fit"`
-    TextRotation    int    `json:"text_rotation"`
-    Vertical        string `json:"vertical"`
-    WrapText        bool   `json:"wrap_text"`
+    Horizontal      string
+    Indent          int
+    JustifyLastLine bool
+    ReadingOrder    uint64
+    RelativeIndent  int
+    ShrinkToFit     bool
+    TextRotation    int
+    Vertical        string
+    WrapText        bool
 }
 ```
 
@@ -20,9 +20,9 @@ Border ordnet die Randeinstellungen der Zellen direkt zu.
 
 ```go
 type Border struct {
-    Type  string `json:"type"`
-    Color string `json:"color"`
-    Style int    `json:"style"`
+    Type  string
+    Color string
+    Style int
 }
 ```
 
@@ -30,14 +30,17 @@ Font ordnet die Schriftarteinstellungen der Schriftarten direkt zu.
 
 ```go
 type Font struct {
-    Bold      bool    `json:"bold"`
-    Italic    bool    `json:"italic"`
-    Underline string  `json:"underline"`
-    Family    string  `json:"family"`
-    Size      float64 `json:"size"`
-    Strike    bool    `json:"strike"`
-    Color     string  `json:"color"`
-    VertAlign string `json:"vertAlign"`
+    Bold         bool
+    Italic       bool
+    Underline    string
+    Family       string
+    Size         float64
+    Strike       bool
+    Color        string
+    ColorIndexed int
+    ColorTheme   *int
+    ColorTint    float64
+    VertAlign    string
 }
 ```
 
@@ -45,10 +48,10 @@ Fill ordnet die Fülleinstellungen der Zellen direkt zu.
 
 ```go
 type Fill struct {
-    Type    string   `json:"type"`
-    Pattern int      `json:"pattern"`
-    Color   []string `json:"color"`
-    Shading int      `json:"shading"`
+    Type    string
+    Pattern int
+    Color   []string
+    Shading int
 }
 ```
 
@@ -56,8 +59,8 @@ Protection ordnet die Schutzeinstellungen der Zellen direkt zu.
 
 ```go
 type Protection struct {
-    Hidden bool `json:"hidden"`
-    Locked bool `json:"locked"`
+    Hidden bool
+    Locked bool
 }
 ```
 
@@ -65,26 +68,26 @@ Style ordnet die Stileinstellungen der Zellen direkt zu.
 
 ```go
 type Style struct {
-    Border        []Border    `json:"border"`
-    Fill          Fill        `json:"fill"`
-    Font          *Font       `json:"font"`
-    Alignment     *Alignment  `json:"alignment"`
-    Protection    *Protection `json:"protection"`
-    NumFmt        int         `json:"number_format"`
-    DecimalPlaces int         `json:"decimal_places"`
-    CustomNumFmt  *string     `json:"custom_number_format"`
-    Lang          string      `json:"lang"`
-    NegRed        bool        `json:"negred"`
+    Border        []Border
+    Fill          Fill
+    Font          *Font
+    Alignment     *Alignment
+    Protection    *Protection
+    NumFmt        int
+    DecimalPlaces int
+    CustomNumFmt  *string
+    Lang          string
+    NegRed        bool
 }
 ```
 
 ## Erstellen eines Stils {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style interface{}) (int, error)
+func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen mithilfe einer bestimmten JSON-Zeichenfolge oder eines Strukturzeigers. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass das Farbfeld den RGB-Farbcode verwendet.
+NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen anhand der angegebenen Stiloptionen. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass das Feld `Font.Color` eine RGB-Farbe verwendet, die in der hexadezimalen Notation `RRGGBB` dargestellt wird.
 
 ### Grenze {#border}
 
@@ -978,9 +981,21 @@ Die Excelize-Unterstützung legt ein benutzerdefiniertes Zahlenformat für die Z
 
 ```go
 f := excelize.NewFile()
-f.SetCellValue("Sheet1", "A6", 42920.5)
+defer func() {
+    if err := f.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
+if err := f.SetCellValue("Sheet1", "A6", 42920.5); err != nil {
+    fmt.Println(err)
+    return
+}
 exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
 style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
@@ -1021,13 +1036,13 @@ SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des a
 Legen Sie zum Beispiel den Stil von Zeile 1 auf `Sheet1` fest:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 1, styleID)
+err := f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 Legen Sie den Stil der Zeilen 1 bis 10 auf `Sheet1` fest:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, styleID)
+err := f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## Festlegen der Standardschriftart {#SetDefaultFont}

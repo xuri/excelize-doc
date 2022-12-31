@@ -138,6 +138,12 @@ var (
     // ErrSheetNameLength definierte die Fehlermeldung beim Empfang der Länge
     // des Blattnamens überschreitet das Limit.
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrUnprotectWorkbook definiert die Fehlermeldung auf Arbeitsmappe hat
+    // keinen Schutz gesetzt.
+    ErrUnprotectWorkbook = errors.New("workbook has set no protect")
+    // ErrUnprotectWorkbookPassword definierte die Fehlermeldung zum Entfernen
+    // des Arbeitsmappenschutzes mit fehlgeschlagener Kennwortüberprüfung.
+    ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
 )
 ```
 

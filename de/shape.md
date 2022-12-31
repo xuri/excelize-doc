@@ -3,39 +3,35 @@
 ## Form hinzufügen
 
 ```go
-func (f *File) AddShape(sheet, cell, opts string) error
+func (f *File) AddShape(sheet, cell string, opts *Shape) error
 ```
 
 AddShape bietet die Methode zum Hinzufügen einer Form zu einem Blatt anhand des angegebenen Arbeitsblattindex, des festgelegten Formformats (z. B. Versatz, Skalierung, Einstellung des Seitenverhältnisses und Druckeinstellungen) und der festgelegten Eigenschaften. Fügen Sie beispielsweise ein Textfeld (Rechteckform) in "Sheet1" hinzu:
 
 ```go
-err := f.AddShape("Sheet1", "G6", `{
-    "type": "rect",
-    "color":
-    {
-        "line": "#4286F4",
-        "fill": "#8eb9ff"
+width, height, lineWidth := 180, 40, 1.2
+err := f.AddShape("Sheet1", "G6",
+    &excelize.Shape{
+        Type:  "rect",
+        Color: excelize.ShapeColor{Line: "#4286f4", Fill: "#8eb9ff"},
+        Paragraph: []excelize.ShapeParagraph{
+            {
+                Text: "Rechteckform",
+                Font: excelize.Font{
+                    Bold:      true,
+                    Italic:    true,
+                    Family:    "Times New Roman",
+                    Size:      18,
+                    Color:     "#777777",
+                    Underline: "sng",
+                },
+            },
+        },
+        Width:  &width,
+        Height: &height,
+        Line:   excelize.ShapeLine{Width: &lineWidth},
     },
-    "paragraph": [
-    {
-        "text": "Rechteckform",
-        "font":
-        {
-            "bold": true,
-            "italic": true,
-            "family": "Times New Roman",
-            "size": 36,
-            "color": "#777777",
-            "underline": "sng"
-        }
-    }],
-    "width": 180,
-    "height": 90,
-    "line":
-    {
-        "width": 1.5
-    }
-}`)
+)
 ```
 
 Das Folgende zeigt die Art der Form, die von Excelize unterstützt wird:

@@ -14,57 +14,66 @@ import (
 )
 
 func main() {
-    categories := map[string]string{
-        "A2": "Klein", "A3": "Normal", "A4": "Groß", "B1": "Apfel", "C1": "Orange", "D1": "Birne"}
-    values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
-    f.SetSheetName("Sheet1", "Tabelle1")
-    for k, v := range categories {
-        f.SetCellValue("Tabelle1", k, v)
-    }
-    for k, v := range values {
-        f.SetCellValue("Tabelle1", k, v)
-    }
-    if err := f.AddChart("Tabelle1", "E1", `{
-        "type": "wireframeContour",
-        "series": [
-        {
-            "name": "Tabelle1!$A$2",
-            "categories": "Tabelle1!$B$1:$D$1",
-            "values": "Tabelle1!$B$2:$D$2"
-        },
-        {
-            "name": "Tabelle1!$A$3",
-            "categories": "Tabelle1!$B$1:$D$1",
-            "values": "Tabelle1!$B$3:$D$3"
-        },
-        {
-            "name": "Tabelle1!$A$4",
-            "categories": "Tabelle1!$B$1:$D$1",
-            "values": "Tabelle1!$B$4:$D$4"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "left",
-            "show_legend_key": false
-        },
-        "title":
-        {
-            "name": "Wireframe-Konturdiagramm"
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
         }
-    }`); err != nil {
+    }()
+    if err := f.SetSheetName("Sheet1", "Tabelle1"); err != nil {
         fmt.Println(err)
+        return
+    }
+    for idx, row := range [][]interface{}{
+        {nil, "Apfel", "Orange", "Birne"},
+        {"Klein", 2, 3, 3},
+        {"Normal", 5, 2, 4},
+        {"Groß", 6, 7, 8},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
+        if err := f.SetSheetRow("Tabelle1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    positionLeft := "left"
+    if err := f.AddChart("Tabelle1", "E1", &excelize.Chart{
+        Type: "wireframeContour",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Tabelle1!$A$2",
+                Categories: "Tabelle1!$B$1:$D$1",
+                Values:     "Tabelle1!$B$2:$D$2",
+            },
+            {
+                Name:       "Tabelle1!$A$3",
+                Categories: "Tabelle1!$B$1:$D$1",
+                Values:     "Tabelle1!$B$3:$D$3",
+            },
+            {
+                Name:       "Tabelle1!$A$4",
+                Categories: "Tabelle1!$B$1:$D$1",
+                Values:     "Tabelle1!$B$4:$D$4",
+            },
+        },
+        Format: excelize.PictureOptions{
+            OffsetX: 15,
+            OffsetY: 10,
+        },
+        Legend: excelize.ChartLegend{
+            Position:      &positionLeft,
+            ShowLegendKey: false,
+        },
+        Title: excelize.ChartTitle{
+            Name: "Wireframe-Konturdiagramm",
+        },
+    }); err != nil {
+        fmt.Println(err)
+        return
     }
     // Speichern Sie die Tabelle unter dem angegebenen Pfad.
     if err := f.SaveAs("Mappe1.xlsx"); err != nil {

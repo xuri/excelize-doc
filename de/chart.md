@@ -3,12 +3,12 @@
 ## Diagramm hinzufügen {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
+func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 AddChart bietet die Methode zum Hinzufügen eines Diagramms zu einem Arbeitsblatt anhand eines bestimmten Diagrammformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen) und festgelegter Eigenschaften.
 
-Das Folgende zeigt den `type` des Diagramms, das von Excelize unterstützt wird:
+Das Folgende zeigt den `Type` des Diagramms, das von Excelize unterstützt wird:
 
 Typ|Diagramm
 ---|---
@@ -65,27 +65,27 @@ wireframeContour            | wireframe-Konturdiagramm
 bubble                      | blasendiagramm
 bubble3D                    | 3D Blasendiagramm
 
-Im Office Excel-Diagrammdatenbereich gibt `series` den Informationssatz an, für den Daten gezeichnet werden sollen, das Legendenelement (Serie) und die horizontale (Kategorie) Achsenbeschriftung.
+Im Office Excel-Diagrammdatenbereich gibt `Series` den Informationssatz an, für den Daten gezeichnet werden sollen, das Legendenelement (Serie) und die horizontale (Kategorie) Achsenbeschriftung.
 
-Folgende Optionen können für die `series` eingestellt werden:
+Folgende Optionen können für die `Series` eingestellt werden:
 
 Parameter|Erläuterung
 ---|---
-name|Legendenelement (Serie), angezeigt in der Diagrammlegende und in der Formelleiste. Der Parameter `name` ist optional. Wenn Sie diesen Wert nicht angeben, lautet der Standardwert `Serie 1 .. n`. `name` Unterstützung für die Darstellung von Formeln, zum Beispiel: `Sheet1!$A$1`.
-categories|Beschriftung der horizontalen Achse (Kategorie). Der Parameter `categories` ist in den meisten Diagrammtypen optional. Der Standardwert ist eine zusammenhängende Folge der Form `1..n`.
-values|Der Diagrammdatenbereich, der der wichtigste Parameter in `series` ist, ist auch der einzige erforderliche Parameter beim Erstellen eines Diagramms. Diese Option verknüpft das Diagramm mit den angezeigten Arbeitsblattdaten.
-line|Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `width`. Der Bereich von `width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
-marker|Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name|Legendenelement (Serie), angezeigt in der Diagrammlegende und in der Formelleiste. Der Parameter `Name` ist optional. Wenn Sie diesen Wert nicht angeben, lautet der Standardwert `Serie 1 .. n`. `Name` Unterstützung für die Darstellung von Formeln, zum Beispiel: `Sheet1!$A$1`.
+Categories|Beschriftung der horizontalen Achse (Kategorie). Der Parameter `Categories` ist in den meisten Diagrammtypen optional. Der Standardwert ist eine zusammenhängende Folge der Form `1..n`.
+Values|Der Diagrammdatenbereich, der der wichtigste Parameter in `Series` ist, ist auch der einzige erforderliche Parameter beim Erstellen eines Diagramms. Diese Option verknüpft das Diagramm mit den angezeigten Arbeitsblattdaten.
+Line|Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `Line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `Width`. Der Bereich von `Width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
+Marker|Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `Size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `Symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können eingestellt werden:
 
 Parameter|Typ|Erläuterung
 ---|---|---
-none            | `bool`   | Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm zu überlappen. Der Standardwert ist `false`
-position        | `string` | Die Position der Diagrammlegende
-show_legend_key | `bool`   | Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
+None            | `bool`   | Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm zu überlappen. Der Standardwert ist `false`
+Position        | `string` | Die Position der Diagrammlegende
+ShowLegendKey   | `bool`   | Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
 
-Stellen Sie die `position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `none` `false` ist. Die verfügbaren Positionen sind:
+Stellen Sie die `Position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `None` `false` ist. Die verfügbaren Positionen sind:
 
 Parameter|Erläuterung
 ---|---
@@ -95,11 +95,11 @@ left|Links
 right|Rechts
 top_right|Oben rechts
 
-Der Parametersatz `show_legend_key` der Legendenschlüssel soll in Datenbeschriftungen angezeigt werden. Der Standardwert ist `false`.
+Der Parametersatz `ShowLegendKey`  der Legendenschlüssel soll in Datenbeschriftungen angezeigt werden. Der Standardwert ist `false`.
 
-Der Diagrammtitel wird durch Auswahl des Parameters `name` des Objekts `title` festgelegt. Der Titel wird über dem Diagramm angezeigt. Der Parameter `name` unterstützt die Verwendung von Formeldarstellungen wie `Sheet1!$A$1`. Wenn Sie keinen Symboltitel angeben, ist der Standardwert null.
+Der Diagrammtitel wird durch Auswahl des Parameters `Name` des Objekts `Title` festgelegt. Der Titel wird über dem Diagramm angezeigt. Der Parameter `Name` unterstützt die Verwendung von Formeldarstellungen wie `Sheet1!$A$1`. Wenn Sie keinen Symboltitel angeben, ist der Standardwert null.
 
-Der Parameter `show_blanks_as` liefert die Einstellung "Zellen ausblenden und leeren". Der Standardwert ist: `gap`. In der Excel-Anwendung wird "leere Zelle als" angezeigt: "Leerzeichen". Die folgenden Werte sind für diesen Parameter optional:
+Der Parameter `ShowBlanksAs` liefert die Einstellung "Zellen ausblenden und leeren". Der Standardwert ist: `gap`. In der Excel-Anwendung wird "leere Zelle als" angezeigt: "Leerzeichen". Die folgenden Werte sind für diesen Parameter optional:
 
 Parameter|Erläuterung
 ---|---
@@ -107,7 +107,7 @@ gap|Leerzeichen
 span|Verbinden Sie Datenpunkte mit geraden Linien
 zero|Nullwert
 
-Gibt an, dass jede Datenpunktmarkierung in der Reihe eine andere Farbe durch `vary_colors` hat. Der Standardwert ist `true`.
+Gibt an, dass jede Datenpunktmarkierung in der Reihe eine andere Farbe durch `VaryColors` hat. Der Standardwert ist `true`.
 
 Der Parameter `format` bietet Einstellungen für Parameter wie Diagrammversatz, Skalierung, Seitenverhältniseinstellungen und Druckeigenschaften sowie für die in der Funktion [`AddPicture`](image.md#AddPicture) verwendeten.
 
@@ -115,40 +115,40 @@ Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende 
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-show_bubble_size  | `bool` | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
-show_cat_name     | `bool` | `true`  | Kategoriename.
-show_leader_lines | `bool` | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
-show_percent      | `bool` | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
-show_series_name  | `bool` | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
-show_val          | `bool` | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
+ShowBubbleSize  | `bool` | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
+ShowCatName     | `bool` | `true`  | Kategoriename.
+ShowLeaderLines | `bool` | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
+ShowPercent     | `bool` | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
+ShowSerName     | `bool` | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
+ShowVal         | `bool` | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
 
-Stellen Sie die primären Optionen für die horizontale und vertikale Achse auf `x_axis` und `y_axis` ein.
+Stellen Sie die primären Optionen für die horizontale und vertikale Achse auf `XAxis` und `YAxis` ein.
 
-Die Eigenschaften von `x_axis`, die eingestellt werden können, sind:
-
-Parameter|Typ|Standard|Erläuterung
----|---|---|---
-none             | `bool` | `false` | Achsen deaktivieren.
-major_grid_lines | `bool` | `false` | Gibt die Hauptgitterlinien an.
-minor_grid_lines | `bool` | `false` | Gibt kleinere Gitterlinien an.
-tick_label_skip  | `int`  | `1`     | Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `tick_label_skip` ist optional. Der Standardwert ist auto.
-reverse_order    | `bool` | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `reverse_order` ist optional.
-maximum          | `int`  | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
-minimum          | `int`  | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
-
-Die Eigenschaften von `y_axis`, die eingestellt werden können, sind:
+Die Eigenschaften von `XAxis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-none             | `bool`    | `false` | Achsen deaktivieren.
-major_grid_lines | `bool`    | `false` | Gibt die Hauptgitterlinien an.
-minor_grid_lines | `bool`    | `false` | Gibt kleinere Gitterlinien an.
-major_unit       | `float64` | `0`     | Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `major_unit` ist optional. Der Standardwert ist auto.
-reverse_order    | `bool`    | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `reverse_order` ist optional.
-maximum          | `int`     | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
-minimum          | `int`     | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+None           | `bool`     | `false` | Achsen deaktivieren.
+MajorGridLines | `bool`     | `false` | Gibt die Hauptgitterlinien an.
+MinorGridLines | `bool`     | `false` | Gibt kleinere Gitterlinien an.
+TickLabelSkip  | `int`      | `1`     | Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `TickLabelSkip` ist optional. Der Standardwert ist auto.
+ReverseOrder   | `bool`     | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
+Maximum        | `*float64` | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
+Minimum        | `*float64` | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
 
-Legen Sie die Diagrammgröße anhand der Eigenschaft `dimension` fest. Die Dimensionseigenschaft ist optional. Folgende Eigenschaften können festgelegt werden:
+Die Eigenschaften von `YAxis`, die eingestellt werden können, sind:
+
+Parameter|Typ|Standard|Erläuterung
+---|---|---|---
+None           | `bool`     | `false` | Achsen deaktivieren.
+MajorGridLines | `bool`     | `false` | Gibt die Hauptgitterlinien an.
+MinorGridLines | `bool`     | `false` | Gibt kleinere Gitterlinien an.
+MajorUnit      | `float64`  | `0`     | Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `MajorUnit` ist optional. Der Standardwert ist auto.
+ReverseOrder   | `bool`     | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
+Maximum        | `*float64` | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
+Minimum        | `*float64` | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+
+Legen Sie die Diagrammgröße anhand der Eigenschaft `Dimension` fest. Die Dimensionseigenschaft ist optional. Folgende Eigenschaften können festgelegt werden:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
@@ -167,92 +167,95 @@ import (
 )
 
 func main() {
-    categories := map[string]string{
-        "A2": "Klein", "A3": "Normal", "A4": "Groß",
-        "B1": "Apfel", "C1": "Orange", "D1": "Birne"}
-    values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
-    for k, v := range categories {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    for k, v := range values {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    if err := f.AddChart("Sheet1", "E1", `{
-        "type": "col",
-        "series": [
-        {
-            "name": "Sheet1!$A$2",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$2:$D$2"
-        },
-        {
-            "name": "Sheet1!$A$3",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$3:$D$3"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "left",
-            "show_legend_key": false
-        },
-        "title":
-        {
-            "name": "Clustered Column - Liniendiagramm"
-        },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
         }
-    }`, `{
-        "type": "line",
-        "series": [
-        {
-            "name": "Sheet1!$A$4",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$4:$D$4"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "right",
-            "show_legend_key": false
-        },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+    }()
+    for idx, row := range [][]interface{}{
+        {nil, "Apfel", "Orange", "Birne"},
+        {"Klein", 2, 3, 3},
+        {"Normal", 5, 2, 4},
+        {"Groß", 6, 7, 8},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
         }
-    }`); err != nil {
+        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    enable, disable, scale := true, false, 1.0
+    positionLeft, positionRight := "left", "right"
+    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+        Type: "col",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$2",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$2:$D$2",
+            },
+        },
+        Format: excelize.PictureOptions{
+            XScale:          &scale,
+            YScale:          &scale,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Title: excelize.ChartTitle{
+            Name: "Clustered Column - Liniendiagramm",
+        },
+        Legend: excelize.ChartLegend{
+            Position:      &positionLeft,
+            ShowLegendKey: false,
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }, &excelize.Chart{
+        Type: "line",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$4",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$4:$D$4",
+                Marker: excelize.ChartMarker{
+                    Symbol: "none", Size: 10,
+                },
+            },
+        },
+        Format: excelize.PictureOptions{
+            XScale:          &scale,
+            YScale:          &scale,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Legend: excelize.ChartLegend{
+            Position:      &positionRight,
+            ShowLegendKey: false,
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -266,7 +269,7 @@ func main() {
 ## Diagrammblatt hinzufügen {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
+func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 AddChartSheet bietet die Methode zum Erstellen eines Diagrammblatts anhand eines bestimmten Diagrammformatsatzes (z. B. Versatz, Skalierung, Einstellung des Seitenverhältnisses und Druckeinstellungen) und festgelegter Eigenschaften. In Excel ist ein Diagrammblatt ein Arbeitsblatt, das nur ein Diagramm enthält.

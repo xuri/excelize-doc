@@ -148,9 +148,12 @@ CopySheet bietet eine Funktion zum Duplizieren eines Arbeitsblatts nach dem gege
 
 ```go
 // Sheet1 ist bereits vorhanden...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## Gruppenarbeitsblätter {#GroupSheets}
@@ -696,7 +699,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 SetDefinedName bietet eine Funktion zum Festlegen der definierten Namen der Arbeitsmappe oder des Arbeitsblatts. Wenn kein Bereich angegeben ist, ist der Standardbereich die Arbeitsmappe. Zum Beispiel:
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +712,20 @@ Einstellungen für Druckbereich und Drucktitel für das Arbeitsblatt:
 <p align="center"><img width="703" src="./images/page_setup_01.png" alt="Einstellungen für Druckbereich und Drucktitel für das Arbeitsblatt"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Sheet1!$A$1:$Z$100",
     Scope:    "Sheet1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
     Scope:    "Sheet1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## Definierten Namen abrufen {#GetDefinedName}
@@ -738,7 +745,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 DeleteDefinedName bietet eine Funktion zum Löschen der definierten Namen der Arbeitsmappe oder des Arbeitsblatts. Wenn kein Bereich angegeben ist, ist der Standardbereich die Arbeitsmappe. Zum Beispiel:
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Sheet2",
 })
@@ -857,10 +864,10 @@ WorkbookProtectionOptions bildet die Einstellungen des Arbeitsmappenschutzes dir
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

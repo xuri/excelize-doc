@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Abrufen des Blattindexes {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex bietet eine Funktion zum Abrufen eines Blattindex der Arbeitsmappe anhand des angegebenen Blattnamens. Wenn der angegebene Blattname ungültig ist oder das Arbeitsblatt nicht vorhanden ist, wird ein ganzzahliger Typwert `-1` zurückgegeben.
@@ -151,7 +151,7 @@ GetSheetList bietet eine Funktion zum Abrufen der Arbeitsliste mit Arbeitsblätt
 ## Satzblattname festlegen {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName bietet eine Funktion zum Festlegen des Arbeitsblattnamens unter Angabe der alten und neuen Arbeitsblattnamen. Der Blatttitel darf maximal 31 Zeichen enthalten. Diese Funktion ändert nur den Namen des Blattes und aktualisiert den Blattnamen in der der Zelle zugeordneten Formel oder Referenz nicht. Möglicherweise fehlt ein Problemformelfehler oder eine Referenz.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Arbeitsblatt schützen {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet bietet eine Funktion, um zu verhindern, dass andere Benutzer versehentlich oder absichtlich Daten in einem Arbeitsblatt ändern, verschieben oder löschen. Im optionalen Feld `AlgorithmName` angegebener Hash-Algorithmus, unterstützt XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 und SHA-512 derzeit, wenn kein Hash-Algorithmus angegeben ist, wird der XOR-Algorithmus standardmäßig verwendet. Schützen Sie beispielsweise `Sheet1` mit den Schutzeinstellungen:
