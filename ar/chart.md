@@ -3,12 +3,12 @@
 ## أضف الرسم البياني {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
+func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 يوفر AddChart طريقة لإضافة مخطط في ورقة عمل من خلال مجموعة تنسيق مخطط معين (مثل الإزاحة والقياس وإعدادات نسبة العرض إلى الارتفاع وإعدادات الطباعة) ومجموعة الخصائص.
 
-يوضح ما يلي `type` الرسم البياني الذي يدعمه برنامج excelize:
+يوضح ما يلي `Type` الرسم البياني الذي يدعمه برنامج excelize:
 
 اكتب|الرسم البياني
 ---|---
@@ -65,27 +65,27 @@ wireframeContour            | مخطط كفاف الإطار السلكي
 bubble                      | مخطط فقاعي
 bubble3D                    | مخطط فقاعي ثلاثي الأبعاد
 
-في نطاق بيانات مخطط Office Excel ، تحدد `series` مجموعة المعلومات التي سيتم رسم البيانات لها ، وعنصر وسيلة الإيضاح (سلسلة) ، وتسمية المحور الأفقي (الفئة).
+في نطاق بيانات مخطط Office Excel ، تحدد `Series` مجموعة المعلومات التي سيتم رسم البيانات لها ، وعنصر وسيلة الإيضاح (سلسلة) ، وتسمية المحور الأفقي (الفئة).
 
-خيارات `series` التي يمكن تعيينها هي:
+خيارات `Series` التي يمكن تعيينها هي:
 
 معامل|تفسير
 ---|---
-name|عنصر وسيلة الإيضاح (سلسلة) ، معروض في وسيلة إيضاح الرسم البياني وشريط الصيغة. معلمة `name` اختيارية. إذا لم تحدد هذه القيمة ، فستكون القيمة الافتراضية هي `Series 1 .. n`. دعم `name` لتمثيل الصيغة ، على سبيل المثال: `Sheet1!$A$1`.
-categories|تسمية المحور الأفقي (الفئة). معلمة `categories` اختيارية في معظم أنواع المخططات ، والمعلمة الافتراضية هي تسلسل متجاور من النموذج `1..n`.
-values|تعتبر منطقة بيانات المخطط ، وهي أهم معلمة في `series` ، هي أيضًا المعلمة الوحيدة المطلوبة عند إنشاء مخطط. يربط هذا الخيار المخطط ببيانات ورقة العمل التي يعرضها.
-line|هذا يحدد تنسيق الخط للمخطط الخطي. تعتبر خاصية `line` اختيارية وإذا لم يتم توفيرها ، فسيتم نمطها الافتراضي. الخيارات التي يمكن تعيينها هي `width`. نطاق `width` هو 0.25 نقطة - 999 نقطة. إذا كانت قيمة العرض خارج النطاق ، فإن العرض الافتراضي للخط هو 2 نقطة.
-marker|يؤدي هذا إلى تعيين علامة المخطط الخطي والمخطط المبعثر. نطاق الحقل الاختياري `size` هو 2-72 (القيمة الافتراضية هي `5`). قيمة التعداد للحقل الاختياري `symbol` هي (القيمة الافتراضية هي `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name|عنصر وسيلة الإيضاح (سلسلة) ، معروض في وسيلة إيضاح الرسم البياني وشريط الصيغة. معلمة `Name` اختيارية. إذا لم تحدد هذه القيمة ، فستكون القيمة الافتراضية هي `Series 1 .. n`. دعم `Name` لتمثيل الصيغة ، على سبيل المثال: `Sheet1!$A$1`.
+Categories|تسمية المحور الأفقي (الفئة). معلمة `Categories` اختيارية في معظم أنواع المخططات ، والمعلمة الافتراضية هي تسلسل متجاور من النموذج `1..n`.
+Values|تعتبر منطقة بيانات المخطط ، وهي أهم معلمة في `Series` ، هي أيضًا المعلمة الوحيدة المطلوبة عند إنشاء مخطط. يربط هذا الخيار المخطط ببيانات ورقة العمل التي يعرضها.
+Line|هذا يحدد تنسيق الخط للمخطط الخطي. تعتبر خاصية `Line` اختيارية وإذا لم يتم توفيرها ، فسيتم نمطها الافتراضي. الخيارات التي يمكن تعيينها هي `Width`. نطاق `Width` هو 0.25 نقطة - 999 نقطة. إذا كانت قيمة العرض خارج النطاق ، فإن العرض الافتراضي للخط هو 2 نقطة.
+Marker|يؤدي هذا إلى تعيين علامة المخطط الخطي والمخطط المبعثر. نطاق الحقل الاختياري `Size` هو 2-72 (القيمة الافتراضية هي `5`). قيمة التعداد للحقل الاختياري `Symbol` هي (القيمة الافتراضية هي `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 تعيين خصائص وسيلة إيضاح الرسم البياني. الخيارات التي يمكن ضبطها هي:
 
 معامل|اكتب|تفسير
 ---|---|---
-none            | `bool`   | حدد ما إذا كنت تريد إظهار وسيلة الإيضاح دون تداخل الرسم البياني القيمة الافتراضية هي `false`
-position        | `string` | موضع وسيلة إيضاح الرسم البياني
-show_legend_key | `bool`   | تعيين مفاتيح وسيلة الإيضاح يجب أن تظهر في تسميات البيانات
+None            | `bool`   | حدد ما إذا كنت تريد إظهار وسيلة الإيضاح دون تداخل الرسم البياني القيمة الافتراضية هي `false`
+Position        | `string` | موضع وسيلة إيضاح الرسم البياني
+ShowLegendKey   | `bool`   | تعيين مفاتيح وسيلة الإيضاح يجب أن تظهر في تسميات البيانات
 
-قم بتعيين `position` لوسيلة إيضاح الرسم البياني. موضع وسيلة الإيضاح الافتراضي هو `right`. تسري هذه المعلمة فقط عندما تكون `none` هي `false`. الوظائف المتاحة هي:
+قم بتعيين `Position` لوسيلة إيضاح الرسم البياني. موضع وسيلة الإيضاح الافتراضي هو `right`. تسري هذه المعلمة فقط عندما تكون `None` هي `false`. الوظائف المتاحة هي:
 
 معامل|تفسير
 ---|---
@@ -95,11 +95,11 @@ left|على اليسار
 right|على اليمين
 top_right|في أعلى اليمين
 
-تعيين المعلمة `show_legend_key` ، يجب أن تظهر مفاتيح وسيلة الإيضاح في ملصقات البيانات. القيمة الافتراضية هي `false`.
+تعيين المعلمة `ShowLegendKey`  ، يجب أن تظهر مفاتيح وسيلة الإيضاح في ملصقات البيانات. القيمة الافتراضية هي `false`.
 
-يتم تعيين عنوان المخطط عن طريق تحديد معلمة `name` لكائن `title` ، وسيتم عرض العنوان أعلى المخطط. تدعم المعلمة `name` استخدام تمثيلات الصيغة ، مثل `Sheet1!$A$1` ، إذا لم تحدد عنوان رمز ، فستكون القيمة الافتراضية خالية.
+يتم تعيين عنوان المخطط عن طريق تحديد معلمة `Name` لكائن `Title` ، وسيتم عرض العنوان أعلى المخطط. تدعم المعلمة `Name` استخدام تمثيلات الصيغة ، مثل `Sheet1!$A$1` ، إذا لم تحدد عنوان رمز ، فستكون القيمة الافتراضية خالية.
 
-توفر المعلمة `show_blanks_as` إعداد "إخفاء الخلايا وإفراغها". القيمة الافتراضية هي: `gap`. في تطبيق Excel "يتم عرض الخلية الفارغة على أنها": "الفراغ". فيما يلي قيم اختيارية لهذه المعلمة:
+توفر المعلمة `ShowBlanksAs` إعداد "إخفاء الخلايا وإفراغها". القيمة الافتراضية هي: `gap`. في تطبيق Excel "يتم عرض الخلية الفارغة على أنها": "الفراغ". فيما يلي قيم اختيارية لهذه المعلمة:
 
 معامل|تفسير
 ---|---
@@ -107,7 +107,7 @@ gap|الفراغ
 span|ربط نقاط البيانات بخطوط مستقيمة
 zero|قيمة صفرية
 
-يحدد أن لكل علامة بيانات في السلسلة لون مختلف حسب `vary_colors`. القيمة الافتراضية هي `true`.
+يحدد أن لكل علامة بيانات في السلسلة لون مختلف حسب `VaryColors`. القيمة الافتراضية هي `true`.
 
 توفر المعلمة `format` إعدادات للمعلمات مثل إزاحة المخطط ، والمقياس ، وإعدادات نسبة العرض إلى الارتفاع ، وخصائص الطباعة ، بالإضافة إلى تلك المستخدمة في الوظيفة [`AddPicture`](image.md#AddPicture).
 
@@ -115,40 +115,40 @@ zero|قيمة صفرية
 
 معامل|اكتب|إفتراضي|تفسير
 ---|---|---|---
-show_bubble_size  | `bool` | `false` | يحدد حجم الفقاعة الذي يجب أن يظهر في ملصق البيانات.
-show_cat_name     | `bool` | `true`  | اسم التصنيف
-show_leader_lines | `bool` | `false` | يحدد أن اسم الفئة يجب أن يظهر في تسمية البيانات.
-show_percent      | `bool` | `false` | يحدد أن النسبة يجب أن تظهر في تسمية البيانات.
-show_series_name  | `bool` | `false` | يحدد أن اسم السلسلة يجب أن يظهر في تسمية البيانات.
-show_val          | `bool` | `false` | يحدد أن القيمة يجب أن تظهر في تسمية البيانات.
+ShowBubbleSize  | `bool` | `false` | يحدد حجم الفقاعة الذي يجب أن يظهر في ملصق البيانات.
+ShowCatName     | `bool` | `true`  | اسم التصنيف
+ShowLeaderLines | `bool` | `false` | يحدد أن اسم الفئة يجب أن يظهر في تسمية البيانات.
+ShowPercent     | `bool` | `false` | يحدد أن النسبة يجب أن تظهر في تسمية البيانات.
+ShowSerName     | `bool` | `false` | يحدد أن اسم السلسلة يجب أن يظهر في تسمية البيانات.
+ShowVal         | `bool` | `false` | يحدد أن القيمة يجب أن تظهر في تسمية البيانات.
 
-عيّن الخيارات الأساسية للمحور الأفقي والعمودي حسب `x_axis` و `y_axis`.
+عيّن الخيارات الأساسية للمحور الأفقي والعمودي حسب `XAxis` و `YAxis`.
 
-خصائص `x_axis` التي يمكن تعيينها هي:
-
-معامل|اكتب|إفتراضي|تفسير
----|---|---|---
-none             | `bool` | `false` | تعطيل المحاور.
-major_grid_lines | `bool` | `false` | يحدد خطوط الشبكة الرئيسية.
-minor_grid_lines | `bool` | `false` | يحدد خطوط الشبكة الثانوية.
-tick_label_skip  | `int`  | `1`     | يحدد عدد علامات التجزئة المطلوب تخطيها بين التسمية المرسومة. خاصية `tick_label_skip` اختيارية. القيمة الافتراضية هي تلقائي.
-reverse_order    | `bool` | `false` | يحدد أن الفئات أو القيم بترتيب عكسي (اتجاه المخطط). خاصية `reverse_order` اختيارية.
-maximum          | `int`  | `0`     | يحدد أن الحد الأقصى الثابت ، 0 هو تلقائي. الخاصية القصوى اختيارية.
-minimum          | `int`  | `0`     | يحدد أن الحد الأدنى الثابت ، 0 هو تلقائي. الحد الأدنى من الممتلكات اختياري. القيمة الافتراضية هي تلقائي.
-
-خصائص `y_axis` التي يمكن تعيينها هي:
+خصائص `XAxis` التي يمكن تعيينها هي:
 
 معامل|اكتب|إفتراضي|تفسير
 ---|---|---|---
-none             | `bool`    | `false` |تعطيل المحاور.
-major_grid_lines | `bool`    | `false` | يحدد خطوط الشبكة الرئيسية.
-minor_grid_lines | `bool`    | `false` | يحدد خطوط الشبكة الثانوية.
-major_unit       | `float64` | `0`     | يحدد المسافة بين العلامات الرئيسية. يجب أن يحتوي على رقم موجب من الفاصلة العائمة. الخاصية `major_unit` اختيارية. القيمة الافتراضية هي تلقائي.
-reverse_order    | `bool`    | `false` | يحدد أن الفئات أو القيم بترتيب عكسي (اتجاه المخطط). خاصية `reverse_order` اختيارية.
-maximum          | `int`     | `0`     | يحدد أن الحد الأقصى الثابت ، 0 هو تلقائي. الخاصية القصوى اختيارية.
-minimum          | `int`     | `0`     | يحدد أن الحد الأدنى الثابت ، 0 هو تلقائي. الحد الأدنى من الممتلكات اختياري. القيمة الافتراضية هي تلقائي.
+None           | `bool`     | `false` | تعطيل المحاور.
+MajorGridLines | `bool`     | `false` | يحدد خطوط الشبكة الرئيسية.
+MinorGridLines | `bool`     | `false` | يحدد خطوط الشبكة الثانوية.
+TickLabelSkip  | `int`      | `1`     | يحدد عدد علامات التجزئة المطلوب تخطيها بين التسمية المرسومة. خاصية `TickLabelSkip` اختيارية. القيمة الافتراضية هي تلقائي.
+ReverseOrder   | `bool`     | `false` | يحدد أن الفئات أو القيم بترتيب عكسي (اتجاه المخطط). خاصية `ReverseOrder` اختيارية.
+Maximum        | `*float64` | `0`     | يحدد أن الحد الأقصى الثابت ، 0 هو تلقائي. الخاصية القصوى اختيارية.
+Minimum        | `*float64` | `0`     | يحدد أن الحد الأدنى الثابت ، 0 هو تلقائي. الحد الأدنى من الممتلكات اختياري. القيمة الافتراضية هي تلقائي.
 
-عيِّن حجم الرسم البياني حسب خاصية `dimension`. خاصية البعد اختيارية. الخصائص التي يمكن تعيينها هي:
+خصائص `YAxis` التي يمكن تعيينها هي:
+
+معامل|اكتب|إفتراضي|تفسير
+---|---|---|---
+None           | `bool`     | `false` |تعطيل المحاور.
+MajorGridLines | `bool`     | `false` | يحدد خطوط الشبكة الرئيسية.
+MinorGridLines | `bool`     | `false` | يحدد خطوط الشبكة الثانوية.
+MajorUnit      | `float64`  | `0`     | يحدد المسافة بين العلامات الرئيسية. يجب أن يحتوي على رقم موجب من الفاصلة العائمة. الخاصية `MajorUnit` اختيارية. القيمة الافتراضية هي تلقائي.
+ReverseOrder   | `bool`     | `false` | يحدد أن الفئات أو القيم بترتيب عكسي (اتجاه المخطط). خاصية `ReverseOrder` اختيارية.
+Maximum        | `*float64` | `0`     | يحدد أن الحد الأقصى الثابت ، 0 هو تلقائي. الخاصية القصوى اختيارية.
+Minimum        | `*float64` | `0`     | يحدد أن الحد الأدنى الثابت ، 0 هو تلقائي. الحد الأدنى من الممتلكات اختياري. القيمة الافتراضية هي تلقائي.
+
+عيِّن حجم الرسم البياني حسب خاصية `Dimension`. خاصية البعد اختيارية. الخصائص التي يمكن تعيينها هي:
 
 معامل|اكتب|إفتراضي|تفسير
 ---|---|---|---
@@ -167,98 +167,100 @@ import (
 )
 
 func main() {
-    categories := map[string]string{
-        "A2": "صغير", "A3": "عادي", "A4": "كبير",
-        "B1": "تفاح", "C1": "برتقال", "D1": "كمثرى"}
-    values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
-    enable := true
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
+    for idx, row := range [][]interface{}{
+        {nil, "تفاح", "برتقال", "كمثرى"},
+        {"صغير", 2, 3, 3},
+        {"عادي", 5, 2, 4},
+        {"كبير", 6, 7, 8},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
+        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    enable, disable, scale := true, false, 1.0
+    positionLeft, positionRight := "left", "right"
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
         RightToLeft: &enable,
     }); err != nil {
         fmt.Println(err)
     }
-    for k, v := range categories {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    for k, v := range values {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    if err := f.AddChart("Sheet1", "E1", `{
-        "type": "col",
-        "series": [
-        {
-            "name": "Sheet1!$A$2",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$2:$D$2"
+    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+        Type: "col",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$2",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$2:$D$2",
+            },
         },
-        {
-            "name": "Sheet1!$A$3",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$3:$D$3"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
+        Format: excelize.PictureOptions{
+            XScale:          &scale,
+            YScale:          &scale,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
         },
-        "legend":
-        {
-            "position": "left",
-            "show_legend_key": false
+        Title: excelize.ChartTitle{
+            Name: "عمود متفاوت المسافات - تخطيط خطي",
         },
-        "title":
-        {
-            "name": "عمود متفاوت المسافات - تخطيط خطي"
+        Legend: excelize.ChartLegend{
+            Position:      &positionLeft,
+            ShowLegendKey: false,
         },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
-        }
-    }`, `{
-        "type": "line",
-        "series": [
-        {
-            "name": "Sheet1!$A$4",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$4:$D$4"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
         },
-        "legend":
-        {
-            "position": "right",
-            "show_legend_key": false
+    }, &excelize.Chart{
+        Type: "line",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$4",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$4:$D$4",
+                Marker: excelize.ChartMarker{
+                    Symbol: "none", Size: 10,
+                },
+            },
         },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
-        }
-    }`); err != nil {
+        Format: excelize.PictureOptions{
+            XScale:          &scale,
+            YScale:          &scale,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Legend: excelize.ChartLegend{
+            Position:      &positionRight,
+            ShowLegendKey: false,
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -272,7 +274,7 @@ func main() {
 ## أضف ورقة عمل المخطط {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
+func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 توفر AddChartSheet طريقة لإنشاء ورقة مخطط من خلال مجموعة تنسيق مخطط معينة (مثل الإزاحة والمقياس وإعداد نسبة العرض إلى الارتفاع وإعدادات الطباعة) ومجموعة الخصائص. في Excel ، ورقة المخطط هي ورقة عمل تحتوي فقط على مخطط.

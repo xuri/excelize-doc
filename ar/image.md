@@ -3,7 +3,7 @@
 ## إضافة الصورة {#AddPicture}
 
 ```go
-func (f *File) AddPicture(sheet, cell, picture, format string) error
+func (f *File) AddPicture(sheet, cell, picture string, opts *PictureOptions) error
 ```
 
 يوفر AddPicture طريقة لإضافة صورة إلى ورقة العمل عن طريق مجموعة تنسيق صورة معينة (مثل الإزاحة ، المقياس ، إعداد نسبة العرض إلى الارتفاع ، وإعدادات الطباعة) ومسار الملف. هذه الوظيفة آمنة للتزامن.
@@ -24,26 +24,44 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // إدراج صورة.
-    if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
+    if err := f.AddPicture("Sheet1", "A2", "image.png", nil); err != nil {
         fmt.Println(err)
+        return
     }
     // إدراج صورة في ورقة عمل مع التحجيم.
-    if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{
-        "x_scale": 0.5,
-        "y_scale": 0.5
-    }`); err != nil {
+    enable, disable, scale := true, false, 0.5
+    if err := f.AddPicture("Sheet1", "D2", "image.jpg",
+        &excelize.PictureOptions{
+            XScale:        &scale,
+            YScale:        &scale,
+            Hyperlink:     "#Sheet2!D8",
+            HyperlinkType: "Location",
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     // إدراج إزاحة صورة في الخلية مع دعم الطباعة.
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
-        "x_offset": 15,
-        "y_offset": 10,
-        "print_obj": true,
-        "lock_aspect_ratio": false,
-        "locked": false
-    }`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif",
+        &excelize.PictureOptions{
+            OffsetX:         15,
+            OffsetY:         10,
+            Hyperlink:       "https://github.com/xuri/excelize",
+            HyperlinkType:   "External",
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+            Positioning:     "oneCell",
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     // احفظ جدول البيانات بالمسار المحدد.
     if err = f.Save(); err != nil {
@@ -52,30 +70,30 @@ func main() {
 }
 ```
 
-تحدد المعلمة الاختيارية `autofit` ما إذا كان حجم الصورة يناسب الخلية تلقائيًا ، فإن القيمة الافتراضية لذلك هي `false`.
+تحدد المعلمة الاختيارية `AutoFit` ما إذا كان حجم الصورة يناسب الخلية تلقائيًا ، فإن القيمة الافتراضية لذلك هي `false`.
 
-تحدد المعلمة الاختيارية `hyperlink` الارتباط التشعبي للصورة.
+تحدد المعلمة الاختيارية `Hyperlink` الارتباط التشعبي للصورة.
 
-تحدد المعلمة الاختيارية `hyperlink_type` نوعين من الارتباط التشعبي `External` لموقع الويب أو `Location` للانتقال إلى إحدى الخلايا في هذا المصنف. عندما يكون `hyperlink_type` هو `Location` ، يجب أن تبدأ الإحداثيات بـ `#`.
+تحدد المعلمة الاختيارية `HyperlinkType` نوعين من الارتباط التشعبي `External` لموقع الويب أو `Location` للانتقال إلى إحدى الخلايا في هذا المصنف. عندما يكون `HyperlinkType` هو `Location` ، يجب أن تبدأ الإحداثيات بـ `#`.
 
-تحدد المعلمة الاختيارية `positioning` نوعين من موضع الصورة في جدول بيانات Excel ، `oneCell` (نقل ولكن بدون تغيير الحجم مع الخلايا) أو `absolute` (لا تتحرك أو تحجم مع الخلايا). إذا لم تقم بتعيين هذه المعلمة ، فسيكون الموضع الافتراضي هو النقل والحجم بالخلايا.
+تحدد المعلمة الاختيارية `Positioning` نوعين من موضع الصورة في جدول بيانات Excel ، `oneCell` (نقل ولكن بدون تغيير الحجم مع الخلايا) أو `absolute` (لا تتحرك أو تحجم مع الخلايا). إذا لم تقم بتعيين هذه المعلمة ، فسيكون الموضع الافتراضي هو النقل والحجم بالخلايا.
 
-تشير المعلمة الاختيارية `print_obj` إلى ما إذا كانت الصورة ستتم طباعتها عند طباعة ورقة العمل ، والقيمة الافتراضية لذلك هي `true`.
+تشير المعلمة الاختيارية `PrintObject` إلى ما إذا كانت الصورة ستتم طباعتها عند طباعة ورقة العمل ، والقيمة الافتراضية لذلك هي `true`.
 
-تشير المعلمة الاختيارية `lock_aspect_ratio` إلى ما إذا كان قفل نسبة العرض إلى الارتفاع للصورة ، والقيمة الافتراضية لذلك هي `false`.
+تشير المعلمة الاختيارية `LockAspectRatio` إلى ما إذا كان قفل نسبة العرض إلى الارتفاع للصورة ، والقيمة الافتراضية لذلك هي `false`.
 
-تشير المعلمة الاختيارية `locked` إلى ما إذا كان يتم قفل الصورة أم لا. لا يكون لتأمين الكائن أي تأثير إلا إذا كانت الورقة محمية.
+تشير المعلمة الاختيارية `Locked` إلى ما إذا كان يتم قفل الصورة أم لا. لا يكون لتأمين الكائن أي تأثير إلا إذا كانت الورقة محمية.
 
-تحدد المعلمة الاختيارية `x_offset` الإزاحة الأفقية للصورة بالخلية ، والقيمة الافتراضية لذلك هي 0.
+تحدد المعلمة الاختيارية `OffsetX` الإزاحة الأفقية للصورة بالخلية ، والقيمة الافتراضية لذلك هي 0.
 
-تحدد المعلمة الاختيارية `x_scale` المقياس الأفقي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
+تحدد المعلمة الاختيارية `XScale` المقياس الأفقي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
 
-تحدد المعلمة الاختيارية `y_offset` الإزاحة الرأسية للصورة بالخلية ، والقيمة الافتراضية لذلك هي 0.
+تحدد المعلمة الاختيارية `OffsetY` الإزاحة الرأسية للصورة بالخلية ، والقيمة الافتراضية لذلك هي 0.
 
-تحدد المعلمة الاختيارية `y_scale` المقياس الرأسي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
+تحدد المعلمة الاختيارية `YScale` المقياس الرأسي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *PictureOptions) error
 ```
 
 يوفر AddPictureFromBytes طريقة لإضافة صورة في ورقة من خلال مجموعة تنسيق صورة معينة (مثل الإزاحة ، المقياس ، إعداد نسبة العرض إلى الارتفاع وإعدادات الطباعة) ، وصف النص البديل ، اسم الامتداد ومحتوى الملف في نوع `[]byte`.
@@ -86,6 +104,7 @@ func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, fi
 package main
 
 import (
+    "fmt"
     _ "image/jpeg"
     "os"
 
@@ -94,6 +113,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     enable := true
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
         RightToLeft: &enable,
@@ -103,9 +127,11 @@ func main() {
     file, err := os.ReadFile("image.jpg")
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("المصنف1.xlsx"); err != nil {
         fmt.Println(err)

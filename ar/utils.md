@@ -3,7 +3,7 @@
 ## الطاولة {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, opts string) error
+func (f *File) AddTable(sheet, reference string, opts *TableOptions) error
 ```
 
 يوفر AddTable طريقة لإضافة جدول في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات ومجموعة التنسيق.
@@ -13,7 +13,7 @@ func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="الطاولة"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1", "D5", ``)
+err := f.AddTable("Sheet1", "A1:D5", nil)
 ```
 
 - مثال 2 ، أنشئ جدولاً من `F2:H6` في `Sheet2` مع مجموعة التنسيق:
@@ -21,21 +21,22 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="613" src="./images/addtable_02.png" alt="إضافة الجدول مع مجموعة التنسيق"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 لاحظ أن الجدول يجب أن يتكون من سطرين على الأقل بما في ذلك الرأس. يجب أن تحتوي خلايا الرأس على سلاسل ويجب أن تكون فريدة ، كما يجب تعيين بيانات صف الرأس في الجدول قبل استدعاء دالة AddTable. تنسق الجداول المتعددة المناطق التي لا يمكن أن تحتوي على تقاطع.
 
-`table_name`: يجب أن يكون اسم الجدول ، في نفس اسم ورقة العمل للجدول ، فريدًا.
+`Name`: يجب أن يكون اسم الجدول ، في نفس اسم ورقة العمل للجدول ، فريدًا.
 
-`table_style`: أسماء نمط الجدول المضمنة:
+`StyleName`: أسماء نمط الجدول المضمنة:
 
 ```text
 TableStyleLight1 - TableStyleLight21
@@ -70,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## فلتر السيارات {#AutoFilter}
 
 ```go
-unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
+func (f *File) AutoFilter(sheet, reference string, opts *AutoFilterOptions) error
 ```
 
 يوفر AutoFilter طريقة لإضافة عامل تصفية تلقائي في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات والإعدادات. يعد عامل التصفية التلقائي في Excel طريقة لتصفية نطاق ثنائي الأبعاد من البيانات بناءً على بعض المعايير البسيطة.
@@ -80,22 +81,24 @@ unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="فلتر السيارات"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", "")
+err := f.AutoFilter("Sheet1", "A1:D4", nil)
 ```
 
 مثال 2 ، تصفية البيانات في مرشح تلقائي:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
+err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
+    Column: "B", Expression: "x != blanks",
+})
 ```
 
-يحدد `column` أعمدة التصفية في نطاق التصفية التلقائي بناءً على معايير بسيطة.
+يحدد `Column` أعمدة التصفية في نطاق التصفية التلقائي بناءً على معايير بسيطة.
 
 لا يكفي مجرد تحديد شرط الفلتر. يجب عليك أيضًا إخفاء أي صفوف لا تتطابق مع شرط الفلتر. يتم إخفاء الصفوف باستخدام طريقة [`SetRowVisible()`](sheet.md#SetRowVisible). لا يمكن لـ Excelize تصفية الصفوف تلقائيًا لأن هذا ليس جزءًا من تنسيق الملف.
 
 تعيين معايير التصفية للعمود:
 
-يحدد `expression` الشروط ، تتوفر العوامل التالية لتعيين معايير التصفية:
+يحدد `Expression` الشروط ، تتوفر العوامل التالية لتعيين معايير التصفية:
 
 ```text
 ==
@@ -248,7 +251,7 @@ excelize.CoordinatesToCellName(1, 1, true) // إرجاع "$A$1", nil
 ## النمط الشرطي {#NewConditionalStyle}
 
 ```go
-func (f *File) NewConditionalStyle(style string) (int, error)
+func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 يوفر NewConditionalStyle وظيفة لإنشاء نمط للتنسيق الشرطي بتنسيق نمط معين. المعلمات هي نفس الوظيفة [`NewStyle`](style.md#NewStyle). لاحظ أن حقل اللون يستخدم رمز لون RGB ويدعم فقط تعيين الخط والتعبئة والمحاذاة والحدود حاليًا.
@@ -256,12 +259,12 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 ## تعيين تنسيق شرطي {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, reference, opts string) error
+func (f *File) SetConditionalFormat(sheet, reference string, opts []ConditionalFormatOptions) error
 ```
 
 يوفر SetConditionalFormat وظيفة لإنشاء قاعدة تنسيق شرطي لقيمة الخلية. التنسيق الشرطي هو إحدى ميزات Office Excel التي تتيح لك تطبيق تنسيق على خلية أو نطاق من الخلايا بناءً على معايير معينة.
 
-يعد خيار `type` معلمة مطلوبة وليس لها قيمة افتراضية. قيم الأنواع المسموح بها والمعلمات المرتبطة بها هي:
+يعد خيار `Type` معلمة مطلوبة وليس لها قيمة افتراضية. قيم الأنواع المسموح بها والمعلمات المرتبطة بها هي:
 
 <table>
     <thead>
@@ -273,44 +276,44 @@ func (f *File) SetConditionalFormat(sheet, reference, opts string) error
     <tbody>
         <tr>
             <td rowspan=4>cell</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td>time_period</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td rowspan=2>text</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>average</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td>duplicate</td>
@@ -322,17 +325,17 @@ func (f *File) SetConditionalFormat(sheet, reference, opts string) error
         </tr>
         <tr>
             <td rowspan=2>top</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td rowspan=2>bottom</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>blanks</td>
@@ -352,75 +355,75 @@ func (f *File) SetConditionalFormat(sheet, reference, opts string) error
         </tr>
         <tr>
             <td rowspan=6>2_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=9>3_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>mid_type</td>
+            <td>MidType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>mid_value</td>
+            <td>MidValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>mid_color</td>
+            <td>MidColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=5>data_bar</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>bar_color</td>
+            <td>BarColor</td>
         </tr>
         <tr>
             <td>formula</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
     </tbody>
 </table>
 
-يتم استخدام معلمة `criteria` لتعيين المعايير التي سيتم من خلالها تقييم بيانات الخلية. ليس لها قيمة افتراضية. المعايير الأكثر شيوعًا كما هي مطبقة على `{"type"："cell"}` هي:
+يتم استخدام معلمة `Criteria` لتعيين المعايير التي سيتم من خلالها تقييم بيانات الخلية. ليس لها قيمة افتراضية. المعايير الأكثر شيوعًا كما هي مطبقة على `excelize.ConditionalFormatOptions{Type: "cell"}` هي:
 
 حرف وصف النص|التمثيل الرمزي
 ---|---
@@ -437,55 +440,55 @@ less than or equal to|<=
 
 يتم عرض المعايير الإضافية الخاصة بأنواع التنسيق الشرطي الأخرى في الأقسام ذات الصلة أدناه.
 
-`value`: تُستخدم القيمة عمومًا مع معلمة `criteria` لتعيين القاعدة التي سيتم من خلالها تقييم بيانات الخلية:
+`Value`: تُستخدم القيمة عمومًا مع معلمة `Criteria` لتعيين القاعدة التي سيتم من خلالها تقييم بيانات الخلية:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
-```
-
-يمكن أن تكون خاصية `value` أيضًا مرجع خلية:
-
-```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "$C$1"
-}]`, format))
-```
-
-type: `format` - تُستخدم معلمة `format` لتحديد التنسيق الذي سيتم تطبيقه على الخلية عند استيفاء معيار التنسيق الشرطي. يتم إنشاء التنسيق باستخدام طريقة [`NewConditionalStyle()`](utils.md#NewConditionalStyle) بنفس طريقة تنسيقات الخلايا:
-
-```go
-format, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "6",
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
+```
+
+يمكن أن تكون خاصية `Value` أيضًا مرجع خلية:
+
+```go
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "$C$1",
+        },
+    },
+)
+```
+
+type: `Format` - تُستخدم معلمة `Format` لتحديد التنسيق الذي سيتم تطبيقه على الخلية عند استيفاء معيار التنسيق الشرطي. يتم إنشاء التنسيق باستخدام طريقة [`NewConditionalStyle()`](utils.md#NewConditionalStyle) بنفس طريقة تنسيقات الخلايا:
+
+```go
+format, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
+    },
+)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err = f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "cell", Criteria: ">", Format: format, Value: "6"},
+    },
+)
 ```
 
 ملاحظة: في Excel ، يتم فرض التنسيق الشرطي فوق تنسيق الخلية الموجود ، ولا يمكن تعديل جميع خصائص تنسيق الخلية. الخصائص التي لا يمكن تعديلها في تنسيق شرطي هي اسم الخط وحجم الخط والخط المرتفع والمنخفض والحدود القطرية وجميع خصائص المحاذاة وجميع خصائص الحماية.
@@ -494,231 +497,244 @@ f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
 
 ```go
 // تنسيق الوردة لشرطية سيئة.
-format1, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+format1, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
 
 // تنسيق أصفر فاتح للشروط المحايدة.
-format2, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9B5713"
+format2, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9B5713"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEEAA0"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEEAA0"],
-        "pattern": 1
-    }
-}`)
+)
 
 // تنسيق أخضر فاتح لشرطي جيد.
-format3, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#09600B"
+format3, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#09600B"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#C7EECF"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#C7EECF"],
-        "pattern": 1
-    }
-}`)
+)
 ```
 
-type: `minimum` - يتم استخدام معلمة `minimum` لتعيين قيمة الحد الأدنى عندما يكون `criteria` إما `between` أو `not between`.
+type: `Minimum` - يتم استخدام معلمة `minimum` لتعيين قيمة الحد الأدنى عندما يكون `Criteria` إما `between` أو `not between`.
 
 ```go
 // قاعدة الخلايا المميزة: بين...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": "between",
-    "format": %d,
-    "minimum": "6",
-    "maximum": "8"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: "between",
+            Format:   format,
+            Minimum:  "6",
+            Maximum:  "8",
+        },
+    },
+)
 ```
 
-type: `maximum` - تُستخدم معلمة `maximum` لتعيين قيمة الحد الأعلى عندما تكون المعايير إما `between` أو `not between`. انظر المثال السابق.
+type: `Maximum` - تُستخدم معلمة `maximum` لتعيين قيمة الحد الأعلى عندما تكون المعايير إما `between` أو `not between`. انظر المثال السابق.
 
 type: `average` - يُستخدم النوع `average` لتحديد التنسيق الشرطي لنمط "المتوسط" في Office Excel:
 
 ```go
 // القواعد العلوية/السفلية: فوق المتوسط...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": true
-}]`, format1))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format1,
+            AboveAverage: true,
+        },
+    },
+)
 
 // القواعد العلوية/السفلية: أقل من المتوسط...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": false
-}]`, format2))
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format2,
+            AboveAverage: false,
+        },
+    },
+)
 ```
 
 type: `duplicate` - يستخدم النوع `duplicate` لتمييز الخلايا المكررة في نطاق:
 
 ```go
 // قاعدة تمييز الخلايا: القيم المكررة...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "duplicate",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "duplicate", Criteria: "=", Format: format},
+    },
+)
 ```
 
 type: `unique` - يستخدم النوع `unique` لإبراز الخلايا الفريدة في نطاق:
 
 ```go
 // قاعدة تمييز الخلايا: لا تساوي...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "unique",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "unique", Criteria: "=", Format: format},
+    },
+)
 ```
 
 type: `top` - يتم استخدام النوع `top` لتحديد أعلى قيم n من خلال الرقم أو النسبة المئوية في نطاق:
 
 ```go
 // القواعد العلوية/السفلية: أعلى 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "H1:H10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+        },
+    },
+)
 ```
 
 يمكن استخدام المعايير للإشارة إلى أن شرط النسبة المئوية مطلوب:
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6",
-    "percent": true
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+            Percent:  true,
+        },
+    },
+)
 ```
 
 type: `2_color_scale` - يتم استخدام النوع `2_color_scale` لتحديد التنسيق الشرطي لنمط "2 Color Scale" في Excel:
 
 ```go
 // مقاييس اللون: 2 لون.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "2_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "2_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-يمكن تعديل هذا النوع الشرطي باستخدام `min_type` و `max_type` و `min_value` و `max_value` و `min_color` و `max_color` ، انظر أدناه.
+يمكن تعديل هذا النوع الشرطي باستخدام `MinType` و `MaxType` و `MinValue` و `MaxValue` و `MinColor` و `MaxColor` ، انظر أدناه.
 
 type: `3_color_scale` - يستخدم النوع `3_color_scale` لتحديد التنسيق الشرطي لنمط "3 Color Scale" في Excel:
 
 ```go
 // المقاييس اللونية: 3 ألوان.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-يمكن تعديل هذا النوع الشرطي باستخدام `min_type` و `mid_type` و `max_type` و `min_value` و `mid_value` و `max_value` و `min_color` و `mid_color` و `max_color` ، انظر أدناه.
+يمكن تعديل هذا النوع الشرطي باستخدام `MinType` و `MidType` و `MaxType` و `MinValue` و `MidValue` و `MaxValue` و `MinColor` و `MidColor` و `MaxColor` ، انظر أدناه.
 
 type: `data_bar` - يتم استخدام النوع `data_bar` لتحديد التنسيق الشرطي لنمط "شريط البيانات" في Excel.
 
-`min_type` - تكون خصائص `min_type` و `max_type` متاحة عندما يكون نوع التنسيق الشرطي `2_color_scale` أو `3_color_scale` أو `data_bar`. `mid_type` متاح لـ `3_color_scale`. يتم استخدام الخصائص على النحو التالي:
+`MinType` - تكون خصائص `MinType` و `MaxType` متاحة عندما يكون نوع التنسيق الشرطي `2_color_scale` أو `3_color_scale` أو `data_bar`. `MidType` متاح لـ `3_color_scale`. يتم استخدام الخصائص على النحو التالي:
 
 ```go
 // أشرطة البيانات: تعبئة متدرجة.
-f.SetConditionalFormat("Sheet1", "K1:K10", `[
-{
-    "type": "data_bar",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "bar_color": "#638EC6"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "K1:K10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "data_bar",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            BarColor: "#638EC6",
+        },
+    },
+)
 ```
 
 أنواع `min/mid/max` المتاحة هي:
 
 معامل|تفسير
 ---|---
-min|الحد الأدنى للقيمة (لـ `min_type` فقط)
+min|الحد الأدنى للقيمة (لـ `MinType` فقط)
 num|رقمي
 percent|النسبة المئوية
 percentile|النسبة المئوية
 formula|معادلة
-max|الحد الأقصى (لـ `max_type` فقط)
+max|الحد الأقصى (لـ `MaxType` فقط)
 
-`mid_type` - يستخدم في `3_color_scale`. مثل `min_type` ، انظر أعلاه.
+`MidType` - يستخدم في `3_color_scale`. مثل `MinType` ، انظر أعلاه.
 
-`max_type` - مثل `min_type` ، انظر أعلاه.
+`MaxType` - مثل `MinType` ، انظر أعلاه.
 
-`min_value` - تكون خصائص `min_value` و `max_value` متاحة عندما يكون نوع التنسيق الشرطي `2_color_scale` أو `3_color_scale` أو `data_bar`. `mid_value` متاح لـ `3_color_scale`.
+`MinValue` - تكون خصائص `MinValue` و `MaxValue` متاحة عندما يكون نوع التنسيق الشرطي `2_color_scale` أو `3_color_scale` أو `data_bar`. `MidValue` متاح لـ `3_color_scale`.
 
-`mid_value` - يستخدم في `3_color_scale`. مثل `min_value` ، انظر أعلاه.
+`MidValue` - يستخدم في `3_color_scale`. مثل `MinValue` ، انظر أعلاه.
 
-`max_value` - مثل `min_value` ، انظر أعلاه.
+`MaxValue` - مثل `MinValue` ، انظر أعلاه.
 
-`min_color` - تكون خصائص `min_color` و `max_color` متاحة عندما يكون نوع التنسيق الشرطي `2_color_scale` أو `3_color_scale` أو `data_bar`. `mid_color` متاح لـ `3_color_scale`. يتم استخدام الخصائص على النحو التالي:
+`MinColor` - تكون خصائص `MinColor` و `MaxColor` متاحة عندما يكون نوع التنسيق الشرطي `2_color_scale` أو `3_color_scale` أو `data_bar`. `MidColor` متاح لـ `3_color_scale`. يتم استخدام الخصائص على النحو التالي:
 
 ```go
 // المقاييس اللونية: 3 ألوان.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-`mid_color` - يستخدم في `3_color_scale`. مثل `min_color` ، انظر أعلاه.
+`MidColor` - يستخدم في `3_color_scale`. مثل `MinColor` ، انظر أعلاه.
 
-`max_color` - مثل `min_color` ، انظر أعلاه.
+`MaxColor` - مثل `MinColor` ، انظر أعلاه.
 
-`bar_color` - يستخدم لـ `data_bar`. مثل `min_color` ، انظر أعلاه.
+`BarColor` - يستخدم لـ `data_bar`. مثل `MinColor` ، انظر أعلاه.
 
 على سبيل المثال ، قم بتمييز أعلى وأدنى القيم في نطاق من الخلايا `A1:D4` عن طريق تعيين التنسيق الشرطي على `الورقة 1`:
 
@@ -736,69 +752,92 @@ import (
 
 func main() {
     f := excelize.NewFile()
-    f.SetSheetName("Sheet1", "ورقة1")
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
+    if err := f.SetSheetName("Sheet1", "ورقة1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     enable := true
-    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+    if err := f.SetSheetView("ورقة1", -1, &excelize.ViewOptions{
         RightToLeft: &enable,
     }); err != nil {
         fmt.Println(err)
+        return
     }
     for r := 1; r <= 4; r++ {
-        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
+        row := []int{
+            rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100),
+        }
         if err := f.SetSheetRow("ورقة1", fmt.Sprintf("A%d", r), &row); err != nil {
             fmt.Println(err)
+            return
         }
     }
-    red, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#9A0511"
+    red, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#9A0511",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#FEC7CE"},
+                Pattern: 1,
+            },
         },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#FEC7CE"],
-            "pattern": 1
-        }
-    }`)
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("ورقة1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "bottom",
-            "criteria": "=",
-            "value": "1",
-            "format": %d
-        }]`, red)); err != nil {
-        fmt.Println(err)
-    }
-    green, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#09600B"
+    if err := f.SetConditionalFormat("ورقة1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "bottom",
+                Criteria: "=",
+                Value:    "1",
+                Format:   red,
+            },
         },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#C7EECF"],
-            "pattern": 1
-        }
-    }`)
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
+    green, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#09600B",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#C7EECF"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("ورقة1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "top",
-            "criteria":"=",
-            "value":"1",
-            "format": %d
-        }]`, green)); err != nil {
+    if err := f.SetConditionalFormat("ورقة1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "top",
+                Criteria: "=",
+                Value:    "1",
+                Format:   green,
+            },
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
+    if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
+        return
     }
 }
 ```
@@ -822,7 +861,7 @@ func (f *File) UnsetConditionalFormat(sheet, reference string) error
 ## جزء من جانب شيء {#SetPanes}
 
 ```go
-func (f *File) SetPanes(sheet, panes string)
+func (f *File) SetPanes(sheet string, panes *Panes) error
 ```
 
 يوفر SetPanes وظيفة لإنشاء وإزالة أجزاء التجميد وتقسيم الألواح عن طريق اسم ورقة العمل المحددة ومجموعة تنسيق الأجزاء.
@@ -843,33 +882,30 @@ topRight (الجزء العلوي الأيمن)|الجزء العلوي الأي
 frozen (مجمدة)|يتم تجميد الأجزاء ولكن لم يتم تقسيمها حتى يتم تجميدها. في هذه الحالة ، عندما يتم إلغاء تجميد الأجزاء مرة أخرى ، ينتج عن جزء واحد ، بدون انقسام.<br><br>في هذه الحالة ، تكون القضبان المنقسمة غير قابلة للتعديل.
 split (انشق، مزق)|الأجزاء منقسمة ولكنها غير مجمدة. في هذه الحالة ، يمكن تعديل أشرطة الانقسام بواسطة المستخدم.
 
-`x_split` - الموضع الأفقي للانقسام ، 1/20 من نقطة ؛ 0 (صفر) إذا لم يكن هناك شيء. إذا تم تجميد الجزء ، تشير هذه القيمة إلى عدد الأعمدة المرئية في الجزء العلوي.
+`XSplit` - الموضع الأفقي للانقسام ، 1/20 من نقطة ؛ 0 (صفر) إذا لم يكن هناك شيء. إذا تم تجميد الجزء ، تشير هذه القيمة إلى عدد الأعمدة المرئية في الجزء العلوي.
 
-`y_split` - الوضع الرأسي للانقسام ، في 1/20 من نقطة ؛ 0 (صفر) إذا لم يكن هناك شيء. إذا تم تجميد الجزء ، تشير هذه القيمة إلى عدد الصفوف المرئية في الجزء الأيمن. يتم تحديد القيم المحتملة لهذه السمة بواسطة نوع البيانات المزدوج لمخطط W3C XML.
+`YSplit` - الوضع الرأسي للانقسام ، في 1/20 من نقطة ؛ 0 (صفر) إذا لم يكن هناك شيء. إذا تم تجميد الجزء ، تشير هذه القيمة إلى عدد الصفوف المرئية في الجزء الأيمن. يتم تحديد القيم المحتملة لهذه السمة بواسطة نوع البيانات المزدوج لمخطط W3C XML.
 
-`top_left_cell` - موقع الخلية المرئية العلوية اليسرى في الجزء السفلي الأيمن (عندما تكون في الوضع من اليسار إلى اليمين).
+`TopLeftCell` - موقع الخلية المرئية العلوية اليسرى في الجزء السفلي الأيمن (عندما تكون في الوضع من اليسار إلى اليمين).
 
-`sqref` - نطاق الاختيار. يمكن أن تكون مجموعة نطاقات غير متجاورة.
+`SQRef` - نطاق الاختيار. يمكن أن تكون مجموعة نطاقات غير متجاورة.
 
 مثال 1: تجميد العمود `A` في `Sheet1` وتعيين الخلية النشطة على `Sheet1!K16`:
 
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="عمود مجمد"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 1,
-    "y_split": 0,
-    "top_left_cell": "B1",
-    "active_pane": "topRight",
-    "panes": [
-    {
-        "sqref": "K16",
-        "active_cell": "K16",
-        "pane": "topRight"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      1,
+    YSplit:      0,
+    TopLeftCell: "B1",
+    ActivePane:  "topRight",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "K16", ActiveCell: "K16", Pane: "topRight"},
+    },
+})
 ```
 
 مثال 2: قم بتجميد الصفوف من 1 إلى 9 في `Sheet1` وقم بتعيين نطاقات الخلايا النشطة على `Sheet1!A11:XFD11`:
@@ -877,20 +913,17 @@ f.SetPanes("Sheet1", `{
 <p align="center"><img width="771" src="./images/setpans_02.png" alt="تجميد الأعمدة وتعيين نطاقات الخلايا النشطة"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 0,
-    "y_split": 9,
-    "top_left_cell": "A34",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "A11:XFD11",
-        "active_cell": "A11",
-        "pane": "bottomLeft"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      0,
+    YSplit:      9,
+    TopLeftCell: "A34",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "A11:XFD11", ActiveCell: "A11", Pane: "bottomLeft"},
+    },
+})
 ```
 
 مثال 3: قم بإنشاء ألواح مقسمة في `Sheet1` وتعيين الخلية النشطة على `Sheet1!J60`:
@@ -898,40 +931,26 @@ f.SetPanes("Sheet1", `{
 <p align="center"><img width="756" src="./images/setpans_03.png" alt="إنشاء الأجزاء المنقسمة"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": false,
-    "split": true,
-    "x_split": 3270,
-    "y_split": 1800,
-    "top_left_cell": "N57",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "I36",
-        "active_cell": "I36"
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      false,
+    Split:       true,
+    XSplit:      3270,
+    YSplit:      1800,
+    TopLeftCell: "N57",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "I36", ActiveCell: "I36"},
+        {SQRef: "G33", ActiveCell: "G33", Pane: "topRight"},
+        {SQRef: "J60", ActiveCell: "J60", Pane: "bottomLeft"},
+        {SQRef: "O60", ActiveCell: "O60", Pane: "bottomRight"},
     },
-    {
-        "sqref": "G33",
-        "active_cell": "G33",
-        "pane": "topRight"
-    },
-    {
-        "sqref": "J60",
-        "active_cell": "J60",
-        "pane": "bottomLeft"
-    },
-    {
-        "sqref": "O60",
-        "active_cell": "O60",
-        "pane": "bottomRight"
-    }]
-}`)
+})
 ```
 
 مثال 4 ، قم بإلغاء التجميد وإزالة كافة الأجزاء في `Sheet1`:
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
 ## اللون {#ThemeColor}

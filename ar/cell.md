@@ -290,15 +290,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
-    if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
-        fmt.Println(err)
-        return
-    }
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     enable := true
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
         RightToLeft: &enable,
     }); err != nil {
         fmt.Println(err)
+    }
+    if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
+        fmt.Println(err)
+        return
     }
     if err := f.SetColWidth("Sheet1", "A", "A", 44); err != nil {
         fmt.Println(err)
@@ -660,14 +665,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
         if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1", "C2",
-        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
+        Name: "Table1", StyleName: "TableStyleMedium2",
+    }); err != nil {
         fmt.Println(err)
         return
     }

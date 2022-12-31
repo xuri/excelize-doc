@@ -108,6 +108,11 @@ var (
     // حدد ErrSheetNameLength رسالة الخطأ عند تلقي اسم الورقة يتجاوز الحد
     // المسموح به.
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // حدد ErrUnprotectWorkbook رسالة الخطأ في المصنف ولم يقم بتعيين أي حماية.
+    ErrUnprotectWorkbook = errors.New("workbook has set no protect")
+    // حدد ErrUnprotectWorkbookPassword رسالة الخطأ عند إزالة حماية المصنف مع
+    // فشل التحقق من كلمة المرور.
+    ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
 )
 ```
 

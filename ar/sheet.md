@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## احصل على فهرس ورقة العمل {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 يوفر GetSheetIndex وظيفة للحصول على فهرس ورقة المصنف حسب اسم الورقة المحدد. إذا كان اسم الورقة المحدد غير صالح أو كانت ورقة العمل غير موجودة ، فستُرجع قيمة نوع عدد صحيح `-1`.
@@ -151,7 +151,7 @@ func (f *File) GetSheetList() []string
 ## تعيين اسم الورقة {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 يوفر SetSheetName وظيفة لتعيين اسم ورقة العمل من خلال إعطاء أسماء أوراق العمل القديمة والجديدة. يُسمح بـ 31 حرفًا كحد أقصى في عنوان الورقة وهذه الوظيفة تغير فقط اسم الورقة ولن تقوم بتحديث اسم الورقة في الصيغة أو المرجع المرتبط بالخلية. لذلك قد يكون هناك خطأ في صيغة مشكلة أو إشارة مفقودة.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## حماية الورقة {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 توفر ProtectSheet وظيفة لمنع المستخدمين الآخرين من تغيير البيانات في ورقة العمل أو نقلها أو حذفها عن طريق الخطأ أو عن عمد. الحقل الاختياري `AlgorithmName` خوارزمية التجزئة المحددة ، ودعم XOR ، MD4 ، MD5 ، SHA-1 ، SHA-256 ، SHA-384 ، و SHA-512 حاليًا ، إذا لم يتم تحديد خوارزمية التجزئة ، فسيستخدم خوارزمية XOR كإعداد افتراضي. على سبيل المثال ، حماية `Sheet1` بإعدادات الحماية:
