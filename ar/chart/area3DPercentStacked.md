@@ -62,12 +62,9 @@ func main() {
                 Values:     "ورقة1!$B$4:$D$4",
             },
         },
-        Format: excelize.PictureOptions{
+        Format: excelize.GraphicOptions{
             OffsetX: 15,
             OffsetY: 10,
-        },
-        Legend: excelize.ChartLegend{
-            ShowLegendKey: false,
         },
         Title: excelize.ChartTitle{
             Name: "مخطط مساحي مكدس بنسبة 100٪ ثلاثي الأبعاد",

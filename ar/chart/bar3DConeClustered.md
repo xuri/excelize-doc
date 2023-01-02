@@ -43,7 +43,6 @@ func main() {
         }
         f.SetSheetRow("ورقة1", cell, &row)
     }
-    positionLeft := "left"
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
         Type: "bar3DConeClustered",
         Series: []excelize.ChartSeries{
@@ -63,13 +62,12 @@ func main() {
                 Values:     "ورقة1!$B$4:$D$4",
             },
         },
-        Format: excelize.PictureOptions{
+        Format: excelize.GraphicOptions{
             OffsetX: 15,
             OffsetY: 10,
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionLeft,
-            ShowLegendKey: false,
+            Position: "left",
         },
         Title: excelize.ChartTitle{
             Name: "مخطط شريطي مخروطي ثلاثي الأبعاد متفاوت",

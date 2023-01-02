@@ -124,7 +124,7 @@ func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpt
 ## إضافة جدول إلى تيار {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(reference string, opts *TableOptions) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 يقوم AddTable بإنشاء جدول Excel لـ StreamWriter باستخدام منطقة الإحداثيات المحددة ومجموعة التنسيق.

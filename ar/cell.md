@@ -572,7 +572,7 @@ func (f *File) AddComment(sheet string, comment Comment) error
 <p align="center"><img width="613" src="./images/comment.png" alt="أضف تعليقًا إلى مستند Excel"></p>
 
 ```go
-err := f.AddComment(sheet, excelize.Comment{
+err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
     Runs: []excelize.RichTextRun{

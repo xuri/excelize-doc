@@ -3,7 +3,7 @@
 ## إضافة الصورة {#AddPicture}
 
 ```go
-func (f *File) AddPicture(sheet, cell, picture string, opts *PictureOptions) error
+func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
 يوفر AddPicture طريقة لإضافة صورة إلى ورقة العمل عن طريق مجموعة تنسيق صورة معينة (مثل الإزاحة ، المقياس ، إعداد نسبة العرض إلى الارتفاع ، وإعدادات الطباعة) ومسار الملف. هذه الوظيفة آمنة للتزامن.
@@ -35,11 +35,11 @@ func main() {
         return
     }
     // إدراج صورة في ورقة عمل مع التحجيم.
-    enable, disable, scale := true, false, 0.5
+    enable, disable := true, false
     if err := f.AddPicture("Sheet1", "D2", "image.jpg",
-        &excelize.PictureOptions{
-            XScale:        &scale,
-            YScale:        &scale,
+        &excelize.GraphicOptions{
+            ScaleX:        0.5,
+            ScaleY:        0.5,
             Hyperlink:     "#Sheet2!D8",
             HyperlinkType: "Location",
         },
@@ -49,7 +49,7 @@ func main() {
     }
     // إدراج إزاحة صورة في الخلية مع دعم الطباعة.
     if err := f.AddPicture("Sheet1", "H2", "image.gif",
-        &excelize.PictureOptions{
+        &excelize.GraphicOptions{
             OffsetX:         15,
             OffsetY:         10,
             Hyperlink:       "https://github.com/xuri/excelize",
@@ -86,14 +86,14 @@ func main() {
 
 تحدد المعلمة الاختيارية `OffsetX` الإزاحة الأفقية للصورة بالخلية ، والقيمة الافتراضية لذلك هي 0.
 
-تحدد المعلمة الاختيارية `XScale` المقياس الأفقي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
+تحدد المعلمة الاختيارية `ScaleX` المقياس الأفقي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
 
 تحدد المعلمة الاختيارية `OffsetY` الإزاحة الرأسية للصورة بالخلية ، والقيمة الافتراضية لذلك هي 0.
 
-تحدد المعلمة الاختيارية `YScale` المقياس الرأسي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
+تحدد المعلمة الاختيارية `ScaleY` المقياس الرأسي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *PictureOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
 ```
 
 يوفر AddPictureFromBytes طريقة لإضافة صورة في ورقة من خلال مجموعة تنسيق صورة معينة (مثل الإزاحة ، المقياس ، إعداد نسبة العرض إلى الارتفاع وإعدادات الطباعة) ، وصف النص البديل ، اسم الامتداد ومحتوى الملف في نوع `[]byte`.

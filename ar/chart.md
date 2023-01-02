@@ -81,14 +81,14 @@ Marker|يؤدي هذا إلى تعيين علامة المخطط الخطي وا
 
 معامل|اكتب|تفسير
 ---|---|---
-None            | `bool`   | حدد ما إذا كنت تريد إظهار وسيلة الإيضاح دون تداخل الرسم البياني القيمة الافتراضية هي `false`
 Position        | `string` | موضع وسيلة إيضاح الرسم البياني
 ShowLegendKey   | `bool`   | تعيين مفاتيح وسيلة الإيضاح يجب أن تظهر في تسميات البيانات
 
-قم بتعيين `Position` لوسيلة إيضاح الرسم البياني. موضع وسيلة الإيضاح الافتراضي هو `right`. تسري هذه المعلمة فقط عندما تكون `None` هي `false`. الوظائف المتاحة هي:
+قم بتعيين `Position` لوسيلة إيضاح الرسم البياني. موضع وسيلة الإيضاح الافتراضي هو `right`. الوظائف المتاحة هي:
 
 معامل|تفسير
 ---|---
+none|تعطيل وسيلة الإيضاح
 top|على القمة
 bottom|في الاسفل
 left|على اليسار
@@ -189,8 +189,7 @@ func main() {
             return
         }
     }
-    enable, disable, scale := true, false, 1.0
-    positionLeft, positionRight := "left", "right"
+    enable, disable := true, false
     if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
         RightToLeft: &enable,
     }); err != nil {
@@ -205,9 +204,9 @@ func main() {
                 Values:     "Sheet1!$B$2:$D$2",
             },
         },
-        Format: excelize.PictureOptions{
-            XScale:          &scale,
-            YScale:          &scale,
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
             OffsetX:         15,
             OffsetY:         10,
             PrintObject:     &enable,
@@ -218,8 +217,7 @@ func main() {
             Name: "عمود متفاوت المسافات - تخطيط خطي",
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionLeft,
-            ShowLegendKey: false,
+            Position: "left",
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,
@@ -240,9 +238,9 @@ func main() {
                 },
             },
         },
-        Format: excelize.PictureOptions{
-            XScale:          &scale,
-            YScale:          &scale,
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
             OffsetX:         15,
             OffsetY:         10,
             PrintObject:     &enable,
@@ -250,8 +248,7 @@ func main() {
             Locked:          &disable,
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionRight,
-            ShowLegendKey: false,
+            Position: "right",
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

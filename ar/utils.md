@@ -3,7 +3,7 @@
 ## الطاولة {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, reference string, opts *TableOptions) error
+func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
 ```
 
 يوفر AddTable طريقة لإضافة جدول في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات ومجموعة التنسيق.
@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## فلتر السيارات {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, reference string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 ```
 
 يوفر AutoFilter طريقة لإضافة عامل تصفية تلقائي في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات والإعدادات. يعد عامل التصفية التلقائي في Excel طريقة لتصفية نطاق ثنائي الأبعاد من البيانات بناءً على بعض المعايير البسيطة.
@@ -259,7 +259,7 @@ func (f *File) NewConditionalStyle(style *Style) (int, error)
 ## تعيين تنسيق شرطي {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, reference string, opts []ConditionalFormatOptions) error
+func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFormatOptions) error
 ```
 
 يوفر SetConditionalFormat وظيفة لإنشاء قاعدة تنسيق شرطي لقيمة الخلية. التنسيق الشرطي هو إحدى ميزات Office Excel التي تتيح لك تطبيق تنسيق على خلية أو نطاق من الخلايا بناءً على معايير معينة.
@@ -853,7 +853,7 @@ func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
 ## قم بإزالة التنسيق الشرطي {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, reference string) error
+func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 ```
 
 يوفر UnsetConditionalFormat وظيفة لإلغاء تعيين التنسيق الشرطي عن طريق اسم ورقة العمل المحددة والنطاق.

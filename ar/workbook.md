@@ -178,7 +178,13 @@ func (f *File) UngroupSheets() error
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-يوفر SetSheetBackground وظيفة لتعيين صورة الخلفية بواسطة اسم ورقة العمل المحدد.
+يوفر SetSheetBackground وظيفة لتعيين صورة الخلفية عن طريق اسم ورقة العمل ومسار الملف. أنواع الصور المدعومة: EMF و EMZ و GIF و JPEG و JPG و PNG و SVG و TIF و TIFF و WMF و WMZ.
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+يوفر SetSheetBackgroundFromBytes وظيفة لتعيين صورة الخلفية عن طريق اسم ورقة العمل المعطى واسم الامتداد وبيانات الصورة. أنواع الصور المدعومة: EMF و EMZ و GIF و JPEG و JPG و PNG و SVG و TIF و TIFF و WMF و WMZ.
 
 ## تعيين ورقة العمل الافتراضية {#SetActiveSheet}
 

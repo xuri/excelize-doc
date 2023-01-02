@@ -9,7 +9,7 @@ func (f *File) AddShape(sheet, cell string, opts *Shape) error
 يوفر AddShape طريقة لإضافة شكل في ورقة من خلال فهرس ورقة عمل معين ومجموعة تنسيق الشكل (مثل الإزاحة والقياس وإعدادات نسبة العرض إلى الارتفاع وإعدادات الطباعة) ومجموعة الخصائص. على سبيل المثال ، أضف مربع نص (شكل مستطيل) في "Sheet1":
 
 ```go
-width, height, lineWidth := 180, 40, 1.2
+lineWidth := 1.2
 err := f.AddShape("Sheet1", "G6",
     &excelize.Shape{
         Type:  "rect",
@@ -27,8 +27,8 @@ err := f.AddShape("Sheet1", "G6",
                 },
             },
         },
-        Width:  &width,
-        Height: &height,
+        Width:  180,
+        Height: 40,
         Line:   excelize.ShapeLine{Width: &lineWidth},
     },
 )
