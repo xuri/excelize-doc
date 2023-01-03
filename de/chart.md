@@ -81,14 +81,14 @@ Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können 
 
 Parameter|Typ|Erläuterung
 ---|---|---
-None            | `bool`   | Geben Sie an, ob die Legende angezeigt werden soll, ohne das Diagramm zu überlappen. Der Standardwert ist `false`
 Position        | `string` | Die Position der Diagrammlegende
 ShowLegendKey   | `bool`   | Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
 
-Stellen Sie die `Position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Dieser Parameter wird nur wirksam, wenn `None` `false` ist. Die verfügbaren Positionen sind:
+Stellen Sie die `Position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Die verfügbaren Positionen sind:
 
 Parameter|Erläuterung
 ---|---
+none|Legende deaktivieren
 top|Oben drauf
 bottom|Am Boden
 left|Links
@@ -189,8 +189,7 @@ func main() {
             return
         }
     }
-    enable, disable, scale := true, false, 1.0
-    positionLeft, positionRight := "left", "right"
+    enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
         Type: "col",
         Series: []excelize.ChartSeries{
@@ -200,9 +199,9 @@ func main() {
                 Values:     "Sheet1!$B$2:$D$2",
             },
         },
-        Format: excelize.PictureOptions{
-            XScale:          &scale,
-            YScale:          &scale,
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
             OffsetX:         15,
             OffsetY:         10,
             PrintObject:     &enable,
@@ -213,8 +212,7 @@ func main() {
             Name: "Clustered Column - Liniendiagramm",
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionLeft,
-            ShowLegendKey: false,
+            Position: "left",
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,
@@ -235,9 +233,9 @@ func main() {
                 },
             },
         },
-        Format: excelize.PictureOptions{
-            XScale:          &scale,
-            YScale:          &scale,
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
             OffsetX:         15,
             OffsetY:         10,
             PrintObject:     &enable,
@@ -245,8 +243,7 @@ func main() {
             Locked:          &disable,
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionRight,
-            ShowLegendKey: false,
+            Position: "right",
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -9,7 +9,7 @@ func (f *File) AddShape(sheet, cell string, opts *Shape) error
 AddShape bietet die Methode zum Hinzufügen einer Form zu einem Blatt anhand des angegebenen Arbeitsblattindex, des festgelegten Formformats (z. B. Versatz, Skalierung, Einstellung des Seitenverhältnisses und Druckeinstellungen) und der festgelegten Eigenschaften. Fügen Sie beispielsweise ein Textfeld (Rechteckform) in "Sheet1" hinzu:
 
 ```go
-width, height, lineWidth := 180, 40, 1.2
+lineWidth := 1.2
 err := f.AddShape("Sheet1", "G6",
     &excelize.Shape{
         Type:  "rect",
@@ -27,8 +27,8 @@ err := f.AddShape("Sheet1", "G6",
                 },
             },
         },
-        Width:  &width,
-        Height: &height,
+        Width:  180,
+        Height: 40,
         Line:   excelize.ShapeLine{Width: &lineWidth},
     },
 )

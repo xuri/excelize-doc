@@ -3,7 +3,7 @@
 ## Bild hinzufügen {#AddPicture}
 
 ```go
-func (f *File) AddPicture(sheet, cell, picture string, opts *PictureOptions) error
+func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
 AddPicture bietet die Methode zum Hinzufügen eines Bilds zu einem Arbeitsblatt anhand eines bestimmten Bildformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen) und des Dateipfads. Diese Funktion wird für die gleichzeitige Verwendung unterstützt.
@@ -35,11 +35,11 @@ func main() {
         return
     }
     // Fügen Sie ein Bild mit Skalierung in ein Arbeitsblatt ein.
-    enable, disable, scale := true, false, 0.5
+    enable, disable := true, false
     if err := f.AddPicture("Sheet1", "D2", "image.jpg",
-        &excelize.PictureOptions{
-            XScale:        &scale,
-            YScale:        &scale,
+        &excelize.GraphicOptions{
+            ScaleX:        0.5,
+            ScaleY:        0.5,
             Hyperlink:     "#Sheet2!D8",
             HyperlinkType: "Location",
         },
@@ -49,7 +49,7 @@ func main() {
     }
     // Fügen Sie mit Druckunterstützung einen Bildversatz in die Zelle ein.
     if err := f.AddPicture("Sheet1", "H2", "image.gif",
-        &excelize.PictureOptions{
+        &excelize.GraphicOptions{
             OffsetX:         15,
             OffsetY:         10,
             Hyperlink:       "https://github.com/xuri/excelize",
@@ -86,14 +86,14 @@ Der optionale Parameter `Locked` gibt an, ob das Bild gesperrt ist. Das Sperren 
 
 Der optionale Parameter `OffsetX` gibt den horizontalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
 
-Der optionale Parameter `XScale` spezifiziert die horizontale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+Der optionale Parameter `ScaleX` spezifiziert die horizontale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
 
 Der optionale Parameter `OffsetY` gibt den vertikalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
 
-Der optionale Parameter `YScale` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+Der optionale Parameter `ScaleY` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *PictureOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
 ```
 
 AddPictureFromBytes bietet die Methode zum Hinzufügen eines Bilds zu einem Blatt anhand eines bestimmten Bildformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen), einer alternativen Textbeschreibung, eines Erweiterungsnamens und eines Dateiinhalts im Typ `[]byte`.

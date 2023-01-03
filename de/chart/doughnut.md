@@ -38,7 +38,6 @@ func main() {
             return
         }
     }
-    positionRight := "right"
     if err := f.AddChart("Tabelle1", "E1", &excelize.Chart{
         Type: "doughnut",
         Series: []excelize.ChartSeries{
@@ -48,13 +47,12 @@ func main() {
                 Values:     "Tabelle1!$A$2:$C$2",
             },
         },
-        Format: excelize.PictureOptions{
+        Format: excelize.GraphicOptions{
             OffsetX: 15,
             OffsetY: 10,
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionRight,
-            ShowLegendKey: false,
+            Position: "right",
         },
         Title: excelize.ChartTitle{
             Name: "Donut-Diagramm",

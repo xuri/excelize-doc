@@ -40,7 +40,6 @@ func main() {
             return
         }
     }
-    positionLeft := "left"
     if err := f.AddChart("Tabelle1", "E1", &excelize.Chart{
         Type: "col3DCylinderClustered",
         Series: []excelize.ChartSeries{
@@ -60,13 +59,12 @@ func main() {
                 Values:     "Tabelle1!$B$4:$D$4",
             },
         },
-        Format: excelize.PictureOptions{
+        Format: excelize.GraphicOptions{
             OffsetX: 15,
             OffsetY: 10,
         },
         Legend: excelize.ChartLegend{
-            Position:      &positionLeft,
-            ShowLegendKey: false,
+            Position: "left",
         },
         Title: excelize.ChartTitle{
             Name: "3D Zylinder-Cluster-Säulendiagramm",

@@ -3,7 +3,7 @@
 ## Tabelle {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, reference string, opts *TableOptions) error
+func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
 ```
 
 AddTable bietet die Methode zum Hinzufügen einer Tabelle zu einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und des Formatsatzes.
@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Automatischer Filter {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, reference string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 ```
 
 AutoFilter bietet die Methode zum Hinzufügen eines automatischen Filters in einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Einstellungen. Ein automatischer Filter in Excel ist eine Möglichkeit, einen 2D-Datenbereich anhand einiger einfacher Kriterien zu filtern.
@@ -259,7 +259,7 @@ NewConditionalStyle bietet eine Funktion zum Erstellen eines Stils für das bedi
 ## Bedingtes Format festlegen {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, reference string, opts []ConditionalFormatOptions) error
+func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFormatOptions) error
 ```
 
 SetConditionalFormat bietet eine Funktion zum Erstellen einer bedingten Formatierungsregel für den Zellenwert. Die bedingte Formatierung ist eine Funktion von Office Excel, mit der Sie ein Format auf eine Zelle oder einen Zellbereich basierend auf bestimmten Kriterien anwenden können.
@@ -833,7 +833,7 @@ GetConditionalFormats gibt bedingte Formateinstellungen nach dem angegebenen Arb
 ## Entfernen des bedingten Formats {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, reference string) error
+func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 ```
 
 UnsetConditionalFormat bietet eine Funktion zum Aufheben des bedingten Formats anhand des angegebenen Arbeitsblattnamens und -bereichs.

@@ -204,15 +204,15 @@ func main() {
         return
     }
     // Fügen Sie ein Bild mit Skalierung in ein Arbeitsblatt ein.
-    enable, disable, scale := true, false, 0.5
     if err := f.AddPicture("Sheet1", "D2", "image.jpg",
-        &excelize.PictureOptions{XScale: &scale, YScale: &scale}); err != nil {
+        &excelize.GraphicOptions{ScaleX: 0.5, ScaleY: 0.5}); err != nil {
         fmt.Println(err)
         return
     }
     // Fügen Sie mit Druckunterstützung einen Bildversatz in die Zelle ein.
+    enable, disable := true, false
     if err := f.AddPicture("Sheet1", "H2", "image.gif",
-        &excelize.PictureOptions{
+        &excelize.GraphicOptions{
             PrintObject:     &enable,
             LockAspectRatio: false,
             OffsetX:         15,

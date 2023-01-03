@@ -411,9 +411,11 @@ ProtectSheet bietet eine Funktion, um zu verhindern, dass andere Benutzer verseh
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 
