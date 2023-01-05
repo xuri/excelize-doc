@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Obtener índice de hoja {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex proporciona una función para obtener un índice de hoja del libro de trabajo por el nombre de hoja dado. Si el nombre de la hoja dada no es válido o la hoja de trabajo no existe, devolverá un valor de tipo entero `-1`.
@@ -151,7 +151,7 @@ GetSheetList proporciona una función para obtener hojas de trabajo, hojas de gr
 ## Establecer el nombre de la hoja {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName proporciona una función para establecer el nombre de la hoja de trabajo con los nombres antiguos y nuevos de la hoja de trabajo. Se permite un máximo de 31 caracteres en el título de la hoja y esta función solo cambia el nombre de la hoja y no actualizará el nombre de la hoja en la fórmula o referencia asociada con la celda. Por lo tanto, puede haber un error de fórmula de problema o falta una referencia.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Hoja de protección {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet proporciona una función para evitar que otros usuarios cambien, muevan o eliminen datos en una hoja de cálculo de forma accidental o deliberada. El campo opcional `AlgorithmName` especifica el algoritmo hash, admite XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 y SHA-512 actualmente, si no se especifica ningún algoritmo hash, utilizará el algoritmo XOR de forma predeterminada. Por ejemplo, proteja `Sheet1` con la configuración de protección:
@@ -411,9 +411,11 @@ ProtectSheet proporciona una función para evitar que otros usuarios cambien, mu
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 

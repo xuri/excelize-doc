@@ -3,12 +3,12 @@
 ## Añadir gráfico {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
+func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 AddChart proporciona el método para agregar un gráfico en una hoja de trabajo por un conjunto de formato de gráfico dado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y conjunto de propiedades.
 
-A continuación se muestra el `type` de gráfico compatible con excelize:
+A continuación se muestra el `Type` de gráfico compatible con excelize:
 
 Tipo|Gráfico
 ---|---
@@ -65,41 +65,41 @@ wireframeContour            | Gráfico de contorno de estructura alámbrica
 bubble                      | Gráfico de burbujas
 bubble3D                    | Gráfico de burbujas 3D
 
-En el rango de datos del gráfico de Office Excel, `series` especifica el conjunto de información para qué datos dibujar, el elemento de leyenda (serie) y la etiqueta del eje horizontal (categoría).
+En el rango de datos del gráfico de Office Excel, `Series` especifica el conjunto de información para qué datos dibujar, el elemento de leyenda (serie) y la etiqueta del eje horizontal (categoría).
 
-Las opciones de `series` que se pueden configurar son:
+Las opciones de `Series` que se pueden configurar son:
 
 Parámetro|Explicación
 ---|---
-name|Elemento de leyenda (serie), que se muestra en la barra de fórmulas y la leyenda del gráfico. El parámetro `name` es opcional. Si no especifica este valor, el valor predeterminado será `Serie 1 .. n`. Soporte de `name` para la representación de fórmulas, por ejemplo: `Sheet1!$A$1`.
-categories|Etiqueta de eje horizontal (categoría). El parámetro `categorías` es opcional en la mayoría de los tipos de gráficos, el valor predeterminado es una secuencia contigua de la forma `1..n`.
-values|El área de datos del gráfico, que es el parámetro más importante de la `series`, también es el único parámetro obligatorio al crear un gráfico. Esta opción vincula el gráfico a los datos de la hoja de trabajo que muestra.
-line|Esto establece el formato de línea del gráfico de líneas. La propiedad `line` es opcional y, si no se proporciona, tendrá el estilo predeterminado. Las opciones que se pueden configurar son `width`. El rango de `width` es 0.25pt - 999pt. Si el valor del ancho está fuera del rango, el ancho predeterminado de la línea es 2 puntos.
-marker|Esto establece el marcador del gráfico de líneas y el gráfico de dispersión. El rango del campo opcional `size` es 2-72 (el valor predeterminado es `5`). El valor de enumeración del campo opcional `symbol` es (el valor predeterminado es `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name|Elemento de leyenda (serie), que se muestra en la barra de fórmulas y la leyenda del gráfico. El parámetro `Name` es opcional. Si no especifica este valor, el valor predeterminado será `Serie 1 .. n`. Soporte de `Name` para la representación de fórmulas, por ejemplo: `Sheet1!$A$1`.
+Categories|Etiqueta de eje horizontal (categoría). El parámetro `Categories` es opcional en la mayoría de los tipos de gráficos, el valor predeterminado es una secuencia contigua de la forma `1..n`.
+Values|El área de datos del gráfico, que es el parámetro más importante de la `Series`, también es el único parámetro obligatorio al crear un gráfico. Esta opción vincula el gráfico a los datos de la hoja de trabajo que muestra.
+Line|Esto establece el formato de línea del gráfico de líneas. La propiedad `Line` es opcional y, si no se proporciona, tendrá el estilo predeterminado. Las opciones que se pueden configurar son `Width`. El rango de `Width` es 0.25pt - 999pt. Si el valor del ancho está fuera del rango, el ancho predeterminado de la línea es 2 puntos.
+Marker|Esto establece el marcador del gráfico de líneas y el gráfico de dispersión. El rango del campo opcional `Size` es 2-72 (el valor predeterminado es `5`). El valor de enumeración del campo opcional `Symbol` es (el valor predeterminado es `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 Establezca las propiedades de la leyenda del gráfico. Las opciones que se pueden configurar son:
 
 Parámetro|Tipo|Explicación
 ---|---|---
-none            | `bool`   | Especifique si muestra la leyenda sin superponer el gráfico. El valor predeterminado es `false`
-position        | `string` | La posición de la leyenda del gráfico
-show_legend_key | `bool`   | Establecer las claves de leyenda se mostrarán en las etiquetas de datos
+Position        | `string` | La posición de la leyenda del gráfico
+ShowLegendKey   | `bool`   | Establecer las claves de leyenda se mostrarán en las etiquetas de datos
 
-Establece la `position` de la leyenda del gráfico. La posición predeterminada de la leyenda es `right`. Este parámetro solo tiene efecto cuando `none` es `false`. Las posiciones disponibles son:
+Establece la `Position` de la leyenda del gráfico. La posición predeterminada de la leyenda es `right`. Las posiciones disponibles son:
 
 Parámetro|Explicación
 ---|---
+none|Deshabilitar leyenda
 top|En la parte superior
 bottom|En la parte inferior
 left|A la izquierda
 right|A la derecha
 top_right|Arriba a la derecha
 
-El parámetro `show_legend_key` establece las claves de la leyenda se mostrarán en las etiquetas de datos. El valor predeterminado es `false`.
+El parámetro `ShowLegendKey`  establece las claves de la leyenda se mostrarán en las etiquetas de datos. El valor predeterminado es `false`.
 
-El título del gráfico se establece seleccionando el parámetro `name` del objeto `title`, y el título se mostrará encima del gráfico. El parámetro `name` admite el uso de representaciones de fórmulas, como `Sheet1!$A$1`, si no especifica un título de icono, el valor predeterminado es nulo.
+El título del gráfico se establece seleccionando el parámetro `Name` del objeto `Title`, y el título se mostrará encima del gráfico. El parámetro `Name` admite el uso de representaciones de fórmulas, como `Sheet1!$A$1`, si no especifica un título de icono, el valor predeterminado es nulo.
 
-El parámetro `show_blanks_as` proporciona la configuración "Ocultar y vaciar celdas". El valor predeterminado es: `gap`. En la aplicación Excel, la "celda vacía se muestra como": "espacio". Los siguientes son valores opcionales para este parámetro:
+El parámetro `ShowBlanksAs` proporciona la configuración "Ocultar y vaciar celdas". El valor predeterminado es: `gap`. En la aplicación Excel, la "celda vacía se muestra como": "espacio". Los siguientes son valores opcionales para este parámetro:
 
 Parámetro|Explicación
 ---|---
@@ -107,7 +107,7 @@ gap|espacio
 span|Conecte puntos de datos con líneas rectas
 zero|valor cero
 
-Especifica que cada marcador de datos de la serie tiene un color diferente por `vary_colors`. El valor predeterminado es `true`.
+Especifica que cada marcador de datos de la serie tiene un color diferente por `VaryColors`. El valor predeterminado es `true`.
 
 El parámetro `formato` proporciona ajustes para parámetros como el desplazamiento del gráfico, la escala, la configuración de la relación de aspecto y las propiedades de impresión, así como los que se utilizan en la función [`AddPicture`](image.md#AddPicture).
 
@@ -115,40 +115,40 @@ Establezca la posición del área de trazado del gráfico por área de trazado. 
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-show_bubble_size  | `bool` | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
-show_cat_name     | `bool` | `true`  | Nombre de la categoría.
-show_leader_lines | `bool` | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
-show_percent      | `bool` | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
-show_series_name  | `bool` | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
-show_val          | `bool` | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
+ShowBubbleSize  | `bool` | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
+ShowCatName     | `bool` | `true`  | Nombre de la categoría.
+ShowLeaderLines | `bool` | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
+ShowPercent     | `bool` | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
+ShowSerName     | `bool` | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
+ShowVal         | `bool` | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
 
-Establezca las opciones principales de eje horizontal y vertical por `x_axis` y `y_axis`.
+Establezca las opciones principales de eje horizontal y vertical por `XAxis` y `YAxis`.
 
-Las propiedades de `x_axis` que se pueden configurar son:
-
-Parámetro|Tipo|Defecto|Explicación
----|---|---|---
-none             | `bool` | `false` | Deshabilitar ejes.
-major_grid_lines | `bool` | `false` | Especifica las principales líneas de cuadrícula.
-minor_grid_lines | `bool` | `false` | Especifica líneas de cuadrícula menores.
-tick_label_skip  | `int`  | `1`     | Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `tick_label_skip` es opcional. El valor predeterminado es automático.
-reverse_order    | `bool` | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `reverse_order` es opcional.
-maximum          | `int`  | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
-minimum          | `int`  | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
-
-Las propiedades de `y_axis` que se pueden configurar son:
+Las propiedades de `XAxis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-none             | `bool`    | `false` | Deshabilitar ejes.
-major_grid_lines | `bool`    | `false` | Especifica las principales líneas de cuadrícula.
-minor_grid_lines | `bool`    | `false` | Especifica líneas de cuadrícula menores.
-major_unit       | `float64` | `0`     | Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `major_unit` es opcional. El valor predeterminado es automático.
-reverse_order    | `bool`    | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `reverse_order` es opcional.
-maximum          | `int`     | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
-minimum          | `int`     | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+None           | `bool`     | `false` | Deshabilitar ejes.
+MajorGridLines | `bool`     | `false` | Especifica las principales líneas de cuadrícula.
+MinorGridLines | `bool`     | `false` | Especifica líneas de cuadrícula menores.
+TickLabelSkip  | `int`      | `1`     | Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `TickLabelSkip` es opcional. El valor predeterminado es automático.
+ReverseOrder   | `bool`     | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
+Maximum        | `*float64` | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
+Minimum        | `*float64` | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
 
-Establezca el tamaño del gráfico por la propiedad `dimension`. La propiedad de dimensión es opcional. Las propiedades que se pueden configurar son:
+Las propiedades de `YAxis` que se pueden configurar son:
+
+Parámetro|Tipo|Defecto|Explicación
+---|---|---|---
+None           | `bool`     | `false` | Deshabilitar ejes.
+MajorGridLines | `bool`     | `false` | Especifica las principales líneas de cuadrícula.
+MinorGridLines | `bool`     | `false` | Especifica líneas de cuadrícula menores.
+MajorUnit      | `float64`  | `0`     | Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `MajorUnit` es opcional. El valor predeterminado es automático.
+ReverseOrder   | `bool`     | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
+Maximum        | `*float64` | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
+Minimum        | `*float64` | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+
+Establezca el tamaño del gráfico por la propiedad `Dimension`. La propiedad de dimensión es opcional. Las propiedades que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
@@ -167,92 +167,92 @@ import (
 )
 
 func main() {
-    categories := map[string]string{
-        "A2": "Pequeño", "A3": "Normal", "A4": "Grande",
-        "B1": "Manzana", "C1": "Naranja", "D1": "Pera"}
-    values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
-    for k, v := range categories {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    for k, v := range values {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    if err := f.AddChart("Sheet1", "E1", `{
-        "type": "col",
-        "series": [
-        {
-            "name": "Sheet1!$A$2",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$2:$D$2"
-        },
-        {
-            "name": "Sheet1!$A$3",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$3:$D$3"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "left",
-            "show_legend_key": false
-        },
-        "title":
-        {
-            "name": "Columna agrupada - gráfico de líneas"
-        },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
         }
-    }`, `{
-        "type": "line",
-        "series": [
-        {
-            "name": "Sheet1!$A$4",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$4:$D$4"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "right",
-            "show_legend_key": false
-        },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+    }()
+    for idx, row := range [][]interface{}{
+        {nil, "Manzana", "Naranja", "Pera"},
+        {"Pequeño", 2, 3, 3},
+        {"Normal", 5, 2, 4},
+        {"Grande", 6, 7, 8},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
         }
-    }`); err != nil {
+        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    enable, disable := true, false
+    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+        Type: "col",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$2",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$2:$D$2",
+            },
+        },
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Title: excelize.ChartTitle{
+            Name: "Columna agrupada - gráfico de líneas",
+        },
+        Legend: excelize.ChartLegend{
+            Position: "left",
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }, &excelize.Chart{
+        Type: "line",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$4",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$4:$D$4",
+                Marker: excelize.ChartMarker{
+                    Symbol: "none", Size: 10,
+                },
+            },
+        },
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Legend: excelize.ChartLegend{
+            Position: "right",
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -266,7 +266,7 @@ func main() {
 ## Añadir hoja de gráficos {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
+func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 AddChartSheet proporciona el método para crear una hoja de gráfico por un conjunto de formato de gráfico dado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y el conjunto de propiedades. En Excel, una hoja de gráfico es una hoja de trabajo que solo contiene un gráfico.

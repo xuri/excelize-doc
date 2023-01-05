@@ -14,55 +14,60 @@ import (
 )
 
 func main() {
-    categories := map[string]string{"A1": "Manzana", "B1": "Naranja", "C1": "Pera"}
-    values := map[string]int{"A2": 2, "B2": 3, "C2": 3}
     f := excelize.NewFile()
-    f.SetSheetName("Sheet1", "Hoja1")
-    for k, v := range categories {
-        f.SetCellValue("Hoja1", k, v)
-    }
-    for k, v := range values {
-        f.SetCellValue("Hoja1", k, v)
-    }
-    if err := f.AddChart("Hoja1", "E1", `{
-        "type": "doughnut",
-        "series": [
-        {
-            "name": "Hoja1!$A$2",
-            "categories": "Hoja1!$A$1:$C$1",
-            "values": "Hoja1!$A$2:$C$2"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "right",
-            "show_legend_key": false
-        },
-        "title":
-        {
-            "name": "Gráfico de rosquillas"
-        },
-        "plotarea":
-        {
-            "show_bubble_size": false,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": false,
-            "show_val": false
-        },
-        "show_blanks_as": "zero"
-    }`); err != nil {
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
+    if err := f.SetSheetName("Sheet1", "Hoja1"); err != nil {
         fmt.Println(err)
+        return
+    }
+    for idx, row := range [][]interface{}{
+        {"Manzana", "Naranja", "Pera"},
+        {2, 3, 3},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
+        if err := f.SetSheetRow("Hoja1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    if err := f.AddChart("Hoja1", "E1", &excelize.Chart{
+        Type: "doughnut",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Monto",
+                Categories: "Hoja1!$A$1:$C$1",
+                Values:     "Hoja1!$A$2:$C$2",
+            },
+        },
+        Format: excelize.GraphicOptions{
+            OffsetX: 15,
+            OffsetY: 10,
+        },
+        Legend: excelize.ChartLegend{
+            Position: "right",
+        },
+        Title: excelize.ChartTitle{
+            Name: "Gráfico de rosquillas",
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     false,
+            ShowVal:         false,
+        },
+        ShowBlanksAs: "zero",
+    }); err != nil {
+        fmt.Println(err)
+        return
     }
     // Guarde la hoja de cálculo por la ruta dada.
     if err := f.SaveAs("Libro1.xlsx"); err != nil {

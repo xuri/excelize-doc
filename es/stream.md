@@ -50,10 +50,12 @@ defer func() {
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
+    return
 }
 styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
+    return
 }
 if err := streamWriter.SetRow("A1",
     []interface{}{
@@ -65,6 +67,7 @@ if err := streamWriter.SetRow("A1",
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
     fmt.Println(err)
+    return
 }
 for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
@@ -74,10 +77,12 @@ for rowID := 2; rowID <= 102400; rowID++ {
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
     if err := streamWriter.SetRow(cell, row); err != nil {
         fmt.Println(err)
+        return
     }
 }
 if err := streamWriter.Flush(); err != nil {
     fmt.Println(err)
+    return
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
@@ -119,7 +124,7 @@ SetRow escribe una matriz en la fila de flujo mediante una coordenada inicial da
 ## Agregar una tabla para transmitir {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 AddTable crea una tabla de Excel para StreamWriter utilizando el área de coordenadas y el formato establecidos.
@@ -127,20 +132,21 @@ AddTable crea una tabla de Excel para StreamWriter utilizando el área de coorde
 Ejemplo 1, cree una tabla de `A1:D5`:
 
 ```go
-err := streamWriter.AddTable("A1", "D5", "")
+err := streamWriter.AddTable("A1:D5", nil)
 ```
 
 Ejemplo 2, cree una tabla de `F2:H6` con el formato establecido:
 
 ```go
-err := streamWriter.AddTable("F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas. Actualmente, solo se permite una tabla para StreamWriter. [`AddTable`](stream.md#AddTable) se debe llamar después de que se escriban las filas pero antes de `Flush`. Consulte [`AddTable`](utils.md#AddTable) para obtener detalles sobre el formato de la tabla.
@@ -156,7 +162,7 @@ InsertPageBreak crea un salto de página para determinar dónde termina la pági
 ## Establecer paneles para transmitir {#SetPanes}
 
 ```go
-func (sw *StreamWriter) SetPanes(panes string) error
+func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
 SetPanes proporciona una función para crear y eliminar paneles congelados y paneles divididos al brindar opciones de paneles para `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetPanes` antes de la función [`SetRow`](stream.md#SetRow).

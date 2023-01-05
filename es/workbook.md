@@ -148,9 +148,12 @@ CopySheet proporciona una función para duplicar una hoja de cálculo mediante e
 
 ```go
 // Sheet1 ya existe...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## Hojas de trabajo grupales {#GroupSheets}
@@ -175,7 +178,13 @@ UngroupSheets proporciona una función para desagrupar hojas de trabajo.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground proporciona una función para establecer una imagen de fondo por el nombre de la hoja de cálculo dado.
+SetSheetBackground proporciona una función para configurar la imagen de fondo según el nombre de la hoja de trabajo y la ruta del archivo. Tipos de imágenes compatibles: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+SetSheetBackgroundFromBytes proporciona una función para configurar la imagen de fondo según el nombre de la hoja de trabajo, el nombre de la extensión y los datos de la imagen. Tipos de imágenes compatibles: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
 
 ## Establecer la hoja de trabajo predeterminada {#SetActiveSheet}
 
@@ -696,7 +705,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 SetDefinedName proporciona una función para establecer los nombres definidos del libro o la hoja de cálculo. Si no se especifica el ámbito, el ámbito predeterminado es el libro. Por ejemplo:
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Hoja1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +718,20 @@ Configuración del área de impresión e impresión de títulos para la hoja de 
 <p align="center"><img width="644" src="./images/page_setup_01.png" alt="Configuración del área de impresión e impresión de títulos para la hoja de trabajo"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Hoja1!$A$1:$Z$100",
     Scope:    "Hoja1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Hoja1!$A:$A,Hoja1!$1:$1",
     Scope:    "Hoja1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## Obtener el nombre definido {#GetDefinedName}
@@ -738,7 +751,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 DeleteDefinedName proporciona una función para eliminar los nombres definidos del libro o la hoja de cálculo. Si no se especifica el ámbito, el ámbito predeterminado es el libro. Por ejemplo:
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Hoja2",
 })
@@ -857,10 +870,10 @@ WorkbookProtectionOptions asigna directamente la configuración de la protecció
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

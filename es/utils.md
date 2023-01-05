@@ -3,7 +3,7 @@
 ## Mesa {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, opts string) error
+func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
 ```
 
 AddTable proporciona el método para agregar una tabla en una hoja de trabajo por el nombre de la hoja de trabajo, el área de coordenadas y el conjunto de formato dados.
@@ -13,7 +13,7 @@ AddTable proporciona el método para agregar una tabla en una hoja de trabajo po
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="Agregar tabla"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1", "D5", ``)
+err := f.AddTable("Sheet1", "A1:D5", nil)
 ```
 
 - Ejemplo 2, cree una tabla de `F2:H6` en `Sheet2` con el formato establecido:
@@ -21,21 +21,22 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="Agregar tabla con conjunto de formato"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas, y deben establecer los datos de la fila del encabezado de la tabla antes de llamar a la función AddTable. Varias tablas coordinan áreas que no pueden tener una intersección.
 
-`table_name`: El nombre de la tabla, en el mismo nombre de hoja de trabajo de la tabla, debe ser único.
+`Name`: El nombre de la tabla, en el mismo nombre de hoja de trabajo de la tabla, debe ser único.
 
-`table_style`: Los nombres de estilo de tabla integrados:
+`StyleName`: Los nombres de estilo de tabla integrados:
 
 ```text
 TableStyleLight1 - TableStyleLight21
@@ -70,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Filtro automático {#AutoFilter}
 
 ```go
-unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 ```
 
 AutoFilter proporciona el método para agregar un filtro automático en una hoja de trabajo por el nombre de la hoja de trabajo, el área de coordenadas y la configuración. Un filtro automático en Excel es una forma de filtrar un rango de datos 2D basado en algunos criterios simples.
@@ -80,22 +81,24 @@ Ejemplo 1, aplicando un filtro automático a un rango de celdas `A1:D4` en la `S
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="Agregar filtro automático"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", "")
+err := f.AutoFilter("Sheet1", "A1:D4", nil)
 ```
 
 Ejemplo 2, filtrar datos en un filtro automático:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
+err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
+    Column: "B", Expression: "x != blanks",
+})
 ```
 
-`column` define las columnas de filtro en un rango de filtro automático basado en criterios simples.
+`Column` define las columnas de filtro en un rango de filtro automático basado en criterios simples.
 
 No es suficiente especificar la condición del filtro. También debe ocultar las filas que no coincidan con la condición del filtro. Las filas se ocultan mediante el método [`SetRowVisible()`](sheet.md#SetRowVisible). Excelize no puede filtrar filas automáticamente porque esto no es parte del formato de archivo.
 
 Establecer criterios de filtro para una columna:
 
-`expression` define las condiciones, los siguientes operadores están disponibles para establecer los criterios de filtrado:
+`Expression` define las condiciones, los siguientes operadores están disponibles para establecer los criterios de filtrado:
 
 ```text
 ==
@@ -248,7 +251,7 @@ excelize.CoordinatesToCellName(1, 1, true) // regreso "$A$1", nil
 ## Estilo condicional {#NewConditionalStyle}
 
 ```go
-func (f *File) NewConditionalStyle(style string) (int, error)
+func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle proporciona una función para crear un estilo para el formato condicional por formato de estilo dado. Los parámetros son los mismos que los de la función [`NewStyle`](style.md#NewStyle). Tenga en cuenta que el campo de color utiliza código de color RGB y solo admite la configuración de fuente, rellenos, alineación y bordes actualmente.
@@ -256,12 +259,12 @@ NewConditionalStyle proporciona una función para crear un estilo para el format
 ## Establecer formato condicional {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, reference, opts string) error
+func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFormatOptions) error
 ```
 
 SetConditionalFormat proporciona una función para crear una regla de formato condicional para el valor de la celda. El formato condicional es una característica de Office Excel que le permite aplicar un formato a una celda o un rango de celdas según ciertos criterios.
 
-La opción `type` es un parámetro obligatorio y no tiene un valor predeterminado. Los valores de tipo permitidos y sus parámetros asociados son:
+La opción `Type` es un parámetro obligatorio y no tiene un valor predeterminado. Los valores de tipo permitidos y sus parámetros asociados son:
 
 <table>
     <thead>
@@ -273,44 +276,44 @@ La opción `type` es un parámetro obligatorio y no tiene un valor predeterminad
     <tbody>
         <tr>
             <td rowspan=4>cell</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td>time_period</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td rowspan=2>text</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>average</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td>duplicate</td>
@@ -322,17 +325,17 @@ La opción `type` es un parámetro obligatorio y no tiene un valor predeterminad
         </tr>
         <tr>
             <td rowspan=2>top</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td rowspan=2>bottom</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>blanks</td>
@@ -352,75 +355,75 @@ La opción `type` es un parámetro obligatorio y no tiene un valor predeterminad
         </tr>
         <tr>
             <td rowspan=6>2_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=9>3_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>mid_type</td>
+            <td>MidType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>mid_value</td>
+            <td>MidValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>mid_color</td>
+            <td>MidColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=5>data_bar</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>bar_color</td>
+            <td>BarColor</td>
         </tr>
         <tr>
             <td>formula</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
     </tbody>
 </table>
 
-El parámetro `criteria` se utiliza para establecer los criterios por los cuales se evaluarán los datos de la celda. No tiene ningún valor predeterminado. Los criterios más comunes aplicados a `{"type"："cell"}` son:
+El parámetro `Criteria` se utiliza para establecer los criterios por los cuales se evaluarán los datos de la celda. No tiene ningún valor predeterminado. Los criterios más comunes aplicados a `excelize.ConditionalFormatOptions{Type: "cell"}` son:
 
 Carácter de descripción de texto|Representación simbólica
 ---|---
@@ -437,55 +440,55 @@ Puede utilizar las cadenas de descripción textual de Excel, en la primera colum
 
 Los criterios adicionales que son específicos de otros tipos de formato condicional se muestran en las secciones relevantes a continuación.
 
-`value`: El valor se usa generalmente junto con el parámetro `criteria` para establecer la regla por la cual se evaluarán los datos de la celda:
+`Value`: El valor se usa generalmente junto con el parámetro `Criteria` para establecer la regla por la cual se evaluarán los datos de la celda:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
-```
-
-La propiedad `value` también puede ser una referencia de celda:
-
-```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "$C$1"
-}]`, format))
-```
-
-type: `format` - El parámetro `format` se utiliza para especificar el formato que se aplicará a la celda cuando se cumpla el criterio de formato condicional. El formato se crea usando el método [`NewConditionalStyle()`](utils.md#NewConditionalStyle) de la misma manera que los formatos de celda:
-
-```go
-format, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "6",
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
+```
+
+La propiedad `Value` también puede ser una referencia de celda:
+
+```go
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "$C$1",
+        },
+    },
+)
+```
+
+type: `Format` - El parámetro `Format` se utiliza para especificar el formato que se aplicará a la celda cuando se cumpla el criterio de formato condicional. El formato se crea usando el método [`NewConditionalStyle()`](utils.md#NewConditionalStyle) de la misma manera que los formatos de celda:
+
+```go
+format, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
+    },
+)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err = f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "cell", Criteria: ">", Format: format, Value: "6"},
+    },
+)
 ```
 
 Nota: En Excel, se superpone un formato condicional sobre el formato de celda existente y no todas las propiedades del formato de celda se pueden modificar. Las propiedades que no se pueden modificar en un formato condicional son nombre de fuente, tamaño de fuente, superíndice y subíndice, bordes diagonales, todas las propiedades de alineación y todas las propiedades de protección.
@@ -494,304 +497,327 @@ Excel especifica algunos formatos predeterminados que se utilizarán con formato
 
 ```go
 // Formato rosa para mal condicional.
-format1, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+format1, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
 
 // Formato amarillo claro para condicional neutro.
-format2, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9B5713"
+format2, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9B5713"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEEAA0"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEEAA0"],
-        "pattern": 1
-    }
-}`)
+)
 
 // Formato verde claro para buenas condiciones.
-format3, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#09600B"
+format3, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#09600B"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#C7EECF"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#C7EECF"],
-        "pattern": 1
-    }
-}`)
+)
 ```
 
-type: `minimum` - El parámetro `minimum` se utiliza para establecer el valor límite inferior cuando el `criteria` es `between` o `not between`.
+type: `Minimum` - El parámetro `minimum` se utiliza para establecer el valor límite inferior cuando el `Criteria` es `between` o `not between`.
 
 ```go
 // Regla de las celdas resaltadas: entre...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": "between",
-    "format": %d,
-    "minimum": "6",
-    "maximum": "8"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: "between",
+            Format:   format,
+            Minimum:  "6",
+            Maximum:  "8",
+        },
+    },
+)
 ```
 
-type: `maximum` - El parámetro `maximum` se utiliza para establecer el valor límite superior cuando los criterios están `between` o `not between`. Vea el ejemplo anterior.
+type: `Maximum` - El parámetro `maximum` se utiliza para establecer el valor límite superior cuando los criterios están `between` o `not between`. Vea el ejemplo anterior.
 
 type: `average` - El tipo `average` se utiliza para especificar el formato condicional de estilo "Average" de Office Excel:
 
 ```go
 // Reglas superiores/inferiores: por encima del promedio...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": true
-}]`, format1))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format1,
+            AboveAverage: true,
+        },
+    },
+)
 
 // Reglas superiores/inferiores: Inferior al promedio...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": false
-}]`, format2))
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format2,
+            AboveAverage: false,
+        },
+    },
+)
 ```
 
 type: `duplicate` - El tipo `duplicate` se usa para resaltar celdas duplicadas en un rango:
 
 ```go
 // Resaltar reglas de celdas: valores duplicados...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "duplicate",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "duplicate", Criteria: "=", Format: format},
+    },
+)
 ```
 
 type: `unique` - El tipo `unique` se usa para resaltar celdas únicas en un rango:
 
 ```go
 // Resaltar reglas de celdas: No es igual a...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "unique",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "unique", Criteria: "=", Format: format},
+    },
+)
 ```
 
 type: `top` - El tipo `top` se usa para especificar los n valores principales por número o porcentaje en un rango:
 
 ```go
 // Reglas de Top/Bottom: Top 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "H1:H10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+        },
+    },
+)
 ```
 
 Los criterios se pueden utilizar para indicar que se requiere una condición de porcentaje:
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6",
-    "percent": true
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+            Percent:  true,
+        },
+    },
+)
 ```
 
 type: `2_color_scale` - El tipo `2_color_scale` se utiliza para especificar el formato condicional de estilo "Escala de 2 colores" de Excel:
 
 ```go
 // Escalas de color: 2 colores.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "2_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "2_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-Este tipo condicional se puede modificar con `min_type`, `max_type`, `min_value`, `max_value`, `min_color` y `max_color`, ver más abajo.
+Este tipo condicional se puede modificar con `MinType`, `MaxType`, `MinValue`, `MaxValue`, `MinColor` y `MaxColor`, ver más abajo.
 
 type: `3_color_scale` - El tipo `3_color_scale` se utiliza para especificar el formato condicional de estilo "Escala de 3 colores" de Excel:
 
 ```go
 // Escalas de color: 3 colores.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-Este tipo condicional se puede modificar con `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` y `max_color`, ver más abajo.
+Este tipo condicional se puede modificar con `MinType`, `MidType`, `MaxType`, `MinValue`, `MidValue`, `MaxValue`, `MinColor`, `MidColor` y `MaxColor`, ver más abajo.
 
 type: `data_bar` - El tipo `data_bar` se utiliza para especificar el formato condicional de estilo "Data Bar" de Excel.
 
-`min_type` - Las propiedades `min_type` y `max_type` están disponibles cuando el tipo de formato condicional es `2_color_scale`, `3_color_scale` o `data_bar`. El `mid_type` está disponible para `3_color_scale`. Las propiedades se utilizan de la siguiente manera:
+`MinType` - Las propiedades `MinType` y `MaxType` están disponibles cuando el tipo de formato condicional es `2_color_scale`, `3_color_scale` o `data_bar`. El `MidType` está disponible para `3_color_scale`. Las propiedades se utilizan de la siguiente manera:
 
 ```go
 // Barras de datos: relleno degradado.
-f.SetConditionalFormat("Sheet1", "K1:K10", `[
-{
-    "type": "data_bar",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "bar_color": "#638EC6"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "K1:K10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "data_bar",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            BarColor: "#638EC6",
+        },
+    },
+)
 ```
 
 Los tipos `min/mid/max` disponibles son:
 
 Parámetro|Explicación
 ---|---
-min|El valor mínimo (solo para `min_type`)
+min|El valor mínimo (solo para `MinType`)
 num|Numérica
 percent|Porcentaje
 percentile|Percentil
 formula|Fórmula
-max|Máxima (solo para `max_type`)
+max|Máxima (solo para `MaxType`)
 
-`mid_type` - Usado para `3_color_scale`. Igual que `min_type`, ver arriba.
+`MidType` - Usado para `3_color_scale`. Igual que `MinType`, ver arriba.
 
-`max_type` - Igual que `min_type`, ver arriba.
+`MaxType` - Igual que `MinType`, ver arriba.
 
-`min_value` - Las propiedades `min_value` y `max_value` están disponibles cuando el tipo de formato condicional es `2_color_scale`, `3_color_scale` o `data_bar`. El `mid_value` está disponible para `3_color_scale`.
+`MinValue` - Las propiedades `MinValue` y `MaxValue` están disponibles cuando el tipo de formato condicional es `2_color_scale`, `3_color_scale` o `data_bar`. El `MidValue` está disponible para `3_color_scale`.
 
-`mid_value` - Usado para `3_color_scale`. Igual que `min_value`, ver arriba.
+`MidValue` - Usado para `3_color_scale`. Igual que `MinValue`, ver arriba.
 
-`max_value` - Igual que `min_value`, ver arriba.
+`MaxValue` - Igual que `MinValue`, ver arriba.
 
-`min_color` - Las propiedades `min_color` y `max_color` están disponibles cuando el tipo de formato condicional es `2_color_scale`, `3_color_scale` o `data_bar`. El `mid_color` está disponible para `3_color_scale`. Las propiedades se utilizan de la siguiente manera:
+`MinColor` - Las propiedades `MinColor` y `MaxColor` están disponibles cuando el tipo de formato condicional es `2_color_scale`, `3_color_scale` o `data_bar`. El `MidColor` está disponible para `3_color_scale`. Las propiedades se utilizan de la siguiente manera:
 
 ```go
 // Escalas de color: 3 colores.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-`mid_color` - Usado para `3_color_scale`. Igual que `min_color`, ver arriba.
+`MidColor` - Usado para `3_color_scale`. Igual que `MinColor`, ver arriba.
 
-`max_color` - Igual que `min_color`, ver arriba.
+`MaxColor` - Igual que `MinColor`, ver arriba.
 
-`bar_color` - Usado para `data_bar`. Igual que `min_color`, ver arriba.
+`BarColor` - Usado para `data_bar`. Igual que `MinColor`, ver arriba.
 
 Por ejemplo, resalte los valores más altos y más bajos en un rango de celdas `A1:D4` estableciendo un formato condicional en `Sheet1`:
 
 <p align="center"><img width="938" src="./images/condition_format_01.png" alt="Establecer formato condicional en un rango de celdas"></p>
 
 ```go
-package main
-
-import (
-    "fmt"
-    "math/rand"
-
-    "github.com/xuri/excelize/v2"
-)
-
 func main() {
     f := excelize.NewFile()
-    for r := 1; r <= 4; r++ {
-        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+    defer func() {
+        if err := f.Close(); err != nil {
             fmt.Println(err)
         }
-    }
-    red, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#9A0511"
-        },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#FEC7CE"],
-            "pattern": 1
+    }()
+    for r := 1; r <= 4; r++ {
+        row := []int{
+            rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100),
         }
-    }`)
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    red, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#9A0511",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#FEC7CE"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "bottom",
-            "criteria": "=",
-            "value": "1",
-            "format": %d
-        }]`, red)); err != nil {
-        fmt.Println(err)
-    }
-    green, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#09600B"
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "bottom",
+                Criteria: "=",
+                Value:    "1",
+                Format:   red,
+            },
         },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#C7EECF"],
-            "pattern": 1
-        }
-    }`)
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
+    green, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#09600B",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#C7EECF"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "top",
-            "criteria":"=",
-            "value":"1",
-            "format": %d
-        }]`, green)); err != nil {
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "top",
+                Criteria: "=",
+                Value:    "1",
+                Format:   green,
+            },
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
+        return
     }
 }
 ```
@@ -807,7 +833,7 @@ GetConditionalFormats devuelve la configuración de formato condicional según e
 ## Eliminar formato condicional {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, reference string) error
+func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 ```
 
 UnsetConditionalFormat proporciona una función para anular el formato condicional por el nombre y el rango de la hoja de trabajo.
@@ -815,12 +841,12 @@ UnsetConditionalFormat proporciona una función para anular el formato condicion
 ## Paneles {#SetPanes}
 
 ```go
-func (f *File) SetPanes(sheet, panes string)
+func (f *File) SetPanes(sheet string, panes *Panes) error
 ```
 
 SetPanes proporciona una función para crear y eliminar paneles congelados y paneles divididos según el nombre de la hoja de trabajo y el formato de paneles determinados.
 
-`activePane` define el panel que está activo. Los posibles valores para este atributo se definen en la siguiente tabla:
+`ActivePane` define el panel que está activo. Los posibles valores para este atributo se definen en la siguiente tabla:
 
 Valor de enumeración|Descripción
 ---|---
@@ -836,33 +862,30 @@ Valor de enumeración|Descripción
 frozen (Congelada)|Los paneles están congelados, pero no se dividieron al congelarse. En este estado, cuando los paneles se descongelan nuevamente, se produce un solo panel, sin división.<br><br>En este estado, las barras divididas no son ajustables.
 split (División)|Los paneles están divididos, pero no congelados. En este estado, las barras divididas son ajustables por el usuario.
 
-`x_split` - Posición horizontal de la división, en una vigésima parte de un punto; 0 (cero) si ninguno. Si el panel está congelado, este valor indica el número de columnas visibles en el panel superior.
+`XSplit` - Posición horizontal de la división, en una vigésima parte de un punto; 0 (cero) si ninguno. Si el panel está congelado, este valor indica el número de columnas visibles en el panel superior.
 
-`y_split` - La posición vertical de la división, en una vigésima parte de un punto; 0 (cero) si ninguno. Si el panel está congelado, este valor indica el número de filas visibles en el panel izquierdo. Los valores posibles para este atributo están definidos por el tipo de datos doble del esquema XML del W3C.
+`YSplit` - La posición vertical de la división, en una vigésima parte de un punto; 0 (cero) si ninguno. Si el panel está congelado, este valor indica el número de filas visibles en el panel izquierdo. Los valores posibles para este atributo están definidos por el tipo de datos doble del esquema XML del W3C.
 
-`top_left_cell` - Ubicación de la celda visible superior izquierda en el panel inferior derecho (en el modo de izquierda a derecha).
+`TopLeftCell` - Ubicación de la celda visible superior izquierda en el panel inferior derecho (en el modo de izquierda a derecha).
 
-`sqref` - Rango de la selección. Puede ser un conjunto de rangos no contiguos.
+`SQRef` - Rango de la selección. Puede ser un conjunto de rangos no contiguos.
 
 Ejemplo 1: congelar la columna `A` en la `Sheet1` y establecer la celda activa en `Sheet1!K16`:
 
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="Columna congelada"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 1,
-    "y_split": 0,
-    "top_left_cell": "B1",
-    "active_pane": "topRight",
-    "panes": [
-    {
-        "sqref": "K16",
-        "active_cell": "K16",
-        "pane": "topRight"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      1,
+    YSplit:      0,
+    TopLeftCell: "B1",
+    ActivePane:  "topRight",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "K16", ActiveCell: "K16", Pane: "topRight"},
+    },
+})
 ```
 
 Ejemplo 2: congele las filas 1 a 9 en la `Sheet1` y establezca los rangos de celdas activas en `Sheet1!A11:XFD11`:
@@ -870,20 +893,17 @@ Ejemplo 2: congele las filas 1 a 9 en la `Sheet1` y establezca los rangos de cel
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="Congelar columnas y establecer rangos de celdas activos"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 0,
-    "y_split": 9,
-    "top_left_cell": "A34",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "A11:XFD11",
-        "active_cell": "A11",
-        "pane": "bottomLeft"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      0,
+    YSplit:      9,
+    TopLeftCell: "A34",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "A11:XFD11", ActiveCell: "A11", Pane: "bottomLeft"},
+    },
+})
 ```
 
 Ejemplo 3: cree paneles divididos en `Sheet1` y establezca la celda activa en `Sheet1!J60`:
@@ -891,40 +911,26 @@ Ejemplo 3: cree paneles divididos en `Sheet1` y establezca la celda activa en `S
 <p align="center"><img width="755" src="./images/setpans_03.png" alt="Crear paneles divididos"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": false,
-    "split": true,
-    "x_split": 3270,
-    "y_split": 1800,
-    "top_left_cell": "N57",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "I36",
-        "active_cell": "I36"
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      false,
+    Split:       true,
+    XSplit:      3270,
+    YSplit:      1800,
+    TopLeftCell: "N57",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "I36", ActiveCell: "I36"},
+        {SQRef: "G33", ActiveCell: "G33", Pane: "topRight"},
+        {SQRef: "J60", ActiveCell: "J60", Pane: "bottomLeft"},
+        {SQRef: "O60", ActiveCell: "O60", Pane: "bottomRight"},
     },
-    {
-        "sqref": "G33",
-        "active_cell": "G33",
-        "pane": "topRight"
-    },
-    {
-        "sqref": "J60",
-        "active_cell": "J60",
-        "pane": "bottomLeft"
-    },
-    {
-        "sqref": "O60",
-        "active_cell": "O60",
-        "pane": "bottomRight"
-    }]
-}`)
+})
 ```
 
 Ejemplo 4, descongelar y quitar todos los paneles en `Sheet1`:
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
 ## Color {#ThemeColor}
