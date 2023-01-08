@@ -16,9 +16,7 @@
     "gitbook-plugin-sitemap-general": "0.1.1"
   },
   "scripts": {
-    "build": "gitbook build",
-    "prepublish": "npm run snyk-protect",
-    "snyk-protect": "snyk-protect"
+    "build": "gitbook build"
   },
   "author": "xuri",
   "license": "MIT",
