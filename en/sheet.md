@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Get sheet index {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex provides a function to get a sheet index of the workbook by the given sheet name. If the given sheet name is invalid or sheet doesn't exist, it will return an integer type value -1.
@@ -151,7 +151,7 @@ GetSheetList provides a function to get worksheets, chart sheets, and dialog she
 ## Set sheet name {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName provides a function to set the worksheet name by given the source and target worksheet names. Maximum 31 characters are allowed in sheet title and this function only changes the name of the sheet and will not update the sheet name in the formula or reference associated with the cell. So there may be a problem formula error or reference missing.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Protect Sheet {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet provides a function to prevent other users from accidentally or deliberately changing, moving, or deleting data in a worksheet. The optional field `AlgorithmName` specified hash algorithm, support XOR, MD4, MD5, SHA-1, SHA-256, SHA-384, and SHA-512 currently, if no hash algorithm specified, will be using the XOR algorithm as default. For example, protect `Sheet1` with protection settings:
@@ -411,9 +411,11 @@ ProtectSheet provides a function to prevent other users from accidentally or del
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 

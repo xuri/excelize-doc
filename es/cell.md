@@ -493,7 +493,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-El índice de estilo de celda se obtiene a partir del nombre de la hoja de trabajo y las coordenadas de la celda, y el índice obtenido se puede utilizar como parámetro para llamar a la función `SetCellValue` al copiar el estilo de celda.
+El índice de estilo de celda se obtiene a partir del nombre de la hoja de trabajo y las coordenadas de la celda, y el índice obtenido se puede utilizar como parámetro para llamar a la función `SetCellStyle` al copiar el estilo de celda.
 
 ## Combinar celdas {#MergeCell}
 
