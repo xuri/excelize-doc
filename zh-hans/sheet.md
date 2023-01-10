@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## 获取工作表索引 {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 根据给定的工作表名称获取该工作表的索引，如果工作表不存在将返回 `-1`。
@@ -151,7 +151,7 @@ func (f *File) GetSheetList() []string
 ## 设置工作表名称 {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 根据给定的新旧工作表名称重命名工作表。工作表名称最多允许使用 31 个字符，此功能仅更改工作表的名称，而不会更新与单元格关联的公式或引用中的工作表名称。因此使用此功能重命名工作表后可能导致公式错误或参考引用问题。
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## 保护工作表 {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 防止其他用户意外或有意更改、移动或删除工作表中的数据。可选字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默认使用 XOR 算法。例如，将名为 `Sheet1` 的工作表设置密码保护，但是允许选择锁定的单元格、选择未锁定的单元格、编辑方案：
@@ -411,9 +411,11 @@ func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) erro
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 

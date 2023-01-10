@@ -50,10 +50,12 @@ defer func() {
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
+    return
 }
 styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
+    return
 }
 if err := streamWriter.SetRow("A1",
     []interface{}{
@@ -65,6 +67,7 @@ if err := streamWriter.SetRow("A1",
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
     fmt.Println(err)
+    return
 }
 for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
@@ -74,10 +77,12 @@ for rowID := 2; rowID <= 102400; rowID++ {
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
     if err := streamWriter.SetRow(cell, row); err != nil {
         fmt.Println(err)
+        return
     }
 }
 if err := streamWriter.Flush(); err != nil {
     fmt.Println(err)
+    return
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
@@ -101,7 +106,7 @@ err := streamWriter.SetRow("A1", []interface{}{
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
 
-流式设置单元格的值和行行的分级显示：
+流式设置单元格的值和行的分级显示：
 
 ```go
 err := streamWriter.SetRow("A1", []interface{}{
@@ -119,7 +124,7 @@ SetRow 通过给定的起始坐标和指向数组类型“切片”的指针将�
 ## 流式创建表格 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 根据给定的单元格坐标区域和条件格式流式创建表格。
@@ -127,20 +132,21 @@ func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 例1，在 `A1:D5` 区域流式创建表格：
 
 ```go
-err := streamWriter.AddTable("A1", "D5", "")
+err := streamWriter.AddTable("A1:D5", nil)
 ```
 
 例2，在工作表 `F2:H6` 区域创建带有条件格式的表格：
 
 ```go
-err := streamWriter.AddTable("F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 注意，表格坐标区域至少需要包含两行：字符型的标题行和内容行。每列标题行的字符需保证是唯一的，当前仅支持在每个工作表中流式创建一张表格，并且必须在调用该函数前通过 [`SetRow`](stream.md#SetRow) 流式设置表格的标题行数据。支持的表格样式与非流式创建表格 [`AddTable`](utils.md#AddTable) 相同。
@@ -156,7 +162,7 @@ func (sw *StreamWriter) InsertPageBreak(cell string) error
 ## 流式设置窗格 {#SetPanes}
 
 ```go
-func (sw *StreamWriter) SetPanes(panes string) error
+func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
 通过给定的窗格样式参数流式设置冻结窗格，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置窗格。

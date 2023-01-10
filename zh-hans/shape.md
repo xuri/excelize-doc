@@ -3,39 +3,35 @@
 ## 添加形状
 
 ```go
-func (f *File) AddShape(sheet, cell, opts string) error
+func (f *File) AddShape(sheet, cell string, opts *Shape) error
 ```
 
 根据给定的工作表名、单元格坐标和样式（包括偏移、缩放、拉伸、宽高比和打印属性等）在指定单元格添加形状。例如，在名为 `Sheet1` 的工作表上添加文本框（矩形）：
 
 ```go
-err := f.AddShape("Sheet1", "G6", `{
-    "type": "rect",
-    "color":
-    {
-        "line": "#4286F4",
-        "fill": "#8eb9ff"
+lineWidth := 1.2
+err := f.AddShape("Sheet1", "G6",
+    &excelize.Shape{
+        Type:  "rect",
+        Color: excelize.ShapeColor{Line: "#4286f4", Fill: "#8eb9ff"},
+        Paragraph: []excelize.ShapeParagraph{
+            {
+                Text: "Rectangle Shape",
+                Font: excelize.Font{
+                    Bold:      true,
+                    Italic:    true,
+                    Family:    "Times New Roman",
+                    Size:      18,
+                    Color:     "#777777",
+                    Underline: "sng",
+                },
+            },
+        },
+        Width:  180,
+        Height: 40,
+        Line:   excelize.ShapeLine{Width: &lineWidth},
     },
-    "paragraph": [
-    {
-        "text": "Rectangle Shape",
-        "font":
-        {
-            "bold": true,
-            "italic": true,
-            "family": "Times New Roman",
-            "size": 36,
-            "color": "#777777",
-            "underline": "sng"
-        }
-    }],
-    "width": 180,
-    "height": 90,
-    "line":
-    {
-        "width": 1.5
-    }
-}`)
+)
 ```
 
 下面是 Excelize 所支持的所有形状：
