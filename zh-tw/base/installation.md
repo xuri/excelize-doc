@@ -39,8 +39,17 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // 創建一個工作表
-    index := f.NewSheet("Sheet2")
+    index, err := f.NewSheet("Sheet2")
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
     // 設定儲存格的值
     f.SetCellValue("Sheet2", "A2", "Hello world.")
     f.SetCellValue("Sheet1", "B2", 100)
@@ -115,18 +124,45 @@ import (
 )
 
 func main() {
-    categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
-    values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
-    for k, v := range categories {
-        f.SetCellValue("Sheet1", k, v)
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
+    for idx, row := range [][]interface{}{
+        {nil, "Apple", "Orange", "Pear"}, {"Small", 2, 3, 3},
+        {"Normal", 5, 2, 4}, {"Large", 6, 7, 8},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
+        f.SetSheetRow("Sheet1", cell, &row)
     }
-    for k, v := range values {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    if err := f.AddChart("Sheet1", "E1", `{"type":"col3DClustered","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"title":{"name":"立體群組直條圖"}}`); err != nil {
+    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+        Type: "col3DClustered",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$2",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$2:$D$2",
+            },
+            {
+                Name:       "Sheet1!$A$3",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$3:$D$3",
+            },
+            {
+                Name:       "Sheet1!$A$4",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$4:$D$4",
+            }},
+        Title: excelize.ChartTitle{
+            Name: "立體群組直條圖",
+        },
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -158,32 +194,37 @@ func main() {
         fmt.Println(err)
         return
     }
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // 插入圖片
-    if err := f.AddPicture("Sheet1", "A2", "image.png", ""); err != nil {
+    if err := f.AddPicture("Sheet1", "A2", "image.png", nil); err != nil {
         fmt.Println(err)
+        return
     }
     // 在工作表中插入圖片，並設定圖片的縮放比例
-    if err := f.AddPicture("Sheet1", "D2", "image.jpg", `{
-        "x_scale": 0.5,
-        "y_scale": 0.5
-    }`); err != nil {
+    if err := f.AddPicture("Sheet1", "D2", "image.jpg",
+        &excelize.GraphicOptions{ScaleX: 0.5, ScaleY: 0.5}); err != nil {
         fmt.Println(err)
+        return
     }
     // 在工作表中插入圖片，並設定圖片的打印屬性
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
-        "x_offset": 15,
-        "y_offset": 10,
-        "print_obj": true,
-        "lock_aspect_ratio": false,
-        "locked": false
-    }`); err != nil {
+    enable, disable := true, false
+    if err := f.AddPicture("Sheet1", "H2", "image.gif",
+        &excelize.GraphicOptions{
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            OffsetX:         15,
+            OffsetY:         10,
+            Locked:          &disable,
+        }); err != nil {
         fmt.Println(err)
+        return
     }
     // 儲存檔案
     if err = f.Save(); err != nil {
-        fmt.Println(err)
-    }
-    if err = f.Close(); err != nil {
         fmt.Println(err)
     }
 }

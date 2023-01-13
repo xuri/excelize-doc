@@ -290,6 +290,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
         fmt.Println(err)
         return
@@ -488,7 +493,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在複製儲存格樣式時，作為調用 `SetCellValue` 函數的參數使用。
+根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函數的參數使用。
 
 ## 合併儲存格 {#MergeCell}
 
@@ -561,7 +566,7 @@ func (f *File) AddComment(sheet string, comment Comment) error
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 文檔中添加註解"></p>
 
 ```go
-err := f.AddComment(sheet, excelize.Comment{
+err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
     Runs: []excelize.RichTextRun{
@@ -654,14 +659,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
         if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1", "C2",
-        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
+        Name: "Table1", StyleName: "TableStyleMedium2",
+    }); err != nil {
         fmt.Println(err)
         return
     }

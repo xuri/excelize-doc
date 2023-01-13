@@ -148,9 +148,12 @@ func (f *File) CopySheet(from, to int) error
 
 ```go
 // 名稱為 Sheet1 的工作表已經存在 ...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## 工作表分組 {#GroupSheets}
@@ -175,7 +178,13 @@ func (f *File) UngroupSheets() error
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-根據給定的工作表名稱和圖片地址為指定的工作表設定平鋪效果的背景圖片。
+根據給定的工作表名稱和圖片文件路徑為指定的工作表設定平鋪效果的背景圖片。支持的圖片文件格式為：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+根據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支持的圖片文件格式為：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 設定默認工作表 {#SetActiveSheet}
 
@@ -696,7 +705,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 根據給定的名稱和引用區域設定名稱，默認範圍是活頁簿。例如：
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +718,20 @@ f.SetDefinedName(&excelize.DefinedName{
 <p align="center"><img width="628" src="./images/page_setup_01.png" alt="工作表的列印區域和列印標題设定"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Sheet1!$A$1:$Z$100",
     Scope:    "Sheet1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
     Scope:    "Sheet1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## 獲取名稱 {#GetDefinedName}
@@ -738,7 +751,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 根據給定的名稱和名稱作用範圍刪除已定義的名稱，默認名稱的作用範圍為活頁簿。例如：
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Sheet2",
 })
@@ -857,10 +870,10 @@ WorkbookProtectionOptions 定義了保護活頁簿的設置選項。
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

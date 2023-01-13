@@ -50,10 +50,12 @@ defer func() {
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
+    return
 }
 styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
+    return
 }
 if err := streamWriter.SetRow("A1",
     []interface{}{
@@ -65,6 +67,7 @@ if err := streamWriter.SetRow("A1",
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
     fmt.Println(err)
+    return
 }
 for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
@@ -74,10 +77,12 @@ for rowID := 2; rowID <= 102400; rowID++ {
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
     if err := streamWriter.SetRow(cell, row); err != nil {
         fmt.Println(err)
+        return
     }
 }
 if err := streamWriter.Flush(); err != nil {
     fmt.Println(err)
+    return
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
@@ -119,7 +124,7 @@ SetRow 通過給定的起始坐標和指向數組類別「切片」的指針將�
 ## 流式創建表格 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 根據給定的存儲格坐標區域和條件格式流式創建表格。
@@ -127,20 +132,21 @@ func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 例1，在 `A1:D5` 區域流式創建表格：
 
 ```go
-err := streamWriter.AddTable("A1", "D5", "")
+err := streamWriter.AddTable("A1:D5", nil)
 ```
 
 例2，在工作表 `F2:H6` 區域創建帶有條件格式的表格：
 
 ```go
-err := streamWriter.AddTable("F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
@@ -156,7 +162,7 @@ func (sw *StreamWriter) InsertPageBreak(cell string) error
 ## 流式设定窗格 {#SetPanes}
 
 ```go
-func (sw *StreamWriter) SetPanes(panes string) error
+func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
 通過給定的窗格樣式參數流式設定凍結窗格，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函數設定窗格。

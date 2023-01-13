@@ -3,7 +3,7 @@
 ## 創建表格 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, opts string) error
+func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建表格。
@@ -13,7 +13,7 @@ func (f *File) AddTable(sheet, hCell, vCell, opts string) error
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="創建表格"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1", "D5", ``)
+err := f.AddTable("Sheet1", "A1:D5", nil)
 ```
 
 - 例2，在名為 `Sheet2` 的工作表 `F2:H6` 區域創建帶有條件式格式的表格：
@@ -21,21 +21,22 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="創建帶有條件式格式的表格"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，並且必須在調用 AddTable 函數前設定表格的標題列資料。多個表格的坐標區域不能有交集。
 
-可選參數 `table_name` 用以設定自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
+可選參數 `Name` 用以設定自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
 
-Excelize 支持的表格樣式 `table_style` 參數：
+Excelize 支持的表格樣式 `StyleName` 參數：
 
 ```text
 TableStyleLight1 - TableStyleLight21
@@ -70,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動過濾器 {#AutoFilter}
 
 ```go
-unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建自動過濾器。Excel 中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。
@@ -80,18 +81,20 @@ unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="創建自動過濾器"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", "")
+err := f.AutoFilter("Sheet1", "A1:D4", nil)
 ```
 
 例2，在名稱為 `Sheet1` 的工作表 `A1:D4` 區域創建帶有格式條件的自動過濾器：
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
+err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
+    Column: "B", Expression: "x != blanks",
+})
 ```
 
-參數 `column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支持自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
+參數 `Column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支持自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
 
-為欄設定過濾條件，參數 `expression` 用於指定過濾條件運算，支持下列運算符：
+為欄設定過濾條件，參數 `Expression` 用於指定過濾條件運算，支持下列運算符：
 
 ```text
 ==
@@ -245,7 +248,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ## 創建條件式格式樣式 {#NewConditionalStyle}
 
 ```go
-func (f *File) NewConditionalStyle(style string) (int, error)
+func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 通過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函數的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和外框的色彩。
@@ -253,12 +256,12 @@ func (f *File) NewConditionalStyle(style string) (int, error)
 ## 設定條件式格式 {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, reference, opts string) error
+func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFormatOptions) error
 ```
 
 根據給定的工作表名稱、儲存格坐標區域和格式參數，為儲存格值創建條件式格式設定規則。條件式格式是 Office Excel 的一項功能，它允許您根據特定條件將格式應用於儲存格或一系列儲存格。
 
-格式參數 `type` 選項是必需的參數，它沒有默認值。允許的類別值及其相關參數是：
+格式參數 `Type` 選項是必需的參數，它沒有默認值。允許的類別值及其相關參數是：
 
 <table>
     <thead>
@@ -270,44 +273,44 @@ func (f *File) SetConditionalFormat(sheet, reference, opts string) error
     <tbody>
         <tr>
             <td rowspan=4>cell</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td>time_period</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td rowspan=2>text</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>average</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td>duplicate</td>
@@ -319,17 +322,17 @@ func (f *File) SetConditionalFormat(sheet, reference, opts string) error
         </tr>
         <tr>
             <td rowspan=2>top</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td rowspan=2>bottom</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>blanks</td>
@@ -349,75 +352,75 @@ func (f *File) SetConditionalFormat(sheet, reference, opts string) error
         </tr>
         <tr>
             <td rowspan=6>2_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=9>3_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>mid_type</td>
+            <td>MidType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>mid_value</td>
+            <td>MidValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>mid_color</td>
+            <td>MidColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=5>data_bar</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>bar_color</td>
+            <td>BarColor</td>
         </tr>
         <tr>
             <td>formula</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
     </tbody>
 </table>
 
-`criteria` 參數用於設定儲存格資料的條件式格式運算符。它沒有默認值，同常與 `{"type"："cell"}` 一起使用，支持的參數為：
+`Criteria` 參數用於設定儲存格資料的條件式格式運算符。它沒有默認值，同常與 `excelize.ConditionalFormatOptions{Type: "cell"}` 一起使用，支持的參數為：
 
 文本描述字符|符號表示
 ---|---
@@ -432,55 +435,55 @@ less than or equal to|<=
 
 可以使用上面表格第一欄中的 Office Excel 文本描述字符，或者符號表示方法（`between` 與 `not between` 沒有符號表示法）作為條件式格式運算符。下面的相關部分顯示了其他條件式格式類別的特定標準。
 
-`value`：該值通常與 `criteria` 參數一起使用，可以用確定的值作為設定儲存格條件式格式的條件參數：
+`Value`：該值通常與 `Criteria` 參數一起使用，可以用確定的值作為設定儲存格條件式格式的條件參數：
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
-```
-
-`value` 屬性也可以是儲存格引用：
-
-```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "$C$1"
-}]`, format))
-```
-
-類別：`format` - `format` 參數用於指定滿足條件式格式標準時將應用於儲存格的格式。該參數可以通過 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 方法來創建：
-
-```go
-format, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "6",
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
+```
+
+`Value` 屬性也可以是儲存格引用：
+
+```go
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "$C$1",
+        },
+    },
+)
+```
+
+類別：`Format` - `Format` 參數用於指定滿足條件式格式標準時將應用於儲存格的格式。該參數可以通過 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 方法來創建：
+
+```go
+format, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
+    },
+)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err = f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "cell", Criteria: ">", Format: format, Value: "6"},
+    },
+)
 ```
 
 注意：在 Office Excel 中，條件式格式疊加在現有儲存格格式上，並非所有儲存格格式屬性都可以修改。無法在條件式格式中修改的屬性包括：字型名稱、字型大小、上標和下標、對角外框、所有對齊屬性和所有保護屬性。
@@ -489,304 +492,327 @@ Office Excel 中內置了一些與條件式格式一起使用的默認樣式。�
 
 ```go
 // 淺紅填滿色深色文本代表較差
-format1, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+format1, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
 
 // 黃填滿色深黃色文本代表一般
-format2, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9B5713"
+format2, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9B5713"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEEAA0"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEEAA0"],
-        "pattern": 1
-    }
-}`)
+)
 
 // 綠填滿色深綠色文本代表較好
-format3, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#09600B"
+format3, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#09600B"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#C7EECF"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#C7EECF"],
-        "pattern": 1
-    }
-}`)
+)
 ```
 
-類別：`minimum` - 當條件式格式 `criteria` 為 `between` 或 `not between` 時，`minimum` 參數用於設定下限值。
+類別：`Minimum` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`Minimum` 參數用於設定下限值。
 
 ```go
 // 高亮儲存格條件式格式規則： between...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": "between",
-    "format": %d,
-    "minimum": "6",
-    "maximum": "8"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: "between",
+            Format:   format,
+            Minimum:  "6",
+            Maximum:  "8",
+        },
+    },
+)
 ```
 
-類別：`maximum` - 當條件式格式 `criteria` 為 `between` 或 `not between` 時，`maximum` 參數用於設定上限值，參考上面的例子。
+類別：`Maximum` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`Maximum` 參數用於設定上限值，參考上面的例子。
 
 類別：`average` - 平均類別用於指定 Office Excel 「最前最後規則」中「經典」樣式的「僅高於或低於平均值的數值設定格式」條件式格式：
 
 ```go
 // 最前最後規則：高於平均值...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": true
-}]`, format1))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format1,
+            AboveAverage: true,
+        },
+    },
+)
 
 // 最前最後規則：低於平均值...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": false
-}]`, format2))
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format2,
+            AboveAverage: false,
+        },
+    },
+)
 ```
 
 類別：`duplicate` - 用於設定「突出顯示儲存格規則」中的「重復值 ...」：
 
 ```go
 // 突出顯示儲存格規則: 重復值...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "duplicate",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "duplicate", Criteria: "=", Format: format},
+    },
+)
 ```
 
 類別：`unique` - 用於設定「突出顯示儲存格規則」中「只為以下內容的儲存格設定格式」的「特定文本」：
 
 ```go
 // 突出顯示儲存格規則，只為以下內容的儲存格設定格式: 特定文本 不等於...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "unique",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "unique", Criteria: "=", Format: format},
+    },
+)
 ```
 
 類別：`top` -  用於設定「最前最後規則」中的「前 10 項...」或「前 10% ...」：
 
 ```go
 // 最前最後規則： 前 10 項...
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "H1:H10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+        },
+    },
+)
 ```
 
 設定帶有百分比條件的條件式格式：
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6",
-    "percent": true
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+            Percent:  true,
+        },
+    },
+)
 ```
 
 類別：`2_color_scale` - 用於設定帶有「雙色刻度」的「色階樣式」條件式格式：
 
 ```go
 // 色階：雙色刻度
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "2_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "2_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-雙色刻度色階條件式格式可選參數：`min_type`、`max_type`、`min_value`、`max_value`、`min_color` 和 `max_color`。
+雙色刻度色階條件式格式可選參數：`MinType`、`MaxType`、`MinValue`、`MaxValue`、`MinColor` 和 `MaxColor`。
 
 類別：`3_color_scale` - 用於設定帶有「三色刻度」的「色階樣式」條件式格式：
 
 ```go
 // 色階：三色刻度
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-三色刻度色階條件式格式可選參數： `min_type`、`mid_type`、`max_type`、`min_value`、`mid_value`、`max_value`、`min_color`、`mid_color` 和 `max_color`。
+三色刻度色階條件式格式可選參數： `MinType`、`MidType`、`MaxType`、`MinValue`、`MidValue`、`MaxValue`、`MinColor`、`MidColor` 和 `MaxColor`。
 
 類別：`data_bar` - 用於設定「資料條」類別的條件式格式。
 
-`min_type` - 參數 `min_type` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `mid_type` 在條件式格式類別為 `3_color_scale` 時可用。例如：
+`MinType` - 參數 `MinType` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `MidType` 在條件式格式類別為 `3_color_scale` 時可用。例如：
 
 ```go
 // 資料條：漸變填滿
-f.SetConditionalFormat("Sheet1", "K1:K10", `[
-{
-    "type": "data_bar",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "bar_color": "#638EC6"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "K1:K10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "data_bar",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            BarColor: "#638EC6",
+        },
+    },
+)
 ```
 
 參數 `min/mid/max_types` 可選值列表:
 
 參數|類別
 ---|---
-min|最低值（僅用於 `min_type`）
+min|最低值（僅用於 `MinType`）
 num|數字
 percent|百分比
 percentile|百分點值
 formula|公式
-max|最高值（僅用於 `max_type`）
+max|最高值（僅用於 `MaxType`）
 
-`mid_type` - 當條件式格式類別為 `3_color_scale` 時使用，與 `min_type` 用法相同，參考上面的表格。
+`MidType` - 當條件式格式類別為 `3_color_scale` 時使用，與 `MinType` 用法相同，參考上面的表格。
 
-`max_type` - 與 `min_type` 用法相同，參考上面的表格。
+`MaxType` - 與 `MinType` 用法相同，參考上面的表格。
 
-`min_value` - 參數 `min_value` 和 `max_value` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `mid_value` 在條件式格式類別為 `3_color_scale` 時可用。
+`MinValue` - 參數 `MinValue` 和 `MaxValue` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `MidValue` 在條件式格式類別為 `3_color_scale` 時可用。
 
-`mid_value` - 在條件式格式類別為 `3_color_scale` 時可用，與 `min_value` 的用法相同，參考上述文檔。
+`MidValue` - 在條件式格式類別為 `3_color_scale` 時可用，與 `MinValue` 的用法相同，參考上述文檔。
 
-`max_value` - 與 `min_value` 的用法相同，參考上述文檔。
+`MaxValue` - 與 `MinValue` 的用法相同，參考上述文檔。
 
-`min_color` -  參數 `min_color` 和 `max_color` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `mid_color` 在條件式格式類別為 `3_color_scale` 時可用。例如：
+`MinColor` -  參數 `MinColor` 和 `MaxColor` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `MidColor` 在條件式格式類別為 `3_color_scale` 時可用。例如：
 
 ```go
 // 色階：三色刻度
-f.SetConditionalFormat("Sheet1", "B1:B10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-`mid_color` - 當條件式格式類別為 `3_color_scale` 時使用。與 `min_color` 用法相同，參考上述文檔。
+`MidColor` - 當條件式格式類別為 `3_color_scale` 時使用。與 `MinColor` 用法相同，參考上述文檔。
 
-`max_color` - 與 `min_color` 用法相同，參考上述文檔。
+`MaxColor` - 與 `MinColor` 用法相同，參考上述文檔。
 
-`bar_color` - 當條件式格式類別為 `data_bar` 時使用。與 `min_color` 用法相同，參考上述文檔。
+`BarColor` - 當條件式格式類別為 `data_bar` 時使用。與 `MinColor` 用法相同，參考上述文檔。
 
 例如，為名為 `Sheet1` 的工作表中，通過設定條件格式高亮 `A1:D4` 區域存儲格中的最大值與最小值:
 
 <p align="center"><img width="884" src="./images/condition_format_01.png" alt="通過設定條件格式高亮區域存儲格中的最大值與最小值"></p>
 
 ```go
-package main
-
-import (
-    "fmt"
-    "math/rand"
-
-    "github.com/xuri/excelize/v2"
-)
-
 func main() {
     f := excelize.NewFile()
-    for r := 1; r <= 4; r++ {
-        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+    defer func() {
+        if err := f.Close(); err != nil {
             fmt.Println(err)
         }
-    }
-    red, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#9A0511"
-        },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#FEC7CE"],
-            "pattern": 1
+    }()
+    for r := 1; r <= 4; r++ {
+        row := []int{
+            rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100),
         }
-    }`)
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    red, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#9A0511",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#FEC7CE"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "bottom",
-            "criteria": "=",
-            "value": "1",
-            "format": %d
-        }]`, red)); err != nil {
-        fmt.Println(err)
-    }
-    green, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#09600B"
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "bottom",
+                Criteria: "=",
+                Value:    "1",
+                Format:   red,
+            },
         },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#C7EECF"],
-            "pattern": 1
-        }
-    }`)
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
+    green, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#09600B",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#C7EECF"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "top",
-            "criteria":"=",
-            "value":"1",
-            "format": %d
-        }]`, green)); err != nil {
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "top",
+                Criteria: "=",
+                Value:    "1",
+                Format:   green,
+            },
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
+        return
     }
 }
 ```
@@ -802,7 +828,7 @@ func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
 ## 刪除條件式格式 {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, reference string) error
+func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 ```
 
 根據給定的工作表名稱和儲存格坐標區域刪除條件式格式。
@@ -810,12 +836,12 @@ func (f *File) UnsetConditionalFormat(sheet, reference string) error
 ## 設定窗格 {#SetPanes}
 
 ```go
-func (f *File) SetPanes(sheet, panes string)
+func (f *File) SetPanes(sheet string, panes *Panes) error
 ```
 
 通過給定的工作表名稱和窗格樣式參數設定凍結窗格或拆分窗格。
 
-`activePane` 定義了活動窗格，下表為該屬性的可選值：
+`ActivePane` 定義了活動窗格，下表為該屬性的可選值：
 
 枚舉值|描述
 ---|---
@@ -831,33 +857,30 @@ topRight (Top Right Pane)|當應用垂直和水平分割時，位於右上方窗
 frozen (Frozen)|窗格被凍結，但並不分裂。在此狀態下，當窗格被解除凍結然後再次解凍時，會生成單個窗格，而不會被分割。<br><br>在這種狀態下，分割條不可調節。
 split (Split)|窗格被分裂，但並不凍結。在此狀態下，用戶可以調整分割條。
 
-`x_split` - 水平分割點的位置。如果窗格凍結，則此值用於設定頂部窗格中可見的欄數。
+`XSplit` - 水平分割點的位置。如果窗格凍結，則此值用於設定頂部窗格中可見的欄數。
 
-`y_split` - 垂直分割點的位置。如果窗格凍結，則此值用於設定左側窗格中可見的列數。該屬性的可能值由 W3C XML Schema double 資料類別定義。
+`YSplit` - 垂直分割點的位置。如果窗格凍結，則此值用於設定左側窗格中可見的列數。該屬性的可能值由 W3C XML Schema double 資料類別定義。
 
-`top_left_cell` - 處於「從左到右」模式時,右下方窗格中左上角可見儲存格的位置。
+`TopLeftCell` - 處於「從左到右」模式時,右下方窗格中左上角可見儲存格的位置。
 
-`sqref` - 參考儲存格坐標區域。可以是非連續的一組儲存格坐標區域。
+`SQRef` - 參考儲存格坐標區域。可以是非連續的一組儲存格坐標區域。
 
 例1，在名為 `Sheet1` 的工作表上凍結欄 `A` 並設定活動儲存格 `Sheet1!K16`：
 
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="凍結欄"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 1,
-    "y_split": 0,
-    "top_left_cell": "B1",
-    "active_pane": "topRight",
-    "panes": [
-    {
-        "sqref": "K16",
-        "active_cell": "K16",
-        "pane": "topRight"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      1,
+    YSplit:      0,
+    TopLeftCell: "B1",
+    ActivePane:  "topRight",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "K16", ActiveCell: "K16", Pane: "topRight"},
+    },
+})
 ```
 
 例2，在名為 `Sheet1` 的工作表上凍結第 1 到第 9 列，並設定活動儲存格區域 `Sheet1!A11:XFD11`：
@@ -865,20 +888,17 @@ f.SetPanes("Sheet1", `{
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="凍結欄並設定活動儲存格區域"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 0,
-    "y_split": 9,
-    "top_left_cell": "A34",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "A11:XFD11",
-        "active_cell": "A11",
-        "pane": "bottomLeft"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      0,
+    YSplit:      9,
+    TopLeftCell: "A34",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "A11:XFD11", ActiveCell: "A11", Pane: "bottomLeft"},
+    },
+})
 ```
 
 例3，在名為 `Sheet1` 的工作表上創建拆分窗格，並設定活動儲存格 `Sheet1!J60`：
@@ -886,40 +906,26 @@ f.SetPanes("Sheet1", `{
 <p align="center"><img width="755" src="./images/setpans_03.png" alt="創建拆分窗格"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": false,
-    "split": true,
-    "x_split": 3270,
-    "y_split": 1800,
-    "top_left_cell": "N57",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "I36",
-        "active_cell": "I36"
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      false,
+    Split:       true,
+    XSplit:      3270,
+    YSplit:      1800,
+    TopLeftCell: "N57",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "I36", ActiveCell: "I36"},
+        {SQRef: "G33", ActiveCell: "G33", Pane: "topRight"},
+        {SQRef: "J60", ActiveCell: "J60", Pane: "bottomLeft"},
+        {SQRef: "O60", ActiveCell: "O60", Pane: "bottomRight"},
     },
-    {
-        "sqref": "G33",
-        "active_cell": "G33",
-        "pane": "topRight"
-    },
-    {
-        "sqref": "J60",
-        "active_cell": "J60",
-        "pane": "bottomLeft"
-    },
-    {
-        "sqref": "O60",
-        "active_cell": "O60",
-        "pane": "bottomRight"
-    }]
-}`)
+})
 ```
 
 例4，解凍並刪除名為 `Sheet1` 上的所有窗格：
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
 ## 色值計算 {#ThemeColor}

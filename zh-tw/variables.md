@@ -96,6 +96,10 @@ var (
     ErrSheetNameBlank = errors.New("the sheet name can not be blank")
     // ErrSheetNameLength 定義了工作表名稱長度超出最大限制時的錯誤提示信息
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrUnprotectWorkbook 定義了取消保護活頁簿時的錯誤提示信息
+    ErrUnprotectWorkbook = errors.New("workbook has set no protect")
+    // ErrUnprotectWorkbookPassword 定義了通過密碼驗證取消保護活頁簿失敗時的錯誤提示信息
+    ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
 )
 ```
 
