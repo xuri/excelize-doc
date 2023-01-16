@@ -148,9 +148,12 @@ func (f *File) CopySheet(from, to int) error
 
 ```go
 // Sheet1 という名前のワークシートは既に存在します ...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## グループワークシート {#GroupSheets}
@@ -175,7 +178,13 @@ UngroupSheets は、ワークシートのグループ化を解除する機能を
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-指定されたシート名と画像アドレスに基づいて、指定されたワークシートのタイリング効果の背景画像を設定します。
+SetSheetBackground は、ワークシート名とファイル パスを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+SetSheetBackgroundFromBytes は、ワークシート名、拡張子名、画像データを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
 
 ## デフォルトワークシートを設定する {#SetActiveSheet}
 
@@ -696,7 +705,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 与えられた名前とスコープに基づいて名前を設定しますデフォルトのスコープはワークブックです。例えば、
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +718,20 @@ f.SetDefinedName(&excelize.DefinedName{
 <p align="center"><img width="657" src="./images/page_setup_01.png" alt="ワークシートの印刷領域と印刷タイトルの設定"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Sheet1!$A$1:$Z$100",
     Scope:    "Sheet1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
     Scope:    "Sheet1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## 名前を取得する {#GetDefinedName}
@@ -738,7 +751,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 DeleteDefinedName は、ワークブックまたはワークシートの定義名を削除する機能を提供します。スコープが指定されていない場合、デフォルトのスコープはワークブックです。例えば：
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Sheet2",
 })
@@ -857,10 +870,10 @@ WorkbookProtectionOptions は、ブックの保護の設定を直接マップし
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

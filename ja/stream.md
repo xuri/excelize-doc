@@ -50,10 +50,12 @@ defer func() {
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
+    return
 }
 styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
+    return
 }
 if err := streamWriter.SetRow("A1",
     []interface{}{
@@ -65,6 +67,7 @@ if err := streamWriter.SetRow("A1",
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
     fmt.Println(err)
+    return
 }
 for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
@@ -74,10 +77,12 @@ for rowID := 2; rowID <= 102400; rowID++ {
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
     if err := streamWriter.SetRow(cell, row); err != nil {
         fmt.Println(err)
+        return
     }
 }
 if err := streamWriter.Flush(); err != nil {
     fmt.Println(err)
+    return
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
@@ -119,7 +124,7 @@ SetRow は、指定された開始座標と配列型 `slice` へのポインタ�
 ## ストリーミングするテーブルを追加する {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 指定したセル座標範囲と条件付き書式に基づいてテーブルをストリーミングします。
@@ -127,20 +132,21 @@ func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 例 1 では、`A1:D5` 領域でテーブルをストリーミングして作成します:
 
 ```go
-err := streamWriter.AddTable("A1", "D5", "")
+err := streamWriter.AddTable("A1:D5", nil)
 ```
 
 例 2 では、ワークシート `F2:H6` 領域に条件付き書式のテーブルを作成します:
 
 ```go
-err := streamWriter.AddTable("F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 表の座標領域は、文字型のヘッダー行とコンテンツ行の少なくとも 2 行をカバーする必要があります。各列ヘッダー行の文字は一意であり、現在、各ワークシートで 1 つのテーブルのみのストリーミングがサポートされ、関数を呼び出す前に [`SetRow`](stream.md#SetRow) を使用してテーブルのヘッダー行データをストリーミングする必要があります。サポートされている表スタイルは、非フロー作成表 [`AddTable`](utils.md#AddTable) と同じです。
@@ -156,7 +162,7 @@ InsertPageBreak は、特定のセル参照によって、印刷されるペー�
 ## ストリームによるペインの設定 {#SetPanes}
 
 ```go
-func (sw *StreamWriter) SetPanes(panes string) error
+func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
 SetPanes は、`StreamWriter` にペイン オプションを与えることで、フリーズ ペインと分割ペインを作成および削除する機能を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetPanes` 関数を呼び出さなければならないことに注意してください。

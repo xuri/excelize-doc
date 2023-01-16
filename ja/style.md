@@ -4,15 +4,15 @@ Alignment はセルの配置設定を直接マップします。
 
 ```go
 type Alignment struct {
-    Horizontal      string `json:"horizontal"`
-    Indent          int    `json:"indent"`
-    JustifyLastLine bool   `json:"justify_last_line"`
-    ReadingOrder    uint64 `json:"reading_order"`
-    RelativeIndent  int    `json:"relative_indent"`
-    ShrinkToFit     bool   `json:"shrink_to_fit"`
-    TextRotation    int    `json:"text_rotation"`
-    Vertical        string `json:"vertical"`
-    WrapText        bool   `json:"wrap_text"`
+    Horizontal      string
+    Indent          int
+    JustifyLastLine bool
+    ReadingOrder    uint64
+    RelativeIndent  int
+    ShrinkToFit     bool
+    TextRotation    int
+    Vertical        string
+    WrapText        bool
 }
 ```
 
@@ -20,9 +20,9 @@ Border はセルの境界線設定を直接マップします。
 
 ```go
 type Border struct {
-    Type  string `json:"type"`
-    Color string `json:"color"`
-    Style int    `json:"style"`
+    Type  string
+    Color string
+    Style int
 }
 ```
 
@@ -30,14 +30,17 @@ Font は直接フォントのフォント設定をマッピングします。
 
 ```go
 type Font struct {
-    Bold      bool    `json:"bold"`
-    Italic    bool    `json:"italic"`
-    Underline string  `json:"underline"`
-    Family    string  `json:"family"`
-    Size      float64 `json:"size"`
-    Strike    bool    `json:"strike"`
-    Color     string  `json:"color"`
-    VertAlign string `json:"vertAlign"`
+    Bold         bool
+    Italic       bool
+    Underline    string
+    Family       string
+    Size         float64
+    Strike       bool
+    Color        string
+    ColorIndexed int
+    ColorTheme   *int
+    ColorTint    float64
+    VertAlign    string
 }
 ```
 
@@ -45,10 +48,10 @@ Fill はセルの塗りつぶし設定を直接マップします。
 
 ```go
 type Fill struct {
-    Type    string   `json:"type"`
-    Pattern int      `json:"pattern"`
-    Color   []string `json:"color"`
-    Shading int      `json:"shading"`
+    Type    string
+    Pattern int
+    Color   []string
+    Shading int
 }
 ```
 
@@ -56,8 +59,8 @@ Protection は、セルの保護設定を直接マップします。
 
 ```go
 type Protection struct {
-    Hidden bool `json:"hidden"`
-    Locked bool `json:"locked"`
+    Hidden bool
+    Locked bool
 }
 ```
 
@@ -65,30 +68,38 @@ Style は、セルのスタイル設定を直接マップします。
 
 ```go
 type Style struct {
-    Border        []Border    `json:"border"`
-    Fill          Fill        `json:"fill"`
-    Font          *Font       `json:"font"`
-    Alignment     *Alignment  `json:"alignment"`
-    Protection    *Protection `json:"protection"`
-    NumFmt        int         `json:"number_format"`
-    DecimalPlaces int         `json:"decimal_places"`
-    CustomNumFmt  *string     `json:"custom_number_format"`
-    Lang          string      `json:"lang"`
-    NegRed        bool        `json:"negred"`
+    Border        []Border
+    Fill          Fill
+    Font          *Font
+    Alignment     *Alignment
+    Protection    *Protection
+    NumFmt        int
+    DecimalPlaces int
+    CustomNumFmt  *string
+    Lang          string
+    NegRed        bool
 }
 ```
 
 ## スタイルの作成 {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style interface{}) (int, error)
+func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle は、与えられた JSON 文字列または構造ポインタによってセルのスタイルを作成する関数を提供します。この関数は、同時実行セーフをサポートします。カラーフィールドは RGB カラーコードを使用することに注意してください。
+NewStyle は、指定されたスタイル オプションによってセルのスタイルを作成する関数を提供します。`Font.Color` フィールドは、`RRGGBB` 16 進表記で表される RGB カラーを使用することに注意してください。
 
 ### 枠 {#border}
 
-次に示すのは、excelize のインデックス番号で並べ替えられた境界線スタイルの `type` を示しています:
+次の表は、excelize でサポートされている `Border.Type` で使用される境界線の種類を示しています:
+
+タイプ|説明|タイプ|説明
+---|---|---|---
+left|左枠|top|上枠
+right|右枠|bottom|下枠
+linearDown|斜め下の境界線|diagonalUp|斜め上の境界線
+
+次の表は、excelize インデックス番号でサポートされている `Border.Style` で使用される境界線スタイルを示しています:
 
 インデックス|スタイル|ライン|プレビュー
 ---|---|---|---
@@ -107,7 +118,7 @@ NewStyle は、与えられた JSON 文字列または構造ポインタによ�
 12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
 13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
 
-Excel ダイアログに表示される順序の `borders` を次に示します:
+次の表は、`Border.Style` で使用される境界線スタイルを Excel ダイアログに表示される順序で示しています:
 
 Index|Preview|Index|Preview
 ---|---|---|---
@@ -121,7 +132,7 @@ Index|Preview|Index|Preview
 
 ### 色塗り {#shading}
 
-次に示すのは、Excel のインデックス番号で並べ替えられた `shading` スタイルです:
+次の表は、excelize インデックス番号でサポートされている `Fill.Shading` で使用されるシェーディング スタイルを示しています:
 
 インデックス|スタイル|インデックス|スタイル
 ---|---|---|---
@@ -131,7 +142,7 @@ Index|Preview|Index|Preview
 
 ### パターン塗りつぶし {#pattern}
 
-次に示すのは、excelize のインデックス番号で並べ替えられた `pattern` スタイルを示しています:
+次の表は、excelize インデックス番号でサポートされている `Fill.Pattern` で使用されるパターン スタイルを示しています:
 
 インデックス|スタイル|インデックス|スタイル
 ---|---|---|---
@@ -150,7 +161,7 @@ Index|Preview|Index|Preview
 
 #### 水平方向の位置合わせ
 
-セル内の `horizontal` の配置のタイプを次に示します:
+次の表は、`Alignment.Horizontal` で使用されるセルの水平方向の配置の種類を示しています:
 
 タイプ|スタイル
 ---|---
@@ -164,7 +175,7 @@ distributed|Decentralized alignment (indented)
 
 #### 垂直方向の位置合わせ
 
-セル内の `vertical` の位置合わせの次のタイプを次に示します:
+次の表は、`Alignment.Vertical` で使用されるセルの垂直方向の配置の種類を示しています:
 
 タイプ|スタイル
 ---|---
@@ -175,7 +186,7 @@ distributed|Decentralized alignment
 
 ### フォントの下線 {#underline}
 
-フォント `underline` スタイルの次のタイプ:
+次の表は、`Font.Underline` で使用されるフォントの下線スタイルのタイプを示しています:
 
 タイプ|スタイル
 ---|---
@@ -184,7 +195,7 @@ double|Double line
 
 ### デジタルカスタムフォーマット {#number_format}
 
-Excel のすべての言語形式 (`number_format` パラメーター) を次の表に示します:
+Excel の組み込みのすべての言語形式 (`Style.NumFmt` フィールド) を次の表に示します:
 
 インデックス|型
 ---|---
@@ -970,9 +981,21 @@ Excel のすべての言語形式 (`number_format` パラメーター) を次の
 
 ```go
 f := excelize.NewFile()
-f.SetCellValue("Sheet1", "A6", 42920.5)
+defer func() {
+    if err := f.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
+if err := f.SetCellValue("Sheet1", "A6", 42920.5); err != nil {
+    fmt.Println(err)
+    return
+}
 exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
 style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
@@ -1013,13 +1036,13 @@ SetRowStyle は、指定されたワークシート名、行範囲、および�
 たとえば、`Sheet1` の行1のスタイルを設定します:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 1, styleID)
+err := f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 `Sheet1` の行1から10のスタイルを設定します:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, styleID)
+err := f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## 既定のフォントを設定する {#SetDefaultFont}

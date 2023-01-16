@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## ワークシートインデックスを取得 {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex は、指定されたシート名でブックのシートインデックスを取得する関数を提供します。指定されたシート名が無効な場合、整数型の値 `-1` を返します。
@@ -151,7 +151,7 @@ GetSheetList は、ワークシート、チャートシート、およびワー�
 ## ワークシート名を設定 {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName は、指定された古いワークシート名と新しいワークシート名でワークシート名を設定する関数を提供します。シートのタイトルには最大 31 文字を使用できます。この関数はシートの名前を変更するだけで、セルに関連付けられた数式または参照のシート名は更新しません。そのため、問題の数式エラーまたは参照が欠落している可能性があります。
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## シートを保護する {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet は、他のユーザーがワークシート内のデータを誤ってまたは故意に変更、移動、または削除するのを防ぐ機能を提供します。 オプションのフィールド `AlgorithmName` で指定されたハッシュアルゴリズムは、XOR、MD4、MD5、SHA-1、SHA-256、SHA-384、および SHA-512 をサポートし、ハッシュアルゴリズムが指定されていない場合、デフォルトで XOR アルゴリズムを使用します。 たとえば、保護設定で `Sheet1` を保護します:
@@ -411,9 +411,11 @@ ProtectSheet は、他のユーザーがワークシート内のデータを誤�
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 

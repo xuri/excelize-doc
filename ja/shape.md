@@ -3,39 +3,35 @@
 ## 図形を追加する
 
 ```go
-func (f *File) AddShape(sheet, cell, opts string) error
+func (f *File) AddShape(sheet, cell string, opts *Shape) error
 ```
 
 指定したワークシート名、セル座標、およびスタイル (オフセット、ズーム、伸縮、縦横比、印刷プロパティなど) に基づいて、特定のセルに図形を追加します。たとえば、`Sheet1` という名前のワークシートにテキストボックス (四角形) を追加します:
 
 ```go
-err := f.AddShape("Sheet1", "G6", `{
-    "type": "rect",
-    "color":
-    {
-        "line": "#4286F4",
-        "fill": "#8eb9ff"
+lineWidth := 1.2
+err := f.AddShape("Sheet1", "G6",
+    &excelize.Shape{
+        Type:  "rect",
+        Color: excelize.ShapeColor{Line: "#4286f4", Fill: "#8eb9ff"},
+        Paragraph: []excelize.ShapeParagraph{
+            {
+                Text: "Rectangle Shape",
+                Font: excelize.Font{
+                    Bold:      true,
+                    Italic:    true,
+                    Family:    "Times New Roman",
+                    Size:      18,
+                    Color:     "#777777",
+                    Underline: "sng",
+                },
+            },
+        },
+        Width:  180,
+        Height: 40,
+        Line:   excelize.ShapeLine{Width: &lineWidth},
     },
-    "paragraph": [
-    {
-        "text": "Rectangle Shape",
-        "font":
-        {
-            "bold": true,
-            "italic": true,
-            "family": "Times New Roman",
-            "size": 36,
-            "color": "#777777",
-            "underline": "sng"
-        }
-    }],
-    "width": 180,
-    "height": 90,
-    "line":
-    {
-        "width": 1.5
-    }
-}`)
+)
 ```
 
 Excelize でサポートされているすべての図形を次に示します：
