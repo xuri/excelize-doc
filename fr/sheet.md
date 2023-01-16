@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Obtenir l'index de la feuille de calcul {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex fournit une fonction pour obtenir un index de feuille du classeur par le nom de feuille donné. Si le nom de feuille donné n'est pas valide, il renverra une valeur de type entier `-1`.
@@ -151,7 +151,7 @@ GetSheetList fournit une fonction pour obtenir les feuilles de calcul, les feuil
 ## Définir le nom de la feuille de calcul {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName fournit une fonction pour définir le nom de la feuille de calcul en fonction des anciens et nouveaux noms de feuille de calcul. Un maximum de 31 caractères sont autorisés dans le titre de la feuille et cette fonction ne modifie que le nom de la feuille et ne mettra pas à jour le nom de la feuille dans la formule ou la référence associée à la cellule. Il peut donc y avoir une erreur de formule ou une référence manquante.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Protéger la feuille {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet fournit une fonction pour empêcher d'autres utilisateurs de modifier, déplacer ou supprimer accidentellement ou délibérément des données dans une feuille de calcul. Le champ facultatif `AlgorithmName` spécifié l'algorithme de hachage, prend en charge XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 et SHA-512 actuellement, si aucun algorithme de hachage n'est spécifié, utilisera l'algorithme XOR par défaut. Par exemple, protégez `Sheet1` avec les paramètres de protection:
@@ -411,9 +411,11 @@ ProtectSheet fournit une fonction pour empêcher d'autres utilisateurs de modifi
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 

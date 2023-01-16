@@ -148,9 +148,12 @@ CopySheet fournit une fonction pour dupliquer une feuille de calcul en donnant l
 
 ```go
 // Sheet1 existe déjà...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## Feuilles de travail de groupe {#GroupSheets}
@@ -175,7 +178,13 @@ UngroupSheets fournit une fonction pour dissocier les feuilles de calcul.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground fournit une fonction pour définir l'image d'arrière-plan par nom de feuille de calcul donné.
+SetSheetBackground fournit une fonction pour définir l'image d'arrière-plan en fonction du nom de la feuille de calcul et du chemin d'accès au fichier. Types d'images pris en charge: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+SetSheetBackgroundFromBytes fournit une fonction pour définir l'image d'arrière-plan en fonction du nom de la feuille de calcul, du nom de l'extension et des données d'image. Types d'images pris en charge: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
 
 ## Définir la feuille de calcul par défaut {#SetActiveSheet}
 
@@ -696,7 +705,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 SetDefinedName fournit une fonction permettant de définir les noms définis du classeur ou de la feuille de calcul. S'il n'est pas spécifié scopr, l'étendue par défaut est classeur. Par exemple:
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +718,20 @@ Paramètres de la zone d'impression et des titres d'impression pour la feuille d
 <p align="center"><img width="695" src="./images/page_setup_01.png" alt="Paramètres de la zone d'impression et des titres d'impression pour la feuille de calcul"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Sheet1!$A$1:$Z$100",
     Scope:    "Sheet1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
     Scope:    "Sheet1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## Obtenir le nom défini {#GetDefinedName}
@@ -738,7 +751,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 DeleteDefinedName fournit une fonction pour supprimer les noms définis du classeur ou de la feuille de calcul. Si la portée n'est pas spécifiée, la portée par défaut est classeur. Par exemple:
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Sheet2",
 })
@@ -857,10 +870,10 @@ WorkbookProtectionOptions mappe directement les paramètres de protection du cla
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

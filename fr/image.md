@@ -3,7 +3,7 @@
 ## Ajouter une image {#AddPicture}
 
 ```go
-func (f *File) AddPicture(sheet, cell, picture, format string) error
+func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
 AddPicture fournit la méthode pour ajouter une image dans une feuille en fonction d'un format d'image donné (tel que le décalage, l'échelle, le paramètre de format d'image et les paramètres d'impression) et le chemin du fichier. Cette fonction est sécurisée pour la concurrence.
@@ -24,31 +24,44 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // Ajouter une image.
-    if err := f.AddPicture("Sheet1", "A2", "image.jpg", ""); err != nil {
+    if err := f.AddPicture("Sheet1", "A2", "image.png", nil); err != nil {
         fmt.Println(err)
+        return
     }
     // Insérer une mise à l'échelle de l'image dans la cellule avec un lien hypertexte.
-    if err := f.AddPicture("Sheet1", "D2", "image.png", `{
-        "x_scale": 0.5,
-        "y_scale": 0.5,
-        "hyperlink": "#Sheet2!D8",
-        "hyperlink_type": "Location"
-    }`); err != nil {
+    enable, disable := true, false
+    if err := f.AddPicture("Sheet1", "D2", "image.jpg",
+        &excelize.GraphicOptions{
+            ScaleX:        0.5,
+            ScaleY:        0.5,
+            Hyperlink:     "#Sheet2!D8",
+            HyperlinkType: "Location",
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     // Insérer un décalage d'image dans la cellule avec un lien hypertexte externe, un support d'impression et de positionnement.
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
-        "x_offset": 15,
-        "y_offset": 10,
-        "hyperlink": "https://github.com/xuri/excelize",
-        "hyperlink_type": "External",
-        "print_obj": true,
-        "lock_aspect_ratio": false,
-        "locked": false,
-        "positioning": "oneCell"
-    }`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif",
+        &excelize.GraphicOptions{
+            OffsetX:         15,
+            OffsetY:         10,
+            Hyperlink:       "https://github.com/xuri/excelize",
+            HyperlinkType:   "External",
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+            Positioning:     "oneCell",
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
@@ -56,30 +69,30 @@ func main() {
 }
 ```
 
-Le paramètre facultatif `autofit` spécifie si make image size auto s'adapte à la cellule, la valeur par défaut est `false`.
+Le paramètre facultatif `AutoFit` spécifie si make image size auto s'adapte à la cellule, la valeur par défaut est `false`.
 
-Le paramètre facultatif `hyperlink` spécifie le lien hypertexte de l'image.
+Le paramètre facultatif `Hyperlink` spécifie le lien hypertexte de l'image.
 
-Le paramètre facultatif `hyperlink_type` définit deux types de lien hypertexte `External` pour le site Web ou `Location` pour se déplacer vers l'une des cellules de ce classeur. Lorsque le `hyperlink_type` est `Location`, les coordonnées doivent commencer par `#`.
+Le paramètre facultatif `HyperlinkType` définit deux types de lien hypertexte `External` pour le site Web ou `Location` pour se déplacer vers l'une des cellules de ce classeur. Lorsque le `HyperlinkType` est `Location`, les coordonnées doivent commencer par `#`.
 
-Le paramètre facultatif `positioning` définit deux types de position d'une image dans une feuille de calcul Excel, `oneCell` (Déplacer mais ne pas dimensionner avec des cellules) ou `absolute` (Ne pas déplacer ou dimensionner avec des cellules). Si vous ne définissez pas ce paramètre, le positionnement par défaut est le déplacement et la taille avec les cellules.
+Le paramètre facultatif `Positioning` définit deux types de position d'une image dans une feuille de calcul Excel, `oneCell` (Déplacer mais ne pas dimensionner avec des cellules) ou `absolute` (Ne pas déplacer ou dimensionner avec des cellules). Si vous ne définissez pas ce paramètre, le positionnement par défaut est le déplacement et la taille avec les cellules.
 
-Le paramètre facultatif `print_obj` indique si l'image est imprimée lors de l'impression de la feuille de calcul, la valeur par défaut est `true`.
+Le paramètre facultatif `PrintObject` indique si l'image est imprimée lors de l'impression de la feuille de calcul, la valeur par défaut est `true`.
 
-Le paramètre optionnel `lock_aspect_ratio` indique si verrouiller le rapport hauteur/largeur de l'image, la valeur par défaut de celui-ci est `false`.
+Le paramètre optionnel `LockAspectRatio` indique si verrouiller le rapport hauteur/largeur de l'image, la valeur par défaut de celui-ci est `false`.
 
-Le paramètre optionnel `locked` indique si verrouiller l'image. Le verrouillage d'un objet n'a d'effet que si la feuille est protégée.
+Le paramètre optionnel `Locked` indique si verrouiller l'image. Le verrouillage d'un objet n'a d'effet que si la feuille est protégée.
 
-Le paramètre facultatif `x_offset` spécifie le décalage horizontal de l'image avec la cellule, la valeur par défaut est 0.
+Le paramètre facultatif `OffsetX` spécifie le décalage horizontal de l'image avec la cellule, la valeur par défaut est 0.
 
-Le paramètre facultatif `x_scale` spécifie l'échelle horizontale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+Le paramètre facultatif `ScaleX` spécifie l'échelle horizontale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
 
-Le paramètre facultatif `y_offset` spécifie le décalage vertical de l'image avec la cellule, la valeur par défaut est 0.
+Le paramètre facultatif `OffsetY` spécifie le décalage vertical de l'image avec la cellule, la valeur par défaut est 0.
 
-Le paramètre facultatif `y_scale` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+Le paramètre facultatif `ScaleY` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
 ```
 
 AddPictureFromBytes fournit la méthode pour ajouter une image dans une feuille selon le format d'image défini (décalage, échelle, paramètres de format et paramètres d'impression), la description textuelle, le nom de l'extension et le contenu du fichier dans le type `[]byte`.
@@ -90,6 +103,7 @@ Par exemple:
 package main
 
 import (
+    "fmt"
     _ "image/jpeg"
     "os"
 
@@ -98,13 +112,19 @@ import (
 
 func main() {
     f := excelize.NewFile()
-
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     file, err := os.ReadFile("image.jpg")
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)

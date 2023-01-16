@@ -14,54 +14,56 @@ import (
 )
 
 func main() {
-    categories := map[string]string{"A1": "Apple", "B1": "Orange", "C1": "Pear"}
-    values := map[string]int{"A2": 2, "B2": 3, "C2": 3}
     f := excelize.NewFile()
-    for k, v := range categories {
-        f.SetCellValue("Sheet1", k, v)
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
+    for idx, row := range [][]interface{}{
+        {"Apple", "Orange", "Pear"},
+        {2, 3, 3},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
+        }
+        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
     }
-    for k, v := range values {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    if err := f.AddChart("Sheet1", "E1", `{
-        "type": "doughnut",
-        "series": [
-        {
-            "name": "Sheet1!$A$2",
-            "categories": "Sheet1!$A$1:$C$1",
-            "values": "Sheet1!$A$2:$C$2"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
+    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+        Type: "doughnut",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Amount",
+                Categories: "Sheet1!$A$1:$C$1",
+                Values:     "Sheet1!$A$2:$C$2",
+            },
         },
-        "legend":
-        {
-            "position": "right",
-            "show_legend_key": false
+        Format: excelize.GraphicOptions{
+            OffsetX: 15,
+            OffsetY: 10,
         },
-        "title":
-        {
-            "name": "Fruit Doughnut Chart"
+        Legend: excelize.ChartLegend{
+            Position: "right",
         },
-        "plotarea":
-        {
-            "show_bubble_size": false,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": false,
-            "show_val": false
+        Title: excelize.ChartTitle{
+            Name: "Fruit Doughnut Chart",
         },
-        "show_blanks_as": "zero"
-    }`); err != nil {
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     false,
+            ShowVal:         false,
+        },
+        ShowBlanksAs: "zero",
+    }); err != nil {
         fmt.Println(err)
+        return
     }
     // Enregistrer le classeur
     if err := f.SaveAs("Book1.xlsx"); err != nil {

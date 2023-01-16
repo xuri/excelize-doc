@@ -290,6 +290,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
         fmt.Println(err)
         return
@@ -488,7 +493,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-L'index de style de cellule est obtenu à partir du nom de feuille de calcul donné et des coordonnées de cellule, et l'index obtenu peut être utilisé comme paramètre pour appeler la fonction `SetCellValue` lors de la copie du style de cellule.
+L'index de style de cellule est obtenu à partir du nom de feuille de calcul donné et des coordonnées de cellule, et l'index obtenu peut être utilisé comme paramètre pour appeler la fonction `SetCellStyle` lors de la copie du style de cellule.
 
 ## Fusionner les cellules {#MergeCell}
 
@@ -561,7 +566,7 @@ AddComment fournit la méthode pour ajouter un commentaire dans une feuille par 
 !["Ajouter un commentaire à un document Excel"](./images/comment.png "Ajouter un commentaire à un document Excel")
 
 ```go
-err := f.AddComment(sheet, excelize.Comment{
+err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
     Runs: []excelize.RichTextRun{
@@ -574,7 +579,7 @@ err := f.AddComment(sheet, excelize.Comment{
 ## Obtenir un commentaire {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 GetComments récupère tous les commentaires et renvoie une carte de nom de feuille de calcul dans les commentaires de feuille de calcul.
@@ -605,23 +610,23 @@ SetCellFormula fournit une fonction pour définir la formule sur la cellule en f
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Exemple 2, définissez la formule de tableau de constantes verticales unidimensionnelles (tableau de lignes) `1,2,3` pour la cellule `A3` sur `Sheet1`:
+- Exemple 2, définissez la formule de tableau de constantes verticales unidimensionnelles (tableau de colonnes) `1;2;3` pour la cellule `A3` sur `Sheet1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- Exemple 3, définissez la formule de tableau constant horizontal unidimensionnel (tableau de colonnes) `"a","b","c"` pour la cellule `A3` sur `Sheet1`:
+- Exemple 3, définissez la formule de tableau constant horizontal unidimensionnel (tableau de lignes) `"a","b","c"` pour la cellule `A3` sur `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Exemple 4, définissez la formule matricielle constante à deux dimensions `{1,2,"a","b"}` pour la cellule `A3` sur `Sheet1`:
+- Exemple 4, définissez la formule matricielle constante à deux dimensions `{1,2;"a","b"}` pour la cellule `A3` sur `Sheet1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -654,14 +659,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
         if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1", "C2",
-        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
+        Name: "Table1", StyleName: "TableStyleMedium2",
+    }); err != nil {
         fmt.Println(err)
         return
     }
