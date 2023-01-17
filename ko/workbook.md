@@ -148,9 +148,12 @@ func (f *File) CopySheet(from, to int) error
 
 ```go
 // Sheet1 이름이 있는 워크시트가 이미 있습니다 ...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## 그룹 워크시트 {#GroupSheets}
@@ -175,7 +178,13 @@ UngroupSheets 는 워크시트를 그룹 해제하는 기능을 제공합니다.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-지정 된 워크시트 이름과 그림 주소를 기준으로 지정한 워크시트에 대 한 타일 효과의 배경 그림을 설정 합니다.
+SetSheetBackground 는 주어진 워크시트 이름과 파일 경로로 배경 그림을 설정하는 기능을 제공합니다. 지원되는 이미지 유형: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ.
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+SetSheetBackgroundFromBytes 는 주어진 워크시트 이름, 확장자 이름 및 이미지 데이터로 배경 그림을 설정하는 기능을 제공합니다. 지원되는 이미지 유형: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ.
 
 ## 기본 워크 시트 설정 {#SetActiveSheet}
 
@@ -696,7 +705,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 지정된 이름과 범위를 기반으로 이름을 설정합니다. 기본 범위는 통합 문서입니다. 예:
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +718,20 @@ f.SetDefinedName(&excelize.DefinedName{
 <p align="center"><img width="628" src="./images/page_setup_01.png" alt="워크 시트의 인쇄 영역 및 인쇄 제목 설정"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Sheet1!$A$1:$Z$100",
     Scope:    "Sheet1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
     Scope:    "Sheet1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## 이름 가져 오기 {#GetDefinedName}
@@ -738,7 +751,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 DeleteDefinedName 은 통합 문서 또는 워크 시트의 정의 된 이름을 삭제하는 기능을 제공합니다. 범위를 지정하지 않으면 기본 범위는 통합 문서입니다. 예를 들면 다음과 같습니다:
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Sheet2",
 })
@@ -857,10 +870,10 @@ WorkbookProtectionOptions 는 통합 문서 보호 설정을 직접 매핑합니
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

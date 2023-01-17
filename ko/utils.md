@@ -3,7 +3,7 @@
 ## 양식 만들기 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, hCell, vCell, opts string) error
+func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
 ```
 
 AddTable 은 지정된 워크 시트 이름, 좌표 영역 및 형식 집합으로 워크 시트에 테이블을 추가하는 방법을 제공합니다.
@@ -13,7 +13,7 @@ AddTable 은 지정된 워크 시트 이름, 좌표 영역 및 형식 집합으�
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="양식 만들기"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1", "D5", ``)
+err := f.AddTable("Sheet1", "A1:D5", nil)
 ```
 
 - 예제 2, 형식 집합으로 `Sheet2` 에서 `F2:H6` 테이블을 만듭니다:
@@ -21,21 +21,22 @@ err := f.AddTable("Sheet1", "A1", "D5", ``)
 <p align="center"><img width="612" src="./images/addtable_02.png" alt="형식 집합으로 테이블 추가"></p>
 
 ```go
-err := f.AddTable("Sheet2", "F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 표는 머리글을 포함하여 두 줄 이상이어야합니다. 헤더 셀은 문자열을 포함해야하며 고유해야하며 AddTable 함수를 호출하기 전에 테이블의 헤더 행 데이터를 설정해야합니다. 여러 테이블은 교차점이없는 영역을 조정합니다.
 
-`table_name`: 테이블의 이름은 테이블의 동일한 워크시트 이름에서 고유해야 합니다.
+`Name`: 테이블의 이름은 테이블의 동일한 워크시트 이름에서 고유해야 합니다.
 
-`table_style`: 기본 제공 테이블 스타일 이름:
+`StyleName`: 기본 제공 테이블 스타일 이름:
 
 ```text
 TableStyleLight1 - TableStyleLight21
@@ -70,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 자동 필터 {#AutoFilter}
 
 ```go
-unc (f *File) AutoFilter(sheet, hCell, vCell, opts string) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 ```
 
 AutoFilter 는 지정된 워크시트 이름, 좌표 영역 및 설정으로 워크시트에 자동 필터를 추가하는 방법을 제공합니다. Excel 의 자동 필터는 몇 가지 간단한 기준에 따라 2D 데이터 범위를 필터링하는 방법입니다.
@@ -80,22 +81,24 @@ AutoFilter 는 지정된 워크시트 이름, 좌표 영역 및 설정으로 워
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="자동 필터 추가"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", "")
+err := f.AutoFilter("Sheet1", "A1:D4", nil)
 ```
 
 예제 2, 에서는 자동 필터에서 데이터를 필터링합니다:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1", "D4", `{"column":"B","expression":"x != blanks"}`)
+err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
+    Column: "B", Expression: "x != blanks",
+})
 ```
 
-`column` 은 간단한 기준에 따라 자동 필터 범위의 필터 열을 정의합니다.
+`Column` 은 간단한 기준에 따라 자동 필터 범위의 필터 열을 정의합니다.
 
 필터 조건을 지정하는 것만으로는 충분하지 않습니다. 필터 조건과 일치하지 않는 행도 숨겨야 합니다. 행은 [`SetRowVisible()`](sheet.md#SetRowVisible) 방법을 사용하여 숨김이 있습니다. Excelize 는 파일 형식의 일부가 아니므로 행을 자동으로 필터링할 수 없습니다.
 
 열에 대한 필터 기준 설정:
 
-`expression` 은 조건을 정의하며, 필터 조건을 설정하는 데 다음 연산자가 사용할 수 있습니다:
+`Expression` 은 조건을 정의하며, 필터 조건을 설정하는 데 다음 연산자가 사용할 수 있습니다:
 
 ```text
 ==
@@ -248,7 +251,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ## 조건 스타일 {#NewConditionalStyle}
 
 ```go
-func (f *File) NewConditionalStyle(style string) (int, error)
+func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle 지정된 스타일 형식에 의해 조건부 형식에 대 한 스타일을 만드는 함수를 제공 합니다. 매개 변수는 함수 [`NewStyle`](style.md#NewStyle) 와 동일합니다. 색상 필드는 RGB 색상 코드를 사용하고 현재 글꼴, 채우기, 정렬 및 테두리를 설정하기 위해 지원만 사용합니다.
@@ -256,12 +259,12 @@ NewConditionalStyle 지정된 스타일 형식에 의해 조건부 형식에 대
 ## 조건 형식 {#SetConditionalFormat}
 
 ```go
-func (f *File) SetConditionalFormat(sheet, reference, opts string) error
+func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFormatOptions) error
 ```
 
 SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만드는 함수를 제공합니다. 조건부 서식지정은 특정 기준에 따라 셀 또는 셀 범위에 형식을 적용할 수 있는 Office Excel 의 기능입니다.
 
-`type` 옵션은 필수 매개 변수이며 기본값이 없습니다. 허용 형식 값과 관련 매개 변수는 다음과 같습니다:
+`Type` 옵션은 필수 매개 변수이며 기본값이 없습니다. 허용 형식 값과 관련 매개 변수는 다음과 같습니다:
 
 <table>
     <thead>
@@ -273,44 +276,44 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
     <tbody>
         <tr>
             <td rowspan=4>cell</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
-            <td>minimum</td>
+            <td>Minimum</td>
         </tr>
         <tr>
-            <td>maximum</td>
+            <td>Maximum</td>
         </tr>
         <tr>
             <td>time_period</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td rowspan=2>text</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>average</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
             <td>duplicate</td>
@@ -322,17 +325,17 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
         </tr>
         <tr>
             <td rowspan=2>top</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td rowspan=2>bottom</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
         <tr>
-            <td>value</td>
+            <td>Value</td>
         </tr>
         <tr>
             <td>blanks</td>
@@ -352,75 +355,75 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
         </tr>
         <tr>
             <td rowspan=6>2_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=9>3_color_scale</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>mid_type</td>
+            <td>MidType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>mid_value</td>
+            <td>MidValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>min_color</td>
+            <td>MinColor</td>
         </tr>
         <tr>
-            <td>mid_color</td>
+            <td>MidColor</td>
         </tr>
         <tr>
-            <td>max_color</td>
+            <td>MaxColor</td>
         </tr>
         <tr>
             <td rowspan=5>data_bar</td>
-            <td>min_type</td>
+            <td>MinType</td>
         </tr>
         <tr>
-            <td>max_type</td>
+            <td>MaxType</td>
         </tr>
         <tr>
-            <td>min_value</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>max_value</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
-            <td>bar_color</td>
+            <td>BarColor</td>
         </tr>
         <tr>
             <td>formula</td>
-            <td>criteria</td>
+            <td>Criteria</td>
         </tr>
     </tbody>
 </table>
 
-`criteria` 매개 변수는 셀 데이터가 평가되는 기준을 설정하는 데 사용됩니다. 기본값이 없습니다. `{"type": "cell}` 에 적용되는 가장 일반적인 기준은 다음과 같습니다:
+`Criteria` 매개 변수는 셀 데이터가 평가되는 기준을 설정하는 데 사용됩니다. 기본값이 없습니다. `excelize.ConditionalFormatOptions{Type: "cell"}` 에 적용되는 가장 일반적인 기준은 다음과 같습니다:
 
 텍스트 설명 문자|기호 표현
 ---|---
@@ -437,55 +440,55 @@ less than or equal to|<=
 
 다른 조건부 형식 유형과 관련된 추가 기준은 아래 관련 섹션에 나와 있습니다.
 
-`value`: 값은 일반적으로 `criteria` 매개 변수와 함께 사용되어 셀 데이터가 평가되는 규칙을 설정합니다:
+`Value`: 값은 일반적으로 `Criteria` 매개 변수와 함께 사용되어 셀 데이터가 평가되는 규칙을 설정합니다:
 
 ```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
-```
-
-`value` 속성은 셀 참조일 수도 있습니다:
-
-```go
-f.SetConditionalFormat("Sheet1", "D1:D10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "$C$1"
-}]`, format))
-```
-
-type: `format` - 조건부 서식 기준이 충족될 때 셀에 적용되는 형식을 지정하는 데 `format` 매개 변수가 사용됩니다. 형식은 셀 형식과 동일한 방식으로 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 메서드를 사용하여 만들어집니다:
-
-```go
-format, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "6",
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
+```
+
+`Value` 속성은 셀 참조일 수도 있습니다:
+
+```go
+err := f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: ">",
+            Format:   format,
+            Value:    "$C$1",
+        },
+    },
+)
+```
+
+type: `Format` - 조건부 서식 기준이 충족될 때 셀에 적용되는 형식을 지정하는 데 `Format` 매개 변수가 사용됩니다. 형식은 셀 형식과 동일한 방식으로 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 메서드를 사용하여 만들어집니다:
+
+```go
+format, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
+    },
+)
 if err != nil {
     fmt.Println(err)
 }
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": ">",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err = f.SetConditionalFormat("Sheet1", "D1:D10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "cell", Criteria: ">", Format: format, Value: "6"},
+    },
+)
 ```
 
 참고: Excel 에서 조건부 형식은 기존 셀 형식 위에 중첩되며 모든 셀 형식 속성을 수정할 수 있는 것은 아닙니다. 조건부 형식으로 수정할 수 없는 속성은 글꼴 이름, 글꼴 크기, 초중문자 및 하위 스크립트, 대각선 테두리, 모든 정렬 속성 및 모든 보호 속성입니다.
@@ -494,304 +497,327 @@ Excel 은 조건부 서식에 사용할 일부 기본 형식을 지정합니다.
 
 ```go
 // 나쁜 조건부 장미 형식입니다.
-format1, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9A0511"
+format1, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9A0511"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEC7CE"],
-        "pattern": 1
-    }
-}`)
+)
 
 // 중립 조건부에 대한 밝은 노란색 형식입니다.
-format2, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#9B5713"
+format2, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#9B5713"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#FEEAA0"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#FEEAA0"],
-        "pattern": 1
-    }
-}`)
+)
 
 // 좋은 조건부에 대한 밝은 녹색 형식입니다.
-format3, err = f.NewConditionalStyle(`{
-    "font":
-    {
-        "color": "#09600B"
+format3, err := f.NewConditionalStyle(
+    &excelize.Style{
+        Font: &excelize.Font{Color: "#09600B"},
+        Fill: excelize.Fill{
+            Type: "pattern", Color: []string{"#C7EECF"}, Pattern: 1,
+        },
     },
-    "fill":
-    {
-        "type": "pattern",
-        "color": ["#C7EECF"],
-        "pattern": 1
-    }
-}`)
+)
 ```
 
-type: `minimum` - 최소 매개변수는 `criteria` 가 `between` 또는 `not between` 일 때 하한 값을 설정하는 데 사용됩니다.
+type: `Minimum` - 최소 매개변수는 `Criteria` 가 `between` 또는 `not between` 일 때 하한 값을 설정하는 데 사용됩니다.
 
 ```go
 // Highlight cells rules: between...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "cell",
-    "criteria": "between",
-    "format": %d,
-    "minimum": "6",
-    "maximum": "8"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "cell",
+            Criteria: "between",
+            Format:   format,
+            Minimum:  "6",
+            Maximum:  "8",
+        },
+    },
+)
 ```
 
-type: `maximum` - `maximum` 매개변수는 기준이 `between` 또는 `not between` 일 때 상한 값을 설정하는 데 사용됩니다. 이전 예제를 참조하십시오.
+type: `Maximum` - `maximum` 매개변수는 기준이 `between` 또는 `not between` 일 때 상한 값을 설정하는 데 사용됩니다. 이전 예제를 참조하십시오.
 
 type: `average` - `average` 형식은 Office Excel 의 "Average" 스타일 조건부 형식을 지정하는 데 사용됩니다.
 
 ```go
 // Top/Bottom rules: Above Average...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": true
-}]`, format1))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format1,
+            AboveAverage: true,
+        },
+    },
+)
 
 // Top/Bottom rules: Below Average...
-f.SetConditionalFormat("Sheet1", "B1:B10", fmt.Sprintf(`[
-{
-    "type": "average",
-    "criteria": "=",
-    "format": %d,
-    "above_average": false
-}]`, format2))
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:         "average",
+            Criteria:     "=",
+            Format:       format2,
+            AboveAverage: false,
+        },
+    },
+)
 ```
 
 type: `duplicate` - `duplicate` 유형은 범위의 중복 셀을 강조 표시하는 데 사용됩니다:
 
 ```go
 // Highlight cells rules: Duplicate Values...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "duplicate",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "duplicate", Criteria: "=", Format: format},
+    },
+)
 ```
 
 type: `unique` - 고유 유형은 범위의 고유한 셀을 강조 표시하는 데 사용됩니다:
 
 ```go
 // Highlight cells rules: Not Equal To...
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "unique",
-    "criteria": "=",
-    "format": %d
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {Type: "unique", Criteria: "=", Format: format},
+    },
+)
 ```
 
 type: `top` - `top` 형식은 범위의 숫자 또는 백분율로 상위 n 값을 지정하는 데 사용됩니다:
 
 ```go
 // Top/Bottom rules: Top 10.
-f.SetConditionalFormat("Sheet1", "H1:H10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6"
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "H1:H10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+        },
+    },
+)
 ```
 
 기준은 백분율 조건이 필요하다는 것을 나타내는 데 사용할 수 있습니다:
 
 ```go
-f.SetConditionalFormat("Sheet1", "A1:A10", fmt.Sprintf(`[
-{
-    "type": "top",
-    "criteria": "=",
-    "format": %d,
-    "value": "6",
-    "percent": true
-}]`, format))
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "top",
+            Criteria: "=",
+            Format:   format,
+            Value:    "6",
+            Percent:  true,
+        },
+    },
+)
 ```
 
 type: `2_color_scale` - `2_color_scale` 형식은 Excel의 "2 색 배율" 스타일 조건부 형식을 지정하는 데 사용됩니다:
 
 ```go
 // Color scales: 2 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "2_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "2_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-이 조건부 형식은 `min_type`, `max_type`, `min_value`, `max_value`, `min_color` 및 `max_color` 로 수정할 수 있습니다. 아래를 참조하십시오.
+이 조건부 형식은 `MinType`, `MaxType`, `MinValue`, `MaxValue`, `MinColor` 및 `MaxColor` 로 수정할 수 있습니다. 아래를 참조하십시오.
 
 type: `3_color_scale` - `3_color_scale` 형식은 Excel 의 "3 색 배율" 스타일 조건부 형식을 지정하는 데 사용됩니다:
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "A1:A10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "A1:A10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-이 조건부 형식은 `min_type`, `mid_type`, `max_type`, `min_value`, `mid_value`, `max_value`, `min_color`, `mid_color` 및 `max_color` 로 수정할 수 있습니다. 아래를 참조하십시오.
+이 조건부 형식은 `MinType`, `MidType`, `MaxType`, `MinValue`, `MidValue`, `MaxValue`, `MinColor`, `MidColor` 및 `MaxColor` 로 수정할 수 있습니다. 아래를 참조하십시오.
 
 type: `data_bar` - `data_bar` 형식은 Excel 의 "Data Bar" 스타일 조건부 형식을 지정하는 데 사용됩니다.
 
-`min_type` - `min_type` 및 `max_type` 속성은 조건부 서식 지정 유형이 `2_color_scale`, `3_color_scale` 또는 `data_bar` 인 경우에 사용할 수 있습니다. `mid_type` 은 `3_color_scale` 에서 사용할 수 있습니다. 속성은 다음과 같이 사용됩니다:
+`MinType` - `MinType` 및 `MaxType` 속성은 조건부 서식 지정 유형이 `2_color_scale`, `3_color_scale` 또는 `data_bar` 인 경우에 사용할 수 있습니다. `MidType` 은 `3_color_scale` 에서 사용할 수 있습니다. 속성은 다음과 같이 사용됩니다:
 
 ```go
 // Data Bars: Gradient Fill.
-f.SetConditionalFormat("Sheet1", "K1:K10", `[
-{
-    "type": "data_bar",
-    "criteria": "=",
-    "min_type": "min",
-    "max_type": "max",
-    "bar_color": "#638EC6"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "K1:K10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "data_bar",
+            Criteria: "=",
+            MinType:  "min",
+            MaxType:  "max",
+            BarColor: "#638EC6",
+        },
+    },
+)
 ```
 
 사용 가능한 `min/mid/max` 유형은 다음과 같습니다:
 
 매개 변수|설명
 ---|---
-min|Minimum value (for `min_type` only)
+min|Minimum value (for `MinType` only)
 num|Numeric
 percent|Percentage
 percentile|Percentile
 formula|Formula
-max|Maximum (for `max_type` only)
+max|Maximum (for `MaxType` only)
 
-`mid_type` - `3_color_scale` 에 사용. `min_type` 와 동일, 위의 참조.
+`MidType` - `3_color_scale` 에 사용. `MinType` 와 동일, 위의 참조.
 
-`max_type` - `min_type` 와 동일, 위의 참조.
+`MaxType` - `MinType` 와 동일, 위의 참조.
 
-`min_value` - The `min_value` and `max_value` properties are available when the conditional formatting type is `2_color_scale`, `3_color_scale` or `data_bar`. The `mid_value` is available for `3_color_scale`.
+`MinValue` - The `MinValue` and `MaxValue` properties are available when the conditional formatting type is `2_color_scale`, `3_color_scale` or `data_bar`. The `MidValue` is available for `3_color_scale`.
 
-`mid_value` - `3_color_scale` 에 사용. `min_value` 와 동일, 위의 참조.
+`MidValue` - `3_color_scale` 에 사용. `MinValue` 와 동일, 위의 참조.
 
-`max_value` - `min_value` 와 동일, 위의 참조.
+`MaxValue` - `MinValue` 와 동일, 위의 참조.
 
-`min_color` - 조건부 서식 지정 유형이 `2_color_scale`, `3_color_scale` 또는 `data_bar` 인 경우 `min_color` 및 `max_color` 속성을 사용할 수 있습니다. `mid_color` 는 `3_color_scale` 에서 사용할 수 있습니다. 속성은 다음과 같이 사용됩니다.
+`MinColor` - 조건부 서식 지정 유형이 `2_color_scale`, `3_color_scale` 또는 `data_bar` 인 경우 `MinColor` 및 `MaxColor` 속성을 사용할 수 있습니다. `MidColor` 는 `3_color_scale` 에서 사용할 수 있습니다. 속성은 다음과 같이 사용됩니다.
 
 ```go
 // Color scales: 3 color.
-f.SetConditionalFormat("Sheet1", "B1:B10", `[
-{
-    "type": "3_color_scale",
-    "criteria": "=",
-    "min_type": "min",
-    "mid_type": "percentile",
-    "max_type": "max",
-    "min_color": "#F8696B",
-    "mid_color": "#FFEB84",
-    "max_color": "#63BE7B"
-}]`)
+err := f.SetConditionalFormat("Sheet1", "B1:B10",
+    []excelize.ConditionalFormatOptions{
+        {
+            Type:     "3_color_scale",
+            Criteria: "=",
+            MinType:  "min",
+            MidType:  "percentile",
+            MaxType:  "max",
+            MinColor: "#F8696B",
+            MidColor: "#FFEB84",
+            MaxColor: "#63BE7B",
+        },
+    },
+)
 ```
 
-`mid_color` - `3_color_scale` 에 사용. `min_color` 와 동일, 위의 참조.
+`MidColor` - `3_color_scale` 에 사용. `MinColor` 와 동일, 위의 참조.
 
-`max_color` - `min_color` 와 동일, 위의 참조.
+`MaxColor` - `MinColor` 와 동일, 위의 참조.
 
-`bar_color` - `data_bar` 에 사용. `min_color` 와 동일, 위의 참조.
+`BarColor` - `data_bar` 에 사용. `MinColor` 와 동일, 위의 참조.
 
 예를 들어 `Sheet1` 에 조건부 서식을 설정하여 `A1:D4` 셀 범위에서 가장 높은 값과 가장 낮은 값을 강조 표시합니다:
 
 <p align="center"><img width="886" src="./images/condition_format_01.png" alt="셀 범위에서 조건부 서식 설정"></p>
 
 ```go
-package main
-
-import (
-    "fmt"
-    "math/rand"
-
-    "github.com/xuri/excelize/v2"
-)
-
 func main() {
     f := excelize.NewFile()
-    for r := 1; r <= 4; r++ {
-        row := []int{rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100)}
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+    defer func() {
+        if err := f.Close(); err != nil {
             fmt.Println(err)
         }
-    }
-    red, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#9A0511"
-        },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#FEC7CE"],
-            "pattern": 1
+    }()
+    for r := 1; r <= 4; r++ {
+        row := []int{
+            rand.Intn(100), rand.Intn(100), rand.Intn(100), rand.Intn(100),
         }
-    }`)
+        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", r), &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    red, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#9A0511",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#FEC7CE"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "bottom",
-            "criteria": "=",
-            "value": "1",
-            "format": %d
-        }]`, red)); err != nil {
-        fmt.Println(err)
-    }
-    green, err := f.NewConditionalStyle(`{
-        "font":
-        {
-            "color": "#09600B"
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "bottom",
+                Criteria: "=",
+                Value:    "1",
+                Format:   red,
+            },
         },
-        "fill":
-        {
-            "type": "pattern",
-            "color": ["#C7EECF"],
-            "pattern": 1
-        }
-    }`)
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
+    green, err := f.NewConditionalStyle(
+        &excelize.Style{
+            Font: &excelize.Font{
+                Color: "#09600B",
+            },
+            Fill: excelize.Fill{
+                Type:    "pattern",
+                Color:   []string{"#C7EECF"},
+                Pattern: 1,
+            },
+        },
+    )
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.SetConditionalFormat("Sheet1", "A1:D4", fmt.Sprintf(`[
-        {
-            "type": "top",
-            "criteria":"=",
-            "value":"1",
-            "format": %d
-        }]`, green)); err != nil {
+    if err := f.SetConditionalFormat("Sheet1", "A1:D4",
+        []excelize.ConditionalFormatOptions{
+            {
+                Type:     "top",
+                Criteria: "=",
+                Value:    "1",
+                Format:   green,
+            },
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
+        return
     }
 }
 ```
@@ -807,7 +833,7 @@ GetConditionalFormats 는 주어진 워크시트 이름으로 조건부 서식 �
 ## 조건부 서식을 제거합니다 {#UnsetConditionalFormat}
 
 ```go
-func (f *File) UnsetConditionalFormat(sheet, reference string) error
+func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 ```
 
 UnsetConditionalFormat 은 주어진 워크 시트 이름과 범위에 따라 조건부 서식을 설정 해제하는 기능을 제공합니다.
@@ -815,12 +841,12 @@ UnsetConditionalFormat 은 주어진 워크 시트 이름과 범위에 따라 �
 ## 설정 창 {#SetPanes}
 
 ```go
-func (f *File) SetPanes(sheet, panes string)
+func (f *File) SetPanes(sheet string, panes *Panes) error
 ```
 
 SetPanes 는 지정된 워크 시트 이름과 창 형식 집합으로 동결 창 및 분할 창을 만들고 제거하는 기능을 제공합니다.
 
-`activePane` 는 활성 창을 정의합니다. 이 특성에 대한 가능한 값은 다음 표에 정의되어 있습니다:
+`ActivePane` 는 활성 창을 정의합니다. 이 특성에 대한 가능한 값은 다음 표에 정의되어 있습니다:
 
 열거 가치|설명
 ---|---
@@ -836,33 +862,30 @@ topRight (Top Right Pane)|수직 및 수평 분할이 모두 적용되는 오른
 frozen (Frozen)|창은 고정되지만 분할되지 않았습니다. 이 상태에서 창이 다시 고정해제되면 분할 없이 단일 창이 생성됩니다.<br><br>이 상태에서분할 막대는 조정할 수 없습니다.
 split (Split)|창은 분할되지만 고정되지는 않습니다. 이 상태에서 분할 막대는 사용자가 조정할 수 있습니다.
 
-`x_split` - 분할의 수평 위치, 점의 1/20 에서; 0 이 없는 경우. 창이 고정된 경우 이 값은 위쪽 창에 표시되는 열 수를 나타냅니다.
+`XSplit` - 분할의 수평 위치, 점의 1/20 에서; 0 이 없는 경우. 창이 고정된 경우 이 값은 위쪽 창에 표시되는 열 수를 나타냅니다.
 
-`y_split` - 분할의 수직 위치, 점의 1/20 에서; 0 이 없는 경우. 창이 고정되면 이 값은 왼쪽 창에 표시되는 행 수를 나타냅니다. 이 특성에 대한 가능한 값은 W3C XML 스키마 이중 데이터 입력에 의해 정의됩니다.
+`YSplit` - 분할의 수직 위치, 점의 1/20 에서; 0 이 없는 경우. 창이 고정되면 이 값은 왼쪽 창에 표시되는 행 수를 나타냅니다. 이 특성에 대한 가능한 값은 W3C XML 스키마 이중 데이터 입력에 의해 정의됩니다.
 
-`top_left_cell` - 오른쪽 하단 창에서 왼쪽 상단 셀의 위치 (왼쪽에서 오른쪽으로 이동).
+`TopLeftCell` - 오른쪽 하단 창에서 왼쪽 상단 셀의 위치 (왼쪽에서 오른쪽으로 이동).
 
-`sqref` - 선택 영역의 범위입니다. 비 연속 범위 집합일 수 있습니다.
+`SQRef` - 선택 영역의 범위입니다. 비 연속 범위 집합일 수 있습니다.
 
 예 1: `Sheet1` 에서 열 `A` 를 고정하고 활성 셀을 `Sheet1!K16` 로 설정합니다:
 
 <p align="center"><img width="770" src="./images/setpans_01.png" alt="고정 된 열"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 1,
-    "y_split": 0,
-    "top_left_cell": "B1",
-    "active_pane": "topRight",
-    "panes": [
-    {
-        "sqref": "K16",
-        "active_cell": "K16",
-        "pane": "topRight"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      1,
+    YSplit:      0,
+    TopLeftCell: "B1",
+    ActivePane:  "topRight",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "K16", ActiveCell: "K16", Pane: "topRight"},
+    },
+})
 ```
 
 예 2: Sheet1 에서 행 1 - 9 행을 고정하고 `Sheet1!A11:XFD11` 에서 활성 셀 범위를 설정합니다:
@@ -870,20 +893,17 @@ f.SetPanes("Sheet1", `{
 <p align="center"><img width="770" src="./images/setpans_02.png" alt="열을 고정하고 활성 셀 범위를 설정합니다"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": true,
-    "split": false,
-    "x_split": 0,
-    "y_split": 9,
-    "top_left_cell": "A34",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "A11:XFD11",
-        "active_cell": "A11",
-        "pane": "bottomLeft"
-    }]
-}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      true,
+    Split:       false,
+    XSplit:      0,
+    YSplit:      9,
+    TopLeftCell: "A34",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "A11:XFD11", ActiveCell: "A11", Pane: "bottomLeft"},
+    },
+})
 ```
 
 예 3: `Sheet1` 에서 분할 창을 만들고 `Sheet1!J60` 에서 활성 셀을 설정합니다:
@@ -891,40 +911,26 @@ f.SetPanes("Sheet1", `{
 <p align="center"><img width="775" src="./images/setpans_03.png" alt="분할 창 만들기"></p>
 
 ```go
-f.SetPanes("Sheet1", `{
-    "freeze": false,
-    "split": true,
-    "x_split": 3270,
-    "y_split": 1800,
-    "top_left_cell": "N57",
-    "active_pane": "bottomLeft",
-    "panes": [
-    {
-        "sqref": "I36",
-        "active_cell": "I36"
+err := f.SetPanes("Sheet1", &excelize.Panes{
+    Freeze:      false,
+    Split:       true,
+    XSplit:      3270,
+    YSplit:      1800,
+    TopLeftCell: "N57",
+    ActivePane:  "bottomLeft",
+    Panes: []excelize.PaneOptions{
+        {SQRef: "I36", ActiveCell: "I36"},
+        {SQRef: "G33", ActiveCell: "G33", Pane: "topRight"},
+        {SQRef: "J60", ActiveCell: "J60", Pane: "bottomLeft"},
+        {SQRef: "O60", ActiveCell: "O60", Pane: "bottomRight"},
     },
-    {
-        "sqref": "G33",
-        "active_cell": "G33",
-        "pane": "topRight"
-    },
-    {
-        "sqref": "J60",
-        "active_cell": "J60",
-        "pane": "bottomLeft"
-    },
-    {
-        "sqref": "O60",
-        "active_cell": "O60",
-        "pane": "bottomRight"
-    }]
-}`)
+})
 ```
 
 예 4, 고정을 해제 하 고 `Sheet1` 에 있는 모든 창을 제거:
 
 ```go
-f.SetPanes("Sheet1", `{"freeze":false,"split":false}`)
+err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
 ## 색상 값 계산 {#ThemeColor}

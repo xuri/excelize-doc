@@ -96,6 +96,10 @@ var (
     ErrSheetNameBlank = errors.New("the sheet name can not be blank")
     // ErrSheetNameLength 는 시트 이름 길이가 제한을 초과할 때 오류 메시지를 정의했습니다
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrUnprotectWorkbook 이 통합 문서의 오류 메시지를 정의하여 보호를 설정하지 않았습니다
+    ErrUnprotectWorkbook = errors.New("workbook has set no protect")
+    // ErrUnprotectWorkbookPassword 는 암호 확인 실패로 통합 문서 보호 제거에 대한 오류 메시지를 정의했습니다
+    ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
 )
 ```
 

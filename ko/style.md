@@ -4,15 +4,15 @@ Alignment 는 셀의 맞춤 설정을 직접 매핑합니다.
 
 ```go
 type Alignment struct {
-    Horizontal      string `json:"horizontal"`
-    Indent          int    `json:"indent"`
-    JustifyLastLine bool   `json:"justify_last_line"`
-    ReadingOrder    uint64 `json:"reading_order"`
-    RelativeIndent  int    `json:"relative_indent"`
-    ShrinkToFit     bool   `json:"shrink_to_fit"`
-    TextRotation    int    `json:"text_rotation"`
-    Vertical        string `json:"vertical"`
-    WrapText        bool   `json:"wrap_text"`
+    Horizontal      string
+    Indent          int
+    JustifyLastLine bool
+    ReadingOrder    uint64
+    RelativeIndent  int
+    ShrinkToFit     bool
+    TextRotation    int
+    Vertical        string
+    WrapText        bool
 }
 ```
 
@@ -20,9 +20,9 @@ Border directly maps the border settings of the cells.
 
 ```go
 type Border struct {
-    Type  string `json:"type"`
-    Color string `json:"color"`
-    Style int    `json:"style"`
+    Type  string
+    Color string
+    Style int
 }
 ```
 
@@ -30,17 +30,17 @@ Font 는 글꼴의 글꼴 설정을 직접 매핑합니다.
 
 ```go
 type Font struct {
-    Bold         bool    `json:"bold"`
-    Italic       bool    `json:"italic"`
-    Underline    string  `json:"underline"`
-    Family       string  `json:"family"`
-    Size         float64 `json:"size"`
-    Strike       bool    `json:"strike"`
-    Color        string  `json:"color"`
-    ColorIndexed int     `json:"color_indexed"`
-    ColorTheme   *int    `json:"color_theme"`
-    ColorTint    float64 `json:"color_tint"`
-    VertAlign    string  `json:"vertAlign"`
+    Bold         bool
+    Italic       bool
+    Underline    string
+    Family       string
+    Size         float64
+    Strike       bool
+    Color        string
+    ColorIndexed int
+    ColorTheme   *int
+    ColorTint    float64
+    VertAlign    string
 }
 ```
 
@@ -48,10 +48,10 @@ Fill 는 셀의 채우기 설정을 직접 매핑합니다.
 
 ```go
 type Fill struct {
-    Type    string   `json:"type"`
-    Pattern int      `json:"pattern"`
-    Color   []string `json:"color"`
-    Shading int      `json:"shading"`
+    Type    string
+    Pattern int
+    Color   []string
+    Shading int
 }
 ```
 
@@ -59,8 +59,8 @@ Protection 는 셀의 보호 설정을 직접 매핑합니다.
 
 ```go
 type Protection struct {
-    Hidden bool `json:"hidden"`
-    Locked bool `json:"locked"`
+    Hidden bool
+    Locked bool
 }
 ```
 
@@ -68,26 +68,26 @@ Style 는 셀의 스타일 설정을 직접 매핑합니다.
 
 ```go
 type Style struct {
-    Border        []Border    `json:"border"`
-    Fill          Fill        `json:"fill"`
-    Font          *Font       `json:"font"`
-    Alignment     *Alignment  `json:"alignment"`
-    Protection    *Protection `json:"protection"`
-    NumFmt        int         `json:"number_format"`
-    DecimalPlaces int         `json:"decimal_places"`
-    CustomNumFmt  *string     `json:"custom_number_format"`
-    Lang          string      `json:"lang"`
-    NegRed        bool        `json:"negred"`
+    Border        []Border
+    Fill          Fill
+    Font          *Font
+    Alignment     *Alignment
+    Protection    *Protection
+    NumFmt        int
+    DecimalPlaces int
+    CustomNumFmt  *string
+    Lang          string
+    NegRed        bool
 }
 ```
 
 ## 스타일 만들기 {#NewStyle}
 
 ```go
-func (f *File) NewStyle(style interface{}) (int, error)
+func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle 은 지정된 JSON 문자열 또는 구조 포인터로 셀 스타일을 만드는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. `Font.Color` 필드는 `RRGGBB` 16진수 표기법으로 표현되는 RGB 색상을 사용합니다.
+NewStyle 은 주어진 스타일 옵션으로 셀의 스타일을 생성하는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. `Font.Color` 필드는 `RRGGBB` 16진수 표기법으로 표현되는 RGB 색상을 사용합니다.
 
 ### 테두리 {#border}
 
@@ -981,9 +981,21 @@ Excelize 기본 제공 통화 형식은 다음 표에 표시되며 다음 표에
 
 ```go
 f := excelize.NewFile()
-f.SetCellValue("Sheet1", "A6", 42920.5)
+defer func() {
+    if err := f.Close(); err != nil {
+        fmt.Println(err)
+    }
+}()
+if err := f.SetCellValue("Sheet1", "A6", 42920.5); err != nil {
+    fmt.Println(err)
+    return
+}
 exp := "[$-380A]dddd\\,\\ dd\" de \"mmmm\" de \"yyyy;@"
 style, err := f.NewStyle(&excelize.Style{CustomNumFmt: &exp})
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 ```
 
@@ -1024,13 +1036,13 @@ SetRowStyle 은 주어진 워크시트 이름, 행 범위 및 스타일 ID 로 �
 예를 들어 `Sheet1` 에서 행 1의 스타일을 설정합니다:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 1, styleID)
+err := f.SetRowStyle("Sheet1", 1, 1, styleID)
 ```
 
 `Sheet1` 에서 행 1 - 10 의 스타일 설정:
 
 ```go
-err = f.SetRowStyle("Sheet1", 1, 10, styleID)
+err := f.SetRowStyle("Sheet1", 1, 10, styleID)
 ```
 
 ## 기본 글꼴 설정 {#SetDefaultFont}

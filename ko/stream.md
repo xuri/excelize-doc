@@ -50,10 +50,12 @@ defer func() {
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
+    return
 }
 styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
+    return
 }
 if err := streamWriter.SetRow("A1",
     []interface{}{
@@ -65,6 +67,7 @@ if err := streamWriter.SetRow("A1",
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
     fmt.Println(err)
+    return
 }
 for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
@@ -74,10 +77,12 @@ for rowID := 2; rowID <= 102400; rowID++ {
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
     if err := streamWriter.SetRow(cell, row); err != nil {
         fmt.Println(err)
+        return
     }
 }
 if err := streamWriter.Flush(); err != nil {
     fmt.Println(err)
+    return
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
@@ -119,7 +124,7 @@ SetRow 는 지정된 시작 좌표와 배열 유형 `slice` 에 대한 포인터
 ## 테이블을 스트리밍합니다 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 지정된 셀 좌표 범위 및 조건부 서식을 기반으로 테이블을 만듭니다.
@@ -127,20 +132,21 @@ func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
 예 1, `A1:D5` 영역에서 테이블을 스트리밍합니다:
 
 ```go
-err := streamWriter.AddTable("A1", "D5", "")
+err := streamWriter.AddTable("A1:D5", nil)
 ```
 
 예 2, 워크시트 `F2:H6` 영역에 조건부 형식의 테이블을 만듭니다:
 
 ```go
-err := streamWriter.AddTable("F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 테이블 좌표 영역은 문자 유형의 제목 줄과 콘텐츠 줄의 두 개 이상의 줄을 덮어씁니다. 각 머리글 행의 문자는 고유해야 하며 현재 각 워크시트에서 하나의 테이블만 스트리밍할 수 있으며 함수를 호출하기 전에 [`SetRow`](stream.md#SetRow) 를 통해 테이블의 머리글 행 데이터를 스트리밍해야 합니다. 지원되는 테이블 스타일은 비스트리밍 테이블 만들기 [`AddTable`](utils.md#AddTable) 과 동일합니다.
@@ -156,7 +162,7 @@ InsertPageBreak 는 페이지 나누기를 만들어 인쇄된 페이지가 끝�
 ## 스트림에 쓰기 창 {#SetPanes}
 
 ```go
-func (sw *StreamWriter) SetPanes(panes string) error
+func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
 SetPanes 는 `StreamWriter` 에 대한 패인 옵션을 제공하여 고정 페인과 분할 페인을 생성 및 제거하는 기능을 제공합니다. [`SetRow`](stream.md#SetRow) 함수보다 먼저 `SetPanes` 함수를 호출해야 합니다.

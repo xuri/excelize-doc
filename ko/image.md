@@ -3,7 +3,7 @@
 ## 그림 추가 {#AddPicture}
 
 ```go
-func (f *File) AddPicture(sheet, cell, picture, format string) error
+func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
 AddPicture 는 주어진 그림 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정) 및 파일 경로를 사용하여 시트에 그림을 추가하는 방법을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다.
@@ -24,31 +24,44 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // 그림을 삽입합니다.
-    if err := f.AddPicture("Sheet1", "A2", "image.jpg", ""); err != nil {
+    if err := f.AddPicture("Sheet1", "A2", "image.png", nil); err != nil {
         fmt.Println(err)
+        return
     }
     // 위치 하이퍼링크가 있는 셀에 그림 배율을 삽입합니다.
-    if err := f.AddPicture("Sheet1", "D2", "image.png", `{
-        "x_scale": 0.5,
-        "y_scale": 0.5,
-        "hyperlink": "#Sheet2!D8",
-        "hyperlink_type": "Location"
-    }`); err != nil {
+    enable, disable := true, false
+    if err := f.AddPicture("Sheet1", "D2", "image.jpg",
+        &excelize.GraphicOptions{
+            ScaleX:        0.5,
+            ScaleY:        0.5,
+            Hyperlink:     "#Sheet2!D8",
+            HyperlinkType: "Location",
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     // 외부 하이퍼링크, 인쇄 및 위치 지정 지원이 있는 셀에 그림 오프셋을 삽입합니다.
-    if err := f.AddPicture("Sheet1", "H2", "image.gif", `{
-        "x_offset": 15,
-        "y_offset": 10,
-        "hyperlink": "https://github.com/xuri/excelize",
-        "hyperlink_type": "External",
-        "print_obj": true,
-        "lock_aspect_ratio": false,
-        "locked": false,
-        "positioning": "oneCell"
-    }`); err != nil {
+    if err := f.AddPicture("Sheet1", "H2", "image.gif",
+        &excelize.GraphicOptions{
+            OffsetX:         15,
+            OffsetY:         10,
+            Hyperlink:       "https://github.com/xuri/excelize",
+            HyperlinkType:   "External",
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+            Positioning:     "oneCell",
+        },
+    ); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
@@ -56,30 +69,30 @@ func main() {
 }
 ```
 
-선택적 매개변수 `autofit` 은 이미지 크기를 셀에 자동으로 맞출지 여부를 지정하며, 기본값은 `false` 입니다.
+선택적 매개변수 `AutoFit` 은 이미지 크기를 셀에 자동으로 맞출지 여부를 지정하며, 기본값은 `false` 입니다.
 
-선택적 매개변수 `hyperlink` 는 이미지의 하이퍼링크를 지정합니다.
+선택적 매개변수 `Hyperlink` 는 이미지의 하이퍼링크를 지정합니다.
 
-선택적 매개변수 `hyperlink_type` 은 웹사이트에 대한 `External` 하이퍼링크 또는 이 통합 문서의 셀 중 하나로 이동하기 위한 `Location` 의 두 가지 유형의 하이퍼링크를 정의합니다. `hyperlink_type` 이 `Location` 인 경우 좌표는 `#` 로 시작해야 합니다.
+선택적 매개변수 `HyperlinkType` 은 웹사이트에 대한 `External` 하이퍼링크 또는 이 통합 문서의 셀 중 하나로 이동하기 위한 `Location` 의 두 가지 유형의 하이퍼링크를 정의합니다. `HyperlinkType` 이 `Location` 인 경우 좌표는 `#` 로 시작해야 합니다.
 
-선택적 매개변수 `positioning` 은 Excel 스프레드시트에서 두 가지 유형의 그림 위치를 정의합니다. 이 매개변수를 설정하지 않으면 기본 위치는 셀과 함께 이동 및 크기 조정입니다.
+선택적 매개변수 `Positioning` 은 Excel 스프레드시트에서 두 가지 유형의 그림 위치를 정의합니다. 이 매개변수를 설정하지 않으면 기본 위치는 셀과 함께 이동 및 크기 조정입니다.
 
-선택적 매개변수 `print_obj` 는 워크시트가 인쇄될 때 이미지가 인쇄되는지 여부를 나타내며, 기본값은 `true` 입니다.
+선택적 매개변수 `PrintObject` 는 워크시트가 인쇄될 때 이미지가 인쇄되는지 여부를 나타내며, 기본값은 `true` 입니다.
 
-선택적 매개변수 `lock_aspect_ratio` 는 이미지의 종횡비 잠금 여부를 나타내며 기본값은 `false` 입니다.
+선택적 매개변수 `LockAspectRatio` 는 이미지의 종횡비 잠금 여부를 나타내며 기본값은 `false` 입니다.
 
-선택적 매개변수 `locked` 는 이미지를 잠글지 여부를 나타냅니다. 시트가 보호되지 않는 한 개체를 잠그면 효과가 없습니다.
+선택적 매개변수 `Locked` 는 이미지를 잠글지 여부를 나타냅니다. 시트가 보호되지 않는 한 개체를 잠그면 효과가 없습니다.
 
-선택적 매개변수 `x_offset` 은 셀과 이미지의 수평 오프셋을 지정하며 기본값은 0 입니다.
+선택적 매개변수 `OffsetX` 은 셀과 이미지의 수평 오프셋을 지정하며 기본값은 0 입니다.
 
-선택적 매개변수 `x_scale` 은 이미지의 수평 스케일을 지정하며 기본값은 100%를 나타내는 1.0 입니다.
+선택적 매개변수 `ScaleX` 은 이미지의 수평 스케일을 지정하며 기본값은 100%를 나타내는 1.0 입니다.
 
-선택적 매개변수 `y_offset` 은 셀이 있는 이미지의 수직 오프셋을 지정하며 기본값은 0 입니다.
+선택적 매개변수 `OffsetY` 은 셀이 있는 이미지의 수직 오프셋을 지정하며 기본값은 0 입니다.
 
-선택적 매개변수 `y_scale` 은 이미지의 수직 스케일을 지정하며 기본값은 100%를 나타내는 1.0 입니다.
+선택적 매개변수 `ScaleY` 은 이미지의 수직 스케일을 지정하며 기본값은 100%를 나타내는 1.0 입니다.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, opts, name, extension string, file []byte) error
+func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
 ```
 
 AddPictureFromBytes는 주어진 그림 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정), 대체 텍스트 설명, 확장자 이름 및 파일 콘텐츠 (`[]byte` 유형) 를 사용하여 시트에 그림을 추가하는 방법을 제공합니다.
@@ -90,6 +103,7 @@ AddPictureFromBytes는 주어진 그림 형식 집합 (예: 오프셋, 축척, �
 package main
 
 import (
+    "fmt"
     _ "image/jpeg"
     "os"
 
@@ -98,13 +112,19 @@ import (
 
 func main() {
     f := excelize.NewFile()
-
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     file, err := os.ReadFile("image.jpg")
     if err != nil {
         fmt.Println(err)
+        return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "", "Excel Logo", ".jpg", file); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)

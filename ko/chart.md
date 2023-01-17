@@ -3,12 +3,12 @@
 ## 차트 추가 {#AddChart}
 
 ```go
-func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
+func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 AddChart 는 지정된 차트 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정) 및 속성 집합을 사용하여 시트에 차트를 추가하는 방법을 제공합니다.
 
-다음은 excelize 에서 지원하는 차트의 `type` 을 보여 주며:
+다음은 excelize 에서 지원하는 차트의 `Type` 을 보여 주며:
 
 유형|차트
 ---|---
@@ -65,42 +65,42 @@ wireframeContour            | 와이어프레임 윤곽 차트
 bubble                      | 버블 차트
 bubble3D                    | 3D 버블 차트
 
-Office Excel 차트 데이터 영역 `series` 에서 데이터를 그릴 정보 집합, 범례 항목 (계열) 및 가로 (범주) 축 레이블을 지정합니다.
+Office Excel 차트 데이터 영역 `Series` 에서 데이터를 그릴 정보 집합, 범례 항목 (계열) 및 가로 (범주) 축 레이블을 지정합니다.
 
-설정할 수 있는 `series` 옵션은 다음과 같습니다:
+설정할 수 있는 `Series` 옵션은 다음과 같습니다:
 
 매개 변수|설명
 ---|---
-name|범례 항목 (계열) 은 차트 범례 및 수식 표시줄에 표시됩니다. `name` 매개 변수는 선택 사항입니다. 이 값을 지정하지 않으면 기본값은 `Series 1 .. n`. 수식 표현에 대한 `name` 지원(예: `Sheet1!$A$1`).
-categories|Horizontal (category) axis label. The `categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
+Name|범례 항목 (계열) 은 차트 범례 및 수식 표시줄에 표시됩니다. `Name` 매개 변수는 선택 사항입니다. 이 값을 지정하지 않으면 기본값은 `Series 1 .. n`. 수식 표현에 대한 `Name` 지원(예: `Sheet1!$A$1`).
+Categories|Horizontal (category) axis label. The `Categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
 수평(범주) 축 레이블입니다. '범주' 매개 변수는 대부분의 차트 유형에서 선택 사항이며 기본값은 '1..n' 형식의 연속 시퀀스입니다.
-values|`series` 에서 가장 중요한 매개 변수인 차트 데이터 영역도 차트를 만들 때 필요한 유일한 매개 변수입니다. 이 옵션은 차트를 차트가 표시하는 워크시트 데이터에 연결합니다.
-line | 선 차트의 선 형식을 설정합니다. `line` 속성은 선택 사항이며 제공되지 않으면 기본 스타일이됩니다. 설정할 수있는 옵션은 `width` 입니다. `width` 의 범위는 0.25pt-999pt 입니다. 너비 값이 범위를 벗어나면 선의 기본 너비는 2pt 입니다.
-marker|선형 차트 및 분산 형 차트의 마커를 설정합니다. 선택적 필드 `size` 의 범위는 2-72 입니다 (기본값은 `5`). 선택적 필드 `symbol` 의 열거 값은 다음과 같습니다 (기본값은 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Values|`Series` 에서 가장 중요한 매개 변수인 차트 데이터 영역도 차트를 만들 때 필요한 유일한 매개 변수입니다. 이 옵션은 차트를 차트가 표시하는 워크시트 데이터에 연결합니다.
+Line| 선 차트의 선 형식을 설정합니다. `Line` 속성은 선택 사항이며 제공되지 않으면 기본 스타일이됩니다. 설정할 수있는 옵션은 `Width` 입니다. `Width` 의 범위는 0.25pt-999pt 입니다. 너비 값이 범위를 벗어나면 선의 기본 너비는 2pt 입니다.
+Marker|선형 차트 및 분산 형 차트의 마커를 설정합니다. 선택적 필드 `Size` 의 범위는 2-72 입니다 (기본값은 `5`). 선택적 필드 `Symbol` 의 열거 값은 다음과 같습니다 (기본값은 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 
 차트 범례의 속성을 설정합니다. 설정할 수 있는 옵션은 다음과 같습니다:
 
 매개 변수|유형|설명
 ---|---|---
-none            | `bool`   | 차트와 겹치지 않는 범례를 닫을 지 여부를 지정합니다. 기본값은 `false` 입니다
-position        | `string` | 차트 범례의 위치
-show_legend_key | `bool`   | 데이터 레이블에 범례 항목 레이블을 표시할지 여부를 지정합니다
+Position        | `string` | 차트 범례의 위치
+ShowLegendKey   | `bool`   | 데이터 레이블에 범례 항목 레이블을 표시할지 여부를 지정합니다
 
-매개 변수 `position` 의 기본값은 `right` 이며 범례가 표시 될 때만 적용됩니다 (즉, `none` 값이 `false` 임). 다음은이 매개 변수의 선택적 값입니다.
+차트 범례의 `Position` 을 설정합니다. 기본 범례 위치는 `right` 입니다. 다음은이 매개 변수의 선택적 값입니다:
 
 매개 변수|설명
 ---|---
+none|범례 비활성화
 top|On top
 bottom|On bottom
 left|On left
 right|On right
 top_right|On top right
 
-범례 키를 설정하는 `show_legend_key` 매개 변수는 데이터 레이블에 표시됩니다. 기본값은 `false` 입니다.
+범례 키를 설정하는 `ShowLegendKey`  매개 변수는 데이터 레이블에 표시됩니다. 기본값은 `false` 입니다.
 
-차트 제목은 `title` 개체의 `name` 매개변수를 선택하여 설정되며 제목은 차트 위에 표시됩니다. 매개 변수 `name` 은 아이콘 제목을 지정하지 않으면 `Sheet1!$A$1` 과 같은 수식 표현의 사용을 지원합니다.
+차트 제목은 `Title` 개체의 `Name` 매개변수를 선택하여 설정되며 제목은 차트 위에 표시됩니다. 매개 변수 `Name` 은 아이콘 제목을 지정하지 않으면 `Sheet1!$A$1` 과 같은 수식 표현의 사용을 지원합니다.
 
-`show_blanks_as` 매개변수는 "셀 숨기기 및 빈 셀" 설정을 제공합니다. 기본값은 `gap` 입니다. Excel 응용 프로그램에서 "빈 셀은" 로 표시됩니다: "space". 다음은 이 매개 변수에 대한 선택적 값입니다.
+`ShowBlanksAs` 매개변수는 "셀 숨기기 및 빈 셀" 설정을 제공합니다. 기본값은 `gap` 입니다. Excel 응용 프로그램에서 "빈 셀은" 로 표시됩니다: "space". 다음은 이 매개 변수에 대한 선택적 값입니다.
 
 매개 변수|설명
 ---|---
@@ -108,7 +108,7 @@ gap|space
 span|Connect data points with straight lines
 zero|zero value
 
-계열의 각 데이터 마커는 `vary_colors` 에 의해 다른 색상을 가지고 있음을 지정합니다. 기본 값은 `true` 입니다.
+계열의 각 데이터 마커는 `VaryColors` 에 의해 다른 색상을 가지고 있음을 지정합니다. 기본 값은 `true` 입니다.
 
 매개변수 `format` 은 차트 오프셋, 배율, 종횡비 설정 및 인쇄 특성과 [`AddPicture`](image.md#AddPicture) 함수에 사용되는 매개 변수에 대한 설정을 제공합니다.
 
@@ -116,40 +116,40 @@ zero|zero value
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-show_bubble_size  | `bool` | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
-show_cat_name     | `bool` | `true`  | 범주 이름
-show_leader_lines | `bool` | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.
-show_percent      | `bool` | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
-show_series_name  | `bool` | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
-show_val          | `bool` | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
+ShowBubbleSize  | `bool` | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
+ShowCatName     | `bool` | `true`  | 범주 이름
+ShowLeaderLines | `bool` | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.
+ShowPercent     | `bool` | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
+ShowSerName     | `bool` | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
+ShowVal         | `bool` | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
 
-기본 수평 및 세로 축 옵션을 `x_axis` 및 `y_axis` 으로 설정합니다.
+기본 수평 및 세로 축 옵션을 `XAxis` 및 `YAxis` 으로 설정합니다.
 
-설정할 수있는 `x_axis` 의 속성은 다음과 같습니다:
-
-매개 변수|유형|기본값|설명
----|---|---|---
-none             | `bool` | `false` | 축 비활성화.
-major_grid_lines | `bool` | `false` | 주요 눈금 선을 지정합니다.
-minor_grid_lines | `bool` | `false` | 작은 눈금 선을 지정합니다.
-tick_label_skip  | `int`  | `1`     | 그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `tick_label_skip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
-reverse_order    | `bool` | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
-maximum          | `int`  | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
-minimum          | `int`  | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
-
-설정할 수있는 `y_axis` 의 속성은 다음과 같습니다:
+설정할 수있는 `XAxis` 의 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-none             | `bool`    | `false` | 축 비활성화.
-major_grid_lines | `bool`    | `false` | 주요 눈금 선을 지정합니다.
-minor_grid_lines | `bool`    | `false` | 작은 눈금 선을 지정합니다.
-major_unit       | `float64` | `0`     | 주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. major_unit 속성은 선택 사항입니다. 기본값은 auto 입니다.
-reverse_order    | `bool`    | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `reverse_order` 속성은 선택 사항입니다.
-maximum          | `int`     | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
-minimum          | `int`     | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+None           | `bool`     | `false` | 축 비활성화.
+MajorGridLines | `bool`     | `false` | 주요 눈금 선을 지정합니다.
+MinorGridLines | `bool`     | `false` | 작은 눈금 선을 지정합니다.
+TickLabelSkip  | `int`      | `1`     | 그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `TickLabelSkip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
+ReverseOrder   | `bool`     | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `ReverseOrder` 속성은 선택 사항입니다.
+Maximum        | `*float64` | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
+Minimum        | `*float64` | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
 
-차트 크기를 `dimension` 속성으로 설정합니다. 차원 속성은 선택 사항입니다. 설정할 수 있는 속성은 다음과 같습니다:
+설정할 수있는 `YAxis` 의 속성은 다음과 같습니다:
+
+매개 변수|유형|기본값|설명
+---|---|---|---
+None           | `bool`     | `false` | 축 비활성화.
+MajorGridLines | `bool`     | `false` | 주요 눈금 선을 지정합니다.
+MinorGridLines | `bool`     | `false` | 작은 눈금 선을 지정합니다.
+MajorUnit      | `float64`  | `0`     | 주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. `MajorUnit` 속성은 선택 사항입니다. 기본값은 auto 입니다.
+ReverseOrder   | `bool`     | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `ReverseOrder` 속성은 선택 사항입니다.
+Maximum        | `*float64` | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
+Minimum        | `*float64` | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+
+차트 크기를 `Dimension` 속성으로 설정합니다. 차원 속성은 선택 사항입니다. 설정할 수 있는 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
@@ -168,92 +168,92 @@ import (
 )
 
 func main() {
-    categories := map[string]string{
-        "A2": "Small", "A3": "Normal", "A4": "Large",
-        "B1": "Apple", "C1": "Orange", "D1": "Pear"}
-    values := map[string]int{
-        "B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
     f := excelize.NewFile()
-    for k, v := range categories {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    for k, v := range values {
-        f.SetCellValue("Sheet1", k, v)
-    }
-    if err := f.AddChart("Sheet1", "E1", `{
-        "type": "col",
-        "series": [
-        {
-            "name": "Sheet1!$A$2",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$2:$D$2"
-        },
-        {
-            "name": "Sheet1!$A$3",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$3:$D$3"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "left",
-            "show_legend_key": false
-        },
-        "title":
-        {
-            "name": "2D 클러스터형 세로 막 대형 차트 - 꺾은 선형 차트"
-        },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
         }
-    }`, `{
-        "type": "line",
-        "series": [
-        {
-            "name": "Sheet1!$A$4",
-            "categories": "Sheet1!$B$1:$D$1",
-            "values": "Sheet1!$B$4:$D$4"
-        }],
-        "format":
-        {
-            "x_scale": 1.0,
-            "y_scale": 1.0,
-            "x_offset": 15,
-            "y_offset": 10,
-            "print_obj": true,
-            "lock_aspect_ratio": false,
-            "locked": false
-        },
-        "legend":
-        {
-            "position": "right",
-            "show_legend_key": false
-        },
-        "plotarea":
-        {
-            "show_bubble_size": true,
-            "show_cat_name": false,
-            "show_leader_lines": false,
-            "show_percent": true,
-            "show_series_name": true,
-            "show_val": true
+    }()
+    for idx, row := range [][]interface{}{
+        {nil, "Apple", "Orange", "Pear"},
+        {"Small", 2, 3, 3},
+        {"Normal", 5, 2, 4},
+        {"Large", 6, 7, 8},
+    } {
+        cell, err := excelize.CoordinatesToCellName(1, idx+1)
+        if err != nil {
+            fmt.Println(err)
+            return
         }
-    }`); err != nil {
+        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+            fmt.Println(err)
+            return
+        }
+    }
+    enable, disable := true, false
+    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+        Type: "col",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$2",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$2:$D$2",
+            },
+        },
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Title: excelize.ChartTitle{
+            Name: "2D 클러스터형 세로 막 대형 차트 - 꺾은 선형 차트",
+        },
+        Legend: excelize.ChartLegend{
+            Position: "left",
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }, &excelize.Chart{
+        Type: "line",
+        Series: []excelize.ChartSeries{
+            {
+                Name:       "Sheet1!$A$4",
+                Categories: "Sheet1!$B$1:$D$1",
+                Values:     "Sheet1!$B$4:$D$4",
+                Marker: excelize.ChartMarker{
+                    Symbol: "none", Size: 10,
+                },
+            },
+        },
+        Format: excelize.GraphicOptions{
+            ScaleX:          1,
+            ScaleY:          1,
+            OffsetX:         15,
+            OffsetY:         10,
+            PrintObject:     &enable,
+            LockAspectRatio: false,
+            Locked:          &disable,
+        },
+        Legend: excelize.ChartLegend{
+            Position: "right",
+        },
+        PlotArea: excelize.ChartPlotArea{
+            ShowCatName:     false,
+            ShowLeaderLines: false,
+            ShowPercent:     true,
+            ShowSerName:     true,
+            ShowVal:         true,
+        },
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -267,7 +267,7 @@ func main() {
 ## 차트 시트 추가 {#AddChartSheet}
 
 ```go
-func (f *File) AddChartSheet(sheet, opts string, combo ...string) error
+func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
 AddChartSheet 는 주어진 차트 형식 세트 (예: 오프셋, 배율, 종횡비 설정 및 인쇄 설정) 및 속성 세트별로 차트 시트를 작성하는 방법을 제공합니다. Excel 에서 차트 시트는 차트 만 포함 된 워크 시트입니다.

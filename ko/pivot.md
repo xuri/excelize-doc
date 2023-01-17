@@ -6,27 +6,26 @@
 
 ```go
 type PivotTableOptions struct {
-    pivotTableSheetName string
-    DataRange           string            `json:"data_range"`
-    PivotTableRange     string            `json:"pivot_table_range"`
-    Rows                []PivotTableField `json:"rows"`
-    Columns             []PivotTableField `json:"columns"`
-    Data                []PivotTableField `json:"data"`
-    Filter              []PivotTableField `json:"filter"`
-    RowGrandTotals      bool              `json:"row_grand_totals"`
-    ColGrandTotals      bool              `json:"col_grand_totals"`
-    ShowDrill           bool              `json:"show_drill"`
-    UseAutoFormatting   bool              `json:"use_auto_formatting"`
-    PageOverThenDown    bool              `json:"page_over_then_down"`
-    MergeItem           bool              `json:"merge_item"`
-    CompactData         bool              `json:"compact_data"`
-    ShowError           bool              `json:"show_error"`
-    ShowRowHeaders      bool              `json:"show_row_headers"`
-    ShowColHeaders      bool              `json:"show_col_headers"`
-    ShowRowStripes      bool              `json:"show_row_stripes"`
-    ShowColStripes      bool              `json:"show_col_stripes"`
-    ShowLastColumn      bool              `json:"show_last_column"`
-    PivotTableStyleName string            `json:"pivot_table_style_name"`
+    DataRange           string
+    PivotTableRange     string
+    Rows                []PivotTableField
+    Columns             []PivotTableField
+    Data                []PivotTableField
+    Filter              []PivotTableField
+    RowGrandTotals      bool
+    ColGrandTotals      bool
+    ShowDrill           bool
+    UseAutoFormatting   bool
+    PageOverThenDown    bool
+    MergeItem           bool
+    CompactData         bool
+    ShowError           bool
+    ShowRowHeaders      bool
+    ShowColHeaders      bool
+    ShowRowStripes      bool
+    ShowColStripes      bool
+    ShowLastColumn      bool
+    PivotTableStyleName string
     // 필터링되거나 내 보내지 않은 필드를 포함합니다
 }
 ```
@@ -43,12 +42,12 @@ PivotStyleDark1 - PivotStyleDark28
 
 ```go
 type PivotTableField struct {
-    Compact         bool   `json:"compact"`
-    Data            string `json:"data"`
-    Name            string `json:"name"`
-    Outline         bool   `json:"outline"`
-    Subtotal        string `json:"subtotal"`
-    DefaultSubtotal bool   `json:"default_subtotal"`
+    Compact         bool
+    Data            string
+    Name            string
+    Outline         bool
+    Subtotal        string
+    DefaultSubtotal bool
 }
 ```
 
@@ -94,6 +93,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     // 시트에 일부 데이터 생성
     month := []string{"Jan", "Feb", "Mar", "Apr", "May",
         "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
@@ -127,6 +131,7 @@ func main() {
         ShowLastColumn: true,
     }); err != nil {
         fmt.Println(err)
+        return
     }
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)

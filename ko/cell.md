@@ -290,6 +290,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
         fmt.Println(err)
         return
@@ -488,7 +493,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-셀 스타일 인덱스는 지정된 워크시트 이름 및 셀 좌표에서 가져오며, 얻은 인덱스는 셀 스타일을 복사할 때 `SetCellValue` 함수를 호출하는 매개 변수로 사용할 수 있습니다.
+셀 스타일 인덱스는 지정된 워크시트 이름 및 셀 좌표에서 가져오며, 얻은 인덱스는 셀 스타일을 복사할 때 `SetCellStyle` 함수를 호출하는 매개 변수로 사용할 수 있습니다.
 
 ## 셀 병합 {#MergeCell}
 
@@ -561,7 +566,7 @@ AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: �
 <p align="center"><img width="612" src="./images/comment.png" alt="Excel 문서에 주석 추가"></p>
 
 ```go
-err := f.AddComment(sheet, excelize.Comment{
+err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
     Runs: []excelize.RichTextRun{
@@ -574,7 +579,7 @@ err := f.AddComment(sheet, excelize.Comment{
 ## 의견 가져 오기 {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크시트 주석에 반환합니다.
@@ -605,23 +610,23 @@ SetCellFormula 는 주어진 워크시트 이름 과 셀 수식 설정에 따라
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- 예 2, `Sheet1` 의 `A3` 셀에 대해 1차원 수직 상수 배열(행 배열) 수식 `1,2,3` 을 설정합니다:
+- 예 2, `Sheet1` 의 `A3` 셀에 대해 1차원 수직 상수 배열 (열 배열) 수식 `1;2;3` 을 설정합니다:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- 예 3, `Sheet1` 의 `A3` 셀에 대해 1차원 수평 상수 배열(열 배열) 수식 `"a","b","c"` 를 설정합니다:
+- 예 3, `Sheet1` 의 `A3` 셀에 대해 1차원 수평 상수 배열 (행 배열) 수식 `"a","b","c"` 를 설정합니다:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- 예 4, `Sheet1` 의 `A3` 셀에 대해 2차원 상수 배열 수식 `{1,2,"a","b"}` 을 설정합니다:
+- 예 4, `Sheet1` 의 `A3` 셀에 대해 2차원 상수 배열 수식 `{1,2;"a","b"}` 을 설정합니다:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -654,14 +659,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
         if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1", "C2",
-        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
+        Name: "Table1", StyleName: "TableStyleMedium2",
+    }); err != nil {
         fmt.Println(err)
         return
     }

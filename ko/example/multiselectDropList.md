@@ -81,10 +81,12 @@ func main() {
         }
     }
     // 테이블을 생성
-    if err = f.AddTable(sheetName, "A1", "B5", `{
-        "table_name": "table",
-        "table_style": "TableStyleMedium2"
-    }`); err != nil {
+    if err = f.AddTable(sheetName, "A1:B5",
+        &excelize.TableOptions{
+            Name:      "table",
+            StyleName: "TableStyleMedium2",
+        },
+    ); err != nil {
         fmt.Println(err)
         return
     }

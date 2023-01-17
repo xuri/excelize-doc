@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## 워크 시트 색인 가져 오기 {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex 는 주어진 시트 이름으로 통합 문서의 시트 인덱스를 가져 오는 함수를 제공합니다. 주어진 시트 이름이 유효하지 않으면 정수형 값 `-1` 을 반환합니다.
@@ -151,7 +151,7 @@ GetSheetList 는 통합 문서의 워크 시트, 차트 시트 및 대화 상자
 ## 워크 시트 이름 설정 {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName 은 이전 및 새 워크 시트 이름으로 워크 시트 이름을 설정하는 기능을 제공합니다. 시트 제목에는 최대 31 자를 사용할 수 있으며이 함수는 시트 이름 만 변경하며 셀과 관련된 수식 또는 참조에서 시트 이름을 업데이트하지 않습니다. 따라서 문제 공식 오류 또는 참조가 없을 수 있습니다.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## 보호 시트 {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet 는 다른 사용자가 실수로 또는 의도적으로 워크시트의 데이터를 변경, 이동 또는 삭제하는 것을 방지하는 기능을 제공합니다. 선택적 필드 `AlgorithmName` 지정된 해시 알고리즘은 현재 XOR, MD4, MD5, SHA-1, SHA2-56, SHA-384 및 SHA-512 를 지원하며 해시 알고리즘이 지정되지 않은 경우 기본적으로 XOR 알고리즘을 사용합니다. 예를 들어 보호 설정으로 `Sheet1` 을 보호합니다:
@@ -411,9 +411,11 @@ ProtectSheet 는 다른 사용자가 실수로 또는 의도적으로 워크시�
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 
