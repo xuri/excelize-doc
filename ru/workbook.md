@@ -148,9 +148,12 @@ CopySheet предоставляет функцию для дублирован�
 
 ```go
 // Sheet1 уже существует...
-index := f.NewSheet("Sheet2")
+index, err := f.NewSheet("Sheet2")
+if err != nil {
+    fmt.Println(err)
+    return
+}
 err := f.CopySheet(1, index)
-return err
 ```
 
 ## Рабочие листы группы {#GroupSheets}
@@ -175,7 +178,13 @@ UngroupSheets предоставляет функцию для разгрупп�
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground предоставляет функцию для установки фонового изображения с помощью имени рабочего листа.
+SetSheetBackground предоставляет функцию для установки фонового изображения по заданному имени рабочего листа и пути к файлу. Поддерживаемые типы изображений: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF и WMZ.
+
+```go
+func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
+```
+
+SetSheetBackgroundFromBytes предоставляет функцию для установки фонового изображения по заданному имени рабочего листа, имени расширения и данным изображения. Поддерживаемые типы изображений: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF и WMZ.
 
 ## Установить рабочий лист по умолчанию {#SetActiveSheet}
 
@@ -696,7 +705,7 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 SetDefinedName предоставляет функцию для установки определенных имен рабочей книги или рабочего листа. Если не указано scopr, областью по умолчанию является книга. Например:
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
@@ -709,16 +718,20 @@ f.SetDefinedName(&excelize.DefinedName{
 <p align="center"><img width="755" src="./images/page_setup_01.png" alt="Параметры области печати и заголовков печати для рабочего листа"></p>
 
 ```go
-f.SetDefinedName(&excelize.DefinedName{
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
     RefersTo: "Sheet1!$A$1:$Z$100",
     Scope:    "Sheet1",
-})
-f.SetDefinedName(&excelize.DefinedName{
+}); err != nil {
+    fmt.Println(err)
+}
+if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
     RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
     Scope:    "Sheet1",
-})
+}); err != nil {
+    fmt.Println(err)
+}
 ```
 
 ## Получить определенное имя {#GetDefinedName}
@@ -738,7 +751,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 DeleteDefinedName предоставляет функцию для удаления определенных имен рабочей книги или рабочего листа. Если не указана область, областью по умолчанию является рабочая книга. Например:
 
 ```go
-f.DeleteDefinedName(&excelize.DefinedName{
+err := f.DeleteDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     Scope:    "Sheet2",
 })
@@ -857,10 +870,10 @@ WorkbookProtectionOptions напрямую отображает параметр
 
 ```go
 type WorkbookProtectionOptions struct {
-    AlgorithmName string `json:"algorithm_name,omitempty"`
-    Password      string `json:"password,omitempty"`
-    LockStructure bool   `json:"lock_structure,omitempty"`
-    LockWindows   bool   `json:"lock_windows,omitempty"`
+    AlgorithmName string
+    Password      string
+    LockStructure bool
+    LockWindows   bool
 }
 ```
 

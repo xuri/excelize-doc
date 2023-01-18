@@ -110,7 +110,7 @@ err := f.GetRowVisible("Sheet1", 2)
 ## Получить индекс рабочего листа {#GetSheetIndex}
 
 ```go
-func (f *File) GetSheetIndex(sheet string) int
+func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
 GetSheetIndex предоставляет функцию для получения индекса листа рабочей книги по заданному имени листа. Если данное имя листа недопустимо, оно вернет целочисленное значение типа `-1`.
@@ -151,7 +151,7 @@ GetSheetList предоставляет функцию для получения
 ## Задать имя листа {#SetSheetName}
 
 ```go
-func (f *File) SetSheetName(source, target string)
+func (f *File) SetSheetName(source, target string) error
 ```
 
 SetSheetName предоставляет функцию для установки имени листа по заданным именам старого и нового листа. В заголовке листа допускается не более 31 символа, и эта функция изменяет только имя листа и не обновляет имя листа в формуле или ссылке, связанной с ячейкой. Таким образом, может быть ошибка формулы проблемы или отсутствует ссылка.
@@ -402,7 +402,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 ## Защитить лист {#ProtectSheet}
 
 ```go
-func (f *File) ProtectSheet(sheet string, settings *SheetProtectionOptions) error
+func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
 ProtectSheet предоставляет функцию для предотвращения случайного или преднамеренного изменения, перемещения или удаления данных на листе другими пользователями. Необязательное поле `AlgorithmName` указывает хеш-алгоритм, поддерживает XOR, MD4, MD5, SHA-1, SHA-256, SHA-384 и SHA-512. В настоящее время, если хэш-алгоритм не указан, будет использоваться алгоритм XOR по умолчанию. Например, защитите `Sheet1` с помощью параметров защиты:
@@ -411,9 +411,11 @@ ProtectSheet предоставляет функцию для предотвра
 
 ```go
 err := f.ProtectSheet("Sheet1", &excelize.SheetProtectionOptions{
-    AlgorithmName: "SHA-512",
-    Password:      "password",
-    EditScenarios: false,
+    AlgorithmName:       "SHA-512",
+    Password:            "password",
+    SelectLockedCells:   true,
+    SelectUnlockedCells: true,
+    EditScenarios:       true,
 })
 ```
 

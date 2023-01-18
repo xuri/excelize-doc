@@ -290,6 +290,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
         fmt.Println(err)
         return
@@ -488,7 +493,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-Индекс стиля ячейки получается из заданного имени листа и координат ячейки, а полученный индекс может использоваться как параметр для вызова функции `SetCellValue` при копировании стиля ячейки.
+Индекс стиля ячейки получается из заданного имени листа и координат ячейки, а полученный индекс может использоваться как параметр для вызова функции `SetCellStyle` при копировании стиля ячейки.
 
 ## Объединить ячейки {#MergeCell}
 
@@ -561,7 +566,7 @@ AddComment предоставляет метод добавления комме
 <p align="center"><img width="612" src="./images/comment.png" alt="Добавить комментарий к документу Excel"></p>
 
 ```go
-err := f.AddComment(sheet, excelize.Comment{
+err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
     Runs: []excelize.RichTextRun{
@@ -574,7 +579,7 @@ err := f.AddComment(sheet, excelize.Comment{
 ## Получить комментари {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 GetComments извлекает все комментарии и возвращает карту имени рабочего листа в комментарии рабочего листа.
@@ -605,23 +610,23 @@ SetCellFormula предоставляет функцию для установк
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Пример 2, установить одномерный вертикальный постоянный массив (массив строк) формулой `1,2,3` для ячейки `A3` на `Sheet1`:
+- Пример 2, установить одномерный вертикальный постоянный массив (массив столбцов) формулой `1;2;3` для ячейки `A3` на `Sheet1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- Пример 3, установить одномерный горизонтальный массив констант (массив столбцов) формулой `"a","b","c"` для ячейки `A3` на `Sheet1`:
+- Пример 3, установить одномерный горизонтальный массив констант (массив строк) формулой `"a","b","c"` для ячейки `A3` на `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Пример 4, установить двумерную формулу массива констант `{1,2,"a","b"}` для ячейки `A3` на `Sheet1`:
+- Пример 4, установить двумерную формулу массива констант `{1,2;"a","b"}` для ячейки `A3` на `Sheet1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -654,14 +659,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
         if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1", "C2",
-        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
+        Name: "Table1", StyleName: "TableStyleMedium2",
+    }); err != nil {
         fmt.Println(err)
         return
     }

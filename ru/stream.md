@@ -50,10 +50,12 @@ defer func() {
 streamWriter, err := file.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
+    return
 }
 styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "#777777"}})
 if err != nil {
     fmt.Println(err)
+    return
 }
 if err := streamWriter.SetRow("A1",
     []interface{}{
@@ -65,6 +67,7 @@ if err := streamWriter.SetRow("A1",
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
     fmt.Println(err)
+    return
 }
 for rowID := 2; rowID <= 102400; rowID++ {
     row := make([]interface{}, 50)
@@ -74,10 +77,12 @@ for rowID := 2; rowID <= 102400; rowID++ {
     cell, _ := excelize.CoordinatesToCellName(1, rowID)
     if err := streamWriter.SetRow(cell, row); err != nil {
         fmt.Println(err)
+        return
     }
 }
 if err := streamWriter.Flush(); err != nil {
     fmt.Println(err)
+    return
 }
 if err := file.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
@@ -119,7 +124,7 @@ SetRow записывает массив в строку потока по за�
 ## Добавить таблицу в поток {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(hCell, vCell, opts string) error
+func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 ```
 
 AddTable создает таблицу Excel для StreamWriter, используя заданную область координат и набор форматов.
@@ -127,20 +132,21 @@ AddTable создает таблицу Excel для StreamWriter, использ
 Пример 1, создайте таблицу `A1:D5`:
 
 ```go
-err := streamWriter.AddTable("A1", "D5", "")
+err := streamWriter.AddTable("A1:D5", nil)
 ```
 
 Пример 2, создайте таблицу `F2:H6` с установленным форматом:
 
 ```go
-err := streamWriter.AddTable("F2", "H6", `{
-    "table_name": "table",
-    "table_style": "TableStyleMedium2",
-    "show_first_column": true,
-    "show_last_column": true,
-    "show_row_stripes": false,
-    "show_column_stripes": true
-}`)
+disable := false
+err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+    Name:              "table",
+    StyleName:         "TableStyleMedium2",
+    ShowFirstColumn:   true,
+    ShowLastColumn:    true,
+    ShowRowStripes:    &disable,
+    ShowColumnStripes: true,
+})
 ```
 
 Обратите внимание, что таблица должна состоять как минимум из двух строк, включая заголовок. Ячейки заголовка должны содержать строки и быть уникальными. В настоящее время для StreamWriter разрешена только одна таблица. [`AddTable`](stream.md#AddTable) должен вызываться после записи строк, но до `Flush`. См. [`AddTable`](utils.md#AddTable) для получения подробной информации о формате таблицы.
@@ -156,7 +162,7 @@ InsertPageBreak создает разрыв страницы, чтобы опр�
 ## Записать оконную панель в поток {#SetPanes}
 
 ```go
-func (sw *StreamWriter) SetPanes(panes string) error
+func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
 SetPanes предоставляет функцию для создания и удаления стоп-панелей и разделенных панелей, предоставляя параметры панелей для `StreamWriter`. Обратите внимание, что вы должны вызывать функцию `SetPanes` перед функцией [`SetRow`](stream.md#SetRow).
