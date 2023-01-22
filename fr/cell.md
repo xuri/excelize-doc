@@ -587,7 +587,7 @@ GetComments récupère tous les commentaires et renvoie une carte de nom de feui
 ## Supprimer le commentaire {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 DeleteComment fournit la méthode pour supprimer un commentaire dans une feuille par feuille de calcul donnée. Par exemple, supprimez le commentaire dans `Sheet1!$A$30`:

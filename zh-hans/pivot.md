@@ -6,7 +6,6 @@
 
 ```go
 type PivotTableOptions struct {
-    pivotTableSheetName string
     DataRange           string
     PivotTableRange     string
     Rows                []PivotTableField

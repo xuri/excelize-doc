@@ -6,7 +6,6 @@ A pivot table is a table of statistics that summarizes the data of a more extens
 
 ```go
 type PivotTableOptions struct {
-    pivotTableSheetName string
     DataRange           string
     PivotTableRange     string
     Rows                []PivotTableField

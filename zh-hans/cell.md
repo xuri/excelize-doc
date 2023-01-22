@@ -579,7 +579,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## 获取批注 {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 通过该方法可以获取全部工作表中的批注。
@@ -587,7 +587,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 ## 删除批注 {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 根据给定的工作表名称、单元格坐标删除批注。例如，删除 `Sheet1!$A$30` 单元格批注：
@@ -610,23 +610,23 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- 例2，为名为 `Sheet1` 的工作表 `A3` 单元格设置一维纵向常量数组（行数组）公式 `1,2,3`:
+- 例2，为名为 `Sheet1` 的工作表 `A3` 单元格设置一维纵向常量数组（列数组）公式 `1;2;3`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- 例3，为名为 `Sheet1` 的工作表 `A3` 单元格设置一维横向常量数组（列数组）公式 `"a","b","c"`:
+- 例3，为名为 `Sheet1` 的工作表 `A3` 单元格设置一维横向常量数组（行数组）公式 `"a","b","c"`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- 例4，为名为 `Sheet1` 的工作表 `A3` 单元格设置二维常量数组公式 `{1,2,"a","b"}`:
+- 例4，为名为 `Sheet1` 的工作表 `A3` 单元格设置二维常量数组公式 `{1,2;"a","b"}`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 

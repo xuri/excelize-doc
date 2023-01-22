@@ -166,7 +166,7 @@ if err := os.WriteFile(file, raw, 0644); err != nil {
 ## Supprimer l'image {#DeletePicture}
 
 ```go
-func (f *File) DeletePicture(sheet, cell string) (err error)
+func (f *File) DeletePicture(sheet, cell string) error
 ```
 
 DeletePicture fournit une fonction pour supprimer des graphiques dans XLSX par feuille de calcul et nom de cellule donnés. Notez que le fichier image ne sera pas supprimé du document actuellement.

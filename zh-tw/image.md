@@ -164,7 +164,7 @@ if err := os.WriteFile(file, raw, 0644); err != nil {
 ## 刪除圖片 {#DeletePicture}
 
 ```go
-func (f *File) DeletePicture(sheet, cell string) (err error)
+func (f *File) DeletePicture(sheet, cell string) error
 ```
 
 根據給定的工作表名稱和儲存格坐標，刪除對應儲存格上的圖片。

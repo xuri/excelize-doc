@@ -574,7 +574,7 @@ err := f.AddComment(sheet, excelize.Comment{
 ## Get comment {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 GetComments retrieve all comments and return a map of worksheet name to the worksheet comments.
@@ -582,7 +582,7 @@ GetComments retrieve all comments and return a map of worksheet name to the work
 ## Delete comment {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 DeleteComment provides the method to delete comment in a sheet by given worksheet name. For example, delete the comment in `Sheet1!$A$30`:
@@ -605,23 +605,23 @@ SetCellFormula provides a function to set the formula on the cell is taken accor
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Example 2, set one-dimensional vertical constant array (row array) formula `1,2,3` for the cell `A3` on `Sheet1`:
+- Example 2, set one-dimensional vertical constant array (column array) formula `1;2;3` for the cell `A3` on `Sheet1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- Example 3, set one-dimensional horizontal constant array (column array) formula `"a","b","c"` for the cell `A3` on `Sheet1`:
+- Example 3, set one-dimensional horizontal constant array (row array) formula `"a","b","c"` for the cell `A3` on `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Example 4, set two-dimensional constant array formula `{1,2,"a","b"}` for the cell `A3` on `Sheet1`:
+- Example 4, set two-dimensional constant array formula `{1,2;"a","b"}` for the cell `A3` on `Sheet1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 

@@ -173,7 +173,7 @@ if err := os.WriteFile(file, raw, 0644); err != nil {
 ## حذف الصورة {#DeletePicture}
 
 ```go
-func (f *File) DeletePicture(sheet, cell string) (err error)
+func (f *File) DeletePicture(sheet, cell string) error
 ```
 
 يوفر DeletePicture وظيفة لحذف المخططات في جدول بيانات عن طريق اسم الخلية وورقة العمل المحددة. لاحظ أنه لن يتم حذف ملف الصورة من المستند حاليًا.

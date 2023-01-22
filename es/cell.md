@@ -579,7 +579,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## Obtener comentarios {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 GetComments recupera todos los comentarios y devuelve un mapa del nombre de la hoja de trabajo a los comentarios de la hoja de trabajo.
@@ -587,7 +587,7 @@ GetComments recupera todos los comentarios y devuelve un mapa del nombre de la h
 ## Eliminar comentario {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 DeleteComment proporciona el método para eliminar comentarios en una hoja por hoja de trabajo dada. Por ejemplo, elimine el comentario en `Sheet1!$A$30`:
@@ -610,23 +610,23 @@ SetCellFormula proporciona una función para establecer la fórmula en la celda 
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Ejemplo 2, establezca la fórmula de matriz constante vertical unidimensional (matriz de fila) `1,2,3` para la celda `A3` en `Sheet1`:
+- Ejemplo 2, establezca la fórmula de matriz constante vertical unidimensional (matriz de columnas) `1;2;3` para la celda `A3` en `Sheet1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- Ejemplo 3, establezca la fórmula de matriz constante horizontal unidimensional (matriz de columnas) `"a","b","c"` para la celda `A3` en `Sheet1`:
+- Ejemplo 3, establezca la fórmula de matriz constante horizontal unidimensional (matriz de fila) `"a","b","c"` para la celda `A3` en `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Ejemplo 4, establezca la fórmula de matriz constante bidimensional `{1,2,"a","b"}` para la celda `A3` en `Sheet1`:
+- Ejemplo 4, establezca la fórmula de matriz constante bidimensional `{1,2;"a","b"}` para la celda `A3` en `Sheet1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 

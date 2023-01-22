@@ -499,7 +499,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-يتم الحصول على فهرس نمط الخلية من اسم ورقة العمل المحددة وإحداثيات الخلية ، ويمكن استخدام الفهرس الذي تم الحصول عليه كمعامل لاستدعاء وظيفة `SetCellValue` عند نسخ نمط الخلية.
+يتم الحصول على فهرس نمط الخلية من اسم ورقة العمل المحددة وإحداثيات الخلية ، ويمكن استخدام الفهرس الذي تم الحصول عليه كمعامل لاستدعاء وظيفة `SetCellStyle` عند نسخ نمط الخلية.
 
 ## دمج الخلايا {#MergeCell}
 
@@ -585,7 +585,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## الحصول على تعليق {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 يقوم GetComments باسترداد جميع التعليقات وإرجاع خريطة اسم ورقة العمل إلى تعليقات ورقة العمل.
@@ -593,7 +593,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 ## حذف تعليق {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 يوفر DeleteComment طريقة حذف تعليق في ورقة بواسطة ورقة عمل معينة. على سبيل المثال ، احذف التعليق في `Sheet1!$A$30`:
@@ -616,23 +616,23 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- مثال 2 ،  تعيين صفيف ثابت عمودي أحادي الأبعاد (صف صف الصفيف) الصيغة `1,2,3` للخلية `A3` على `Sheet1`:
+- مثال 2 ،  تعيين صفيف ثابت عمودي أحادي الأبعاد (صفيف عمود) الصيغة `1;2;3` للخلية `A3` على `Sheet1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- مثال 3 ،  تعيين صفيف ثابت أفقي أحادي الأبعاد (صفيف عمود) الصيغة `"a","b","c"` للخلية `A3` على `Sheet1`:
+- مثال 3 ،  تعيين صفيف ثابت أفقي أحادي الأبعاد (صف صف الصفيف) الصيغة `"a","b","c"` للخلية `A3` على `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- مثال 4 ،  تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2,"a","b"}` للخلية `A3` على `Sheet1`:
+- مثال 4 ،  تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2;"a","b"}` للخلية `A3` على `Sheet1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 

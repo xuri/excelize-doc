@@ -493,7 +493,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen und den Zellkoordinaten abgerufen, und der erhaltene Index kann als Parameter zum Aufrufen der Funktion `SetCellValue` beim Kopieren des Zellenstils verwendet werden.
+Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen und den Zellkoordinaten abgerufen, und der erhaltene Index kann als Parameter zum Aufrufen der Funktion `SetCellStyle` beim Kopieren des Zellenstils verwendet werden.
 
 ## Zusammenführen von Zellen {#MergeCell}
 
@@ -579,7 +579,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## Kommentar abrufen {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens an die Arbeitsblattkommentare zurück.
@@ -587,7 +587,7 @@ GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens a
 ## Kommentar löschen {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 DeleteComment bietet die Methode zum Löschen von Kommentaren in einem Blatt nach gegebenem Arbeitsblatt. Löschen Sie beispielsweise den Kommentar in `Sheet1!$A$30`:
@@ -610,23 +610,23 @@ SetCellFormula bietet eine Funktion zum Festlegen der Formel für die Zelle, die
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- Beispiel 2, setze eindimensionale vertikale Konstantenarray (Zeilenarray) Formel `1,2,3` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 2, setze eindimensionale vertikale Konstantenarray (Spaltenarray) Formel `1;2;3` für die Zelle `A3` auf `Sheet1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- Beispiel 3, setze eindimensionales horizontales konstantes Array (Spaltenarray) Formel `"a","b","c"` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 3, setze eindimensionales horizontales konstantes Array (Zeilenarray) Formel `"a","b","c"` für die Zelle `A3` auf `Sheet1`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Beispiel 4, setze die zweidimensionale konstante Arrayformel `{1,2,"a","b"}` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 4, setze die zweidimensionale konstante Arrayformel `{1,2;"a","b"}` für die Zelle `A3` auf `Sheet1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 

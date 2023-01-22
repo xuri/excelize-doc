@@ -167,7 +167,7 @@ if err := os.WriteFile(file, raw, 0644); err != nil {
 ## Eliminar imagen {#DeletePicture}
 
 ```go
-func (f *File) DeletePicture(sheet, cell string) (err error)
+func (f *File) DeletePicture(sheet, cell string) error
 ```
 
 DeletePicture proporciona una función para eliminar gráficos en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados. Tenga en cuenta que el archivo de imagen no se eliminará del documento actualmente.

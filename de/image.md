@@ -167,7 +167,7 @@ if err := os.WriteFile(file, raw, 0644); err != nil {
 ## Bild löschen {#DeletePicture}
 
 ```go
-func (f *File) DeletePicture(sheet, cell string) (err error)
+func (f *File) DeletePicture(sheet, cell string) error
 ```
 
 DeletePicture bietet eine Funktion zum Löschen von Diagrammen in einer Tabelle anhand des angegebenen Arbeitsblatts und des Zellennamens. Beachten Sie, dass die Bilddatei derzeit nicht aus dem Dokument gelöscht wird.

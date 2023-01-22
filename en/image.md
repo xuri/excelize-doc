@@ -166,7 +166,7 @@ if err := os.WriteFile(file, raw, 0644); err != nil {
 ## Delete Picture {#DeletePicture}
 
 ```go
-func (f *File) DeletePicture(sheet, cell string) (err error)
+func (f *File) DeletePicture(sheet, cell string) error
 ```
 
 DeletePicture provides a function to delete charts in a spreadsheet by given worksheet name and cell reference. Note that the image file won't be deleted from the document currently.

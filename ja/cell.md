@@ -587,7 +587,7 @@ func (f *File) GetComments() (map[string][]Comment, error)
 ## コメントを削除 {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 DeleteComment は、特定のワークシートでシート内のコメントを削除するメソッドを提供します。 たとえば、`Sheet1!$A$30` のコメントを削除します。

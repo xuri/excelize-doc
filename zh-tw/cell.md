@@ -579,7 +579,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## 獲取註解 {#GetComments}
 
 ```go
-func (f *File) GetComments() (comments map[string][]Comment)
+func (f *File) GetComments() (map[string][]Comment, error)
 ```
 
 通過該方法可以獲取全部工作表中的註解。
@@ -587,7 +587,7 @@ func (f *File) GetComments() (comments map[string][]Comment)
 ## 刪除註解 {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 根據給定的工作表名稱、儲存格坐標刪除註解。例如，刪除 `Sheet1!$A$30` 儲存格註解：
@@ -610,23 +610,23 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- 例2，為名為 `Sheet1` 的工作表 `A3` 存儲格設定一維縱向常量數組（列數組）公式 `1,2,3`:
+- 例2，為名為 `Sheet1` 的工作表 `A3` 存儲格設定一維縱向常量數組（欄數組）公式 `1;2;3`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,3}")
+err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- 例3，為名為 `Sheet1` 的工作表 `A3` 存儲格設定一維橫向常量數組（欄數組）公式 `"a","b","c"`:
+- 例3，為名為 `Sheet1` 的工作表 `A3` 存儲格設定一維橫向常量數組（列數組）公式 `"a","b","c"`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- 例4，為名為 `Sheet1` 的工作表 `A3` 存儲格設定二維常量數組公式 `{1,2,"a","b"}`:
+- 例4，為名為 `Sheet1` 的工作表 `A3` 存儲格設定二維常量數組公式 `{1,2;"a","b"}`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2,\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 

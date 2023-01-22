@@ -587,7 +587,7 @@ GetComments извлекает все комментарии и возвраща
 ## Удалить комментарий {#DeleteComment}
 
 ```go
-func (f *File) DeleteComment(sheet, cell string) (err error)
+func (f *File) DeleteComment(sheet, cell string) error
 ```
 
 DeleteComment предоставляет метод для удаления комментария на листе по заданному рабочему листу. Например, удалить комментарий в `Sheet1!$A$30`:

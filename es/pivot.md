@@ -6,7 +6,6 @@ Una tabla dinámica es una tabla de estadísticas que resume los datos de una ta
 
 ```go
 type PivotTableOptions struct {
-    pivotTableSheetName string
     DataRange           string
     PivotTableRange     string
     Rows                []PivotTableField
