@@ -538,7 +538,7 @@ GetWorkbookProps bietet eine Funktion zum Abrufen von Arbeitsmappeneigenschaften
 ## Kopf- und Fußzeile einstellen {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
+func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter bietet eine Funktion zum Festlegen von Kopf- und Fußzeilen anhand des angegebenen Arbeitsblattnamens und der Steuerzeichen.

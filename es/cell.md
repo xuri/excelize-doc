@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt proporciona una función para establecer el valor de tipo int de una celda por nombre de hoja de trabajo, coordenadas de celda y valor de celda dados.
 
+## Establecer valor de coma flotante {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+SetCellFloat establece un valor de coma flotante en una celda. El parámetro `precision` especifica cuántos lugares después del decimal se mostrarán, mientras que `-1` es un valor especial que usará tantos lugares decimales como sea necesario para representar el número. `bitSize` es `32` o `64` dependiendo de si originalmente se usó un `float32` o `float64` para el valor.
+
 ## Establecer el valor de cadena {#SetCellStr}
 
 ```go

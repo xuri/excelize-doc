@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 GetRowVisible предоставляет функцию, чтобы получить видимость одной строки, указав имя листа и индекс строки. Например, получить видимое состояние строки `2` в `Sheet1`:
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Получить индекс рабочего листа {#GetSheetIndex}

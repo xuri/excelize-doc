@@ -538,7 +538,7 @@ GetWorkbookProps 는 통합 문서 속성을 가져오는 기능을 제공합니
 ## 머리글 및 바닥 글 설정 {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
+func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter 는 주어진 워크 시트 이름과 제어 문자로 머리글과 바닥 글을 설정하는 기능을 제공합니다.

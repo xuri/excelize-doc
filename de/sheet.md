@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 GetRowVisible bietet eine Funktion zum Anzeigen einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Erhalten Sie beispielsweise den sichtbaren Status der Zeile `2` in `Sheet1`:
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Abrufen des Blattindexes {#GetSheetIndex}

@@ -538,7 +538,7 @@ GetWorkbookProps fournit une fonction pour obtenir les propriétés du classeur.
 ## Définir l'en-tête et le pied de page {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
+func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter fournit une fonction permettant de définir les en-têtes et les pieds de page en fonction du nom de la feuille de calcul et des caractères de contrôle.

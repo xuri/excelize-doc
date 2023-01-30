@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 GetRowVisible proporciona una función para visualizar una sola fila por el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, obtenga el estado visible de la fila `2` en `Sheet1`:
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Obtener índice de hoja {#GetSheetIndex}

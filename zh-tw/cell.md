@@ -74,13 +74,21 @@ func (f *File) SetCellDefault(sheet, cell, value string) error
 
 根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將不會進行特殊字符過濾。
 
-## 設定實數 {#SetCellInt}
+## 設定整數 {#SetCellInt}
 
 ```go
 func (f *File) SetCellInt(sheet, cell string, value int) error
 ```
 
-根據給定的工作表名和儲存格坐標設定實數儲存格的值。
+根據給定的工作表名和儲存格坐標設定整數儲存格的值。
+
+## 設定浮點數 {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+根據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型單元格的值。
 
 ## 設定字符型值 {#SetCellStr}
 

@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 يوفر SetCellInt دالة لتعيين قيمة نوع int لخلية من خلال اسم ورقة العمل المحدد وإحداثيات الخلية وقيمة الخلية.
 
+## تعيين قيمة النقطة العائمة {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+يعيّن SetCellFloat قيمة النقطة العائمة في خلية. تحدد معلمة `precision` عدد الأماكن بعد العلامة العشرية التي سيتم عرضها بينما تعد `-1` قيمة خاصة ستستخدم العديد من المنازل العشرية حسب الضرورة لتمثيل الرقم. `bitSize` هو `32` أو `64` بناءً على ما إذا كان `float32` أو `float64` مستخدمًا في الأصل للقيمة.
+
 ## تعيين قيمة السلسلة {#SetCellStr}
 
 ```go

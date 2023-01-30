@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt bietet eine Funktion zum Festlegen des Int-Typ-Werts einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellkoordinaten und des Zellenwerts.
 
+## Gleitkommawert festlegen {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+SetCellFloat setzt einen Fließkommawert in eine Zelle. Der Parameter `precision` gibt an, wie viele Nachkommastellen angezeigt werden, während `-1` ein spezieller Wert ist, der so viele Dezimalstellen wie nötig verwendet, um die Zahl darzustellen. `bitSize` ist `32` oder `64`, je nachdem, ob `float32` oder `float64` ursprünglich für den Wert verwendet wurde.
+
 ## Festlegen des Zeichenfolgenwerts {#SetCellStr}
 
 ```go

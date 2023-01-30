@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 GetRowVisible fournit une fonction permettant d'afficher une seule ligne par nom de feuille de calcul et index de ligne donnés. Par exemple, obtenez l'état visible de la ligne `2` dans `Sheet1`:
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Obtenir l'index de la feuille de calcul {#GetSheetIndex}

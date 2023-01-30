@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 GetRowVisible provides a function to get visible of a single row by given worksheet name and row number. For example, get visible state of row `2` in `Sheet1`:
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## Get sheet index {#GetSheetIndex}

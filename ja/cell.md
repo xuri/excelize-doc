@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 指定されたワークシート名とセル座標に基づいて、実際のセルの値を設定します。
 
+## 浮動小数点値の設定 {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+SetCellFloat は浮動小数点値をセルに設定します。`precision` パラメータは小数点以下の桁数を指定しますが、`-1` は数値を表すために必要な数の小数点以下の桁数を使用する特別な値です。`bitSize` は、`float32` または `float64` が最初に値に使用されたかどうかに応じて、`32` または `64` です。
+
 ## 文字列値の設定 {#SetCellStr}
 
 ```go

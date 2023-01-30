@@ -543,7 +543,7 @@ func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ## تعيين الرأس والتذييل {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
+func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
 يوفر SetHeaderFooter وظيفة لتعيين الرؤوس والتذييلات من خلال اسم ورقة العمل المحددة وأحرف التحكم.

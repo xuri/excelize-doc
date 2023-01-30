@@ -538,7 +538,7 @@ GetWorkbookProps provides a function to gets workbook properties.
 ## Set header and footer {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
+func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
 SetHeaderFooter provides a function to set headers and footers by given worksheet name and the control characters.

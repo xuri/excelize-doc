@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt provides a function to set the int type value of a cell by given worksheet name, cell reference, and cell value.
 
+## Set floating point value {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+SetCellFloat sets a floating point value into a cell. The `precision` parameter specifies how many places after the decimal will be shown while `-1` is a special value that will use as many decimal places as necessary to represent the number. `bitSize` is `32` or `64` depending on if a `float32` or `float64` was originally used for the value.
+
 ## Set string value {#SetCellStr}
 
 ```go

@@ -83,6 +83,7 @@
   * [Establecer valor booleano](cell.md#SetCellBool)
   * [Establecer el valor RAW](cell.md#SetCellDefault)
   * [Establecer valor entero](cell.md#SetCellInt)
+  * [Establecer valor de coma flotante](cell.md#SetCellFloat)
   * [Establecer el valor de cadena](cell.md#SetCellStr)
   * [Establecer estilo de celda](cell.md#SetCellStyle)
   * [Establecer hipervínculo](cell.md#SetCellHyperLink)

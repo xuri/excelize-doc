@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt 는 지정된 워크 시트 이름, 셀 좌표 및 셀 값으로 셀의 int 형식 값을 설정하는 기능을 제공합니다.
 
+## 부동 소수점 값 설정 {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+SetCellFloat 는 부동 소수점 값을 셀로 설정합니다. `precision` 매개변수는 소수점 이하 몇 자리까지 표시할지 지정하는 반면 `-1` 은 숫자를 표시하는 데 필요한 만큼의 소수점 이하 자릿수를 사용하는 특수 값입니다. `bitSize` 는 `float32` 또는 `float64` 가 원래 값에 사용되었는지 여부에 따라 `32` 또는 `64` 입니다.
+
 ## 문자열 값 설정 {#SetCellStr}
 
 ```go

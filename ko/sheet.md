@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 GetRowVisible 지정된 워크 시트 이름 및 행 인덱스에 의해 단일 행의 표시를 얻을 수 있는 함수를 제공 합니다. 예를 들어 `Sheet1` 에서 행 `2` 의 표시 상태를 가져옵니다.
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## 워크 시트 색인 가져 오기 {#GetSheetIndex}

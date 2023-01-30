@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt fournit une fonction pour définir la valeur de type int d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
 
+## Définir la valeur en virgule flottante {#SetCellFloat}
+
+```go
+func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
+```
+
+SetCellFloat définit une valeur à virgule flottante dans une cellule. Le paramètre `precision` spécifie combien de décimales après la virgule seront affichées tandis que `-1` est une valeur spéciale qui utilisera autant de décimales que nécessaire pour représenter le nombre. `bitSize` est `32` ou `64` selon qu'un `float32` ou `float64` a été utilisé à l'origine pour la valeur.
+
 ## Définir la valeur de chaîne {#SetCellStr}
 
 ```go

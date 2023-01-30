@@ -83,6 +83,7 @@
   * [Установить логическое значение](cell.md#SetCellBool)
   * [Установить значение RAW](cell.md#SetCellDefault)
   * [Установить целочисленное значение](cell.md#SetCellInt)
+  * [Установить значение с плавающей запятой](cell.md#SetCellFloat)
   * [Установить строковое значение](cell.md#SetCellStr)
   * [Установить стиль ячейки](cell.md#SetCellStyle)
   * [Установить гиперссылку](cell.md#SetCellHyperLink)

@@ -83,6 +83,7 @@
   * [تعيين قيمة منطقية](cell.md#SetCellBool)
   * [تعيين قيمة RAW](cell.md#SetCellDefault)
   * [تعيين قيمة عدد صحيح](cell.md#SetCellInt)
+  * [تعيين قيمة النقطة العائمة](cell.md#SetCellFloat)
   * [تعيين قيمة السلسلة](cell.md#SetCellStr)
   * [تعيين نمط الخلية](cell.md#SetCellStyle)
   * [تعيين ارتباط تشعبي](cell.md#SetCellHyperLink)

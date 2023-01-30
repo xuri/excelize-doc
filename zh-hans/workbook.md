@@ -538,7 +538,7 @@ GetWorkbookProps 用于获取工作簿属性。
 ## 设置页眉和页脚 {#SetHeaderFooter}
 
 ```go
-func (f *File) SetHeaderFooter(sheet string, settings *HeaderFooterOptions) error
+func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
 根据给定的工作表名称和控制字符设置工作表的页眉和页脚。

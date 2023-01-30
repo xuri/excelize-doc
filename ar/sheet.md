@@ -104,7 +104,7 @@ func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 يوفر GetRowVisible وظيفة لإظهار صف واحد من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، احصل على الحالة المرئية للصف `2` في `Sheet1`:
 
 ```go
-err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Sheet1", 2)
 ```
 
 ## احصل على فهرس ورقة العمل {#GetSheetIndex}

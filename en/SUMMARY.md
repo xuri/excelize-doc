@@ -83,6 +83,7 @@
   * [Set boolean value](cell.md#SetCellBool)
   * [Set RAW value](cell.md#SetCellDefault)
   * [Set integer value](cell.md#SetCellInt)
+  * [Set floating point value](cell.md#SetCellFloat)
   * [Set string value](cell.md#SetCellStr)
   * [Set cell style](cell.md#SetCellStyle)
   * [Set hyperlink](cell.md#SetCellHyperLink)
