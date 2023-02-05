@@ -707,7 +707,7 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ## Рассчитать значение ячейки {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (string, error)
+func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 CalcCellValue предоставляет функцию для получения рассчитанного значения ячейки. Эта функция в настоящее время находится в рабочей обработке. Итеративное вычисление, неявное пересечение, явное пересечение, формула массива, формула таблицы и некоторые другие формулы в настоящее время не поддерживаются.

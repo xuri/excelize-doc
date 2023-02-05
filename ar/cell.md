@@ -713,7 +713,7 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ## حساب قيمة الخلية {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (string, error)
+func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 توفر CalcCellValue دالة للحصول على قيمة الخلية المحسوبة. هذه الميزة قيد المعالجة حاليًا. الحساب التكراري والتقاطع الضمني والتقاطع الصريح وصيغة الصفيف وصيغة الجدول وبعض الصيغ الأخرى غير مدعومة حاليًا.

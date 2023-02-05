@@ -707,7 +707,7 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ## セル値を計算する {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (string, error)
+func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 CalcCellValue は、計算されたセル値を取得する関数を提供します。この機能は現在処理中です。反復計算、暗黙的交差、明示的交差、配列式、テーブル式、およびその他のいくつかの式は現在サポートされていません。

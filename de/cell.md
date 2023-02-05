@@ -707,7 +707,7 @@ Rufen Sie die Formel für die Zelle basierend auf dem angegebenen Arbeitsblattna
 ## Zellenwert berechnen {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (string, error)
+func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 CalcCellValue bietet eine Funktion zum Abrufen des berechneten Zellenwerts. Diese Funktion befindet sich derzeit in Bearbeitung. Iterative Berechnung, implizite Schnittmenge, explizite Schnittmenge, Matrixformel, Tabellenformel und einige andere Formeln werden derzeit nicht unterstützt.

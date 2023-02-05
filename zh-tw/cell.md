@@ -707,7 +707,7 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ## 計算存儲格的值 {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (string, error)
+func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持迭代計算、隱式交集、顯式交集、數組函數、數組函數、表格函數和其他部分函數。

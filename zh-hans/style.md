@@ -503,477 +503,477 @@ Excelize 目前支持的货币格式索引如下表所示，索引号仅用于�
 
 索引|货币格式
 ---|---
-164|`CN¥`
-165|`$ English (China)`
-166|`$ Cherokee (United States)`
-167|`$ Chinese (Singapore)`
-168|`$ Chinese (Taiwan)`
-169|`$ English (Australia)`
-170|`$ English (Belize)`
-171|`$ English (Canada)`
-172|`$ English (Jamaica)`
-173|`$ English (New Zealand)`
-174|`$ English (Singapore)`
-175|`$ English (Trinidad & Tobago)`
-176|`$ English (U.S. Vigin Islands)`
-177|`$ English (United States)`
-178|`$ French (Canada)`
-179|`$ Hawaiian (United States)`
-180|`$ Malay (Brunei)`
-181|`$ Quechua (Ecuador)`
-182|`$ Spanish (Chile)`
-183|`$ Spanish (Colombia)`
-184|`$ Spanish (Ecuador)`
-185|`$ Spanish (El Salvador)`
-186|`$ Spanish (Mexico)`
-187|`$ Spanish (Puerto Rico)`
-188|`$ Spanish (United States)`
-189|`$ Spanish (Uruguay)`
-190|`£ English (United Kingdom)`
-191|`£ Scottish Gaelic (United Kingdom)`
-192|`£ Welsh (United Kindom)`
-193|`¥ Chinese (China)`
-194|`¥ Japanese (Japan)`
-195|`¥ Sichuan Yi (China)`
-196|`¥ Tibetan (China)`
-197|`¥ Uyghur (China)`
-198|`֏ Armenian (Armenia)`
-199|`؋ Pashto (Afghanistan)`
-200|`؋ Persian (Afghanistan)`
-201|`৳ Bengali (Bangladesh)`
-202|`៛ Khmer (Cambodia)`
-203|`₡ Spanish (Costa Rica)`
-204|`₦ Hausa (Nigeria)`
-205|`₦ Igbo (Nigeria)`
-206|`₦ Yoruba (Nigeria)`
-207|`₩ Korean (South Korea)`
-208|`₪ Hebrew (Israel)`
-209|`₫ Vietnamese (Vietnam)`
-210|`€ Basque (Spain)`
-211|`€ Breton (France)`
-212|`€ Catalan (Spain)`
-213|`€ Corsican (France)`
-214|`€ Dutch (Belgium)`
-215|`€ Dutch (Netherlands)`
-216|`€ English (Ireland)`
-217|`€ Estonian (Estonia)`
-218|`€ Euro (€ 123)`
-219|`€ Euro (123 €)`
-220|`€ Finnish (Finland)`
-221|`€ French (Belgium)`
-222|`€ French (France)`
-223|`€ French (Luxembourg)`
-224|`€ French (Monaco)`
-225|`€ French (Réunion)`
-226|`€ Galician (Spain)`
-227|`€ German (Austria)`
-228|`€ German (Luxembourg)`
-229|`€ Greek (Greece)`
-230|`€ Inari Sami (Finland)`
-231|`€ Irish (Ireland)`
-232|`€ Italian (Italy)`
-233|`€ Latin (Italy)`
-234|`€ Latin, Serbian (Montenegro)`
-235|`€ Larvian (Latvia)`
-236|`€ Lithuanian (Lithuania)`
-237|`€ Lower Sorbian (Germany)`
-238|`€ Luxembourgish (Luxembourg)`
-239|`€ Maltese (Malta)`
-240|`€ Northern Sami (Finland)`
-241|`€ Occitan (France)`
-242|`€ Portuguese (Portugal)`
-243|`€ Serbian (Montenegro)`
-244|`€ Skolt Sami (Finland)`
-245|`€ Slovak (Slovakia)`
-246|`€ Slovenian (Slovenia)`
-247|`€ Spanish (Spain)`
-248|`€ Swedish (Finland)`
-249|`€ Swiss German (France)`
-250|`€ Upper Sorbian (Germany)`
-251|`€ Western Frisian (Netherlands)`
-252|`₭ Lao (Laos)`
-253|`₮ Mongolian (Mongolia)`
-254|`₮ Mongolian, Mongolian (Mongolia)`
-255|`₱ English (Philippines)`
-256|`₱ Filipino (Philippines)`
-257|`₴ Ukrainian (Ukraine)`
-258|`₸ Kazakh (Kazakhstan)`
-259|`₹ Arabic, Kashmiri (India)`
-260|`₹ English (India)`
-261|`₹ Gujarati (India)`
-262|`₹ Hindi (India)`
-263|`₹ Kannada (India)`
-264|`₹ Kashmiri (India)`
-265|`₹ Konkani (India)`
-266|`₹ Manipuri (India)`
-267|`₹ Marathi (India)`
-268|`₹ Nepali (India)`
-269|`₹ Oriya (India)`
-270|`₹ Punjabi (India)`
-271|`₹ Sanskrit (India)`
-272|`₹ Sindhi (India)`
-273|`₹ Tamil (India)`
-274|`₹ Urdu (India)`
-275|`₺ Turkish (Turkey)`
-276|`₼ Azerbaijani (Azerbaijan)`
-277|`₼ Cyrillic, Azerbaijani (Azerbaijan)`
-278|`₽ Russian (Russia)`
-279|`₽ Sakha (Russia)`
-280|`₾ Georgian (Georgia)`
-281|`B/. Spanish (Panama)`
-282|`Br Oromo (Ethiopia)`
-283|`Br Somali (Ethiopia)`
-284|`Br Tigrinya (Ethiopia)`
-285|`Bs Quechua (Bolivia)`
-286|`Bs Spanish (Bolivia)`
-287|`BS. Spanish (Venezuela)`
-288|`BWP Tswana (Botswana)`
-289|`C$ Spanish (Nicaragua)`
-290|`CA$ Latin, Inuktitut (Canada)`
-291|`CA$ Mohawk (Canada)`
-292|`CA$ Unified Canadian Aboriginal Syllabics, Inuktitut (Canada)`
-293|`CFA French (Mali)`
-294|`CFA French (Senegal)`
-295|`CFA Fulah (Senegal)`
-296|`CFA Wolof (Senegal)`
-297|`CHF French (Switzerland)`
-298|`CHF German (Liechtenstein)`
-299|`CHF German (Switzerland)`
-300|`CHF Italian (Switzerland)`
-301|`CHF Romansh (Switzerland)`
-302|`CLP Mapuche (Chile)`
-303|`CN¥ Mongolian, Mongolian (China)`
-304|`DZD Central Atlas Tamazight (Algeria)`
-305|`FCFA French (Cameroon)`
-306|`Ft Hungarian (Hungary)`
-307|`G French (Haiti)`
-308|`Gs. Spanish (Paraguay)`
-309|`GTQ K'iche' (Guatemala)`
-310|`HK$ Chinese (Hong Kong (China))`
-311|`HK$ English (Hong Kong (China))`
-312|`HRK Croatian (Croatia)`
-313|`IDR English (Indonesia)`
-314|`IQD Arbic, Central Kurdish (Iraq)`
-315|`ISK Icelandic (Iceland)`
-316|`K Burmese (Myanmar (Burma))`
-317|`Kč Czech (Czech Republic)`
-318|`KM Bosnian (Bosnia & Herzegovina)`
-319|`KM Croatian (Bosnia & Herzegovina)`
-320|`KM Latin, Serbian (Bosnia & Herzegovina)`
-321|`kr Faroese (Faroe Islands)`
-322|`kr Northern Sami (Norway)`
-323|`kr Northern Sami (Sweden)`
-324|`kr Norwegian Bokmål (Norway)`
-325|`kr Norwegian Nynorsk (Norway)`
-326|`kr Swedish (Sweden)`
-327|`kr. Danish (Denmark)`
-328|`kr. Kalaallisut (Greenland)`
-329|`Ksh Swahili (kenya)`
-330|`L Romanian (Moldova)`
-331|`L Russian (Moldova)`
-332|`L Spanish (Honduras)`
-333|`Lekë Albanian (Albania)`
-334|`MAD Arabic, Central Atlas Tamazight (Morocco)`
-335|`MAD French (Morocco)`
-336|`MAD Tifinagh, Central Atlas Tamazight (Morocco)`
-337|`MOP$ Chinese (Macau (China))`
-338|`MVR Divehi (Maldives)`
-339|`Nfk Tigrinya (Eritrea)`
-340|`NGN Bini (Nigeria)`
-341|`NGN Fulah (Nigeria)`
-342|`NGN Ibibio (Nigeria)`
-343|`NGN Kanuri (Nigeria)`
-344|`NOK Lule Sami (Norway)`
-345|`NOK Southern Sami (Norway)`
-346|`NZ$ Maori (New Zealand)`
-347|`PKR Sindhi (Pakistan)`
-348|`PYG Guarani (Paraguay)`
-349|`Q Spanish (Guatemala)`
-350|`R Afrikaans (South Africa)`
-351|`R English (South Africa)`
-352|`R Zulu (South Africa)`
-353|`R$ Portuguese (Brazil)`
-354|`RD$ Spanish (Dominican Republic)`
-355|`RF Kinyarwanda (Rwanda)`
-356|`RM English (Malaysia)`
-357|`RM Malay (Malaysia)`
-358|`RON Romanian (Romania)`
-359|`Rp Indonesoan (Indonesia)`
-360|`Rs Urdu (Pakistan)`
-361|`Rs. Tamil (Sri Lanka)`
-362|`RSD Latin, Serbian (Serbia)`
-363|`RSD Serbian (Serbia)`
-364|`RUB Bashkir (Russia)`
-365|`RUB Tatar (Russia)`
-366|`S/. Quechua (Peru)`
-367|`S/. Spanish (Peru)`
-368|`SEK Lule Sami (Sweden)`
-369|`SEK Southern Sami (Sweden)`
-370|`soʻm Latin, Uzbek (Uzbekistan)`
-371|`soʻm Uzbek (Uzbekistan)`
-372|`SYP Syriac (Syria)`
-373|`THB Thai (Thailand)`
-374|`TMT Turkmen (Turkmenistan)`
-375|`US$ English (Zimbabwe)`
-376|`ZAR Northern Sotho (South Africa)`
-377|`ZAR Southern Sotho (South Africa)`
-378|`ZAR Tsonga (South Africa)`
-379|`ZAR Tswana (south Africa)`
-380|`ZAR Venda (South Africa)`
-381|`ZAR Xhosa (South Africa)`
-382|`zł Polish (Poland)`
-383|`ден Macedonian (Macedonia)`
-384|`KM Cyrillic, Bosnian (Bosnia & Herzegovina)`
-385|`KM Serbian (Bosnia & Herzegovina)`
-386|`лв. Bulgarian (Bulgaria)`
-387|`p. Belarusian (Belarus)`
-388|`сом Kyrgyz (Kyrgyzstan)`
-389|`сом Tajik (Tajikistan)`
-390|`ج.م. Arabic (Egypt)`
-391|`د.أ. Arabic (Jordan)`
-392|`د.أ. Arabic (United Arab Emirates)`
-393|`د.ب. Arabic (Bahrain)`
-394|`د.ت. Arabic (Tunisia)`
-395|`د.ج. Arabic (Algeria)`
-396|`د.ع. Arabic (Iraq)`
-397|`د.ك. Arabic (Kuwait)`
-398|`د.ل. Arabic (Libya)`
-399|`د.م. Arabic (Morocco)`
-400|`ر Punjabi (Pakistan)`
-401|`ر.س. Arabic (Saudi Arabia)`
-402|`ر.ع. Arabic (Oman)`
-403|`ر.ق. Arabic (Qatar)`
-404|`ر.ي. Arabic (Yemen)`
-405|`ریال Persian (Iran)`
-406|`ل.س. Arabic (Syria)`
-407|`ل.ل. Arabic (Lebanon)`
-408|`ብር Amharic (Ethiopia)`
-409|`रू Nepaol (Nepal)`
-410|`රු. Sinhala (Sri Lanka)`
-411|`ADP`
-412|`AED`
-413|`AFA`
-414|`AFN`
-415|`ALL`
-416|`AMD`
-417|`ANG`
-418|`AOA`
-419|`ARS`
-420|`ATS`
-421|`AUD`
-422|`AWG`
-423|`AZM`
-424|`AZN`
-425|`BAM`
-426|`BBD`
-427|`BDT`
-428|`BEF`
-429|`BGL`
-430|`BGN`
-431|`BHD`
-432|`BIF`
-433|`BMD`
-434|`BND`
-435|`BOB`
-436|`BOV`
-437|`BRL`
-438|`BSD`
-439|`BTN`
-440|`BWP`
-441|`BYR`
-442|`BZD`
-443|`CAD`
-444|`CDF`
-445|`CHE`
-446|`CHF`
-447|`CHW`
-448|`CLF`
-449|`CLP`
-450|`CNY`
-451|`COP`
-452|`COU`
-453|`CRC`
-454|`CSD`
-455|`CUC`
-456|`CVE`
-457|`CYP`
-458|`CZK`
-459|`DEM`
-460|`DJF`
-461|`DKK`
-462|`DOP`
-463|`DZD`
-464|`ECS`
-465|`ECV`
-466|`EEK`
-467|`EGP`
-468|`ERN`
-469|`ESP`
-470|`ETB`
-471|`EUR`
-472|`FIM`
-473|`FJD`
-474|`FKP`
-475|`FRF`
-476|`GBP`
-477|`GEL`
-478|`GHC`
-479|`GHS`
-480|`GIP`
-481|`GMD`
-482|`GNF`
-483|`GRD`
-484|`GTQ`
-485|`GYD`
-486|`HKD`
-487|`HNL`
-488|`HRK`
-489|`HTG`
-490|`HUF`
-491|`IDR`
-492|`IEP`
-493|`ILS`
-494|`INR`
-495|`IQD`
-496|`IRR`
-497|`ISK`
-498|`ITL`
-499|`JMD`
-500|`JOD`
-501|`JPY`
-502|`KAF`
-503|`KES`
-504|`KGS`
-505|`KHR`
-506|`KMF`
-507|`KPW`
-508|`KRW`
-509|`KWD`
-510|`KYD`
-511|`KZT`
-512|`LAK`
-513|`LBP`
-514|`LKR`
-515|`LRD`
-516|`LSL`
-517|`LTL`
-518|`LUF`
-519|`LVL`
-520|`LYD`
-521|`MAD`
-522|`MDL`
-523|`MGA`
-524|`MGF`
-525|`MKD`
-526|`MMK`
-527|`MNT`
-528|`MOP`
-529|`MRO`
-530|`MTL`
-531|`MUR`
-532|`MVR`
-533|`MWK`
-534|`MXN`
-535|`MXV`
-536|`MYR`
-537|`MZM`
-538|`MZN`
-539|`NAD`
-540|`NGN`
-541|`NIO`
-542|`NLG`
-543|`NOK`
-544|`NPR`
-545|`NTD`
-546|`NZD`
-547|`OMR`
-548|`PAB`
-549|`PEN`
-550|`PGK`
-551|`PHP`
-552|`PKR`
-553|`PLN`
-554|`PTE`
-555|`PYG`
-556|`QAR`
-557|`ROL`
-558|`RON`
-559|`RSD`
-560|`RUB`
-561|`RUR`
-562|`RWF`
-563|`SAR`
-564|`SBD`
-565|`SCR`
-566|`SDD`
-567|`SDG`
-568|`SDP`
-569|`SEK`
-570|`SGD`
-571|`SHP`
-572|`SIT`
-573|`SKK`
-574|`SLL`
-575|`SOS`
-576|`SPL`
-577|`SRD`
-578|`SRG`
-579|`STD`
-580|`SVC`
-581|`SYP`
-582|`SZL`
-583|`THB`
-584|`TJR`
-585|`TJS`
-586|`TMM`
-587|`TMT`
-588|`TND`
-589|`TOP`
-590|`TRL`
-591|`TRY`
-592|`TTD`
-593|`TWD`
-594|`TZS`
-595|`UAH`
-596|`UGX`
-597|`USD`
-598|`USN`
-599|`USS`
-600|`UYI`
-601|`UYU`
-602|`UZS`
-603|`VEB`
-604|`VEF`
-605|`VND`
-606|`VUV`
-607|`WST`
-608|`XAF`
-609|`XAG`
-610|`XAU`
-611|`XB5`
-612|`XBA`
-613|`XBB`
-614|`XBC`
-615|`XBD`
-616|`XCD`
-617|`XDR`
-618|`XFO`
-619|`XFU`
-620|`XOF`
-621|`XPD`
-622|`XPF`
-623|`XPT`
-624|`XTS`
-625|`XXX`
-626|`YER`
-627|`YUM`
-628|`ZAR`
-629|`ZMK`
-630|`ZMW`
-631|`ZWD`
-632|`ZWL`
-633|`ZWN`
-634|`ZWR`
+164|¥
+165|$ 英语（美国）
+166|$ 切罗基语（切罗基，美国）
+167|$ 中文（简体，新加坡）
+168|$ 中文（繁体，中国台湾）
+169|$ 英语（澳大利亚）
+170|$ 英语（伯利兹）
+171|$ 英语（加拿大）
+172|$ 英语（牙买加）
+173|$ 英语（新西兰）
+174|$ 英语（新加坡）
+175|$ 英语（特立尼达岛和多巴哥）
+176|$ 英语（加勒比海）
+177|$ 中文（新加坡）
+178|$ 法语（加拿大）
+179|$ 夏威夷语
+180|$ 马来语（文莱达鲁萨兰国）
+181|$ 克丘亚语（厄瓜多尔）
+182|$ 西班牙语（智利）
+183|$ 西班牙语（哥伦比亚）
+184|$ 西班牙语（厄瓜多尔）
+185|$ 西班牙语（萨尔瓦多）
+186|$ 西班牙语（墨西哥）
+187|$ 西班牙语（波多黎各）
+188|$ 西班牙语（美国）
+189|$ 西班牙语（乌拉圭）
+190|£ 英语（英国）
+191|£ 苏格兰盖尔语（英国）
+192|£ 威尔士语
+193|¥ 中文（简体，中国大陆）
+194|¥ 日语
+195|¥ 彝语（中国）
+196|¥ 藏语（中国）
+197|¥ 维吾尔语（中国）
+198|֏ 亚美尼亚语
+199|؋ 普什图语
+200|؋ 达里语
+201|৳ 孟加拉语（孟加拉）
+202|៛ 高棉语
+203|₡ 西班牙语（哥斯达黎加）
+204|₦ 豪撒语
+205|₦ 伊博语
+206|₩ 朝鲜语
+207|₪ 希伯来语
+208|₫ 越南语
+209|€ 巴斯克语
+210|€ 布列塔尼语
+211|€ 加泰罗尼亚语
+212|€ 科西嘉语
+213|€ 荷兰语（比利时）
+214|€ 荷兰语（荷兰）
+215|€ 英语（爱尔兰）
+216|€ 爱沙尼亚语
+217|€ 欧元(€123)
+218|€ 欧元(123€)
+219|€ 芬兰语
+220|€ 法语（比利时）
+221|€ 法语（法国）
+222|€ 法语（卢森堡）
+223|€ 法语（摩纳哥）
+224|€ 法语（留尼旺岛）
+225|€ 加利西亚语
+226|€ 德语（奥地利）
+227|€ 德语（德国）
+228|€ 德语（卢森堡）
+229|€ 希腊语
+230|€ 伊那里萨米语（芬兰）
+231|€ 爱尔兰语
+232|€ 意大利语（意大利）
+233|€ 英语（爱尔兰）
+234|€ 塞尔维亚语（拉丁语，黑山）
+235|€ 拉脱维亚语
+236|€ 立陶宛语
+237|€ 下索布语
+238|€ 卢森堡语
+239|€ 马耳他语
+240|€ 北萨米语（芬兰）
+241|€ 奥克西唐语
+242|€ 葡萄牙语（葡萄牙）
+243|€ 塞尔维亚语（西里尔文，黑山）
+244|€ 斯科特萨米语（芬兰）
+245|€ 斯洛伐克语
+246|€ 斯洛文尼亚语
+247|€ 西班牙语（西班牙）
+248|€ 瑞典语（芬兰）
+249|€ 阿尔萨斯语（法国）
+250|€ 上索布语
+251|€ 西弗里西亚语
+252|₭ 老挝语
+253|₮ 蒙古语（蒙古）
+254|₮ 蒙古语（蒙古）
+255|₱ 英语（菲律宾）
+256|₱ 菲律宾语
+257|₴ 乌克兰语
+258|₸ 哈萨克语
+259|₹ 克什米尔语（阿拉伯文）
+260|₹ 英语（印度）
+261|₹ 古吉拉特语
+262|₹ 印地语
+263|₹ 埃纳德语
+264|₹ 克什米尔语
+265|₹ 孔卡尼语
+266|₹ 曼尼普尔语
+267|₹ 马拉地语
+268|₹ 尼泊尔语（印度）
+269|₹ 奥里亚语
+270|₹ 旁遮普语（印度）
+271|₹ 梵语
+272|₹ 信德语（梵文）
+273|₹ 泰米尔语（印度）
+274|₹ 乌尔都语（印度）
+275|₺ 土耳其语（土耳其）
+276|₼ 阿塞拜疆语（拉丁语）
+277|₼ 阿塞拜疆语（西里尔文）
+278|₽ 俄语
+279|₽ 萨哈语
+280|₾ 格鲁吉亚语
+281|B/. 西班牙语（巴拿马）
+282|Br 奥罗莫语
+283|Br 白俄罗斯语
+284|Br 白俄罗斯语
+285|Bs 克丘亚语（玻利维亚）
+286|Bs 西班牙语（玻利维亚）
+287|BS. 克丘亚语（玻利维亚）
+288|BWP 茨瓦纳语（博茨瓦纳）
+289|C$ 西班牙语（尼加拉瓜）
+290|CA$ 因纽特语（拉丁语，加拿大）
+291|CA$ 莫霍克语（加拿大）
+292|CA$ 因纽特语（加拿大）
+293|CFA 法语（马里）
+294|CFA 法语（塞内加尔）
+295|CFA 富拉语（塞内加尔）
+296|CFA 沃洛夫语（塞内加尔）
+297|CHF 法语（瑞士）
+298|CHF 德语（列支敦士登）
+299|CHF 标准德语（瑞士）
+300|CHF 意大利语（瑞士）
+301|CHF 罗曼什语
+302|CLP 马普切语（智利）
+303|CN¥ 蒙古语（中国）
+304|DZD 中阿特斯柏柏尔语（拉丁文，阿尔及利亚）
+305|FCFA 法语（喀麦隆）
+306|Ft 匈牙利语
+307|G 法语（海地）
+308|Gs. 西班牙语（巴拉圭）
+309|GTQ 基切语
+310|HK$ 中文（繁体，香港特别行政区）
+311|HK$ 英语（香港特别行政区）
+312|HRK 克罗地亚语（克罗地亚）
+313|IDR 英语（印度尼西亚）
+314|IQD 阿拉伯语、中库尔德语（伊拉克）
+315|ISK 冰岛语
+316|K 缅甸语
+317|Kč 捷克语
+318|KM 波斯尼亚语（拉丁语）
+319|KM 克罗地亚语（波斯尼亚和黑塞哥维那）
+320|KM 塞尔维亚语（拉丁语，波斯尼亚和黑塞哥维那）
+321|Kr 法罗语
+322|Kr 北萨米语（挪威）
+323|kr 北萨米语（瑞典）
+324|Kr 挪威语（博克马尔语）
+325|Kr 挪威语（尼诺斯克语）
+326|kr瑞典语（瑞典）
+327|kr.丹麦语
+328|kr.格陵兰语
+329|Ksh 斯瓦希里语
+330|L 罗马尼亚语（摩尔多瓦）
+331|L 俄语（摩尔多瓦）
+332|L 西班牙语（洪都拉斯）
+333|Lekë 阿尔巴尼亚语
+334|MAD 中阿特拉斯柏柏尔语（提夫纳语，摩洛哥）
+335|MAD 法语（摩洛哥）
+336|MAD 中阿特拉斯柏柏尔语（提夫纳语，摩洛哥）
+337|MOP$ 中文（繁体，澳门特别行政区）
+338|MVR 迪维希语（马尔代夫）
+339|Nfk 提格里尼亚语（厄立特里亚省）
+340|NGN 克瓦语（埃多人说的克瓦语）
+341|NGN 富拉（尼日利亚）
+342|NGN 伊比比奥语（尼日利亚）
+343|NGN 卡努里语
+344|NOK 律勒欧萨米语（挪威）
+345|NOK 南萨米语（挪威）
+346|NZ$ 毛利语（新西兰）
+347|PKR 信德语（巴基斯坦）
+348|PYG 瓜拉尼语（巴拉圭）
+349|Q 西班牙语（危地马拉）
+350|R 南非荷兰语
+351|R 英语（南非）
+352|R 祖鲁语
+353|R$ 葡萄牙语（巴西）
+354|RD$ 西班牙语（多米尼加共和国）
+355|RF 卢旺达语
+356|RM 英语（马来西亚）
+357|RM 马来语（马来西亚）
+358|RON 罗马尼亚语
+359|Rp 印度尼西亚语
+360|Rs 乌尔都语（巴基斯坦）
+361|Rs. 泰米尔语（斯里兰卡）
+362|RSD 塞尔维亚语（拉丁语，塞尔维亚和黑山（前））
+363|RSD 塞尔维亚语（西里尔文，塞尔维亚和黑山（前））
+364|RUB 巴什基尔语（俄罗斯）
+365|RUB 鞑靼语（俄罗斯）
+366|S/. 盖丘亚语（秘鲁）
+367|S/. 西班牙语（秘鲁）
+368|SEK 律勒欧萨米语（瑞典）
+369|SEK 南萨米语（瑞典）
+370|soʻm 乌兹别克语（拉丁语）
+371|soʻm 乌兹别克语（拉丁语）
+372|SYP 叙利亚语（叙利亚）
+373|THB 泰语（泰国）
+374|TMT 土库曼语
+375|US$ 英语（津巴布韦）
+376|ZAR 北索托语（南非）
+377|ZAR 南索托语（南非）
+378|ZAR 特松加语（南非）
+379|ZAR 茨瓦纳语（南非）
+380|ZAR 文达语（南非）
+381|ZAR 科萨语（南非）
+382|zł 波兰语
+383|ден 马其顿语（马其顿）
+384|KM 波斯尼亚语（西里尔文）
+385|KM 塞尔维亚语（西里尔文、波斯尼亚和黑塞哥维那）
+386|лв. 保加利亚语
+387|p. 白俄罗斯语（白俄罗斯）
+388|сом 吉尔吉斯语
+389|сом 吉尔吉斯语
+390|ج.م. 阿拉伯语（埃及）
+391|د.أ. 阿拉伯语（约旦）
+392|د.أ. 阿拉伯语（阿拉伯联合酋长国）
+393|د.ب. 阿拉伯语（巴林）
+394|د.ت. 阿拉伯语（突尼斯）
+395|د.ج. 阿拉伯语（阿尔及利亚）
+396|د.ع. 阿拉伯语（伊拉克）
+397|د.ك. 阿拉伯语（科威特）
+398|د.ل. 阿拉伯语（利比亚）
+399|د.م. 阿拉伯语（摩洛哥）
+400|ر 旁遮普语（巴基斯坦）
+401|ر.س. 阿拉伯语（沙特阿拉伯）
+402|ر.ع. 阿拉伯语（阿曼）
+403|ر.ق. 阿拉伯语（卡塔尔）
+404|ر.ي. 阿拉伯语（也门）
+405|ریال 波斯语（伊朗）
+406|ل.س. 阿拉伯语（叙利亚）
+407|ل.ل. 阿拉伯语（黎巴嫩）
+408|ብር 阿姆哈拉语
+409|रू 尼泊尔语
+410|රු. 僧伽罗语
+411|ADP
+412|AED
+413|AFA
+414|AFN
+415|ALL
+416|AMD
+417|ANG
+418|AOA
+419|ARS
+420|ATS
+421|AUD
+422|AWG
+423|AZM
+424|AZN
+425|BAM
+426|BBD
+427|BDT
+428|BEF
+429|BGL
+430|BGN
+431|BHD
+432|BIF
+433|BMD
+434|BND
+435|BOB
+436|BOV
+437|BRL
+438|BSD
+439|BTN
+440|BWP
+441|BYR
+442|BZD
+443|CAD
+444|CDF
+445|CHE
+446|CHF
+447|CHW
+448|CLF
+449|CLP
+450|CNY
+451|COP
+452|COU
+453|CRC
+454|CSD
+455|CUC
+456|CVE
+457|CYP
+458|CZK
+459|DEM
+460|DJF
+461|DKK
+462|DOP
+463|DZD
+464|ECS
+465|ECV
+466|EEK
+467|EGP
+468|ERN
+469|ESP
+470|ETB
+471|EUR
+472|FIM
+473|FJD
+474|FKP
+475|FRF
+476|GBP
+477|GEL
+478|GHC
+479|GHS
+480|GIP
+481|GMD
+482|GNF
+483|GRD
+484|GTQ
+485|GYD
+486|HKD
+487|HNL
+488|HRK
+489|HTG
+490|HUF
+491|IDR
+492|IEP
+493|ILS
+494|INR
+495|IQD
+496|IRR
+497|ISK
+498|ITL
+499|JMD
+500|JOD
+501|JPY
+502|KAF
+503|KES
+504|KGS
+505|KHR
+506|KMF
+507|KPW
+508|KRW
+509|KWD
+510|KYD
+511|KZT
+512|LAK
+513|LBP
+514|LKR
+515|LRD
+516|LSL
+517|LTL
+518|LUF
+519|LVL
+520|LYD
+521|MAD
+522|MDL
+523|MGA
+524|MGF
+525|MKD
+526|MMK
+527|MNT
+528|MOP
+529|MRO
+530|MTL
+531|MUR
+532|MVR
+533|MWK
+534|MXN
+535|MXV
+536|MYR
+537|MZM
+538|MZN
+539|NAD
+540|NGN
+541|NIO
+542|NLG
+543|NOK
+544|NPR
+545|NTD
+546|NZD
+547|OMR
+548|PAB
+549|PEN
+550|PGK
+551|PHP
+552|PKR
+553|PLN
+554|PTE
+555|PYG
+556|QAR
+557|ROL
+558|RON
+559|RSD
+560|RUB
+561|RUR
+562|RWF
+563|SAR
+564|SBD
+565|SCR
+566|SDD
+567|SDG
+568|SDP
+569|SEK
+570|SGD
+571|SHP
+572|SIT
+573|SKK
+574|SLL
+575|SOS
+576|SPL
+577|SRD
+578|SRG
+579|STD
+580|SVC
+581|SYP
+582|SZL
+583|THB
+584|TJR
+585|TJS
+586|TMM
+587|TMT
+588|TND
+589|TOP
+590|TRL
+591|TRY
+592|TTD
+593|TWD
+594|TZS
+595|UAH
+596|UGX
+597|USD
+598|USN
+599|USS
+600|UYI
+601|UYU
+602|UZS
+603|VEB
+604|VEF
+605|VND
+606|VUV
+607|WST
+608|XAF
+609|XAG
+610|XAU
+611|XB5
+612|XBA
+613|XBB
+614|XBC
+615|XBD
+616|XCD
+617|XDR
+618|XFO
+619|XFU
+620|XOF
+621|XPD
+622|XPF
+623|XPT
+624|XTS
+625|XXX
+626|YER
+627|YUM
+628|ZAR
+629|ZMK
+630|ZMW
+631|ZWD
+632|ZWL
+633|ZWN
+634|ZWR
 
 Excelize 支持为单元格设置自定义数字格式。例如，将 `Sheet1` 工作表的 `A6` 单元格 设置为乌拉圭（西班牙）格式的日期类型：
 

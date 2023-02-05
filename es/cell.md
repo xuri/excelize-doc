@@ -707,7 +707,7 @@ Obtenga la fórmula en la celda según el nombre de la hoja de trabajo y las coo
 ## Calcular el valor de la celda {#CalcCellValue}
 
 ```go
-func (f *File) CalcCellValue(sheet, cell string) (string, error)
+func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
 CalcCellValue proporciona una función para obtener el valor de celda calculado. Esta función se encuentra actualmente en proceso de trabajo. El cálculo iterativo, la intersección implícita, la intersección explícita, la fórmula de matriz, la fórmula de tabla y algunas otras fórmulas no se admiten actualmente.
