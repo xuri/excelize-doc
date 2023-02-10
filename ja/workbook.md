@@ -178,13 +178,13 @@ UngroupSheets は、ワークシートのグループ化を解除する機能を
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground は、ワークシート名とファイル パスを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
+SetSheetBackground は、ワークシート名とファイル パスを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: BPM、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes は、ワークシート名、拡張子名、画像データを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
+SetSheetBackgroundFromBytes は、ワークシート名、拡張子名、画像データを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: BPM、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
 
 ## デフォルトワークシートを設定する {#SetActiveSheet}
 

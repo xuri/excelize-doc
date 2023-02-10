@@ -1031,6 +1031,10 @@ func (f *File) GetColStyle(sheet, col string) (int, error)
 
 ## تعيين نمط الصف {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 يوفر SetRowStyle وظيفة لتعيين نمط الصفوف حسب اسم ورقة العمل ونطاق الصف ومعرف النمط. لاحظ أن هذا سيؤدي إلى الكتابة فوق الأنماط الموجودة للصفوف ، ولن يقوم بإلحاق أو دمج النمط مع الأنماط الموجودة.
 
 على سبيل المثال ، قم بتعيين نمط الصف 1 في `Sheet1`:

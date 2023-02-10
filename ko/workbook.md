@@ -178,13 +178,13 @@ UngroupSheets 는 워크시트를 그룹 해제하는 기능을 제공합니다.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground 는 주어진 워크시트 이름과 파일 경로로 배경 그림을 설정하는 기능을 제공합니다. 지원되는 이미지 유형: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ.
+SetSheetBackground 는 주어진 워크시트 이름과 파일 경로로 배경 그림을 설정하는 기능을 제공합니다. 지원되는 이미지 유형: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes 는 주어진 워크시트 이름, 확장자 이름 및 이미지 데이터로 배경 그림을 설정하는 기능을 제공합니다. 지원되는 이미지 유형: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ.
+SetSheetBackgroundFromBytes 는 주어진 워크시트 이름, 확장자 이름 및 이미지 데이터로 배경 그림을 설정하는 기능을 제공합니다. 지원되는 이미지 유형: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ.
 
 ## 기본 워크 시트 설정 {#SetActiveSheet}
 

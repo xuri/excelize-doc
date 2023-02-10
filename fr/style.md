@@ -1031,6 +1031,10 @@ GetColStyle fournit une fonction pour obtenir l'ID de style de colonne en foncti
 
 ## Définir le style de ligne {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 SetRowStyle fournit une fonction pour définir le style des lignes par nom de feuille de calcul, plage de lignes et ID de style donnés. Cette fonction est sécurisée pour la concurrence. Notez que cela écrasera les styles existants pour les lignes, il n'ajoutera ni ne fusionnera le style avec les styles existants.
 
 Par exemple, définissez le style de la ligne 1 sur `Sheet1`:

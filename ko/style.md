@@ -1031,6 +1031,10 @@ GetColStyle 은 지정된 워크시트 이름과 열 이름으로 열 스타일 
 
 ## 행 스타일 설정 {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 SetRowStyle 은 주어진 워크시트 이름, 행 범위 및 스타일 ID 로 행의 스타일을 설정하는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 이것은 행의 기존 스타일을 덮어쓰며 기존 스타일과 스타일을 추가하거나 병합하지 않습니다.
 
 예를 들어 `Sheet1` 에서 행 1의 스타일을 설정합니다:

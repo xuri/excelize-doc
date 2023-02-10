@@ -178,13 +178,13 @@ func (f *File) UngroupSheets() error
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-根据给定的工作表名称和图片文件路径为指定的工作表设置平铺效果的背景图片。支持的图片文件格式为：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+根据给定的工作表名称和图片文件路径为指定的工作表设置平铺效果的背景图片。支持的图片文件格式为：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-根据给定的工作表名称、图片格式扩展名和图片格式数据为指定的工作表设置平铺效果的背景图片。支持的图片文件格式为：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+根据给定的工作表名称、图片格式扩展名和图片格式数据为指定的工作表设置平铺效果的背景图片。支持的图片文件格式为：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 设置默认工作表 {#SetActiveSheet}
 

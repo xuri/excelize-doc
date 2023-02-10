@@ -178,13 +178,13 @@ UngroupSheets fournit une fonction pour dissocier les feuilles de calcul.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground fournit une fonction pour définir l'image d'arrière-plan en fonction du nom de la feuille de calcul et du chemin d'accès au fichier. Types d'images pris en charge: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
+SetSheetBackground fournit une fonction pour définir l'image d'arrière-plan en fonction du nom de la feuille de calcul et du chemin d'accès au fichier. Types d'images pris en charge: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes fournit une fonction pour définir l'image d'arrière-plan en fonction du nom de la feuille de calcul, du nom de l'extension et des données d'image. Types d'images pris en charge: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
+SetSheetBackgroundFromBytes fournit une fonction pour définir l'image d'arrière-plan en fonction du nom de la feuille de calcul, du nom de l'extension et des données d'image. Types d'images pris en charge: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
 
 ## Définir la feuille de calcul par défaut {#SetActiveSheet}
 

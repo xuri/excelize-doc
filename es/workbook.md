@@ -178,13 +178,13 @@ UngroupSheets proporciona una función para desagrupar hojas de trabajo.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground proporciona una función para configurar la imagen de fondo según el nombre de la hoja de trabajo y la ruta del archivo. Tipos de imágenes compatibles: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
+SetSheetBackground proporciona una función para configurar la imagen de fondo según el nombre de la hoja de trabajo y la ruta del archivo. Tipos de imágenes compatibles: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes proporciona una función para configurar la imagen de fondo según el nombre de la hoja de trabajo, el nombre de la extensión y los datos de la imagen. Tipos de imágenes compatibles: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
+SetSheetBackgroundFromBytes proporciona una función para configurar la imagen de fondo según el nombre de la hoja de trabajo, el nombre de la extensión y los datos de la imagen. Tipos de imágenes compatibles: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
 
 ## Establecer la hoja de trabajo predeterminada {#SetActiveSheet}
 

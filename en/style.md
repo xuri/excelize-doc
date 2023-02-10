@@ -1031,6 +1031,10 @@ GetColStyle provides a function to get column style ID by given worksheet name a
 
 ## Set row style {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 SetRowStyle provides a function to set the style of rows by given worksheet name, row range, and style ID. Note that this will overwrite the existing styles for the rows, it won't append or merge style with existing styles.
 
 For example set style of row 1 on `Sheet1`:

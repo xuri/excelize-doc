@@ -1031,6 +1031,10 @@ func (f *File) GetColStyle(sheet, col string) (int, error)
 
 ## 设置行样式 {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 根据给定的工作表名称、行区域和样式索引设置行样式。请注意，这将覆盖行的已有样式，而不会将样式与已有样式叠加或合并。
 
 例1，为名称为 `Sheet1` 的工作表的第 1 行设置样式:

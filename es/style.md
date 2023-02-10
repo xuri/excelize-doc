@@ -1031,6 +1031,10 @@ GetColStyle proporciona una función para obtener el identificador de estilo de 
 
 ## Establecer estilo de fila {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 SetRowStyle proporciona una función para establecer el estilo de las filas por nombre de hoja de trabajo, rango de filas e ID de estilo dados. Tenga en cuenta que esto sobrescribirá los estilos existentes para las filas, no agregará ni fusionará el estilo con los estilos existentes.
 
 Por ejemplo, establezca el estilo de la fila 1 en `Sheet1`:

@@ -1031,6 +1031,10 @@ GetColStyle stellt eine Funktion zum Abrufen der Spaltenformat-ID anhand des ang
 
 ## Zeilenstil festlegen {#SetRowStyle}
 
+```go
+func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
+```
+
 SetRowStyle bietet eine Funktion zum Festlegen des Stils von Zeilen anhand des angegebenen Arbeitsblattnamens, Zeilenbereichs und der Stil-ID. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass dadurch die vorhandenen Stile für die Zeilen überschrieben werden. Der Stil wird nicht mit vorhandenen Stilen angehängt oder mit diesen zusammengeführt.
 
 Legen Sie zum Beispiel den Stil von Zeile 1 auf `Sheet1` fest:
