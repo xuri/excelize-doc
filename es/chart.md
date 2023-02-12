@@ -56,6 +56,8 @@ doughnut                    | Gráfico de rosquillas
 line                        | Gráfico de líneas
 pie                         | Gráfico circular
 pie3D                       | Gráfico circular 3D
+pieOfPie                    | Doble de gráfico circular
+barOfPie                    | Pastel de gráfico circular
 radar                       | Gráfico de radar
 scatter                     | Gráfico de dispersión
 surface3D                   | Gráfico de superficie 3D
@@ -109,14 +111,14 @@ zero|valor cero
 
 Especifica que cada marcador de datos de la serie tiene un color diferente por `VaryColors`. El valor predeterminado es `true`.
 
-El parámetro `formato` proporciona ajustes para parámetros como el desplazamiento del gráfico, la escala, la configuración de la relación de aspecto y las propiedades de impresión, así como los que se utilizan en la función [`AddPicture`](image.md#AddPicture).
+El parámetro `Format` proporciona ajustes para parámetros como el desplazamiento del gráfico, la escala, la configuración de la relación de aspecto y las propiedades de impresión, así como los que se utilizan en la función [`AddPicture`](image.md#AddPicture).
 
 Establezca la posición del área de trazado del gráfico por área de trazado. Las propiedades que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
 ShowBubbleSize  | `bool` | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
-ShowCatName     | `bool` | `true`  | Nombre de la categoría.
+ShowCatName     | `bool` | `false` | Nombre de la categoría.
 ShowLeaderLines | `bool` | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
 ShowPercent     | `bool` | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
 ShowSerName     | `bool` | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
@@ -152,8 +154,8 @@ Establezca el tamaño del gráfico por la propiedad `Dimension`. La propiedad de
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-height | `int` | 290 | Altura
-width  | `int` | 480 | Anchura
+Height | `int` | 290 | Altura
+Width  | `int` | 480 | Anchura
 
 El parámetro `combo` especifica la creación de un gráfico que combine dos o más tipos de gráficos en un solo gráfico. Por ejemplo, cree un gráfico de líneas y columnas agrupadas con los datos `Sheet1!$E$1:$L$15`:
 

@@ -56,6 +56,8 @@ doughnut                    | ドーナツチャート
 line                        | 折れ線グラフ
 pie                         | 円グラフ
 pie3D                       | 3D 円グラフ
+pieOfPie                    | パイチャートのパイ
+barOfPie                    | 円グラフのバー
 radar                       | レーダーチャート
 scatter                     | 散布図
 surface3D                   | 3D サーフェス チャート
@@ -109,14 +111,14 @@ zero|0 値
 
 系列の各データ マーカーの色が `VaryColors` によって異なっていることを指定します。デフォルト値は `true` です。
 
-パラメータ `format` は、[`AddPicture`](image.md#AddPicture) 関数で使用されるものと同じパラメータを使用して、チャートオフセット、ズーム、高さ幅比設定、印刷プロパティなどのパラメータの設定を提供します。
+パラメータ `Format` は、[`AddPicture`](image.md#AddPicture) 関数で使用されるものと同じパラメータを使用して、チャートオフセット、ズーム、高さ幅比設定、印刷プロパティなどのパラメータの設定を提供します。
 
-次のオプションパラメータを使用して、オプションの `plotarea` オブジェクトを使用してデータラベルの形式を設定します:
+次のオプションパラメータを使用して、オプションの `PlotArea` オブジェクトを使用してデータラベルの形式を設定します:
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
 ShowBubbleSize  | `bool` | `false` | バブルサイズ
-ShowCatName     | `bool` | `true`  | カテゴリ名
+ShowCatName     | `bool` | `false` | カテゴリ名
 ShowLeaderLines | `bool` | `false` | ブートラインの表示
 ShowPercent     | `bool` | `false` | 割合
 ShowSerName     | `bool` | `false` | 系列名
@@ -152,8 +154,8 @@ Minimum        | `*float64` | `0`     | 最小値、`0` は自動
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-height | `int` | 290 | 高さ
-width  | `int` | 480 | 幅
+Height | `int` | 290 | 高さ
+Width  | `int` | 480 | 幅
 
 パラメータ `combo` は、2つ以上のチャートタイプを1つのチャートに結合するチャートの作成を指定します。たとえば、クラスター化された列を作成します-データ `Sheet1!$E$1:$L$15` の折れ線グラフ：
 

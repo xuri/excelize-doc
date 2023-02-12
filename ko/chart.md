@@ -56,6 +56,8 @@ doughnut                    | 도넛 차트
 line                        | 꺾은 선형 차트
 pie                         | 원형 차트
 pie3D                       | 3D 원형 차트
+pieOfPie                    | 이중 원형 차트
+barOfPie                    | 원형 차트 막대
 radar                       | 레이더 차트
 scatter                     | 분산 형 차트
 surface3D                   | 3D 표면 차트
@@ -110,14 +112,14 @@ zero|zero value
 
 계열의 각 데이터 마커는 `VaryColors` 에 의해 다른 색상을 가지고 있음을 지정합니다. 기본 값은 `true` 입니다.
 
-매개변수 `format` 은 차트 오프셋, 배율, 종횡비 설정 및 인쇄 특성과 [`AddPicture`](image.md#AddPicture) 함수에 사용되는 매개 변수에 대한 설정을 제공합니다.
+매개변수 `Format` 은 차트 오프셋, 배율, 종횡비 설정 및 인쇄 특성과 [`AddPicture`](image.md#AddPicture) 함수에 사용되는 매개 변수에 대한 설정을 제공합니다.
 
 차트 플롯 영역의 위치를 플롯 영역별로 설정합니다. 설정할 수 있는 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
 ShowBubbleSize  | `bool` | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
-ShowCatName     | `bool` | `true`  | 범주 이름
+ShowCatName     | `bool` | `false` | 범주 이름
 ShowLeaderLines | `bool` | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.
 ShowPercent     | `bool` | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
 ShowSerName     | `bool` | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
@@ -153,8 +155,8 @@ Minimum        | `*float64` | `0`     |  고정 된 최소, 0 은 자동 지정 
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-height | `int` | 290 | 높이
-width  | `int` | 480 | 너비
+Height | `int` | 290 | 높이
+Width  | `int` | 480 | 너비
 
 `combo` 매개 변수는 단일 차트에서 둘 이상의 차트 유형을 결합하는 차트 작성을 지정합니다. 예를 들어, `Sheet1!$E$1:$L$15` 데이터가 포함 된 군집 기둥 형 꺾은 선형 차트를 만듭니다:
 

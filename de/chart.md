@@ -56,6 +56,8 @@ doughnut                    | donut-Diagramm
 line                        | liniendiagramm
 pie                         | kreisdiagramm
 pie3D                       | 3D Kreisdiagramm
+pieOfPie                    | Doppeltes Tortendiagramm
+barOfPie                    | Balken eines Kreisdiagramms
 radar                       | netzdiagramm
 scatter                     | streudiagramm
 surface3D                   | 3D Oberflächendiagramm
@@ -109,14 +111,14 @@ zero|Nullwert
 
 Gibt an, dass jede Datenpunktmarkierung in der Reihe eine andere Farbe durch `VaryColors` hat. Der Standardwert ist `true`.
 
-Der Parameter `format` bietet Einstellungen für Parameter wie Diagrammversatz, Skalierung, Seitenverhältniseinstellungen und Druckeigenschaften sowie für die in der Funktion [`AddPicture`](image.md#AddPicture) verwendeten.
+Der Parameter `Format` bietet Einstellungen für Parameter wie Diagrammversatz, Skalierung, Seitenverhältniseinstellungen und Druckeigenschaften sowie für die in der Funktion [`AddPicture`](image.md#AddPicture) verwendeten.
 
 Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende Eigenschaften können festgelegt werden:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
 ShowBubbleSize  | `bool` | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
-ShowCatName     | `bool` | `true`  | Kategoriename.
+ShowCatName     | `bool` | `false` | Kategoriename.
 ShowLeaderLines | `bool` | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
 ShowPercent     | `bool` | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
 ShowSerName     | `bool` | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
@@ -152,8 +154,8 @@ Legen Sie die Diagrammgröße anhand der Eigenschaft `Dimension` fest. Die Dimen
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-height | `int` | 290 | Height
-width  | `int` | 480 | Width
+Height | `int` | 290 | Height
+Width  | `int` | 480 | Width
 
 Der Parameter `combo` gibt an, dass ein Diagramm erstellt wird, das zwei oder mehr Diagrammtypen in einem einzelnen Diagramm kombiniert. Erstellen Sie beispielsweise ein gruppiertes Spalten-Liniendiagramm mit den Daten `Sheet1!$E$1:$L$15`:
 

@@ -56,6 +56,8 @@ doughnut                    | tableau de donut
 line                        | graphique en ligne
 pie                         | graphique tarte
 pie3D                       | 3D graphique tarte
+pieOfPie                    | double du camembert
+barOfPie                    | barre de camembert
 radar                       | graphique radar
 scatter                     | graphique de dispersion
 surface3D                   | 3D graphique de surface
@@ -109,14 +111,14 @@ zero|zvaleur zéro
 
 Spécifie que chaque marqueur de données de la série a une couleur différente par `VaryColors`. La valeur par défaut est `true`.
 
-Le paramètre `format` fournit des paramètres pour des paramètres tels que le décalage de diagramme, l'échelle, les paramètres de format et les propriétés d'impression, ainsi que ceux utilisés dans la fonction [`AddPicture`](image.md#AddPicture).
+Le paramètre `Format` fournit des paramètres pour des paramètres tels que le décalage de diagramme, l'échelle, les paramètres de format et les propriétés d'impression, ainsi que ceux utilisés dans la fonction [`AddPicture`](image.md#AddPicture).
 
 Définissez la position de la zone de tracé de graphique par plotarea. Les propriétés qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
 ShowBubbleSize  | `bool` | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
-ShowCatName     | `bool` | `true`  | Nom de catégorie
+ShowCatName     | `bool` | `false` | Nom de catégorie
 ShowLeaderLines | `bool` | `false` | Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.
 ShowPercent     | `bool` | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
 ShowSerName     | `bool` | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
@@ -152,8 +154,8 @@ Définissez la taille du graphique par la propriété `Dimension`. La propriét�
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-height | `int` | 290 | Hauteur
-width  | `int` | 480 | Largeur
+Height | `int` | 290 | Hauteur
+Width  | `int` | 480 | Largeur
 
 Le paramètre `combo` spécifie la création d'un graphique qui combine deux ou plusieurs types de graphiques dans un seul graphique. Par exemple, créez un graphique à colonnes groupées avec des données `Sheet1!$E$1:$L$15`:
 

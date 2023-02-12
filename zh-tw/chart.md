@@ -56,6 +56,8 @@ doughnut                    | 環圈圖
 line                        | 折線圖
 pie                         | 圓形圖
 pie3D                       | 立體圓形圖
+pieOfPie                    | 子母圓形圖
+barOfPie                    | 圓形圖帶有子橫條圖
 radar                       | 雷達圖
 scatter                     | 散佈圖
 surface3D                   | 立體曲面圖
@@ -75,7 +77,7 @@ Name|圖例項（系列），在圖表圖例和公式欄中顯示。`Name` 參�
 Categories|水平（分類）軸標籤。在大多數圖表類別中，`Categories` 屬性是可選的，默認為形如 `1..n` 的連續序列。
 Values|圖表資料區域，是 `Series` 中最重要的參數，也是創建圖表時唯一的必選參數。該選項將圖表與其顯示的工作表資料鏈接起來。
 Line|設定折線圖的折線格式。`Line` 屬性是可選的，如果未指定該屬性，則為默認樣式。可以設定的選項是 `Width`，寬度範圍是 0.25pt 至 999pt。如果 `Width` 的值超出範圍，則線的默認寬度為 2pt。
-Marker|設定折線圖和散點圖數據系列線型寬度和線端類型。可選參數 `Size` 指定線型寬度，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
+Marker|設置折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
 
 參數 `legend` 提供對圖例項的屬性設定方法，下面是 Excelize 中 `legend` 的可選參數：
 
@@ -109,14 +111,14 @@ zero|零值
 
 通過參數 `VaryColors` 指定是否設定圖表數據系列格式為自動填充顏色，默認值為 `true`。
 
-參數 `format` 提供對圖表偏移、縮放、高寬比設定和打印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函數中所使用的相同。
+參數 `Format` 提供對圖表偏移、縮放、高寬比設定和打印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函數中所使用的相同。
 
-通過可選 `plotarea` 對象設定資料標籤格式，可選參數如下：
+通過可選 `PlotArea` 對象設定資料標籤格式，可選參數如下：
 
 參數|類別|默認值|含義
 ---|---|---|---
 ShowBubbleSize  | `bool` | `false` | 泡泡大小
-ShowCatName     | `bool` | `true`  | 類別名稱
+ShowCatName     | `bool` | `false` | 類別名稱
 ShowLeaderLines | `bool` | `false` | 顯示引導線
 ShowPercent     | `bool` | `false` | 百分比
 ShowSerName     | `bool` | `false` | 系列名稱
@@ -152,8 +154,8 @@ Minimum        | `*float64` | `0`     | 最小值，`0` 代表自動
 
 參數|類別|默認值|含義
 ---|---|---|---
-height | `int` | 290 | 高度
-width  | `int` | 480 | 寬度
+Height | `int` | 290 | 高度
+Width  | `int` | 480 | 寬度
 
 參數 `combo` 用來指定創建組合圖表，該圖表將兩個或多個圖表類別組合在一個圖表中。例如，在 `Sheet1!$E$1:$L$15` 區域創建一個 群組柱形圖 - 折線圖：
 
