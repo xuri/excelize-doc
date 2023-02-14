@@ -401,7 +401,7 @@ SetConditionalFormat には、セル値の条件付き書式設定規則を作�
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ SetConditionalFormat には、セル値の条件付き書式設定規則を作�
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -736,7 +758,49 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 
 `BarColor` - `data_bar` に使用されます。`MinColor` と同じ, 上記を参照してください。
 
-たとえば、`Sheet1` に条件付き書式を設定して、セル `A1:D4` の範囲の最高値と最低値を強調表示します：
+`BarBorderColor` - データ バーの境界線の色を設定するために使用されます。これは Excel 2010 以降でのみ表示されます。
+
+`BarDirection` - データ バーの方向を設定するために使用されます。利用可能なオプションは次のとおりです:
+
+値|説明
+---|---
+context     | データ バーの方向は、表示されるデータのコンテキストに基づいて、スプレッドシート アプリケーションによって設定されます。
+leftToRight | データ バーの方向は右から左です。
+rightToLeft | データ バーの方向は左から右です。
+
+`BarOnly` - セル内のデータではなく棒データを表示する設定に使用されます。
+
+`BarSolid` - データ バーのソリッド (非グラデーション) 塗りつぶしのターンに使用されます。これは Excel 2010 以降でのみ表示されます。
+
+`IconStyle` - 利用可能なオプションは次のとおりです:
+
+値|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - セット反転アイコン セットに使用されます。
+
+`IconsOnly` - セル値なしで表示されるセットに使用されます。
+
+`StopIfTrue` - セルまたはセル範囲に複数のルールが適用されている場合に、条件付き書式ルールの「true の場合停止」機能を設定するために使用されます。このパラメーターが設定されている場合、現在のルールが true の場合、後続のルールは評価されません。
+
+たとえば、`Sheet1` に条件付き書式を設定して、セル `A1:D4` の範囲の最高値と最低値を強調表示します:
 
 <p align="center"><img width="885" src="./images/condition_format_01.png" alt="セル範囲に条件付き書式を設定する"></p>
 

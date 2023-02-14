@@ -398,7 +398,7 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -411,7 +411,29 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -731,9 +753,51 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 
 `BarColor` - 當條件式格式類別為 `data_bar` 時使用。與 `MinColor` 用法相同，參考上述文檔。
 
-例如，為名為 `Sheet1` 的工作表中，通過設定條件格式高亮 `A1:D4` 區域存儲格中的最大值與最小值:
+`BarBorderColor` - 用於設定資料橫條的邊框線顏色，該設定僅在 Excel 2010 或更高版本中有效。
 
-<p align="center"><img width="884" src="./images/condition_format_01.png" alt="通過設定條件格式高亮區域存儲格中的最大值與最小值"></p>
+`BarDirection` - 用於設定資料橫條方向，可選值見下表:
+
+可選值|說明
+---|---
+context     | 資料橫條方向根據電子錶格中數據上下文顯示
+leftToRight | 從右向左
+rightToLeft | 從左向右
+
+`BarOnly` - 用於設定是否隱藏存儲格中的值，僅顯示資料橫條。
+
+`BarSolid` - 用於設定資料橫條是否使用實心填滿（非漸層）填充樣式，該設定僅在 Excel 2010 或更高版本中有效。
+
+`IconStyle` - 用於設定圖示樣式，可選值見下表:
+
+可選值|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - 用於設定是否反轉圖示次序。
+
+`IconsOnly` - 用於設定是否隱藏存儲格中的值，僅顯示圖示。
+
+`StopIfTrue` - 用於設定是否「如果 True 則停止」，當一個條件式格式規則套用至一個或多個存儲格時，如果開啓此設定，一旦找到匹配規則的一個存儲格，將不會繼續查找後續存儲格是否匹配。
+
+例如，為名為 `Sheet1` 的工作表中，通過設定條件式格式高亮 `A1:D4` 區域存儲格中的最大值與最小值:
+
+<p align="center"><img width="884" src="./images/condition_format_01.png" alt="通過設定條件式格式高亮區域存儲格中的最大值與最小值"></p>
 
 ```go
 func main() {

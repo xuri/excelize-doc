@@ -398,7 +398,7 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -411,7 +411,29 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -730,6 +752,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - 与 `MinColor` 用法相同，参考上述文档。
 
 `BarColor` - 当条件格式类型为 `data_bar` 时使用。与 `MinColor` 用法相同，参考上述文档。
+
+`BarBorderColor` - 用于设置数据条的边框线颜色，该设置仅在 Excel 2010 或更高版本中有效。
+
+`BarDirection` - 用于设置数据条方向，可选值见下表:
+
+可选值|说明
+---|---
+context     | 数据条方向根据电子表格中数据上下文显示
+leftToRight | 从右向左
+rightToLeft | 从左向右
+
+`BarOnly` - 用于设置是否隐藏单元格中的值，仅显示数据条。
+
+`BarSolid` - 用于设置数据条是否使用纯色（非渐变）填充样式，该设置仅在 Excel 2010 或更高版本中有效。
+
+`IconStyle` - 用于设置图标样式，可选值见下表:
+
+可选值|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - 用于设置是否反转图标次序。
+
+`IconsOnly` - 用于设置是否隐藏单元格中的值，仅显示图标。
+
+`StopIfTrue` - 用于设置是否“如果为真则停止”，当一个条件格式规则应用与一个或多个单元格时，如果开启此设置，一旦找到匹配规则的一个单元格，将不会继续查找后续单元格是否匹配。
 
 例如，为名为 `Sheet1` 的工作表中，通过设置条件格式高亮 `A1:D4` 区域单元格中的最大值与最小值:
 

@@ -401,7 +401,7 @@ Die Option `Type` ist ein erforderlicher Parameter und hat keinen Standardwert. 
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ Die Option `Type` ist ein erforderlicher Parameter und hat keinen Standardwert. 
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - Gleich wie `MinColor`, siehe oben.
 
 `BarColor` - Wird für `data_bar` verwendet. Gleich wie `MinColor`, siehe oben.
+
+`BarBorderColor` - Verwendet für legt die Farbe für die Umrandungslinie eines Datenbalkens fest, dies ist nur in Excel 2010 und höher sichtbar.
+
+`BarDirection` - Verwendet für legt die Richtung für Datenbalken fest. Die verfügbaren Optionen sind:
+
+Wert|Erklärung
+---|---
+context     | Die Richtung der Datenleiste wird von der Tabellenkalkulationsanwendung basierend auf dem Kontext der angezeigten Daten festgelegt.
+leftToRight | Die Richtung der Datenleiste verläuft von rechts nach links.
+rightToLeft | Die Richtung der Datenleiste ist von links nach rechts.
+
+`BarOnly` - Verwendet für Set zeigt Balkendaten an, aber nicht die Daten in den Zellen.
+
+`BarSolid` - Wird verwendet, um eine durchgehende Füllung (ohne Farbverlauf) für Datenbalken zu aktivieren, dies ist nur in Excel 2010 und höher sichtbar:
+
+`IconStyle` - Die verfügbaren Optionen sind:
+
+Wert|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - Wird für umgekehrte Symbolsätze verwendet.
+
+`IconsOnly` - Wird für den Satz verwendet, der ohne den Zellenwert angezeigt wird.
+
+`StopIfTrue` - Wird verwendet, um die Funktion "Stoppen, wenn wahr" einer Regel zur bedingten Formatierung festzulegen, wenn mehr als eine Regel auf eine Zelle oder einen Zellbereich angewendet wird. Wenn dieser Parameter gesetzt ist, werden nachfolgende Regeln nicht ausgewertet, wenn die aktuelle Regel wahr ist.
 
 Heben Sie beispielsweise die höchsten und niedrigsten Werte in einem Zellbereich `A1:D4` hervor, indem Sie die bedingte Formatierung auf `Sheet1` festlegen:
 

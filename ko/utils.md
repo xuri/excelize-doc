@@ -401,7 +401,7 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - `MinColor` 와 동일, 위의 참조.
 
 `BarColor` - `data_bar` 에 사용. `MinColor` 와 동일, 위의 참조.
+
+`BarBorderColor` - 데이터 막대의 경계선 색상을 설정하는 데 사용되며 Excel 2010 이상에서만 볼 수 있습니다.
+
+`BarDirection` - 데이터 막대의 방향을 설정하는 데 사용됩니다. 사용 가능한 옵션은 다음과 같습니다:
+
+값|설명
+---|---
+context     | 데이터 막대 방향은 표시된 데이터의 컨텍스트를 기반으로 스프레드시트 응용 프로그램에 의해 설정됩니다.
+leftToRight | 데이터 막대 방향은 오른쪽에서 왼쪽입니다.
+rightToLeft | 데이터 막대 방향은 왼쪽에서 오른쪽입니다.
+
+`BarOnly` - 세트에 사용되는 막대 데이터는 표시되지만 셀의 데이터는 표시되지 않습니다.
+
+`BarSolid` - 데이터 막대의 단색(비그라데이션) 채우기를 설정하는 데 사용되며 Excel 2010 이상에서만 볼 수 있습니다.
+
+`IconStyle` - 사용 가능한 옵션은 다음과 같습니다:
+
+값|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - 반전된 아이콘 집합을 설정하는 데 사용됩니다.
+
+`IconsOnly` - 셀 값 없이 표시되는 집합에 사용됩니다.
+
+`StopIfTrue` - 둘 이상의 규칙이 셀 또는 셀 범위에 적용될 때 조건부 서식 규칙의 "참인 경우 중지" 기능을 설정하는 데 사용됩니다. 이 매개변수가 설정되면 현재 규칙이 참이면 후속 규칙이 평가되지 않습니다.
 
 예를 들어 `Sheet1` 에 조건부 서식을 설정하여 `A1:D4` 셀 범위에서 가장 높은 값과 가장 낮은 값을 강조 표시합니다:
 

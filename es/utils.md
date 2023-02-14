@@ -401,7 +401,7 @@ La opción `Type` es un parámetro obligatorio y no tiene un valor predeterminad
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ La opción `Type` es un parámetro obligatorio y no tiene un valor predeterminad
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - Igual que `MinColor`, ver arriba.
 
 `BarColor` - Usado para `data_bar`. Igual que `MinColor`, ver arriba.
+
+`BarBorderColor` - Se utiliza para establecer el color de la línea del borde de una barra de datos, esto solo es visible en Excel 2010 y versiones posteriores.
+
+`BarDirection` - Usado para establece la dirección de las barras de datos. Las opciones disponibles son:
+
+Valor|Explicación
+---|---
+context     | La aplicación de hoja de cálculo establece la dirección de la barra de datos según el contexto de los datos que se muestran.
+leftToRight | La dirección de la barra de datos es de derecha a izquierda.
+rightToLeft | La dirección de la barra de datos es de izquierda a derecha.
+
+`BarOnly` - Usado para establecer muestra una barra de datos pero no los datos en las celdas.
+
+`BarSolid` - Se usa para activar un relleno sólido (sin degradado) para las barras de datos, esto solo es visible en Excel 2010 y versiones posteriores.
+
+`IconStyle` - Las opciones disponibles son:
+
+Valor|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - Se utiliza para establecer conjuntos de iconos invertidos.
+
+`IconsOnly` - Se utiliza para el conjunto que se muestra sin el valor de la celda.
+
+`StopIfTrue` - Se utiliza para establecer la función "detener si es verdadero" de una regla de formato condicional cuando se aplica más de una regla a una celda o rango de celdas. Cuando se establece este parámetro, las reglas posteriores no se evalúan si la regla actual es verdadera.
 
 Por ejemplo, resalte los valores más altos y más bajos en un rango de celdas `A1:D4` estableciendo un formato condicional en `Sheet1`:
 

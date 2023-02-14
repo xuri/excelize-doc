@@ -401,7 +401,7 @@ The `Type` option is a required parameter and it has no default value. Allowable
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ The `Type` option is a required parameter and it has no default value. Allowable
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - Same as `MinColor`, see above.
 
 `BarColor` - Used for `data_bar`. Same as `MinColor`, see above.
+
+`BarBorderColor` - Used for sets the color for the border line of a data bar, this is only visible in Excel 2010 and later.
+
+`BarDirection` - Used for sets the direction for data bars. The available options are:
+
+Value|Explanation
+---|---
+context     | Data bar direction is set by spreadsheet application based on the context of the data displayed.
+leftToRight | Data bar direction is from right to left.
+rightToLeft | Data bar direction is from left to right.
+
+`BarOnly` - Used for set displays a bar data but not the data in the cells.
+
+`BarSolid` - Used for turns on a solid (non-gradient) fill for data bars, this is only visible in Excel 2010 and later.
+
+`IconStyle` - The available options are:
+
+Value|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - Used for set reversed icons sets.
+
+`IconsOnly` - Used for set displayed without the cell value.
+
+`StopIfTrue` - Used to set the "stop if true" feature of a conditional formatting rule when more than one rule is applied to a cell or a range of cells. When this parameter is set then subsequent rules are not evaluated if the current rule is true.
 
 For example, highlight highest and lowest values in a range of cells `A1:D4` by set conditional formatting on `Sheet1`:
 

@@ -401,7 +401,7 @@ SetConditionalFormat предоставляет функцию для созда
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ SetConditionalFormat предоставляет функцию для созда
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - То же, что и `MinColor`, см. Выше.
 
 `BarColor` - Используется для `data_bar`. То же, что и `MinColor`, см. Выше.
+
+`BarBorderColor` - Используется для установки цвета линии границы гистограммы, это видно только в Excel 2010 и более поздних версиях.
+
+`BarDirection` - Используется для установки направления гистограмм. Доступные варианты:
+
+Значение|Пояснение
+---|---
+context     | Направление панели данных задается приложением для работы с электронными таблицами в зависимости от контекста отображаемых данных.
+leftToRight | Направление строки данных справа налево.
+rightToLeft | Направление панели данных слева направо.
+
+`BarOnly` - Используется для set отображает данные столбца, но не данные в ячейках.
+
+`BarSolid` - Используется для включения сплошной (неградиентной) заливки гистограмм. Это видно только в Excel 2010 и более поздних версиях.
+
+`IconStyle` - Доступные варианты:
+
+Значение|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - Используется для набора перевернутых наборов значков.
+
+`IconsOnly` - Используется для множества, отображаемого без значения ячейки.
+
+`StopIfTrue` - Используется для установки функции «остановить, если истинно» правила условного форматирования, когда к ячейке или диапазону ячеек применяется более одного правила. Когда этот параметр установлен, последующие правила не оцениваются, если текущее правило истинно.
 
 Например, выделите наибольшее и наименьшее значения в диапазоне ячеек `A1:D4`, установив условное форматирование для `Sheet1`:
 

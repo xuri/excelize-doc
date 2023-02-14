@@ -401,7 +401,7 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - مثل `MinColor` ، انظر أعلاه.
 
 `BarColor` - يستخدم لـ `data_bar`. مثل `MinColor` ، انظر أعلاه.
+
+`BarBorderColor` - يُستخدم لتعيين لون خط الحدود لشريط البيانات ، ويكون هذا مرئيًا فقط في Excel 2010 والإصدارات الأحدث.
+
+`BarDirection` - يستخدم لتعيين اتجاه أشرطة البيانات. الخيارات المتاحة هي:
+
+القيمة | شرح
+---|---
+context     | يتم تعيين اتجاه شريط البيانات بواسطة تطبيق جدول البيانات بناءً على سياق البيانات المعروضة.
+leftToRight | اتجاه شريط البيانات من اليمين إلى اليسار.
+rightToLeft | اتجاه شريط البيانات من اليسار إلى اليمين.
+
+`BarOnly` - يُستخدم لعرض بيانات الشريط ولكن ليس القيمة الموجودة في الخلايا.
+
+`BarSolid` - يُستخدم للتشغيل على تعبئة صلبة (غير متدرجة) لأشرطة البيانات ، ويكون هذا مرئيًا فقط في Excel 2010 والإصدارات الأحدث.
+
+`IconStyle` - الخيارات المتاحة هي:
+
+القيمة|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - تستخدم لتعيين مجموعات الرموز المعكوسة.
+
+`IconsOnly` - يستخدم للمجموعة المعروضة بدون قيمة الخلية.
+
+`StopIfTrue` - يُستخدم لتعيين ميزة "الإيقاف إذا كانت صحيحة" لقاعدة التنسيق الشرطي عند تطبيق أكثر من قاعدة واحدة على خلية أو نطاق من الخلايا. عند تعيين هذه المعلمة ، لا يتم تقييم القواعد اللاحقة إذا كانت القاعدة الحالية صحيحة.
 
 على سبيل المثال ، قم بتمييز أعلى وأدنى القيم في نطاق من الخلايا `A1:D4` عن طريق تعيين التنسيق الشرطي على `الورقة 1`:
 

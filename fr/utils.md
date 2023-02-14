@@ -401,7 +401,7 @@ L'option `Type` est un paramètre obligatoire et n'a pas de valeur par défaut. 
             <td>MaxColor</td>
         </tr>
         <tr>
-            <td rowspan=5>data_bar</td>
+            <td rowspan=9>data_bar</td>
             <td>MinType</td>
         </tr>
         <tr>
@@ -414,7 +414,29 @@ L'option `Type` est un paramètre obligatoire et n'a pas de valeur par défaut. 
             <td>MaxValue</td>
         </tr>
         <tr>
+            <td>BarBorderColor</td>
+        </tr>
+        <tr>
             <td>BarColor</td>
+        </tr>
+        <tr>
+            <td>BarDirection</td>
+        </tr>
+        <tr>
+            <td>BarOnly</td>
+        </tr>
+        <tr>
+            <td>BarSolid</td>
+        </tr>
+        <tr>
+            <td rowspan=3>iconSet</td>
+            <td>IconStyle</td>
+        </tr>
+        <tr>
+            <td>ReverseIcons</td>
+        </tr>
+        <tr>
+            <td>IconsOnly</td>
         </tr>
         <tr>
             <td>formula</td>
@@ -735,6 +757,48 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 `MaxColor` - Pareil que `MinColor`, voir au dessus.
 
 `BarColor` - Utilisé pour `data_bar`. Pareil que `MinColor`, voir au dessus.
+
+`BarBorderColor` - Utilisé pour définir la couleur de la ligne de bordure d'une barre de données, ceci n'est visible que dans Excel 2010 et versions ultérieures.
+
+`BarDirection` - Utilisé pour définir la direction des barres de données. Les options disponibles sont:
+
+Valeur|Explication
+---|---
+context     | La direction de la barre de données est définie par l'application de feuille de calcul en fonction du contexte des données affichées.
+leftToRight | La direction de la barre de données est de droite à gauche.
+rightToLeft | La direction de la barre de données est de gauche à droite.
+
+`BarOnly` - Utilisé pour l'ensemble affiche une barre de données mais pas les données des cellules.
+
+`BarSolid` - Utilisé pour activer un remplissage solide (sans dégradé) pour les barres de données, ceci n'est visible que dans Excel 2010 et versions ultérieures.
+
+`IconStyle` - Les options disponibles sont:
+
+Valeur|
+---|
+3Arrows
+3ArrowsGray
+3Flags
+3Signs
+3Symbols
+3Symbols2
+3TrafficLights1
+3TrafficLights2
+4Arrows
+4ArrowsGray
+4Rating
+4RedToBlack
+4TrafficLights
+5Arrows
+5ArrowsGray
+5Quarters
+5Rating
+
+`ReverseIcons` - Utilisé pour définir des ensembles d'icônes inversées.
+
+`IconsOnly` - Utilisé pour l'ensemble affiché sans la valeur de la cellule.
+
+`StopIfTrue` - Utilisé pour définir la fonctionnalité "arrêter si vrai" d'une règle de mise en forme conditionnelle lorsque plusieurs règles sont appliquées à une cellule ou à une plage de cellules. Lorsque ce paramètre est défini, les règles suivantes ne sont pas évaluées si la règle actuelle est vraie.
 
 Par exemple, mettez en surbrillance les valeurs les plus élevées et les plus faibles dans une plage de cellules `A1:D4` en définissant une mise en forme conditionnelle sur `Sheet1`:
 
