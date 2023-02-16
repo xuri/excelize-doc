@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 Eliminar salto de página Elimina un salto de página por el nombre y el eje de la hoja de trabajo.
+
+## Establecer dimensión de la hoja de cálculo {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+SetSheetDimension proporciona el método para establecer o eliminar el rango utilizado de la hoja de trabajo por una referencia de rango determinada. Especifica los límites de fila y columna de las celdas utilizadas en la hoja de trabajo. La referencia de rango se establece utilizando el estilo de referencia A1 (por ejemplo, `A1:D5`). Pasar una referencia de rango vacía eliminará el rango usado de la hoja de cálculo.
+
+## Obtener dimensión de la hoja de cálculo {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+GetSheetDimension proporciona el método para obtener el rango utilizado de la hoja de cálculo.

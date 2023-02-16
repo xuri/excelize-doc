@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 根据给定的工作表名称和单元格坐标删除分页符。
+
+## 设置工作表已用区域 {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+根据给定的工作表名称和单元格坐标或单元格坐标区域设置或移除工作表的已用区域。使用的单元格包括具有公式、文本内容和单元格格式的单元格。例如 `A1:D5`。当给定的单元格坐标区域为空字符时，将移除工作表的已用区域。
+
+## 获取工作表已用区域 {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+根据给定的工作表名称获取指定工作表的已用区域。

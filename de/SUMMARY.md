@@ -78,6 +78,8 @@
   * [Festlegen von Zeilenwerten](sheet.md#SetSheetRow)
   * [Seitenumbruch einfügen](sheet.md#InsertPageBreak)
   * [Entfernen des Seitenumbruchs](sheet.md#RemovePageBreak)
+  * [Arbeitsblattdimension festlegen](sheet.md#SetSheetDimension)
+  * [Arbeitsblattabmessung abrufen](sheet.md#GetSheetDimension)
 * [Zelle](cell.md)
   * [Festlegen des Zellenwerts](cell.md#SetCellValue)
   * [Festlegen eines booleschen Werts](cell.md#SetCellBool)

@@ -78,6 +78,8 @@
   * [按行赋值](sheet.md#SetSheetRow)
   * [插入分页符](sheet.md#InsertPageBreak)
   * [删除分页符](sheet.md#RemovePageBreak)
+  * [设置工作表已用区域](sheet.md#SetSheetDimension)
+  * [获取工作表已用区域](sheet.md#GetSheetDimension)
 * [单元格](cell.md)
   * [设置单元格的值](cell.md#SetCellValue)
   * [设置布尔型值](cell.md#SetCellBool)

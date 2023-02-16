@@ -774,25 +774,25 @@ rightToLeft | Die Richtung der Datenleiste ist von links nach rechts.
 
 `IconStyle` - Die verfügbaren Optionen sind:
 
-Wert|
----|
-3Arrows
-3ArrowsGray
-3Flags
-3Signs
-3Symbols
-3Symbols2
-3TrafficLights1
-3TrafficLights2
-4Arrows
-4ArrowsGray
-4Rating
-4RedToBlack
-4TrafficLights
-5Arrows
-5ArrowsGray
-5Quarters
-5Rating
+|Wert|
+|---|
+|3Arrows        |
+|3ArrowsGray    |
+|3Flags         |
+|3Signs         |
+|3Symbols       |
+|3Symbols2      |
+|3TrafficLights1|
+|3TrafficLights2|
+|4Arrows        |
+|4ArrowsGray    |
+|4Rating        |
+|4RedToBlack    |
+|4TrafficLights |
+|5Arrows        |
+|5ArrowsGray    |
+|5Quarters      |
+|5Rating        |
 
 `ReverseIcons` - Wird für umgekehrte Symbolsätze verwendet.
 

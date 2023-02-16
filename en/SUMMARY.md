@@ -78,6 +78,8 @@
   * [Set row values](sheet.md#SetSheetRow)
   * [Insert page break](sheet.md#InsertPageBreak)
   * [Remove page break](sheet.md#RemovePageBreak)
+  * [Set sheet dimension](sheet.md#SetSheetDimension)
+  * [Get sheet dimension](sheet.md#GetSheetDimension)
 * [Cell](cell.md)
   * [Set cell value](cell.md#SetCellValue)
   * [Set boolean value](cell.md#SetCellBool)

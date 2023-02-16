@@ -774,25 +774,25 @@ rightToLeft | اتجاه شريط البيانات من اليسار إلى ال
 
 `IconStyle` - الخيارات المتاحة هي:
 
-القيمة|
----|
-3Arrows
-3ArrowsGray
-3Flags
-3Signs
-3Symbols
-3Symbols2
-3TrafficLights1
-3TrafficLights2
-4Arrows
-4ArrowsGray
-4Rating
-4RedToBlack
-4TrafficLights
-5Arrows
-5ArrowsGray
-5Quarters
-5Rating
+|القيمة|
+|---|
+|3Arrows        |
+|3ArrowsGray    |
+|3Flags         |
+|3Signs         |
+|3Symbols       |
+|3Symbols2      |
+|3TrafficLights1|
+|3TrafficLights2|
+|4Arrows        |
+|4ArrowsGray    |
+|4Rating        |
+|4RedToBlack    |
+|4TrafficLights |
+|5Arrows        |
+|5ArrowsGray    |
+|5Quarters      |
+|5Rating        |
 
 `ReverseIcons` - تستخدم لتعيين مجموعات الرموز المعكوسة.
 

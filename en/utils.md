@@ -774,25 +774,25 @@ rightToLeft | Data bar direction is from left to right.
 
 `IconStyle` - The available options are:
 
-Value|
----|
-3Arrows
-3ArrowsGray
-3Flags
-3Signs
-3Symbols
-3Symbols2
-3TrafficLights1
-3TrafficLights2
-4Arrows
-4ArrowsGray
-4Rating
-4RedToBlack
-4TrafficLights
-5Arrows
-5ArrowsGray
-5Quarters
-5Rating
+|Value|
+|---|
+|3Arrows        |
+|3ArrowsGray    |
+|3Flags         |
+|3Signs         |
+|3Symbols       |
+|3Symbols2      |
+|3TrafficLights1|
+|3TrafficLights2|
+|4Arrows        |
+|4ArrowsGray    |
+|4Rating        |
+|4RedToBlack    |
+|4TrafficLights |
+|5Arrows        |
+|5ArrowsGray    |
+|5Quarters      |
+|5Rating        |
 
 `ReverseIcons` - Used for set reversed icons sets.
 

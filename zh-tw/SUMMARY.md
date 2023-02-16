@@ -78,6 +78,8 @@
   * [按列賦值](sheet.md#SetSheetRow)
   * [插入分頁符](sheet.md#InsertPageBreak)
   * [刪除分頁符](sheet.md#RemovePageBreak)
+  * [設定工作表已用區域](sheet.md#SetSheetDimension)
+  * [獲取工作表已用區域](sheet.md#GetSheetDimension)
 * [儲存格](cell.md)
   * [設定儲存格的值](cell.md#SetCellValue)
   * [設定布林型值](cell.md#SetCellBool)

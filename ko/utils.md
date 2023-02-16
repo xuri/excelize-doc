@@ -774,25 +774,25 @@ rightToLeft | 데이터 막대 방향은 왼쪽에서 오른쪽입니다.
 
 `IconStyle` - 사용 가능한 옵션은 다음과 같습니다:
 
-값|
----|
-3Arrows
-3ArrowsGray
-3Flags
-3Signs
-3Symbols
-3Symbols2
-3TrafficLights1
-3TrafficLights2
-4Arrows
-4ArrowsGray
-4Rating
-4RedToBlack
-4TrafficLights
-5Arrows
-5ArrowsGray
-5Quarters
-5Rating
+|값|
+|---|
+|3Arrows        |
+|3ArrowsGray    |
+|3Flags         |
+|3Signs         |
+|3Symbols       |
+|3Symbols2      |
+|3TrafficLights1|
+|3TrafficLights2|
+|4Arrows        |
+|4ArrowsGray    |
+|4Rating        |
+|4RedToBlack    |
+|4TrafficLights |
+|5Arrows        |
+|5ArrowsGray    |
+|5Quarters      |
+|5Rating        |
 
 `ReverseIcons` - 반전된 아이콘 집합을 설정하는 데 사용됩니다.
 

@@ -78,6 +78,8 @@
   * [Définir les valeurs de ligne](sheet.md#SetSheetRow)
   * [Insérer un saut de page](sheet.md#InsertPageBreak)
   * [Supprimer le saut de page](sheet.md#RemovePageBreak)
+  * [Définir la dimension de la feuille de calcul](sheet.md#SetSheetDimension)
+  * [Obtenir la dimension de la feuille de calcul](sheet.md#GetSheetDimension)
 * [Cellule](cell.md)
   * [Définir la valeur de la cellule](cell.md#SetCellValue)
   * [Définir la valeur booléenne](cell.md#SetCellBool)

@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak supprime un saut de page par un nom de feuille de calcul et un axe donnés.
+
+## Définir la dimension de la feuille de calcul {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+SetSheetDimension fournit la méthode pour définir ou supprimer la plage utilisée de la feuille de calcul par une référence de plage donnée. Il spécifie les limites des lignes et des colonnes des cellules utilisées dans la feuille de calcul. La référence de plage est définie à l'aide du style de référence A1 (par exemple, `A1:D5`). Passer une référence de plage vide supprimera la plage utilisée de la feuille de calcul.
+
+## Obtenir la dimension de la feuille de calcul {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+GetSheetDimension fournit la méthode pour obtenir la plage utilisée de la feuille de calcul.

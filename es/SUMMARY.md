@@ -78,6 +78,8 @@
   * [Establecer valores de fila](sheet.md#SetSheetRow)
   * [Insertar salto de página](sheet.md#InsertPageBreak)
   * [Eliminar salto de página](sheet.md#RemovePageBreak)
+  * [Establecer dimensión de la hoja de cálculo](sheet.md#SetSheetDimension)
+  * [Obtener dimensión de la hoja de cálculo](sheet.md#GetSheetDimension)
 * [Celda](cell.md)
   * [Establecer el valor de la celda](cell.md#SetCellValue)
   * [Establecer valor booleano](cell.md#SetCellBool)

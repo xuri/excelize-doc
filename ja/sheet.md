@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak は、指定されたワークシート名と軸による改ページを削除します。
+
+## ワークシートの寸法を設定 {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+SetSheetDimension は、特定の範囲参照によってワークシートの使用範囲を設定または削除するメソッドを提供します。ワークシートで使用されるセルの行と列の境界を指定します。範囲参照は、A1 参照スタイル (`A1:D5` など) を使用して設定されます。空の範囲参照を渡すと、ワークシートの使用範囲が削除されます。
+
+## ワークシートの次元を取得 {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+GetSheetDimension は、ワークシートの使用範囲を取得するメソッドを提供します。

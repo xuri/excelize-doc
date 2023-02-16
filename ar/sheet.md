@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 يقوم RemovePageBreak بإزالة فاصل صفحة من خلال اسم ومحور ورقة العمل المحددين.
+
+## قم بتعيين بُعد ورقة العمل {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+يوفر SetSheetDimension طريقة لتعيين أو إزالة النطاق المستخدم من ورقة العمل بواسطة مرجع نطاق معين. تحدد حدود الصفوف والأعمدة للخلايا المستخدمة في ورقة العمل. تم تعيين مرجع النطاق باستخدام نمط المرجع A1 (على سبيل المثال ، `A1:D5`). سيؤدي تمرير مرجع نطاق فارغ إلى إزالة النطاق المستخدم من ورقة العمل.
+
+## احصل على أبعاد ورقة العمل {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+يوفر GetSheetDimension طريقة الحصول على النطاق المستخدم من ورقة العمل.

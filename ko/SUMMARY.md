@@ -78,6 +78,8 @@
   * [행별 지정](sheet.md#SetSheetRow)
   * [페이지 나누기 삽입](sheet.md#InsertPageBreak)
   * [페이지 나누기 제거](sheet.md#RemovePageBreak)
+  * [워크시트 차원 설정](sheet.md#SetSheetDimension)
+  * [워크시트 차원 가져오기](sheet.md#GetSheetDimension)
 * [세포](cell.md)
   * [셀 값 설정](cell.md#SetCellValue)
   * [부울 값 설정](cell.md#SetCellBool)

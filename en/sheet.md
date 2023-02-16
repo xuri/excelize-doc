@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak remove a page break by given worksheet name and cell reference.
+
+## Set sheet dimension {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+SetSheetDimension provides the method to set or remove the used range of the worksheet by a given range reference. It specifies the row and column bounds of used cells in the worksheet. The range reference is set using the A1 reference style(e.g., `A1:D5`). Passing an empty range reference will remove the used range of the worksheet.
+
+## Get sheet dimension {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+GetSheetDimension provides the method to get the used range of the worksheet.

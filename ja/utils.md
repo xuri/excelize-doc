@@ -774,25 +774,25 @@ rightToLeft | データ バーの方向は左から右です。
 
 `IconStyle` - 利用可能なオプションは次のとおりです:
 
-値|
----|
-3Arrows
-3ArrowsGray
-3Flags
-3Signs
-3Symbols
-3Symbols2
-3TrafficLights1
-3TrafficLights2
-4Arrows
-4ArrowsGray
-4Rating
-4RedToBlack
-4TrafficLights
-5Arrows
-5ArrowsGray
-5Quarters
-5Rating
+|値|
+|---|
+|3Arrows        |
+|3ArrowsGray    |
+|3Flags         |
+|3Signs         |
+|3Symbols       |
+|3Symbols2      |
+|3TrafficLights1|
+|3TrafficLights2|
+|4Arrows        |
+|4ArrowsGray    |
+|4Rating        |
+|4RedToBlack    |
+|4TrafficLights |
+|5Arrows        |
+|5ArrowsGray    |
+|5Quarters      |
+|5Rating        |
 
 `ReverseIcons` - セット反転アイコン セットに使用されます。
 

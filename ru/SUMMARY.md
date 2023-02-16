@@ -78,6 +78,8 @@
   * [Установить значения строки](sheet.md#SetSheetRow)
   * [Вставить разрыв страницы](sheet.md#InsertPageBreak)
   * [Удалить разрыв страницы](sheet.md#RemovePageBreak)
+  * [Установить размер рабочего листа](sheet.md#SetSheetDimension)
+  * [Получить измерение рабочего листа](sheet.md#GetSheetDimension)
 * [клетка](cell.md)
   * [Установить значение ячейки](cell.md#SetCellValue)
   * [Установить логическое значение](cell.md#SetCellBool)

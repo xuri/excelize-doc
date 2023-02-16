@@ -78,6 +78,8 @@
   * [تعيين قيم الصفوف](sheet.md#SetSheetRow)
   * [إدراج فاصل الصفحات](sheet.md#InsertPageBreak)
   * [إزالة فاصل الصفحات](sheet.md#RemovePageBreak)
+  * [قم بتعيين بُعد ورقة العمل](sheet.md#SetSheetDimension)
+  * [احصل على أبعاد ورقة العمل](sheet.md#GetSheetDimension)
 * [الخليه](cell.md)
   * [تعيين قيمة الخلية](cell.md#SetCellValue)
   * [تعيين قيمة منطقية](cell.md#SetCellBool)

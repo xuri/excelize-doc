@@ -78,6 +78,8 @@
   * [行の値を設定](sheet.md#SetSheetRow)
   * [改ページを挿入](sheet.md#InsertPageBreak)
   * [改ページを削除](sheet.md#RemovePageBreak)
+  * [ワークシートの寸法を設定](sheet.md#SetSheetDimension)
+  * [ワークシートの次元を取得](sheet.md#GetSheetDimension)
 * [セル](cell.md)
   * [セル値設定](cell.md#SetCellValue)
   * [ブール値設定](cell.md#SetCellBool)

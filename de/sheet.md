@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak entfernt einen Seitenumbruch anhand des angegebenen Arbeitsblattnamens und der angegebenen Achse.
+
+## Arbeitsblattdimension festlegen {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+SetSheetDimension bietet die Methode zum Festlegen oder Entfernen des verwendeten Bereichs des Arbeitsblatts durch eine angegebene Bereichsreferenz. Es gibt die Zeilen- und Spaltengrenzen der verwendeten Zellen im Arbeitsblatt an. Die Bereichsreferenz wird unter Verwendung des A1-Referenzstils festgelegt (z. B. `A1:D5`). Durch das Übergeben einer leeren Bereichsreferenz wird der verwendete Bereich des Arbeitsblatts entfernt.
+
+## Arbeitsblattabmessung abrufen {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+GetSheetDimension stellt die Methode bereit, um den verwendeten Bereich des Arbeitsblatts abzurufen.

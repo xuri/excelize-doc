@@ -518,3 +518,19 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
 RemovePageBreak удаляет разрыв страницы по заданному имени листа и оси.
+
+## Установить размер рабочего листа {#SetSheetDimension}
+
+```go
+func (f *File) SetSheetDimension(sheet string, rangeRef string) error
+```
+
+SetSheetDimension предоставляет метод для установки или удаления используемого диапазона рабочего листа с помощью заданной ссылки на диапазон. Он указывает границы строк и столбцов используемых ячеек на листе. Ссылка на диапазон задается с использованием стиля ссылки A1 (например, `A1:D5`). Передача ссылки на пустой диапазон удалит используемый диапазон рабочего листа.
+
+## Получить измерение рабочего листа {#GetSheetDimension}
+
+```go
+func (f *File) GetSheetDimension(sheet string) (string, error)
+```
+
+GetSheetDimension предоставляет метод для получения используемого диапазона рабочего листа.
