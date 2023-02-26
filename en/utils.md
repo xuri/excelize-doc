@@ -889,7 +889,7 @@ func main() {
 ## Get conditional format {#GetConditionalFormats}
 
 ```go
-func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
 GetConditionalFormats returns conditional format settings by given worksheet name.

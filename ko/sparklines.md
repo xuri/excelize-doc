@@ -28,15 +28,16 @@ err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
 
 매개 변수 | 설명
 ---|---
-Location  | 필수, `Range` 매개 변수와 동일한 번호가 있어야 합니다.
-Range     | 필수, `Location` 매개 변수와 동일한 번호가 있어야 합니다.
-Type      | 열거 값: `line`, `column`, `win_loss`
-Style     | 값 범위: 0 - 35
-Hight     | 스파크라인 고점 토글
-Low       | 스파크라인 저점 토글
-First     | 스파크라인 첫 번째 점 토글
-Last      | 스파크라인 마지막 점 토글
-Negative  | 스파크라인 네거티브 포인트 전환
-Markers   | 스파크라인 마커 전환
-ColorAxis | RGB 색상은 `RRGGBB` 로 지정됩니다.
-Axis      | 스파크라인 축 표시
+Location    | 필수, `Range` 매개 변수와 동일한 번호가 있어야 합니다.
+Range       | 필수, `Location` 매개 변수와 동일한 번호가 있어야 합니다.
+Type        | 열거 값: `line`, `column`, `win_loss`
+Style       | 값 범위: 0 - 35
+Hight       | 스파크라인 고점 토글
+Low         | 스파크라인 저점 토글
+First       | 스파크라인 첫 번째 점 토글
+Last        | 스파크라인 마지막 점 토글
+Negative    | 스파크라인 네거티브 포인트 전환
+Markers     | 스파크라인 마커 전환
+Axis        | 가로축 표시 여부를 지정하는 데 사용됩니다
+Reverse     | 오른쪽에서 왼쪽으로 플롯 데이터를 활성화할지 여부를 지정하는 데 사용됩니다
+SeriesColor | RGB 색상은 `RRGGBB` 로 지정됩니다

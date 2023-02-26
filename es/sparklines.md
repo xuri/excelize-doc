@@ -28,15 +28,16 @@ A continuación, se muestran las opciones de formato de minigráfico admitidas p
 
 Parámetro | Descripción
 ---|---
-Location  | Obligatorio, debe tener el mismo número que el parámetro `Range`
-Range     | Obligatorio, debe tener el mismo número que el parámetro `Location`
-Type      | Valor de enumeración: `line`, `column`, `win_loss`
-Style     | Rango de valores: 0 - 35
-Hight     | Alternar puntos altos del minigráfico
-Low       | Alternar puntos bajos del minigráfico
-First     | Alternar primeros puntos del minigráfico
-Last      | Alternar los últimos puntos del minigráfico
-Negative  | Alternar puntos negativos de minigráfico
-Markers   | Alternar marcadores minigráficos
-ColorAxis | Un color RGB se especifica como `RRGGBB`
-Axis      | Mostrar eje de minigráfico
+Location    | Obligatorio, debe tener el mismo número que el parámetro `Range`
+Range       | Obligatorio, debe tener el mismo número que el parámetro `Location`
+Type        | Valor de enumeración: `line`, `column`, `win_loss`
+Style       | Rango de valores: 0 - 35
+Hight       | Alternar puntos altos del minigráfico
+Low         | Alternar puntos bajos del minigráfico
+First       | Alternar primeros puntos del minigráfico
+Last        | Alternar los últimos puntos del minigráfico
+Negative    | Alternar puntos negativos de minigráfico
+Markers     | Alternar marcadores minigráficos
+Axis        | Se usa para especificar si se muestra el eje horizontal
+Reverse     | Se usa para especificar si se habilitan los datos de trazado de derecha a izquierda
+SeriesColor | Un color RGB se especifica como `RRGGBB`

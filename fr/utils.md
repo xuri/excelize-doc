@@ -889,7 +889,7 @@ func main() {
 ## Obtenir le format conditionnel {#GetConditionalFormats}
 
 ```go
-func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
 GetConditionalFormats renvoie les paramètres de format conditionnel par nom de feuille de calcul donné.

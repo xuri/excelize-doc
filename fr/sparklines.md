@@ -28,15 +28,16 @@ Voici les options de formatage du graphique sparkline pris en charge par exceliz
 
 Paramètre | La description
 ---|---
-Location  | Obligatoire, doit avoir le même numéro avec le paramètre `Range`
-Range     | Obligatoire, doit avoir le même numéro avec le paramètre `Location`
-Type      | Valeur d'énumération: `line`, `column`, `win_loss`
-Style     | Plage de valeurs: 0 - 35
-Hight     | Basculer les points hauts sparkline
-Low       | Basculer les points bas sparkline
-First     | Basculer les premiers points sparkline
-Last      | Basculer sparkline derniers points
-Negative  | Basculer les points négatifs sparkline
-Markers   | Basculer les marqueurs sparkline
-ColorAxis | Une couleur RGB est spécifié comme `RRGGBB`
-Axis      | Montrer l'axe sparkline
+Location    | Obligatoire, doit avoir le même numéro avec le paramètre `Range`
+Range       | Obligatoire, doit avoir le même numéro avec le paramètre `Location`
+Type        | Valeur d'énumération: `line`, `column`, `win_loss`
+Style       | Plage de valeurs: 0 - 35
+Hight       | Basculer les points hauts sparkline
+Low         | Basculer les points bas sparkline
+First       | Basculer les premiers points sparkline
+Last        | Basculer sparkline derniers points
+Negative    | Basculer les points négatifs sparkline
+Markers     | Basculer les marqueurs sparkline
+Axis        | Utilisé pour spécifier si afficher l'axe horizontal
+Reverse     | Utilisé pour spécifier si activer les données de tracé de droite à gauche
+SeriesColor | Une couleur RGB est spécifié comme `RRGGBB`

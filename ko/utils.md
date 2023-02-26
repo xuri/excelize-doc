@@ -889,7 +889,7 @@ func main() {
 ## 조건부 형식 가져오기 {#GetConditionalFormats}
 
 ```go
-func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
 GetConditionalFormats 는 주어진 워크시트 이름으로 조건부 서식 설정을 반환합니다.

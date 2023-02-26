@@ -889,7 +889,7 @@ func main() {
 ## 条件付き書式を取得 {#GetConditionalFormats}
 
 ```go
-func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
 GetConditionalFormats は、指定されたワークシート名によって条件付き書式設定を返します。

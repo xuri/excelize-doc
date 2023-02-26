@@ -28,15 +28,16 @@ Im Folgenden werden die Formatierungsoptionen der von Excelize unterstützten Sp
 
 Parameter | Beschreibung
 ---|---
-Location  | Erforderlich, muss dieselbe Nummer mit dem Parameter `Range` haben
-Range     | Erforderlich, muss dieselbe Nummer mit dem Parameter `Location` haben
-Type      | Aufzählungswert: `line`, `column`, `win_loss`
-Style     | Wertebereich: 0 - 35
-Hight     | Schalten Sie die Höhepunkte der Sparkline um
-Low       | Schalten Sie die Tiefpunkte der Sparkline um
-First     | Schalten Sie die ersten Punkte der Sparkline um
-Last      | Schalten Sie die letzten Punkte der Sparkline um
-Negative  | Negative Punkte der Sparkline umschalten
-Markers   | Sparkline-Markierungen umschalten
-ColorAxis | Eine RGB-Farbe wird als `RRGGBB` angegeben
-Axis      | Sparkline-Achse anzeigen
+Location    | Erforderlich, muss dieselbe Nummer mit dem Parameter `Range` haben
+Range       | Erforderlich, muss dieselbe Nummer mit dem Parameter `Location` haben
+Type        | Aufzählungswert: `line`, `column`, `win_loss`
+Style       | Wertebereich: 0 - 35
+Hight       | Schalten Sie die Höhepunkte der Sparkline um
+Low         | Schalten Sie die Tiefpunkte der Sparkline um
+First       | Schalten Sie die ersten Punkte der Sparkline um
+Last        | Schalten Sie die letzten Punkte der Sparkline um
+Negative    | Negative Punkte der Sparkline umschalten
+Markers     | Sparkline-Markierungen umschalten
+Axis        | Wird verwendet, um anzugeben, ob die horizontale Achse angezeigt wird
+Reverse     | Wird verwendet, um anzugeben, ob Plotdaten von rechts nach links aktiviert werden sollen
+SeriesColor | Eine RGB-Farbe wird als `RRGGBB` angegeben

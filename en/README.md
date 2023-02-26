@@ -9,7 +9,7 @@ Excelize is a library written in pure Go providing a set of functions that allow
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Last version: [v2.7.0](https://github.com/xuri/excelize/releases/latest)
-- Document update time: February 16, 2023
+- Document update time: February 26, 2023
 
 ## Project mission
 
@@ -37,7 +37,7 @@ If your company or product is also using Excelize, welcome <a href="mailto: xuri
 - [Excelize Community on Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)
 - [Skype Community](https://join.skype.com/YW3OFS5QjYcV?source=qr-ios): <a href="../images/skype_group@2x.png" alt="Excelize Skype Community" target="_blank" target="_blank">join via QR Code</a>
 - [Line Community](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" alt="Excelize Line Community" target="_blank" target="_blank">join via QR Code</a>
-- [DingTalk Group ID](https://h5.dingtalk.com/circle/healthCheckin.html?dtaction=os&corpId=dingf7955a3077788503103115db31258e39&ed1be3ec=97369f3c&cbdbhh=qwertyuiop): `30047129` | <a href="../images/dingtalk_group@2x.png" alt="Excelize DingTalk Group" target="_blank" target="_blank">join via QR Code</a>
+- [DingTalk Group ID](https://qr.dingtalk.com/action/joingroup?code=v1,k1,6tmzbBbJuQkGezVdHJjsHz29CZI9F49xeW+cvOaECtk=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" alt="Excelize DingTalk Group" target="_blank" target="_blank">join via QR Code</a>
 - [QQ Group ID](https://jq.qq.com/?_wv=1027&k=5imdV9h): `207895940` | <a href="../images/qq_group@2x.png" alt="Excelize QQ Group ID" target="_blank" target="_blank">join via QR Code</a>
 - Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" alt="Excelize WeChat Community" target="_blank" target="_blank">join via QR Code</a>
 - WeCom Group (Verification info: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">join via QR Code</a>

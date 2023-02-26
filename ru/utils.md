@@ -889,7 +889,7 @@ func main() {
 ## Получить условный формат {#GetConditionalFormats}
 
 ```go
-func (f *File) GetConditionalFormats(sheet string) (map[string]string, error)
+func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
 Метод GetConditionalFormats возвращает параметры условного формата по заданному имени листа.
