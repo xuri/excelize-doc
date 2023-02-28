@@ -12,24 +12,24 @@ AddShape proporciona el método para agregar forma en una hoja mediante un índi
 lineWidth := 1.2
 err := f.AddShape("Sheet1", "G6",
     &excelize.Shape{
-        Type:  "rect",
-        Color: excelize.ShapeColor{Line: "#4286f4", Fill: "#8eb9ff"},
-        Paragraph: []excelize.ShapeParagraph{
+        Type: "rect",
+        Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
+        Fill: excelize.Fill{Color: []string{"8EB9FF"}},
+        Paragraph: []excelize.RichTextRun{
             {
                 Text: "Forma rectangular",
-                Font: excelize.Font{
+                Font: &excelize.Font{
                     Bold:      true,
                     Italic:    true,
                     Family:    "Times New Roman",
                     Size:      18,
-                    Color:     "#777777",
+                    Color:     "777777",
                     Underline: "sng",
                 },
             },
         },
         Width:  180,
         Height: 40,
-        Line:   excelize.ShapeLine{Width: &lineWidth},
     },
 )
 ```

@@ -133,7 +133,7 @@ The four borders of the cell `D7` are set with different styles and colors. This
 
 ```go
 style, err := f.NewStyle(&excelize.Style{
-    Fill: excelize.Fill{Type: "gradient", Color: []string{"#FFFFFF", "#E0EBF5"}, Shading: 1},
+    Fill: excelize.Fill{Type: "gradient", Color: []string{"FFFFFF", "E0EBF5"}, Shading: 1},
 })
 if err != nil {
     fmt.Println(err)
@@ -149,7 +149,7 @@ The cell `D7` is set with the color fill of the gradient effect. The gradient fi
 
 ```go
 style, err := f.NewStyle(&excelize.Style{
-    Fill: excelize.Fill{Type: "pattern", Color: []string{"#E0EBF5"}, Pattern: 1},
+    Fill: excelize.Fill{Type: "pattern", Color: []string{"E0EBF5"}, Pattern: 1},
 })
 if err != nil {
     fmt.Println(err)
@@ -212,7 +212,7 @@ style, err := f.NewStyle(&excelize.Style{
         Italic: true,
         Family: "Times New Roman",
         Size:   36,
-        Color:  "#777777",
+        Color:  "777777",
     },
 })
 if err != nil {
@@ -261,7 +261,7 @@ if err := f.SetCellHyperLink("Sheet1", "A3",
 }
 // Set the font and underline style for the cell
 style, err := f.NewStyle(&excelize.Style{
-    Font: &excelize.Font{Color: "#1265BE", Underline: "single"},
+    Font: &excelize.Font{Color: "1265BE", Underline: "single"},
 })
 if err != nil {
     fmt.Println(err)
@@ -311,7 +311,7 @@ func main() {
             Text: "bold",
             Font: &excelize.Font{
                 Bold:   true,
-                Color:  "2354e8",
+                Color:  "2354E8",
                 Family: "Times New Roman",
             },
         },
@@ -325,7 +325,7 @@ func main() {
             Text: "italic ",
             Font: &excelize.Font{
                 Bold:   true,
-                Color:  "e83723",
+                Color:  "E83723",
                 Italic: true,
                 Family: "Times New Roman",
             },
@@ -334,7 +334,7 @@ func main() {
             Text: "text with color and font-family,",
             Font: &excelize.Font{
                 Bold:   true,
-                Color:  "2354e8",
+                Color:  "2354E8",
                 Family: "Times New Roman",
             },
         },
@@ -342,20 +342,20 @@ func main() {
             Text: "\r\nlarge text with ",
             Font: &excelize.Font{
                 Size:  14,
-                Color: "ad23e8",
+                Color: "AD23E8",
             },
         },
         {
             Text: "strike",
             Font: &excelize.Font{
-                Color:  "e89923",
+                Color:  "E89923",
                 Strike: true,
             },
         },
         {
             Text: " superscript",
             Font: &excelize.Font{
-                Color:     "dbc21f",
+                Color:     "DBC21F",
                 VertAlign: "superscript",
             },
         },
@@ -363,14 +363,14 @@ func main() {
             Text: " and ",
             Font: &excelize.Font{
                 Size:      14,
-                Color:     "ad23e8",
+                Color:     "AD23E8",
                 VertAlign: "baseline",
             },
         },
         {
             Text: "underline",
             Font: &excelize.Font{
-                Color:     "23e833",
+                Color:     "23E833",
                 Underline: "single",
             },
         },

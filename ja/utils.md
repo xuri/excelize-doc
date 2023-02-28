@@ -497,9 +497,9 @@ type: `Format` - `Format` パラメーターは、条件付き書式基準が満
 ```go
 format, err := f.NewConditionalStyle(
     &excelize.Style{
-        Font: &excelize.Font{Color: "#9A0511"},
+        Font: &excelize.Font{Color: "9A0511"},
         Fill: excelize.Fill{
-            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+            Type: "pattern", Color: []string{"FEC7CE"}, Pattern: 1,
         },
     },
 )
@@ -521,9 +521,9 @@ Excel では、条件付き書式設定で使用する既定の形式がいく�
 // 不適切な条件付きのローズ形式。
 format1, err := f.NewConditionalStyle(
     &excelize.Style{
-        Font: &excelize.Font{Color: "#9A0511"},
+        Font: &excelize.Font{Color: "9A0511"},
         Fill: excelize.Fill{
-            Type: "pattern", Color: []string{"#FEC7CE"}, Pattern: 1,
+            Type: "pattern", Color: []string{"FEC7CE"}, Pattern: 1,
         },
     },
 )
@@ -531,9 +531,9 @@ format1, err := f.NewConditionalStyle(
 // ニュートラル条件のライトイエロー形式。
 format2, err := f.NewConditionalStyle(
     &excelize.Style{
-        Font: &excelize.Font{Color: "#9B5713"},
+        Font: &excelize.Font{Color: "9B5713"},
         Fill: excelize.Fill{
-            Type: "pattern", Color: []string{"#FEEAA0"}, Pattern: 1,
+            Type: "pattern", Color: []string{"FEEAA0"}, Pattern: 1,
         },
     },
 )
@@ -541,9 +541,9 @@ format2, err := f.NewConditionalStyle(
 // 良好な条件付きの薄緑色の形式。
 format3, err := f.NewConditionalStyle(
     &excelize.Style{
-        Font: &excelize.Font{Color: "#09600B"},
+        Font: &excelize.Font{Color: "09600B"},
         Fill: excelize.Fill{
-            Type: "pattern", Color: []string{"#C7EECF"}, Pattern: 1,
+            Type: "pattern", Color: []string{"C7EECF"}, Pattern: 1,
         },
     },
 )
@@ -824,11 +824,11 @@ func main() {
     red, err := f.NewConditionalStyle(
         &excelize.Style{
             Font: &excelize.Font{
-                Color: "#9A0511",
+                Color: "9A0511",
             },
             Fill: excelize.Fill{
                 Type:    "pattern",
-                Color:   []string{"#FEC7CE"},
+                Color:   []string{"FEC7CE"},
                 Pattern: 1,
             },
         },
@@ -853,11 +853,11 @@ func main() {
     green, err := f.NewConditionalStyle(
         &excelize.Style{
             Font: &excelize.Font{
-                Color: "#09600B",
+                Color: "09600B",
             },
             Fill: excelize.Fill{
                 Type:    "pattern",
-                Color:   []string{"#C7EECF"},
+                Color:   []string{"C7EECF"},
                 Pattern: 1,
             },
         },
