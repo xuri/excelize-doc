@@ -101,7 +101,7 @@ donut | 圆：空心 | <p style="text-align: center;"><img src="../images/shapes
 doubleWave | 双波形 | <p style="text-align: center;"><img src="../images/shapes/doubleWave.svg" height="50" width="50"></p>
 downArrow | 箭头：下 | <p style="text-align: center;"><img src="../images/shapes/downArrow.svg" height="50" width="50"></p>
 downArrowCallout | 标注：下箭头 | <p style="text-align: center;"><img src="../images/shapes/downArrowCallout.svg" height="50" width="50"></p>
-ellipse | Ellipse Shape | <p style="text-align: center;"><img src="../images/shapes/ellipse.svg" height="50" width="50"></p>
+ellipse | 椭圆形 | <p style="text-align: center;"><img src="../images/shapes/ellipse.svg" height="50" width="50"></p>
 ellipseRibbon | 带形：前凸弯 | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon.svg" height="50" width="50"></p>
 ellipseRibbon2 | 带形：上凸弯 | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon2.svg" height="50" width="50"></p>
 flowChartAlternateProcess | 流程图：可选过程 | <p style="text-align: center;"><img src="../images/shapes/flowChartAlternateProcess.svg" height="50" width="50"></p>
@@ -159,7 +159,7 @@ leftRightUpArrow | 箭头：丁字 | <p style="text-align: center;"><img src="..
 leftUpArrow | 箭头：直角双向 | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
 lightningBolt | 闪电形 | <p style="text-align: center;"><img src="../images/shapes/lightningBolt.svg" height="50" width="50"></p>
 line | 直线 | <p style="text-align: center;"><img src="../images/shapes/line.svg" height="50" width="50"></p>
-lineInv | Line Inverse Shape | <p style="text-align: center;"><img src="../images/shapes/lineInv.svg" height="50" width="50"></p>
+lineInv | 形状：反向直线 | <p style="text-align: center;"><img src="../images/shapes/lineInv.svg" height="50" width="50"></p>
 mathDivide | 除号 | <p style="text-align: center;"><img src="../images/shapes/mathDivide.svg" height="50" width="50"></p>
 mathEqual | 等号 | <p style="text-align: center;"><img src="../images/shapes/mathEqual.svg" height="50" width="50"></p>
 mathMinus | 减号 | <p style="text-align: center;"><img src="../images/shapes/mathMinus.svg" height="50" width="50"></p>

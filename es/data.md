@@ -13,11 +13,11 @@ Ejemplo 1, configure la validación de datos en `Sheet1!A1:B2` con la configurac
 <p align="center"><img width="683" src="./images/data_validation_01.png" alt="Validación de datos"></p>
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A1:B2"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
-dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "cuerpo de error")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A1:B2")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
+dv.SetError(excelize.DataValidationErrorStyleStop, "error title", "cuerpo de error")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 Ejemplo 2, configure la validación de datos en `Sheet1!A3:B4` con la configuración de los criterios de validación y muestre el mensaje de entrada cuando se seleccione la celda:
@@ -25,11 +25,11 @@ Ejemplo 2, configure la validación de datos en `Sheet1!A3:B4` con la configurac
 <p align="center"><img width="683" src="./images/data_validation_02.png" alt="Validación de datos"></p>
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A3:B4"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
-dvRange.SetInput("input title", "input body")
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A3:B4")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
+dv.SetInput("input title", "input body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 Ejemplo 3, configure la validación de datos en `Sheet1!A5:B6` con la configuración de los criterios de validación, cree un menú desplegable en la celda permitiendo la fuente de la lista:
@@ -37,10 +37,10 @@ Ejemplo 3, configure la validación de datos en `Sheet1!A5:B6` con la configurac
 <p align="center"><img width="683" src="./images/data_validation_03.png" alt="Validación de datos"></p>
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A5:B6"
-dvRange.SetDropList([]string{"1", "2", "3"})
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A5:B6")
+dv.SetDropList([]string{"1", "2", "3"})
+f.AddDataValidation("Sheet1", dv)
 ```
 
 Ejemplo 4, configure la validación de datos en `Sheet1!A7:B8` con la fuente de criterios de validación `Sheet1!E1:E3`, cree un menú desplegable en la celda permitiendo la fuente de la lista:
@@ -48,10 +48,10 @@ Ejemplo 4, configure la validación de datos en `Sheet1!A7:B8` con la fuente de 
 <p align="center"><img width="683" src="./images/data_validation_04.png" alt="Validación de datos"></p>
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("$E$1:$E$3")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A7:B8")
+dv.SetSqrefDropList("$E$1:$E$3")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 ## Obtener validación de datos{#GetDataValidations}

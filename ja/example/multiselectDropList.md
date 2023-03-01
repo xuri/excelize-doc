@@ -66,10 +66,10 @@ func main() {
         }
     }
     // データ検証を設定する
-    dvRange := excelize.NewDataValidation(true)
-    dvRange.Sqref = "D2:D2"
-    dvRange.SetSqrefDropList("$B$2:$B$5")
-    if err = f.AddDataValidation(sheetName, dvRange); err != nil {
+    dv := excelize.NewDataValidation(true)
+    dv.SetSqref("D2:D2")
+    dv.SetSqrefDropList("$B$2:$B$5")
+    if err = f.AddDataValidation(sheetName, dv); err != nil {
         fmt.Println(err)
         return
     }

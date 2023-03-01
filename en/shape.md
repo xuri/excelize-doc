@@ -224,4 +224,4 @@ verticalScroll | Vertical Scroll Shape | <p style="text-align: center;"><img src
 wave | Wave Shape | <p style="text-align: center;"><img src="../images/shapes/wave.svg" height="50" width="50"></p>
 wedgeEllipseCallout | Callout Wedge Ellipse Shape | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | Callout Wedge Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
-wedgeRoundRectCallout | Callout Wedge Round Rectangle Shape  | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+wedgeRoundRectCallout | Callout Wedge Round Rectangle Shape | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>

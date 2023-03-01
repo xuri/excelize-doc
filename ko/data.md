@@ -13,11 +13,11 @@ AddDataValidation는 주어진 데이터 유효성 검사 개체 및 워크 시�
 <p align="center"><img width="654" src="./images/data_validation_01.png" alt="Data validation"></p>
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A1:B2"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
-dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A1:B2")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
+dv.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 예제 2, 에서는 유효성 검사 조건 설정을 사용하여 `Sheet1!A3:B4` 에 대한 데이터 유효성 검사를 설정하고 셀을 선택할 때 입력 메시지를 표시합니다:
@@ -25,11 +25,11 @@ f.AddDataValidation("Sheet1", dvRange)
 <p align="center"><img width="654" src="./images/data_validation_02.png" alt="Data validation"></p>
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A3:B4"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
-dvRange.SetInput("input title", "input body")
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A3:B4")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
+dv.SetInput("input title", "input body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 예제 3, 유효성 검사 기준 설정을 사용 하 여 `Sheet1!A5:B6` 에 데이터 유효성 검사를 설정, 목록 소스를 허용 하 여 셀 내 드롭다운을 만듭니다:
@@ -37,10 +37,10 @@ f.AddDataValidation("Sheet1", dvRange)
 <p align="center"><img width="654" src="./images/data_validation_03.png" alt="Data validation"></p>
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A5:B6"
-dvRange.SetDropList([]string{"1", "2", "3"})
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A5:B6")
+dv.SetDropList([]string{"1", "2", "3"})
+f.AddDataValidation("Sheet1", dv)
 ```
 
 예제 4, 유효성 검사 기준 소스 `Sheet1!E1:E3` 설정으로 `Sheet1!A7:B8` 에 대한 데이터 유효성 검사를 설정하고 목록 소스를 허용하여 셀 내 드롭다운을 만듭니다:
@@ -48,10 +48,10 @@ f.AddDataValidation("Sheet1", dvRange)
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="Data validation"></p>
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("$E$1:$E$3")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A7:B8")
+dv.SetSqrefDropList("$E$1:$E$3")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 ## 데이터 유효성 검사 받기 {#GetDataValidations}

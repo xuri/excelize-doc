@@ -13,11 +13,11 @@ func (f *File) AddDataValidation(sheet string, dv *DataValidation)
 <p align="center"><img width="654" src="./images/data_validation_01.png" alt="数据验证"></p>
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A1:B2"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
-dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A1:B2")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
+dv.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 例2，为 `Sheet1!A3:B4` 设置包含验证条件为允许大于整数 10 的数据验证规则，选定单元格时显示输入信息，输入信息为: "input body":
@@ -25,11 +25,11 @@ f.AddDataValidation("Sheet1", dvRange)
 <p align="center"><img width="654" src="./images/data_validation_02.png" alt="数据验证"></p>
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A3:B4"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
-dvRange.SetInput("input title", "input body")
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A3:B4")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
+dv.SetInput("input title", "input body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 例3，为 `Sheet1!A5:B6` 设置验证条件为序列的数据验证规则，忽略空值并提供下拉箭头:
@@ -37,10 +37,10 @@ f.AddDataValidation("Sheet1", dvRange)
 <p align="center"><img width="654" src="./images/data_validation_03.png" alt="数据验证"></p>
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A5:B6"
-dvRange.SetDropList([]string{"1", "2", "3"})
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A5:B6")
+dv.SetDropList([]string{"1", "2", "3"})
+f.AddDataValidation("Sheet1", dv)
 ```
 
 例4，为 `Sheet1!A7:B8` 设置以 `Sheet1!E1:E3` 为来源的验证条件，忽略空值并提供下拉箭头:
@@ -48,10 +48,10 @@ f.AddDataValidation("Sheet1", dvRange)
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="数据验证"></p>
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("$E$1:$E$3")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A7:B8")
+dv.SetSqrefDropList("$E$1:$E$3")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 ## 获取数据验证 {#GetDataValidations}

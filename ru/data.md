@@ -13,11 +13,11 @@ AddDataValidation предоставляет проверенную провер
 !["Проверка данных"](./images/data_validation_01.png "Проверка данных")
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A1:B2"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
-dvRange.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A1:B2")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
+dv.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 Пример 2, установите проверку данных на `Sheet1!A3:B4` с настройками критериев проверки и покажите входное сообщение, когда выбрана ячейка:
@@ -25,11 +25,11 @@ f.AddDataValidation("Sheet1", dvRange)
 !["Проверка данных"](./images/data_validation_02.png "Проверка данных")
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A3:B4"
-dvRange.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
-dvRange.SetInput("input title", "input body")
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A3:B4")
+dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
+dv.SetInput("input title", "input body")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 Пример 3, установите проверку данных на `Sheet1!A5:B6` с настройками критериев проверки, создайте раскрывающийся список в ячейке, используя источник списка:
@@ -37,10 +37,10 @@ f.AddDataValidation("Sheet1", dvRange)
 !["Проверка данных"](./images/data_validation_03.png "Проверка данных")
 
 ```go
-dvRange = excelize.NewDataValidation(true)
-dvRange.Sqref = "A5:B6"
-dvRange.SetDropList([]string{"1", "2", "3"})
-f.AddDataValidation("Sheet1", dvRange)
+dv = excelize.NewDataValidation(true)
+dv.SetSqref("A5:B6")
+dv.SetDropList([]string{"1", "2", "3"})
+f.AddDataValidation("Sheet1", dv)
 ```
 
 Пример 4, установите проверку данных на `Sheet1!A7:B8` с параметрами критериев проверки. Параметры `Sheet1!E1:E3`, создайте раскрывающийся список в ячейке, разрешив источник списка:
@@ -48,10 +48,10 @@ f.AddDataValidation("Sheet1", dvRange)
 !["Data validation"](./images/data_validation_04.png "Data validation")
 
 ```go
-dvRange := excelize.NewDataValidation(true)
-dvRange.Sqref = "A7:B8"
-dvRange.SetSqrefDropList("$E$1:$E$3")
-f.AddDataValidation("Sheet1", dvRange)
+dv := excelize.NewDataValidation(true)
+dv.SetSqref("A7:B8")
+dv.SetSqrefDropList("$E$1:$E$3")
+f.AddDataValidation("Sheet1", dv)
 ```
 
 ## Получение проверки данных {#GetDataValidations}
