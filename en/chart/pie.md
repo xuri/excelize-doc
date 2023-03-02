@@ -2,7 +2,7 @@
 
 For example, add a pie chart that like the this:
 
-<p align="center"><img width="770" src="../images/pie_chart.png" alt="create pie chart with excelize using Go"></p>
+<p align="center"><img width="771" src="../images/pie_chart.png" alt="create pie chart with excelize using Go"></p>
 
 ```go
 package main
@@ -51,13 +51,8 @@ func main() {
             Name: "Fruit Pie Chart",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return
@@ -67,5 +62,4 @@ func main() {
         fmt.Println(err)
     }
 }
-
 ```

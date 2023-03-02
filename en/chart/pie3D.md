@@ -51,13 +51,8 @@ func main() {
             Name: "Fruit 3D Pie Chart",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "zero",
     }); err != nil {
         fmt.Println(err)
         return

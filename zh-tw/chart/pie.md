@@ -21,10 +21,8 @@ func main() {
         }
     }()
     for idx, row := range [][]interface{}{
-        {nil, "Apple", "Orange", "Pear"},
-        {"Small", 2, 3, 3},
-        {"Normal", 5, 2, 4},
-        {"Large", 6, 7, 8},
+        {"Apple", "Orange", "Pear"},
+        {2, 3, 3},
     } {
         cell, err := excelize.CoordinatesToCellName(1, idx+1)
         if err != nil {
@@ -40,7 +38,7 @@ func main() {
         Type: "pie",
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
+                Name:       "數量",
                 Categories: "Sheet1!$A$1:$C$1",
                 Values:     "Sheet1!$A$2:$C$2",
             },
@@ -53,13 +51,8 @@ func main() {
             Name: "圓形圖",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return

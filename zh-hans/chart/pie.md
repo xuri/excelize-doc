@@ -2,7 +2,7 @@
 
 例如，创建如下效果的饼图：
 
-<p align="center"><img width="770" src="../images/pie_chart.png" alt="使用 Go 语言在 Excel 文档中创建饼图"></p>
+<p align="center"><img width="771" src="../images/pie_chart.png" alt="使用 Go 语言在 Excel 文档中创建饼图"></p>
 
 ```go
 package main
@@ -38,7 +38,7 @@ func main() {
         Type: "pie",
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
+                Name:       "数量",
                 Categories: "Sheet1!$A$1:$C$1",
                 Values:     "Sheet1!$A$2:$C$2",
             },
@@ -48,16 +48,11 @@ func main() {
             OffsetY: 10,
         },
         Title: excelize.ChartTitle{
-            Name: "Fruit Pie Chart",
+            Name: "三维饼图",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return
