@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Авто фильтр {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 AutoFilter предоставляет метод добавления автоматического фильтра в рабочий лист с помощью имени рабочего листа, области координат и настроек. Автофильтр в Excel представляет собой способ фильтрации 2D спектра данных на основе простых критериев.
@@ -81,14 +81,14 @@ AutoFilter предоставляет метод добавления автом
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="Добавить автоматический фильтр"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 Пример 2, данные фильтра в автофильтре:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 

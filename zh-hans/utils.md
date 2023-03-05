@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自动过滤器 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 根据给定的工作表名、单元格坐标区域和条件格式创建自动过滤器。Excel 中的自动过滤器可以对一些简单的二维数据数据进行数据筛选。
@@ -81,14 +81,14 @@ func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="创建自动过滤器"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 例2，在名称为 `Sheet1` 的工作表 `A1:D4` 区域创建带有格式条件的自动过滤器：
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 

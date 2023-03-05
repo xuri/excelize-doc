@@ -38,7 +38,7 @@ func main() {
         Type: "pie",
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
+                Name:       "Montant",
                 Categories: "Sheet1!$A$1:$C$1",
                 Values:     "Sheet1!$A$2:$C$2",
             },
@@ -48,16 +48,11 @@ func main() {
             OffsetY: 10,
         },
         Title: excelize.ChartTitle{
-            Name: "Fruit Pie Chart",
+            Name: "Graphique tarte",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return

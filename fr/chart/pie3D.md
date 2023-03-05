@@ -2,7 +2,7 @@
 
 Par exemple, ajoutez un graphique qui ressemble à ceci:
 
-<p align="center"><img width="769" src="../images/3d_pie_chart.png" alt="créer 3D graphique tarte avec excelize en utilisant Go"></p>
+<p align="center"><img width="770" src="../images/3d_pie_chart.png" alt="créer 3D graphique tarte avec excelize en utilisant Go"></p>
 
 ```go
 package main
@@ -38,7 +38,7 @@ func main() {
         Type: "pie3D",
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
+                Name:       "Montant",
                 Categories: "Sheet1!$A$1:$C$1",
                 Values:     "Sheet1!$A$2:$C$2",
             },
@@ -48,16 +48,11 @@ func main() {
             OffsetY: 10,
         },
         Title: excelize.ChartTitle{
-            Name: "Fruit 3D Pie Chart",
+            Name: "3D graphique tarte",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "zero",
     }); err != nil {
         fmt.Println(err)
         return

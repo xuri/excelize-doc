@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動フィルタ {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 AutoFilter は、ワークシートの名前、座標領域、および設定によってワークシートに自動フィルタを追加する方法を提供します。Excel の自動フィルタは、いくつかの単純な条件に基づいて 2D 範囲のデータをフィルター処理する方法です。
@@ -81,14 +81,14 @@ AutoFilter は、ワークシートの名前、座標領域、および設定に
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="自動フィルタの追加"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 例 2，では、オートフィルターでデータをフィルター処理します:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 

@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## فلتر السيارات {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 يوفر AutoFilter طريقة لإضافة عامل تصفية تلقائي في ورقة عمل حسب اسم ورقة العمل المحدد ومنطقة الإحداثيات والإعدادات. يعد عامل التصفية التلقائي في Excel طريقة لتصفية نطاق ثنائي الأبعاد من البيانات بناءً على بعض المعايير البسيطة.
@@ -81,14 +81,14 @@ func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="فلتر السيارات"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 مثال 2 ، تصفية البيانات في مرشح تلقائي:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 

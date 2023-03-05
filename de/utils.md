@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## Automatischer Filter {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 AutoFilter bietet die Methode zum Hinzufügen eines automatischen Filters in einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Koordinatenbereichs und der Einstellungen. Ein automatischer Filter in Excel ist eine Möglichkeit, einen 2D-Datenbereich anhand einiger einfacher Kriterien zu filtern.
@@ -81,14 +81,14 @@ Beispiel 1: Anwenden eines automatischen Filters auf einen Zellbereich `A1:D4` i
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="Automatischen Filter hinzufügen"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 Beispiel 2: Filtern von Daten in einem automatischen Filter:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 

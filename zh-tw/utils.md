@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 自動過濾器 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建自動過濾器。Excel 中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。
@@ -81,14 +81,14 @@ func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="創建自動過濾器"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 例2，在名稱為 `Sheet1` 的工作表 `A1:D4` 區域創建帶有格式條件的自動過濾器：
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 

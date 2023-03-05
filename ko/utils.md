@@ -71,7 +71,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 ## 자동 필터 {#AutoFilter}
 
 ```go
-func (f *File) AutoFilter(sheet, rangeRef string, opts *AutoFilterOptions) error
+func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
 AutoFilter 는 지정된 워크시트 이름, 좌표 영역 및 설정으로 워크시트에 자동 필터를 추가하는 방법을 제공합니다. Excel 의 자동 필터는 몇 가지 간단한 기준에 따라 2D 데이터 범위를 필터링하는 방법입니다.
@@ -81,14 +81,14 @@ AutoFilter 는 지정된 워크시트 이름, 좌표 영역 및 설정으로 워
 <p align="center"><img width="612" src="./images/autofilter_01.png" alt="자동 필터 추가"></p>
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", nil)
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{})
 ```
 
 예제 2, 에서는 자동 필터에서 데이터를 필터링합니다:
 
 ```go
-err := f.AutoFilter("Sheet1", "A1:D4", &excelize.AutoFilterOptions{
-    Column: "B", Expression: "x != blanks",
+err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
+    {Column: "B", Expression: "x != blanks"},
 })
 ```
 
