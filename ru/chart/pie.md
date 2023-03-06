@@ -20,8 +20,12 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Лист1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{
-        {"Apple", "Orange", "Pear"},
+        {"Яблоко", "Апельсин", "Груша"},
         {2, 3, 3},
     } {
         cell, err := excelize.CoordinatesToCellName(1, idx+1)
@@ -29,18 +33,18 @@ func main() {
             fmt.Println(err)
             return
         }
-        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+        if err := f.SetSheetRow("Лист1", cell, &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+    if err := f.AddChart("Лист1", "E1", &excelize.Chart{
         Type: "pie",
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
-                Categories: "Sheet1!$A$1:$C$1",
-                Values:     "Sheet1!$A$2:$C$2",
+                Name:       "количество",
+                Categories: "Лист1!$A$1:$C$1",
+                Values:     "Лист1!$A$2:$C$2",
             },
         },
         Format: excelize.GraphicOptions{
@@ -48,22 +52,17 @@ func main() {
             OffsetY: 10,
         },
         Title: excelize.ChartTitle{
-            Name: "Fruit Pie Chart",
+            Name: "круговая диаграмма",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return
     }
     // Сохранить workbook
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Книга1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

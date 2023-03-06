@@ -1,5 +1,3 @@
-# مخطط دائري ثلاثي الأبعاد {#pie3D}
-
 على سبيل المثال ، أضف مخطط دائري ثلاثي الأبعاد مثل هذا:
 
 <p align="center"><img width="772" src="../images/3d_pie_chart.png" alt="إنشاء مخطط دائري ثلاثي الأبعاد باستخدام برنامج excelize باستخدام لغة Go"></p>
@@ -61,13 +59,8 @@ func main() {
             Name: "مخطط دائري ثلاثي الأبعاد",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
             ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
         },
-        ShowBlanksAs: "zero",
     }); err != nil {
         fmt.Println(err)
         return

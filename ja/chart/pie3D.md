@@ -2,7 +2,7 @@
 
 例えば、次のような効果を持つ 3D 円グラフ 作成します:
 
-<p align="center"><img width="768" src="../images/3d_pie_chart.png" alt="Go 言語を使用して Excel ドキュメントで 3D 円グラフ 作成する"></p>
+<p align="center"><img width="770" src="../images/3d_pie_chart.png" alt="Go 言語を使用して Excel ドキュメントで 3D 円グラフ 作成する"></p>
 
 ```go
 package main
@@ -21,7 +21,7 @@ func main() {
         }
     }()
     for idx, row := range [][]interface{}{
-        {"Apple", "Orange", "Pear"},
+        {"りんご", "オレンジ", "梨"},
         {2, 3, 3},
     } {
         cell, err := excelize.CoordinatesToCellName(1, idx+1)
@@ -38,7 +38,7 @@ func main() {
         Type: "pie3D",
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
+                Name:       "個数",
                 Categories: "Sheet1!$A$1:$C$1",
                 Values:     "Sheet1!$A$2:$C$2",
             },
@@ -48,16 +48,11 @@ func main() {
             OffsetY: 10,
         },
         Title: excelize.ChartTitle{
-            Name: "Fruit 3D Pie Chart",
+            Name: "3D 円グラフ",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "zero",
     }); err != nil {
         fmt.Println(err)
         return

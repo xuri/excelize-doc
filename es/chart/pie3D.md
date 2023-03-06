@@ -2,7 +2,7 @@
 
 Por ejemplo, agregue un Gráfico circular 3D como este:
 
-<p align="center"><img width="771" src="../images/3d_pie_chart.png" alt="crear un Gráfico circular 3D con excelize usando el lenguaje Go"></p>
+<p align="center"><img width="770" src="../images/3d_pie_chart.png" alt="crear un Gráfico circular 3D con excelize usando el lenguaje Go"></p>
 
 ```go
 package main
@@ -51,20 +51,12 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Legend: excelize.ChartLegend{
-            Position: "right",
-        },
         Title: excelize.ChartTitle{
             Name: "Gráfico circular 3D",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return

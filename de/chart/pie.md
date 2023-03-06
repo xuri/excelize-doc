@@ -2,7 +2,7 @@
 
 Fügen Sie beispielsweise ein Kreisdiagramm wie dieses hinzu:
 
-<p align="center"><img width="771" src="../images/pie_chart.png" alt="Erstelle Kreisdiagramm mit Excelize in der Sprache Go"></p>
+<p align="center"><img width="770" src="../images/pie_chart.png" alt="Erstelle Kreisdiagramm mit Excelize in der Sprache Go"></p>
 
 ```go
 package main
@@ -55,13 +55,8 @@ func main() {
             Name: "Kreisdiagramm",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "gap",
     }); err != nil {
         fmt.Println(err)
         return

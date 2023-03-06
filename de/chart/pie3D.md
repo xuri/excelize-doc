@@ -2,7 +2,7 @@
 
 Fügen Sie beispielsweise ein 3D Kreisdiagramm wie dieses hinzu:
 
-<p align="center"><img width="771" src="../images/3d_pie_chart.png" alt="Erstelle 3D Kreisdiagramm mit Excelize in der Sprache Go"></p>
+<p align="center"><img width="770" src="../images/3d_pie_chart.png" alt="Erstelle 3D Kreisdiagramm mit Excelize in der Sprache Go"></p>
 
 ```go
 package main
@@ -55,13 +55,8 @@ func main() {
             Name: "3D Kreisdiagramm",
         },
         PlotArea: excelize.ChartPlotArea{
-            ShowCatName:     false,
-            ShowLeaderLines: false,
-            ShowPercent:     true,
-            ShowSerName:     false,
-            ShowVal:         false,
+            ShowPercent: true,
         },
-        ShowBlanksAs: "zero",
     }); err != nil {
         fmt.Println(err)
         return
