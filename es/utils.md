@@ -941,9 +941,7 @@ Ejemplo 1: congelar la columna `A` en la `Sheet1` y establecer la celda activa e
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
     XSplit:      1,
-    YSplit:      0,
     TopLeftCell: "B1",
     ActivePane:  "topRight",
     Panes: []excelize.PaneOptions{
@@ -959,8 +957,6 @@ Ejemplo 2: congele las filas 1 a 9 en la `Sheet1` y establezca los rangos de cel
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
-    XSplit:      0,
     YSplit:      9,
     TopLeftCell: "A34",
     ActivePane:  "bottomLeft",
@@ -976,7 +972,6 @@ Ejemplo 3: cree paneles divididos en `Sheet1` y establezca la celda activa en `S
 
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
-    Freeze:      false,
     Split:       true,
     XSplit:      3270,
     YSplit:      1800,

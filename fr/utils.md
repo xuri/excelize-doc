@@ -941,9 +941,7 @@ Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
     XSplit:      1,
-    YSplit:      0,
     TopLeftCell: "B1",
     ActivePane:  "topRight",
     Panes: []excelize.PaneOptions{
@@ -959,8 +957,6 @@ Exemple 2: geler les lignes 1 à 9 dans la feuille Sheet1 et définir les plages
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
-    XSplit:      0,
     YSplit:      9,
     TopLeftCell: "A34",
     ActivePane:  "bottomLeft",
@@ -976,7 +972,6 @@ Exemple 3: créer des volets fractionnés dans `Sheet1` et définir la cellule a
 
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
-    Freeze:      false,
     Split:       true,
     XSplit:      3270,
     YSplit:      1800,

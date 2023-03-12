@@ -941,9 +941,7 @@ Example 1: freeze column `A` in the `Sheet1` and set the active cell on `Sheet1!
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
     XSplit:      1,
-    YSplit:      0,
     TopLeftCell: "B1",
     ActivePane:  "topRight",
     Panes: []excelize.PaneOptions{
@@ -959,8 +957,6 @@ Example 2: freeze rows 1 to 9 in the `Sheet1` and set the active cell ranges on 
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
-    XSplit:      0,
     YSplit:      9,
     TopLeftCell: "A34",
     ActivePane:  "bottomLeft",
@@ -976,7 +972,6 @@ Example 3: create split panes in the `Sheet1` and set the active cell on `Sheet1
 
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
-    Freeze:      false,
     Split:       true,
     XSplit:      3270,
     YSplit:      1800,

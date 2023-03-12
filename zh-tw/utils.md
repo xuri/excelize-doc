@@ -936,9 +936,7 @@ split (Split)|窗格被分裂，但並不凍結。在此狀態下，用戶可以
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
     XSplit:      1,
-    YSplit:      0,
     TopLeftCell: "B1",
     ActivePane:  "topRight",
     Panes: []excelize.PaneOptions{
@@ -954,8 +952,6 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
     Freeze:      true,
-    Split:       false,
-    XSplit:      0,
     YSplit:      9,
     TopLeftCell: "A34",
     ActivePane:  "bottomLeft",
@@ -971,7 +967,6 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{
-    Freeze:      false,
     Split:       true,
     XSplit:      3270,
     YSplit:      1800,
