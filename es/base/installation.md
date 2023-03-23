@@ -2,7 +2,16 @@
 
 ## Instalación {#install}
 
-Using the latest version Excelize library require to Go version 1.15 or later.
+La siguiente tabla muestra los requisitos mínimos del lenguaje Go con cada versión lanzada de Excelize:
+
+Versión Excelize | Requisitos mínimos de la versión del idioma Go
+---|---
+v2.7.0 | 1.16
+v2.4.0 ~ v2.6.1 | 1.15
+v2.0.2 ~ v2.3.2 | 1.10
+v1.0.0 ~ v2.0.1 | 1.6
+
+Using the latest version Excelize library require to Go version 1.16 or later.
 
 - Instalación
 

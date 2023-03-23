@@ -93,7 +93,7 @@ El parámetro opcional `OffsetY` especifica el desplazamiento vertical de la ima
 El parámetro opcional `ScaleY` especifica la escala vertical de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
 AddPictureFromBytes proporciona el método para agregar una imagen en una hoja mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión), descripción de texto alternativo, nombre de extensión y contenido de archivo en el tipo `[]byte`.
@@ -123,7 +123,11 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", &excelize.Picture{
+        Extension: ".jpg",
+        File:      file,
+        Format:    &excelize.GraphicOptions{AltText: "Excel Logo"},
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -136,7 +140,7 @@ func main() {
 ## Obtener imagen {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
+func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
 GetPicture proporciona una función para obtener el nombre base de la imagen y el contenido sin procesar incrustado en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados. Esta función es segura para la simultaneidad. Esta función devuelve el nombre del archivo en la hoja de cálculo y el contenido del archivo como tipos de datos `[]byte`.
@@ -154,13 +158,15 @@ defer func() {
         fmt.Println(err)
     }
 }()
-file, raw, err := f.GetPicture("Sheet1", "A2")
+pics, err := f.GetPictures("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)
-    return
 }
-if err := os.WriteFile(file, raw, 0644); err != nil {
-    fmt.Println(err)
+for idx, pic := range pics {
+    name := fmt.Sprintf("image%d%s", idx+1, pic.Extension)
+    if err := os.WriteFile(name, pic.File, 0644); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 

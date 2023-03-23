@@ -92,7 +92,7 @@ func main() {
 可選參數 `ScaleY` 設定圖片的垂直縮放比例，其缺省值為 1.0，表示 100%。
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
 根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。
@@ -122,7 +122,11 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", &excelize.Picture{
+        Extension: ".jpg",
+        File:      file,
+        Format:    &excelize.GraphicOptions{AltText: "Excel Logo"},
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -135,7 +139,7 @@ func main() {
 ## 獲取圖片 {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
+func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
 根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。此功能是併發安全的。該函數暫不支持獲取通過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
@@ -151,13 +155,15 @@ defer func() {
         fmt.Println(err)
     }
 }()
-file, raw, err := f.GetPicture("Sheet1", "A2")
+pics, err := f.GetPictures("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)
-    return
 }
-if err := os.WriteFile(file, raw, 0644); err != nil {
-    fmt.Println(err)
+for idx, pic := range pics {
+    name := fmt.Sprintf("image%d%s", idx+1, pic.Extension)
+    if err := os.WriteFile(name, pic.File, 0644); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 

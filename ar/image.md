@@ -93,7 +93,7 @@ func main() {
 تحدد المعلمة الاختيارية `ScaleY` المقياس الرأسي للصور ، والقيمة الافتراضية لذلك هي 1.0 والتي تقدم 100٪.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
 يوفر AddPictureFromBytes طريقة لإضافة صورة في ورقة من خلال مجموعة تنسيق صورة معينة (مثل الإزاحة ، المقياس ، إعداد نسبة العرض إلى الارتفاع وإعدادات الطباعة) ، وصف النص البديل ، اسم الامتداد ومحتوى الملف في نوع `[]byte`.
@@ -129,7 +129,11 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", &excelize.Picture{
+        Extension: ".jpg",
+        File:      file,
+        Format:    &excelize.GraphicOptions{AltText: "Excel Logo"},
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -142,7 +146,7 @@ func main() {
 ## احصل على صورة {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
+func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
 يوفر GetPicture وظيفة للحصول على اسم قاعدة الصورة والمحتوى الخام المضمن في جدول بيانات بواسطة ورقة عمل واسم خلية معينين. هذه الوظيفة آمنة للتزامن. تقوم هذه الوظيفة بإرجاع اسم الملف في جدول البيانات ومحتويات الملف كأنواع بيانات `[]byte`.
@@ -160,13 +164,15 @@ defer func() {
         fmt.Println(err)
     }
 }()
-file, raw, err := f.GetPicture("Sheet1", "A2")
+pics, err := f.GetPictures("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)
-    return
 }
-if err := os.WriteFile(file, raw, 0644); err != nil {
-    fmt.Println(err)
+for idx, pic := range pics {
+    name := fmt.Sprintf("image%d%s", idx+1, pic.Extension)
+    if err := os.WriteFile(name, pic.File, 0644); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 

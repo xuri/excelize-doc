@@ -92,7 +92,7 @@ The optional parameter `OffsetY` specifies the vertical offset of the image with
 The optional parameter `ScaleY` specifies the vertical scale of images, the default value of that is 1.0 which presents 100%.
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
 AddPictureFromBytes provides the method to add a picture in a sheet by given picture format set (such as offset, scale, aspect ratio setting and print settings), alt text description, extension name and file content in `[]byte` type.
@@ -122,7 +122,11 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", &excelize.Picture{
+        Extension: ".jpg",
+        File:      file,
+        Format:    &excelize.GraphicOptions{AltText: "Excel Logo"},
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -135,7 +139,7 @@ func main() {
 ## Get Picture {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
+func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
 GetPicture provides a function to get picture base name and raw content embed in a spreadsheet by given worksheet and cell name. This function is concurrency safe. This function returns the file name in the spreadsheet and file contents as `[]byte` data types.
@@ -153,13 +157,15 @@ defer func() {
         fmt.Println(err)
     }
 }()
-file, raw, err := f.GetPicture("Sheet1", "A2")
+pics, err := f.GetPictures("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)
-    return
 }
-if err := os.WriteFile(file, raw, 0644); err != nil {
-    fmt.Println(err)
+for idx, pic := range pics {
+    name := fmt.Sprintf("image%d%s", idx+1, pic.Extension)
+    if err := os.WriteFile(name, pic.File, 0644); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 

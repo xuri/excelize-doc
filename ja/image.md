@@ -92,7 +92,7 @@ func main() {
 オプションのパラメータ `ScaleY` は、画像の垂直スケールを指定します。デフォルト値は 1.0 で、100％ を表します。
 
 ```go
-func (f *File) AddPictureFromBytes(sheet, cell, name, extension string, file []byte, opts *GraphicOptions) error
+func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
 指定されたワークシート名、セル座標、ピクチャアドレス、およびピクチャ形式 (オフセット、ズーム、印刷設定など)、ピクチャの説明、画像の拡張子、および `[]byte` の種類のピクチャコンテンツに基づいて、対応するセルにピクチャを挿入します。
@@ -122,7 +122,11 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.AddPictureFromBytes("Sheet1", "A2", "Excel Logo", ".jpg", file, nil); err != nil {
+    if err := f.AddPictureFromBytes("Sheet1", "A2", &excelize.Picture{
+        Extension: ".jpg",
+        File:      file,
+        Format:    &excelize.GraphicOptions{AltText: "Excel Logo"},
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -135,7 +139,7 @@ func main() {
 ## 画像を取得 {#GetPicture}
 
 ```go
-func (f *File) GetPicture(sheet, cell string) (string, []byte, error)
+func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
 指定されたワークシート名とセルの座標に基づいてブックのピクチャを取得し、Excel ドキュメントに埋め込まれているピクチャを `[]byte` 型で返します。この関数は、同時実行セーフをサポートします。たとえば、`Sheet1` という名前のワークシートの `A2`セルにピクチャを取得します。
@@ -151,13 +155,15 @@ defer func() {
         fmt.Println(err)
     }
 }()
-file, raw, err := f.GetPicture("Sheet1", "A2")
+pics, err := f.GetPictures("Sheet1", "A2")
 if err != nil {
     fmt.Println(err)
-    return
 }
-if err := os.WriteFile(file, raw, 0644); err != nil {
-    fmt.Println(err)
+for idx, pic := range pics {
+    name := fmt.Sprintf("image%d%s", idx+1, pic.Extension)
+    if err := os.WriteFile(name, pic.File, 0644); err != nil {
+        fmt.Println(err)
+    }
 }
 ```
 
