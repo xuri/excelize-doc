@@ -3,7 +3,7 @@
 ## Table {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
+func (f *File) AddTable(sheet string, table *Table) error
 ```
 
 AddTable provides the method to add a table in a worksheet by given worksheet name, range reference, and format set.
@@ -13,7 +13,7 @@ AddTable provides the method to add a table in a worksheet by given worksheet na
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="Add table"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1:D5", nil)
+err := f.AddTable("Sheet1", &excelize.Table{Range: "A1:D5"})
 ```
 
 - Example 2, create a table of `F2:H6` on `Sheet2` with the format set:
@@ -22,7 +22,8 @@ err := f.AddTable("Sheet1", "A1:D5", nil)
 
 ```go
 disable := false
-err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+err := f.AddTable("Sheet2", &excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -1097,10 +1098,10 @@ WriteToBuffer provides a function to get `*bytes.Buffer` from the saved file.
 ## Add VBA Project {#AddVBAProject}
 
 ```go
-func (f *File) AddVBAProject(bin string) error
+func (f *File) AddVBAProject(file []byte) error
 ```
 
-AddVBAProject provides the method to add `vbaProject.bin` file which contains functions and/or macros. The file extension should be `.xlsm`. For example:
+AddVBAProject provides the method to add `vbaProject.bin` file which contains functions and/or macros. The file extension should be `.xlsm` or `.xltm`. For example:
 
 ```go
 codeName := "Sheet1"
@@ -1108,12 +1109,20 @@ if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
     CodeName: &codeName,
 }); err != nil {
     fmt.Println(err)
+    return
 }
-if err := f.AddVBAProject("vbaProject.bin"); err != nil {
+file, err := os.ReadFile("vbaProject.bin")
+if err != nil {
     fmt.Println(err)
+    return
+}
+if err := f.AddVBAProject(file); err != nil {
+    fmt.Println(err)
+    return
 }
 if err := f.SaveAs("macros.xlsm"); err != nil {
     fmt.Println(err)
+    return
 }
 ```
 

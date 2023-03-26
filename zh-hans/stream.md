@@ -41,23 +41,23 @@ func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 NewStreamWriter 通过给定的工作表名称返回流式写入器，用于生成包含大规模数据的工作表。请注意通过此方法按行向工作表写入数据后，必须调用 [`Flush`](stream.md#Flush) 函数来结束流式写入过程，并需要确所保写入的行号是递增的，普通函数不能与流式函数混合使用在工作表中写入数据。例如，向工作表流式按行写入 `102400` 行 x `50` 列带有样式的数据：
 
 ```go
-file := excelize.NewFile()
+f := excelize.NewFile()
 defer func() {
-    if err := file.Close(); err != nil {
+    if err := f.Close(); err != nil {
         fmt.Println(err)
     }
 }()
-streamWriter, err := file.NewStreamWriter("Sheet1")
+sw, err := f.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
     return
 }
-styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
+styleID, err := f.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
 if err != nil {
     fmt.Println(err)
     return
 }
-if err := streamWriter.SetRow("A1",
+if err := sw.SetRow("A1",
     []interface{}{
         excelize.Cell{StyleID: styleID, Value: "Data"},
         []excelize.RichTextRun{
@@ -74,17 +74,21 @@ for rowID := 2; rowID <= 102400; rowID++ {
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
-    cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, row); err != nil {
+    cell, err := excelize.CoordinatesToCellName(1, rowID)
+    if err != nil {
         fmt.Println(err)
-        return
+        break
+    }
+    if err := sw.SetRow(cell, row); err != nil {
+        fmt.Println(err)
+        break
     }
 }
-if err := streamWriter.Flush(); err != nil {
+if err := sw.Flush(); err != nil {
     fmt.Println(err)
     return
 }
-if err := file.SaveAs("Book1.xlsx"); err != nil {
+if err := f.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
 ```
@@ -92,7 +96,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 流式设置单元格的公式和值：
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}})
@@ -101,7 +105,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 流式设置单元格的值和行样式：
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
@@ -109,7 +113,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 流式设置单元格的值和行的分级显示：
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
@@ -124,7 +128,7 @@ SetRow 通过给定的起始坐标和指向数组类型“切片”的指针将�
 ## 流式创建表格 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
+func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
 根据给定的单元格坐标区域和条件格式流式创建表格。
@@ -132,14 +136,15 @@ func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 例1，在 `A1:D5` 区域流式创建表格：
 
 ```go
-err := streamWriter.AddTable("A1:D5", nil)
+err := sw.AddTable(&excelize.Table{Range: "A1:D5"})
 ```
 
 例2，在工作表 `F2:H6` 区域创建带有条件格式的表格：
 
 ```go
 disable := false
-err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+err := sw.AddTable(&excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -184,7 +189,7 @@ func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 根据给定的列范围和宽度值设置单个或多个列的宽度，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置列宽度。例如设置工作表上 `B` 到 `C` 列的宽度为 `20`：
 
 ```go
-err := streamWriter.SetColWidth(2, 3, 20)
+err := sw.SetColWidth(2, 3, 20)
 ```
 
 ## 结束流式写入 {#Flush}

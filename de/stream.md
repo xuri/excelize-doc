@@ -41,23 +41,23 @@ func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 NewStreamWriter gibt die Stream-Writer-Struktur anhand des angegebenen Arbeitsblattnamens zurück, um ein neues Arbeitsblatt mit großen Datenmengen zu generieren. Beachten Sie, dass Sie nach dem Festlegen von Zeilen die [`Flush`](stream.md#Flush) Methode aufrufen müssen, um den Streaming-Schreibvorgang zu beenden und sicherzustellen, dass die Reihenfolge der Zeilennummern aufsteigend ist. Verwenden Sie nicht die normalen Modusfunktionen und Streammodusfunktionen, die mit dem Schreiben von Daten auf die Arbeitsblätter gemischt sind. Legen Sie beispielsweise Daten für das Arbeitsblatt der Größe `102400` Zeilen x `50` Spalten mit Zahlen und Stil fest:
 
 ```go
-file := excelize.NewFile()
+f := excelize.NewFile()
 defer func() {
-    if err := file.Close(); err != nil {
+    if err := f.Close(); err != nil {
         fmt.Println(err)
     }
 }()
-streamWriter, err := file.NewStreamWriter("Sheet1")
+sw, err := f.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
     return
 }
-styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
+styleID, err := f.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
 if err != nil {
     fmt.Println(err)
     return
 }
-if err := streamWriter.SetRow("A1",
+if err := sw.SetRow("A1",
     []interface{}{
         excelize.Cell{StyleID: styleID, Value: "Data"},
         []excelize.RichTextRun{
@@ -74,17 +74,21 @@ for rowID := 2; rowID <= 102400; rowID++ {
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
-    cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, row); err != nil {
+    cell, err := excelize.CoordinatesToCellName(1, rowID)
+    if err != nil {
         fmt.Println(err)
-        return
+        break
+    }
+    if err := sw.SetRow(cell, row); err != nil {
+        fmt.Println(err)
+        break
     }
 }
-if err := streamWriter.Flush(); err != nil {
+if err := sw.Flush(); err != nil {
     fmt.Println(err)
     return
 }
-if err := file.SaveAs("Book1.xlsx"); err != nil {
+if err := f.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
 ```
@@ -92,7 +96,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 Festlegen des Zellenwerts und der Zellformel für ein Arbeitsblatt mit Stream Writer:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}})
@@ -101,7 +105,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 Legen Sie den Zellenwert und den Zeilenstil für ein Arbeitsblatt mit Stream Writer fest:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
@@ -109,7 +113,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 Legen Sie den Zellenwert und die Zeilengliederungsebene für ein Arbeitsblatt mit Stream Writer fest:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
@@ -124,7 +128,7 @@ SetRow schreibt ein Array in die Stream-Zeile, indem eine Startkoordinate und ei
 ## Fügen Sie eine Tabelle zum Streamen hinzu {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
+func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
 AddTable erstellt eine Excel-Tabelle für den StreamWriter unter Verwendung des angegebenen Koordinatenbereichs und Formatsatzes.
@@ -132,14 +136,15 @@ AddTable erstellt eine Excel-Tabelle für den StreamWriter unter Verwendung des 
 Beispiel 1: Erstellen Sie eine Tabelle mit `A1:D5`:
 
 ```go
-err := streamWriter.AddTable("A1:D5", nil)
+err := sw.AddTable(&excelize.Table{Range: "A1:D5"})
 ```
 
 Beispiel 2: Erstellen Sie eine Tabelle mit `F2:H6` mit dem folgenden Format:
 
 ```go
 disable := false
-err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+err := sw.AddTable(&excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -184,7 +189,7 @@ func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 SetColWidth bietet eine Funktion zum Festlegen der Breite einer einzelnen Spalte oder mehrerer Spalten für den `StreamWriter`. Beachten Sie, dass Sie die Funktion `SetColWidth` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen. Legen Sie beispielsweise die Breitenspalte `B:C` als `20` fest:
 
 ```go
-err := streamWriter.SetColWidth(2, 3, 20)
+err := sw.SetColWidth(2, 3, 20)
 ```
 
 ## Flush-Stream {#Flush}

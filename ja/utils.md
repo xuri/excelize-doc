@@ -3,7 +3,7 @@
 ## テーブル作成 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
+func (f *File) AddTable(sheet string, table *Table) error
 ```
 
 AddTable は、ワークシート名、座標領域、および書式設定によってワークシートにテーブルを追加するメソッドを提供します。
@@ -13,7 +13,7 @@ AddTable は、ワークシート名、座標領域、および書式設定に�
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="テーブルの追加"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1:D5", nil)
+err := f.AddTable("Sheet1", &excelize.Table{Range: "A1:D5"})
 ```
 
 - 例 2 では、書式設定を使用して `Sheet2` に `F2:H6` のテーブルを作成します:
@@ -22,7 +22,8 @@ err := f.AddTable("Sheet1", "A1:D5", nil)
 
 ```go
 disable := false
-err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+err := f.AddTable("Sheet2", &excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -1097,10 +1098,10 @@ WriteToBuffer は、保存されたファイルから `*bytes.Buffer` を取得�
 ## VBA プロジェクトの追加 {#AddVBAProject}
 
 ```go
-func (f *File) AddVBAProject(bin string) error
+func (f *File) AddVBAProject(file []byte) error
 ```
 
-AddVBAProject は、関数やマクロを含む `vbaProject.bin` ファイルを追加するメソッドを提供します。ファイル拡張子は `.xlsm` である必要があります。例えば:
+AddVBAProject は、関数やマクロを含む `vbaProject.bin` ファイルを追加するメソッドを提供します。ファイル拡張子は `.xlsm` または `.xltm` である必要があります。例えば:
 
 ```go
 codeName := "Sheet1"
@@ -1108,12 +1109,20 @@ if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
     CodeName: &codeName,
 }); err != nil {
     fmt.Println(err)
+    return
 }
-if err := f.AddVBAProject("vbaProject.bin"); err != nil {
+file, err := os.ReadFile("vbaProject.bin")
+if err != nil {
     fmt.Println(err)
+    return
+}
+if err := f.AddVBAProject(file); err != nil {
+    fmt.Println(err)
+    return
 }
 if err := f.SaveAs("macros.xlsm"); err != nil {
     fmt.Println(err)
+    return
 }
 ```
 

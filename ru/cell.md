@@ -587,10 +587,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## Получить комментари {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-GetComments извлекает все комментарии и возвращает карту имени рабочего листа в комментарии рабочего листа.
+GetComments извлекает все комментарии на листе по заданному имени листа.
 
 ## Удалить комментарий {#DeleteComment}
 

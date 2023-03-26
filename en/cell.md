@@ -582,10 +582,10 @@ err := f.AddComment(sheet, excelize.Comment{
 ## Get comment {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-GetComments retrieve all comments and return a map of worksheet name to the worksheet comments.
+GetComments retrieves all comments in a worksheet by given worksheet name.
 
 ## Delete comment {#DeleteComment}
 

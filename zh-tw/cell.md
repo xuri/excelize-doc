@@ -587,10 +587,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## 獲取註解 {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-通過該方法可以獲取全部工作表中的註解。
+根據給定的工作表名稱獲取工作表中的所有存儲格註解。
 
 ## 刪除註解 {#DeleteComment}
 

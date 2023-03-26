@@ -41,23 +41,23 @@ func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 NewStreamWriter devuelve la estructura del escritor de flujo por el nombre de la hoja de trabajo para generar una nueva hoja de trabajo con grandes cantidades de datos. Tenga en cuenta que después de establecer filas, debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión y asegurarse de que el orden de los números de línea sea ascendente, no utilice las funciones de modo normal y modo de secuencia mezcladas para escribir datos en las hojas de cálculo. Por ejemplo, configure los datos para la hoja de trabajo de tamaño `102400` filas x `50` columnas con números y estilo:
 
 ```go
-file := excelize.NewFile()
+f := excelize.NewFile()
 defer func() {
-    if err := file.Close(); err != nil {
+    if err := f.Close(); err != nil {
         fmt.Println(err)
     }
 }()
-streamWriter, err := file.NewStreamWriter("Sheet1")
+sw, err := f.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
     return
 }
-styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
+styleID, err := f.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
 if err != nil {
     fmt.Println(err)
     return
 }
-if err := streamWriter.SetRow("A1",
+if err := sw.SetRow("A1",
     []interface{}{
         excelize.Cell{StyleID: styleID, Value: "Data"},
         []excelize.RichTextRun{
@@ -74,17 +74,21 @@ for rowID := 2; rowID <= 102400; rowID++ {
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
-    cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, row); err != nil {
+    cell, err := excelize.CoordinatesToCellName(1, rowID)
+    if err != nil {
         fmt.Println(err)
-        return
+        break
+    }
+    if err := sw.SetRow(cell, row); err != nil {
+        fmt.Println(err)
+        break
     }
 }
-if err := streamWriter.Flush(); err != nil {
+if err := sw.Flush(); err != nil {
     fmt.Println(err)
     return
 }
-if err := file.SaveAs("Book1.xlsx"); err != nil {
+if err := f.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
 ```
@@ -92,7 +96,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 Establezca el valor de celda y la fórmula de celda para una hoja de trabajo con el escritor de flujo:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}})
@@ -101,7 +105,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 Establezca el valor de celda y el estilo de las filas para una hoja de trabajo con el escritor de flujo:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
@@ -109,7 +113,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 Establezca el valor de celda y el nivel de esquema de fila para una hoja de trabajo con escritor de flujo:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
@@ -124,7 +128,7 @@ SetRow escribe una matriz en la fila de flujo mediante una coordenada inicial da
 ## Agregar una tabla para transmitir {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
+func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
 AddTable crea una tabla de Excel para StreamWriter utilizando el área de coordenadas y el formato establecidos.
@@ -132,14 +136,15 @@ AddTable crea una tabla de Excel para StreamWriter utilizando el área de coorde
 Ejemplo 1, cree una tabla de `A1:D5`:
 
 ```go
-err := streamWriter.AddTable("A1:D5", nil)
+err := sw.AddTable(&excelize.Table{Range: "A1:D5"})
 ```
 
 Ejemplo 2, cree una tabla de `F2:H6` con el formato establecido:
 
 ```go
 disable := false
-err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+err := sw.AddTable(&excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -184,7 +189,7 @@ func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 SetColWidth proporciona una función para establecer el ancho de una sola columna o varias columnas para el `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetColWidth` antes de la función [`SetRow`](stream.md#SetRow). Por ejemplo, establezca la columna de ancho `B:C` como `20`:
 
 ```go
-err := streamWriter.SetColWidth(2, 3, 20)
+err := sw.SetColWidth(2, 3, 20)
 ```
 
 ## Corriente de vaciado {#Flush}

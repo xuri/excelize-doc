@@ -41,23 +41,23 @@ func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 تقوم NewStreamWriter بإرجاع بنية كاتب الدفق حسب اسم ورقة العمل المحددة لإنشاء ورقة عمل جديدة تحتوي على كميات كبيرة من البيانات. لاحظ أنه بعد تعيين الصفوف ، يجب استدعاء طريقة [`Flush`](stream.md#Flush) لإنهاء عملية الكتابة المتدفقة والتأكد من أن ترتيب أرقام الأسطر تصاعديًا، لا تستخدم دالات الوضع العادي ووظائف وضع الدفق مختلطة لكتابة البيانات على أوراق العمل. على سبيل المثال ، قم بتعيين بيانات ورقة العمل بحجم `102400` من الصفوف × `50` من الأعمدة بالأرقام والنمط:
 
 ```go
-file := excelize.NewFile()
+f := excelize.NewFile()
 defer func() {
-    if err := file.Close(); err != nil {
+    if err := f.Close(); err != nil {
         fmt.Println(err)
     }
 }()
-streamWriter, err := file.NewStreamWriter("Sheet1")
+sw, err := f.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
     return
 }
-styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
+styleID, err := f.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
 if err != nil {
     fmt.Println(err)
     return
 }
-if err := streamWriter.SetRow("A1",
+if err := sw.SetRow("A1",
     []interface{}{
         excelize.Cell{StyleID: styleID, Value: "Data"},
         []excelize.RichTextRun{
@@ -74,17 +74,21 @@ for rowID := 2; rowID <= 102400; rowID++ {
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
-    cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, row); err != nil {
+    cell, err := excelize.CoordinatesToCellName(1, rowID)
+    if err != nil {
         fmt.Println(err)
-        return
+        break
+    }
+    if err := sw.SetRow(cell, row); err != nil {
+        fmt.Println(err)
+        break
     }
 }
-if err := streamWriter.Flush(); err != nil {
+if err := sw.Flush(); err != nil {
     fmt.Println(err)
     return
 }
-if err := file.SaveAs("Book1.xlsx"); err != nil {
+if err := f.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
 ```
@@ -92,7 +96,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 تعيين قيمة الخلية وصيغة الخلية لورقة عمل باستخدام كاتب الدفق:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}})
@@ -101,7 +105,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 تعيين قيمة الخلية ونمط الصفوف لورقة عمل باستخدام كاتب الدفق:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
@@ -109,7 +113,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 قم بتعيين قيمة الخلية ورقم مستوى المخطط التفصيلي للصف لورقة عمل باستخدام كاتب الدفق:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
@@ -124,7 +128,7 @@ func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpt
 ## إضافة جدول إلى تيار {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
+func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
 يقوم AddTable بإنشاء جدول Excel لـ StreamWriter باستخدام منطقة الإحداثيات المحددة ومجموعة التنسيق.
@@ -132,14 +136,15 @@ func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 مثال 1 ، أنشئ جدولاً من "A1: D5":
 
 ```go
-err := streamWriter.AddTable("A1:D5", nil)
+err := sw.AddTable(&excelize.Table{Range: "A1:D5"})
 ```
 
 مثال 2 ، أنشئ جدولاً من `F2:H6` مع ضبط التنسيق:
 
 ```go
 disable := false
-err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+err := sw.AddTable(&excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -184,7 +189,7 @@ func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 يوفر SetColWidth دالة لتعيين عرض عمود واحد أو أعمدة متعددة ل `StreamWriter`. لاحظ أنه يجب استدعاء الدالة `SetColWidth` قبل الدالة [`SetRow`](stream.md#SetRow). على سبيل المثال تعيين العمود عرض `B:C` ك `20`:
 
 ```go
-err := streamWriter.SetColWidth(2, 3, 20)
+err := sw.SetColWidth(2, 3, 20)
 ```
 
 ## تدفق الدفق {#Flush}

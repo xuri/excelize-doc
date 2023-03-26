@@ -3,7 +3,7 @@
 ## 양식 만들기 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
+func (f *File) AddTable(sheet string, table *Table) error
 ```
 
 AddTable 은 지정된 워크 시트 이름, 좌표 영역 및 형식 집합으로 워크 시트에 테이블을 추가하는 방법을 제공합니다.
@@ -13,7 +13,7 @@ AddTable 은 지정된 워크 시트 이름, 좌표 영역 및 형식 집합으�
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="양식 만들기"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1:D5", nil)
+err := f.AddTable("Sheet1", &excelize.Table{Range: "A1:D5"})
 ```
 
 - 예제 2, 형식 집합으로 `Sheet2` 에서 `F2:H6` 테이블을 만듭니다:
@@ -22,7 +22,8 @@ err := f.AddTable("Sheet1", "A1:D5", nil)
 
 ```go
 disable := false
-err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+err := f.AddTable("Sheet2", &excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -1097,10 +1098,10 @@ WriteToBuffer 저장 된 파일에서 `*bytes.Buffer` 를 얻을 수 있는 함�
 ## VBA 프로젝트 추가 {#AddVBAProject}
 
 ```go
-func (f *File) AddVBAProject(bin string) error
+func (f *File) AddVBAProject(file []byte) error
 ```
 
-AddVBAProject 는 함수 및/또는 매크로를 포함하는 `vbaProject.bin` 파일을 추가하는 방법을 제공합니다. 파일 확장은 `.xlsm` 이어야 합니다. 예를 들어:
+AddVBAProject 는 함수 및/또는 매크로를 포함하는 `vbaProject.bin` 파일을 추가하는 방법을 제공합니다. 파일 확장은 `.xlsm` 또는 `.xltm` 이어야 합니다. 예를 들어:
 
 ```go
 codeName := "Sheet1"
@@ -1108,12 +1109,20 @@ if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
     CodeName: &codeName,
 }); err != nil {
     fmt.Println(err)
+    return
 }
-if err := f.AddVBAProject("vbaProject.bin"); err != nil {
+file, err := os.ReadFile("vbaProject.bin")
+if err != nil {
     fmt.Println(err)
+    return
+}
+if err := f.AddVBAProject(file); err != nil {
+    fmt.Println(err)
+    return
 }
 if err := f.SaveAs("macros.xlsm"); err != nil {
     fmt.Println(err)
+    return
 }
 ```
 

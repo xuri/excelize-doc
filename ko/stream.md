@@ -41,23 +41,23 @@ func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 NewStreamWriter 는 주어진 워크 시트 이름으로 스트림 기록기를 반환하여 대량의 데이터가 포함 된 새 워크 시트를 생성합니다. 행을 설정 한 후 스트리밍 쓰기 프로세스를 종료하고 행 번호 순서가 오름차순이되도록 [`Flush`](stream.md#Flush) 메소드를 호출해야합니다. 일반 모드 기능과 스트림 모드 기능을 워크시트에 데이터를 쓰는 데 혼합된 것은 사용하지 마십시오. 예를 들어, 크기가 `102400` 행 x `50` 열인 워크 시트의 데이터를 숫자로 설정하십시오:
 
 ```go
-file := excelize.NewFile()
+f := excelize.NewFile()
 defer func() {
-    if err := file.Close(); err != nil {
+    if err := f.Close(); err != nil {
         fmt.Println(err)
     }
 }()
-streamWriter, err := file.NewStreamWriter("Sheet1")
+sw, err := f.NewStreamWriter("Sheet1")
 if err != nil {
     fmt.Println(err)
     return
 }
-styleID, err := file.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
+styleID, err := f.NewStyle(&excelize.Style{Font: &excelize.Font{Color: "777777"}})
 if err != nil {
     fmt.Println(err)
     return
 }
-if err := streamWriter.SetRow("A1",
+if err := sw.SetRow("A1",
     []interface{}{
         excelize.Cell{StyleID: styleID, Value: "Data"},
         []excelize.RichTextRun{
@@ -74,17 +74,21 @@ for rowID := 2; rowID <= 102400; rowID++ {
     for colID := 0; colID < 50; colID++ {
         row[colID] = rand.Intn(640000)
     }
-    cell, _ := excelize.CoordinatesToCellName(1, rowID)
-    if err := streamWriter.SetRow(cell, row); err != nil {
+    cell, err := excelize.CoordinatesToCellName(1, rowID)
+    if err != nil {
         fmt.Println(err)
-        return
+        break
+    }
+    if err := sw.SetRow(cell, row); err != nil {
+        fmt.Println(err)
+        break
     }
 }
-if err := streamWriter.Flush(); err != nil {
+if err := sw.Flush(); err != nil {
     fmt.Println(err)
     return
 }
-if err := file.SaveAs("Book1.xlsx"); err != nil {
+if err := f.SaveAs("Book1.xlsx"); err != nil {
     fmt.Println(err)
 }
 ```
@@ -92,7 +96,7 @@ if err := file.SaveAs("Book1.xlsx"); err != nil {
 스트림 작성기를 사용하여 워크 시트의 셀 값 및 셀 수식을 설정합니다:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1},
     excelize.Cell{Value: 2},
     excelize.Cell{Formula: "SUM(A1,B1)"}})
@@ -101,7 +105,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 스트림 작성기를 사용하여 워크시트의 셀 값 및 행 스타일 설정:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}},
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
@@ -109,7 +113,7 @@ err := streamWriter.SetRow("A1", []interface{}{
 스트림 기록기를 사용하여 워크시트의 셀 값 및 행 개요 수준을 설정합니다:
 
 ```go
-err := streamWriter.SetRow("A1", []interface{}{
+err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
@@ -124,7 +128,7 @@ SetRow 는 지정된 시작 좌표와 배열 유형 `slice` 에 대한 포인터
 ## 테이블을 스트리밍합니다 {#AddTable}
 
 ```go
-func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
+func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
 지정된 셀 좌표 범위 및 조건부 서식을 기반으로 테이블을 만듭니다.
@@ -132,14 +136,15 @@ func (sw *StreamWriter) AddTable(rangeRef string, opts *TableOptions) error
 예 1, `A1:D5` 영역에서 테이블을 스트리밍합니다:
 
 ```go
-err := streamWriter.AddTable("A1:D5", nil)
+err := sw.AddTable(&excelize.Table{Range: "A1:D5"})
 ```
 
 예 2, 워크시트 `F2:H6` 영역에 조건부 형식의 테이블을 만듭니다:
 
 ```go
 disable := false
-err := streamWriter.AddTable("F2:H6", &excelize.TableOptions{
+err := sw.AddTable(&excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -184,7 +189,7 @@ func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 SetColWidth 는 `StreamWriter` 에 대한 단일 열 또는 여러 열의 너비를 설정하는 함수를 제공합니다. [`SetRow`](stream.md#SetRow) 함수 전에 `SetColWidth` 함수를 호출해야 합니다. 예를 들어 너비 열 `B:C` 를 `20` 으로 설정합니다:
 
 ```go
-err := streamWriter.SetColWidth(2, 3, 20)
+err := sw.SetColWidth(2, 3, 20)
 ```
 
 ## 플러시 스트림 {#Flush}

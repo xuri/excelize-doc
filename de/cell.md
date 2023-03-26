@@ -587,10 +587,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## Kommentar abrufen {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-GetComments ruft alle Kommentare ab und gibt eine Karte des Arbeitsblattnamens an die Arbeitsblattkommentare zurück.
+GetComments ruft alle Kommentare in einem Arbeitsblatt nach dem angegebenen Arbeitsblattnamen ab.
 
 ## Kommentar löschen {#DeleteComment}
 

@@ -587,10 +587,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## 获取批注 {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-通过该方法可以获取全部工作表中的批注。
+根据给定的工作表名称获取工作表中的所有单元格批注。
 
 ## 删除批注 {#DeleteComment}
 

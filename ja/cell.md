@@ -587,10 +587,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## コメントを得る {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-このメソッドを使用すると、すべてのワークシートからコメントを取得できます。
+GetComments は、指定されたワークシート名でワークシート内のすべてのコメントを取得します。
 
 ## コメントを削除 {#DeleteComment}
 

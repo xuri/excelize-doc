@@ -3,7 +3,7 @@
 ## 創建表格 {#AddTable}
 
 ```go
-func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
+func (f *File) AddTable(sheet string, table *Table) error
 ```
 
 根據給定的工作表名、儲存格坐標區域和條件式格式創建表格。
@@ -13,7 +13,7 @@ func (f *File) AddTable(sheet, rangeRef string, opts *TableOptions) error
 <p align="center"><img width="612" src="./images/addtable_01.png" alt="創建表格"></p>
 
 ```go
-err := f.AddTable("Sheet1", "A1:D5", nil)
+err := f.AddTable("Sheet1", &excelize.Table{Range: "A1:D5"})
 ```
 
 - 例2，在名為 `Sheet2` 的工作表 `F2:H6` 區域創建帶有條件式格式的表格：
@@ -22,7 +22,8 @@ err := f.AddTable("Sheet1", "A1:D5", nil)
 
 ```go
 disable := false
-err := f.AddTable("Sheet2", "F2:H6", &excelize.TableOptions{
+err := f.AddTable("Sheet2", &excelize.Table{
+    Range:             "F2:H6",
     Name:              "table",
     StyleName:         "TableStyleMedium2",
     ShowFirstColumn:   true,
@@ -1092,10 +1093,10 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 ## 嵌入 VBA 專案 {#AddVBAProject}
 
 ```go
-func (f *File) AddVBAProject(bin string) error
+func (f *File) AddVBAProject(file []byte) error
 ```
 
-該函數提供方法將包含函數和/或宏的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm`。例如:
+該函數提供方法將包含函數和/或宏的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
 
 ```go
 codeName := "Sheet1"
@@ -1103,12 +1104,20 @@ if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
     CodeName: &codeName,
 }); err != nil {
     fmt.Println(err)
+    return
 }
-if err := f.AddVBAProject("vbaProject.bin"); err != nil {
+file, err := os.ReadFile("vbaProject.bin")
+if err != nil {
     fmt.Println(err)
+    return
+}
+if err := f.AddVBAProject(file); err != nil {
+    fmt.Println(err)
+    return
 }
 if err := f.SaveAs("macros.xlsm"); err != nil {
     fmt.Println(err)
+    return
 }
 ```
 

@@ -587,10 +587,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## 의견 가져 오기 {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-GetComments 는 모든 주석을 검색하고 워크시트 이름 맵을 워크시트 주석에 반환합니다.
+GetComments 는 지정된 워크시트 이름으로 워크시트의 모든 주석을 검색합니다.
 
 ## 댓글 삭제 {#DeleteComment}
 

@@ -593,10 +593,10 @@ err := f.AddComment("Sheet1", excelize.Comment{
 ## الحصول على تعليق {#GetComments}
 
 ```go
-func (f *File) GetComments() (map[string][]Comment, error)
+func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-يقوم GetComments باسترداد جميع التعليقات وإرجاع خريطة اسم ورقة العمل إلى تعليقات ورقة العمل.
+يقوم GetComments باسترداد جميع التعليقات في ورقة العمل حسب اسم ورقة العمل المحدد.
 
 ## حذف تعليق {#DeleteComment}
 
