@@ -44,7 +44,7 @@ func main() {
         f.SetSheetRow("ورقة1", cell, &row)
     }
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
-        Type: "col3DPyramidStacked",
+        Type: excelize.Col3DPyramidStacked,
         Series: []excelize.ChartSeries{
             {
                 Name:       "ورقة1!$A$2",

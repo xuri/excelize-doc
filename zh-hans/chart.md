@@ -10,63 +10,63 @@ func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*Chart
 
 下面是 Excelize 支持创建的图表类型 `Type`：
 
-名称|图表类型
----|---
-area                        | 二维面积图
-areaStacked                 | 二维堆积面积图
-areaPercentStacked          | 二维百分比堆积面积图
-area3D                      | 三维面积图
-area3DStacked               | 三维堆积面积图
-area3DPercentStacked        | 三维百分比堆积面积图
-bar                         | 二维簇状条形图
-barStacked                  | 二维堆积条形图
-barPercentStacked           | 二维百分比堆积条形图
-bar3DClustered              | 三维簇状条形图
-bar3DStacked                | 三维堆积条形图
-bar3DPercentStacked         | 三维百分比堆积条形图
-bar3DConeClustered          | 三维簇状水平圆锥图
-bar3DConeStacked            | 三维堆积水平圆锥图
-bar3DConePercentStacked     | 三维堆积百分比水平圆锥图
-bar3DPyramidClustered       | 三维簇状水平棱锥图
-bar3DPyramidStacked         | 三维堆积水平棱锥图
-bar3DPyramidPercentStacked  | 三维堆积百分比水平棱锥图
-bar3DCylinderClustered      | 三维簇状水平圆柱图
-bar3DCylinderStacked        | 三维堆积水平圆柱图
-bar3DCylinderPercentStacked | 三维堆积百分比水平圆柱图
-col                         | 二维簇状柱形图
-colStacked                  | 二维堆积柱形图
-colPercentStacked           | 二维百分比堆积柱形图
-col3D                       | 三维柱形图
-col3DClustered              | 三维簇状柱形图
-col3DStacked                | 三维堆积柱形图
-col3DPercentStacked         | 三维百分比堆积柱形图
-col3DCone                   | 三维圆锥图
-col3DConeClustered          | 三维簇状圆锥图
-col3DConeStacked            | 三维堆积圆锥图
-col3DConePercentStacked     | 三维百分比堆积圆锥图
-col3DPyramid                | 三维棱锥图
-col3DPyramidClustered       | 三维簇状棱锥图
-col3DPyramidStacked         | 三维堆积棱锥图
-col3DPyramidPercentStacked  | 三维百分比堆积棱锥图
-col3DCylinder               | 三维圆柱图
-col3DCylinderClustered      | 三维簇状圆柱图
-col3DCylinderStacked        | 三维堆积圆柱图
-col3DCylinderPercentStacked | 三维百分比堆积圆柱图
-doughnut                    | 圆环图
-line                        | 折线图
-line3D                      | 三维折线图
-pie                         | 饼图
-pie3D                       | 三维饼图
-pieOfPie                    | 子母饼图
-barOfPie                    | 复合条饼图
-radar                       | 雷达图
-scatter                     | 散点图
-surface3D                   | 三维曲面图
-wireframeSurface3D          | 三维曲面图（框架图）
-contour                     | 曲面图
-wireframeContour            | 曲面图（俯视框架图）
-bubble                      | 气泡图
-bubble3D                    | 三维气泡图
+ID|枚举|图表类型
+---|---|---
+0  | Area                        | 二维面积图
+1  | AreaStacked                 | 二维堆积面积图
+2  | AreaPercentStacked          | 二维百分比堆积面积图
+3  | Area3D                      | 三维面积图
+4  | Area3DStacked               | 三维堆积面积图
+5  | Area3DPercentStacked        | 三维百分比堆积面积图
+6  | Bar                         | 二维簇状条形图
+7  | BarStacked                  | 二维堆积条形图
+8  | BarPercentStacked           | 二维百分比堆积条形图
+9  | Bar3DClustered              | 三维簇状条形图
+10 | Bar3DStacked                | 三维堆积条形图
+11 | Bar3DPercentStacked         | 三维百分比堆积条形图
+12 | Bar3DConeClustered          | 三维簇状水平圆锥图
+13 | Bar3DConeStacked            | 三维堆积水平圆锥图
+14 | Bar3DConePercentStacked     | 三维堆积百分比水平圆锥图
+15 | Bar3DPyramidClustered       | 三维簇状水平棱锥图
+16 | Bar3DPyramidStacked         | 三维堆积水平棱锥图
+17 | Bar3DPyramidPercentStacked  | 三维堆积百分比水平棱锥图
+18 | Bar3DCylinderClustered      | 三维簇状水平圆柱图
+19 | Bar3DCylinderStacked        | 三维堆积水平圆柱图
+20 | Bar3DCylinderPercentStacked | 三维堆积百分比水平圆柱图
+21 | Col                         | 二维簇状柱形图
+22 | ColStacked                  | 二维堆积柱形图
+23 | ColPercentStacked           | 二维百分比堆积柱形图
+24 | Col3D                       | 三维柱形图
+25 | Col3DClustered              | 三维簇状柱形图
+26 | Col3DStacked                | 三维堆积柱形图
+27 | Col3DPercentStacked         | 三维百分比堆积柱形图
+28 | Col3DCone                   | 三维圆锥图
+29 | Col3DConeClustered          | 三维簇状圆锥图
+30 | Col3DConeStacked            | 三维堆积圆锥图
+31 | Col3DConePercentStacked     | 三维百分比堆积圆锥图
+32 | Col3DPyramid                | 三维棱锥图
+33 | Col3DPyramidClustered       | 三维簇状棱锥图
+34 | Col3DPyramidStacked         | 三维堆积棱锥图
+35 | Col3DPyramidPercentStacked  | 三维百分比堆积棱锥图
+36 | Col3DCylinder               | 三维圆柱图
+37 | Col3DCylinderClustered      | 三维簇状圆柱图
+38 | Col3DCylinderStacked        | 三维堆积圆柱图
+39 | Col3DCylinderPercentStacked | 三维百分比堆积圆柱图
+40 | Doughnut                    | 圆环图
+41 | Line                        | 折线图
+42 | Line3D                      | 三维折线图
+43 | Pie                         | 饼图
+44 | Pie3D                       | 三维饼图
+45 | PieOfPie                    | 子母饼图
+46 | BarOfPie                    | 复合条饼图
+47 | Radar                       | 雷达图
+48 | Scatter                     | 散点图
+49 | Surface3D                   | 三维曲面图
+50 | WireframeSurface3D          | 三维曲面图（框架图）
+51 | Contour                     | 曲面图
+52 | WireframeContour            | 曲面图（俯视框架图）
+53 | Bubble                      | 气泡图
+54 | Bubble3D                    | 三维气泡图
 
 在 Office Excel 中图表数据区域 `Series` 指定了绘制哪些数据的信息集合、图例项（系列）和水平（分类）轴标签。
 
@@ -194,7 +194,7 @@ func main() {
     }
     enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col",
+        Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
@@ -225,7 +225,7 @@ func main() {
             ShowVal:         true,
         },
     }, &excelize.Chart{
-        Type: "line",
+        Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$4",

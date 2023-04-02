@@ -41,7 +41,7 @@ func main() {
         }
     }
     if err := f.AddChart("Hoja1", "E1", &excelize.Chart{
-        Type: "col3DConeClustered",
+        Type: excelize.Col3DConeClustered,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Hoja1!$A$2",

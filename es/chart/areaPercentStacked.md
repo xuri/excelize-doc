@@ -41,7 +41,7 @@ func main() {
         }
     }
     if err := f.AddChart("Hoja1", "E1", &excelize.Chart{
-        Type: "areaPercentStacked",
+        Type: excelize.AreaPercentStacked,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Hoja1!$A$2",

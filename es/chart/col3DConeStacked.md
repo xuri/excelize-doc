@@ -41,7 +41,7 @@ func main() {
         }
     }
     if err := f.AddChart("Hoja1", "E1", &excelize.Chart{
-        Type: "col3DConeStacked",
+        Type: excelize.Col3DConeStacked,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Hoja1!$A$2",

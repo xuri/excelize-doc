@@ -10,62 +10,63 @@ AddChart bietet die Methode zum Hinzufügen eines Diagramms zu einem Arbeitsblat
 
 Das Folgende zeigt den `Type` des Diagramms, das von Excelize unterstützt wird:
 
-Typ|Diagramm
----|---
-area                        | 2D Flächendiagramm
-areaStacked                 | 2D gestapeltes Flächendiagramm
-areaPercentStacked          | 2D 100% gestapeltes Flächendiagramm
-area3D                      | 3D Flächendiagramm
-area3DStacked               | 3D gestapeltes Flächendiagramm
-area3DPercentStacked        | 3D 100% gestapeltes Flächendiagramm
-bar                         | 2D Clusterbalkendiagramm
-barStacked                  | 2D gestapeltes Balkendiagramm
-barPercentStacked           | 2D 100% gestapeltes Balkendiagramm
-bar3DClustered              | 3D Clusterbalkendiagramm
-bar3DStacked                | 3D gestapeltes Balkendiagramm
-bar3DPercentStacked         | 3D 100% gestapeltes Balkendiagramm
-bar3DConeClustered          | 3D Kegel-Cluster-Balkendiagramm
-bar3DConeStacked            | 3D Kegel gestapelte Balkendiagramm
-bar3DConePercentStacked     | 3D 100% Kegelbalkendiagramm
-bar3DPyramidClustered       | 3D Pyramiden-Cluster-Balkendiagramm
-bar3DPyramidStacked         | 3D Pyramide gestapelt Balkendiagramm
-bar3DPyramidPercentStacked  | 3D 100% Pyramide gestapelt Balkendiagramm
-bar3DCylinderClustered      | 3D Zylinder-Clusterbalkendiagramm
-bar3DCylinderStacked        | 3D Zylinder gestapeltes Balkendiagramm
-bar3DCylinderPercentStacked | 3D 100% Zylinder gestapelte Balkendiagramm
-col                         | 2D Cluster-Säulendiagramm
-colStacked                  | 2D gestapeltes Säulendiagramm
-colPercentStacked           | 2D 100% gestapeltes Säulendiagramm
-col3DClustered              | 3D Cluster-Säulendiagramm
-col3D                       | 3D Säulendiagramm
-col3DStacked                | 3D gestapeltes Säulendiagramm
-col3DPercentStacked         | 3D 100% gestapeltes Säulendiagramm
-col3DCone                   | 3D Kegel-Säulendiagramm
-col3DConeClustered          | 3D Kegel-Cluster-Säulendiagramm
-col3DConeStacked            | 3D Kegel gestapeltes Säulendiagramm
-col3DConePercentStacked     | 3D 100% Kegel gestapeltes Säulendiagramm
-col3DPyramid                | 3D Pyramidensäulendiagramm
-col3DPyramidClustered       | 3D Pyramiden-Pyramiden-Säulendiagramm
-col3DPyramidStacked         | 3D Pyramidenstapelsäulendiagramm
-col3DPyramidPercentStacked  | 3D 100% Pyramide gestapelt Säulendiagramm
-col3DCylinder               | 3D Zylinder-Säulendiagramm
-col3DCylinderClustered      | 3D Zylinder-Cluster-Säulendiagramm
-col3DCylinderStacked        | 3D Zylinder gestapeltes Säulendiagramm
-col3DCylinderPercentStacked | 3D 100% Zylinder gestapeltsäulendiagramm
-doughnut                    | donut-Diagramm
-line                        | liniendiagramm
-pie                         | kreisdiagramm
-pie3D                       | 3D Kreisdiagramm
-pieOfPie                    | Doppeltes Tortendiagramm
-barOfPie                    | Balken eines Kreisdiagramms
-radar                       | netzdiagramm
-scatter                     | streudiagramm
-surface3D                   | 3D Oberflächendiagramm
-wireframeSurface3D          | 3D Drahtmodell-Oberflächendiagramm
-contour                     | konturdiagramm
-wireframeContour            | wireframe-Konturdiagramm
-bubble                      | blasendiagramm
-bubble3D                    | 3D Blasendiagramm
+ID|Aufzählung|Diagramm
+---|---|---
+0  | Area                        | 2D Flächendiagramm
+1  | AreaStacked                 | 2D gestapeltes Flächendiagramm
+2  | AreaPercentStacked          | 2D 100% gestapeltes Flächendiagramm
+3  | Area3D                      | 3D Flächendiagramm
+4  | Area3DStacked               | 3D gestapeltes Flächendiagramm
+5  | Area3DPercentStacked        | 3D 100% gestapeltes Flächendiagramm
+6  | Bar                         | 2D Clusterbalkendiagramm
+7  | BarStacked                  | 2D gestapeltes Balkendiagramm
+8  | BarPercentStacked           | 2D 100% gestapeltes Balkendiagramm
+9  | Bar3DClustered              | 3D Clusterbalkendiagramm
+10 | Bar3DStacked                | 3D gestapeltes Balkendiagramm
+11 | Bar3DPercentStacked         | 3D 100% gestapeltes Balkendiagramm
+12 | Bar3DConeClustered          | 3D Kegel-Cluster-Balkendiagramm
+13 | Bar3DConeStacked            | 3D Kegel gestapelte Balkendiagramm
+14 | Bar3DConePercentStacked     | 3D 100% Kegelbalkendiagramm
+15 | Bar3DPyramidClustered       | 3D Pyramiden-Cluster-Balkendiagramm
+16 | Bar3DPyramidStacked         | 3D Pyramide gestapelt Balkendiagramm
+17 | Bar3DPyramidPercentStacked  | 3D 100% Pyramide gestapelt Balkendiagramm
+18 | Bar3DCylinderClustered      | 3D Zylinder-Clusterbalkendiagramm
+19 | Bar3DCylinderStacked        | 3D Zylinder gestapeltes Balkendiagramm
+20 | Bar3DCylinderPercentStacked | 3D 100% Zylinder gestapelte Balkendiagramm
+21 | Col                         | 2D Cluster-Säulendiagramm
+22 | ColStacked                  | 2D gestapeltes Säulendiagramm
+23 | ColPercentStacked           | 2D 100% gestapeltes Säulendiagramm
+24 | Col3DClustered              | 3D Cluster-Säulendiagramm
+25 | Col3D                       | 3D Säulendiagramm
+26 | Col3DStacked                | 3D gestapeltes Säulendiagramm
+27 | Col3DPercentStacked         | 3D 100% gestapeltes Säulendiagramm
+28 | Col3DCone                   | 3D Kegel-Säulendiagramm
+29 | Col3DConeClustered          | 3D Kegel-Cluster-Säulendiagramm
+30 | Col3DConeStacked            | 3D Kegel gestapeltes Säulendiagramm
+31 | Col3DConePercentStacked     | 3D 100% Kegel gestapeltes Säulendiagramm
+32 | Col3DPyramid                | 3D Pyramidensäulendiagramm
+33 | Col3DPyramidClustered       | 3D Pyramiden-Pyramiden-Säulendiagramm
+34 | Col3DPyramidStacked         | 3D Pyramidenstapelsäulendiagramm
+35 | Col3DPyramidPercentStacked  | 3D 100% Pyramide gestapelt Säulendiagramm
+36 | Col3DCylinder               | 3D Zylinder-Säulendiagramm
+37 | Col3DCylinderClustered      | 3D Zylinder-Cluster-Säulendiagramm
+38 | Col3DCylinderStacked        | 3D Zylinder gestapeltes Säulendiagramm
+39 | Col3DCylinderPercentStacked | 3D 100% Zylinder gestapeltsäulendiagramm
+40 | Doughnut                    | donut-Diagramm
+41 | Line                        | liniendiagramm
+42 | Line3D                      | 3D Liniendiagramm
+43 | Pie                         | kreisdiagramm
+44 | Pie3D                       | 3D Kreisdiagramm
+45 | PieOfPie                    | Doppeltes Tortendiagramm
+46 | BarOfPie                    | Balken eines Kreisdiagramms
+47 | Radar                       | netzdiagramm
+48 | Scatter                     | streudiagramm
+49 | Surface3D                   | 3D Oberflächendiagramm
+50 | WireframeSurface3D          | 3D Drahtmodell-Oberflächendiagramm
+51 | Contour                     | konturdiagramm
+52 | WireframeContour            | wireframe-Konturdiagramm
+53 | Bubble                      | blasendiagramm
+54 | Bubble3D                    | 3D Blasendiagramm
 
 Im Office Excel-Diagrammdatenbereich gibt `Series` den Informationssatz an, für den Daten gezeichnet werden sollen, das Legendenelement (Serie) und die horizontale (Kategorie) Achsenbeschriftung.
 
@@ -193,7 +194,7 @@ func main() {
     }
     enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col",
+        Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
@@ -224,7 +225,7 @@ func main() {
             ShowVal:         true,
         },
     }, &excelize.Chart{
-        Type: "line",
+        Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$4",

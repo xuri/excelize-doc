@@ -10,62 +10,63 @@ AddChart 는 지정된 차트 형식 집합 (예: 오프셋, 축척, 종횡비 �
 
 다음은 excelize 에서 지원하는 차트의 `Type` 을 보여 주며:
 
-유형|차트
----|---
-area                        | 2D 영역 차트
-areaStacked                 | 2D 스택 영역 차트
-areaPercentStacked          | 2D 100% 스택 영역 차트
-area3D                      | 3D 영역 차트
-area3DStacked               | 3D 스택 영역 차트
-area3DPercentStacked        | 3D 100% 누적 영역 차트
-bar                         | 2D 클러스터 막대 차트
-barStacked                  | 2D 스택 막대 차트
-barPercentStacked           | 2D 100% 스택 막대 차트
-bar3DClustered              | 3D 클러스터 막대 차트
-bar3DStacked                | 3D 누적 막 대형 차트
-bar3DPercentStacked         | 3D 100% 스택 막대 차트
-bar3DConeClustered          | 3D 원뿔 클러스터된 막대 차트
-bar3DConeStacked            | 3D 원뿔 누적 막대 차트
-bar3DConePercentStacked     | 3D 100% 콘 막대 차트
-bar3DPyramidClustered       | 3D 피라미드 클러스터 막대 차트
-bar3DPyramidStacked         | 3D 피라미드 누적 막대 차트
-bar3DPyramidPercentStacked  | 3D 100% 피라미드 누적 막대 차트
-bar3DCylinderClustered      | 3D 실린더 클러스터된 막대 차트
-bar3DCylinderStacked        | 3D 실린더 스택 막대 차트
-bar3DCylinderPercentStacked | 3D 100% 실린더 적층 막대 차트
-col                         | 2D 클러스터형 세로 막 대형 차트
-colStacked                  | 2D 누적 세로 막 대형 차트
-colPercentStacked           | 2D 100% 스택 세로 막 대형 차트
-col3DClustered              | 3D 클러스터 된 세로 막 대형 차트
-col3D                       | 3D 세로 막 대형 차트
-col3DStacked                | 3D 누적 세로 막 대형 차트
-col3DPercentStacked         | 3D 100% 누적 세로 막 대형 차트
-col3DCone                   | 3D 원뿔 열차트
-col3DConeClustered          | 3D 원뿔 클러스터된 열 차트
-col3DConeStacked            | 3D 원뿔 누적 열 차트
-col3DConePercentStacked     | 3D 100% 콘 스택 열 차트
-col3DPyramid                | 3D 피라미드 열차트
-col3DPyramidClustered       | 3D 피라미드 클러스터된 열 차트
-col3DPyramidStacked         | 3D 피라미드 누적 열 차트
-col3DPyramidPercentStacked  | 3D 100% 피라미드 누적 열 차트
-col3DCylinder               | 3D 원통 열차트
-col3DCylinderClustered      | 3D 실린더 클러스터된 열 차트
-col3DCylinderStacked        | 3D 실린더 스택 컬럼 차트
-col3DCylinderPercentStacked | 3D 100% 실린더 스택 컬럼 차트
-doughnut                    | 도넛 차트
-line                        | 꺾은 선형 차트
-pie                         | 원형 차트
-pie3D                       | 3D 원형 차트
-pieOfPie                    | 이중 원형 차트
-barOfPie                    | 원형 차트 막대
-radar                       | 레이더 차트
-scatter                     | 분산 형 차트
-surface3D                   | 3D 표면 차트
-wireframeSurface3D          | 3D 와이어프레임 표면 차트
-contour                     | 등고선 차트
-wireframeContour            | 와이어프레임 윤곽 차트
-bubble                      | 버블 차트
-bubble3D                    | 3D 버블 차트
+ID|열거|차트
+---|---|---
+0  | Area                        | 2D 영역 차트
+1  | AreaStacked                 | 2D 스택 영역 차트
+2  | AreaPercentStacked          | 2D 100% 스택 영역 차트
+3  | Area3D                      | 3D 영역 차트
+4  | Area3DStacked               | 3D 스택 영역 차트
+5  | Area3DPercentStacked        | 3D 100% 누적 영역 차트
+6  | Bar                         | 2D 클러스터 막대 차트
+7  | BarStacked                  | 2D 스택 막대 차트
+8  | BarPercentStacked           | 2D 100% 스택 막대 차트
+9  | Bar3DClustered              | 3D 클러스터 막대 차트
+10 | Bar3DStacked                | 3D 누적 막 대형 차트
+11 | Bar3DPercentStacked         | 3D 100% 스택 막대 차트
+12 | Bar3DConeClustered          | 3D 원뿔 클러스터된 막대 차트
+13 | Bar3DConeStacked            | 3D 원뿔 누적 막대 차트
+14 | Bar3DConePercentStacked     | 3D 100% 콘 막대 차트
+15 | Bar3DPyramidClustered       | 3D 피라미드 클러스터 막대 차트
+16 | Bar3DPyramidStacked         | 3D 피라미드 누적 막대 차트
+17 | Bar3DPyramidPercentStacked  | 3D 100% 피라미드 누적 막대 차트
+18 | Bar3DCylinderClustered      | 3D 실린더 클러스터된 막대 차트
+19 | Bar3DCylinderStacked        | 3D 실린더 스택 막대 차트
+20 | Bar3DCylinderPercentStacked | 3D 100% 실린더 적층 막대 차트
+21 | Col                         | 2D 클러스터형 세로 막 대형 차트
+22 | ColStacked                  | 2D 누적 세로 막 대형 차트
+23 | ColPercentStacked           | 2D 100% 스택 세로 막 대형 차트
+24 | Col3DClustered              | 3D 클러스터 된 세로 막 대형 차트
+25 | Col3D                       | 3D 세로 막 대형 차트
+26 | Col3DStacked                | 3D 누적 세로 막 대형 차트
+27 | Col3DPercentStacked         | 3D 100% 누적 세로 막 대형 차트
+28 | Col3DCone                   | 3D 원뿔 열차트
+29 | Col3DConeClustered          | 3D 원뿔 클러스터된 열 차트
+30 | Col3DConeStacked            | 3D 원뿔 누적 열 차트
+31 | Col3DConePercentStacked     | 3D 100% 콘 스택 열 차트
+32 | Col3DPyramid                | 3D 피라미드 열차트
+33 | Col3DPyramidClustered       | 3D 피라미드 클러스터된 열 차트
+34 | Col3DPyramidStacked         | 3D 피라미드 누적 열 차트
+35 | Col3DPyramidPercentStacked  | 3D 100% 피라미드 누적 열 차트
+36 | Col3DCylinder               | 3D 원통 열차트
+37 | Col3DCylinderClustered      | 3D 실린더 클러스터된 열 차트
+38 | Col3DCylinderStacked        | 3D 실린더 스택 컬럼 차트
+39 | Col3DCylinderPercentStacked | 3D 100% 실린더 스택 컬럼 차트
+40 | Doughnut                    | 도넛 차트
+41 | Line                        | 꺾은 선형 차트
+42 | Line3D                      | 3D 꺾은 선형 차트
+43 | Pie                         | 원형 차트
+44 | Pie3D                       | 3D 원형 차트
+45 | PieOfPie                    | 이중 원형 차트
+46 | BarOfPie                    | 원형 차트 막대
+47 | Radar                       | 레이더 차트
+48 | Scatter                     | 분산 형 차트
+49 | Surface3D                   | 3D 표면 차트
+50 | WireframeSurface3D          | 3D 와이어프레임 표면 차트
+51 | Contour                     | 등고선 차트
+52 | WireframeContour            | 와이어프레임 윤곽 차트
+53 | Bubble                      | 버블 차트
+54 | Bubble3D                    | 3D 버블 차트
 
 Office Excel 차트 데이터 영역 `Series` 에서 데이터를 그릴 정보 집합, 범례 항목 (계열) 및 가로 (범주) 축 레이블을 지정합니다.
 
@@ -194,7 +195,7 @@ func main() {
     }
     enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col",
+        Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
@@ -225,7 +226,7 @@ func main() {
             ShowVal:         true,
         },
     }, &excelize.Chart{
-        Type: "line",
+        Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$4",

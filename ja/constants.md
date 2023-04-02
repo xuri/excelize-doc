@@ -1,63 +1,64 @@
 # 定数
 
-次の定数は、現在サポートされているグラフの種類を定義します:
+このセクションでは、現在サポートされているチャート タイプの列挙を定義します:
 
 ```go
 const (
-    Area                        = "area"
-    AreaStacked                 = "areaStacked"
-    AreaPercentStacked          = "areaPercentStacked"
-    Area3D                      = "area3D"
-    Area3DStacked               = "area3DStacked"
-    Area3DPercentStacked        = "area3DPercentStacked"
-    Bar                         = "bar"
-    BarStacked                  = "barStacked"
-    BarPercentStacked           = "barPercentStacked"
-    Bar3DClustered              = "bar3DClustered"
-    Bar3DStacked                = "bar3DStacked"
-    Bar3DPercentStacked         = "bar3DPercentStacked"
-    Bar3DConeClustered          = "bar3DConeClustered"
-    Bar3DConeStacked            = "bar3DConeStacked"
-    Bar3DConePercentStacked     = "bar3DConePercentStacked"
-    Bar3DPyramidClustered       = "bar3DPyramidClustered"
-    Bar3DPyramidStacked         = "bar3DPyramidStacked"
-    Bar3DPyramidPercentStacked  = "bar3DPyramidPercentStacked"
-    Bar3DCylinderClustered      = "bar3DCylinderClustered"
-    Bar3DCylinderStacked        = "bar3DCylinderStacked"
-    Bar3DCylinderPercentStacked = "bar3DCylinderPercentStacked"
-    Col                         = "col"
-    ColStacked                  = "colStacked"
-    ColPercentStacked           = "colPercentStacked"
-    Col3D                       = "col3D"
-    Col3DClustered              = "col3DClustered"
-    Col3DStacked                = "col3DStacked"
-    Col3DPercentStacked         = "col3DPercentStacked"
-    Col3DCone                   = "col3DCone"
-    Col3DConeClustered          = "col3DConeClustered"
-    Col3DConeStacked            = "col3DConeStacked"
-    Col3DConePercentStacked     = "col3DConePercentStacked"
-    Col3DPyramid                = "col3DPyramid"
-    Col3DPyramidClustered       = "col3DPyramidClustered"
-    Col3DPyramidStacked         = "col3DPyramidStacked"
-    Col3DPyramidPercentStacked  = "col3DPyramidPercentStacked"
-    Col3DCylinder               = "col3DCylinder"
-    Col3DCylinderClustered      = "col3DCylinderClustered"
-    Col3DCylinderStacked        = "col3DCylinderStacked"
-    Col3DCylinderPercentStacked = "col3DCylinderPercentStacked"
-    Doughnut                    = "doughnut"
-    Line                        = "line"
-    Pie                         = "pie"
-    Pie3D                       = "pie3D"
-    PieOfPieChart               = "pieOfPie"
-    BarOfPieChart               = "barOfPie"
-    Radar                       = "radar"
-    Scatter                     = "scatter"
-    Surface3D                   = "surface3D"
-    WireframeSurface3D          = "wireframeSurface3D"
-    Contour                     = "contour"
-    WireframeContour            = "wireframeContour"
-    Bubble                      = "bubble"
-    Bubble3D                    = "bubble3D"
+    Area ChartType = iota
+    AreaStacked
+    AreaPercentStacked
+    Area3D
+    Area3DStacked
+    Area3DPercentStacked
+    Bar
+    BarStacked
+    BarPercentStacked
+    Bar3DClustered
+    Bar3DStacked
+    Bar3DPercentStacked
+    Bar3DConeClustered
+    Bar3DConeStacked
+    Bar3DConePercentStacked
+    Bar3DPyramidClustered
+    Bar3DPyramidStacked
+    Bar3DPyramidPercentStacked
+    Bar3DCylinderClustered
+    Bar3DCylinderStacked
+    Bar3DCylinderPercentStacked
+    Col
+    ColStacked
+    ColPercentStacked
+    Col3D
+    Col3DClustered
+    Col3DStacked
+    Col3DPercentStacked
+    Col3DCone
+    Col3DConeClustered
+    Col3DConeStacked
+    Col3DConePercentStacked
+    Col3DPyramid
+    Col3DPyramidClustered
+    Col3DPyramidStacked
+    Col3DPyramidPercentStacked
+    Col3DCylinder
+    Col3DCylinderClustered
+    Col3DCylinderStacked
+    Col3DCylinderPercentStacked
+    Doughnut
+    Line
+    Line3D
+    Pie
+    Pie3D
+    PieOfPie
+    BarOfPie
+    Radar
+    Scatter
+    Surface3D
+    WireframeSurface3D
+    Contour
+    WireframeContour
+    Bubble
+    Bubble3D
 )
 ```
 

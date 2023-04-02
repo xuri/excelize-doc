@@ -38,7 +38,7 @@ func main() {
     }
     max, min := 7.5, 0.5
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col3DClustered",
+        Type: excelize.Col3DClustered,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",

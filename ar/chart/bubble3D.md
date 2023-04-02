@@ -44,7 +44,7 @@ func main() {
         f.SetSheetRow("ورقة1", cell, &row)
     }
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
-        Type: "bubble3D",
+        Type: excelize.Bubble3D,
         Series: []excelize.ChartSeries{
             {
                 Name:       "ورقة1!$A$2",

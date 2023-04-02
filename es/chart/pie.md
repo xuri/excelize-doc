@@ -39,7 +39,7 @@ func main() {
         }
     }
     if err := f.AddChart("Hoja1", "E1", &excelize.Chart{
-        Type: "pie",
+        Type: excelize.Pie,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Monto",

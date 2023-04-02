@@ -41,7 +41,7 @@ func main() {
         }
     }
     if err := f.AddChart("Tabelle1", "E1", &excelize.Chart{
-        Type: "line3D",
+        Type: excelize.Line3D,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Tabelle1!$A$2",

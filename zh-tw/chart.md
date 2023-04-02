@@ -10,62 +10,63 @@ func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*Chart
 
 下面是 Excelize 支持創建的圖表類別 `Type`：
 
-名稱|圖表類別
----|---
-area                        | 二維區域圖
-areaStacked                 | 二維堆疊區域圖
-areaPercentStacked          | 二維百分比堆疊區域圖
-area3D                      | 立體區域圖
-area3DStacked               | 立體堆疊區域圖
-area3DPercentStacked        | 立體百分比堆疊區域圖
-bar                         | 二維群組條形圖
-barStacked                  | 二維堆疊條形圖
-barPercentStacked           | 二維百分比堆疊條形圖
-bar3DClustered              | 立體群組條形圖
-bar3DStacked                | 立體堆疊條形圖
-bar3DPercentStacked         | 立體百分比堆疊條形圖
-bar3DConeClustered          | 立體群組水平圓錐圖
-bar3DConeStacked            | 立體堆疊水平圓錐圖
-bar3DConePercentStacked     | 立體堆疊百分比水平圓錐圖
-bar3DPyramidClustered       | 立體群組水平稜錐圖
-bar3DPyramidStacked         | 立體堆疊水平稜錐圖
-bar3DPyramidPercentStacked  | 立體堆疊百分比水平稜錐圖
-bar3DCylinderClustered      | 立體群組水平圓柱圖
-bar3DCylinderStacked        | 立體堆疊水平圓柱圖
-bar3DCylinderPercentStacked | 立體堆疊百分比水平圓柱圖
-col                         | 二維群組柱形圖
-colStacked                  | 二維堆疊柱形圖
-colPercentStacked           | 二維百分比堆疊柱形圖
-col3D                       | 立體柱形圖
-col3DClustered              | 立體群組柱形圖
-col3DStacked                | 立體堆疊柱形圖
-col3DPercentStacked         | 立體百分比堆疊柱形圖
-col3DCone                   | 立體圓錐圖
-col3DConeClustered          | 立體群組圓錐圖
-col3DConeStacked            | 立體堆疊圓錐圖
-col3DConePercentStacked     | 立體百分比堆疊圓錐圖
-col3DPyramid                | 立體稜錐圖
-col3DPyramidClustered       | 立體群組稜錐圖
-col3DPyramidStacked         | 立體堆疊稜錐圖
-col3DPyramidPercentStacked  | 立體百分比堆疊稜錐圖
-col3DCylinder               | 立體圓柱圖
-col3DCylinderClustered      | 立體群組圓柱圖
-col3DCylinderStacked        | 立體堆疊圓柱圖
-col3DCylinderPercentStacked | 立體百分比堆疊圓柱圖
-doughnut                    | 環圈圖
-line                        | 折線圖
-pie                         | 圓形圖
-pie3D                       | 立體圓形圖
-pieOfPie                    | 子母圓形圖
-barOfPie                    | 圓形圖帶有子橫條圖
-radar                       | 雷達圖
-scatter                     | 散佈圖
-surface3D                   | 立體曲面圖
-wireframeSurface3D          | 立體曲面圖（只顯示線條）
-contour                     | 曲面圖
-wireframeContour            | 曲面圖（俯視、只顯示線條）
-bubble                      | 泡泡圖
-bubble3D                    | 立體泡泡圖
+ID|列舉|圖表類別
+---|---|---
+0  | Area                        | 二維區域圖
+1  | AreaStacked                 | 二維堆疊區域圖
+2  | AreaPercentStacked          | 二維百分比堆疊區域圖
+3  | Area3D                      | 立體區域圖
+4  | Area3DStacked               | 立體堆疊區域圖
+5  | Area3DPercentStacked        | 立體百分比堆疊區域圖
+6  | Bar                         | 二維群組條形圖
+7  | BarStacked                  | 二維堆疊條形圖
+8  | BarPercentStacked           | 二維百分比堆疊條形圖
+9  | Bar3DClustered              | 立體群組條形圖
+10 | Bar3DStacked                | 立體堆疊條形圖
+11 | Bar3DPercentStacked         | 立體百分比堆疊條形圖
+12 | Bar3DConeClustered          | 立體群組水平圓錐圖
+13 | Bar3DConeStacked            | 立體堆疊水平圓錐圖
+14 | Bar3DConePercentStacked     | 立體堆疊百分比水平圓錐圖
+15 | Bar3DPyramidClustered       | 立體群組水平稜錐圖
+16 | Bar3DPyramidStacked         | 立體堆疊水平稜錐圖
+17 | Bar3DPyramidPercentStacked  | 立體堆疊百分比水平稜錐圖
+18 | Bar3DCylinderClustered      | 立體群組水平圓柱圖
+19 | Bar3DCylinderStacked        | 立體堆疊水平圓柱圖
+20 | Bar3DCylinderPercentStacked | 立體堆疊百分比水平圓柱圖
+21 | Col                         | 二維群組柱形圖
+22 | ColStacked                  | 二維堆疊柱形圖
+23 | ColPercentStacked           | 二維百分比堆疊柱形圖
+24 | Col3D                       | 立體柱形圖
+25 | Col3DClustered              | 立體群組柱形圖
+26 | Col3DStacked                | 立體堆疊柱形圖
+27 | Col3DPercentStacked         | 立體百分比堆疊柱形圖
+28 | Col3DCone                   | 立體圓錐圖
+29 | Col3DConeClustered          | 立體群組圓錐圖
+30 | Col3DConeStacked            | 立體堆疊圓錐圖
+31 | Col3DConePercentStacked     | 立體百分比堆疊圓錐圖
+32 | Col3DPyramid                | 立體稜錐圖
+33 | Col3DPyramidClustered       | 立體群組稜錐圖
+34 | Col3DPyramidStacked         | 立體堆疊稜錐圖
+35 | Col3DPyramidPercentStacked  | 立體百分比堆疊稜錐圖
+36 | Col3DCylinder               | 立體圓柱圖
+37 | Col3DCylinderClustered      | 立體群組圓柱圖
+38 | Col3DCylinderStacked        | 立體堆疊圓柱圖
+39 | Col3DCylinderPercentStacked | 立體百分比堆疊圓柱圖
+40 | Doughnut                    | 環圈圖
+41 | Line                        | 折線圖
+42 | Line3D                      | 立體折線圖
+43 | Pie                         | 圓形圖
+44 | Pie3D                       | 立體圓形圖
+45 | PieOfPie                    | 子母圓形圖
+46 | BarOfPie                    | 圓形圖帶有子橫條圖
+47 | Radar                       | 雷達圖
+48 | Scatter                     | 散佈圖
+49 | Surface3D                   | 立體曲面圖
+50 | WireframeSurface3D          | 立體曲面圖（只顯示線條）
+51 | Contour                     | 曲面圖
+52 | WireframeContour            | 曲面圖（俯視、只顯示線條）
+53 | Bubble                      | 泡泡圖
+54 | Bubble3D                    | 立體泡泡圖
 
 在 Office Excel 中圖表資料區域 `Series` 指定了繪制哪些資料的信息集合、圖例項（系列）和水平（分類）軸標籤。
 
@@ -193,7 +194,7 @@ func main() {
     }
     enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col",
+        Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
@@ -224,7 +225,7 @@ func main() {
             ShowVal:         true,
         },
     }, &excelize.Chart{
-        Type: "line",
+        Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$4",

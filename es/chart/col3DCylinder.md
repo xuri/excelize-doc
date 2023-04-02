@@ -41,7 +41,7 @@ func main() {
         }
     }
     if err := f.AddChart("Hoja1", "E1", &excelize.Chart{
-        Type: "col3DCylinder",
+        Type: excelize.Col3DCylinder,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Hoja1!$A$2",

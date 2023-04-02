@@ -44,7 +44,7 @@ func main() {
         f.SetSheetRow("ورقة1", cell, &row)
     }
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
-        Type: "col3DConeClustered",
+        Type: excelize.Col3DConeClustered,
         Series: []excelize.ChartSeries{
             {
                 Name:       "ورقة1!$A$2",

@@ -45,7 +45,7 @@ func main() {
         }
     }
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
-        Type: "doughnut",
+        Type: excelize.Doughnut,
         Series: []excelize.ChartSeries{
             {
                 Name:       "مقدار",

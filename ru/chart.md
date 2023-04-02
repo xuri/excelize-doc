@@ -10,62 +10,63 @@ AddChart предоставляет метод добавления диагра
 
 Ниже показано `Type` диаграммы, поддерживаемый excelize:
 
-Тип|Диаграмма
+ID|перечисление|Диаграмма
 ---|---
-area                        | 2D диаграмма области
-areaStacked                 | 2D диаграмма области с накоплением
-areaPercentStacked          | 2D 100% диаграмма области с накоплением
-area3D                      | 3D диаграмма области
-area3DStacked               | 3D диаграмма области с накоплением
-area3DPercentStacked        | 3D 100% диаграмма области с накоплением
-bar                         | 2D кластерная гистограмма
-barStacked                  | 2D Двухстрочная гистограмма
-barPercentStacked           | 2D 100% сложная гистограмма
-bar3DClustered              | 3D кластерная гистограмма
-bar3DStacked                | 3D гистограмма
-bar3DPercentStacked         | 3D 100% сложная гистограмма
-bar3DConeClustered          | 3D конус кластерных диаграммы бар
-bar3DConeStacked            | 3D конус штабелироваться диаграммы бар
-bar3DConePercentStacked     | 3D 100% диаграмма конусной панели
-bar3DPyramidClustered       | 3D пирамида кластерных диаграмма бара
-bar3DPyramidStacked         | 3D пирамиды сложены диаграммы бар
-bar3DPyramidPercentStacked  | 3D 100% пирамиды сложены диаграммы бар
-bar3DCylinderClustered      | 3D цилиндровый кластерный бар диаграммы
-bar3DCylinderStacked        | 3D цилиндр штабелироваться бар диаграммы
-bar3DCylinderPercentStacked | 3D 100% цилиндр штабелироваться бар диаграммы
-col                         | 2D группированная диаграмма столбцов
-colStacked                  | 2D сложены диаграммы колонки
-colPercentStacked           | 2D 100% сложены диаграммы колонки
-col3D                       | 3D диаграмма столбца
-col3DClustered              | 3D группированная диаграмма столбцов
-col3DStacked                | 3D сложены диаграммы колонки
-col3DPercentStacked         | 3D 100% сложены диаграммы колонки
-col3DCone                   | 3D Диаграмма столбца конуса
-col3DConeClustered          | 3D конус кластерных диаграмма столбца
-col3DConeStacked            | 3D конус штабелироваться диаграммы колонки
-col3DConePercentStacked     | 3D 100% конус штабелироваться диаграммы колонки
-col3DPyramid                | 3D диаграмма столбца пирамиды
-col3DPyramidClustered       | 3D пирамида кластерных диаграмма столбца
-col3DPyramidStacked         | 3D пирамида сложены диаграммы колонки
-col3DPyramidPercentStacked  | 3D 100% пирамиды сложены диаграммы столбца
-col3DCylinder               | 3D диаграмма цилиндрической колонки
-col3DCylinderClustered      | 3D цилиндр кластерных столбцов диаграммы
-col3DCylinderStacked        | 3D цилиндр штабелироваться диаграммы колонки
-col3DCylinderPercentStacked | 3D 100% цилиндр штабелироваться диаграммы колонки
-doughnut                    | диаграмма пончика
-line                        | линейный график
-pie                         | круговая диаграмма
-pie3D                       | 3D круговая диаграмма
-pieOfPie                    | Двойная круговая диаграмма
-barOfPie                    | Гистограмма круговой диаграммы
-radar                       | радиолокационная карта
-scatter                     | диаграмма рассеяния
-surface3D                   | 3D поверхностная диаграмма
-wireframeSurface3D          | 3D диаграмма поверхности проволоки
-contour                     | контурная диаграмма
-wireframeContour            | диаграмма контура каркасной проволоки
-bubble                      | пузырь диаграммы
-bubble3D                    | 3D пузырь диаграммы
+0  | Area                        | 2D диаграмма области
+1  | AreaStacked                 | 2D диаграмма области с накоплением
+2  | AreaPercentStacked          | 2D 100% диаграмма области с накоплением
+3  | Area3D                      | 3D диаграмма области
+4  | Area3DStacked               | 3D диаграмма области с накоплением
+5  | Area3DPercentStacked        | 3D 100% диаграмма области с накоплением
+6  | Bar                         | 2D кластерная гистограмма
+7  | BarStacked                  | 2D Двухстрочная гистограмма
+8  | BarPercentStacked           | 2D 100% сложная гистограмма
+9  | Bar3DClustered              | 3D кластерная гистограмма
+10 | Bar3DStacked                | 3D гистограмма
+11 | Bar3DPercentStacked         | 3D 100% сложная гистограмма
+12 | Bar3DConeClustered          | 3D конус кластерных диаграммы бар
+13 | Bar3DConeStacked            | 3D конус штабелироваться диаграммы бар
+14 | Bar3DConePercentStacked     | 3D 100% диаграмма конусной панели
+15 | Bar3DPyramidClustered       | 3D пирамида кластерных диаграмма бара
+16 | Bar3DPyramidStacked         | 3D пирамиды сложены диаграммы бар
+17 | Bar3DPyramidPercentStacked  | 3D 100% пирамиды сложены диаграммы бар
+18 | Bar3DCylinderClustered      | 3D цилиндровый кластерный бар диаграммы
+19 | Bar3DCylinderStacked        | 3D цилиндр штабелироваться бар диаграммы
+20 | Bar3DCylinderPercentStacked | 3D 100% цилиндр штабелироваться бар диаграммы
+21 | Col                         | 2D группированная диаграмма столбцов
+22 | ColStacked                  | 2D сложены диаграммы колонки
+23 | ColPercentStacked           | 2D 100% сложены диаграммы колонки
+24 | Col3D                       | 3D диаграмма столбца
+25 | Col3DClustered              | 3D группированная диаграмма столбцов
+26 | Col3DStacked                | 3D сложены диаграммы колонки
+27 | Col3DPercentStacked         | 3D 100% сложены диаграммы колонки
+28 | Col3DCone                   | 3D Диаграмма столбца конуса
+29 | Col3DConeClustered          | 3D конус кластерных диаграмма столбца
+30 | Col3DConeStacked            | 3D конус штабелироваться диаграммы колонки
+31 | Col3DConePercentStacked     | 3D 100% конус штабелироваться диаграммы колонки
+32 | Col3DPyramid                | 3D диаграмма столбца пирамиды
+33 | Col3DPyramidClustered       | 3D пирамида кластерных диаграмма столбца
+34 | Col3DPyramidStacked         | 3D пирамида сложены диаграммы колонки
+35 | Col3DPyramidPercentStacked  | 3D 100% пирамиды сложены диаграммы столбца
+36 | Col3DCylinder               | 3D диаграмма цилиндрической колонки
+37 | Col3DCylinderClustered      | 3D цилиндр кластерных столбцов диаграммы
+38 | Col3DCylinderStacked        | 3D цилиндр штабелироваться диаграммы колонки
+39 | Col3DCylinderPercentStacked | 3D 100% цилиндр штабелироваться диаграммы колонки
+40 | Doughnut                    | диаграмма пончика
+41 | Line                        | линейный график
+42 | Line3D                      | 3D линейный график
+43 | Pie                         | круговая диаграмма
+44 | Pie3D                       | 3D круговая диаграмма
+45 | PieOfPie                    | Двойная круговая диаграмма
+46 | BarOfPie                    | Гистограмма круговой диаграммы
+47 | Radar                       | радиолокационная карта
+48 | Scatter                     | диаграмма рассеяния
+49 | Surface3D                   | 3D поверхностная диаграмма
+50 | WireframeSurface3D          | 3D диаграмма поверхности проволоки
+51 | Contour                     | контурная диаграмма
+52 | WireframeContour            | диаграмма контура каркасной проволоки
+53 | Bubble                      | пузырь диаграммы
+54 | Bubble3D                    | 3D пузырь диаграммы
 
 В области данных диаграммы Office Excel `Series` определяет набор информации, для которой данные рисовать, легенда пункт (серии), и горизонтальной (категория) метки оси.
 
@@ -193,7 +194,7 @@ func main() {
     }
     enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col",
+        Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
@@ -224,7 +225,7 @@ func main() {
             ShowVal:         true,
         },
     }, &excelize.Chart{
-        Type: "line",
+        Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$4",

@@ -43,7 +43,7 @@ func main() {
         }
     }
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
-        Type: "pie3D",
+        Type: excelize.Pie3D,
         Series: []excelize.ChartSeries{
             {
                 Name:       "مقدار",

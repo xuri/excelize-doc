@@ -44,7 +44,7 @@ func main() {
         f.SetSheetRow("ورقة1", cell, &row)
     }
     if err := f.AddChart("ورقة1", "E1", &excelize.Chart{
-        Type: "areaPercentStacked",
+        Type: excelize.AreaPercentStacked,
         Series: []excelize.ChartSeries{
             {
                 Name:       "ورقة1!$A$2",

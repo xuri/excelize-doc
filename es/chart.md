@@ -10,62 +10,63 @@ AddChart proporciona el método para agregar un gráfico en una hoja de trabajo 
 
 A continuación se muestra el `Type` de gráfico compatible con excelize:
 
-Tipo|Gráfico
----|---
-area                        | Gráfico de área 2D
-areaStacked                 | Gráfico de áreas apiladas 2D
-areaPercentStacked          | Gráfico de área 2D 100% apilada
-area3D                      | Gráfico de área 3D
-area3DStacked               | Gráfico de áreas apiladas 3D
-area3DPercentStacked        | Gráfico de área 3D 100% apilada
-bar                         | Gráfico de barras agrupadas 2D
-barStacked                  | Gráfico de barras apiladas 2D
-barPercentStacked           | Gráfico de barras 2D 100% apilado
-bar3DClustered              | Gráfico de barras agrupadas 3D
-bar3DStacked                | Gráfico de barras apiladas 3D
-bar3DPercentStacked         | Gráfico de barras 3D 100% apilado
-bar3DConeClustered          | Gráfico de barras agrupadas con cono 3D
-bar3DConeStacked            | Gráfico de barras apiladas con con cono 3D
-bar3DConePercentStacked     | Gráfico de barras de cono 3D 100%
-bar3DPyramidClustered       | Gráfico de barras agrupadas pirámide 3D
-bar3DPyramidStacked         | Gráfico de barras apiladas pirámide 3D
-bar3DPyramidPercentStacked  | Gráfico de barras apiladas 3D 100% pirámide
-bar3DCylinderClustered      | Gráfico de barras agrupados de cilindros 3D
-bar3DCylinderStacked        | Gráfico de barras apilados de cilindros 3D
-bar3DCylinderPercentStacked | Gráfico de barras apilados 3D 100% cilindro
-col                         | Gráfico de columnas agrupadas 2D
-colStacked                  | Gráfico de columnas apiladas 2D
-colPercentStacked           | Gráfico de columnas apiladas 2D 100%
-col3DClustered              | Gráfico de columnas agrupadas 3D
-col3D                       | Gráfico de columnas 3D
-col3DStacked                | Gráfico de columnas apiladas 3D
-col3DPercentStacked         | Gráfico de columnas apiladas 3D 100%
-col3DCone                   | Gráfico de columnas de cono 3D
-col3DConeClustered          | Gráfico de columnas agrupadas con cono 3D
-col3DConeStacked            | Gráfico de columnas apiladas con cono 3D
-col3DConePercentStacked     | Gráfico de columnas apiladas 3D 100% cono
-col3DPyramid                | Gráfico de columnas piramidales 3D
-col3DPyramidClustered       | Gráfico de columnas agrupadas piramidal 3D
-col3DPyramidStacked         | Gráfico de columnas apiladas pirámide 3D
-col3DPyramidPercentStacked  | Gráfico de columnas apiladas 3D 100% pirámide
-col3DCylinder               | Gráfico de columnas de cilindros 3D
-col3DCylinderClustered      | Gráfico de columnas agrupadas de cilindros 3D
-col3DCylinderStacked        | Gráfico de columnas apiladas de cilindro 3D
-col3DCylinderPercentStacked | Gráfico de columnas apiladas 3D 100% cilindro
-doughnut                    | Gráfico de rosquillas
-line                        | Gráfico de líneas
-pie                         | Gráfico circular
-pie3D                       | Gráfico circular 3D
-pieOfPie                    | Doble de gráfico circular
-barOfPie                    | Pastel de gráfico circular
-radar                       | Gráfico de radar
-scatter                     | Gráfico de dispersión
-surface3D                   | Gráfico de superficie 3D
-wireframeSurface3D          | Gráfico de superficie de estructura alámbrica 3D
-contour                     | Gráfico de contornos
-wireframeContour            | Gráfico de contorno de estructura alámbrica
-bubble                      | Gráfico de burbujas
-bubble3D                    | Gráfico de burbujas 3D
+ID|Enumeración|Gráfico
+---|---|---
+0  | Area                        | Gráfico de área 2D
+1  | AreaStacked                 | Gráfico de áreas apiladas 2D
+2  | AreaPercentStacked          | Gráfico de área 2D 100% apilada
+3  | Area3D                      | Gráfico de área 3D
+4  | Area3DStacked               | Gráfico de áreas apiladas 3D
+5  | Area3DPercentStacked        | Gráfico de área 3D 100% apilada
+6  | Bar                         | Gráfico de barras agrupadas 2D
+7  | BarStacked                  | Gráfico de barras apiladas 2D
+8  | BarPercentStacked           | Gráfico de barras 2D 100% apilado
+9  | Bar3DClustered              | Gráfico de barras agrupadas 3D
+10 | Bar3DStacked                | Gráfico de barras apiladas 3D
+11 | Bar3DPercentStacked         | Gráfico de barras 3D 100% apilado
+12 | Bar3DConeClustered          | Gráfico de barras agrupadas con cono 3D
+13 | Bar3DConeStacked            | Gráfico de barras apiladas con con cono 3D
+14 | Bar3DConePercentStacked     | Gráfico de barras de cono 3D 100%
+15 | Bar3DPyramidClustered       | Gráfico de barras agrupadas pirámide 3D
+16 | Bar3DPyramidStacked         | Gráfico de barras apiladas pirámide 3D
+17 | Bar3DPyramidPercentStacked  | Gráfico de barras apiladas 3D 100% pirámide
+18 | Bar3DCylinderClustered      | Gráfico de barras agrupados de cilindros 3D
+19 | Bar3DCylinderStacked        | Gráfico de barras apilados de cilindros 3D
+20 | Bar3DCylinderPercentStacked | Gráfico de barras apilados 3D 100% cilindro
+21 | Col                         | Gráfico de columnas agrupadas 2D
+22 | ColStacked                  | Gráfico de columnas apiladas 2D
+23 | ColPercentStacked           | Gráfico de columnas apiladas 2D 100%
+24 | Col3DClustered              | Gráfico de columnas agrupadas 3D
+25 | Col3D                       | Gráfico de columnas 3D
+26 | Col3DStacked                | Gráfico de columnas apiladas 3D
+27 | Col3DPercentStacked         | Gráfico de columnas apiladas 3D 100%
+28 | Col3DCone                   | Gráfico de columnas de cono 3D
+29 | Col3DConeClustered          | Gráfico de columnas agrupadas con cono 3D
+30 | Col3DConeStacked            | Gráfico de columnas apiladas con cono 3D
+31 | Col3DConePercentStacked     | Gráfico de columnas apiladas 3D 100% cono
+32 | Col3DPyramid                | Gráfico de columnas piramidales 3D
+33 | Col3DPyramidClustered       | Gráfico de columnas agrupadas piramidal 3D
+34 | Col3DPyramidStacked         | Gráfico de columnas apiladas pirámide 3D
+35 | Col3DPyramidPercentStacked  | Gráfico de columnas apiladas 3D 100% pirámide
+36 | Col3DCylinder               | Gráfico de columnas de cilindros 3D
+37 | Col3DCylinderClustered      | Gráfico de columnas agrupadas de cilindros 3D
+38 | Col3DCylinderStacked        | Gráfico de columnas apiladas de cilindro 3D
+39 | Col3DCylinderPercentStacked | Gráfico de columnas apiladas 3D 100% cilindro
+40 | Doughnut                    | Gráfico de rosquillas
+41 | Line                        | Gráfico de líneas
+42 | Line3D                      | Gráfico de líneas 3D
+43 | Pie                         | Gráfico circular
+44 | Pie3D                       | Gráfico circular 3D
+45 | PieOfPie                    | Doble de gráfico circular
+46 | BarOfPie                    | Pastel de gráfico circular
+47 | Radar                       | Gráfico de radar
+48 | Scatter                     | Gráfico de dispersión
+49 | Surface3D                   | Gráfico de superficie 3D
+50 | WireframeSurface3D          | Gráfico de superficie de estructura alámbrica 3D
+51 | Contour                     | Gráfico de contornos
+52 | WireframeContour            | Gráfico de contorno de estructura alámbrica
+53 | Bubble                      | Gráfico de burbujas
+54 | Bubble3D                    | Gráfico de burbujas 3D
 
 En el rango de datos del gráfico de Office Excel, `Series` especifica el conjunto de información para qué datos dibujar, el elemento de leyenda (serie) y la etiqueta del eje horizontal (categoría).
 
@@ -193,7 +194,7 @@ func main() {
     }
     enable, disable := true, false
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "col",
+        Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
@@ -224,7 +225,7 @@ func main() {
             ShowVal:         true,
         },
     }, &excelize.Chart{
-        Type: "line",
+        Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$4",

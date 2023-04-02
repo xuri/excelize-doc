@@ -37,7 +37,7 @@ func main() {
         }
     }
     if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
-        Type: "bar3DPyramidStacked",
+        Type: excelize.Bar3DPyramidStacked,
         Series: []excelize.ChartSeries{
             {
                 Name:       "Sheet1!$A$2",
