@@ -8,8 +8,8 @@ Excelize 는 순수 Go로 작성된 라이브러리로 XLAM / XLSM / XLSX / XLTM
 - 발행물: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- 마지막 버전: [v2.7.0](https://github.com/xuri/excelize/releases/latest)
-- 문서 업데이트 시간: 2023 년 4 월 1 일
+- 마지막 버전: [v2.7.1](https://github.com/xuri/excelize/releases/latest)
+- 문서 업데이트 시간: 2023 년 4 월 10 일
 
 ## 프로젝트 미션
 
