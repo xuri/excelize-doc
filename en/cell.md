@@ -115,7 +115,7 @@ style, err := f.NewStyle(&excelize.Style{
         {Type: "top", Color: "00FF00", Style: 4},
         {Type: "bottom", Color: "FFFF00", Style: 5},
         {Type: "right", Color: "FF0000", Style: 6},
-        {Type: "diagonalDown", Color: "A020F0", Style: 7},
+        {Type: "diagonalDown", Color: "A020F0", Style: 8},
         {Type: "diagonalUp", Color: "A020F0", Style: 8},
     },
 })
