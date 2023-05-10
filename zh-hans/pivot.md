@@ -79,7 +79,7 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 例如，以 `Sheet1!$G$2:$M$34` 作为数据源，在 `Sheet1!$A$1:$E$31` 选区创建数据透视表，并按照销售数据汇总求和:
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 语言通过 exceliz 创建数据透视表"></p>
+<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 语言通过 Excelize 创建数据透视表"></p>
 
 ```go
 package main
