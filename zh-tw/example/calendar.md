@@ -82,7 +82,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 設定月份存儲格字體
+    // 設定月份存儲格字型
     if err = f.SetCellStyle(sheet, "B1", "D1", monthStyle); err != nil {
         fmt.Println(err)
         return

@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等），在對應的儲存格上插入圖片。此功能是併發安全的。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等），在對應的儲存格上插入圖片。此功能是併發安全的。
 
 例如：
 
@@ -47,7 +47,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 插入圖片，並設定圖片的外部超鏈接、打印和位置屬性
+    // 插入圖片，並設定圖片的外部超鏈接、列印和位置屬性
     if err := f.AddPicture("Sheet1", "H2", "image.gif",
         &excelize.GraphicOptions{
             OffsetX:         15,
@@ -77,7 +77,7 @@ func main() {
 
 可選參數 `Positioning` 定義了 Excel 電子錶格中圖片位置屬性支持 `oneCell`（大小固定，位置隨存儲格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設定此參數時，默認屬性為大小、位置隨存儲格而改變。
 
-可選參數 `PrintObject` 設定打印工作表時是否打印圖片，其缺省值為 `true`。
+可選參數 `PrintObject` 設定列印工作表時是否列印圖片，其缺省值為 `true`。
 
 可選參數 `LockAspectRatio` 設定是否鎖定圖片的縱橫比，其缺省值為 `false。`
 
@@ -95,7 +95,7 @@ func main() {
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和打印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。
 
 例如：
 

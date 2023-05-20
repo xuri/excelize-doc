@@ -88,7 +88,7 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
 ```
 
-根據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型單元格的值。
+根據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型存儲格的值。
 
 ## 設定字符型值 {#SetCellStr}
 
@@ -259,7 +259,7 @@ if err := f.SetCellHyperLink("Sheet1", "A3",
     }); err != nil {
     fmt.Println(err)
 }
-// 為儲存格設定字型和下划線樣式
+// 為儲存格設定字型和底線樣式
 style, err := f.NewStyle(&excelize.Style{
     Font: &excelize.Font{Color: "1265BE", Underline: "single"},
 })
@@ -710,7 +710,7 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持迭代計算、隱式交集、顯式交集、數組函數、數組函數、表格函數和其他部分函數。
+根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持反覆運算、隱式交集、顯式交集、數組函數、數組函數、表格函數和其他部分函數。
 
 支持的公式函數列表如下：
 

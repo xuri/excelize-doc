@@ -77,7 +77,7 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 根據給定的屬性創建樞紐分析表。
 
-例如，以 `Sheet1!$G$2:$M$34` 作為資料源，在 `Sheet1!$A$1:$E$31` 選區創建樞紐分析表，並按照銷售資料匯總求和:
+例如，以 `Sheet1!$G$2:$M$34` 作為資料源，在 `Sheet1!$A$1:$E$31` 選區創建樞紐分析表，並按照銷售資料匯總加總:
 
 <p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 語言通過 Excelize 創建樞紐分析表"></p>
 

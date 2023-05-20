@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` 用以指定計算公式時最多迭代次數，默認值為 0。
 
 `Password` 以明文形式指定打開和儲存活頁簿時所使用的密碼，默認值為空。
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以位元組為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
+`ShortDatePattern` 用以指定短日期數字格式代碼。在電子錶格應用程式中，可以通過為存儲格設定帶有日期格式的數字格式，將日期和時間序列號顯示為日期值。其中以星號 (\*) 開頭的日期格式響應為作業系統指定的區域日期和時間設定的更改。沒有星號的格式不受作業系統設定的影響。`ShortDatePattern` 用於指定讀取以星號開頭的日期格式時所應用的短日期數字格式代碼。
+
+`LongDatePattern` 用以指定長日期數字格式代碼。
+
+`LongTimePattern` 用以指定長時間數字格式代碼。
+
+`CultureInfo` 用以指定區域格式，該設定將在讀取受到作業系統特定的區域日期和時間設定影響的數字格式時使用。
+
 ## 創建 {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 使用 `NewFile` 新建 Excel 工作薄，新創建的活頁簿中會默認包含一個名為 `Sheet1` 的工作表。
@@ -234,23 +249,23 @@ visible, err := f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-根據給定的工作表名稱和屬性參數設定工作表屬性。支持设置的工作表属性选项：
+根據給定的工作表名稱和屬性參數設定工作表屬性。支持設定的工作表屬性選項：
 
 屬性 | 類型 | 描述
 ---|---|---
 CodeName                          | `*string`  | 代碼名
-EnableFormatConditionsCalculation | `*bool`    | 指定條件格式是否自動計算，默認值為 `true`
+EnableFormatConditionsCalculation | `*bool`    | 指定條件式格式是否自動計算，默認值為 `true`
 Published                         | `*bool`    | 指定工作表是否發佈，默認值為 `true`
 AutoPageBreaks                    | `*bool`    | 指定工作表是否自動分頁，默認值為 `true`
-FitToPage                         | `*bool`    | 指定是否開啓自適應頁面打印，默認值為 `false`
+FitToPage                         | `*bool`    | 指定是否開啓自適應頁面列印，默認值為 `false`
 TabColorIndexed                   | `*int`     | 僅用於向後兼容的索引色值
 TabColorRGB                       | `*string`  | 標準 ARGB 色值
-TabColorTheme                     | `*int`     | 從 `0` 開始的主題顏色索引
-TabColorTint                      | `*float64` | 應用於顏色的色調值，默認值為 `0.0`
+TabColorTheme                     | `*int`     | 從 `0` 開始的主題色彩索引
+TabColorTint                      | `*float64` | 應用於色彩的色調值，默認值為 `0.0`
 OutlineSummaryBelow               | `*bool`    | 指定分級顯示方向，是否在明細數據的下方，默認值為 `true`
 OutlineSummaryRight               | `*bool`    | 指定分級顯示方向，是否在明細數據的右側，默認值為 `true`
 BaseColWidth                      | `*uint8`   | 以字符數為單位表示的基本列寬度，默認值為 `8`
-DefaultColWidth                   | `*float64` | 包含邊距和網格線的默認欄寬度
+DefaultColWidth                   | `*float64` | 包含邊界和網格線的默認欄寬度
 DefaultRowHeight                  | `*float64` | 以磅為單位表示的行高度
 CustomHeight                      | `*bool`    | 指定是否應用自定義列高度，默認值為 `false`
 ZeroHeight                        | `*bool`    | 指定是否默認隱藏列，默認值為 `false`
@@ -288,18 +303,18 @@ func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支持设置的工作表檢視属性选项：
+根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支持設定的工作表檢視屬性選項：
 
 屬性 | 類型 | 描述
 ---|---|---
-DefaultGridColor  | `*bool`    | 指定是否使用默認網格線顏色，默認值為 `true`
+DefaultGridColor  | `*bool`    | 指定是否使用默認網格線色彩，默認值為 `true`
 RightToLeft       | `*bool`    | 指定是否使用從右到左顯示模式，默認值為 `false`
 ShowFormulas      | `*bool`    | 指定工作表是否顯示公式，默認值為 `false`
 ShowGridLines     | `*bool`    | 指定工作表是否顯示網格線，默認值為 `true`
 ShowRowColHeaders | `*bool`    | 指定工作表是否顯示標題列和標題欄，默認值為 `true`
-ShowRuler         | `*bool`    | 指定是否在頁面佈局檢視中顯示標尺，默認值為 `true`
-ShowZeros         | `*bool`    | 指定是否顯示單元格的零值，默認值為 `true`，否則將顯示空白
-TopLeftCell       | `*string`  | 指定左上角可見單元格的坐標
+ShowRuler         | `*bool`    | 指定是否在頁面配置檢視中顯示標尺，默認值為 `true`
+ShowZeros         | `*bool`    | 指定是否顯示存儲格的零值，默認值為 `true`，否則將顯示空白
+TopLeftCell       | `*string`  | 指定左上角可見存儲格的坐標
 View              | `*string`  | 指示工作表檢視類型，枚舉值為 `normal`，`pageBreakPreview` 和 `pageLayout`
 ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口縮放比例，區間範圍限於 10 ~ 400，默認值為 `100`
 
@@ -311,15 +326,15 @@ func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 
 根據給定的工作表名稱和檢視索引獲取工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
 
-## 設定工作表頁面佈局 {#SetPageLayout}
+## 設定工作表頁面配置 {#SetPageLayout}
 
 ```go
 func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
-根據給定的工作表名稱和頁面佈局參數設定工作表的頁面佈局屬性。目前支持設定的頁面佈局屬性：
+根據給定的工作表名稱和頁面配置參數設定工作表的頁面配置屬性。目前支持設定的頁面配置屬性：
 
-`Size` 屬性用以設定頁面紙張大小，默認頁面佈局大小為「信紙 8½ × 11 英吋」。下面的表格是 Excelize 中頁面佈局大小和索引 `Size` 參數的關係對照：
+`Size` 屬性用以設定頁面紙張大小，默認頁面配置大小為「信紙 8½ × 11 英吋」。下面的表格是 Excelize 中頁面配置大小和索引 `Size` 參數的關係對照：
 
 索引 | 紙張大小
 ---|---
@@ -440,7 +455,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 117 | 中式信封 #9 橫向旋轉 324 × 229 毫米
 118 | 中式信封 #10 橫向旋轉 458 × 324 毫米
 
-`Orientation` 屬性用以設定頁面佈局方向，默認頁面佈局方向為「直向」，可選值為 `portrait` 和 `landscape`。
+`Orientation` 屬性用以設定頁面配置方向，默認頁面配置方向為「直向」，可選值為 `portrait` 和 `landscape`。
 
 `FirstPageNumber` 屬性用以設定頁面起始頁碼，默認為自動。
 
@@ -450,9 +465,9 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `FitToWidth` 屬性用以設定頁面縮放調整頁高，默認值為 `1`。
 
-`BlackAndWhite` 屬性用以設定單色打印 `true` 或 `false`，默認值為 `false` 關閉。
+`BlackAndWhite` 屬性用以設定單色列印 `true` 或 `false`，默認值為 `false` 關閉。
 
-- 例如，將名為 `Sheet1` 的工作表頁面佈局設定為單色打印、起始頁碼為 `2`、橫向、使用 A4(小) 210 × 297 毫米紙張並調整為 2 頁寬、2 頁高：
+- 例如，將名為 `Sheet1` 的工作表頁面配置設定為單色列印、起始頁碼為 `2`、橫向、使用 A4(小) 210 × 297 毫米紙張並調整為 2 頁寬、2 頁高：
 
 ```go
 f := excelize.NewFile()
@@ -478,13 +493,13 @@ if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
 }
 ```
 
-## 獲取工作表頁面佈局 {#GetPageLayout}
+## 獲取工作表頁面配置 {#GetPageLayout}
 
 ```go
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-根據給定的工作表名稱和頁面佈局參數獲取工作表的頁面佈局屬性。
+根據給定的工作表名稱和頁面配置參數獲取工作表的頁面配置屬性。
 
 ## 設定工作表頁邊界 {#SetPageMargins}
 
@@ -519,12 +534,12 @@ func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-SetWorkbookProps 用於設定活頁簿的屬性。支持設定的工作簿屬性：
+SetWorkbookProps 用於設定活頁簿的屬性。支持設定的活頁簿屬性：
 
-属性 | 类别 | 描述
+屬性 | 類別 | 描述
 ---|---|---
-Date1904      | `*bool`   | 指示工作簿是否使用 1904 日期系統
-FilterPrivacy | `*bool`   | 篩選器隱私，指示應用程序是否檢查工作簿中的個人識別信息
+Date1904      | `*bool`   | 指示活頁簿是否使用 1904 日期系統
+FilterPrivacy | `*bool`   | 篩選器隱私，指示應用程式是否檢查活頁簿中的個人識別信息
 CodeName      | `*string` | 代碼名
 
 ## 獲取活頁簿屬性 {#GetWorkbookPrOptions}
@@ -535,28 +550,28 @@ func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 
 GetWorkbookProps 用於獲取活頁簿的屬性。
 
-## 設定頁眉和頁腳 {#SetHeaderFooter}
+## 設定頁首和頁尾 {#SetHeaderFooter}
 
 ```go
 func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
-根據給定的工作表名稱和控制字符設定工作表的頁眉和頁腳。
+根據給定的工作表名稱和控制字符設定工作表的頁首和頁尾。
 
-頁眉和頁腳包含如下欄位：
+頁首和頁尾包含如下欄位：
 
 欄位           | 描述
 ---|---
-AlignWithMargins | 設定頁眉頁腳邊界與頁邊界對齊
-DifferentFirst   | 設定第一頁頁眉和頁腳
-DifferentOddEven | 設定奇數和偶數頁頁眉和頁腳
-ScaleWithDoc     | 設定頁眉和頁腳跟隨檔案縮放
-OddFooter        | 奇數頁頁腳控制字符
-OddHeader        | 奇數頁頁眉控制字符
-EvenFooter       | 偶數頁頁腳控制字符
-EvenHeader       | 偶數頁頁眉控制字符
-FirstFooter      | 首頁頁腳控制字符
-FirstHeader      | 首頁頁眉控制字符
+AlignWithMargins | 設定頁首頁尾邊界與頁邊界對齊
+DifferentFirst   | 設定第一頁頁首和頁尾
+DifferentOddEven | 設定奇數和偶數頁頁首和頁尾
+ScaleWithDoc     | 設定頁首和頁尾跟隨檔案縮放
+OddFooter        | 奇數頁頁尾控制字符
+OddHeader        | 奇數頁頁首控制字符
+EvenFooter       | 偶數頁頁尾控制字符
+EvenHeader       | 偶數頁頁首控制字符
+FirstFooter      | 首頁頁尾控制字符
+FirstHeader      | 首頁頁首控制字符
 
 下表中的格式代碼可用於 6 個字符串類別欄位: `OddHeader`, `OddFooter`, `EvenHeader`, `EvenFooter`, `FirstFooter`, `FirstHeader`
 
@@ -602,7 +617,7 @@ FirstHeader      | 首頁頁眉控制字符
         </tr>
         <tr>
             <td><code>&amp;E</code></td>
-            <td>對文本使用雙下划線</td>
+            <td>對文本使用雙底線</td>
         </tr>
         <tr>
             <td><code>&amp;F</code></td>
@@ -654,7 +669,7 @@ FirstHeader      | 首頁頁眉控制字符
         </tr>
         <tr>
             <td><code>&amp;U</code></td>
-            <td>為文本添加單下划線。默認模式處於關閉狀態</td>
+            <td>為文本添加單底線。默認模式處於關閉狀態</td>
         </tr>
         <tr>
             <td><code>&amp;X</code></td>
@@ -687,14 +702,14 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 
 上面的例子蘊含如下格式：
 
-- 第一頁有自己的頁眉和頁腳
-- 奇數和偶數頁具有不同的頁眉和頁腳
+- 第一頁有自己的頁首和頁尾
+- 奇數和偶數頁具有不同的頁首和頁尾
 - 奇數頁標題右側部分為當前頁碼
-- 奇數頁頁腳中心部分為當前活頁簿的檔案名
+- 奇數頁頁尾中心部分為當前活頁簿的檔案名
 - 偶數頁標題左側部分為當前頁碼
-- 左側部分為當前日期，偶數頁頁腳右側部分為當前時間
+- 左側部分為當前日期，偶數頁頁尾右側部分為當前時間
 - 第一頁中心部分的第一行上的文本為「Center Bold Header」, 第二行為日期
-- 第一頁上沒有頁腳
+- 第一頁上沒有頁尾
 
 ## 設定名稱 {#SetDefinedName}
 
@@ -713,9 +728,9 @@ err := f.SetDefinedName(&excelize.DefinedName{
 })
 ```
 
-工作表的列印區域和列印標題设定:
+工作表的列印區域和列印標題設定:
 
-<p align="center"><img width="628" src="./images/page_setup_01.png" alt="工作表的列印區域和列印標題设定"></p>
+<p align="center"><img width="628" src="./images/page_setup_01.png" alt="工作表的列印區域和列印標題設定"></p>
 
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
@@ -807,7 +822,7 @@ func (f *File) SetDocProps(docProperties *DocProperties) error
 
 屬性           | 描述
 ---|---
-Category       | 檔案內容的分類
+Category       | 檔案內容的類別
 ContentStatus  | 檔案內容的狀態。例如: 值可能包括 "Draft"、"Reviewed" 和 "Final"
 Created        | 使用 ISO 8601 UTC 時間格式表示的檔案創建時間，例如 `2019-06-04T22:00:10Z`
 Creator        | 創作者
@@ -866,7 +881,7 @@ err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{
 })
 ```
 
-WorkbookProtectionOptions 定義了保護活頁簿的設置選項。
+WorkbookProtectionOptions 定義了保護活頁簿的設定選項。
 
 ```go
 type WorkbookProtectionOptions struct {

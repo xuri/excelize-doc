@@ -219,7 +219,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 在工作表中插入圖片，並設定圖片的打印屬性
+    // 在工作表中插入圖片，並設定圖片的列印屬性
     enable, disable := true, false
     if err := f.AddPicture("Sheet1", "H2", "image.gif",
         &excelize.GraphicOptions{

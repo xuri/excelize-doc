@@ -68,17 +68,17 @@ ID|列舉|圖表類別
 53 | Bubble                      | 泡泡圖
 54 | Bubble3D                    | 立體泡泡圖
 
-在 Office Excel 中圖表資料區域 `Series` 指定了繪制哪些資料的信息集合、圖例項（系列）和水平（分類）軸標籤。
+在 Office Excel 中圖表資料區域 `Series` 指定了繪制哪些資料的信息集合、圖例項（系列）和水平（類別）軸標籤。
 
 下面是 Excelize 中 `Series` 的可選參數：
 
 參數|含義
 ---|---
 Name|圖例項（系列），在圖表圖例和公式欄中顯示。`Name` 參數是可選的，如果不指定該值默認將會使用 `Series 1 .. n` 表示。`Name` 支持使用公式表示，例如：`Sheet1!$A$1`。
-Categories|水平（分類）軸標籤。在大多數圖表類別中，`Categories` 屬性是可選的，默認為形如 `1..n` 的連續序列。
+Categories|水平（類別）軸標籤。在大多數圖表類別中，`Categories` 屬性是可選的，默認為形如 `1..n` 的連續序列。
 Values|圖表資料區域，是 `Series` 中最重要的參數，也是創建圖表時唯一的必選參數。該選項將圖表與其顯示的工作表資料鏈接起來。
 Line|設定折線圖的折線格式。`Line` 屬性是可選的，如果未指定該屬性，則為默認樣式。可以設定的選項是 `Width`，寬度範圍是 0.25pt 至 999pt。如果 `Width` 的值超出範圍，則線的默認寬度為 2pt。
-Marker|設置折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
+Marker|設定折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
 
 參數 `legend` 提供對圖例項的屬性設定方法，下面是 Excelize 中 `legend` 的可選參數：
 
@@ -110,9 +110,9 @@ gap|空距
 span|用直線連接資料點
 zero|零值
 
-通過參數 `VaryColors` 指定是否設定圖表數據系列格式為自動填充顏色，默認值為 `true`。
+通過參數 `VaryColors` 指定是否設定圖表數據系列格式為自動填滿色彩，默認值為 `true`。
 
-參數 `Format` 提供對圖表偏移、縮放、高寬比設定和打印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函數中所使用的相同。
+參數 `Format` 提供對圖表偏移、縮放、高寬比設定和列印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函數中所使用的相同。
 
 通過可選 `PlotArea` 對象設定資料標籤格式，可選參數如下：
 

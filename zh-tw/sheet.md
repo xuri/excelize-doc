@@ -379,21 +379,21 @@ func (rows *Rows) Close() error
 
 關閉數據流並清理打開工作表時可能產生的系統磁盤緩存。
 
-## 在工作表中搜索 {#SearchSheet}
+## 在工作表中搜尋 {#SearchSheet}
 
 ```go
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-根據給定的工作表名稱，儲存格值或正則表達式來獲取坐標。此函數僅支持字符串和數字的完全匹配，不支持公式計算後的結果、格式化數字和條件搜索。如果搜索結果是合併的儲存格，將傳回合併區域左上角的坐標。
+根據給定的工作表名稱，儲存格值或正則表達式來獲取坐標。此函數僅支持字符串和數字的完全匹配，不支持公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
 
-例如，在名為 `Sheet1` 的工作表中搜索值 `100` 的坐標:
+例如，在名為 `Sheet1` 的工作表中搜尋值 `100` 的坐標:
 
 ```go
 result, err := f.SearchSheet("Sheet1", "100")
 ```
 
-例如，在名為 `Sheet1` 的工作表中搜索 `0-9` 範圍內數值的坐標:
+例如，在名為 `Sheet1` 的工作表中搜尋 `0-9` 範圍內數值的坐標:
 
 ```go
 result, err := f.SearchSheet("Sheet1", "[0-9]", true)
@@ -509,7 +509,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便打印的分隔線。
+根據給定的工作表名稱和儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
 
 ## 刪除分頁符 {#RemovePageBreak}
 

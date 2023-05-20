@@ -564,10 +564,10 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 
 類別：`Maximum` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`Maximum` 參數用於設定上限值，參考上面的例子。
 
-類別：`average` - 平均類別用於指定 Office Excel 「最前最後規則」中「經典」樣式的「僅高於或低於平均值的數值設定格式」條件式格式：
+類別：`average` - 平均類別用於指定 Office Excel 「前段後段規則」中「經典」樣式的「僅高於或低於平均值的數值設定格式」條件式格式：
 
 ```go
-// 最前最後規則：高於平均值...
+// 前段後段規則：高於平均值...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {
@@ -579,7 +579,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
     },
 )
 
-// 最前最後規則：低於平均值...
+// 前段後段規則：低於平均值...
 err := f.SetConditionalFormat("Sheet1", "B1:B10",
     []excelize.ConditionalFormatOptions{
         {
@@ -592,10 +592,10 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 )
 ```
 
-類別：`duplicate` - 用於設定「突出顯示儲存格規則」中的「重復值 ...」：
+類別：`duplicate` - 用於設定「醒目提示儲存格規則」中的「重復值 ...」：
 
 ```go
-// 突出顯示儲存格規則: 重復值...
+// 醒目提示儲存格規則: 重復值...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {Type: "duplicate", Criteria: "=", Format: format},
@@ -603,10 +603,10 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 )
 ```
 
-類別：`unique` - 用於設定「突出顯示儲存格規則」中「只為以下內容的儲存格設定格式」的「特定文本」：
+類別：`unique` - 用於設定「醒目提示儲存格規則」中「只為以下內容的儲存格設定格式」的「特定文本」：
 
 ```go
-// 突出顯示儲存格規則，只為以下內容的儲存格設定格式: 特定文本 不等於...
+// 醒目提示儲存格規則，只為以下內容的儲存格設定格式: 特定文本 不等於...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {Type: "unique", Criteria: "=", Format: format},
@@ -614,10 +614,10 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 )
 ```
 
-類別：`top` -  用於設定「最前最後規則」中的「前 10 項...」或「前 10% ...」：
+類別：`top` -  用於設定「前段後段規則」中的「前 10 項...」或「前 10% ...」：
 
 ```go
-// 最前最後規則： 前 10 項...
+// 前段後段規則： 前 10 項...
 err := f.SetConditionalFormat("Sheet1", "H1:H10",
     []excelize.ConditionalFormatOptions{
         {
@@ -688,12 +688,12 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 
 三色刻度色階條件式格式可選參數： `MinType`、`MidType`、`MaxType`、`MinValue`、`MidValue`、`MaxValue`、`MinColor`、`MidColor` 和 `MaxColor`。
 
-類別：`data_bar` - 用於設定「資料條」類別的條件式格式。
+類別：`data_bar` - 用於設定「資料橫條」類別的條件式格式。
 
 `MinType` - 參數 `MinType` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `MidType` 在條件式格式類別為 `3_color_scale` 時可用。例如：
 
 ```go
-// 資料條：漸變填滿
+// 資料橫條：漸變填滿
 err := f.SetConditionalFormat("Sheet1", "K1:K10",
     []excelize.ConditionalFormatOptions{
         {
@@ -754,7 +754,7 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 
 `BarColor` - 當條件式格式類別為 `data_bar` 時使用。與 `MinColor` 用法相同，參考上述文檔。
 
-`BarBorderColor` - 用於設定資料橫條的邊框線顏色，該設定僅在 Excel 2010 或更高版本中有效。
+`BarBorderColor` - 用於設定資料橫條的外框線色彩，該設定僅在 Excel 2010 或更高版本中有效。
 
 `BarDirection` - 用於設定資料橫條方向，可選值見下表:
 
@@ -766,7 +766,7 @@ rightToLeft | 從左向右
 
 `BarOnly` - 用於設定是否隱藏存儲格中的值，僅顯示資料橫條。
 
-`BarSolid` - 用於設定資料橫條是否使用實心填滿（非漸層）填充樣式，該設定僅在 Excel 2010 或更高版本中有效。
+`BarSolid` - 用於設定資料橫條是否使用實心填滿（非漸層）填滿樣式，該設定僅在 Excel 2010 或更高版本中有效。
 
 `IconStyle` - 用於設定圖示樣式，可選值見下表:
 

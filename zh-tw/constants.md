@@ -1,5 +1,27 @@
 # 常量
 
+CultureName 是受支持的區域格式類別定義。
+
+```go
+type CultureName byte
+```
+
+部分存儲格數字格式受到作業系統特定的區域日期和時間設定的影響，以下這些常量定義了當前支持的區域格式類別列舉：
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType 是受支持的圖表類別定義。
+
+```go
+type ChartType byte
+```
+
 以下這些常量定義了當前支持的圖表類別列舉：
 
 ```go
@@ -210,7 +232,7 @@ const (
 )
 ```
 
-ColorMappingType 定義了顏色轉換枚舉類型：
+ColorMappingType 定義了色彩轉換枚舉類型：
 
 ```go
 const (

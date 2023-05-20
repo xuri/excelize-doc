@@ -50,7 +50,7 @@ var (
     ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
     // ErrCustomNumFmt 定義了指定自定義數字格式表達式為空時的錯誤提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
-    // ErrFontLength 定義了字體名稱長度超出最大限制時的錯誤提示信息
+    // ErrFontLength 定義了字型名稱長度超出最大限制時的錯誤提示信息
     ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize 定義了收到無效字號時的錯誤提示信息
     ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
@@ -125,7 +125,7 @@ var (
 )
 ```
 
-下面的變數定義了索引顏色和 RGB 色值的映射關係。為保證向後兼容性，其中值為 0-7 與 8-15 的索引顏色是重復的。索引顏色的值範圍是 0-65。
+下面的變數定義了索引色彩和 RGB 色值的映射關係。為保證向後相容性，其中值為 0-7 與 8-15 的索引色彩是重復的。索引色彩的值範圍是 0-65。
 
 ```go
 var IndexedColorMapping = []string{

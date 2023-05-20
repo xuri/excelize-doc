@@ -131,7 +131,7 @@ SetRow 通過給定的起始坐標和指向數組類別「切片」的指針將�
 func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
-根據給定的存儲格坐標區域和條件格式流式創建表格。
+根據給定的存儲格坐標區域和條件式格式流式創建表格。
 
 例1，在 `A1:D5` 區域流式創建表格：
 
@@ -139,7 +139,7 @@ func (sw *StreamWriter) AddTable(table *Table) error
 err := sw.AddTable(&excelize.Table{Range: "A1:D5"})
 ```
 
-例2，在工作表 `F2:H6` 區域創建帶有條件格式的表格：
+例2，在工作表 `F2:H6` 區域創建帶有條件式格式的表格：
 
 ```go
 disable := false
@@ -162,7 +162,7 @@ err := sw.AddTable(&excelize.Table{
 func (sw *StreamWriter) InsertPageBreak(cell string) error
 ```
 
-根據給定的儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便打印的分隔線。
+根據給定的儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
 
 ## 流式设定窗格 {#SetPanes}
 

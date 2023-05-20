@@ -20,7 +20,7 @@ Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Off
 
 ## 報告問題 {#Issue}
 
-歡迎您為此專案貢獻代碼，提出建議或問題、修復 Bug 以及參與討論對新功能的想法。請在 [GitHub Issue](https://github.com/xuri/excelize/issues) 頁面提交您的問題，提問時請先搜索問題列表，確認之前沒有重復的問題，並盡量使用英語並按照 Issue 模版提供詳細的信息。
+歡迎您為此專案貢獻代碼，提出建議或問題、修復 Bug 以及參與討論對新功能的想法。請在 [GitHub Issue](https://github.com/xuri/excelize/issues) 頁面提交您的問題，提問時請先搜尋問題列表，確認之前沒有重復的問題，並盡量使用英語並按照 Issue 範本提供詳細的信息。
 
 下面是提問所需要的信息（如果是新功能請求則不需要這些）：
 
@@ -54,7 +54,7 @@ Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Off
 （粘貼在此即可）
 ```
 
-**運行環境詳情 (操作系統, Microsoft Excel&trade; 版本, 物理機器配置等)：**
+**運行環境詳情 (作業系統, Microsoft Excel&trade; 版本, 物理機器配置等)：**
 
 ---
 
