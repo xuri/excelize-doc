@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` 用以指定计算公式时最多迭代次数，默认值为 0。
 
 `Password` 以明文形式指定打开和保存工作簿时所使用的密码，默认值为空。
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` 用以指定解压每个工作表以及共享字符表时的内存限制（以字节为单位），当大小超过此值时工作表 XML 文件将被解压至系统临时目录，该值应小于或等于 `UnzipSizeLimit`，默认大小限制为 16MB。
 
+`ShortDatePattern` 用以指定短日期数字格式代码。在电子表格应用程序中，可以通过为单元格设置带有日期格式的数字格式，将日期和时间序列号显示为日期值。其中以星号 (\*) 开头的日期格式响应为操作系统指定的区域日期和时间设置的更改。没有星号的格式不受操作系统设置的影响。`ShortDatePattern` 用于指定读取以星号开头的日期格式时所应用的短日期数字格式代码。
+
+`LongDatePattern` 用以指定长日期数字格式代码。
+
+`LongTimePattern` 用以指定长时间数字格式代码。
+
+`CultureInfo` 用以指定区域格式，该设置将在读取受到操作系统特定的区域日期和时间设置影响的数字格式时使用。
+
 ## 创建 {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 使用 `NewFile` 新建 Excel 工作薄，新创建的工作簿中会默认包含一个名为 `Sheet1` 的工作表。

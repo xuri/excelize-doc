@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.7.1](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2023年5月9日
+- 文档更新: 2023年5月20日
 
 ## 项目使命
 
@@ -52,8 +52,7 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 - 微信技术交流群: `hixuri` (请备注: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize 微信技术交流群" target="_blank">二维码</a>
 - 企业微信技术交流群 (请备注: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize 企业微信技术交流群" target="_blank">二维码</a>
 - 如流技术交流群: `4375928` | <a href="../images/inflow_group@2x.png" title="如流技术交流群" target="_blank">二维码</a>
-- 飞书技术交流群: <a href="../images/feishu_group@2x.png" title="飞书技术交流群" target="_blank">二维码</a>
-- Lark 技术交流群: <a href="../images/larksuite_group@2x.png" title="Lark 技术交流群" target="_blank">二维码</a>
+- 飞书技术交流群 (请备注: Excelize): <a href="../images/feishu_group@2x.png" title="飞书技术交流群" target="_blank">二维码</a>
 
 ## 商业支持
 

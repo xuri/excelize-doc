@@ -1,5 +1,27 @@
 # 常量
 
+CultureName 是受支持的区域格式类型定义。
+
+```go
+type CultureName byte
+```
+
+部分单元格数字格式受到操作系统特定的区域日期和时间设置的影响，以下这些常量定义了当前支持的区域格式类型枚举：
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType 是受支持的图表类型定义。
+
+```go
+type ChartType byte
+```
+
 以下这些常量定义了当前支持的图表类型枚举：
 
 ```go
