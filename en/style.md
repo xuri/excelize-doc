@@ -76,7 +76,6 @@ type Style struct {
     NumFmt        int
     DecimalPlaces int
     CustomNumFmt  *string
-    Lang          string
     NegRed        bool
 }
 ```
@@ -87,7 +86,7 @@ type Style struct {
 func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle provides a function to create the style for cells by given style options. This function is concurrency safe. Note that the `Font.Color` field uses an RGB color represented in `RRGGBB` hexadecimal notation.
+NewStyle provides a function to create the style for cells by a given style options, and returns style index. The same style index can not be used across different workbook. This function is concurrency safe. Note that the `Font.Color` field uses an RGB color represented in `RRGGBB` hexadecimal notation.
 
 ### Border {#border}
 
@@ -159,6 +158,14 @@ Index|Style|Index|Style
 
 ### Align {#align}
 
+#### Indent
+
+The `Indent` is an integer value, where an increment of 1 represents 3 spaces. Indicates the number of spaces (of the normal style font) of indentation for text in a cell. The number of spaces to indent is calculated as following:
+
+Number of spaces to indent = indent value * 3
+
+For example, an indent value of 1 means that the text begins 3 space widths (of the normal style font) from the edge of the cell. Note: The width of one space character is defined by the font. Only left, right, and distributed horizontal alignments are supported.
+
 #### Horizontal alignment
 
 The following table shows the type of cells' horizontal alignment used in `Alignment.Horizontal`:
@@ -183,6 +190,20 @@ top|Top alignment
 center|Centered
 justify|Justified
 distributed|Decentralized alignment
+
+#### Reading order
+
+`ReadingOrder` is an uint64 value indicating whether the reading order of the cell is left-to-right, right-to-left, or context dependent. the valid value of this field was:
+
+Value|Description
+---|---
+0 | Context Dependent - reading order is determined by scanning the text for the first non-whitespace character: if it is a strong right-to-left character, the reading order is right-to-left; otherwise, the reading order left-to-right.
+1 | Left-to-Right: reading order is left-to-right in the cell, as in English.
+2 | Right-to-Left: reading order is right-to-left in the cell, as in Hebrew.
+
+#### Relative indent
+
+`RelativeIndent` is an integer value to indicate the additional number of spaces of indentation to adjust for text in a cell.
 
 ### Font underline {#underline}
 
@@ -289,58 +310,6 @@ Index|Type
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### Unicode Traditional Chinese number format
-
-Number format code with unicode values provided for language glyphs where they occur in `zh-tw` language:
-
-Index|Type
----|---
-27|`[$-404]e/m/`
-28|`[$-404]e"5E74"m"6708"d"65E5`
-29|`[$-404]e"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`hh"6642"mm"5206`
-33|`hh"6642"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348hh"6642"mm"5206`
-35|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-36|`[$-404]e/m/`
-50|`[$-404]e/m/`
-51|`[$-404]e"5E74"m"6708"d"65E5`
-52|`4E0A5348/4E0B5348hh"6642"mm"5206`
-53|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-54|`[$-404]e"5E74"m"6708"d"65E5`
-55|`4E0A5348/4E0B5348hh"6642"mm"5206`
-56|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-57|`[$-404]e/m/`
-58|`[$-404]e"5E74"m"6708"d"65E5"`
-
-#### Unicode Simplified Chinese number format
-
-Number format code with unicode values provided for language glyphs where they occur in `zh-cn` language:
-
-Index|Type
----|---
-27|`yyyy"5E74"m"6708`
-28|`m"6708"d"65E5`
-29|`m"6708"d"65E5`
-30|`m-d-y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"65F6"mm"5206`
-33|`h"65F6"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348h"65F6"mm"5206`
-35|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-36|`yyyy"5E74"m"6708`
-50|`yyyy"5E74"m"6708`
-51|`m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`m"6708"d"65E5`
-55|`4E0A5348/4E0B5348h"65F6"mm"5206`
-56|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-57|`yyyy"5E74"m"6708`
-58|`m"6708"d"65E5"`
-
 #### Japanese number format
 
 Number format code in `ja-jp` language:
@@ -393,58 +362,6 @@ Index|Type
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### Unicode Japanese number format
-
-Number format code with unicode values provided for language glyphs where they occur in `ja-jp` language:
-
-Index|Type
----|---
-27|`[$-411]ge.m.d`
-28|`[$-411]ggge"5E74"m"6708"d"65E5`
-29|`[$-411]ggge"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"6642"mm"5206`
-33|`h"6642"mm"5206"ss"79D2`
-34|`yyyy"5E74"m"6708`
-35|`m"6708"d"65E5`
-36|`[$-411]ge.m.d`
-50|`[$-411]ge.m.d`
-51|`[$-411]ggge"5E74"m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`[$-411]ggge"5E74"m"6708"d"65E5`
-55|`yyyy"5E74"m"6708`
-56|`m"6708"d"65E5`
-57|`[$-411]ge.m.d`
-58|`[$-411]ggge"5E74"m"6708"d"65E5"`
-
-#### Unicode Korean number format
-
-Number format code with unicode values provided for language glyphs where they occur in `ko-kr` language:
-
-Index|Type
----|---
-27|`yyyy"5E74" mm"6708" dd"65E5`
-28|`mm-d`
-29|`mm-d`
-30|`mm-dd-y`
-31|`yyyy"B144" mm"C6D4" dd"C77C`
-32|`h"C2DC" mm"BD84`
-33|`h"C2DC" mm"BD84" ss"CD08`
-34|`yyyy-mm-d`
-35|`yyyy-mm-d`
-36|`yyyy"5E74" mm"6708" dd"65E5`
-50|`yyyy"5E74" mm"6708" dd"65E5`
-51|`mm-d`
-52|`yyyy-mm-d`
-53|`yyyy-mm-d`
-54|`mm-d`
-55|`yyyy-mm-d`
-56|`yyyy-mm-d`
-57|`yyyy"5E74" mm"6708" dd"65E5`
-58|`mm-dd`
-
 #### Thai language number format
 
 Number format code in `th-th` language:
@@ -469,32 +386,6 @@ Index|Type
 78|`นน:ท`
 79|`[ช]:นน:ท`
 80|`นน:ทท.`
-81|`d/m/bb`
-
-#### Unicode Thai language number format
-
-Number format code with unicode values provided for language glyphs where they occur in `th-th` language:
-
-Index|Type
----|---
-59|`t`
-60|`t0.0`
-61|`t#,##`
-62|`t#,##0.0`
-67|`t0`
-68|`t0.00`
-69|`t# ?/`
-70|`t# ??/?`
-71|`0E27/0E14/0E1B0E1B0E1B0E1`
-72|`0E27-0E140E140E14-0E1B0E1`
-73|`0E27-0E140E140E1`
-74|`0E140E140E14-0E1B0E1`
-75|`0E0A:0E190E1`
-76|`0E0A:0E190E19:0E170E1`
-77|`0E27/0E14/0E1B0E1B0E1B0E1B 0E0A:0E190E1`
-78|`0E190E19:0E170E1`
-79|`[0E0A]:0E190E19:0E170E1`
-80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
 ### Currency format

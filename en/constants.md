@@ -1,5 +1,27 @@
 # Constants
 
+CultureName is the type of supported language country codes types for apply number format.
+
+```go
+type CultureName byte
+```
+
+This section defines the currently supported country code types enumeration for apply number format.
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType is the type of supported chart types.
+
+```go
+type ChartType byte
+```
+
 This section defines the currently supported chart types enumeration:
 
 ```go
