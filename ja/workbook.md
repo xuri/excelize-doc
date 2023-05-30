@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` は反復計算の最大反復回数を指定します。デフォルト値は 0 です。
 
 `Password` は、スプレッドシートのパスワードをプレーンテキストで指定します。
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` は、ワークシートと共有文字列テーブルを解凍する際のメモリ制限をバイト単位で指定します。ファイルサイズがこの値を超えると、ワークシートXMLがシステム一時ディレクトリに抽出されます。この値はデフォルトの `UnzipSizeLimit` 以下である必要があります。値は 16MB です。
 
+`ShortDatePattern` は、短い日付数値形式コードを指定します。スプレッドシート アプリケーションでは、日付形式により日付と時刻のシリアル番号が日付値として表示されます。アスタリスク (\*) で始まる日付形式は、オペレーティング システムに指定されている地域の日付と時刻の設定の変更に対応します。アスタリスクのない形式は、オペレーティング システムの設定の影響を受けません。に使用される `ShortDatePattern` は、アスタリスクで始まる適用日付形式を指定します。
+
+`LongDatePattern` は、長い日付数値形式コードを指定します。
+
+`LongTimePattern` は、長い時間の数値形式コードを指定します。
+
+`CultureInfo` は、システムのローカル言語設定によって影響を受ける組み込みの言語数値形式コードを適用するための国コードを指定します。
+
 ## Excel 文書を作成する {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 `NewFile` を使って新しい Excel ワークブックを作成します。新しく作成されたワークブックにはデフォルトで `Sheet1` という名前のワークシートが含まれます。

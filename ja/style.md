@@ -76,7 +76,6 @@ type Style struct {
     NumFmt        int
     DecimalPlaces int
     CustomNumFmt  *string
-    Lang          string
     NegRed        bool
 }
 ```
@@ -87,7 +86,7 @@ type Style struct {
 func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle は、指定されたスタイル オプションによってセルのスタイルを作成する関数を提供します。`Font.Color` フィールドは、`RRGGBB` 16 進表記で表される RGB カラーを使用することに注意してください。
+NewStyle は、指定されたスタイル オプションによってセルのスタイルを作成する関数を提供し、スタイル インデックスを返します。同じスタイル インデックスを異なるワークブック間で使用することはできません。この関数は同時実行性が安全です。`Font.Color` フィールドでは、`RRGGBB` 16 進表記で表される RGB カラーが使用されることに注意してください。
 
 ### 枠 {#border}
 
@@ -103,32 +102,32 @@ linearDown|斜め下の境界線|diagonalUp|斜め上の境界線
 
 インデックス|スタイル|ライン|プレビュー
 ---|---|---|---
-0|None|0|
-1|Continuous|1|!["Continuous"](../images/style/border_01.png)
-2|Continuous|2|!["Continuous"](../images/style/border_02.png)
-3|Dash|1|!["Dash"](../images/style/border_03.png)
-4|Dot|1|!["Dot"](../images/style/border_04.png)
-5|Continuous|3|!["Continuous"](../images/style/border_05.png)
-6|Double|3|!["Double"](../images/style/border_06.png)
-7|Continuous|0|!["Continuous"](../images/style/border_07.png)
-8|Dash|2|!["Dash"](../images/style/border_08.png)
-9|Dash Dot|1|!["Dash Dot"](../images/style/border_09.png)
-10|Dash Dot|2|!["Dash Dot"](../images/style/border_10.png)
-11|Dash Dot Dot|1|!["Dash Dot Dot"](../images/style/border_11.png)
-12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
-13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
+0|なし|0|
+1|継続的|1|!["継続的"](../images/style/border_01.png)
+2|継続的|2|!["継続的"](../images/style/border_02.png)
+3|ダッシュ|1|!["ダッシュ"](../images/style/border_03.png)
+4|ドット|1|!["ドット"](../images/style/border_04.png)
+5|継続的|3|!["継続的"](../images/style/border_05.png)
+6|ダブル|3|!["ダブル"](../images/style/border_06.png)
+7|継続的|0|!["継続的"](../images/style/border_07.png)
+8|ダッシュ|2|!["ダッシュ"](../images/style/border_08.png)
+9|ダッシュ ドット|1|!["ダッシュ ドット"](../images/style/border_09.png)
+10|ダッシュ ドット|2|!["ダッシュ ドット"](../images/style/border_10.png)
+11|ダッシュ ドット ドット|1|!["ダッシュ ドット ドット"](../images/style/border_11.png)
+12|ダッシュ ドット ドット|2|!["ダッシュ ドット ドット"](../images/style/border_12.png)
+13|スラントダッシュドット|2|!["スラントダッシュドット"](../images/style/border_13.png)
 
-次の表は、`Border.Style` で使用される境界線スタイルを Excel ダイアログに表示される順序で示しています:
+次の表は、`Border.Style` で使用されるボーダー線スタイルを Excel ダイアログに表示される順序で示しています:
 
-Index|Preview|Index|Preview
+インデックス|プレビュー|インデックス|プレビュー
 ---|---|---|---
-0||12|!["Border 12"](../images/style/border_12.png)
-7|!["Border 7"](../images/style/border_07.png)|13|!["Border 13"](../images/style/border_13.png)
-4|!["Border 4"](../images/style/border_04.png)|10|!["Border 19"](../images/style/border_10.png)
-11|!["Border 11"](../images/style/border_11.png)|8|!["Border 8"](../images/style/border_08.png)
-9|!["Border 9"](../images/style/border_09.png)|2|!["Border 2"](../images/style/border_02.png)
-3|!["Border 3"](../images/style/border_03.png)|5|!["Border 5"](../images/style/border_05.png)
-1|!["Border 1"](../images/style/border_01.png)|6|!["Border 6"](../images/style/border_06.png)
+0||12|!["ボーダー 12"](../images/style/border_12.png)
+7|!["ボーダー 7"](../images/style/border_07.png)|13|!["ボーダー 13"](../images/style/border_13.png)
+4|!["ボーダー 4"](../images/style/border_04.png)|10|!["ボーダー 19"](../images/style/border_10.png)
+11|!["ボーダー 11"](../images/style/border_11.png)|8|!["ボーダー 8"](../images/style/border_08.png)
+9|!["ボーダー 9"](../images/style/border_09.png)|2|!["ボーダー 2"](../images/style/border_02.png)
+3|!["ボーダー 3"](../images/style/border_03.png)|5|!["ボーダー 5"](../images/style/border_05.png)
+1|!["ボーダー 1"](../images/style/border_01.png)|6|!["ボーダー 6"](../images/style/border_06.png)
 
 ### 色塗り {#shading}
 
@@ -136,9 +135,9 @@ Index|Preview|Index|Preview
 
 インデックス|スタイル|インデックス|スタイル
 ---|---|---|---
-0|Horizontal|3|Diagonal down
-1|Vertical|4|From corner
-2|Diagonal Up|5|From center
+0|水平|3|斜め下
+1|垂直|4|隅から
+2|対角線 Up|5|中心から
 
 ### パターン塗りつぶし {#pattern}
 
@@ -146,18 +145,26 @@ Index|Preview|Index|Preview
 
 インデックス|スタイル|インデックス|スタイル
 ---|---|---|---
-0|None|10|!["Pattern fill 10"](../images/style/pattern_10.png)
-1|!["Pattern fill 1"](../images/style/pattern_01.png)|11|!["Pattern fill 11"](../images/style/pattern_11.png)
-2|!["Pattern fill 2"](../images/style/pattern_02.png)|12|!["Pattern fill 12"](../images/style/pattern_12.png)
-3|!["Pattern fill 3"](../images/style/pattern_03.png)|13|!["Pattern fill 13"](../images/style/pattern_13.png)
-4|!["Pattern fill 4"](../images/style/pattern_04.png)|14|!["Pattern fill 14"](../images/style/pattern_14.png)
-5|!["Pattern fill 5"](../images/style/pattern_05.png)|15|!["Pattern fill 15"](../images/style/pattern_15.png)
-6|!["Pattern fill 6"](../images/style/pattern_06.png)|16|!["Pattern fill 16"](../images/style/pattern_16.png)
-7|!["Pattern fill 7"](../images/style/pattern_07.png)|17|!["Pattern fill 17"](../images/style/pattern_17.png)
-8|!["Pattern fill 8"](../images/style/pattern_08.png)|18|!["Pattern fill 18"](../images/style/pattern_18.png)
-9|!["Pattern fill 9](../images/style/pattern_09.png)||
+0|なし|10|!["パターンフィル 10"](../images/style/pattern_10.png)
+1|!["パターンフィル 1"](../images/style/pattern_01.png)|11|!["パターンフィル 11"](../images/style/pattern_11.png)
+2|!["パターンフィル 2"](../images/style/pattern_02.png)|12|!["パターンフィル 12"](../images/style/pattern_12.png)
+3|!["パターンフィル 3"](../images/style/pattern_03.png)|13|!["パターンフィル 13"](../images/style/pattern_13.png)
+4|!["パターンフィル 4"](../images/style/pattern_04.png)|14|!["パターンフィル 14"](../images/style/pattern_14.png)
+5|!["パターンフィル 5"](../images/style/pattern_05.png)|15|!["パターンフィル 15"](../images/style/pattern_15.png)
+6|!["パターンフィル 6"](../images/style/pattern_06.png)|16|!["パターンフィル 16"](../images/style/pattern_16.png)
+7|!["パターンフィル 7"](../images/style/pattern_07.png)|17|!["パターンフィル 17"](../images/style/pattern_17.png)
+8|!["パターンフィル 8"](../images/style/pattern_08.png)|18|!["パターンフィル 18"](../images/style/pattern_18.png)
+9|!["パターンフィル 9](../images/style/pattern_09.png)||
 
 ### アライメント {#align}
+
+#### インデント
+
+`Indent` は整数値で、1 ずつ増分すると 3 つのスペースを表します。セル内のテキストのインデントの (通常のスタイル フォントの) スペースの数を示します。インデントするスペースの数は次のように計算されます。
+
+インデントするスペースの数 = インデント値 * 3
+
+たとえば、インデント値 1 は、テキストがセルの端から (通常のスタイルのフォントの) 3 スペース幅で始まることを意味します。注: 1 つのスペース文字の幅はフォントによって定義されます。左揃え、右揃え、および分散水平揃えのみがサポートされています。
 
 #### 水平方向の位置合わせ
 
@@ -165,13 +172,13 @@ Index|Preview|Index|Preview
 
 タイプ|スタイル
 ---|---
-left|Left (indented)
-center|Centered
-right|Right (indented)
-fill|Filling
-justify|Justified
-centerContinuous|Cross-column centered
-distributed|Decentralized alignment (indented)
+left             | 左 (インデント)
+center           | 中央揃え
+right            | 右（インデント）
+fill             | 充填
+justify          | 正当化された
+centerContinuous | 列をまたいで中央揃え
+distributed      | 分散型アライメント (インデント)
 
 #### 垂直方向の位置合わせ
 
@@ -179,10 +186,24 @@ distributed|Decentralized alignment (indented)
 
 タイプ|スタイル
 ---|---
-top|Top alignment
-center|Centered
-justify|Justified
-distributed|Decentralized alignment
+top         | 上揃え
+center      | 中央揃え
+justify     | 正当化された
+distributed | 分散型調整
+
+#### 読む順番
+
+`ReadingOrder` は、セルの読み取り順序が左から右、右から左、またはコンテキスト依存のいずれであるかを示す uint64 値です。 このフィールドの有効な値は次のとおりです。
+
+値|説明
+---|---
+0 | コンテキスト依存 - 読み取り順序は、テキストをスキャンして空白以外の最初の文字を見つけることによって決定されます。右から左への強い文字の場合、読み取り順序は右から左になります。それ以外の場合は、左から右の読み取り順序になります。
+1 | 左から右: 英語と同様に、セル内の読み取り順序は左から右です。
+2 | 右から左: ヘブライ語と同様に、セル内の読み取り順序は右から左です。
+
+#### 相対インデント
+
+`RelativeIndent` は、セル内のテキストを調整するためのインデントの追加スペース数を示す整数値です。
 
 ### フォントの下線 {#underline}
 
@@ -190,8 +211,8 @@ distributed|Decentralized alignment
 
 タイプ|スタイル
 ---|---
-single|Single line
-double|Double line
+single | 単線
+double | 二重線
 
 ### デジタルカスタムフォーマット {#number_format}
 
@@ -289,58 +310,6 @@ Excel の組み込みのすべての言語形式 (`Style.NumFmt` フィールド
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### ユニコード 繁体字中国語の番号形式
-
-言語グリフに対して提供されるユニコード値を持つ数値形式コードは、`zh-tw` 言語で発生します:
-
-インデックス|型
----|---
-27|`[$-404]e/m/`
-28|`[$-404]e"5E74"m"6708"d"65E5`
-29|`[$-404]e"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`hh"6642"mm"5206`
-33|`hh"6642"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348hh"6642"mm"5206`
-35|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-36|`[$-404]e/m/`
-50|`[$-404]e/m/`
-51|`[$-404]e"5E74"m"6708"d"65E5`
-52|`4E0A5348/4E0B5348hh"6642"mm"5206`
-53|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-54|`[$-404]e"5E74"m"6708"d"65E5`
-55|`4E0A5348/4E0B5348hh"6642"mm"5206`
-56|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-57|`[$-404]e/m/`
-58|`[$-404]e"5E74"m"6708"d"65E5"`
-
-#### ユニコード簡体字中国語番号形式
-
-`zh-cn` 言語で発生する言語グリフに提供されるユニコード値を持つ数値形式コード:
-
-インデックス|型
----|---
-27|`yyyy"5E74"m"6708`
-28|`m"6708"d"65E5`
-29|`m"6708"d"65E5`
-30|`m-d-y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"65F6"mm"5206`
-33|`h"65F6"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348h"65F6"mm"5206`
-35|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-36|`yyyy"5E74"m"6708`
-50|`yyyy"5E74"m"6708`
-51|`m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`m"6708"d"65E5`
-55|`4E0A5348/4E0B5348h"65F6"mm"5206`
-56|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-57|`yyyy"5E74"m"6708`
-58|`m"6708"d"65E5"`
-
 #### 日本語の番号形式
 
 `ja-jp` 言語の数字形式コード:
@@ -393,58 +362,6 @@ Excel の組み込みのすべての言語形式 (`Style.NumFmt` フィールド
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### ユニコード日本語番号形式
-
-言語グリフに対して提供されるユニコード値を持つ数値形式コードは、`ja-jp` 言語で発生します:
-
-インデックス|型
----|---
-27|`[$-411]ge.m.d`
-28|`[$-411]ggge"5E74"m"6708"d"65E5`
-29|`[$-411]ggge"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"6642"mm"5206`
-33|`h"6642"mm"5206"ss"79D2`
-34|`yyyy"5E74"m"6708`
-35|`m"6708"d"65E5`
-36|`[$-411]ge.m.d`
-50|`[$-411]ge.m.d`
-51|`[$-411]ggge"5E74"m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`[$-411]ggge"5E74"m"6708"d"65E5`
-55|`yyyy"5E74"m"6708`
-56|`m"6708"d"65E5`
-57|`[$-411]ge.m.d`
-58|`[$-411]ggge"5E74"m"6708"d"65E5"`
-
-#### ユニコード韓国語番号形式
-
-言語グリフに対して提供されるユニコード値を持つ数値形式コードは、`ko-kr` 言語で発生します:
-
-インデックス|型
----|---
-27|`yyyy"5E74" mm"6708" dd"65E5`
-28|`mm-d`
-29|`mm-d`
-30|`mm-dd-y`
-31|`yyyy"B144" mm"C6D4" dd"C77C`
-32|`h"C2DC" mm"BD84`
-33|`h"C2DC" mm"BD84" ss"CD08`
-34|`yyyy-mm-d`
-35|`yyyy-mm-d`
-36|`yyyy"5E74" mm"6708" dd"65E5`
-50|`yyyy"5E74" mm"6708" dd"65E5`
-51|`mm-d`
-52|`yyyy-mm-d`
-53|`yyyy-mm-d`
-54|`mm-d`
-55|`yyyy-mm-d`
-56|`yyyy-mm-d`
-57|`yyyy"5E74" mm"6708" dd"65E5`
-58|`mm-dd`
-
 #### タイ語の言語番号形式
 
 `th-th` 言語のコードの数値形式:
@@ -469,32 +386,6 @@ Excel の組み込みのすべての言語形式 (`Style.NumFmt` フィールド
 78|`นน:ท`
 79|`[ช]:นน:ท`
 80|`นน:ทท.`
-81|`d/m/bb`
-
-#### ユニコードタイ語番号形式
-
-言語グリフに対して提供されるユニコード値を持つ数値形式コードは、`th-th` 言語で発生します:
-
-インデックス|型
----|---
-59|`t`
-60|`t0.0`
-61|`t#,##`
-62|`t#,##0.0`
-67|`t0`
-68|`t0.00`
-69|`t# ?/`
-70|`t# ??/?`
-71|`0E27/0E14/0E1B0E1B0E1B0E1`
-72|`0E27-0E140E140E14-0E1B0E1`
-73|`0E27-0E140E140E1`
-74|`0E140E140E14-0E1B0E1`
-75|`0E0A:0E190E1`
-76|`0E0A:0E190E19:0E170E1`
-77|`0E27/0E14/0E1B0E1B0E1B0E1B 0E0A:0E190E1`
-78|`0E190E19:0E170E1`
-79|`[0E0A]:0E190E19:0E170E1`
-80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
 ### 通貨形式

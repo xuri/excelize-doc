@@ -1,5 +1,27 @@
 # 定数
 
+CultureName は、数値形式を適用するためにサポートされている言語の国コード タイプのタイプです。
+
+```go
+type CultureName byte
+```
+
+このセクションでは、適用番号形式で現在サポートされている国コード タイプの列挙を定義します。
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType は、サポートされているグラフの種類のタイプです。
+
+```go
+type ChartType byte
+```
+
 このセクションでは、現在サポートされているチャート タイプの列挙を定義します:
 
 ```go
