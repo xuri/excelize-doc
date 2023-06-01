@@ -9,7 +9,7 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - الإصدار الأخير: [v2.7.1](https://github.com/xuri/excelize/releases/latest)
-- وقت تحديث المستند: مايو 9, 2023
+- وقت تحديث المستند: مايو 20, 2023
 
 ## بعثة المشروع
 
@@ -42,8 +42,6 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">join via QR Code</a>
 - WeCom Group (Verification info: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">join via QR Code</a>
 - Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>
-- Feishu Group: <a href="../images/feishu_group@2x.png" title="Feishu Group" target="_blank">join via QR Code</a>
-- Lark Group: <a href="../images/larksuite_group@2x.png" title="Lark Group" target="_blank">join via QR Code</a>
 
 ## الراعي إكسلسيز التنمية
 

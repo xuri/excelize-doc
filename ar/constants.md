@@ -1,5 +1,27 @@
 # الثوابت
 
+CultureName هو نوع أنواع رموز البلدان للغات المدعومة لتطبيق تنسيق الأرقام.
+
+```go
+type CultureName byte
+```
+
+يحدد هذا القسم تعداد أنواع رموز البلدان المدعومة حاليًا لتطبيق تنسيق الأرقام.
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType هو نوع أنواع المخططات المدعومة.
+
+```go
+type ChartType byte
+```
+
 يحدد هذا القسم تعداد أنواع المخططات المدعومة حاليًا:
 
 ```go
