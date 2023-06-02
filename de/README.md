@@ -9,7 +9,7 @@ Excelize ist eine Bibliothek, die in reinem Go geschrieben wurde und eine Reihe 
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Lizenzen: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Letzte Version: [v2.7.1](https://github.com/xuri/excelize/releases/latest)
-- Dokument Aktualisierungszeit: Kann 9, 2023
+- Dokument Aktualisierungszeit: Kann 20, 2023
 
 ## Project mission
 
@@ -42,8 +42,6 @@ Wenn Ihr Unternehmen oder Produkt auch Excelize verwendet, begrüßen Sie <a hre
 - Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">join via QR Code</a>
 - WeCom Group (Verification info: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">join via QR Code</a>
 - Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>
-- Feishu Group: <a href="../images/feishu_group@2x.png" title="Feishu Group" target="_blank">join via QR Code</a>
-- Lark Group: <a href="../images/larksuite_group@2x.png" title="Lark Group" target="_blank">join via QR Code</a>
 
 ## Sponsor Excelize Development
 

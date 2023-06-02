@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` gibt die maximalen Iterationen für die iterative Berechnung an, der Standardwert ist 0.
 
 `Password` gibt das Passwort der Tabellenkalkulation im Klartext an.
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` gibt das Speicherlimit beim Entpacken des Arbeitsblatts und der freigegebenen Stringtabelle in Bytes an. Arbeitsblatt-XML wird in das temporäre Systemverzeichnis extrahiert, wenn die Dateigröße diesen Wert überschreitet. Dieser Wert sollte kleiner oder gleich `UnzipSizeLimit` sein, der Standardeinstellung Wert ist 16MB.
 
+`ShortDatePattern` gibt den Formatcode für kurze Datumszahlen an. In den Tabellenkalkulationsanwendungen zeigen Datumsformate Datums- und Uhrzeitseriennummern als Datumswerte an. Datumsformate, die mit einem Sternchen (\*) beginnen, reagieren auf Änderungen der regionalen Datums- und Uhrzeiteinstellungen, die für das Betriebssystem angegeben sind. Formate ohne Sternchen werden von den Betriebssystemeinstellungen nicht beeinflusst. Das `ShortDatePattern`, das für verwendet wird, gibt Datumsformate an, die mit einem Sternchen beginnen.
+
+`LongDatePattern` gibt den Formatcode für lange Datumszahlen an.
+
+`LongTimePattern` gibt den Formatcode für Langzeitzahlen an.
+
+`CultureInfo` gibt den Ländercode für die Anwendung des integrierten Zahlenformatcodes in der Sprache an, der sich auf die lokalen Spracheinstellungen des Systems auswirkt.
+
 ## Erstellen einer Kalkulationstabelle {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 NewFile bietet eine Funktion zum Erstellen einer neuen Datei als Standardvorlage. Die neu erstellte Arbeitsmappe enthält standardmäßig ein Arbeitsblatt mit dem Namen `Sheet1`. Zum Beispiel:

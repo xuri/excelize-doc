@@ -76,7 +76,6 @@ type Style struct {
     NumFmt        int
     DecimalPlaces int
     CustomNumFmt  *string
-    Lang          string
     NegRed        bool
 }
 ```
@@ -87,7 +86,7 @@ type Style struct {
 func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen anhand der angegebenen Stiloptionen. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Beachten Sie, dass das Feld `Font.Color` eine RGB-Farbe verwendet, die in der hexadezimalen Notation `RRGGBB` dargestellt wird.
+NewStyle bietet eine Funktion zum Erstellen des Stils für Zellen anhand bestimmter Stiloptionen und gibt den Stilindex zurück. Derselbe Stilindex kann nicht in verschiedenen Arbeitsmappen verwendet werden. Diese Funktion ist parallelitätssicher. Beachten Sie, dass das Feld `Font.Color` eine RGB-Farbe verwendet, die in der hexadezimalen Schreibweise `RRGGBB` dargestellt wird.
 
 ### Grenze {#border}
 
@@ -159,6 +158,14 @@ Index|Stil|Index|Stil
 
 ### Ausrichten {#align}
 
+#### Einzug
+
+Der `Indent` ist ein ganzzahliger Wert, wobei ein Inkrement von 1 3 Leerzeichen darstellt. Gibt die Anzahl der Leerzeichen (der normalen Schriftart) für die Einrückung von Text in einer Zelle an. Die Anzahl der einzurückenden Leerzeichen wird wie folgt berechnet:
+
+Anzahl der einzurückenden Leerzeichen = Einrückungswert * 3
+
+Ein Einrückungswert von 1 bedeutet beispielsweise, dass der Text 3 Leerzeichenbreiten (der normalen Schriftart) vom Rand der Zelle entfernt beginnt. Hinweis: Die Breite eines Leerzeichens wird durch die Schriftart bestimmt. Es werden nur linke, rechte und verteilte horizontale Ausrichtungen unterstützt.
+
 #### Horizontale Ausrichtung
 
 Die folgende Tabelle zeigt die Art der horizontalen Ausrichtung der Zellen, die in `Alignment.Horizontal` verwendet wird:
@@ -183,6 +190,20 @@ top|Top Ausrichtung
 center|Zentriert
 justify|Gerechtfertigt
 distributed|Dezentrale Ausrichtung
+
+#### Lesereihenfolge
+
+`ReadingOrder` ist ein uint64-Wert, der angibt, ob die Lesereihenfolge der Zelle von links nach rechts, von rechts nach links oder kontextabhängig ist. Der gültige Wert dieses Feldes war:
+
+Wert|Beschreibung
+---|---
+0 | Kontextabhängig – Die Lesereihenfolge wird bestimmt, indem der Text nach dem ersten Nicht-Leerzeichen durchsucht wird: Wenn es sich um ein starkes Rechts-nach-Links-Zeichen handelt, ist die Lesereihenfolge von rechts nach links; andernfalls die Lesereihenfolge von links nach rechts
+1 | Von links nach rechts: Die Lesereihenfolge in der Zelle erfolgt von links nach rechts, wie im Englischen
+2 | Von rechts nach links: Die Lesereihenfolge in der Zelle erfolgt von rechts nach links, wie im Hebräischen
+
+#### Relativer Einzug
+
+`RelativeIndent` ist ein ganzzahliger Wert, der die zusätzliche Anzahl von Einrückungsräumen angibt, die für Text in einer Zelle angepasst werden sollen.
 
 ### Schriftunterstreichung {#underline}
 
@@ -289,58 +310,6 @@ Index|Typ
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### Unicode Traditionelles chinesisches Zahlenformat
-
-Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der Sprache `zh-tw` vorkommen:
-
-Index|Typ
----|---
-27|`[$-404]e/m/`
-28|`[$-404]e"5E74"m"6708"d"65E5`
-29|`[$-404]e"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`hh"6642"mm"5206`
-33|`hh"6642"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348hh"6642"mm"5206`
-35|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-36|`[$-404]e/m/`
-50|`[$-404]e/m/`
-51|`[$-404]e"5E74"m"6708"d"65E5`
-52|`4E0A5348/4E0B5348hh"6642"mm"5206`
-53|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-54|`[$-404]e"5E74"m"6708"d"65E5`
-55|`4E0A5348/4E0B5348hh"6642"mm"5206`
-56|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-57|`[$-404]e/m/`
-58|`[$-404]e"5E74"m"6708"d"65E5"`
-
-#### Unicode Simplified Chinese number format
-
-Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der Sprache `zh-cn` vorkommen:
-
-Index|Typ
----|---
-27|`yyyy"5E74"m"6708`
-28|`m"6708"d"65E5`
-29|`m"6708"d"65E5`
-30|`m-d-y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"65F6"mm"5206`
-33|`h"65F6"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348h"65F6"mm"5206`
-35|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-36|`yyyy"5E74"m"6708`
-50|`yyyy"5E74"m"6708`
-51|`m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`m"6708"d"65E5`
-55|`4E0A5348/4E0B5348h"65F6"mm"5206`
-56|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-57|`yyyy"5E74"m"6708`
-58|`m"6708"d"65E5"`
-
 #### Japanisches Zahlenformat
 
 Zahlenformatcode in der Sprache `ja-jp`:
@@ -393,58 +362,6 @@ Index|Typ
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### Unicode japanisches Zahlenformat
-
-Zahlenformatcode mit Unicode-Werten für Sprachglyphen, wenn sie in der Sprache `ja-jp` vorkommen:
-
-Index|Typ
----|---
-27|`[$-411]ge.m.d`
-28|`[$-411]ggge"5E74"m"6708"d"65E5`
-29|`[$-411]ggge"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"6642"mm"5206`
-33|`h"6642"mm"5206"ss"79D2`
-34|`yyyy"5E74"m"6708`
-35|`m"6708"d"65E5`
-36|`[$-411]ge.m.d`
-50|`[$-411]ge.m.d`
-51|`[$-411]ggge"5E74"m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`[$-411]ggge"5E74"m"6708"d"65E5`
-55|`yyyy"5E74"m"6708`
-56|`m"6708"d"65E5`
-57|`[$-411]ge.m.d`
-58|`[$-411]ggge"5E74"m"6708"d"65E5"`
-
-#### Unicode koreanisches Zahlenformat
-
-Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der Sprache `ko-kr` vorkommen:
-
-Index|Typ
----|---
-27|`yyyy"5E74" mm"6708" dd"65E5`
-28|`mm-d`
-29|`mm-d`
-30|`mm-dd-y`
-31|`yyyy"B144" mm"C6D4" dd"C77C`
-32|`h"C2DC" mm"BD84`
-33|`h"C2DC" mm"BD84" ss"CD08`
-34|`yyyy-mm-d`
-35|`yyyy-mm-d`
-36|`yyyy"5E74" mm"6708" dd"65E5`
-50|`yyyy"5E74" mm"6708" dd"65E5`
-51|`mm-d`
-52|`yyyy-mm-d`
-53|`yyyy-mm-d`
-54|`mm-d`
-55|`yyyy-mm-d`
-56|`yyyy-mm-d`
-57|`yyyy"5E74" mm"6708" dd"65E5`
-58|`mm-dd`
-
 #### Zahlenformat in thailändischer Sprache
 
 Zahlenformatcode in der Sprache `th-th`:
@@ -469,32 +386,6 @@ Index|Typ
 78|`นน:ท`
 79|`[ช]:นน:ท`
 80|`นน:ทท.`
-81|`d/m/bb`
-
-#### Unicode Thai Sprachnummernformat
-
-Zahlenformatcode mit Unicode-Werten für Sprachglyphen, bei denen sie in der `th-th` -Sprache vorkommen:
-
-Index|Typ
----|---
-59|`t`
-60|`t0.0`
-61|`t#,##`
-62|`t#,##0.0`
-67|`t0`
-68|`t0.00`
-69|`t# ?/`
-70|`t# ??/?`
-71|`0E27/0E14/0E1B0E1B0E1B0E1`
-72|`0E27-0E140E140E14-0E1B0E1`
-73|`0E27-0E140E140E1`
-74|`0E140E140E14-0E1B0E1`
-75|`0E0A:0E190E1`
-76|`0E0A:0E190E19:0E170E1`
-77|`0E27/0E14/0E1B0E1B0E1B0E1B 0E0A:0E190E1`
-78|`0E190E19:0E170E1`
-79|`[0E0A]:0E190E19:0E170E1`
-80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
 ### Währungsformat

@@ -1,5 +1,27 @@
 # Konstanten
 
+CultureName ist der Typ der unterstützten Sprachländercodetypen für das Anwenden des Zahlenformats.
+
+```go
+type CultureName byte
+```
+
+In diesem Abschnitt wird die derzeit unterstützte Aufzählung der Ländercodetypen für das anzuwendende Nummernformat definiert.
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType ist der Typ der unterstützten Diagrammtypen.
+
+```go
+type ChartType byte
+```
+
 Dieser Abschnitt definiert die derzeit unterstützte Aufzählung der Diagrammtypen:
 
 ```go
