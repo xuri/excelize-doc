@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` especifica las iteraciones máximas para el cálculo iterativo, el valor predeterminado es 0.
 
 `Password` especifica la contraseña de la hoja de cálculo en texto plano.
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` specifies the memory limit on unzipping worksheet and shared string table in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `UnzipSizeLimit`, the default value is 16MB.
 
+`ShortDatePattern` especifica el código de formato de número de fecha corta. En las aplicaciones de hojas de cálculo, los formatos de fecha muestran números de serie de fecha y hora como valores de fecha. Los formatos de fecha que comienzan con un asterisco (\*) responden a cambios en la configuración regional de fecha y hora que se especifican para el sistema operativo. Los formatos sin asterisco no se ven afectados por la configuración del sistema operativo. El `ShortDatePattern` usado para especifica aplicar formatos de fecha que comienzan con un asterisco.
+
+`LongDatePattern` especifica el código de formato de número de fecha larga.
+
+`LongTimePattern` especifica el código de formato de número de larga duración.
+
+`CultureInfo` especifica el código de país para aplicar el código de formato de número de idioma integrado que se aplica a la configuración de idioma local del sistema.
+
 ## Crear una hoja de cálculo {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 NewFile proporciona una función para crear un nuevo archivo de forma predeterminada. El libro recién creado contendrá de forma predeterminada una hoja de cálculo denominada `Sheet1`. Por ejemplo:

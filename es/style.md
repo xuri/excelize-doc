@@ -76,7 +76,6 @@ type Style struct {
     NumFmt        int
     DecimalPlaces int
     CustomNumFmt  *string
-    Lang          string
     NegRed        bool
 }
 ```
@@ -87,7 +86,7 @@ type Style struct {
 func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle proporciona una función para crear el estilo de las celdas mediante opciones de estilo dadas. Esta función es segura para la simultaneidad. Tenga en cuenta que el campo `Font.Color` utiliza un color RGB representado en notación hexadecimal `RRGGBB`.
+NewStyle proporciona una función para crear el estilo de las celdas mediante una opción de estilo determinada y devuelve el índice de estilo. El mismo índice de estilo no se puede usar en diferentes libros de trabajo. Esta función es segura para la concurrencia. Tenga en cuenta que el campo `Font.Color` utiliza un color RGB representado en notación hexadecimal `RRGGBB`.
 
 ### Frontera {#border}
 
@@ -159,6 +158,14 @@ La siguiente tabla muestra los estilos de patrón utilizados en `Fill.Pattern` c
 
 ### Alinee {#align}
 
+#### Sangrar
+
+La `Indent` es un valor entero, donde un incremento de 1 representa 3 espacios. Indica el número de espacios (de la fuente de estilo normal) de sangría para el texto en una celda. El número de espacios a sangrar se calcula de la siguiente manera:
+
+Número de espacios a sangrar = valor de sangría * 3
+
+Por ejemplo, un valor de sangría de 1 significa que el texto comienza a 3 espacios de ancho (de la fuente de estilo normal) desde el borde de la celda. Nota: El ancho de un carácter de espacio está definido por la fuente. Solo se admiten las alineaciones horizontales izquierda, derecha y distribuidas.
+
 #### Alineación horizontal
 
 La siguiente tabla muestra el tipo de alineación horizontal de las celdas que se usa en `Alignment.Horizontal`:
@@ -173,7 +180,21 @@ justify|Justificada
 centerContinuous|Centrado en columnas cruzadas
 distributed|Alineación descentralizada (con sangría)
 
-#### Vertical alignment
+#### Orden de lectura
+
+`ReadingOrder` es un valor uint64 que indica si el orden de lectura de la celda es de izquierda a derecha, de derecha a izquierda o depende del contexto. el valor válido de este campo era:
+
+Valor|Descripción
+---|---
+0 | Dependiente del contexto: el orden de lectura se determina escaneando el texto en busca del primer carácter que no sea un espacio en blanco: si es un carácter fuerte de derecha a izquierda, el orden de lectura es de derecha a izquierda; de lo contrario, el orden de lectura de izquierda a derecha
+1 | De izquierda a derecha: el orden de lectura es de izquierda a derecha en la celda, como en inglés
+2 | De derecha a izquierda: el orden de lectura es de derecha a izquierda en la celda, como en hebreo
+
+#### Sangre relativa
+
+`RelativeIndent` es un valor entero para indicar el número adicional de espacios de sangría para ajustar el texto en una celda.
+
+#### Alineamiento vertical
 
 La siguiente tabla muestra el tipo de alineación vertical de las celdas que se usa en `Alignment.Vertical`:
 
@@ -289,58 +310,6 @@ Código de formato de número en idioma `zh-cn`:
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### Formato de número de chino tradicional Unicode
-
-Código de formato numérico con valores Unicode proporcionados para glifos de idioma cuando aparecen en el idioma `zh-tw`:
-
-Índice|Tipo
----|---
-27|`[$-404]e/m/`
-28|`[$-404]e"5E74"m"6708"d"65E5`
-29|`[$-404]e"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`hh"6642"mm"5206`
-33|`hh"6642"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348hh"6642"mm"5206`
-35|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-36|`[$-404]e/m/`
-50|`[$-404]e/m/`
-51|`[$-404]e"5E74"m"6708"d"65E5`
-52|`4E0A5348/4E0B5348hh"6642"mm"5206`
-53|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-54|`[$-404]e"5E74"m"6708"d"65E5`
-55|`4E0A5348/4E0B5348hh"6642"mm"5206`
-56|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-57|`[$-404]e/m/`
-58|`[$-404]e"5E74"m"6708"d"65E5"`
-
-#### Formato de número chino simplificado Unicode
-
-Código de formato numérico con valores Unicode proporcionados para glifos de idioma cuando aparecen en el idioma `zh-cn`:
-
-Índice|Tipo
----|---
-27|`yyyy"5E74"m"6708`
-28|`m"6708"d"65E5`
-29|`m"6708"d"65E5`
-30|`m-d-y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"65F6"mm"5206`
-33|`h"65F6"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348h"65F6"mm"5206`
-35|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-36|`yyyy"5E74"m"6708`
-50|`yyyy"5E74"m"6708`
-51|`m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`m"6708"d"65E5`
-55|`4E0A5348/4E0B5348h"65F6"mm"5206`
-56|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-57|`yyyy"5E74"m"6708`
-58|`m"6708"d"65E5"`
-
 #### Formato de número japonés
 
 Código de formato de número en idioma `ja-jp`:
@@ -393,58 +362,6 @@ Código de formato numérico en el idioma `ko-kr`:
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### Formato de número japonés Unicode
-
-Código de formato numérico con valores Unicode proporcionados para glifos de idioma cuando aparecen en el idioma `ja-jp`:
-
-Índice|Tipo
----|---
-27|`[$-411]ge.m.d`
-28|`[$-411]ggge"5E74"m"6708"d"65E5`
-29|`[$-411]ggge"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"6642"mm"5206`
-33|`h"6642"mm"5206"ss"79D2`
-34|`yyyy"5E74"m"6708`
-35|`m"6708"d"65E5`
-36|`[$-411]ge.m.d`
-50|`[$-411]ge.m.d`
-51|`[$-411]ggge"5E74"m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`[$-411]ggge"5E74"m"6708"d"65E5`
-55|`yyyy"5E74"m"6708`
-56|`m"6708"d"65E5`
-57|`[$-411]ge.m.d`
-58|`[$-411]ggge"5E74"m"6708"d"65E5"`
-
-#### Formato de número coreano Unicode
-
-Código de formato numérico con valores Unicode proporcionados para glifos de idioma cuando aparecen en el idioma `ko-kr`:
-
-Índice|Tipo
----|---
-27|`yyyy"5E74" mm"6708" dd"65E5`
-28|`mm-d`
-29|`mm-d`
-30|`mm-dd-y`
-31|`yyyy"B144" mm"C6D4" dd"C77C`
-32|`h"C2DC" mm"BD84`
-33|`h"C2DC" mm"BD84" ss"CD08`
-34|`yyyy-mm-d`
-35|`yyyy-mm-d`
-36|`yyyy"5E74" mm"6708" dd"65E5`
-50|`yyyy"5E74" mm"6708" dd"65E5`
-51|`mm-d`
-52|`yyyy-mm-d`
-53|`yyyy-mm-d`
-54|`mm-d`
-55|`yyyy-mm-d`
-56|`yyyy-mm-d`
-57|`yyyy"5E74" mm"6708" dd"65E5`
-58|`mm-dd`
-
 #### Formato de número de idioma tailandés
 
 Código de formato numérico en el idioma `th-th`:
@@ -469,32 +386,6 @@ Código de formato numérico en el idioma `th-th`:
 78|`นน:ท`
 79|`[ช]:นน:ท`
 80|`นน:ทท.`
-81|`d/m/bb`
-
-#### Formato de número de idioma tailandés Unicode
-
-Código de formato numérico con valores Unicode proporcionados para glifos de idioma cuando aparecen en el idioma `th-th`:
-
-Índice|Tipo
----|---
-59|`t`
-60|`t0.0`
-61|`t#,##`
-62|`t#,##0.0`
-67|`t0`
-68|`t0.00`
-69|`t# ?/`
-70|`t# ??/?`
-71|`0E27/0E14/0E1B0E1B0E1B0E1`
-72|`0E27-0E140E140E14-0E1B0E1`
-73|`0E27-0E140E140E1`
-74|`0E140E140E14-0E1B0E1`
-75|`0E0A:0E190E1`
-76|`0E0A:0E190E19:0E170E1`
-77|`0E27/0E14/0E1B0E1B0E1B0E1B 0E0A:0E190E1`
-78|`0E190E19:0E170E1`
-79|`[0E0A]:0E190E19:0E170E1`
-80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
 ### Formato de moneda

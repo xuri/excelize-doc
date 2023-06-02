@@ -1,5 +1,27 @@
 # Constantes
 
+CultureName es el tipo de código de país de idioma admitido para aplicar el formato de número.
+
+```go
+type CultureName byte
+```
+
+Esta sección define la enumeración de tipos de código de país admitida actualmente para aplicar el formato de número.
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType es el tipo de tipos de gráficos admitidos.
+
+```go
+type ChartType byte
+```
+
 Esta sección define la enumeración de tipos de gráficos admitidos actualmente:
 
 ```go
