@@ -1,5 +1,27 @@
 # Constants
 
+CultureName est le type de codes de pays de langue pris en charge pour appliquer le format numérique.
+
+```go
+type CultureName byte
+```
+
+Cette section définit l'énumération des types de codes de pays actuellement pris en charge pour appliquer le format numérique.
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType est le type de types de graphiques pris en charge.
+
+```go
+type ChartType byte
+```
+
 Cette section définit l'énumération des types de graphiques actuellement pris en charge:
 
 ```go

@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` specifies the maximum iterations for iterative calculation, the default value is 0.
 
 `Password` spécifie le mot de passe de la feuille de calcul en texte brut.
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` spécifie la limite de mémoire pour décompresser la feuille de calcul et la table de chaînes partagée en octets, la feuille de calcul XML sera extraite dans le répertoire temporaire du système lorsque la taille du fichier dépasse cette valeur, cette valeur doit être inférieure ou égale à `UnzipSizeLimit`, la valeur par défaut la valeur est de 16 Mo.
 
+`ShortDatePattern` specifies the short date number format code. In the spreadsheet applications, date formats display date and time serial numbers as date values. Date formats that begin with an asterisk (\*) respond to changes in regional date and time settings that are specified for the operating system. Formats without an asterisk are not affected by operating system settings. The `ShortDatePattern` used for specifies apply date formats that begin with an asterisk.
+
+`LongDatePattern` specifies the long date number format code.
+
+`LongTimePattern` specifies the long time number format code.
+
+`CultureInfo` specifies the country code for applying built-in language number format code these effect by the system's local language settings.
+
 ## Créer un document Excel {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 NewFile fournit une fonction pour créer un nouveau fichier par le modèle par défaut. Le classeur nouvellement créé contiendra par défaut une feuille de calcul appelée `Sheet1`. Par exemple:

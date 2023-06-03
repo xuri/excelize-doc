@@ -76,7 +76,6 @@ type Style struct {
     NumFmt        int
     DecimalPlaces int
     CustomNumFmt  *string
-    Lang          string
     NegRed        bool
 }
 ```
@@ -87,7 +86,7 @@ type Style struct {
 func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle fournit une fonction pour créer le style des cellules avec des options de style données. Cette fonction est sécurisée pour la concurrence. Notez que le champ `Font.Color` utilise une couleur RGB représentée en notation hexadécimale `RRGGBB`.
+NewStyle fournit une fonction pour créer le style des cellules par des options de style données et renvoie l'index de style. Le même index de style ne peut pas être utilisé dans différents classeurs. Cette fonction est sécurisée pour la concurrence. Notez que le champ `Font.Color` utilise une couleur RVB représentée en notation hexadécimale `RRGGBB`.
 
 ### Frontière {#border}
 
@@ -159,6 +158,14 @@ Index|Style|Index|Style
 
 ### Aligner {#align}
 
+#### Indentation
+
+Le `Indent` est une valeur entière, où un incrément de 1 représente 3 espaces. Indique le nombre d'espaces (de la police de style normal) d'indentation pour le texte dans une cellule. Le nombre d'espaces à indenter est calculé comme suit:
+
+Nombre d'espaces à indenter = valeur d'indentation * 3
+
+Par exemple, une valeur d'indentation de 1 signifie que le texte commence à 3 largeurs d'espacement (de la police de style normal) à partir du bord de la cellule. Remarque: La largeur d'un espace est définie par la police. Seuls les alignements horizontaux gauche, droit et distribués sont pris en charge.
+
 #### Alignement horizontal
 
 Le tableau suivant montre le type d'alignement horizontal des cellules utilisé dans `Alignment.Horizontal`:
@@ -183,6 +190,20 @@ top         | Top alignment
 center      | Centré
 justify     | Justifié
 distributed | Alignement décentralisé
+
+#### Ordre de lecture
+
+`ReadingOrder` est une valeur uint64 indiquant si l'ordre de lecture de la cellule est de gauche à droite, de droite à gauche ou dépend du contexte. la valeur valide de ce champ était:
+
+Valeur|Description
+---|---
+0 | Dépendant du contexte - l'ordre de lecture est déterminé en scannant le texte pour le premier caractère non-espace: s'il s'agit d'un caractère fort de droite à gauche, l'ordre de lecture est de droite à gauche; sinon, l'ordre de lecture de gauche à droite
+1 | De gauche à droite: l'ordre de lecture est de gauche à droite dans la cellule, comme en anglais
+2 | De droite à gauche: l'ordre de lecture est de droite à gauche dans la cellule, comme en hébreu
+
+#### Retrait relatif
+
+`RelativeIndent` est une valeur entière pour indiquer le nombre supplémentaire d'espaces d'indentation à ajuster pour le texte dans une cellule.
 
 ### Police soulignée {#underline}
 
@@ -289,58 +310,6 @@ Index|Type
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### Format de nombres chinois traditionnel Unicode
-
-Code de format de nombre avec des valeurs Unicode fournies pour les glyphes de langage lorsqu'ils apparaissent dans le langage `zh-tw`:
-
-Index|Type
----|---
-27|`[$-404]e/m/`
-28|`[$-404]e"5E74"m"6708"d"65E5`
-29|`[$-404]e"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`hh"6642"mm"5206`
-33|`hh"6642"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348hh"6642"mm"5206`
-35|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-36|`[$-404]e/m/`
-50|`[$-404]e/m/`
-51|`[$-404]e"5E74"m"6708"d"65E5`
-52|`4E0A5348/4E0B5348hh"6642"mm"5206`
-53|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-54|`[$-404]e"5E74"m"6708"d"65E5`
-55|`4E0A5348/4E0B5348hh"6642"mm"5206`
-56|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-57|`[$-404]e/m/`
-58|`[$-404]e"5E74"m"6708"d"65E5"`
-
-#### Format de nombre chinois simplifié Unicode
-
-Code de format de nombre avec des valeurs Unicode fournies pour les glyphes de langage lorsqu'ils apparaissent dans le langage `zh-cn`:
-
-Index|Type
----|---
-27|`yyyy"5E74"m"6708`
-28|`m"6708"d"65E5`
-29|`m"6708"d"65E5`
-30|`m-d-y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"65F6"mm"5206`
-33|`h"65F6"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348h"65F6"mm"5206`
-35|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-36|`yyyy"5E74"m"6708`
-50|`yyyy"5E74"m"6708`
-51|`m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`m"6708"d"65E5`
-55|`4E0A5348/4E0B5348h"65F6"mm"5206`
-56|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-57|`yyyy"5E74"m"6708`
-58|`m"6708"d"65E5"`
-
 #### Format numérique japonais
 
 Code de format numérique dans la langue `ja-jp`:
@@ -393,58 +362,6 @@ Index|Type
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### Format de nombre japonais Unicode
-
-Code de format de nombre avec des valeurs Unicode fournies pour les glyphes de langage lorsqu'ils apparaissent dans le langage `ja-jp`:
-
-Index|Type
----|---
-27|`[$-411]ge.m.d`
-28|`[$-411]ggge"5E74"m"6708"d"65E5`
-29|`[$-411]ggge"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"6642"mm"5206`
-33|`h"6642"mm"5206"ss"79D2`
-34|`yyyy"5E74"m"6708`
-35|`m"6708"d"65E5`
-36|`[$-411]ge.m.d`
-50|`[$-411]ge.m.d`
-51|`[$-411]ggge"5E74"m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`[$-411]ggge"5E74"m"6708"d"65E5`
-55|`yyyy"5E74"m"6708`
-56|`m"6708"d"65E5`
-57|`[$-411]ge.m.d`
-58|`[$-411]ggge"5E74"m"6708"d"65E5"`
-
-#### Format de nombre coréen Unicode
-
-Code de format de nombre avec des valeurs Unicode fournies pour les glyphes de langage lorsqu'ils apparaissent dans le langage `ko-kr`:
-
-Index|Type
----|---
-27|`yyyy"5E74" mm"6708" dd"65E5`
-28|`mm-d`
-29|`mm-d`
-30|`mm-dd-y`
-31|`yyyy"B144" mm"C6D4" dd"C77C`
-32|`h"C2DC" mm"BD84`
-33|`h"C2DC" mm"BD84" ss"CD08`
-34|`yyyy-mm-d`
-35|`yyyy-mm-d`
-36|`yyyy"5E74" mm"6708" dd"65E5`
-50|`yyyy"5E74" mm"6708" dd"65E5`
-51|`mm-d`
-52|`yyyy-mm-d`
-53|`yyyy-mm-d`
-54|`mm-d`
-55|`yyyy-mm-d`
-56|`yyyy-mm-d`
-57|`yyyy"5E74" mm"6708" dd"65E5`
-58|`mm-dd`
-
 #### Format de numéro de langue thaï
 
 Code de format numérique dans la langue `th-th`:
@@ -469,32 +386,6 @@ Index|Type
 78|`นน:ท`
 79|`[ช]:นน:ท`
 80|`นน:ทท.`
-81|`d/m/bb`
-
-#### Format de numéro de langue Thai Unicode
-
-Code de format de nombre avec des valeurs unicode fournies pour les glyphes de langue où ils se produisent dans le langage `th-th`:
-
-Index|Type
----|---
-59|`t`
-60|`t0.0`
-61|`t#,##`
-62|`t#,##0.0`
-67|`t0`
-68|`t0.00`
-69|`t# ?/`
-70|`t# ??/?`
-71|`0E27/0E14/0E1B0E1B0E1B0E1`
-72|`0E27-0E140E140E14-0E1B0E1`
-73|`0E27-0E140E140E1`
-74|`0E140E140E14-0E1B0E1`
-75|`0E0A:0E190E1`
-76|`0E0A:0E190E19:0E170E1`
-77|`0E27/0E14/0E1B0E1B0E1B0E1B 0E0A:0E190E1`
-78|`0E190E19:0E170E1`
-79|`[0E0A]:0E190E19:0E170E1`
-80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
 ### Format de devise
