@@ -16,7 +16,7 @@ type Alignment struct {
 }
 ```
 
-Border directly maps the border settings of the cells.
+Border 는 셀의 테두리 설정을 직접 매핑합니다.
 
 ```go
 type Border struct {
@@ -76,7 +76,6 @@ type Style struct {
     NumFmt        int
     DecimalPlaces int
     CustomNumFmt  *string
-    Lang          string
     NegRed        bool
 }
 ```
@@ -87,7 +86,7 @@ type Style struct {
 func (f *File) NewStyle(style *Style) (int, error)
 ```
 
-NewStyle 은 주어진 스타일 옵션으로 셀의 스타일을 생성하는 기능을 제공합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. `Font.Color` 필드는 `RRGGBB` 16진수 표기법으로 표현되는 RGB 색상을 사용합니다.
+NewStyle 은 주어진 스타일 옵션으로 셀에 대한 스타일을 생성하는 기능을 제공하고 스타일 인덱스를 반환합니다. 동일한 스타일 인덱스는 다른 통합 문서에서 사용할 수 없습니다. 이 함수는 동시성 안전합니다. `Font.Color` 필드는 `RRGGBB` 16진 수 표기법으로 표현되는 RGB 색상을 사용합니다.
 
 ### 테두리 {#border}
 
@@ -103,32 +102,32 @@ diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
 
 인덱스|스타일|라인|미리 보기
 ---|---|---|---
-0|None|0|
-1|Continuous|1|!["Continuous"](../images/style/border_01.png)
-2|Continuous|2|!["Continuous"](../images/style/border_02.png)
-3|Dash|1|!["Dash"](../images/style/border_03.png)
-4|Dot|1|!["Dot"](../images/style/border_04.png)
-5|Continuous|3|!["Continuous"](../images/style/border_05.png)
-6|Double|3|!["Double"](../images/style/border_06.png)
-7|Continuous|0|!["Continuous"](../images/style/border_07.png)
-8|Dash|2|!["Dash"](../images/style/border_08.png)
-9|Dash Dot|1|!["Dash Dot"](../images/style/border_09.png)
-10|Dash Dot|2|!["Dash Dot"](../images/style/border_10.png)
-11|Dash Dot Dot|1|!["Dash Dot Dot"](../images/style/border_11.png)
-12|Dash Dot Dot|2|!["Dash Dot Dot"](../images/style/border_12.png)
-13|SlantDash Dot|2|!["SlantDash Dot"](../images/style/border_13.png)
+0|아무도|0|
+1|마디 없는|1|!["마디 없는"](../images/style/border_01.png)
+2|마디 없는|2|!["마디 없는"](../images/style/border_02.png)
+3|대시|1|!["대시"](../images/style/border_03.png)
+4|점|1|!["Dot"](../images/style/border_04.png)
+5|마디 없는|3|!["마디 없는"](../images/style/border_05.png)
+6|더블|3|!["더블"](../images/style/border_06.png)
+7|마디 없는|0|!["마디 없는"](../images/style/border_07.png)
+8|대시|2|!["대시"](../images/style/border_08.png)
+9|대시 도트|1|!["대시 도트"](../images/style/border_09.png)
+10|대시 도트|2|!["대시 도트"](../images/style/border_10.png)
+11|대시 도트 도트|1|!["대시 도트 도트"](../images/style/border_11.png)
+12|대시 도트 도트|2|!["대시 도트 도트"](../images/style/border_12.png)
+13|슬랜트 대시 도트|2|!["슬랜트 대시 도트"](../images/style/border_13.png)
 
 다음 표는 Excel 대화 상자에 표시된 순서대로 `Border.Style` 에서 사용되는 테두리 스타일을 보여줍니다:
 
 인덱스|미리 보기|인덱스|미리 보기
 ---|---|---|---
-0||12|!["Border 12"](../images/style/border_12.png)
-7|!["Border 7"](../images/style/border_07.png)|13|!["Border 13"](../images/style/border_13.png)
-4|!["Border 4"](../images/style/border_04.png)|10|!["Border 19"](../images/style/border_10.png)
-11|!["Border 11"](../images/style/border_11.png)|8|!["Border 8"](../images/style/border_08.png)
-9|!["Border 9"](../images/style/border_09.png)|2|!["Border 2"](../images/style/border_02.png)
-3|!["Border 3"](../images/style/border_03.png)|5|!["Border 5"](../images/style/border_05.png)
-1|!["Border 1"](../images/style/border_01.png)|6|!["Border 6"](../images/style/border_06.png)
+0||12|!["국경 12"](../images/style/border_12.png)
+7|!["국경 7"](../images/style/border_07.png)|13|!["국경 13"](../images/style/border_13.png)
+4|!["국경 4"](../images/style/border_04.png)|10|!["국경 19"](../images/style/border_10.png)
+11|!["국경 11"](../images/style/border_11.png)|8|!["국경 8"](../images/style/border_08.png)
+9|!["국경 9"](../images/style/border_09.png)|2|!["국경 2"](../images/style/border_02.png)
+3|!["국경 3"](../images/style/border_03.png)|5|!["국경 5"](../images/style/border_05.png)
+1|!["국경 1"](../images/style/border_01.png)|6|!["국경 6"](../images/style/border_06.png)
 
 ### 색상 채우기 {#shading}
 
@@ -136,9 +135,9 @@ diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
 
 인덱스|스타일|인덱스|스타일
 ---|---|---|---
-0|Horizontal|3|Diagonal down
-1|Vertical|4|From corner
-2|Diagonal Up|5|From center
+0|수평의|3|대각선 아래로
+1|수직의|4|코너에서
+2|대각선 위로|5|중앙에서
 
 ### 패턴 채우기 {#pattern}
 
@@ -146,18 +145,26 @@ diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
 
 인덱스|스타일|인덱스|스타일
 ---|---|---|---
-0|None|10|!["Pattern fill 10"](../images/style/pattern_10.png)
-1|!["Pattern fill 1"](../images/style/pattern_01.png)|11|!["Pattern fill 11"](../images/style/pattern_11.png)
-2|!["Pattern fill 2"](../images/style/pattern_02.png)|12|!["Pattern fill 12"](../images/style/pattern_12.png)
-3|!["Pattern fill 3"](../images/style/pattern_03.png)|13|!["Pattern fill 13"](../images/style/pattern_13.png)
-4|!["Pattern fill 4"](../images/style/pattern_04.png)|14|!["Pattern fill 14"](../images/style/pattern_14.png)
-5|!["Pattern fill 5"](../images/style/pattern_05.png)|15|!["Pattern fill 15"](../images/style/pattern_15.png)
-6|!["Pattern fill 6"](../images/style/pattern_06.png)|16|!["Pattern fill 16"](../images/style/pattern_16.png)
-7|!["Pattern fill 7"](../images/style/pattern_07.png)|17|!["Pattern fill 17"](../images/style/pattern_17.png)
-8|!["Pattern fill 8"](../images/style/pattern_08.png)|18|!["Pattern fill 18"](../images/style/pattern_18.png)
-9|!["Pattern fill 9](../images/style/pattern_09.png)||
+0|없음|10|!["패턴 채우기 10"](../images/style/pattern_10.png)
+1|!["패턴 채우기 1"](../images/style/pattern_01.png)|11|!["패턴 채우기 11"](../images/style/pattern_11.png)
+2|!["패턴 채우기 2"](../images/style/pattern_02.png)|12|!["패턴 채우기 12"](../images/style/pattern_12.png)
+3|!["패턴 채우기 3"](../images/style/pattern_03.png)|13|!["패턴 채우기 13"](../images/style/pattern_13.png)
+4|!["패턴 채우기 4"](../images/style/pattern_04.png)|14|!["패턴 채우기 14"](../images/style/pattern_14.png)
+5|!["패턴 채우기 5"](../images/style/pattern_05.png)|15|!["패턴 채우기 15"](../images/style/pattern_15.png)
+6|!["패턴 채우기 6"](../images/style/pattern_06.png)|16|!["패턴 채우기 16"](../images/style/pattern_16.png)
+7|!["패턴 채우기 7"](../images/style/pattern_07.png)|17|!["패턴 채우기 17"](../images/style/pattern_17.png)
+8|!["패턴 채우기 8"](../images/style/pattern_08.png)|18|!["패턴 채우기 18"](../images/style/pattern_18.png)
+9|!["패턴 채우기 9](../images/style/pattern_09.png)||
 
 ### 정렬 {#align}
+
+#### 톱니 모양
+
+`Indent` 는 정수 값이며 1씩 증가하면 3개의 공백을 나타냅니다. 셀의 텍스트에 대한 들여쓰기의 공백(일반 스타일 글꼴) 수를 나타냅니다. 들여쓰기할 공백의 수는 다음과 같이 계산됩니다.
+
+들여쓰기할 공백 수 = 들여쓰기 값 * 3
+
+예를 들어 들여쓰기 값이 1이면 텍스트가 셀 가장자리에서 3개의 여백 너비(일반 스타일 글꼴)에서 시작함을 의미합니다. 참고: 한 공백 문자의 너비는 글꼴로 정의됩니다. 왼쪽, 오른쪽 및 분산 수평 정렬만 지원됩니다.
 
 #### 수평 정렬
 
@@ -165,24 +172,38 @@ diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
 
 유형|스타일
 ---|---
-left|Left (indented)
-center|Centered
-right|Right (indented)
-fill|Filling
-justify|Justified
-centerContinuous|Cross-column centered
-distributed|Decentralized alignment (indented)
+left             | 왼쪽(들여쓰기)
+center           | 중심
+right            | 오른쪽(들여쓰기)
+fill             | 충전재
+justify          | 정당화
+centerContinuous | 교차 열 중심
+distributed      | 분산 정렬(들여쓰기)
 
-#### Vertical alignment
+#### 수직 정렬
 
 다음 표는 `Alignment.Vertical` 에서 사용되는 셀의 수직 정렬 유형을 보여줍니다:
 
 유형|스타일
 ---|---
-top|Top alignment
-center|Centered
-justify|Justified
-distributed|Decentralized alignment
+top         | 상단 정렬
+center      | 중심
+justify     | 정당화
+distributed | 분산 정렬
+
+#### 읽기 순서
+
+`ReadingOrder` 는 셀의 읽기 순서가 왼쪽에서 오른쪽인지, 오른쪽에서 왼쪽인지 또는 상황에 따라 달라지는지를 나타내는 uint64 값입니다. 이 필드의 유효한 값은 다음과 같습니다.
+
+값|설명
+---|---
+0 | 컨텍스트에 따라 다름 - 첫 번째 비공백 문자에 대한 텍스트를 스캔하여 읽기 순서를 결정합니다. 강한 오른쪽에서 왼쪽 문자인 경우 읽기 순서는 오른쪽에서 왼쪽입니다. 그렇지 않으면 왼쪽에서 오른쪽으로 읽는 순서입니다
+1 | 왼쪽에서 오른쪽: 읽기 순서는 영어와 같이 셀에서 왼쪽에서 오른쪽입니다
+2 | 오른쪽에서 왼쪽: 읽기 순서는 히브리어에서와 같이 셀에서 오른쪽에서 왼쪽입니다
+
+#### 상대 들여쓰기
+
+`RelativeIndent` 는 셀의 텍스트에 맞게 조정할 추가 들여쓰기 공간 수를 나타내는 정수 값입니다.
 
 ### 글꼴 밑줄 {#underline}
 
@@ -190,8 +211,8 @@ distributed|Decentralized alignment
 
 유형|스타일
 ---|---
-single|Single line
-double|Double line
+single | 하나의 선
+double | 이중선
 
 ### 숫자 형식 {#number_format}
 
@@ -289,58 +310,6 @@ Excel의 기본 제공 모든 언어 형식 (`Style.NumFmt` 필드) 은 다음 �
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### 유니코드 중국어 번체 번호 형식
-
-`zh-tw` 언어로 발생하는 언어 문양은 유니코드 값이 있는 번호 형식 코드입니다:
-
-인덱스|형식
----|---
-27|`[$-404]e/m/`
-28|`[$-404]e"5E74"m"6708"d"65E5`
-29|`[$-404]e"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`hh"6642"mm"5206`
-33|`hh"6642"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348hh"6642"mm"5206`
-35|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-36|`[$-404]e/m/`
-50|`[$-404]e/m/`
-51|`[$-404]e"5E74"m"6708"d"65E5`
-52|`4E0A5348/4E0B5348hh"6642"mm"5206`
-53|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-54|`[$-404]e"5E74"m"6708"d"65E5`
-55|`4E0A5348/4E0B5348hh"6642"mm"5206`
-56|`4E0A5348/4E0B5348hh"6642"mm"5206"ss"79D2`
-57|`[$-404]e/m/`
-58|`[$-404]e"5E74"m"6708"d"65E5"`
-
-#### 유니코드 간소화된 중국어 숫자 형식
-
-`zh-cn` 언어로 발생하는 언어 문양은 유니코드 값이 있는 번호 형식 코드입니다:
-
-인덱스|형식
----|---
-27|`yyyy"5E74"m"6708`
-28|`m"6708"d"65E5`
-29|`m"6708"d"65E5`
-30|`m-d-y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"65F6"mm"5206`
-33|`h"65F6"mm"5206"ss"79D2`
-34|`4E0A5348/4E0B5348h"65F6"mm"5206`
-35|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-36|`yyyy"5E74"m"6708`
-50|`yyyy"5E74"m"6708`
-51|`m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`m"6708"d"65E5`
-55|`4E0A5348/4E0B5348h"65F6"mm"5206`
-56|`4E0A5348/4E0B5348h"65F6"mm"5206"ss"79D2`
-57|`yyyy"5E74"m"6708`
-58|`m"6708"d"65E5"`
-
 #### 일본어 숫자 형식
 
 `ja-jp` 언어로 된 번호 형식 코드:
@@ -393,58 +362,6 @@ Excel의 기본 제공 모든 언어 형식 (`Style.NumFmt` 필드) 은 다음 �
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### 유니코드 일본어 번호 형식
-
-`ja-jp` 언어로 발생하는 언어 문양은 유니코드 값이 있는 번호 형식 코드입니다:
-
-인덱스|형식
----|---
-27|`[$-411]ge.m.d`
-28|`[$-411]ggge"5E74"m"6708"d"65E5`
-29|`[$-411]ggge"5E74"m"6708"d"65E5`
-30|`m/d/y`
-31|`yyyy"5E74"m"6708"d"65E5`
-32|`h"6642"mm"5206`
-33|`h"6642"mm"5206"ss"79D2`
-34|`yyyy"5E74"m"6708`
-35|`m"6708"d"65E5`
-36|`[$-411]ge.m.d`
-50|`[$-411]ge.m.d`
-51|`[$-411]ggge"5E74"m"6708"d"65E5`
-52|`yyyy"5E74"m"6708`
-53|`m"6708"d"65E5`
-54|`[$-411]ggge"5E74"m"6708"d"65E5`
-55|`yyyy"5E74"m"6708`
-56|`m"6708"d"65E5`
-57|`[$-411]ge.m.d`
-58|`[$-411]ggge"5E74"m"6708"d"65E5"`
-
-#### 유니코드 한국어 번호 형식
-
-`ko-kr` 언어로 발생하는 언어 문양은 유니코드 값이 있는 번호 형식 코드:
-
-인덱스|형식
----|---
-27|`yyyy"5E74" mm"6708" dd"65E5`
-28|`mm-d`
-29|`mm-d`
-30|`mm-dd-y`
-31|`yyyy"B144" mm"C6D4" dd"C77C`
-32|`h"C2DC" mm"BD84`
-33|`h"C2DC" mm"BD84" ss"CD08`
-34|`yyyy-mm-d`
-35|`yyyy-mm-d`
-36|`yyyy"5E74" mm"6708" dd"65E5`
-50|`yyyy"5E74" mm"6708" dd"65E5`
-51|`mm-d`
-52|`yyyy-mm-d`
-53|`yyyy-mm-d`
-54|`mm-d`
-55|`yyyy-mm-d`
-56|`yyyy-mm-d`
-57|`yyyy"5E74" mm"6708" dd"65E5`
-58|`mm-dd`
-
 #### 태국어 번호 형식
 
 `th-th` 언어로 된 숫자 형식 코드:
@@ -469,32 +386,6 @@ Excel의 기본 제공 모든 언어 형식 (`Style.NumFmt` 필드) 은 다음 �
 78|`นน:ท`
 79|`[ช]:นน:ท`
 80|`นน:ทท.`
-81|`d/m/bb`
-
-#### 유니코드 태국어 언어 번호 형식
-
-`th-th` 언어로 발생하는 언어 문양은 유니코드 값이 있는 번호 형식 코드입니다:
-
-인덱스|형식
----|---
-59|`t`
-60|`t0.0`
-61|`t#,##`
-62|`t#,##0.0`
-67|`t0`
-68|`t0.00`
-69|`t# ?/`
-70|`t# ??/?`
-71|`0E27/0E14/0E1B0E1B0E1B0E1`
-72|`0E27-0E140E140E14-0E1B0E1`
-73|`0E27-0E140E140E1`
-74|`0E140E140E14-0E1B0E1`
-75|`0E0A:0E190E1`
-76|`0E0A:0E190E19:0E170E1`
-77|`0E27/0E14/0E1B0E1B0E1B0E1B 0E0A:0E190E1`
-78|`0E190E19:0E170E1`
-79|`[0E0A]:0E190E19:0E170E1`
-80|`0E190E19:0E170E17.`
 81|`d/m/bb`
 
 ### 통화 형식

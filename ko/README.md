@@ -9,7 +9,7 @@ Excelize 는 순수 Go로 작성된 라이브러리로 XLAM / XLSM / XLSX / XLTM
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 마지막 버전: [v2.7.1](https://github.com/xuri/excelize/releases/latest)
-- 문서 업데이트 시간: 2023 년 5 월 9 일
+- 문서 업데이트 시간: 2023 년 5 월 20 일
 
 ## 프로젝트 미션
 
@@ -42,8 +42,6 @@ Excelize 의 목표는 OOXML (Office Open XML) 표준을 준수하는 xlsx 파�
 - Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">join via QR Code</a>
 - WeCom Group (Verification info: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">join via QR Code</a>
 - Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>
-- Feishu Group: <a href="../images/feishu_group@2x.png" title="Feishu Group" target="_blank">join via QR Code</a>
-- Lark Group: <a href="../images/larksuite_group@2x.png" title="Lark Group" target="_blank">join via QR Code</a>
 
 ## 스폰서 Excelize 개발
 

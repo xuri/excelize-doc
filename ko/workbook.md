@@ -4,12 +4,19 @@
 
 ```go
 type Options struct {
+    MaxCalcIterations uint
     Password          string
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    ShortDatePattern  string
+    LongDatePattern   string
+    LongTimePattern   string
+    CultureInfo       CultureName
 }
 ```
+
+`MaxCalcIterations` specifies the maximum iterations for iterative calculation, the default value is 0.
 
 `Password` 는 스프레드시트의 비밀번호를 일반 텍스트로 지정합니다.
 
@@ -19,10 +26,18 @@ type Options struct {
 
 `UnzipXMLSizeLimit` 은 압축 해제 워크시트 및 공유 문자열 테이블의 메모리 제한을 바이트 단위로 지정합니다. 파일 크기가 이 값을 초과하면 워크시트 XML이 시스템 임시 디렉토리로 추출됩니다. 이 값은 기본값인 `UnzipSizeLimit` 보다 작거나 같아야 합니다. 값은 16MB 입니다.
 
+`ShortDatePattern` specifies the short date number format code. In the spreadsheet applications, date formats display date and time serial numbers as date values. Date formats that begin with an asterisk (\*) respond to changes in regional date and time settings that are specified for the operating system. Formats without an asterisk are not affected by operating system settings. The `ShortDatePattern` used for specifies apply date formats that begin with an asterisk.
+
+`LongDatePattern` specifies the long date number format code.
+
+`LongTimePattern` specifies the long time number format code.
+
+`CultureInfo` specifies the country code for applying built-in language number format code these effect by the system's local language settings.
+
 ## Excel 문서 만들기 {#NewFile}
 
 ```go
-func NewFile() *File
+func NewFile(opts ...Options) *File
 ```
 
 `NewFile` 을 사용 하 여 새 Excel 통합 문서를 만들고 새로 만든 통합 문서에는 기본적으로 `Sheet1` 이라는 워크시트가 포함 됩니다.

@@ -1,5 +1,27 @@
 # 상수
 
+CultureName 은 적용 번호 형식에 대해 지원되는 언어 국가 코드 유형의 유형입니다:
+
+```go
+type CultureName byte
+```
+
+이 섹션에서는 적용 번호 형식에 대해 현재 지원되는 국가 코드 유형 열거를 정의합니다:
+
+```go
+const (
+    CultureNameUnknown CultureName = iota
+    CultureNameEnUS
+    CultureNameZhCN
+)
+```
+
+ChartType 은 지원되는 차트 유형의 유형입니다:
+
+```go
+type ChartType byte
+```
+
 이 섹션은 현재 지원되는 차트 유형 열거를 정의합니다:
 
 ```go
