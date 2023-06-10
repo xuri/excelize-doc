@@ -965,7 +965,7 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
     XSplit:      1,
     TopLeftCell: "B1",
     ActivePane:  "topRight",
-    Panes: []excelize.PaneOptions{
+    Selection: []excelize.Selection{
         {SQRef: "K16", ActiveCell: "K16", Pane: "topRight"},
     },
 })
@@ -981,7 +981,7 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
     YSplit:      9,
     TopLeftCell: "A34",
     ActivePane:  "bottomLeft",
-    Panes: []excelize.PaneOptions{
+    Selection: []excelize.Selection{
         {SQRef: "A11:XFD11", ActiveCell: "A11", Pane: "bottomLeft"},
     },
 })
@@ -998,7 +998,7 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
     YSplit:      1800,
     TopLeftCell: "N57",
     ActivePane:  "bottomLeft",
-    Panes: []excelize.PaneOptions{
+    Selection: []excelize.Selection{
         {SQRef: "I36", ActiveCell: "I36"},
         {SQRef: "G33", ActiveCell: "G33", Pane: "topRight"},
         {SQRef: "J60", ActiveCell: "J60", Pane: "bottomLeft"},
