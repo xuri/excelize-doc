@@ -714,441 +714,441 @@ CalcCellValue は、計算されたセル値を取得する関数を提供しま
 
 サポートされている式：
 
-```text
-ABS
-ACCRINT
-ACCRINTM
-ACOS
-ACOSH
-ACOT
-ACOTH
-ADDRESS
-AGGREGATE
-AMORDEGRC
-AMORLINC
-AND
-ARABIC
-ASIN
-ASINH
-ATAN
-ATAN2
-ATANH
-AVEDEV
-AVERAGE
-AVERAGEA
-AVERAGEIF
-AVERAGEIFS
-BASE
-BESSELI
-BESSELJ
-BESSELK
-BESSELY
-BETADIST
-BETA.DIST
-BETAINV
-BETA.INV
-BIN2DEC
-BIN2HEX
-BIN2OCT
-BINOMDIST
-BINOM.DIST
-BINOM.DIST.RANGE
-BINOM.INV
-BITAND
-BITLSHIFT
-BITOR
-BITRSHIFT
-BITXOR
-CEILING
-CEILING.MATH
-CEILING.PRECISE
-CHAR
-CHIDIST
-CHIINV
-CHITEST
-CHISQ.DIST
-CHISQ.DIST.RT
-CHISQ.INV
-CHISQ.INV.RT
-CHISQ.TEST
-CHOOSE
-CLEAN
-CODE
-COLUMN
-COLUMNS
-COMBIN
-COMBINA
-COMPLEX
-CONCAT
-CONCATENATE
-CONFIDENCE
-CONFIDENCE.NORM
-CONFIDENCE.T
-CONVERT
-CORREL
-COS
-COSH
-COT
-COTH
-COUNT
-COUNTA
-COUNTBLANK
-COUNTIF
-COUNTIFS
-COUPDAYBS
-COUPDAYS
-COUPDAYSNC
-COUPNCD
-COUPNUM
-COUPPCD
-COVAR
-COVARIANCE.P
-COVARIANCE.S
-CRITBINOM
-CSC
-CSCH
-CUMIPMT
-CUMPRINC
-DATE
-DATEDIF
-DATEVALUE
-DAVERAGE
-DAY
-DAYS
-DAYS360
-DB
-DCOUNT
-DCOUNTA
-DDB
-DEC2BIN
-DEC2HEX
-DEC2OCT
-DECIMAL
-DEGREES
-DELTA
-DEVSQ
-DGET
-DISC
-DMAX
-DMIN
-DOLLARDE
-DOLLARFR
-DPRODUCT
-DSTDEV
-DSTDEVP
-DSUM
-DURATION
-DVAR
-DVARP
-EFFECT
-EDATE
-ENCODEURL
-EOMONTH
-ERF
-ERF.PRECISE
-ERFC
-ERFC.PRECISE
-ERROR.TYPE
-EUROCONVERT
-EVEN
-EXACT
-EXP
-EXPON.DIST
-EXPONDIST
-FACT
-FACTDOUBLE
-FALSE
-F.DIST
-F.DIST.RT
-FDIST
-FIND
-FINDB
-F.INV
-F.INV.RT
-FINV
-FISHER
-FISHERINV
-FIXED
-FLOOR
-FLOOR.MATH
-FLOOR.PRECISE
-FORMULATEXT
-F.TEST
-FTEST
-FV
-FVSCHEDULE
-GAMMA
-GAMMA.DIST
-GAMMADIST
-GAMMA.INV
-GAMMAINV
-GAMMALN
-GAMMALN.PRECISE
-GAUSS
-GCD
-GEOMEAN
-GESTEP
-GROWTH
-HARMEAN
-HEX2BIN
-HEX2DEC
-HEX2OCT
-HLOOKUP
-HOUR
-HYPERLINK
-HYPGEOM.DIST
-HYPGEOMDIST
-IF
-IFERROR
-IFNA
-IFS
-IMABS
-IMAGINARY
-IMARGUMENT
-IMCONJUGATE
-IMCOS
-IMCOSH
-IMCOT
-IMCSC
-IMCSCH
-IMDIV
-IMEXP
-IMLN
-IMLOG10
-IMLOG2
-IMPOWER
-IMPRODUCT
-IMREAL
-IMSEC
-IMSECH
-IMSIN
-IMSINH
-IMSQRT
-IMSUB
-IMSUM
-IMTAN
-INDEX
-INDIRECT
-INT
-INTRATE
-IPMT
-IRR
-ISBLANK
-ISERR
-ISERROR
-ISEVEN
-ISFORMULA
-ISLOGICAL
-ISNA
-ISNONTEXT
-ISNUMBER
-ISODD
-ISREF
-ISTEXT
-ISO.CEILING
-ISOWEEKNUM
-ISPMT
-KURT
-LARGE
-LCM
-LEFT
-LEFTB
-LEN
-LENB
-LN
-LOG
-LOG10
-LOGINV
-LOGNORM.DIST
-LOGNORMDIST
-LOGNORM.INV
-LOOKUP
-LOWER
-MATCH
-MAX
-MAXA
-MAXIFS
-MDETERM
-MDURATION
-MEDIAN
-MID
-MIDB
-MIN
-MINA
-MINIFS
-MINUTE
-MINVERSE
-MIRR
-MMULT
-MOD
-MODE
-MODE.MULT
-MODE.SNGL
-MONTH
-MROUND
-MULTINOMIAL
-MUNIT
-N
-NA
-NEGBINOM.DIST
-NEGBINOMDIST
-NETWORKDAYS
-NETWORKDAYS.INTL
-NOMINAL
-NORM.DIST
-NORMDIST
-NORM.INV
-NORMINV
-NORM.S.DIST
-NORMSDIST
-NORM.S.INV
-NORMSINV
-NOT
-NOW
-NPER
-NPV
-OCT2BIN
-OCT2DEC
-OCT2HEX
-ODD
-ODDFPRICE
-OR
-PDURATION
-PEARSON
-PERCENTILE.EXC
-PERCENTILE.INC
-PERCENTILE
-PERCENTRANK.EXC
-PERCENTRANK.INC
-PERCENTRANK
-PERMUT
-PERMUTATIONA
-PHI
-PI
-PMT
-POISSON.DIST
-POISSON
-POWER
-PPMT
-PRICE
-PRICEDISC
-PRICEMAT
-PRODUCT
-PROPER
-PV
-QUARTILE
-QUARTILE.EXC
-QUARTILE.INC
-QUOTIENT
-RADIANS
-RAND
-RANDBETWEEN
-RANK
-RANK.EQ
-RATE
-RECEIVED
-REPLACE
-REPLACEB
-REPT
-RIGHT
-RIGHTB
-ROMAN
-ROUND
-ROUNDDOWN
-ROUNDUP
-ROW
-ROWS
-RRI
-RSQ
-SEC
-SECH
-SECOND
-SERIESSUM
-SHEET
-SHEETS
-SIGN
-SIN
-SINH
-SKEW
-SKEW.P
-SLN
-SLOPE
-SMALL
-SQRT
-SQRTPI
-STANDARDIZE
-STDEV
-STDEV.P
-STDEV.S
-STDEVA
-STDEVP
-STDEVPA
-STEYX
-SUBSTITUTE
-SUBTOTAL
-SUM
-SUMIF
-SUMIFS
-SUMPRODUCT
-SUMSQ
-SUMX2MY2
-SUMX2PY2
-SUMXMY2
-SWITCH
-SYD
-T
-TAN
-TANH
-TBILLEQ
-TBILLPRICE
-TBILLYIELD
-T.DIST
-T.DIST.2T
-T.DIST.RT
-TDIST
-TEXTJOIN
-TIME
-TIMEVALUE
-T.INV
-T.INV.2T
-TINV
-TODAY
-TRANSPOSE
-TREND
-TRIM
-TRIMMEAN
-TRUE
-TRUNC
-T.TEST
-TTEST
-TYPE
-UNICHAR
-UNICODE
-UPPER
-VALUE
-VAR
-VAR.P
-VAR.S
-VARA
-VARP
-VARPA
-VDB
-VLOOKUP
-WEEKDAY
-WEEKNUM
-WEIBULL
-WEIBULL.DIST
-WORKDAY
-WORKDAY.INTL
-XIRR
-XLOOKUP
-XNPV
-XOR
-YEAR
-YEARFRAC
-YIELD
-YIELDDISC
-YIELDMAT
-Z.TEST
-ZTEST
-```
+関数名 | 種類と説明
+---|---
+ABS                      | 数値の絶対値を返します
+ACCRINT                  | 定期的に利息が支払われる証券の未収利息額を返します
+ACCRINTM                 | 満期日に利息が支払われる証券の未収利息額を返します
+ACOS                     | 数値の逆余弦 (アークコサイン) を返します
+ACOSH                    | 数値の逆双曲線余弦を返します
+ACOT                     | 数値の逆余接 (アークコタンジェント) を返します
+ACOTH                    | 数値の逆双曲線余接を返します
+AGGREGATE                | リストまたはデータベースの総計を返します
+ADDRESS                  | ワークシート上の1つのセルにセル参照をテキストとして返します
+AMORDEGRC                | 減価償却係数を使用して、各会計期における減価償却費を返します
+AMORLINC                 | 各会計期における減価償却費を返します
+AND                      | すべての引数が TRUE のときに TRUE を返します
+ARABIC                   | ローマ数字をアラビア数字に変換します
+ASIN                     | 数値の逆正弦 (アークサイン) を返します
+ASINH                    | 数値の逆双曲線正弦を返します
+ATAN                     | 数値の逆正接 (アークタンジェント) を返します
+ATAN2                    | 指定された x-y 座標の逆正接 (アークタンジェント) を返します
+ATANH                    | 数値の逆双曲線正接を返します
+AVEDEV                   | データ全体の平均値に対するそれぞれのデータの絶対偏差の平均を返します
+AVERAGE                  | 引数の平均値を返します
+AVERAGEA                 | 数値、文字列、および論理値を含む引数の平均値を返します
+AVERAGEIF                | 範囲内の検索条件に一致するすべてのセルの平均値 (算術平均) を返します
+AVERAGEIFS               | 複数の検索条件に一致するすべてのセルの平均値 (算術平均) を返します
+BASE                     | 数値を、指定された基数 (底) のテキスト表現に変換します
+BESSELI                  | 修正ベッセル関数 In(x) を返します
+BESSELJ                  | ベッセル関数 Jn(x) を返します
+BESSELK                  | 修正ベッセル関数 Kn(x) を返します
+BESSELY                  | ベッセル関数 Yn(x) を返します
+BETADIST                 | β 分布の累積分布関数の値を返します。これは Excel 2007 では、統計関数になります
+BETA.DIST                | β 分布の累積分布関数の値を返します
+BETAINV                  | 指定された β 分布の累積分布関数の逆関数値を返します。これは Excel 2007 では、統計関数になります
+BETA.INV                 | 指定された β 分布の累積分布関数の逆関数値を返します
+BIN2DEC                  | 2 進数を 10 進数に変換します
+BIN2HEX                  | 2 進数を 16 進数に変換します
+BIN2OCT                  | 2 進数を 8 進数に変換します
+BINOMDIST                | 二項分布の確率関数の値を返します。これは Excel 2007 では、統計関数になります
+BINOM.DIST               | 二項分布の確率関数の値を返します
+BINOM.DIST.RANGE         | 二項分布を使用した試行結果の確率を返します
+BINOM.INV                | 累積二項分布の値が基準値以下になるような最小の値を返します
+BITAND                   | 2 つの数値のビット演算 AND を返します
+BITLSHIFT                | 左に移動数ビット (shift_amount) 移動する数値を返します
+BITOR                    | 2 つの数値のビット演算 OR を返します
+BITRSHIFT                | 右に移動数ビット (shift_amount) 移動する数値を返します
+BITXOR                   | 2 つの数値のビット演算 "排他的 OR" を返します
+CEILING                  | 指定された基準値の倍数のうち、最も近い値に数値を切り上げます
+CEILING.MATH             | 数値を最も近い整数、または基準値に最も近い倍数に切り上げます
+CEILING.PRECISE          | 数値を最も近い整数、または基準値に最も近い倍数に切り上げます。数値の符号に関係なく、切り上げます
+CHAR                     | コード番号で指定された文字を返します
+CHIDIST                  | カイ 2 乗分布の片側確率の値を返します。注: これは Excel 2007 では、統計関数になります
+CHIINV                   | カイ 2 乗分布の片側確率の逆関数値を返します。注: これは Excel 2007 では、統計関数になります
+CHITEST                  | 独立性検定を行います。注: これは Excel 2007 では、統計関数になります
+CHISQ.DIST               | 累積 β 確率密度関数の値を返します
+CHISQ.DIST.RT            | カイ 2 乗分布の片側確率の値を返します
+CHISQ.INV                | 累積 β 確率密度関数の値を返します
+CHISQ.INV.RT             | カイ 2 乗分布の片側確率の逆関数値を返します
+CHISQ.TEST               | 独立性検定を行います
+CHOOSE                   | 値のリストから値を選択します
+CLEAN                    | 印刷できない文字を文字列から削除します
+CODE                     | テキスト文字列内の先頭文字の数値コードを返します
+COLUMN                   | セル参照の列番号を返します
+COLUMNS                  | 指定の範囲に含まれる列数を返します
+COMBIN                   | 指定された個数のオブジェクトを選択するときの組み合わせの数を返します
+COMBINA                  | 指定された個数の項目を選択するときの組み合わせ (反復あり) の数を返します
+COMPLEX                  | 実数係数と虚数係数を、複素数に変換します
+CONCAT                   | 複数の範囲や文字列からのテキストを結合しますが、区切り記号または IgnoreEmpty 引数は提供しません
+CONCATENATE              | 複数の文字列を 1 つの文字列に結合します
+CONFIDENCE               | 母集団の平均に対する信頼区間を返します。これは Excel 2007 では、統計関数になります
+CONFIDENCE.NORM          | 母集団の平均に対する信頼区間を返します
+CONFIDENCE.T             | スチューデントの t 分布を使用して、母集団の平均に対する信頼区間を返します
+CONVERT                  | 数値の単位を変換します
+CORREL                   | 指定した2つの配列データの相関係数を返します
+COS                      | 数値の余弦 (コサイン) を返します
+COSH                     | 数値の双曲線余弦を返します
+COT                      | 数値の双曲線余弦を返します
+COTH                     | 角度のコタンジェントを返します
+COUNT                    | 引数リストに含まれる数値の個数をカウントします
+COUNTA                   | 引数リストに含まれる値の個数をカウントします
+COUNTBLANK               | 指定された範囲に含まれる空白セルの個数をカウントします
+COUNTIF                  | 指定された範囲に含まれるセルのうち、検索条件に一致するセルの個数をカウントします
+COUNTIFS                 | 指定された範囲に含まれるセルのうち、複数の検索条件に一致するセルの個数を返します
+COUPDAYBS                | 利払期間の第 1 日目から受渡日までの日数を返します
+COUPDAYS                 | 受渡日を含む利払期間内の日数を返します
+COUPDAYSNC               | 受渡日から次の利払日までの日数を返します
+COUPNCD                  | 受渡日後の次の利払日を返します
+COUPNUM                  | 受渡日と満期日の間の利払回数を返します
+COUPPCD                  | 受渡日の直前の利払日を返します
+COVAR                    | 共分散とは、2 組の対応するデータ間での標準偏差の積の平均値です。これは Excel 2007 では、統計関数になります
+COVARIANCE.P             | 共分散とは、2 組の対応するデータ間での標準偏差の積の平均値です
+COVARIANCE.S             | 共分散とは、2 組の対応するデータ間での標準偏差の積の平均値です
+CRITBINOM                | 累積二項分布の値が基準値以下になるような最小の値を返します。これは Excel 2007 では、統計関数になります
+CSC                      | 角度の余割 (コセカント) を返します
+CSCH                     | 角度の双曲線余割を返します
+CUMIPMT                  | 指定の期間に支払われる利息の累計を返します
+CUMPRINC                 | 指定期間に、貸付金に対して支払われる元金の累計を返します
+DATE                     | 指定された日付に対応するシリアル値を返します
+DATEDIF                  | 指定された期間の日数、月数、年数を計算して返します。この関数は、年齢を計算する数式に使うと便利です
+DATEVALUE                | 日付を表す文字列をシリアル値に変換します
+DAVERAGE                 | 選択したデータベース レコードの平均値を返します
+DAY                      | シリアル値を日付に変換します
+DAYS                     | 2 つの日付間の日数を返します
+DAYS360                  | 1 年を 360 日として、2 つの日付間の日数を返します
+DB                       | 定率法 (Fixed-declining Balance Method) を利用して、特定の期における資産の減価償却費を返します
+DCOUNT                   | データベース内にある数値を含むセルの個数をカウントします
+DCOUNTA                  | データベース内にある空白でないセルの個数をカウントします
+DDB                      | 倍額定率法 (Double-declining Balance Method) または指定した他の方法を使用して、特定の期における資産の減価償却費を返します
+DEC2BIN                  | 10 進数を 2 進数に変換します
+DEC2HEX                  | 10 進数を 16 進数に変換します
+DEC2OCT                  | 10 進数を 8 進数に変換します
+DECIMAL                  | 指定された底の数値のテキスト表現を 10 進数に変換します
+DEGREES                  | ラジアンを度に変換します
+DELTA                    | 2 つの値が等しいかどうかをテストします
+DEVSQ                    | 偏差の平方和を返します
+DGET                     | 指定された条件に一致する 1 つのレコードをデータベースから抽出します
+DISC                     | 証券に対する割引率を返します
+DMAX                     | 選択したデータベース レコードの最大値を返します
+DMIN                     | 選択したデータベース レコードの最小値を返します
+DOLLARDE                 | 分数で表されたドル単位の価格を、小数表示のドル価格に変換します
+DOLLARFR                 | 小数で表されたドル単位の価格を、分数表示のドル価格に変換します
+DPRODUCT                 | データベース内の、条件に一致するレコードの特定のフィールド値を乗算します
+DSTDEV                   | 選択したデータベース レコードの標本に基づいて、標準偏差の推定値を返します
+DSTDEVP                  | 選択したデータベース レコードの母集団全体に基づいて標準偏差を算出します
+DSUM                     | データベース内の、条件に一致するレコードのフィールド列にある数値を合計します
+DURATION                 | 定期的に利子が支払われる証券の年間のマコーレー デュレーションを返します
+DVAR                     | 選択したデータベース レコードの標本に基づく分散の推定値を返します
+DVARP                    | 選択したデータベース レコードの母集団全体に基づく分散を算出します
+EDATE                    | 開始日から起算して、指定した月数だけ前または後の日付に対応するシリアル値を返します
+EFFECT                   | 実効年利率を返します
+ENCODEURL                | URL 形式でエンコードされた文字列を返します。この関数は Web 用 Excel では利用できません
+EOMONTH                  | 指定した月数だけ前または後の月の最終日に対応するシリアル値を返します
+ERF                      | 誤差関数の値を返します
+ERF.PRECISE              | 誤差関数の値を返します
+ERFC                     | 相補誤差関数の値を返します
+ERFC.PRECISE             | x から無限大の範囲で、相補誤差関数の積分値を返します
+ERROR.TYPE               | エラーの種類に対応する数値を返します
+EUROCONVERT              | 数値からユーロ通貨への換算、ユーロ通貨からユーロ通貨使用国の現地通貨への換算、またはユーロ通貨を基にしてユーロ通貨を使用する参加国間の通貨の換算 (三通貨換算) を行います
+EVEN                     | 指定された数値を最も近い偶数に切り上げた値を返します
+EXACT                    | 2 つのテキスト値が等しいかどうかを判定します
+EXP                      | e を底とする数値のべき乗を返します
+EXPON.DIST               | 指数分布を返します
+EXPONDIST                | 指数分布を返します。これは Excel 2007 では、統計関数になります
+FACT                     | 数値の階乗を返します
+FACTDOUBLE               | 数値の二重階乗を返します
+FALSE                    | 論理値 FALSE を返します
+F.DIST                   | F 分布の確率関数の値を返します
+FDIST                    | F 分布の確率関数の値を返します。これは Excel 2007 では、統計関数になります
+F.DIST.RT                | F 分布の確率関数の値を返します
+FIND                     | 指定されたテキスト値を他のテキスト値の中で検索します。大文字と小文字は区別されます
+FINDB                    | 指定されたテキスト値を他のテキスト値の中で検索します。大文字と小文字は区別されます
+F.INV                    | F 分布の確率関数の逆関数の値を返します
+F.INV.RT                 | F 分布の確率関数の逆関数の値を返します
+FINV                     | F 分布の確率関数の逆関数の値を返します。これは Excel 2007 では、統計関数になります
+FISHER                   | フィッシャー変換の値を返します
+FISHERINV                | フィッシャー変換の逆関数値を返します
+FIXED                    | 数値を、一定の桁数のテキストとして書式設定します
+FLOOR                    | 数値を指定された桁数で切り捨てます。これは Excel 2007 と Excel 2010 では、数学/三角関数になります
+FLOOR.MATH               | 最も近い整数値、または基準値の倍数のうちで最も近い値に切り下げます
+FLOOR.PRECISE            | 数値を最も近い整数、または基準値に最も近い倍数に切り上げます。数値の符号に関係なく、切り上げます
+FORMULATEXT              | 指定された参照の位置にある数式をテキストとして返します
+F.TEST                   | F 検定の結果を返します
+FTEST                    | F 検定の結果を返します。これは Excel 2007 では、統計関数になります
+FV                       | 投資の将来価値を返します
+FVSCHEDULE               | 一連の金利を複利計算することにより、初期投資した元金の将来の価値を返します
+GAMMA                    | Gamma 関数値を返します
+GAMMA.DIST               | ガンマ分布の値を返します
+GAMMADIST                | ガンマ分布の値を返します。これは Excel 2007 では、統計関数になります
+GAMMA.INV                | ガンマの累積分布の逆関数値を返します
+GAMMAINV                 | ガンマの累積分布の逆関数値を返します。これは Excel 2007 では、統計関数になります
+GAMMALN                  | ガンマ関数 Γ(x) の値の自然対数を返します
+GAMMALN.PRECISE          | ガンマ関数 Γ(x) の値の自然対数を返します
+GAUSS                    | 標準正規分布の累積分布関数より 0.5 小さい値を返します
+GCD                      | 最大公約数を返します
+GEOMEAN                  | 相乗平均を返します
+GESTEP                   | 数値がしきい値以上であるかどうかをテストします
+GROWTH                   | 指数曲線から予測される値を返します
+HARMEAN                  | 調和平均を返します
+HEX2BIN                  | 16 進数を 2 進数に変換します
+HEX2DEC                  | 16 進数を 10 進数に変換します
+HEX2OCT                  | 16 進数を 8 進数に変換します
+HLOOKUP                  | 配列の上端行で特定の値を検索し、対応するセルの値を返します
+HOUR                     | シリアル値を時刻に変換します
+HYPERLINK                | ネットワーク サーバー、イントラネット、またはインターネット上に格納されているドキュメントを開くショートカットまたはジャンプを作成します
+HYPGEOM.DIST             | 超幾何分布を返します
+HYPGEOMDIST              | 超幾何分布を返します。これは Excel 2007 では、統計関数になります
+IF                       | 実行する論理テストを指定します
+IFERROR                  | 数式の結果がエラーの場合は指定した値を返し、それ以外の場合は数式の結果を返します
+IFNA                     | それ以外の場合は、式の結果を返します
+IFS                      | 1つ以上の条件が満たされているかどうかをチェックして、最初の TRUE 条件に対応する値を返します
+IMABS                    | 指定した複素数の絶対値を返します
+IMAGINARY                | 指定した複素数の虚数係数を返します
+IMARGUMENT               | 偏角シータを (ラジアンで表した角度で) 返します
+IMCONJUGATE              | 複素数の複素共役を返します
+IMCOS                    | 複素数のコサインを返します
+IMCOSH                   | 複素数の双曲線余弦を返します
+IMCOT                    | 複素数の余接 (コタンジェント) を返します
+IMCSC                    | 複素数の余割 (コセカント) を返します
+IMCSCH                   | 複素数の双曲線余割を返します
+IMDIV                    | 2 つの複素数の商を返します
+IMEXP                    | 複素数のべき乗を返します
+IMLN                     | 複素数の自然対数を返します
+IMLOG10                  | 複素数の 10 を底とする対数 (常用対数) を返します
+IMLOG2                   | 複素数の 2 を底とする対数を返します
+IMPOWER                  | 複素数の整数乗を返します
+IMPRODUCT                | 複素数の積を返します
+IMREAL                   | 複素数の実数係数を返します
+IMSEC                    | 複素数の正割 (セカント) を返します
+IMSECH                   | 複素数の双曲線正割を返します
+IMSIN                    | 複素数の正弦を返します
+IMSINH                   | 複素数の双曲線正弦を返します
+IMSQRT                   | 複素数の平方根を返します
+IMSUB                    | 2 つの複素数の差を返します
+IMSUM                    | 複素数の和を返します
+IMTAN                    | 複素数の正接 (タンジェント) を返します
+INDEX                    | セル参照または配列から、指定された位置の値を返します
+INDIRECT                 | テキスト値によって指定されるセル参照を返します
+INT                      | 指定された数値を最も近い整数に切り捨てます
+INTRATE                  | 全額投資された証券の利率を返します
+IPMT                     | 投資の指定された期に支払われる金利を返します
+IRR                      | 一連のキャッシュ フローに対する内部利益率を返します
+ISBLANK                  | 対象が空白セルを参照するときに TRUE を返します
+ISERR                    | 対象が #N/A 以外のエラー値のときに TRUE を返します
+ISERROR                  | 対象が任意のエラー値のときに TRUE を返します
+ISEVEN                   | 数値が偶数のときに TRUE を返します
+ISFORMULA                | 数式が含まれるセルへの参照がある場合に TRUE を返します
+ISLOGICAL                | 対象が論理値のときに TRUE を返します
+ISNA                     | 対象がエラー値 #N/A のときに TRUE を返します
+ISNONTEXT                | 対象が文字列以外のときに TRUE を返します
+ISNUMBER                 | 対象が数値のときに TRUE を返します
+ISODD                    | 数値が奇数のときに TRUE を返しま
+ISREF                    | 対象が参照であるときに TRUE を返します
+ISTEXT                   | 対象がテキストであるときに TRUE を返します
+ISO.CEILING              | 最も近い整数に切り上げた値、または、指定された基準値の倍数のうち最も近い値を返します
+ISOWEEKNUM               | 指定された日付のその年における ISO 週番号を返します
+ISPMT                    | 投資の指定された期に支払われる金利を計算します
+KURT                     | データ セットの尖度を返します
+LARGE                    | 指定されたデータ セットの中で k 番目に大きなデータを返します
+LCM                      | 最小公倍数を返します
+LEFT                     | 文字列の先頭 (左端) から指定された文字数の文字を返します
+LEFTB                    | 文字列の先頭 (左端) から指定された文字数の文字を返します
+LEN                      | 文字列に含まれる文字数を返します
+LENB                     | 文字列に含まれる文字数を返します
+LN                       | 数値の自然対数を返します
+LOG                      | 指定された数を底とする数値の対数を返します
+LOG10                    | 10 を底とする数値の対数 (常用対数) を返します
+LOGINV                   | 対数の累積分布の逆関数値を返します
+LOGNORM.DIST             | 対数の累積分布の値を返します
+LOGNORMDIST              | 対数の累積分布の値を返します
+LOGNORM.INV              | 対数の累積分布の逆関数値を返します
+LOOKUP                   | ベクトルまたは配列を検索して、対応する値を返します
+LOWER                    | テキストを小文字に変換します
+MATCH                    | 参照または配列で値を検索します
+MAX                      | 引数リストに含まれる最大値を返します
+MAXA                     | 数値、文字列、および論理値を含む引数リストから最大値を返します
+MAXIFS                   | 条件セットで指定されたセルの中の最大値を返します
+MDETERM                  | 配列の行列式を返します
+MDURATION                | 額面価格を $100 と仮定して、証券に対する修正済マコーレー デュレーションを返します
+MEDIAN                   | 指定された数値のメジアン (中央値) を返します
+MID                      | 文字列の任意の位置から指定された文字数の文字を返します
+MIDB                     | 文字列の任意の位置から指定された文字数の文字を返します
+MIN                      | 引数リストに含まれる最小値を返します
+MINIFS                   | 条件セットで指定されたセルの中の最小値を返します
+MINA                     | 数値、文字列、および論理値を含む引数リストから最小値を返します
+MINUTE                   | シリアル値を時刻の分に変換します
+MINVERSE                 | 配列の逆行列を返します
+MIRR                     | 支払い (負の値) と収益 (正の値) のキャッシュ フローがさまざまな率で行われる場合の修正内部利益率を返します
+MMULT                    | 2 つの配列の行列積を返します
+MOD                      | 除算の剰余を返します
+MODE                     | 最も頻繁に出現する値 (最頻値) を返します。これは Excel 2007 では、統計関数になります
+MODE.MULT                | 配列またはセル範囲として指定されたデータの中で、最も頻繁に出現する値 (最頻値) を縦方向の配列として返します
+MODE.SNGL                | 最も頻繁に出現する値 (最頻値) を返します
+MONTH                    | シリアル値を月に変換します
+MROUND                   | 指定された値の倍数になるように、数値を四捨五入します
+MULTINOMIAL              | 指定された複数の数値の多項係数を返します
+MUNIT                    | 指定された次元の単位行列を返します
+N                        | 値を数値に変換します
+NA                       | エラー値 #N/A を返します
+NEGBINOM.DIST            | 負の二項分布を返します
+NEGBINOMDIST             | 負の二項分布を返します。これは Excel 2007 では、統計関数になります
+NETWORKDAYS              | 2 つの日付間の稼働日の日数を返します
+NETWORKDAYS.INTL         | 週末がどの曜日で何日間あるかを示すパラメーターを使用して、2 つの日付間にある稼働日の日数を返します
+NOMINAL                  | 名目年利率を返します
+NORM.DIST                | 正規分布の累積分布の値を返します
+NORMDIST                 | 正規分布の累積分布の値を返します。これは Excel 2007 では、統計関数になります
+NORMINV                  | 正規分布の累積分布の逆関数値を返します
+NORM.INV                 | 正規分布の累積分布の逆関数値を返します。注: これは Excel 2007 では、統計関数になります
+NORM.S.DIST              | 標準正規分布の累積分布の値を返します
+NORMSDIST                | 標準正規分布の累積分布の値を返します。これは Excel 2007 では、統計関数になります
+NORM.S.INV               | 標準正規分布の累積分布の逆関数値を返します
+NORMSINV                 | 標準正規分布の累積分布の逆関数値を返します。これは Excel 2007 では、統計関数になります
+NOT                      | 引数の論理値を逆にして返します
+NOW                      | 現在の日付と時刻に対応するシリアル値を返します
+NPER                     | 投資に必要な期間を返します
+NPV                      | 定期的に発生する一連のキャッシュ フローと割引率に基づいて、投資の正味現在価値を返します
+OCT2BIN                  | 8 進数を 2 進数に変換します
+OCT2DEC                  | 8 進数を 10 進数に変換します
+OCT2HEX                  | 8 進数を 16 進数に変換します
+ODD                      | 指定された数値を最も近い奇数に切り上げた値を返します
+ODDFPRICE                | 1 期目の日数が半端な証券に対して、額面 $100 あたりの価格を返します
+OR                       | いずれかの引数が TRUE のときに TRUE を返します
+PDURATION                | 投資が指定した価値に達するまでの投資期間を返します
+PEARSON                  | ピアソンの積率相関係数 r の値を返します
+PERCENTILE.EXC           | 特定の範囲に含まれるデータの第 k 百分位数に当たる値を返します (k は 0 より大きく 1 より小さい値)
+PERCENTILE.INC           | 特定の範囲に含まれるデータの第 k 百分位数に当たる値を返します
+PERCENTILE               | 特定の範囲に含まれるデータの第 k 百分位数に当たる値を返します。これは Excel 2007 では、統計関数になります
+PERCENTRANK.EXC          | データ セット内での値の順位を百分率 (0 より大きく 1 より小さい) で表した値を返します
+PERCENTRANK.INC          | データ セット内での値の順位を百分率で表した値を返します
+PERCENTRANK              | データ セット内での値の順位を百分率で表した値を返します。これは Excel 2007 では、統計関数になります
+PERMUT                   | 指定された個数のオブジェクトを選択するときの順列の数を返します
+PERMUTATIONA             | すべてのオブジェクトから指定された数のオブジェクト (繰り返しを含む) を選択する場合の順列の数を返します
+PHI                      | 標準正規分布の密度関数の値を返します
+PI                       | 円周率 π を返します
+PMT                      | 年間の定期支払額を算出します
+POISSON.DIST             | ポワソン分布の値を返します
+POISSON                  | ポワソン分布の値を返します。これは Excel 2007 では、統計関数になります
+POWER                    | 数値のべき乗を返します
+PPMT                     | 指定した期に支払われる投資元金を返します
+PRICE                    | 定期的に利息が支払われる証券に対して、額面 $100 あたりの価格を返します
+PRICEDISC                | 割引証券の額面 $100 あたりの価格を返します
+PRICEMAT                 | 満期日に利息が支払われる証券に対して、額面 $100 あたりの価格を返します
+PRODUCT                  | 引数を乗算します
+PROPER                   | 文字列に含まれる英単語の先頭文字だけを大文字に変換します
+PV                       | 投資の現在価値を返します
+QUARTILE                 | データ セットの四分位数を返します。これは Excel 2007 では、統計関数になります
+QUARTILE.EXC             | 0 より大きく 1 より小さい百分位値に基づいて、データ セットに含まれるデータから四分位数を返します
+QUARTILE.INC             | データ セットの四分位数を返します
+QUOTIENT                 | 除算の商の整数部を返します
+RADIANS                  | 度をラジアンに変換します
+RAND                     | 0 から 1 の乱数を返します
+RANDBETWEEN              | 指定された範囲内の数値の乱数を返します
+RANK.EQ                  | 数値のリストの中で、指定した数値の順位を返します
+RANK                     | 数値のリストの中で、指定した数値の順位を返します。これは Excel 2007 では、統計関数になります
+RATE                     | 年間の投資金利を返します
+RECEIVED                 | 全額投資された証券に対して、満期日に支払われる金額を返しま
+REPLACE                  | テキスト内の文字を置き換えます
+REPLACEB                 | テキスト内の文字を置き換えます
+REPT                     | テキストを指定した回数だけ繰り返します
+RIGHT                    | 文字列の末尾 (右端) から指定された文字数の文字を返します
+RIGHTB                   | 文字列の末尾 (右端) から指定された文字数の文字を返します
+ROMAN                    | アラビア数字を、ローマ数字を表す文字列に変換します
+ROUND                    | 数値を四捨五入して指定された桁数にします
+ROUNDDOWN                | 数値を指定された桁数で切り捨てます
+ROUNDUP                  | 数値を指定された桁数で切り上げます
+ROW                      | セル参照の行番号を返します
+ROWS                     | 指定の範囲に含まれる行数を返します
+RRI                      | 投資の成長に対する等価利率を返します
+RSQ                      | ピアソンの積率相関係数の 2 乗値を返します
+SEC                      | 角度の正割 (セカント) を返します
+SECH                     | 角度の双曲線正割を返します
+SECOND                   | シリアル値を秒に変換します
+SERIESSUM                | 数式で定義されるべき級数の和を返します
+SHEET                    | 参照先のシートのシート番号を返します
+SHEETS                   | 参照内のシート数を返します
+SIGN                     | 数値の符号を返します
+SIN                      | 指定された角度のサインを返します
+SINH                     | 数値の双曲線正弦を返します
+SKEW                     | 分布の歪度を返します
+SKEW.P                   | 母集団に基づく分布の歪度を取得します。歪度とは、分布の平均値周辺での両側の非対称度を表す値です
+SLN                      | 定額法 (Straight-line Method) を使用して、資産の 1 期あたりの減価償却費を返します
+SLOPE                    | 回帰直線の傾きを返します
+SMALL                    | 指定されたデータ セットの中で k 番目に小さなデータを返します
+SQRT                     | 正の平方根を返します
+SQRTPI                   | (数値 * π) の平方根を返します
+STANDARDIZE              | 正規化された値を返します
+STDEV                    | 標本に基づく標準偏差の推定値を返します
+STDEV.P                  | 母集団全体に基づいて、標準偏差を計算します
+STDEV.S                  | 標本に基づく標準偏差の推定値を返します
+STDEVA                   | 数値、文字列、および論理値を含む標本に基づいて、標準偏差の推定値を返します
+STDEVP                   | 母集団全体に基づいて、標準偏差を計算します。これは Excel 2007 では、統計関数になります
+STDEVPA                  | 数値、文字列、および論理値を含む母集団全体に基づいて、標準偏差を計算します
+STEYX                    | 回帰直線上の予測値の標準誤差を返します
+SUBSTITUTE               | 文字列中の指定された文字を他の新しい文字に置き換えます
+SUBTOTAL                 | リストまたはデータベースの集計値を返します
+SUM                      | 引数を合計します
+SUMIF                    | 指定された検索条件に一致するセルの値を合計します
+SUMIFS                   | セル範囲内で、複数の検索条件を満たすセルの値を合計します
+SUMPRODUCT               | 指定された配列で対応する要素の積を合計します
+SUMSQ                    | 引数の 2 乗の和 (平方和) を返します
+SUMX2MY2                 | 2 つの配列で対応する配列要素の平方差を合計します
+SUMX2PY2                 | 2 つの配列で対応する配列要素の平方和を合計します
+SUMXMY2                  | 指定した2つの配列内の対応する配列要素の差を2乗して合計して返します
+SWITCH                   | 値の一覧に対して式を評価し、最初に一致する値に対応する結果を返します。いずれにも一致しない場合は、任意指定の既定値が返されます
+SYD                      | 級数法 (Sum-of-Year's Digits Method) を使用して、特定の期における減価償却費を返します
+T                        | 引数をテキストに変換します
+TAN                      | 数値の正接 (タンジェント) を返します
+TANH                     | 数値の双曲線正接を返します
+TBILLEQ                  | 米国財務省短期証券 (TB) の債券換算利回りを返します
+TBILLPRICE               | 米国財務省短期証券 (TB) の額面 $100 あたりの価格を返します
+TBILLYIELD               | 米国財務省短期証券 (TB) の利回りを返します
+T.DIST                   | スチューデントの t 分布のパーセンテージ (確率) を返します
+T.DIST.2T                | スチューデントの t 分布のパーセンテージ (確率) を返します
+T.DIST.RT                | スチューデントの t 分布の値を返します
+TDIST                    | スチューデントの t 分布の値を返します
+TEXTJOIN                 | 複数の範囲や文字列のテキストを結合す
+TIME                     | 指定した時刻に対応するシリアル値を返します
+TIMEVALUE                | 時刻を表す文字列をシリアル値に変換します
+T.INV                    | スチューデントの t 分布の t 値を、確率の関数と自由度で返します
+T.INV.2T                 | スチューデントの t 分布の逆関数値を返します
+TINV                     | スチューデントの t 分布の逆関数値を返します
+TODAY                    | 現在の日付に対応するシリアル値を返します
+TRANSPOSE                | 指定したセル範囲のデータの行と列を入れ替えた配列を返します
+TREND                    | 回帰直線による予測値を配列で返します
+TRIM                     | テキストからスペースを削除します
+TRIMMEAN                 | データ セットの中間項の平均を返します
+TRUE                     | 論理値 TRUE を返します
+TRUNC                    | 数値の小数部を切り捨てて整数にします
+T.TEST                   | スチューデントの t 検定における確率を返します
+TTEST                    | スチューデントの t 検定における確率を返します，これは Excel 2007 では、統計関数になります
+TYPE                     | 値のデータ型を表す数値を返します
+UNICHAR                  | 指定された数値により参照される Unicode 文字を返します
+UNICODE                  | 文字列の最初の文字に対応する番号 (コード ポイント) を返します
+UPPER                    | 文字列に含まれる英字をすべて大文字に変換します
+VALUE                    | テキスト引数を数値に変換します
+VAR                      | 標本に基づいて、分散の推定値を返します。これは Excel 2007 では、統計関数になります
+VAR.P                    | 母集団全体に基づいて、分散を計算します
+VAR.S                    | 標本に基づいて、分散の推定値を返します
+VARA                     | 数値、文字列、および論理値を含む標本に基づいて、分散の推定値を返します
+VARP                     | 母集団全体に基づいて、分散を計算します。これは Excel 2007 では、統計関数になります
+VARPA                    | 数値、文字列、および論理値を含む母集団全体に基づいて、分散を計算します
+VDB                      | 定率法 (declining Balance Method) を利用して、特定の期または部分的な期における資産の減価償却費を返します
+VLOOKUP                  | 配列の左端列で特定の値を検索し、その行内で移動して、対応するセルの値を返します
+WEEKDAY                  | シリアル値を曜日に変換します
+WEEKNUM                  | シリアル値をその年の何週目に当たるかを示す値に変換します
+WEIBULL                  | 数値、文字列、および論理値を含む母集団全体に基づいて、分散を計算します。これは Excel 2007 では、統計関数になります
+WEIBULL.DIST             | ワイブル分布の値を返します
+WORKDAY                  | 指定した稼動日数だけ前または後の日付に対応するシリアル値を返します
+WORKDAY.INTL             | 週末がどの曜日で何日間あるかを示すパラメーターを使用して、指定した稼働日数だけ前または後の日付に対応するシリアル値を返します
+XIRR                     | 定期的でないキャッシュ フローの特定のスケジュールに対する内部利益率を返します
+XLOOKUP                  | Office 365 ボタン  範囲または配列を検索し、最初に見つかった一致に対応する項目を返します。一致するものがない場合、XLOOKUP は最も近い (近似) 一致を返します
+XNPV                     | 定期的でないキャッシュ フローの特定のスケジュールに対する正味現在価値を返します
+XOR                      | すべての引数の論理排他 OR を返します
+YEAR                     | シリアル値を年に変換します
+YEARFRAC                 | 開始日と終了日を指定して、その間の期間が 1 年間に対して占める割合を返します
+YIELD                    | 利息が定期的に支払われる証券の利回りを返します
+YIELDDISC                | 米国財務省短期証券 (TB) などの割引債の年利回りを返します
+YIELDMAT                 | 満期日に利息が支払われる証券の利回りを返します
+Z.TEST                   | Z 検定の片側確率の値を返します
+ZTEST                    | Z 検定の片側確率の値を返します。これは Excel 2007 では、統計関数になります
