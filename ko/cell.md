@@ -714,441 +714,441 @@ CalcCellValue 는 계산된 셀 값을 가져오는 함수를 제공합니다. �
 
 지원되는 공식 :
 
-```text
-ABS
-ACCRINT
-ACCRINTM
-ACOS
-ACOSH
-ACOT
-ACOTH
-ADDRESS
-AGGREGATE
-AMORDEGRC
-AMORLINC
-AND
-ARABIC
-ASIN
-ASINH
-ATAN
-ATAN2
-ATANH
-AVEDEV
-AVERAGE
-AVERAGEA
-AVERAGEIF
-AVERAGEIFS
-BASE
-BESSELI
-BESSELJ
-BESSELK
-BESSELY
-BETADIST
-BETA.DIST
-BETAINV
-BETA.INV
-BIN2DEC
-BIN2HEX
-BIN2OCT
-BINOMDIST
-BINOM.DIST
-BINOM.DIST.RANGE
-BINOM.INV
-BITAND
-BITLSHIFT
-BITOR
-BITRSHIFT
-BITXOR
-CEILING
-CEILING.MATH
-CEILING.PRECISE
-CHAR
-CHIDIST
-CHIINV
-CHITEST
-CHISQ.DIST
-CHISQ.DIST.RT
-CHISQ.INV
-CHISQ.INV.RT
-CHISQ.TEST
-CHOOSE
-CLEAN
-CODE
-COLUMN
-COLUMNS
-COMBIN
-COMBINA
-COMPLEX
-CONCAT
-CONCATENATE
-CONFIDENCE
-CONFIDENCE.NORM
-CONFIDENCE.T
-CONVERT
-CORREL
-COS
-COSH
-COT
-COTH
-COUNT
-COUNTA
-COUNTBLANK
-COUNTIF
-COUNTIFS
-COUPDAYBS
-COUPDAYS
-COUPDAYSNC
-COUPNCD
-COUPNUM
-COUPPCD
-COVAR
-COVARIANCE.P
-COVARIANCE.S
-CRITBINOM
-CSC
-CSCH
-CUMIPMT
-CUMPRINC
-DATE
-DATEDIF
-DATEVALUE
-DAVERAGE
-DAY
-DAYS
-DAYS360
-DB
-DCOUNT
-DCOUNTA
-DDB
-DEC2BIN
-DEC2HEX
-DEC2OCT
-DECIMAL
-DEGREES
-DELTA
-DEVSQ
-DGET
-DISC
-DMAX
-DMIN
-DOLLARDE
-DOLLARFR
-DPRODUCT
-DSTDEV
-DSTDEVP
-DSUM
-DURATION
-DVAR
-DVARP
-EFFECT
-EDATE
-ENCODEURL
-EOMONTH
-ERF
-ERF.PRECISE
-ERFC
-ERFC.PRECISE
-ERROR.TYPE
-EUROCONVERT
-EVEN
-EXACT
-EXP
-EXPON.DIST
-EXPONDIST
-FACT
-FACTDOUBLE
-FALSE
-F.DIST
-F.DIST.RT
-FDIST
-FIND
-FINDB
-F.INV
-F.INV.RT
-FINV
-FISHER
-FISHERINV
-FIXED
-FLOOR
-FLOOR.MATH
-FLOOR.PRECISE
-FORMULATEXT
-F.TEST
-FTEST
-FV
-FVSCHEDULE
-GAMMA
-GAMMA.DIST
-GAMMADIST
-GAMMA.INV
-GAMMAINV
-GAMMALN
-GAMMALN.PRECISE
-GAUSS
-GCD
-GEOMEAN
-GESTEP
-GROWTH
-HARMEAN
-HEX2BIN
-HEX2DEC
-HEX2OCT
-HLOOKUP
-HOUR
-HYPERLINK
-HYPGEOM.DIST
-HYPGEOMDIST
-IF
-IFERROR
-IFNA
-IFS
-IMABS
-IMAGINARY
-IMARGUMENT
-IMCONJUGATE
-IMCOS
-IMCOSH
-IMCOT
-IMCSC
-IMCSCH
-IMDIV
-IMEXP
-IMLN
-IMLOG10
-IMLOG2
-IMPOWER
-IMPRODUCT
-IMREAL
-IMSEC
-IMSECH
-IMSIN
-IMSINH
-IMSQRT
-IMSUB
-IMSUM
-IMTAN
-INDEX
-INDIRECT
-INT
-INTRATE
-IPMT
-IRR
-ISBLANK
-ISERR
-ISERROR
-ISEVEN
-ISFORMULA
-ISLOGICAL
-ISNA
-ISNONTEXT
-ISNUMBER
-ISODD
-ISREF
-ISTEXT
-ISO.CEILING
-ISOWEEKNUM
-ISPMT
-KURT
-LARGE
-LCM
-LEFT
-LEFTB
-LEN
-LENB
-LN
-LOG
-LOG10
-LOGINV
-LOGNORM.DIST
-LOGNORMDIST
-LOGNORM.INV
-LOOKUP
-LOWER
-MATCH
-MAX
-MAXA
-MAXIFS
-MDETERM
-MDURATION
-MEDIAN
-MID
-MIDB
-MIN
-MINA
-MINIFS
-MINUTE
-MINVERSE
-MIRR
-MMULT
-MOD
-MODE
-MODE.MULT
-MODE.SNGL
-MONTH
-MROUND
-MULTINOMIAL
-MUNIT
-N
-NA
-NEGBINOM.DIST
-NEGBINOMDIST
-NETWORKDAYS
-NETWORKDAYS.INTL
-NOMINAL
-NORM.DIST
-NORMDIST
-NORM.INV
-NORMINV
-NORM.S.DIST
-NORMSDIST
-NORM.S.INV
-NORMSINV
-NOT
-NOW
-NPER
-NPV
-OCT2BIN
-OCT2DEC
-OCT2HEX
-ODD
-ODDFPRICE
-OR
-PDURATION
-PEARSON
-PERCENTILE.EXC
-PERCENTILE.INC
-PERCENTILE
-PERCENTRANK.EXC
-PERCENTRANK.INC
-PERCENTRANK
-PERMUT
-PERMUTATIONA
-PHI
-PI
-PMT
-POISSON.DIST
-POISSON
-POWER
-PPMT
-PRICE
-PRICEDISC
-PRICEMAT
-PRODUCT
-PROPER
-PV
-QUARTILE
-QUARTILE.EXC
-QUARTILE.INC
-QUOTIENT
-RADIANS
-RAND
-RANDBETWEEN
-RANK
-RANK.EQ
-RATE
-RECEIVED
-REPLACE
-REPLACEB
-REPT
-RIGHT
-RIGHTB
-ROMAN
-ROUND
-ROUNDDOWN
-ROUNDUP
-ROW
-ROWS
-RRI
-RSQ
-SEC
-SECH
-SECOND
-SERIESSUM
-SHEET
-SHEETS
-SIGN
-SIN
-SINH
-SKEW
-SKEW.P
-SLN
-SLOPE
-SMALL
-SQRT
-SQRTPI
-STANDARDIZE
-STDEV
-STDEV.P
-STDEV.S
-STDEVA
-STDEVP
-STDEVPA
-STEYX
-SUBSTITUTE
-SUBTOTAL
-SUM
-SUMIF
-SUMIFS
-SUMPRODUCT
-SUMSQ
-SUMX2MY2
-SUMX2PY2
-SUMXMY2
-SWITCH
-SYD
-T
-TAN
-TANH
-TBILLEQ
-TBILLPRICE
-TBILLYIELD
-T.DIST
-T.DIST.2T
-T.DIST.RT
-TDIST
-TEXTJOIN
-TIME
-TIMEVALUE
-T.INV
-T.INV.2T
-TINV
-TODAY
-TRANSPOSE
-TREND
-TRIM
-TRIMMEAN
-TRUE
-TRUNC
-T.TEST
-TTEST
-TYPE
-UNICHAR
-UNICODE
-UPPER
-VALUE
-VAR
-VAR.P
-VAR.S
-VARA
-VARP
-VARPA
-VDB
-VLOOKUP
-WEEKDAY
-WEEKNUM
-WEIBULL
-WEIBULL.DIST
-WORKDAY
-WORKDAY.INTL
-XIRR
-XLOOKUP
-XNPV
-XOR
-YEAR
-YEARFRAC
-YIELD
-YIELDDISC
-YIELDMAT
-Z.TEST
-ZTEST
-```
+함수 이름 | 유형 및 설명
+---|---
+ABS                      | 숫자의 절대 값을 반환합니다
+ACCRINT                  | 정기적으로 이자를 지급하는 유가 증권의 경과 이자를 반환합니다
+ACCRINTM                 | 만기에 이자를 지급하는 유가 증권의 경과 이자를 반환합니다
+ACOS                     | 숫자의 아크코사인을 반환합니다
+ACOSH                    | 숫자의 역 하이퍼볼릭 코사인을 반환합니다
+ACOT                     | 아크코탄젠트 값을 반환합니다
+ACOTH                    | 하이퍼볼릭 아크코탄젠트 값을 반환합니다
+AGGREGATE                | 목록 또는 데이터베이스에서 집계 값을 반환합니다
+ADDRESS                  | 참조를 워크시트의 한 셀에 대한 텍스트로 반환합니다
+AMORDEGRC                | 감가 상각 계수를 사용하여 매 회계 기간의 감가 상각액을 반환합니다
+AMORLINC                 | 매 회계 기간에 대한 감가 상각액을 반환합니다
+AND                      | 인수가 모두 TRUE 이면 TRUE를 반환합니다
+ARABIC                   | 로마 숫자를 아라비아 숫자로 변환합니다
+ASIN                     | 숫자의 아크사인을 반환합니다
+ASINH                    | 숫자의 역 하이퍼볼릭 사인을 반환합니다
+ATAN                     | 숫자의 아크탄젠트를 반환합니다
+ATAN2                    | x, y 좌표의 아크탄젠트를 반환합니다
+ATANH                    | 숫자의 역 하이퍼볼릭 탄젠트를 반환합니다
+AVEDEV                   | 데이터 요소의 절대 편차의 평균을 반환합니다
+AVERAGE                  | 인수의 평균을 반환합니다
+AVERAGEA                 | 인수의 평균 (숫자, 텍스트, 논리값 포함) 을 반환합니다
+AVERAGEIF                | 범위 내에서 주어진 조건에 맞는 모든 셀의 평균 (산술 평균) 을 반환합니다
+AVERAGEIFS               | 여러 조건에 맞는 모든 셀의 평균 (산술 방식) 을 반환합니다
+BASE                     | 숫자를 지정된 기수의 텍스트 표현으로 변환합니다
+BESSELI                  | 수정된 Bessel 함수 In(x) 값을 반환합니다
+BESSELJ                  | Bessel 함수 Jn(x) 을 반환합니다
+BESSELK                  | 수정된 Bessel 함수 Kn(x) 값을 반환합니다
+BESSELY                  | Bessel 함수 Yn(x) 을 반환합니다
+BETADIST                 | 누적 베타 분포 함수를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+BETA.DIST                | 누적 베타 분포 함수를 반환합니다
+BETAINV                  | 지정된 베타 분포에 대한 역 누적 분포 함수를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+BETA.INV                 | 지정된 베타 분포에 대한 역 누적 분포 함수를 반환합니다
+BIN2DEC                  | 2진수를 10진수로 변환합니다
+BIN2HEX                  | 2진수를 16진수로 변환합니다
+BIN2OCT                  | 2진수를 8진수로 변환합니다
+BINOMDIST                | 개별항 이항 분포 확률을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+BINOM.DIST               | 개별항 이항 분포 확률을 반환합니다
+BINOM.DIST.RANGE         | 이항 분포를 사용한 시행 결과의 확률을 반환합니다
+BINOM.INV                | 누적 이항 분포가 기준치 이하가 되는 값 중 최소값을 반환합니다
+BITAND                   | 두 숫자의 '비트 단위 And'를 반환합니다
+BITLSHIFT                | shift_amount비트씩 왼쪽으로 이동한 값 숫자를 반환합니다
+BITOR                    | 두 숫자의 비트 단위 OR을 반환합니다
+BITRSHIFT                | shift_amount비트씩 오른쪽으로 이동한 값 숫자를 반환합니다
+BITXOR                   | 두 숫자의 비트 단위 '배타적 Or' 를 반환합니다
+CEILING                  | 가장 가까운 정수 또는 가장 가까운 significance 의 배수로 숫자를 반올림합니다
+CEILING.MATH             | 가장 가까운 정수 또는 가장 가까운 significance 의 배수로 올림합니다
+CEILING.PRECISE          | 가장 가까운 정수 또는 가장 가까운 significance 의 배수로 내림합니다. 숫자의 부호에 상관없이 숫자는 내림됩니다
+CELL                     | 셀의 서식 지정이나 위치, 내용에 대한 정보를 반환합니다.  이 함수는 웹용 Excel 에서 사용할 수 없습니다
+CHIDIST                  | 카이 제곱 분포의 단측 검정 확률을 반환합니다 Excel 2007 에서 이 함수는 통계 함수입니다
+CHIINV                   | 카이 제곱 분포의 역 단측 검정 확률을 반환합니다 Excel 2007 에서 이 함수는 통계 함수입니다
+CHITEST                  | 독립 검증 결과를 반환합니다 Excel 2007 에서 이 함수는 통계 함수입니다
+CHISQ.DIST               | 누적 베타 확률 밀도 함수 값을 반환합니다
+CHISQ.DIST.RT            | 카이 제곱 분포의 단측 검정 확률을 반환합니다
+CHISQ.INV                | 누적 베타 확률 밀도 함수 값을 반환합니다
+CHISQ.INV.RT             | 카이 제곱 분포의 역 단측 검정 확률을 반환합니다
+CHISQ.TEST               | 독립 검증 결과를 반환합니다
+CHOOSE                   | 값 목록에서 값을 선택합니다
+CLEAN                    | 인쇄할 수 없는 모든 문자들을 텍스트에서 제거합니다
+CODE                     | 텍스트 문자열의 첫째 문자를 나타내는 코드값을 반환합니다
+COLUMN                   | 참조 영역의 열 번호를 반환합니다
+COLUMNS                  | 참조 영역의 열 수를 반환합니다
+COMBIN                   | 주어진 개체 수로 만들 수 있는 조합의 수를 반환합니다
+COMBINA                  | 주어진 개체 수로 만들 수 있는 조합의 수 (반복 포함) 를 반환합니다
+COMPLEX                  | 실수부와 허수부의 계수를 복소수로 변환합니다
+CONCAT                   | 여러 범위 및/또는 문자열의 텍스트를 결합하지만 구분 기호나 IgnoreEmpty 인수는 제공하지 않습니다
+CONCATENATE              | 여러 텍스트 항목을 한 텍스트 항목으로 조인시킵니다
+CONFIDENCE               | 모집단 평균의 신뢰 구간을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+CONFIDENCE.NORM          | 모집단 평균의 신뢰 구간을 반환합니다
+CONFIDENCE.T             | 스튜던트 t-분포를 사용하는 모집단 평균의 신뢰 구간을 반환합니다
+CONVERT                  | 다른 단위 체계의 숫자로 변환합니다
+CORREL                   | 두 데이터 집합 사이의 상관 계수를 반환합니다
+COS                      | 숫자의 코사인을 반환합니다
+COSH                     | 숫자의 하이퍼볼릭 코사인을 반환합니다
+COT                      | 숫자의 하이퍼볼릭 코사인을 반환합니다
+COTH                     | 각도의 코탄젠트 값을 반환합니다
+COUNT                    | 인수 목록에서 숫자의 수를 계산합니다
+COUNTA                   | 인수 목록에서 값의 수를 계산합니다
+COUNTBLANK               | 범위 내에서 빈 셀의 수를 계산합니다
+COUNTIF                  | 범위 내에서 주어진 조건에 맞는 셀의 수를 계산합니다
+COUNTIFS                 | 범위 내에서 여러 조건에 맞는 셀의 수를 계산합니다
+COUPDAYBS                | 이자 지급 기간의 시작일부터 결산일까지의 날짜 수를 반환합니다
+COUPDAYS                 | 결산일이 들어 있는 이자 지급 기간의 날짜 수를 반환합니다
+COUPDAYSNC               | 결산일부터 다음 이자 지급일까지의 날짜 수를 반환합니다
+COUPNCD                  | 결산일 다음 첫 번째 이자 지급일을 나타내는 숫자를 반환합니다
+COUPNUM                  | 결산일과 만기일 사이의 이자 지급 횟수를 반환합니다
+COUPPCD                  | 결산일 바로 전 이자 지급일을 나타내는 숫자를 반환합니다
+COVAR                    | 각 데이터 요소 쌍에 대한 편차의 곱의 평균 (공분산) 을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+COVARIANCE.P             | 각 데이터 요소 쌍에 대한 편차의 곱의 평균 (공분산) 을 반환합니다
+COVARIANCE.S             | 두 데이터 집합 사이에서 각 데이터 요소 쌍에 대한 편차의 곱의 평균 (표본 집단 공분산) 을 반환합니다
+CRITBINOM                | 누적 이항 분포가 기준치 이하가 되는 값 중 최소값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+CSC                      | 각도의 코시컨트 값을 반환합니다
+CSCH                     | 각도의 하이퍼볼릭 코시컨트 값을 반환합니다
+CUMIPMT                  | 주어진 기간 중에 납입하는 대출금 이자의 누계액을 반환합니다
+CUMPRINC                 | 주어진 기간 중에 납입하는 대출금 원금의 누계액을 반환합니다
+DATE                     | 특정 날짜의 일련 번호를 반환합니다
+DATEDIF                  | 두 날짜 사이의 일, 월 또는 연도 수를 계산합니다. 이 함수는 경과한 날짜를 계산해야 하는 수식에 유용합니다
+DATEVALUE                | 텍스트 형태의 날짜를 일련 번호로 변환합니다
+DAVERAGE                 | 선택한 데이터베이스 항목의 평균을 반환합니다
+DAY                      | 일련 번호를 주어진 달의 날짜로 변환합니다
+DAYS                     | 두 날짜 사이의 일 수를 반환합니다
+DAYS360                  | 1년을 360일로 하여, 두 날짜 사이의 날짜 수를 계산합니다
+DB                       | 정율법을 사용하여 지정한 기간 동안 자산의 감가상각을 반환합니다
+DCOUNT                   | 데이터베이스에서 숫자가 있는 셀의 개수를 계산합니다
+DCOUNTA                  | 데이터베이스에서 데이터가 들어 있는 셀의 개수를 계산합니다
+DDB                      | 이중 체감법이나 기타 방법을 사용하여 지정된 기간의 감가 상각액을 반환합니다
+DEC2BIN                  | 10진수를 2진수로 변환합니다
+DEC2HEX                  | 10진수를 16진수로 변환합니다
+DEC2OCT                  | 10진수를 8진수로 변환합니다
+DECIMAL                  | 주어진 기수의 텍스트 표현을 10진수로 변환합니다
+DEGREES                  | 라디안 형태의 각도를 도 단위로 바꿉니다
+DELTA                    | 두 값이 같은지 여부를 검사합니다
+DEVSQ                    | 편차의 제곱의 합을 반환합니다
+DGET                     | 데이터베이스에서 찾을 조건에 맞는 레코드가 하나인 경우 그 레코드를 추출합니다
+DISC                     | 유가 증권의 할인율을 반환합니다
+DMAX                     | 선택한 데이터베이스 항목 중에서 최대값을 반환합니다
+DMIN                     | 선택한 데이터베이스 항목 중에서 최소값을 반환합니다
+DOLLARDE                 | 분수로 표시된 금액을 소수로 표시된 금액으로 변환합니다
+DOLLARFR                 | 소수로 표시된 금액을 분수로 표시된 금액으로 변환합니다
+DPRODUCT                 | 데이터베이스에서 조건에 맞는 특정 레코드 필드의 값을 곱합니다
+DSTDEV                   | 데이터베이스 필드 값들로부터 표본 집단의 표준 편차를 구합니다
+DSTDEVP                  | 데이터베이스 필드 값들로부터 모집단의 표준 편차를 계산합니다
+DSUM                     | 데이터베이스에서 조건에 맞는 레코드 필드 열 값들의 합을 구합니다
+DURATION                 | 정기적으로 이자를 지급하는 유가 증권의 연간 듀레이션을 반환합니다
+DVAR                     | 데이터베이스 필드 값들로부터 표본 집단의 분산을 구합니다
+DVARP                    | 데이터베이스 필드 값들로부터 모집단의 분산을 계산합니다
+EDATE                    | 지정한 날짜 전이나 후의 개월 수를 나타내는 날짜의 일련 번호를 반환합니다
+EFFECT                   | 연간 실질 이자율을 반환합니다
+ENCODEURL                | URL로 인코딩된 문자열을 반환합니다. 이 함수는 웹용 Excel 에서 사용할 수 없습니다
+EOMONTH                  | 지정된 달 수 이전이나 이후 달의 마지막 날의 날짜 일련 번호를 반환합니다
+ERF                      | 오차 함수를 반환합니다
+ERF.PRECISE              | 오차 함수를 반환합니다
+ERFC                     | ERF 함수의 여값을 반환합니다
+ERFC.PRECISE             | x에서 무한대까지 적분된 ERF 함수의 여값을 반환합니다
+ERROR.TYPE               | 오류 유형에 해당하는 숫자를 반환합니다
+EUROCONVERT              | 숫자를 유로화로, 유로화에서 유로 회원국 통화로 또는 유로화를 매개 통화로 사용하여 숫자를 현재 유로 회원국 통화에서 다른 유로 회원국 통화로 변환 (3각 변환) 합니다
+EVEN                     | 가장 가까운 짝수로 숫자를 반올림합니다
+EXACT                    | 두 텍스트 값이 동일한지 검사합니다
+EXP                      | e를 주어진 수만큼 거듭제곱한 값을 반환합니다
+EXPAND                   | 지정된 행 및 열 차원으로 배열을 확장하거나 채웁니다
+EXPON.DIST               | 지수 분포값을 반환합니다
+FACT                     | number 의 계승값을 반환합니다
+FACTDOUBLE               | number 의 이중 계승값을 반환합니다
+FALSE                    | 논리값 FALSE를 반환합니다
+F.DIST                   | F 확률 분포값을 반환합니다
+FDIST                    | F 확률 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+F.DIST.RT                | F 확률 분포값을 반환합니다
+FIND                     | 텍스트 값에서 다른 텍스트 값을 찾습니다 (대/소문자 구분)
+FINDB                    | 텍스트 값에서 다른 텍스트 값을 찾습니다 (대/소문자 구분)
+F.INV                    | F 확률 분포의 역함수를 반환합니다
+F.INV.RT                 | F 확률 분포의 역함수를 반환합니다
+FINV                     | F 확률 분포의 역함수를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+FISHER                   | Fisher 변환 값을 반환합니다
+FISHERINV                | Fisher 변환의 역변환 값을 반환합니다
+FIXED                    | 숫자 표시 형식을 고정 소수점을 사용하는 텍스트로 지정합니다
+FLOOR                    | 0에 가까워지도록 수를 내림합니다. Excel 2007  및 Excel 2010 에서 이 함수는 수학 및 삼각법 함수입니다
+FLOOR.MATH               | 가장 가까운 정수 또는 가장 가까운 significance 의 배수로 내림합니다
+FLOOR.PRECISE            | 가장 가까운 정수 또는 가장 가까운 significance 의 배수로 내림합니다. 숫자의 부호에 상관없이 숫자는 내림됩니다
+FORMULATEXT              | 주어진 참조 영역에 있는 수식을 텍스트로 반환합니다
+F.TEST                   | F-검정 결과를 반환합니다
+FTEST                    | F-검정 결과를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+FV                       | 투자의 미래 가치를 반환합니다
+FVSCHEDULE               | 초기 원금에 일련의 복리 이율을 적용했을 때의 예상 금액을 반환합니다
+GAMMA                    | 감마 함수 값을 반환합니다
+GAMMA.DIST               | 감마 분포값을 반환합니다
+GAMMADIST                | 감마 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+GAMMA.INV                | 감마 누적 분포의 역함수 값을 반환합니다
+GAMMAINV                 | 감마 누적 분포의 역함수 값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+GAMMALN                  | 감마 함수 Γ(x) 의 자연 로그값을 반환합니다
+GAMMALN.PRECISE          | 감마 함수 Γ(x) 의 자연 로그값을 반환합니다
+GAUSS                    | 표준 정규 누적 분포값보다 0.5 작은 값을 반환합니다
+GCD                      | 최대 공약수를 반환합니다
+GEOMEAN                  | 기하 평균을 반환합니다
+GESTEP                   | 숫자가 임계값보다 큰지 여부를 검사합니다
+GROWTH                   | 지수 추세를 따라 값을 반환합니다
+HARMEAN                  | 조화 평균을 반환합니다
+HEX2BIN                  | 16진수를 2진수로 변환합니다
+HEX2DEC                  | 16진수를 10진수로 변환합니다
+HEX2OCT                  | 16진수를 8진수로 변환합니다
+HLOOKUP                  | 배열의 첫 행을 찾아 표시된 셀의 값을 반환합니다
+HOUR                     | 일련 번호를 시간으로 변환합니다
+HYPERLINK                | 네트워크 서버, 인트라넷 또는 인터넷에 저장된 문서로 이동할 바로 가기 키를 만듭니다
+HYPGEOM.DIST             | 초기하 분포값을 반환합니다
+HYPGEOMDIST              | 초기하 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+IF                       | 수행할 논리 검사를 지정합니다
+IFERROR                  | 수식이 오류이면 사용자가 지정한 값을 반환하고, 그렇지 않으면 수식 결과를 반환합니다
+IFNA                     | 식이 #N/A 로 계산되면 지정한 값을 반환하고, 그렇지 않으면 식의 결과를 반환합니다
+IFS                      | 하나 이상의 조건이 충족되는지 여부를 확인하고 첫 번째 TRUE 정의에 해당하는 값을 반환합니다
+IMABS                    | 복소수의 절대값을 반환합니다
+IMAGINARY                | 복소수의 허수부 계수를 반환합니다
+IMARGUMENT               | 각도가 라디안으로 표시되는 테타 인수를 반환합니다
+IMCONJUGATE              | 복소수의 켤레 복소수를 반환합니다
+IMCOS                    | 복소수의 코사인을 반환합니다
+IMCOSH                   | 복소수의 하이퍼볼릭 코사인 값을 반환합니다
+IMCOT                    | 복소수의 코탄젠트 값을 반환합니다
+IMCSC                    | 복소수의 코시컨트 값을 반환합니다
+IMCSCH                   | 복소수의 하이퍼볼릭 코시컨트 값을 반환합니다
+IMDIV                    | 두 복소수의 나눗셈 몫을 반환합니다
+IMEXP                    | 복소수의 지수를 반환합니다
+IMLN                     | 복소수의 자연 로그값을 반환합니다
+IMLOG10                  | 복소수의 밑이 10인 로그값을 반환합니다
+IMLOG2                   | 복소수의 밑이 2인 로그값을 반환합니다
+IMPOWER                  | 복소수의 멱을 반환합니다
+IMPRODUCT                | 복소수의 곱을 반환합니다
+IMREAL                   | 복소수의 실수부 계수를 반환합니다
+IMSEC                    | 복소수의 시컨트 값을 반환합니다
+IMSECH                   | 복소수의 하이퍼볼릭 시컨트 값을 반환합니다
+IMSIN                    | 복소수의 사인을 반환합니다
+IMSINH                   | 복소수의 하이퍼볼릭 사인 값을 반환합니다
+IMSQRT                   | 복소수의 제곱근을 반환합니다
+IMSUB                    | 두 복소수 간의 차를 반환합니다
+IMSUM                    | 복소수의 합을 반환합니다
+IMTAN                    | 복소수의 탄젠트 값을 반환합니다
+INDEX                    | 인덱스를 사용하여 참조 영역이나 배열의 값을 선택합니다
+INDIRECT                 | 텍스트 값으로 표시된 참조를 반환합니다
+INT                      | 가장 가까운 정수로 숫자를 내림합니다
+INTRATE                  | 완전 투자한 유가 증권의 이자율을 반환합니다
+IPMT                     | 일정 기간 동안의 투자 금액에 대한 이자 지급액을 반환합니다
+IRR                      | 일련의 현금 흐름에 대한 내부 수익률을 반환합니다
+ISBLANK                  | 값이 비어 있으면 TRUE를 반환합니다
+ISERR                    | 값이 #N/A를 제외한 오류 값이면 TRUE를 반환합니다
+ISERROR                  | 값이 오류 값이면 TRUE를 반환합니다
+ISEVEN                   | 숫자가 짝수이면 TRUE를 반환합니다
+ISFORMULA                | 수식을 포함하는 셀에 대한 참조가 있으면 TRUE를 반환합니다
+ISLOGICAL                | 값이 논리값이면 TRUE를 반환합니다
+ISNA                     | 값이 #N/A 오류 값이면 TRUE를 반환합니다
+ISNONTEXT                | 값이 텍스트가 아니면 TRUE를 반환합니다
+ISNUMBER                 | 값이 숫자이면 TRUE를 반환합니다
+ISODD                    | 숫자가 홀수이면 TRUE를 반환합니다
+ISREF                    | 값이 셀 주소이면 TRUE를 반환합니다
+ISTEXT                   | 값이 텍스트이면 TRUE를 반환합니다
+ISO.CEILING              | 가장 가까운 정수 또는 significance의 배수로 반올림한 숫자를 반환합니다
+ISOWEEKNUM               | 지정된 날짜에 따른 해당 연도의 ISO 주 번호를 반환합니다
+ISPMT                    | 일정 기간 동안의 투자에 대한 이자 지급액을 계산합니다
+KURT                     | 데이터 집합의 첨도를 반환합니다
+LARGE                    | 데이터 집합에서 k번째로 큰 값을 반환합니다
+LCM                      | 최소 공배수를 반환합니다
+LEFT                     | 텍스트 값에서 맨 왼쪽의 문자를 반환합니다
+LEFTB                    | 텍스트 값에서 맨 왼쪽의 문자를 반환합니다
+LEN                      | 텍스트 문자열의 문자 수를 반환합니다
+LENB                     | 텍스트 문자열의 문자 수를 반환합니다
+LN                       | 숫자의 자연 로그를 반환합니다
+LOG                      | 지정한 밑에 대한 로그를 반환합니다
+LOG10                    | 밑이 10인 로그값을 반환합니다
+LOGINV                   | 로그 정규 누적 분포의 역함수 값을 반환합니다
+LOGNORM.DIST             | 로그 정규 누적 분포값을 반환합니다
+LOGNORMDIST              | 로그 정규 누적 분포값을 반환합니다
+LOGNORM.INV              | 로그 정규 누적 분포의 역함수 값을 반환합니다
+LOOKUP                   | 벡터나 배열에서 값을 찾습니다
+LOWER                    | 텍스트를 소문자로 변환합니다
+MATCH                    | 참조 영역이나 배열에서 값을 찾습니다
+MAX                      | 인수 목록에서 최대값을 반환합니다
+MAXA                     | 인수 목록에서 최대값 (숫자, 텍스트, 논리값 포함) 을 반환합니다
+MAXIFS                   | 주어진 조건에 맞는 셀에서 최대값을 반환합니다
+MDETERM                  | 배열의 행렬 식을 반환합니다
+MDURATION                | 가정된 액면가 $100에 대한 유가 증권의 수정된 Macauley 듀레이션을 반환합니다
+MEDIAN                   | 주어진 수들의 중간값을 반환합니다
+MID                      | 지정된 위치에서 시작하여 특정 개수의 문자를 텍스트 문자열에서 반환합니다
+MIDB                     | 지정된 위치에서 시작하여 특정 개수의 문자를 텍스트 문자열에서 반환합니다
+MIN                      | 인수 목록에서 최소값을 반환합니다
+MINIFS                   | 주어진 조건에 맞는 셀에서 최소값을 반환합니다
+MINA                     | 인수 목록에서 최소값 (숫자, 텍스트, 논리값 포함) 을 반환합니다
+MINUTE                   | 일련 번호를 분으로 변환합니다
+MINVERSE                 | 배열의 역행렬을 반환합니다
+MIRR                     | 다른 이율로 형성되는 양의 현금 흐름과 음의 현금 흐름에 대한 내부 수익률을 반환합니다
+MMULT                    | 두 배열의 행렬 곱을 반환합니다
+MOD                      | 나눗셈의 나머지를 반환합니다
+MODE                     | 데이터 집합에서 가장 많이 나오는 값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+MODE.MULT                | 배열이나 데이터 범위에서 가장 자주 발생하는 값의 세로 배열을 반환합니다
+MODE.SNGL                | 데이터 집합에서 가장 많이 나오는 값을 반환합니다
+MONTH                    | 일련 번호를 월로 변환합니다
+MROUND                   | 원하는 배수로 반올림된 수를 반환합니다
+MULTINOMIAL              | 각 계승값의 곱에 대한 합계의 계승값 비율을 반환합니다
+MUNIT                    | 지정된 차원에 대한 단위 행렬을 반환합니다
+N                        | 숫자로 변환된 값을 반환합니다
+NA                       | #N/A 오류 값을 반환합니다
+NEGBINOM.DIST            | 음 이항 분포값을 반환합니다
+NEGBINOMDIST             | 음 이항 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+NETWORKDAYS              | 두 날짜 사이의 전체 작업 일수를 반환합니다
+NETWORKDAYS.INTL         | 주말인 날짜와 해당 날짜 수를 나타내는 매개 변수를 사용하여 두 날짜 사이의 전체 작업일 수를 반환합니다
+NOMINAL                  | 명목상의 연이율을 반환합니다
+NORM.DIST                | 정규 누적 분포값을 반환합니다
+NORMDIST                 | 정규 누적 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+NORMINV                  | 정규 누적 분포의 역함수 값을 반환합니다
+NORM.INV                 | 정규 누적 분포의 역함수 값을 반환합니다 Excel 2007 에서 이 함수는 통계 함수입니다
+NORM.S.DIST              | 표준 정규 누적 분포값을 반환합니다
+NORMSDIST                | 표준 정규 누적 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+NORM.S.INV               | 표준 정규 누적 분포의 역함수 값을 반환합니다
+NORMSINV                 | 표준 정규 누적 분포의 역함수 값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+NOT                      | 인수의 논리 역을 반환합니다
+NOW                      | 현재 날짜 및 시간의 일련 번호를 반환합니다
+NPER                     | 투자의 기간을 반환합니다
+NPV                      | 주기적인 현금 흐름과 할인율을 기준으로 투자의 순 현재 가치를 반환합니다
+OCT2BIN                  | 8진수를 2진수로 변환합니다
+OCT2DEC                  | 8진수를 10진수로 변환합니다
+OCT2HEX                  | 8진수를 16진수로 변환합니다
+ODD                      | 가장 가까운 홀수로 숫자를 반올림합니다
+ODDFPRICE                | 첫 이수 기간이 경상 이수 기간과 다른 유가 증권의 액면가 $100당 가격을 반환합니다
+OR                       | 인수가 하나라도 TRUE이면 TRUE를 반환합니다
+PDURATION                | 투자 금액이 지정된 값에 도달할 때까지 필요한 기간을 반환합니다
+PEARSON                  | 피어슨 곱 모멘트 상관 계수를 반환합니다
+PERCENTILE.EXC           | 이때 k는 경계값을 제외한 0에서 1 사이의 수입니다
+PERCENTILE.INC           | 범위에서 k번째 백분위수를 반환합니다
+PERCENTILE               | 범위에서 k번째 백분위수를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+PERCENTRANK.EXC          | 데이터 집합에서 경계값을 제외한 0에서 1 사이의 백분율 순위를 반환합니다
+PERCENTRANK.INC          | 데이터 집합의 값에 대한 백분율 순위를 반환합니다
+PERCENTRANK              | 데이터 집합의 값에 대한 백분율 순위를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+PERMUT                   | 주어진 개체 수로 만들 수 있는 순열의 수를 반환합니다
+PERMUTATIONA             | 전체 개체에서 선택하여 주어진 개체 수 (반복 포함) 로 만들 수 있는 순열의 수를 반환합니다
+PHI                      | 표준 정규 분포의 밀도 함수 값을 반환합니다
+PI                       | 원주율 (파이) 값을 반환합니다
+PMT                      | 연금의 정기 납입액을 반환합니다
+POISSON.DIST             | 포아송 확률 분포값을 반환합니다
+POISSON                  | 포아송 확률 분포값을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+POWER                    | 밑수를 지정한 만큼 거듭제곱한 결과를 반환합니다
+PPMT                     | 일정 기간 동안의 투자에 대한 원금의 지급액을 반환합니다
+PRICE                    | 정기적으로 이자를 지급하는 유가 증권의 액면가 $100당 가격을 반환합니다
+PRICEDISC                | 할인된 유가 증권의 액면가 $100당 가격을 반환합니다
+PRICEMAT                 | 만기일에 이자를 지급하는 유가 증권의 액면가 $100당 가격을 반환합니다
+PRODUCT                  | 인수를 곱합니다
+PROPER                   | 텍스트 값에 있는 각 단어의 첫째 문자를 대문자로 바꿉니다
+PV                       | 투자의 현재 가치를 반환합니다
+QUARTILE                 | 데이터 집합에서 사분위수를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+QUARTILE.EXC             | 데이터 집합에서 경계값을 제외한 0에서 1 사이의 사분위수를 반환합니다
+QUARTILE.INC             | 데이터 집합에서 사분위수를 반환합니다
+QUOTIENT                 | 나눗셈 몫의 정수 부분을 반환합니다
+RADIANS                  | 도 단위로 표시된 각도를 라디안으로 변환합니다
+RAND                     | 0과 1 사이의 난수를 반환합니다
+RANDBETWEEN              | 지정한 두 수 사이의 난수를 반환합니다
+RANK.EQ                  | 수 목록 내에서 지정한 수의 크기 순위를 반환합니다
+RANK                     | 수 목록 내에서 지정한 수의 크기 순위를 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+RATE                     | 연금의 기간별 이자율을 반환합니다
+RECEIVED                 | 완전 투자 유가 증권에 대해 만기 시 수령하는 금액을 반환합니다
+REPLACE                  | 텍스트 내의 문자를 바꿉니다
+REPLACEB                 | 텍스트 내의 문자를 바꿉니다
+REPT                     | 텍스트를 지정된 횟수만큼 반복합니다
+RIGHT                    | 텍스트 값에서 맨 오른쪽의 문자를 반환합니다
+RIGHTB                   | 텍스트 값에서 맨 오른쪽의 문자를 반환합니다
+ROMAN                    | 아라비아 숫자를 텍스트인 로마 숫자로 변환합니다
+ROUND                    | 수를 지정한 자릿수로 반올림합니다
+ROUNDDOWN                | 0에 가까워지도록 수를 내림합니다
+ROUNDUP                  | 0에서 멀어지도록 수를 올림합니다
+ROW                      | 참조의 행 번호를 반환합니다
+ROWS                     | 참조 영역에 있는 행 수를 반환합니다
+RRI                      | 투자 수익에 해당하는 이자율을 반환합니다
+RSQ                      | 피어슨 곱 모멘트 상관 계수의 제곱을 반환합니다
+SEC                      | 각도의 시컨트 값을 반환합니다
+SECH                     | 각도의 하이퍼볼릭 시컨트 값을 반환합니다
+SECOND                   | 일련 번호를 초로 변환합니다
+SERIESSUM                | 수식에 따라 멱급수의 합을 반환합니다
+SHEET                    | 참조된 시트의 시트 번호를 반환합니다
+SHEETS                   | 참조 영역에 있는 시트 수를 반환합니다
+SIGN                     | 수의 부호값을 반환합니다
+SIN                      | 지정된 각도의 사인을 반환합니다
+SINH                     | 숫자의 하이퍼볼릭 사인을 반환합니다
+SKEW                     | 분포의 왜곡도를 반환합니다
+SKEW.P                   | 왜곡도란 평균에 대한 분포의 비대칭 정도를 나타냅니다
+SLN                      | 한 기간 동안 정액법에 의한 자산의 감가 상각액을 반환합니다
+SLOPE                    | 선형 회귀선의 기울기를 반환합니다
+SMALL                    | 데이터 집합에서 k번째로 작은 값을 반환합니다
+SORT                     | 범위 또는 배열의 내용을 정렬합니다
+SQRTPI                   | (number \* pi) 의 제곱근을 반환합니다
+STANDARDIZE              | 정규화된 값을 반환합니다
+STDEV                    | 표본 집단의 표준 편차를 구합니다
+STDEV.P                  | 모집단의 표준 편차를 계산합니다
+STDEV.S                  | 표본 집단의 표준 편차를 구합니다
+STDEVA                   | 표본 집단의 표준 편차 (숫자, 텍스트, 논리값 포함)를 구합니다
+STDEVP                   | 모집단의 표준 편차를 계산합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+STDEVPA                  | 모집단의 표준 편차 (숫자, 텍스트, 논리값 포함) 를 계산합니다
+STEYX                    | 회귀분석에 의해 예측한 y값의 표준 오차를 각 x값에 대하여 반환합니다
+SUBSTITUTE               | 텍스트 문자열에서 기존 텍스트를 새 텍스트로 바꿉니다
+SUBTOTAL                 | 목록이나 데이터베이스의 부분합을 반환합니다
+SUM                      | 인수의 합을 구합니다
+SUMIF                    | 주어진 조건에 의해 지정된 셀들의 합을 구합니다
+SUMIFS                   | 범위 내에서 여러 조건에 맞는 셀들의 합을 구합니다
+SUMPRODUCT               | 배열의 대응되는 구성 요소끼리 곱해서 그 값을 반환합니다
+SUMSQ                    | 인수의 제곱의 합을 반환합니다
+SUMX2MY2                 | 두 배열에서 대응값의 제곱을 구한 다음 그 차이의 합을 반환합니다
+SUMX2PY2                 | 두 배열에서 대응값의 제곱을 구한 다음 그 합의 합을 반환합니다
+SUMXMY2                  | 두 배열에서 대응값의 차이를 구한 다음 그 제곱의 합을 반환합니다
+SWITCH                   | 값의 목록에 대한 식을 계산하고 첫 번째 일치하는 값에 해당하는 결과를 반환합니다. 일치하는 항목이 없는 경우 선택적 기본값이 반환될 수 있습니다
+SYD                      | 지정된 감가 상각 기간 중 자산의 감가 상각액을 연수 합계법으로 반환합니다
+T                        | 인수를 텍스트로 변환합니다
+TAN                      | 숫자의 탄젠트를 반환합니다
+TANH                     | 숫자의 하이퍼볼릭 탄젠트를 반환합니다
+TBILLEQ                  | 국채에 대해 채권에 해당하는 수익률을 반환합니다
+TBILLPRICE               | 국채에 대해 액면가 $100 당 가격을 반환합니다
+TBILLYIELD               | 국채의 수익률을 반환합니다
+T.DIST                   | 스튜던트 t-분포의 백분율 (확률값) 을 반환합니다
+T.DIST.2T                | 스튜던트 t-분포의 백분율 (확률값) 을 반환합니다
+T.DIST.RT                | 스튜던트 t-분포값을 반환합니다
+TDIST                    | 스튜던트 t-분포값을 반환합니다
+TEXTJOIN                 | 여러 범위 및/또는 문자열의 텍스트 결합
+TIME                     | 특정 시간의 일련 번호를 반환합니다
+TIMEVALUE                | 텍스트 형태의 시간을 일련 번호로 변환합니다
+T.INV                    | 스튜던트 t-분포의 t-값을 확률과 자유도에 대한 함수로 반환합니다
+T.INV.2T                 | 스튜던트 t-분포의 역함수 값을 반환합니다
+TINV                     | 학생 t-분포의 역함수 값을 반환합니다
+TODAY                    | 오늘 날짜의 일련 번호를 반환합니다
+TRANSPOSE                | 배열의 행과 열을 바꿉니다
+TREND                    | 선형 추세에 따라 값을 반환합니다
+TRIM                     | 텍스트에서 공백을 제거합니다
+TRIMMEAN                 | 데이터 집합의 양 끝값을 제외하고 평균을 구합니다
+TRUE                     | 논리값 TRUE를 반환합니다
+TRUNC                    | 수의 소수점 이하를 버립니다
+T.TEST                   | 스튜던트 t-검정에 근거한 확률을 반환합니다
+TTEST                    | 스튜던트 t-검정에 근거한 확률을 반환합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+TYPE                     | 값의 데이터 형식을 나타내는 숫자를 반환합니다
+UNICHAR                  | 주어진 숫자 값이 참조하는 유니코드 문자를 반환합니다
+UNICODE                  | 텍스트의 첫 문자에 해당하는 숫자 (코드 포인트) 를 반환합니다
+UNIQUE                   | 목록 또는 범위에서 고유 값의 목록을 반환합니다
+UPPER                    | 텍스트를 대문자로 변환합니다
+VAR                      | 표본 집단의 분산을 구합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+VAR.P                    | 모집단의 분산을 계산합니다
+VAR.S                    | 표본 집단의 분산을 구합니다
+VARA                     | 표본 집합의 분산(숫자, 텍스트, 논리값 포함)을 구합니다
+VARP                     | 모집단의 분산을 계산합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+VARPA                    | 모집단의 분산 (숫자, 텍스트, 논리값 포함) 을 계산합니다
+VDB                      | 일정 또는 일부 기간 동안 체감법으로 자산의 감가 상각액을 반환합니다
+VLOOKUP                  | 배열의 첫째 열을 찾아 행 쪽으로 이동하여 셀 값을 반환합니다
+WEEKDAY                  | 일련 번호를 요일로 변환합니다
+WEEKNUM                  | 일련 번호를 해당 주가 일 년 중 몇 번째 주인지 나타내는 숫자로 변환합니다
+WEIBULL                  | 모집단의 분산 (숫자, 텍스트, 논리값 포함) 을 계산합니다. Excel 2007 에서 이 함수는 통계 함수입니다
+WEIBULL.DIST             | 와이블 분포값을 반환합니다
+WORKDAY                  | 특정 일 (시작 날짜) 의 전이나 후의 날짜 수에서 주말이나 휴일을 제외한 날짜 수, 즉 평일 수를 반환합니다
+WORKDAY.INTL             | 주말인 날짜와 해당 날짜 수를 나타내는 매개 변수를 사용하여 지정된 작업 일수 이전 또는 이후 날짜의 일련 번호를 반환합니다
+XIRR                     | 비정기적일 수도 있는 현금 흐름의 내부 회수율을 반환합니다
+XLOOKUP                  | 범위 또는 배열을 검색하고 검색된 첫 번째 일치 항목에 해당하는 항목을 반환합니다. 일치 항목이 없는 경우 XLOOKUP 함수는 가장 가까운 (대략적인) 일치 항목을 반환할 수 있습니다
+XNPV                     | 비정기적일 수도 있는 현금 흐름의 순 현재 가치를 반환합니다
+XOR                      | 모든 인수의 논리 배타적 OR을 반환합니다
+YEAR                     | 일련 번호를 연도로 변환합니다
+YEARFRAC                 | start_date와 end_date 사이의 날짜 수가 일 년 중 차지하는 비율을 반환합니다
+YIELD                    | 정기적으로 이자를 지급하는 유가 증권의 수익률을 반환합니다
+YIELDDISC                | 국채와 같이 할인된 유가 증권의 연 수익률을 반환합니다
+YIELDMAT                 | 만기 시 이자를 지급하는 유가 증권의 연 수익률을 반환합니다
+Z.TEST                   | z-test 의 편측 확률값을 추출합니다
+ZTEST                    | z-test 의 편측 확률값을 추출합니다. Excel 2007 에서 이 함수는 통계 함수입니다
