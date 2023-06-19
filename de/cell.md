@@ -714,441 +714,442 @@ CalcCellValue bietet eine Funktion zum Abrufen des berechneten Zellenwerts. Dies
 
 Unterstützte Formeln:
 
-```text
-ABS
-ACCRINT
-ACCRINTM
-ACOS
-ACOSH
-ACOT
-ACOTH
-ADDRESS
-AGGREGATE
-AMORDEGRC
-AMORLINC
-AND
-ARABIC
-ASIN
-ASINH
-ATAN
-ATAN2
-ATANH
-AVEDEV
-AVERAGE
-AVERAGEA
-AVERAGEIF
-AVERAGEIFS
-BASE
-BESSELI
-BESSELJ
-BESSELK
-BESSELY
-BETADIST
-BETA.DIST
-BETAINV
-BETA.INV
-BIN2DEC
-BIN2HEX
-BIN2OCT
-BINOMDIST
-BINOM.DIST
-BINOM.DIST.RANGE
-BINOM.INV
-BITAND
-BITLSHIFT
-BITOR
-BITRSHIFT
-BITXOR
-CEILING
-CEILING.MATH
-CEILING.PRECISE
-CHAR
-CHIDIST
-CHIINV
-CHITEST
-CHISQ.DIST
-CHISQ.DIST.RT
-CHISQ.INV
-CHISQ.INV.RT
-CHISQ.TEST
-CHOOSE
-CLEAN
-CODE
-COLUMN
-COLUMNS
-COMBIN
-COMBINA
-COMPLEX
-CONCAT
-CONCATENATE
-CONFIDENCE
-CONFIDENCE.NORM
-CONFIDENCE.T
-CONVERT
-CORREL
-COS
-COSH
-COT
-COTH
-COUNT
-COUNTA
-COUNTBLANK
-COUNTIF
-COUNTIFS
-COUPDAYBS
-COUPDAYS
-COUPDAYSNC
-COUPNCD
-COUPNUM
-COUPPCD
-COVAR
-COVARIANCE.P
-COVARIANCE.S
-CRITBINOM
-CSC
-CSCH
-CUMIPMT
-CUMPRINC
-DATE
-DATEDIF
-DATEVALUE
-DAVERAGE
-DAY
-DAYS
-DAYS360
-DB
-DCOUNT
-DCOUNTA
-DDB
-DEC2BIN
-DEC2HEX
-DEC2OCT
-DECIMAL
-DEGREES
-DELTA
-DEVSQ
-DGET
-DISC
-DMAX
-DMIN
-DOLLARDE
-DOLLARFR
-DPRODUCT
-DSTDEV
-DSTDEVP
-DSUM
-DURATION
-DVAR
-DVARP
-EFFECT
-EDATE
-ENCODEURL
-EOMONTH
-ERF
-ERF.PRECISE
-ERFC
-ERFC.PRECISE
-ERROR.TYPE
-EUROCONVERT
-EVEN
-EXACT
-EXP
-EXPON.DIST
-EXPONDIST
-FACT
-FACTDOUBLE
-FALSE
-F.DIST
-F.DIST.RT
-FDIST
-FIND
-FINDB
-F.INV
-F.INV.RT
-FINV
-FISHER
-FISHERINV
-FIXED
-FLOOR
-FLOOR.MATH
-FLOOR.PRECISE
-FORMULATEXT
-F.TEST
-FTEST
-FV
-FVSCHEDULE
-GAMMA
-GAMMA.DIST
-GAMMADIST
-GAMMA.INV
-GAMMAINV
-GAMMALN
-GAMMALN.PRECISE
-GAUSS
-GCD
-GEOMEAN
-GESTEP
-GROWTH
-HARMEAN
-HEX2BIN
-HEX2DEC
-HEX2OCT
-HLOOKUP
-HOUR
-HYPERLINK
-HYPGEOM.DIST
-HYPGEOMDIST
-IF
-IFERROR
-IFNA
-IFS
-IMABS
-IMAGINARY
-IMARGUMENT
-IMCONJUGATE
-IMCOS
-IMCOSH
-IMCOT
-IMCSC
-IMCSCH
-IMDIV
-IMEXP
-IMLN
-IMLOG10
-IMLOG2
-IMPOWER
-IMPRODUCT
-IMREAL
-IMSEC
-IMSECH
-IMSIN
-IMSINH
-IMSQRT
-IMSUB
-IMSUM
-IMTAN
-INDEX
-INDIRECT
-INT
-INTRATE
-IPMT
-IRR
-ISBLANK
-ISERR
-ISERROR
-ISEVEN
-ISFORMULA
-ISLOGICAL
-ISNA
-ISNONTEXT
-ISNUMBER
-ISODD
-ISREF
-ISTEXT
-ISO.CEILING
-ISOWEEKNUM
-ISPMT
-KURT
-LARGE
-LCM
-LEFT
-LEFTB
-LEN
-LENB
-LN
-LOG
-LOG10
-LOGINV
-LOGNORM.DIST
-LOGNORMDIST
-LOGNORM.INV
-LOOKUP
-LOWER
-MATCH
-MAX
-MAXA
-MAXIFS
-MDETERM
-MDURATION
-MEDIAN
-MID
-MIDB
-MIN
-MINA
-MINIFS
-MINUTE
-MINVERSE
-MIRR
-MMULT
-MOD
-MODE
-MODE.MULT
-MODE.SNGL
-MONTH
-MROUND
-MULTINOMIAL
-MUNIT
-N
-NA
-NEGBINOM.DIST
-NEGBINOMDIST
-NETWORKDAYS
-NETWORKDAYS.INTL
-NOMINAL
-NORM.DIST
-NORMDIST
-NORM.INV
-NORMINV
-NORM.S.DIST
-NORMSDIST
-NORM.S.INV
-NORMSINV
-NOT
-NOW
-NPER
-NPV
-OCT2BIN
-OCT2DEC
-OCT2HEX
-ODD
-ODDFPRICE
-OR
-PDURATION
-PEARSON
-PERCENTILE.EXC
-PERCENTILE.INC
-PERCENTILE
-PERCENTRANK.EXC
-PERCENTRANK.INC
-PERCENTRANK
-PERMUT
-PERMUTATIONA
-PHI
-PI
-PMT
-POISSON.DIST
-POISSON
-POWER
-PPMT
-PRICE
-PRICEDISC
-PRICEMAT
-PRODUCT
-PROPER
-PV
-QUARTILE
-QUARTILE.EXC
-QUARTILE.INC
-QUOTIENT
-RADIANS
-RAND
-RANDBETWEEN
-RANK
-RANK.EQ
-RATE
-RECEIVED
-REPLACE
-REPLACEB
-REPT
-RIGHT
-RIGHTB
-ROMAN
-ROUND
-ROUNDDOWN
-ROUNDUP
-ROW
-ROWS
-RRI
-RSQ
-SEC
-SECH
-SECOND
-SERIESSUM
-SHEET
-SHEETS
-SIGN
-SIN
-SINH
-SKEW
-SKEW.P
-SLN
-SLOPE
-SMALL
-SQRT
-SQRTPI
-STANDARDIZE
-STDEV
-STDEV.P
-STDEV.S
-STDEVA
-STDEVP
-STDEVPA
-STEYX
-SUBSTITUTE
-SUBTOTAL
-SUM
-SUMIF
-SUMIFS
-SUMPRODUCT
-SUMSQ
-SUMX2MY2
-SUMX2PY2
-SUMXMY2
-SWITCH
-SYD
-T
-TAN
-TANH
-TBILLEQ
-TBILLPRICE
-TBILLYIELD
-T.DIST
-T.DIST.2T
-T.DIST.RT
-TDIST
-TEXTJOIN
-TIME
-TIMEVALUE
-T.INV
-T.INV.2T
-TINV
-TODAY
-TRANSPOSE
-TREND
-TRIM
-TRIMMEAN
-TRUE
-TRUNC
-T.TEST
-TTEST
-TYPE
-UNICHAR
-UNICODE
-UPPER
-VALUE
-VAR
-VAR.P
-VAR.S
-VARA
-VARP
-VARPA
-VDB
-VLOOKUP
-WEEKDAY
-WEEKNUM
-WEIBULL
-WEIBULL.DIST
-WORKDAY
-WORKDAY.INTL
-XIRR
-XLOOKUP
-XNPV
-XOR
-YEAR
-YEARFRAC
-YIELD
-YIELDDISC
-YIELDMAT
-Z.TEST
-ZTEST
-```
+Funktionsname | Typ und Beschreibung
+---|---
+ABS                       | Gibt den absoluten Wert einer Zahl zurück
+AUFGELZINS                | Gibt die aufgelaufenen Zinsen für ein Wertpapier zurück, das regelmäßig Zinsen abwirft
+AUFGELZINSF               | Gibt die aufgelaufenen Zinsen für ein Wertpapier zurück, das bei Fälligkeit Zinsen abwirft
+ARCCOS                    | Gibt den Arkuskosinus einer Zahl zurück
+ARCCOSHYP                 | Gibt den umgekehrten hyperbolischen Kosinus einer Zahl zurück
+ARCCOT                    | Gibt den Arkuskotangens einer Zahl zurück
+ARCCOTHYP                 | Gibt den hyperbolischen Arkuskotangens einer Zahl zurück
+AGGREGAT                  | Gibt ein Aggregat in einer Liste oder Datenbank zurück
+ADRESS                    | Gibt einen Bezug auf eine einzelne Zelle in einem Tabellenblatt als Text zurück
+AMORDEGRK                 | Gibt die Abschreibung für die einzelnen Abschreibungszeiträume mithilfe eines Abschreibungskoeffizienten zurück
+AMORLINEARK               | Gibt die Abschreibung für die einzelnen Abschreibungszeiträume zurück
+UND                       | Gibt WAHR zurück, wenn alle Argumente WAHR sind
+ARABISCH                  | Konvertiert eine römische Zahl in eine arabische (als Zahl)
+ARCSIN                    | Gibt den Arkussinus einer Zahl zurück
+ARCSINHYP                 | Gibt den umgekehrten hyperbolischen Sinus einer Zahl zurück
+ARCTAN                    | Gibt den Arkustangens einer Zahl zurück
+ARCTAN2                   | Gibt den Arkustangens von x- und y-Koordinaten zurück
+ARCTANHYP                 | Gibt den umgekehrten hyperbolischen Tangens einer Zahl zurück
+MITTELABW                 | Gibt die durchschnittliche absolute Abweichung von Datenpunkten von ihrem Mittelwert zurück
+MITTELWERT                | Gibt den Mittelwert der Argumente zurück
+MITTELWERTA               | Gibt den Mittelwert der Argumente zurück, die Zahlen, Text und Wahrheitswerte enthalten können
+MITTELWERTWENN            | Gibt den Mittelwert (arithmetisches Mittel) aller Zellen in einem Bereich zurück, die ein bestimmtes Kriterium erfüllen
+MITTELWERTWENNS           | Gibt den Mittelwert (arithmetisches Mittel) aller Zellen zurück, die mehrere Kriterien erfüllen
+BASIS                     | Konvertiert eine Zahl in eine Textdarstellung mit der angegebenen Basis
+BESSELI                   | Gibt die modifizierte Bessel-Funktion ln(x) zurück
+BESSELJ                   | Gibt die Bessel-Funktion Jn(x) zurück
+BESSELK                   | Gibt die modifizierte Bessel-Funktion Kn(x) zurück
+BESSELY                   | Gibt die Bessel-Funktion Yn(x) zurück
+BETADIST                  | Gibt die kumulierte Beta-Verteilungsfunktion zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+BETA.VERT                 | Gibt die kumulierte Beta-Verteilungsfunktion zurück
+BETAINV                   | Gibt die Umkehrung der kumulierten Verteilungsfunktion für eine angegebene Beta-Verteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+BETA.INV                  | Gibt die Umkehrung der kumulierten Verteilungsfunktion für eine angegebene Beta-Verteilung zurück
+BININDEZ                  | Konvertiert eine binäre Zahl in eine Dezimalzahl
+BININHEX                  | Konvertiert eine binäre Zahl in eine Hexadezimalzahl
+BININOKT                  | Konvertiert eine binäre Zahl in eine oktale Zahl
+BINOMDIST                 | Gibt Wahrscheinlichkeiten einer binomialverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+BINOM.VERT                | Gibt Wahrscheinlichkeiten einer binomialverteilten Zufallsvariablen zurück
+BINOM.VERT.BEREICH        | Gibt die Erfolgswahrscheinlichkeit eines Versuchsergebnisses als Binomialverteilung zurück
+BINOM.INV                 | Gibt den kleinsten Wert zurück, für den die kumulierten Wahrscheinlichkeiten der Binomialverteilung kleiner oder gleich einer Grenzwahrscheinlichkeit sind
+BITUND                    | Gibt ein bitweises UND zweier Zahlen zurück
+BITLVERSCHIEB             | Gibt einen Zahlenwert um eine angegebene Anzahl von Bits nach links verschoben zurück
+BITODER                   | Gibt ein bitweises ODER von zwei Zahlen zurück
+BITRVERSCHIEB             | Gibt einen Zahlenwert um eine angegebene Anzahl Bits nach rechts verschoben zurück
+BITXODER                  | Gibt ein bitweises exklusives ODER zweier Zahlen zurück
+CEILING                   | Rundet eine Zahl auf die nächste Ganzzahl oder auf das kleinste Vielfache des angegebenen Schritts
+OBERGRENZE.MATHEMATIK     | Rundet eine Zahl auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts auf
+OBERGRENZE.GENAU          | Rundet eine Zahl auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts. Die Zahl wird Unabhängig vom ihrem Vorzeichen aufgerundet
+ZEICHEN                   | Gibt das durch die Codenummer angegebene Zeichen zurück
+CHIDIST                   | Gibt Werte der Verteilungsfunktion (1-Alpha) einer Chi-Quadrat-verteilten Zufallsgröße zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+CHIINV                    | Gibt Perzentile der Verteilungsfunktion einer Chi-Quadrat-verteilten Zufallsgröße zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+CHITEST                   | Gibt die Teststatistik eines Unabhängigkeitstests zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+CHIQU.VERT                | Gibt die kumulative Beta-Wahrscheinlichkeitsdichtefunktion zurück
+CHIQU.VERT.RE             | Gibt Werte der Verteilungsfunktion (1-Alpha) einer Chi-Quadrat-verteilten Zufallsgröße zurück
+CHIQU.INV                 | Gibt die kumulative Beta-Wahrscheinlichkeitsdichtefunktion zurück
+CHIQU.INV.RE              | Gibt Perzentile der Verteilungsfunktion einer Chi-Quadrat-verteilten Zufallsgröße zurück
+CHIQU.TEST                | Gibt die Teststatistik eines Unabhängigkeitstests zurück
+WAHL                      | Wählt einen Wert aus einer Liste mit Werten aus
+SÄUBERN                   | Entfernt alle nicht druckbaren Zeichen aus Text
+CODE                      | Gibt einen numerischen Code für das erste Zeichen in einer Textzeichenfolge zurück
+COLUMN                    | Gibt die Spaltennummer eines Bezugs zurück
+SPALTEN                   | Gibt die Anzahl von Spalten in einem Bezug zurück
+KOMBINATIONEN             | Gibt die Anzahl der Kombinationen für eine bestimmte Anzahl von Objekten zurück
+KOMBINATIONEN2            | Gibt die Anzahl der Kombinationen mit Wiederholung für eine angegebene Anzahl von Elementen zurück
+KOMPLEXE                  | Konvertiert den Realteil und Imaginärteil in eine komplexe Zahl
+TEXTKETTE                 | Kombiniert den Text aus mehreren Bereichen und/oder Zeichenfolgen, gibt aber keine Trennzeichen oder IgnoreEmpty-Argumente an
+VERKETTEN                 | Verknüpft mehrere Textelemente zu einem Textelement
+KONFIDENZ                 | Gibt das Konfidenzintervall für den Erwartungswert einer Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+KONFIDENZ.NORM            | Gibt das Konfidenzintervall für den Erwartungswert einer Zufallsvariablen zurück
+KONFIDENZ.T               | Gibt das Konfidenzintervall für den Erwartungswert einer (Student) t-verteilten Zufallsvariablen zurück
+UMWANDELN                 | Wandelt eine Zahl von einem Maßsystem in ein anderes um
+CORREL                    | Gibt den Korrelationskoeffizienten zweier Reihen von Merkmalsausprägungen zurück
+COS                       | Gibt den Kosinus einer Zahl zurück
+COSHYP                    | Gibt den hyperbolischen Kosinus einer Zahl zurück
+COT                       | Gibt den hyperbolischen Kosinus einer Zahl zurück
+COTHYP                    | Gibt den Kotangens eines Winkels zurück
+ANZAHL                    | Zählt, wie viele Zahlen in der Liste mit Argumenten enthalten sind
+ANZAHL2                   | Zählt, wie viele Werte in der Liste mit Argumenten enthalten sind
+ANZAHLLEEREZELLEN         | Zählt die leeren Zellen in einem Bereich
+ZÄHLENWENN                | Ermittelt die Anzahl der Zellen in einem Bereich, die den angegebenen Kriterien entsprechen
+ZÄHLENWENNS               | Ermittelt die Anzahl der Zellen in einem Bereich, die mehreren Kriterien entsprechen
+ZINSTERMTAGVA             | Gibt die Anzahl der Tage vom Anfang des Zinstermins bis zum Abrechnungstermin zurück
+ZINSTERMTAGE              | Gibt die Anzahl der Tage der Zinsperiode zurück, die das Abrechnungsdatum einschließt
+ZINSTERMTAGNZ             | Gibt die Anzahl der Tage vom Abrechnungstermin bis zum nächsten Zinstermin zurück
+ZINSTERMNZ                | Gibt den nächsten Zinstermin nach dem Abrechnungstermin zurück
+ZINSTERMZAHL              | Gibt die Anzahl der Zinstermine zwischen Abrechnungs- und Fälligkeitsdatum zurück
+ZINSTERMVZ                | Gibt den letzten Zinstermin vor dem Abrechnungstermin zurück
+COVAR                     | Gibt die Kovarianz zurück, den Mittelwert der für alle Datenpunktpaare gebildeten Produkte der Abweichungen In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+COVARIANCE.P              | Gibt die Kovarianz zurück, den Mittelwert der für alle Datenpunktpaare gebildeten Produkte der Abweichungen
+COVARIANCE.S              | Gibt die Kovarianz einer Stichprobe zurück, d. h. den Mittelwert der für alle Datenpunktpaare gebildeten Produkte der Abweichungen
+CRITBINOM                 | Gibt den kleinsten Wert zurück, für den die kumulierten Wahrscheinlichkeiten der Binomialverteilung kleiner oder gleich einer Grenzwahrscheinlichkeit sind. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+COSEC                     | Gibt den Kosekans eines Winkels zurück
+COSECHYP                  | Gibt den hyperbolischen Kosekans eines Winkels zurück
+KUMZINSZ                  | Berechnet die kumulierten Zinsen, die zwischen zwei Perioden zu zahlen sind
+KUMKAPITAL                | Gibt die aufgelaufene Tilgung eines Darlehens zurück, die zwischen zwei Perioden zu zahlen ist
+DATUM                     | Gibt die fortlaufende Zahl eines bestimmten Datums zurück
+DATEDIF                   | Berechnet die Anzahl der Tage, Monate oder Jahre zwischen zwei Datumsangaben. Diese Funktion ist in Formeln nützlich, in denen Sie ein Alter berechnen müssen
+DATWERT                   | Wandelt ein Datum in Form von Text in eine fortlaufende Zahl um
+DBMITTELWERT              | Gibt den Mittelwert der ausgewählten Datenbankeinträge zurück
+TAG                       | Wandelt eine fortlaufende Zahl in den Tag des Monats um
+TAGE                      | Gibt die Anzahl der Tage zwischen zwei Datumswerten zurück
+TAGE360                   | Berechnet die Anzahl der Tage zwischen zwei Datumsangaben ausgehend von einem Jahr mit 360 Tagen
+GDA2                      | Gibt die geometrisch-degressive Abschreibung eines Vermögenswerts für eine bestimmte Periode zurück
+DBANZAHL                  | Zählt die Zellen mit Zahlen in einer Datenbank
+DBANZAHL2                 | Zählt nicht leere Zellen in einer Datenbank
+GDA                       | Gibt die degressive Doppelratenabschreibung eines Vermögenswerts oder eine mit einer anderen angegebenen Methode berechnete Abschreibung für eine bestimmte Periode zurück
+DEZINBIN                  | Konvertiert eine Dezimalzahl in eine binäre Zahl
+DEZINHEX                  | Konvertiert eine dezimale Zahl in eine Hexadezimalzahl
+DEZINOKT                  | Konvertiert eine Dezimalzahl in eine Oktalzahl
+DEZIMAL                   | Konvertiert eine Textdarstellung einer Zahl mit einer angegebenen Basis in eine Dezimalzahl
+GRAD                      | Wandelt Bogenmaß (Radiant) in Grad um
+DELTA                     | Überprüft, ob zwei Werte gleich sind
+SUMQUADABW                | Gibt die Summe der quadrierten Abweichungen zurück
+DBAUSZUG                  | Extrahiert aus einer Datenbank einen einzelnen Datensatz, der den angegebenen Kriterien entspricht
+DISAGIO                   | Gibt den Abschlag (Disagio) eines Wertpapiers zurück
+DBMAX                     | Gibt den größten Wert aus ausgewählten Datenbankeinträgen zurück
+DBMIN                     | Gibt den kleinsten Wert aus ausgewählten Datenbankeinträgen zurück
+NOTIERUNGDEZ              | Konvertiert eine Notierung, die als Dezimalbruch ausgedrückt wurde, in eine Dezimalzahl
+NOTIERUNGBRU              | Konvertiert eine Notierung in dezimaler Schreibweise in einen gemischten Dezimalbruch
+DBPRODUKT                 | Multipliziert die Werte in einem bestimmten Feld von Datensätzen, die den Kriterien in einer Datenbank entsprechen
+WEGLASSEN                 | Schließt eine angegebene Anzahl von Zeilen oder Spalten vom Anfang oder Ende einer Matrix aus
+DBSTDABW                  | Schätzt die Standardabweichung basierend auf einer Stichprobe aus ausgewählten Datenbankeinträgen
+DBSTDABWN                 | Berechnet die Standardabweichung basierend auf der Grundgesamtheit ausgewählter Datenbankeinträge
+DBSUMME                   | Addiert die Zahlen in der Feldspalte von Datensätzen in der Datenbank, die den Kriterien entsprechen
+DURATION                  | Gibt die jährliche Duration eines Wertpapiers mit periodischen Zinszahlungen zurück
+DBVARIANZ                 | Schätzt die Varianz basierend auf einer Stichprobe aus ausgewählten Datenbankeinträgen
+DBVARIANZEN               | Berechnet die Varianz basierend auf der Grundgesamtheit ausgewählter Datenbankeinträge
+EFFEKTIV                  | Gibt die jährliche Effektivverzinsung zurück
+ENCODEURL                 | Gibt eine URL-codierte Zeichenfolge zurück Diese Funktion steht in Excel für das Web nicht zur Verfügung
+MONATSENDE                | Gibt die fortlaufende Zahl des letzten Tags des Monats vor oder nach einer bestimmten Anzahl von Monaten zurück
+GAUSSFEHLER               | Gibt die Fehlerfunktion zurück
+GAUSSFEHLER.GENAU         | Gibt die Fehlerfunktion zurück
+GAUSSFKOMPL               | Gibt die komplementäre Fehlerfunktion zurück
+GAUSSFKOMPL.GENAU         | Gibt die komplementäre Fehlerfunktion zwischen X und Unendlich integriert zurück
+FEHLER.TYP                | Gibt eine Zahl zurück, die einem Fehlertyp entspricht
+EUROCONVERT               | Wandelt eine Zahl in Euro oder von Euro in die Währung eines Mitgliedsstaats oder von der Währung eines Euro-Mitgliedsstaats in die Währung eines anderen Mitgliedsstaats um, indem der Euro als Zwischenwert verwendet wird (Triangulieren)
+GERADE                    | Rundet eine Zahl auf die nächste gerade ganze Zahl auf
+IDENTISCH                 | Überprüft, ob zwei Textwerte identisch sind
+EXP                       | Potenziert die Basis e mit der angegebenen Zahl
+EXPON.VERT                | Gibt die exponentielle Verteilung zurück
+EXPONDIST                 | Gibt die exponentielle Verteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+FAKULTÄT                  | Gibt die Fakultät zu einer Zahl zurück
+ZWEIFAKULTÄT              | Gibt die Fakultät zu einer Zahl mit der Schrittlänge 2 zurück
+FALSCH                    | Gibt den Wahrheitswert FALSCH zurück
+F.VERT                    | Gibt die F-Wahrscheinlichkeitsverteilung zurück
+FDIST                     | Gibt die F-Wahrscheinlichkeitsverteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+F.VERT.RE                 | Gibt die F-Wahrscheinlichkeitsverteilung zurück
+FINDEN                    | Sucht einen Textwert in einem anderen (Groß-/Kleinschreibung wird berücksichtigt)
+FINDENB                   | Sucht einen Textwert in einem anderen (Groß-/Kleinschreibung wird berücksichtigt)
+F.INV                     | Gibt Perzentile der F-Verteilung zurück
+F.INV.RE                  | Gibt Perzentile der F-Verteilung zurück
+FINV                      | Gibt Perzentile der F-Verteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+FISHER                    | Gibt die Fisher-Transformation zurück
+FISHERINV                 | Gibt die Umkehrung der Fisher-Transformation zurück
+FEST                      | Formatiert eine Zahl als Text mit einer festen Anzahl von Dezimalstellen
+UNTERGRENZE               | Rundet eine Zahl in Richtung Null ab In Excel 2007 und Excel 2010 ist dies eine Funktion aus dem Bereich Mathematik und Trigonometrie
+UNTERGRENZE.MATHEMATIK    | Rundet eine Zahl auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts ab
+UNTERGRENZE.GENAU         | Rundet eine Zahl auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts. Die Zahl wird Unabhängig vom ihrem Vorzeichen aufgerundet
+FORMULATEXT               | Gibt die Formel am angegebenen Bezug als Text zurück
+F.TEST                    | Gibt die Teststatistik eines F-Tests zurück
+FTEST                     | Gibt die Teststatistik eines F-Tests zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+ZW                        | Gibt den zukünftigen Wert einer Investition zurück
+ZW2                       | Gibt den aufgezinsten Wert des Anfangskapitals für eine Reihe periodisch unterschiedlicher Zinssätze zurück
+GAMMA                     | Gibt den Wert der Gamma-Funktion zurück
+GAMMA.VERT                | Gibt Wahrscheinlichkeiten einer gammaverteilten Zufallsvariablen zurück
+GAMMADIST                 | Gibt Wahrscheinlichkeiten einer gammaverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+GAMMA.INV                 | Gibt den Kehrwert der kumulierten Gamma-Verteilung zurück
+GAMMAINV                  | Gibt den Kehrwert der kumulierten Gamma-Verteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+GAMMALN                   | Gibt den natürlichen Logarithmus der Gamma-Funktion zurück, Γ(x)
+GAMMALN.GENAU             | Gibt den natürlichen Logarithmus der Gamma-Funktion zurück, Γ(x)
+GAUSS                     | Gibt 0,5 weniger als die kumulierte Normalverteilung zurück
+GGT                       | Gibt den größten gemeinsamen Teiler zurück
+GEOMITTEL                 | Gibt das geometrische Mittel zurück
+GGANZZAHL                 | Überprüft, ob eine Zahl größer als ein gegebener Schwellenwert ist
+GROWTH                    | Gibt Werte zurück, die sich aus einem exponentiellen Trend ergeben
+HARMITTEL                 | Gibt das harmonische Mittel zurück
+HEXINBIN                  | Wandelt eine hexadezimale Zahl in eine binäre Zahl um
+HEXINDEZ                  | Wandelt eine hexadezimale Zahl in eine Dezimalzahl um
+HEXINOKT                  | Wandelt eine hexadezimale Zahl in eine Oktalzahl um
+WVERWEIS                  | Sucht in der obersten Zeile einer Matrix und gibt den Wert der angegebenen Zelle zurück
+STUNDE                    | Wandelt eine fortlaufende Zahl in eine Stunde um
+HSTAPELN                  | Fügt Matrizen horizontal und nacheinander an, um eine größere Matrix zurückzugeben
+HYPERLINK                 | Erstellt eine Verknüpfung oder einen Sprung, über den ein auf einem Netzwerkserver, in einem Intranet oder im Internet gespeichertes Dokument geöffnet wird
+HYPGEOM.VERT              | Gibt Wahrscheinlichkeiten einer hypergeometrisch verteilten Zufallsvariablen zurück
+HYPGEOMDIST               | Gibt Wahrscheinlichkeiten einer hypergeometrisch verteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+WENN                      | Gibt einen auszuführenden logischen Test an
+WENNFEHLER                | Wenn eine Formel mit einem Fehler ausgewertet wird, wird ein angegebener Wert zurückgegeben; andernfalls wird das Ergebnis der Formel zurückgegeben
+WENNNV                    | Gibt den Wert zurück, den Sie angeben, wenn der Ausdruck zu #N/V ausgewertet wird; gibt andernfalls das Ergebnis des Ausdrucks zurück
+WENNS                     | Hiermit wird geprüft, ob eine oder mehrere Bedingungen zutreffen, und es wird der Wert zurückgegeben, der der ersten auf WAHR lautenden Bedingung entspricht                                                                                                                                                                                                                                                                                                                                                      | Hiermit wird geprüft, ob eine oder mehrere Bedingungen zutreffen, und es wird der Wert zurückgegeben, der der ersten auf WAHR lautenden Bedingung entspricht
+IMABS                     | Gibt den Absolutbetrag (Modul) einer komplexen Zahl zurück
+IMAGINÄRE                 | Gibt den Imaginärteil einer komplexen Zahl zurück
+IMARGUMENT                | Gibt das Argument Theta zurück, einen Winkel, der als Bogenmaß ausgedrückt wird
+IMKONJUGIERTE             | Gibt die konjugierte komplexe Zahl zu einer komplexen Zahl zurück
+IMCOS                     | Gibt den Kosinus einer komplexen Zahl zurück
+IMCOSHYP                  | Gibt den hyperbolischen Kosinus einer komplexen Zahl zurück
+IMCOT                     | Gibt den Kotangens einer komplexen Zahl zurück
+IMCOSEC                   | Gibt den Kosekans einer komplexen Zahl zurück
+IMCOSECHYP                | Gibt den hyperbolischen Kosekans einer komplexen Zahl zurück
+IMDIV                     | Gibt den Quotienten zweier komplexer Zahlen zurück
+IMEXP                     | Gibt die algebraische Form einer in exponentieller Schreibweise vorliegenden komplexen Zahl zurück
+IMLN                      | Gibt den natürlichen Logarithmus einer komplexen Zahl zurück
+IMLOG10                   | Gibt den Logarithmus einer komplexen Zahl zur Basis 10 zurück
+IMLOG2                    | Gibt den Logarithmus einer komplexen Zahl zur Basis 2 zurück
+IMAPOTENZ                 | Gibt eine mit einer ganzen Zahl potenzierte komplexe Zahl zurück
+IMPRODUKT                 | Gibt das Produkt von komplexen Zahlen zurück
+IMREALTEIL                | Gibt den Realteil einer komplexen Zahl zurück
+IMSEC                     | Gibt den Sekans einer komplexen Zahl zurück
+IMSECHYP                  | Gibt den hyperbolischen Sekans einer komplexen Zahl zurück
+IMSIN                     | Gibt den Sinus einer komplexen Zahl zurück
+IMSINHYP                  | Gibt den hyperbolischen Sinus einer komplexen Zahl zurück
+IMWURZEL                  | Gibt die Quadratwurzel einer komplexen Zahl zurück
+IMSUB                     | Gibt die Differenz zwischen zwei komplexen Zahlen zurück
+IMSUMME                   | Gibt die Summe von komplexen Zahlen zurück
+IMTAN                     | Gibt den Tangens einer komplexen Zahl zurück
+INDEX                     | Verwendet einen Index, um einen Wert aus einem Bezug oder einem Array auszuwählen
+INDIREKT                  | Gibt einen Bezug zurück, der von einem Textwert angegeben wird
+GANZZAHL                  | Rundet eine Zahl auf die nächste ganze Zahl ab
+ZINSSATZ                  | Gibt den Zinssatz eines voll investierten Wertpapiers zurück
+ZINSZ                     | Gibt die Zinszahlung einer Investition für eine angegebene Periode zurück
+IKV                       | Gibt den internen Zinsfuß für eine Reihe von Zahlungen zurück
+ISTLEER                   | Gibt WAHR zurück, wenn der Wert leer ist
+ISTFEHL                   | Gibt WAHR zurück, wenn der Wert ein beliebiger Fehlerwert außer #NV ist
+ISTFEHLER                 | Gibt WAHR zurück, wenn der Wert ein beliebiger Fehlerwert ist
+ISTGERADE                 | Gibt WAHR zurück, wenn die Zahl gerade ist
+ISTFORMEL                 | Gibt WAHR zurück, wenn ein Bezug auf eine Zelle vorhanden ist, die eine Formel enthält
+ISTLOG                    | Gibt WAHR zurück, wenn der Wert ein Wahrheitswert ist
+ISTNV                     | Gibt WAHR zurück, wenn der Wert der Fehlerwert #NV ist
+ISTKTEXT                  | Gibt WAHR zurück, wenn der Wert kein Text ist
+ISTZAHL                   | Gibt WAHR zurück, wenn der Wert eine Zahl ist
+ISTUNGERADE               | Gibt WAHR zurück, wenn die Zahl ungerade ist
+ISTBEZUG                  | Gibt WAHR zurück, wenn der Wert ein Bezug ist
+ISTTEXT                   | Gibt WAHR zurück, wenn der Wert ein Text ist
+ISO.OBERGRENZE            | Gibt eine Zahl zurück, die auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts aufgerundet ist
+ISOKALENDERWOCHE          | Gibt die Zahl der ISO-Kalenderwoche des Jahres für ein angegebenes Datum zurück
+ISPMT                     | Berechnet die während eines bestimmten Zeitraums für eine Investition gezahlten Zinsen
+KURT                      | Gibt die Kurtosis (Exzess) einer Datengruppe zurück
+KGRÖSSTE                  | Gibt den k-größten Wert innerhalb einer Datengruppe zurück
+KGV                       | Gibt das kleinste gemeinsame Vielfache zurück
+LINKS                     | Gibt die Zeichen ganz links aus einem Textwert zurück
+LINKSB                    | Gibt die Zeichen ganz links aus einem Textwert zurück
+LÄNGE                     | Gibt die Anzahl der Zeichen in einer Textzeichenfolge zurück
+LÄNGEB                    | Gibt die Anzahl der Zeichen in einer Textzeichenfolge zurück
+LN                        | Gibt den natürlichen Logarithmus einer Zahl zurück
+LOG                       | Gibt den Logarithmus einer Zahl zur angegebenen Basis zurück
+LOG10                     | Gibt den Logarithmus einer Zahl zur Basis 10 zurück
+LOGEST                    | Gibt die Parameter eines exponentiellen Trends zurück
+LOGINV                    | Gibt Perzentile der Lognormalverteilung zurück
+LOGNORM.VERT              | Gibt die Werte der Verteilungsfunktion einer lognormalverteilten Zufallsvariablen zurück
+LOGNORMDIST               | Gibt die Werte der Verteilungsfunktion einer lognormalverteilten Zufallsvariablen zurück
+LOGNORM.INV               | Gibt Perzentile der Lognormalverteilung zurück
+KLEIN                     | Wandelt Text in Kleinbuchstaben um
+VERGLEICH                 | Sucht Werte in einem Bezug oder in einer Matrix
+MAX                       | Gibt den größten Wert in einer Liste mit Argumenten zurück
+MAXA                      | Gibt den größten Wert in einer Liste mit Argumenten zurück. Dazu zählen Zahlen, Text und Wahrheitswerte
+MAXWENNS                  | Gibt den Maximalwert aus Zellen zurück, die mit einem bestimmten Satz Bedingungen oder Kriterien angegeben wurden
+MDET                      | Gibt die Determinante einer Matrix zurück
+MDURATION                 | Gibt die modifizierte Macauley-Dauer eines Wertpapiers mit einem angenommenen Nennwert von 100 $ zurück
+MEDIAN                    | Gibt den Median der angegebenen Zahlen zurück
+TEIL                      | Gibt eine bestimmte Anzahl Zeichen aus einer Textzeichenfolge zurück, die den angegebenen Stelle beginnt
+TEILB                     | Gibt eine bestimmte Anzahl Zeichen aus einer Textzeichenfolge zurück, die den angegebenen Stelle beginnt
+MIN                       | Gibt den kleinsten Wert in einer Liste mit Argumenten zurück
+MINWENNS                  | Gibt den Minimalwert aus Zellen zurück, die mit einem bestimmten Satz Bedingungen oder Kriterien angegeben wurden
+MINA                      | Gibt den kleinsten Wert in einer Liste mit Argumenten zurück. Dazu zählen Zahlen, Text und Wahrheitswerte
+MINUTE                    | Wandelt eine fortlaufende Zahl in eine Minute um
+MINVERSE                  | Gibt die Inverse einer Matrix zurück
+QIKV                      | Gibt den internen Zinsfuß zurück, wobei positive und negative Zahlungen zu unterschiedlichen Sätzen finanziert werden
+MMULT                     | Gibt das Produkt zweier Matrizen zurück
+REST                      | Gibt den Rest einer Division zurück
+MODE                      | Gibt den am häufigsten vorkommenden Wert in einer Datengruppe zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+MODE.MULT                 | Gibt ein vertikales Array der am häufigsten vorkommenden oder wiederholten Werte in einem Array oder Datenbereich zurück
+MODE.SNGL                 | Gibt den am häufigsten vorkommenden Wert in einer Datengruppe zurück
+MONAT                     | Wandelt eine fortlaufende Zahl in einen Monat um
+VRUNDEN                   | Gibt eine auf das gewünschte Vielfache gerundete Zahl zurück
+POLYNOMIAL                | Gibt den Polynomialkoeffizienten einer Gruppe von Zahlen zurück
+MEINHEIT                  | Gibt die Einheitsmatrix für die angegebene Größe zurück
+N                         | Gibt einen Wert zurück, der in eine Zahl umgewandelt wurde
+NV                        | Gibt den Fehlerwert #NV zurück
+NEGBINOM.VERT             | Gibt Wahrscheinlichkeiten einer negativ binomialverteilten Zufallsvariablen zurück
+NEGBINOMDIST              | Gibt Wahrscheinlichkeiten einer negativ binomialverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+NETTOARBEITSTAGE          | Gibt die Anzahl der vollen Arbeitstage zwischen zwei Datumswerten zurück
+NETTOARBEITSTAGE.INTL     | Excel 2010                                                                                                                                                                                                                                                                                                                                                | Gibt die Anzahl der vollen Arbeitstage zwischen zwei Datumsangaben zurück. Dabei werden Parameter verwendet, um anzugeben, welche und wie viele Tage auf Wochenenden fallen
+NOMINAL                   | Gibt die jährliche Nominalverzinsung zurück
+NORM.VERT                 | Gibt Wahrscheinlichkeiten einer normalverteilten Zufallsvariablen zurück
+NORMDIST                  | Gibt Wahrscheinlichkeiten einer normalverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+NORMINV                   | Gibt Perzentile der Normalverteilung zurück
+NORM.INV                  | Gibt Perzentile der Normalverteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+NORM.S.VERT               | Gibt die Standardnormalverteilung zurück
+NORMSDIST                 | Gibt die Standardnormalverteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+NORM.S.INV                | Gibt Perzentile der Standardnormalverteilung zurück
+NORMSINV                  | Gibt Perzentile der Standardnormalverteilung zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+NICHT                     | Kehrt die Logik der Argumente um
+JETZT                     | Gibt die fortlaufende Zahl des aktuellen Datums und der aktuellen Uhrzeit zurück
+ZZR                       | Gibt die Anzahl der Zahlungsperioden einer Investition zurück
+NBW                       | Gibt den Nettobarwert einer Investition auf Basis periodisch anfallender Zahlungen und eines Abzinsungssatzes zurück
+OKTINBIN                  | Wandelt eine oktale Zahl in eine binäre Zahl (Dualzahl) um
+OKTINDEZ                  | Wandelt eine oktale Zahl in eine dezimale Zahl um
+OKTINHEX                  | Wandelt eine oktale Zahl in eine hexadezimale Zahl um
+UNGERADE                  | Rundet eine Zahl auf die nächste ungerade ganze Zahl auf
+UNREGER.KURS              | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers mit einem unregelmäßigen ersten Zinstermin zurück
+ODER                      | Gibt WAHR zurück, wenn ein Argument WAHR ist
+PDURATION                 | Gibt die Anzahl der Zahlungsperioden zurück, die eine Investition zum Erreichen eines angegebenen Werts benötigt
+PEARSON                   | Gibt den Pearsonschen Korrelationskoeffizienten zurück
+QUANTIL.EXKL              | Gibt das k-Quantil von Werten in einem Bereich zurück, wobei k im Bereich von 0..1 ausschließlich liegt
+QUANTIL.INKL              | Gibt das k-Quantil von Werten in einem Bereich zurück
+PERCENTILE                | Gibt das k-Quantil von Werten in einem Bereich zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+QUANTILSRANG.EXKL         | Gibt den prozentualen Rang eines Werts in einem Dataset als Prozentsatz des Datasets (0..1 ausschließlich) zurück
+QUANTILSRANG.INKL         | Gibt den prozentualen Rang eines Werts in einer Datengruppe zurück
+PERCENTRANK               | Gibt den prozentualen Rang eines Werts in einer Datengruppe zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+VARIATIONEN               | Gibt die Anzahl der Permutationen für eine bestimmte Anzahl von Objekten zurück
+VARIATIONEN2              | Gibt die Anzahl der Permutationen für eine angegebene Anzahl von Objekten zurück (mit Wiederholungen), die aus der Gesamtmenge der Objekte ausgewählt werden können
+PHI                       | Gibt den Wert der Dichtefunktion für eine Standardnormalverteilung zurück
+PHONETIC                  | Extrahiert die phonetischen (Furigana-)Zeichen aus einer Textzeichenfolge
+PI                        | Gibt den Wert von Pi zurück
+POISSON.VERT              | Gibt Wahrscheinlichkeiten einer poissonverteilten Zufallsvariablen zurück
+POISSON                   | Gibt Wahrscheinlichkeiten einer poissonverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+POTENZ                    | Gibt als Ergebnis eine potenzierte Zahl zurück
+KAPZ                      | Gibt die Kapitalrückzahlung einer Investition für eine angegebene Periode zurück
+KURS                      | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers zurück, das periodisch Zinsen auszahlt
+KURSDISAGIO               | Gibt den Kurs pro 100 $ Nennwert eines unverzinslichen Wertpapiers zurück
+KURSFÄLLIG                | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers zurück, das Zinsen am Fälligkeitsdatum auszahlt
+PRODUKT                   | Multipliziert die Argumente
+GROSS2                    | Schreibt den ersten Buchstaben jedes Worts in einem Textwert groß
+BW                        | Gibt den Barwert einer Investition zurück
+QUARTILE                  | Gibt die Quartile einer Datengruppe zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+QUARTILE.EXKL             | Gibt die Quartile eines Datasets zurück, basierend auf Perzentilwerten von 0..1 ausschließlich
+QUARTILE.INKL             | Gibt die Quartile einer Datengruppe zurück
+QUOTIENT                  | Gibt den ganzzahligen Teil einer Division zurück
+BOGENMASS                 | Rechnet Grad in Bogenmaß um
+ZUFALLSZAHL               | Gibt eine Zufallszahl zwischen 0 und 1 zurück
+ZUFALLSBEREICH            | Gibt eine Zufallszahl zwischen den angegebenen Zahlen zurück
+RANG.GLEICH               | Gibt den Rang einer Zahl in einer Liste von Zahlen zurück
+RANK                      | Gibt den Rang einer Zahl in einer Liste von Zahlen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+ZINS                      | Gibt den Zinssatz pro Zeitraum einer Annuität zurück
+AUSZAHLUNG                | Gibt den bei Fälligkeit für ein vollständig angelegtes Wertpapier erhaltenen Betrag zurück
+ERSETZEN                  | Ersetzt Zeichen in Text
+ERSETZENB                 | Ersetzt Zeichen in Text
+WIEDERHOLEN               | Wiederholt einen Text so oft wie angegeben
+RECHTS                    | Gibt die Zeichen ganz rechts aus einem Textwert zurück
+RECHTSB                   | Gibt die Zeichen ganz rechts aus einem Textwert zurück
+RÖMISCH                   | Wandelt eine arabische Zahl in eine römische Zahl als Text um
+RUNDEN                    | Rundet eine Zahl auf eine angegebene Anzahl von Stellen
+ABRUNDEN                  | Rundet eine Zahl in Richtung Null ab
+AUFRUNDEN                 | Rundet eine Zahl von Null aus auf
+ROW                       | Gibt die Zeilennummer eines Bezugs zurück
+ZEILEN                    | Gibt die Anzahl von Zeilen in einem Bezug zurück
+ZSATZINVEST               | Gibt den effektiven Jahreszins für den Wertzuwachs einer Investition zurück
+RSQ                       | Gibt das Quadrat des Pearsonschen Korrelationskoeffizienten zurück
+RTD                       | Ruft Echtzeitdaten von einem Programm ab, das die COM-Automatisierung unterstützt
+SCAN                      | Scannt eine Matrix, indem ein LAMBDA auf jeden Wert angewendet wird, und gibt eine Matrix zurück, die jeden Zwischenwert enthält
+SUCHENB                   | Sucht einen in einem anderen Textwert enthaltenen Textwert (Groß-/Kleinschreibung wird nicht beachtet)
+POTENZREIHE               | Gibt die Summe einer Potenzreihe auf der Grundlage der Formel zurück
+BLATT                     | Gibt die Blattnummer des Blatts zurück, auf das verwiesen wird
+BLÄTTER                   | Gibt die Anzahl von Blättern in einem Bezug zurück
+VORZEICHEN                | Gibt das Vorzeichen einer Zahl zurück
+SIN                       | Gibt den Sinus des angegebenen Winkels zurück
+SINHYP                    | Gibt den hyperbolischen Sinus einer Zahl zurück
+SCHIEFE                   | Gibt die Schiefe einer Verteilung zurück
+SCHIEFE.P                 | Gibt die Schiefe einer Verteilung auf der Basis einer Grundgesamtheit zurück: eine Charakterisierung des Asymmetriegrads einer Verteilung um ihren Mittelwert
+LIA                       | Gibt die lineare Abschreibung eines Vermögenswerts für einen Zeitraum zurück
+SLOPE                     | Gibt die Steigung der linearen Regressionsgeraden zurück
+KKLEINSTE                 | Gibt den k-kleinsten Wert innerhalb einer Datengruppe zurück
+WURZEL                    | Gibt die Quadratwurzel einer Zahl zurück
+WURZELPI                  | Gibt die Quadratwurzel von (Zahl \* Pi) zurück
+STANDARDISIERUNG          | Gibt einen standardisierten Wert zurück
+STDEV                     | Schätzt die Standardabweichung auf der Grundlage einer Stichprobe
+STABW.P                   | Berechnet die Standardabweichung anhand der Grundgesamtheit
+STABW.S                   | Schätzt die Standardabweichung auf der Grundlage einer Stichprobe
+STABWA                    | Schätzt die Standardabweichung ausgehend von einer Stichprobe, die Zahlen, Text und Wahrheitswerte enthält
+STDEVP                    | Berechnet die Standardabweichung anhand der Grundgesamtheit In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+STABWNA                   | Berechnet die Standardabweichung auf der Grundlage der Grundgesamtheit, die Zahlen, Text und Wahrheitswerte enthält
+STFEHLERYX                | Gibt den Standardfehler der geschätzten y-Werte für alle x-Werte der Regression zurück
+WECHSELN                  | Ersetzt alten Text in einer Textzeichenfolge durch neuen Text
+TEILERGEBNIS              | Gibt ein Teilergebnis in einer Liste oder Datenbank zurück
+SUMME                     | Addiert die zugehörigen Argumente
+SUMMEWENN                 | Addiert die nach einem bestimmten Kriterium angegebenen Zellen
+SUMMEWENNS                | Addiert die Zellen in einem Bereich, die mehreren Kriterien entsprechen
+SUMMENPRODUKT             | Gibt die Summe der Produkte entsprechender Matrixkomponenten zurück
+QUADRATESUMME             | Gibt die Summe der Quadrate der Argumente zurück
+SUMMEX2MY2                | Gibt die Summe der Differenz von Quadraten entsprechender Werte in zwei Matrizen zurück
+SUMMEX2PY2                | Gibt die Summe der Summe von Quadraten entsprechender Werte in zwei Matrizen zurück
+SUMMEXMY2                 | Gibt die Summe der Quadrate von Differenzen entsprechender Werte in zwei Matrizen zurück
+SWITCH                    | Wertet einen Ausdruck anhand einer Liste mit Werten aus. Als Ergebnis wird der erste übereinstimmende Wert zurückgegeben. Wenn es keine Übereinstimmung gibt, kann ein optionaler Standardwert zurückgegeben werden
+DIA                       | Gibt die Abschreibung eines Vermögenswerts im Hinblick auf die Zahlen der Jahressumme für einen bestimmten Zeitraum zurück
+T                         | Wandelt die eigenen Argumente in Text um
+TAN                       | Gibt den Tangens einer Zahl zurück
+TANHYP                    | Gibt den hyperbolischen Tangens einer Zahl zurück
+TBILLÄQUIV                | Gibt die Rendite eines Schatzwechsels zurück
+TBILLKURS                 | Gibt den Kurs pro 100 $ Nennwert für einen Schatzwechsel zurück
+TBILLRENDITE              | Gibt die Rendite für einen Schatzwechsel zurück
+T.VERT                    | Gibt die Prozentpunkte (Wahrscheinlichkeit) entsprechend der Student-t-Verteilung zurück
+T.VERT.2S                 | Gibt die Prozentpunkte (Wahrscheinlichkeit) entsprechend der Student-t-Verteilung zurück
+T.VERT.RE                 | Gibt Werte der (Student) t-Verteilung zurück
+TDIST                     | Gibt Werte der (Student) t-Verteilung zurück
+TEXTJOIN                  | Formatiert eine Zahl und wandelt sie in Text um
+ZEIT                      | Gibt die fortlaufende Zahl einer bestimmten Uhrzeit zurück
+ZEITWERT                  | Wandelt eine Uhrzeit in Form von Text in eine fortlaufende Zahl um
+T.INV                     | Gibt den t-Wert der (Student) t-Verteilung als Funktion der Wahrscheinlichkeit und der Freiheitsgrade zurück
+T.INV.2S                  | Gibt Perzentile der (Student) t-Verteilung zurück
+TINV                      | Gibt Perzentile der (Student) t-Verteilung zurück
+HEUTE                     | Gibt die fortlaufende Zahl des heutigen Datums zurück
+MTRANS                    | Gibt die Transponierte einer Matrix zurück
+TREND                     | Gibt Werte zurück, die sich aus einem linearen Trend ergeben
+GLÄTTEN                   | Entfernt Leerzeichen aus Text
+GESTUTZTMITTEL            | Gibt den Mittelwert des inneren Teils einer Datengruppe zurück
+WAHR                      | Gibt den Wahrheitswert WAHR zurück
+KÜRZEN                    | Kürzt eine Zahl auf eine ganze Zahl
+T.TEST                    | Gibt die Teststatistik eines (Student) t-Tests zurück
+TTEST                     | Gibt die Teststatistik eines (Student) t-Tests zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+TYP                       | Gibt eine Zahl zurück, die den Datentyp eines Werts angibt
+UNIZEICHEN                | Gibt das Unicode-Zeichen zurück, auf das durch den angegebenen Zahlenwert verwiesen wird
+UNICODE                   | Gibt die Zahl (Codepoint) zurück, die dem ersten Zeichen des Texts entspricht
+GROSS                     | Wandelt Text in Großbuchstaben um
+WERT                      | Wandelt ein Textargument in eine Zahl um
+VARIANZ                   | Schätzt die Varianz anhand einer Stichprobe. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+VAR.P                     | Berechnet die Varianz anhand der Grundgesamtheit
+VAR.S                     | Schätzt die Varianz anhand einer Stichprobe
+VARIANZA                  | Schätzt die Varianz ausgehend von einer Stichprobe, die Zahlen, Text und Wahrheitswerte enthält
+VARP                      | Berechnet die Varianz anhand der Grundgesamtheit. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+VARIANZENA                | Berechnet die Varianz auf der Grundlage der Grundgesamtheit, die Zahlen, Text und Wahrheitswerte enthält
+VDB                       | Gibt die degressive Abschreibung eines Vermögenswerts für eine bestimmte Periode oder Teilperiode zurück
+SVERWEIS                  | Sucht in der ersten Spalte einer Matrix und dann zeilenweise, um den Wert einer Zelle zurückzugeben
+WOCHENTAG                 | Wandelt eine fortlaufende Zahl in den Tag der Woche um
+KALENDERWOCHE             | Wandelt eine fortlaufende Zahl in eine Zahl um, die angibt, in welche Woche eines Jahres das angegebene Datum fällt
+WEIBULL                   | Berechnet die Varianz auf der Grundlage der Grundgesamtheit, die Zahlen, Text und Wahrheitswerte enthält In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+WEIBULL.VERT              | Gibt Wahrscheinlichkeiten einer Weibull-verteilten Zufallsvariablen zurück
+ARBEITSTAG                | Gibt die fortlaufende Zahl des Datums vor oder nach einer bestimmten Anzahl von Arbeitstagen zurück
+ARBEITSTAG.INTL           | Gibt die fortlaufende Zahl des Datums zurück, das vor oder nach einer bestimmten Anzahl von Arbeitstagen liegt. Dabei werden Parameter verwendet, um anzugeben, welche und wie viele Tage auf Wochenenden fallen
+XINTZINSFUSS              | Gibt den internen Zinsfuß für eine Reihe nicht unbedingt periodisch anfallender Zahlungen zurück
+XLOOKUP                   | Die XVERWEIS-Funktion sucht nach einem Bereich oder einer Matrix und gibt ein Element zurück, das zur ersten gefundenen Übereinstimmung passt. Wenn es keine Übereinstimmung gibt, kann XVERWEIS die beste (ungefähre) Übereinstimmung zurückgeben.
+XKAPITALWERT              | Gibt den Nettobarwert für eine Reihe nicht unbedingt periodisch anfallender Zahlungen zurück
+XODER                     | Gibt ein logisches exklusives ODER aller Argumente zurück
+JAHR                      | Wandelt eine fortlaufende Zahl in ein Jahr um
+BRTEILJAHRE               | Gibt die Anzahl der ganzen Tage zwischen Ausgangsdatum und Enddatum in Bruchteilen von Jahren zurück
+RENDITE                   | Gibt die Rendite eines Wertpapiers zurück, das regelmäßig Zinsen abwirft
+RENDITEDIS                | Gibt die jährliche Rendite eines diskontierten Wertpapiers zurück, zum Beispiel eines Schatzwechsels
+RENDITEFÄLL               | Gibt die Jahresrendite für ein Wertpapier zurück, für das Zinsen bei Fälligkeit gezahlt werden
+G.TEST                    | Gibt den einseitigen Wahrscheinlichkeitswert für einen Gauß-Test (Normalverteilung) zurück
+ZTEST                     | Gibt den einseitigen Wahrscheinlichkeitswert für einen Gauß-Test (Normalverteilung) zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
