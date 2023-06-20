@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-`FormulaOpts` peut être transmis à [`SetCellFormula`](cell.md#SetCellFormula) pour utiliser d’autres types de formules.
+`FormulaOpts` peut être transmis à [`SetCellFormula`](cell.md#SetCellFormula) pour utiliser d'autres types de formules.
 
 ```go
 type FormulaOpts struct {
@@ -246,7 +246,7 @@ Pour verrouiller une cellule ou masquer une formule, protégez la feuille de cal
 func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
-SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellule par nom de feuille de calcul donné et adresse URL de lien. LinkType définit deux types d'hyperliens `External` pour site Web ou `Location` pour passer à l'une des cellules de ce classeur. Le nombre maximal d’hyperliens de limite dans une feuille de calcul est `65530`. Cette fonction est uniquement utilisée pour définir le lien hypertexte de la cellule et n'affecte pas la valeur de la cellule. Si vous devez définir la valeur de la cellule, veuillez utiliser les autres fonctions telles que [`SetCellStyle`](cell.md#SetCellStyle) ou [`SetSheetRow`](sheet.md#SetSheetRow). Ce qui suit est un exemple de lien externe.
+SetCellHyperLink fournit une fonction pour définir le lien hypertexte de cellule par nom de feuille de calcul donné et adresse URL de lien. LinkType définit deux types d'hyperliens `External` pour site Web ou `Location` pour passer à l'une des cellules de ce classeur. Le nombre maximal d'hyperliens de limite dans une feuille de calcul est `65530`. Cette fonction est uniquement utilisée pour définir le lien hypertexte de la cellule et n'affecte pas la valeur de la cellule. Si vous devez définir la valeur de la cellule, veuillez utiliser les autres fonctions telles que [`SetCellStyle`](cell.md#SetCellStyle) ou [`SetSheetRow`](sheet.md#SetSheetRow). Ce qui suit est un exemple de lien externe.
 
 - Exemple 1, ajout d'un lien externe à la cellule `A3` de la feuille de calcul nommée `Sheet1`:
 
@@ -610,7 +610,7 @@ err := f.DeleteComment("Sheet1", "A30")
 func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
-SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l’application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
+SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l'application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
 
 - Exemple 1, définissez la formule normale `=SUM(A1,B1)` pour la cellule `A3` sur `Sheet1`:
 
@@ -714,441 +714,441 @@ CalcCellValue fournit une fonction pour obtenir la valeur de cellule calculée. 
 
 Formules prises en charge:
 
-```text
-ABS
-ACCRINT
-ACCRINTM
-ACOS
-ACOSH
-ACOT
-ACOTH
-ADDRESS
-AGGREGATE
-AMORDEGRC
-AMORLINC
-AND
-ARABIC
-ASIN
-ASINH
-ATAN
-ATAN2
-ATANH
-AVEDEV
-AVERAGE
-AVERAGEA
-AVERAGEIF
-AVERAGEIFS
-BASE
-BESSELI
-BESSELJ
-BESSELK
-BESSELY
-BETADIST
-BETA.DIST
-BETAINV
-BETA.INV
-BIN2DEC
-BIN2HEX
-BIN2OCT
-BINOMDIST
-BINOM.DIST
-BINOM.DIST.RANGE
-BINOM.INV
-BITAND
-BITLSHIFT
-BITOR
-BITRSHIFT
-BITXOR
-CEILING
-CEILING.MATH
-CEILING.PRECISE
-CHAR
-CHIDIST
-CHIINV
-CHITEST
-CHISQ.DIST
-CHISQ.DIST.RT
-CHISQ.INV
-CHISQ.INV.RT
-CHISQ.TEST
-CHOOSE
-CLEAN
-CODE
-COLUMN
-COLUMNS
-COMBIN
-COMBINA
-COMPLEX
-CONCAT
-CONCATENATE
-CONFIDENCE
-CONFIDENCE.NORM
-CONFIDENCE.T
-CONVERT
-CORREL
-COS
-COSH
-COT
-COTH
-COUNT
-COUNTA
-COUNTBLANK
-COUNTIF
-COUNTIFS
-COUPDAYBS
-COUPDAYS
-COUPDAYSNC
-COUPNCD
-COUPNUM
-COUPPCD
-COVAR
-COVARIANCE.P
-COVARIANCE.S
-CRITBINOM
-CSC
-CSCH
-CUMIPMT
-CUMPRINC
-DATE
-DATEDIF
-DATEVALUE
-DAVERAGE
-DAY
-DAYS
-DAYS360
-DB
-DCOUNT
-DCOUNTA
-DDB
-DEC2BIN
-DEC2HEX
-DEC2OCT
-DECIMAL
-DEGREES
-DELTA
-DEVSQ
-DGET
-DISC
-DMAX
-DMIN
-DOLLARDE
-DOLLARFR
-DPRODUCT
-DSTDEV
-DSTDEVP
-DSUM
-DURATION
-DVAR
-DVARP
-EFFECT
-EDATE
-ENCODEURL
-EOMONTH
-ERF
-ERF.PRECISE
-ERFC
-ERFC.PRECISE
-ERROR.TYPE
-EUROCONVERT
-EVEN
-EXACT
-EXP
-EXPON.DIST
-EXPONDIST
-FACT
-FACTDOUBLE
-FALSE
-F.DIST
-F.DIST.RT
-FDIST
-FIND
-FINDB
-F.INV
-F.INV.RT
-FINV
-FISHER
-FISHERINV
-FIXED
-FLOOR
-FLOOR.MATH
-FLOOR.PRECISE
-FORMULATEXT
-F.TEST
-FTEST
-FV
-FVSCHEDULE
-GAMMA
-GAMMA.DIST
-GAMMADIST
-GAMMA.INV
-GAMMAINV
-GAMMALN
-GAMMALN.PRECISE
-GAUSS
-GCD
-GEOMEAN
-GESTEP
-GROWTH
-HARMEAN
-HEX2BIN
-HEX2DEC
-HEX2OCT
-HLOOKUP
-HOUR
-HYPERLINK
-HYPGEOM.DIST
-HYPGEOMDIST
-IF
-IFERROR
-IFNA
-IFS
-IMABS
-IMAGINARY
-IMARGUMENT
-IMCONJUGATE
-IMCOS
-IMCOSH
-IMCOT
-IMCSC
-IMCSCH
-IMDIV
-IMEXP
-IMLN
-IMLOG10
-IMLOG2
-IMPOWER
-IMPRODUCT
-IMREAL
-IMSEC
-IMSECH
-IMSIN
-IMSINH
-IMSQRT
-IMSUB
-IMSUM
-IMTAN
-INDEX
-INDIRECT
-INT
-INTRATE
-IPMT
-IRR
-ISBLANK
-ISERR
-ISERROR
-ISEVEN
-ISFORMULA
-ISLOGICAL
-ISNA
-ISNONTEXT
-ISNUMBER
-ISODD
-ISREF
-ISTEXT
-ISO.CEILING
-ISOWEEKNUM
-ISPMT
-KURT
-LARGE
-LCM
-LEFT
-LEFTB
-LEN
-LENB
-LN
-LOG
-LOG10
-LOGINV
-LOGNORM.DIST
-LOGNORMDIST
-LOGNORM.INV
-LOOKUP
-LOWER
-MATCH
-MAX
-MAXA
-MAXIFS
-MDETERM
-MDURATION
-MEDIAN
-MID
-MIDB
-MIN
-MINA
-MINIFS
-MINUTE
-MINVERSE
-MIRR
-MMULT
-MOD
-MODE
-MODE.MULT
-MODE.SNGL
-MONTH
-MROUND
-MULTINOMIAL
-MUNIT
-N
-NA
-NEGBINOM.DIST
-NEGBINOMDIST
-NETWORKDAYS
-NETWORKDAYS.INTL
-NOMINAL
-NORM.DIST
-NORMDIST
-NORM.INV
-NORMINV
-NORM.S.DIST
-NORMSDIST
-NORM.S.INV
-NORMSINV
-NOT
-NOW
-NPER
-NPV
-OCT2BIN
-OCT2DEC
-OCT2HEX
-ODD
-ODDFPRICE
-OR
-PDURATION
-PEARSON
-PERCENTILE.EXC
-PERCENTILE.INC
-PERCENTILE
-PERCENTRANK.EXC
-PERCENTRANK.INC
-PERCENTRANK
-PERMUT
-PERMUTATIONA
-PHI
-PI
-PMT
-POISSON.DIST
-POISSON
-POWER
-PPMT
-PRICE
-PRICEDISC
-PRICEMAT
-PRODUCT
-PROPER
-PV
-QUARTILE
-QUARTILE.EXC
-QUARTILE.INC
-QUOTIENT
-RADIANS
-RAND
-RANDBETWEEN
-RANK
-RANK.EQ
-RATE
-RECEIVED
-REPLACE
-REPLACEB
-REPT
-RIGHT
-RIGHTB
-ROMAN
-ROUND
-ROUNDDOWN
-ROUNDUP
-ROW
-ROWS
-RRI
-RSQ
-SEC
-SECH
-SECOND
-SERIESSUM
-SHEET
-SHEETS
-SIGN
-SIN
-SINH
-SKEW
-SKEW.P
-SLN
-SLOPE
-SMALL
-SQRT
-SQRTPI
-STANDARDIZE
-STDEV
-STDEV.P
-STDEV.S
-STDEVA
-STDEVP
-STDEVPA
-STEYX
-SUBSTITUTE
-SUBTOTAL
-SUM
-SUMIF
-SUMIFS
-SUMPRODUCT
-SUMSQ
-SUMX2MY2
-SUMX2PY2
-SUMXMY2
-SWITCH
-SYD
-T
-TAN
-TANH
-TBILLEQ
-TBILLPRICE
-TBILLYIELD
-T.DIST
-T.DIST.2T
-T.DIST.RT
-TDIST
-TEXTJOIN
-TIME
-TIMEVALUE
-T.INV
-T.INV.2T
-TINV
-TODAY
-TRANSPOSE
-TREND
-TRIM
-TRIMMEAN
-TRUE
-TRUNC
-T.TEST
-TTEST
-TYPE
-UNICHAR
-UNICODE
-UPPER
-VALUE
-VAR
-VAR.P
-VAR.S
-VARA
-VARP
-VARPA
-VDB
-VLOOKUP
-WEEKDAY
-WEEKNUM
-WEIBULL
-WEIBULL.DIST
-WORKDAY
-WORKDAY.INTL
-XIRR
-XLOOKUP
-XNPV
-XOR
-YEAR
-YEARFRAC
-YIELD
-YIELDDISC
-YIELDMAT
-Z.TEST
-ZTEST
-```
+Nom de la fonction | Type et description
+---|---
+ABS                          | Renvoie la valeur absolue d'un nombre
+ACCRINT                      | Renvoie l'intérêt couru non échu d'un titre dont l'intérêt est perçu périodiquement
+INTERET.ACC.MAT              | Renvoie l'intérêt couru non échu d'un titre dont l'intérêt est perçu à l'échéance
+ACOS                         | Renvoie l'arccosinus d'un nombre
+ACOSH                        | Renvoie le cosinus hyperbolique inverse d'un nombre
+ACOT                         | Renvoie l'arccotangente d'un nombre
+ACOTH                        | Renvoie l'arccotangente hyperbolique d'un nombre
+AGREGAT                      | Renvoie un agrégat dans une liste ou une base de données
+ADRESSE                      | Renvoie une référence sous forme de texte à une seule cellule d'une feuille de calcul
+AMORDEGRC                    | Renvoie l'amortissement correspondant à chaque période comptable en utilisant un coefficient d'amortissement
+AMORLINC                     | Renvoie l'amortissement correspondant à chaque période comptable
+AND                          | Renvoie TRUE si tous les arguments ont la valeur TRUE
+ARABIC                       | Convertit un nombre romain en chiffre arabe
+ASIN                         | Renvoie l'arcsinus d'un nombre
+ASINH                        | Renvoie le sinus hyperbolique inverse d'un nombre
+ATAN                         | Renvoie l'arctangente d'un nombre
+ATAN2                        | Renvoie l'arctangente des coordonnées x et y
+ATANH                        | Renvoie la tangente hyperbolique inverse d'un nombre
+AVEDEV                       | Renvoie la moyenne des écarts absolus des points de données par rapport à leur moyenne
+MOYENNE                      | Renvoie la moyenne de ses arguments
+AVERAGEA                     | Renvoie la moyenne de ses arguments, y compris les nombres, le texte et les valeurs logiques
+MOYENNE.SI                   | Renvoie la moyenne (arithmétique) de toutes les cellules d'une plage respectant un critère donné
+AVERAGEIFS                   | Renvoie la moyenne (arithmétique) de toutes les cellules qui répondent à plusieurs critères
+BASE                         | Convertit un nombre en représentation textuelle avec la base spécifiée
+BESSELI                      | Renvoie la fonction de Bessel modifiée In(x)
+BESSELJ                      | Renvoie la fonction de Bessel Jn(x)
+BESSELK                      | Renvoie la fonction de Bessel modifiée Kn(x)
+BESSELY                      | Renvoie la fonction de Bessel Yn(x)
+LOI.BETA                     | Renvoie la fonction de distribution cumulée suivant une loi Bêta. Dans Excel 2007, il s'agit d'une fonction statistique
+BETA.DIST                    | Renvoie la fonction de distribution cumulée suivant une loi Bêta
+BETA.INVERSE                 | Renvoie l'inverse de la fonction de distribution cumulée pour une distribution bêta spécifiée. Dans Excel 2007, il s'agit d'une fonction statistique
+BETA.INV                     | Renvoie l'inverse de la fonction de distribution cumulée pour une distribution bêta spécifiée
+BIN2DEC                      | Convertit un nombre binaire en nombre décimal
+BINHEX                       | Convertit un nombre binaire en nombre hexadécimal
+BINOCT                       | Convertit un nombre binaire en nombre octal
+LOI.BINOMIALE                | Renvoie la probabilité d'une variable aléatoire discrète suivant la loi binomiale. Dans Excel 2007, il s'agit d'une fonction statistique
+BINOM.DIST                   | Renvoie la probabilité d'une variable aléatoire discrète suivant la loi binomiale
+BINOM.DIST.RANGE             | Renvoie la probabilité d'un résultat de tirage en suivant une distribution binomiale
+BINOM.INV                    | Renvoie la plus petite valeur pour laquelle la distribution binomiale cumulée est inférieure ou égale à une valeur critère
+BITAND                       | Renvoie une opération AND au niveau du bit de deux nombres
+BITLSHIFT                    | Renvoie un nombre décalé vers la gauche de total_décalage bits
+BITOR                        | Renvoie une opération OR au niveau du bit de deux nombres
+BITRSHIFT                    | Renvoie un nombre décalé vers la droite de total_décalage bits
+BITXOR                       | Renvoie une opération 'Exclusive Or' de deux nombres
+PLAFOND                      | Arrondit un nombre au nombre entier le plus proche ou au multiple le plus proche de l'argument précision en s'éloignant de zéro
+CEILING.MATH                 | Arrondit un nombre à l'entier ou au multiple supérieur le plus proche de l'argument de précision
+PLAFOND.PRECIS               | Arrondit un nombre à l'entier ou au multiple le plus proche de l'argument de précision. Quel que soit le signe du nombre, le nombre est arrondi à l'unité supérieure
+CHAR                         | Renvoie le caractère spécifié par le code numérique
+LOI.KHIDEUX                  | Renvoie la probabilité d'une variable aléatoire continue suivant une loi unilatérale du Khi-deux. Dans Excel 2007, il s'agit d'une fonction statistique
+KHIDEUX.INVERSE              | Renvoie l'inverse de la probabilité d'une variable aléatoire continue suivant une loi unilatérale du Khi-deux. Dans Excel 2007, il s'agit d'une fonction statistique
+TEST.KHIDEUX                 | Renvoie le test d'indépendance.. Dans Excel 2007, il s'agit d'une fonction statistique
+CHISQ.DIST                   | Renvoie la fonction de densité de probabilité bêta cumulative
+CHISQ.DIST.RT                | Renvoie la probabilité d'une variable aléatoire continue suivant une loi unilatérale du Khi-deux
+CHISQ.INV                    | Renvoie la fonction de densité de probabilité bêta cumulative
+CHISQ.INV.RT                 | Renvoie l'inverse de la probabilité d'une variable aléatoire continue suivant une loi unilatérale du Khi-deux
+CHISQ.TEST                   | Renvoie le test d'indépendance
+CHOOSE                       | Choisit une valeur dans une liste de valeurs
+CLEAN                        | Supprime tous les caractères non imprimables du texte
+CODE                         | Renvoie le code numérique du premier caractère d'une chaîne de texte
+COLONNE                      | Renvoie le numéro de colonne d'une référence
+COLONNES                     | Renvoie le nombre de colonnes dans une référence
+COMBIN                       | Renvoie le nombre de combinaisons pour un nombre d'objets donné
+COMBINA                      | Renvoie le nombre de combinaisons avec répétitions pour un nombre d'éléments donné
+COMPLEX                      | Convertit des coefficients réels et imaginaires en nombre complexe
+CONCAT                       | Combine le texte de plusieurs plages et/ou chaînes, mais ne fournit pas le délimiteur ou les arguments IgnoreEmpty
+CONCATENER                   | Regroupe plusieurs éléments textuels en un élément textuel
+INTERVALLE.CONFIANCE         | Renvoie l'intervalle de confiance pour la moyenne d'une population. Dans Excel 2007, il s'agit d'une fonction statistique
+CONFIDENCE.NORM              | Renvoie l'intervalle de confiance pour la moyenne d'une population
+CONFIDENCE.T                 | Renvoie l'intervalle de confiance pour la moyenne d'une population, à l'aide de la probabilité d'une variable aléatoire suivant une loi T de Student
+CONVERT                      | Convertit un nombre d'un système de mesure à un autre
+COEFFICIENT.CORRELATION      | Renvoie le coefficient de corrélation entre deux séries de données
+COS                          | Renvoie le cosinus d'un nombre
+COSH                         | Renvoie le cosinus hyperbolique d'un nombre
+COT                          | Renvoie le cosinus hyperbolique d'un nombre
+COTH                         | Renvoie la cotangente d'un angle
+COUNT                        | Compte le nombre de chiffres compris dans la liste d'arguments
+NBVAL                        | Compte le nombre de valeurs comprises dans la liste d'arguments
+NB.VIDE                      | Compte le nombre de cellules vides dans une plage
+NB.SI                        | Compte le nombre de cellules à l'intérieur d'une plage qui répondent aux critères donnés
+COUNTIFS                     | Compte le nombre de cellules à l'intérieur d'une plage qui répondent à plusieurs critères
+COUPDAYBS                    | Renvoie le nombre de jours entre le début de la période du coupon et la date d'escompte
+NB.JOURS.COUPONS             | Renvoie le nombre de jours dans la période du coupon contenant la date d'escompte
+NB.JOURS.COUPON.SUIV         | Renvoie le nombre de jours séparant la date d'escompte de la date du prochain coupon
+DATE.COUPON.SUIV             | Renvoie la date du prochain coupon suivant la date d'escompte
+NB.COUPONS                   | Renvoie le nombre de coupons à régler entre la date d'escompte et la date d'échéance
+DATE.COUPON.PREC             | Renvoie la date du coupon antérieur précédant la date d'escompte
+COVARIANCE                   | Renvoie la covariance, moyenne des produits des écarts pour chaque série d'observations.. Dans Excel 2007, il s'agit d'une fonction statistique
+COVARIANCE.PEARSON           | Renvoie la covariance, moyenne des produits des écarts pour chaque série d'observations
+COVARIANCE.STANDARD          | Renvoie la covariance d'échantillon, moyenne des produits des écarts pour chaque paire de points de deux jeux de données
+CRITERE.LOI.BINOMIALE        | Renvoie la plus petite valeur pour laquelle la distribution binomiale cumulée est inférieure ou égale à une valeur critère. Dans Excel 2007, il s'agit d'une fonction statistique
+CSC                          | Renvoie la cosécante d'un angle
+CSCH                         | Renvoie la cosécante hyperbolique d'un angle
+CUMUL.INTER                  | Renvoie les intérêts cumulés réglés entre deux périodes
+CUMUL.PRINCPER               | Renvoie le montant cumulé du remboursement du capital réglé entre deux périodes
+DATE                         | Renvoie le numéro de série d'une date précise
+DATEDIF                      | Calcule le nombre de jours, de mois ou d'années qui séparent deux dates. Cette fonction est utile dans les formules où vous devez calculer un âge
+DATEVAL                      | Convertit une date au format texte en numéro de série
+DAVERAGE                     | Renvoie la moyenne des entrées d'une base de données sélectionnée
+DAY                          | Convertit un numéro de série en jour du mois
+DAYS                         | Renvoie le nombre de jours entre deux dates
+JOURS360                     | Calcule le nombre de jours entre deux dates sur la base d'une année de 360 jours
+DB                           | Renvoie l'amortissement d'un bien durant une période spécifiée en utilisant la méthode de l'amortissement dégressif à taux fixe
+DCOUNT                       | Compte les cellules qui contiennent des nombres dans une base de données
+BDNBVAL                      | Compte les cellules non vides d'une base de données
+DDB                          | Renvoie l'amortissement d'un bien durant une période spécifiée suivant la méthode de l'amortissement dégressif à taux double ou selon un coefficient à spécifier
+DEC2BIN                      | Convertit un nombre décimal en nombre binaire
+DECHEX                       | Convertit un nombre décimal en nombre hexadécimal
+DECOCT                       | Convertit un nombre décimal en nombre octal
+DECIMAL                      | Convertit une représentation textuelle d'un nombre dans une base donnée en nombre décimal
+DEGRES                       | Convertit des radians en degrés
+DELTA                        | Vérifie si deux valeurs sont égales
+DEVSQ                        | Renvoie la somme des carrés des écarts
+DGET                         | Extrait d'une base de données un seul enregistrement correspondant aux critères spécifiés
+DISC                         | Renvoie le taux d'escompte d'un titre
+DMAX                         | Renvoie la valeur maximale des entrées de base de données sélectionnées
+BDMIN                        | Renvoie la valeur minimale des entrées de base de données sélectionnées
+DOLLAR                       | Convertit un nombre en texte en utilisant le format monétaire $ (dollar)
+DOLLARDE                     | Convertit un prix en dollars, exprimé sous forme de fraction, en un prix en dollars exprimé sous forme de nombre décimal
+DPRODUCT                     | Multiplie les valeurs d'un champ particulier dans des enregistrements correspondant aux critères d'une base de données
+DSTDEV                       | Calcule l'écart type en fonction d'un échantillon d'entrées de base de données sélectionnées
+BDECARTYPEP                  | Calcule l'écart type en fonction de l'ensemble des entrées de base de données sélectionnées
+BDSOMME                      | Ajoute les nombres dans la colonne Champ des enregistrements de la base de données correspondant aux critères
+DURATION                     | Renvoie la durée annuelle d'un titre dont les intérêts sont perçus périodiquement
+DVAR                         | Estime la variance en fonction d'un échantillon d'entrées de base de données sélectionnées
+BDVARP                       | Calcule la variance en fonction de l'ensemble des entrées de base de données sélectionnées
+EDATE                        | Renvoie le numéro de série de la date qui représente le nombre indiqué de mois précédant ou suivant la date de début
+EFFECT                       | Renvoie le taux d'intérêt annuel effectif
+URLENCODAGE                  | Renvoie une chaîne codée au format URL. Cette fonction n'est pas disponible dans Excel pour le web
+EOMONTH                      | Renvoie le numéro de série du dernier jour du mois précédant ou suivant un nombre de mois spécifié
+ERF                          | Renvoie la valeur de la fonction d'erreur
+ERF.PRECISE                  | Renvoie la valeur de la fonction d'erreur
+ERFC                         | Renvoie la valeur de la fonction d'erreur complémentaire
+ERFC.PRECISE                 | Renvoie la valeur de la fonction d'erreur complémentaire comprise entre x et l'infini
+ERROR.TYPE                   | Renvoie un nombre correspondant à un type d'erreur
+EUROCONVERT                  | convertit un nombre en euros, convertit un nombre en euros en une devise de la zone européenne ou convertit un nombre exprimé en une devise de la zone européenne en une autre, en utilisant l'euro comme intermédiaire (triangulation)
+EVEN                         | Arrondit un nombre au nombre entier pair supérieur
+EXACT                        | Vérifie si deux valeurs textuelles sont identiques
+EXP                          | Renvoie e élevé à la puissance d'un nombre donné
+EXPON.DIST                   | Renvoie la distribution exponentielle
+LOI.EXPONENTIELLE            | Renvoie la distribution exponentielle. Dans Excel 2007, il s'agit d'une fonction statistique
+FACT                         | Renvoie la factorielle d'un nombre
+FACTDOUBLE                   | Renvoie la factorielle double d'un nombre
+FALSE                        | Renvoie la valeur logique FALSE
+F.DIST                       | Renvoie la distribution de probabilité F
+LOI.F                        | Renvoie la distribution de probabilité F. Dans Excel 2007, il s'agit d'une fonction statistique
+F.DIST.RT                    | Renvoie la distribution de probabilité F
+FIND                         | Cherche une valeur textuelle dans une autre (en respectant la casse)
+FINDB                        | Cherche une valeur textuelle dans une autre (en respectant la casse)
+F.INV                        | Renvoie l'inverse de la distribution de probabilité F
+F.INVERT.RT                  | Renvoie l'inverse de la distribution de probabilité F
+INVERSE.LOI.F                | Renvoie l'inverse de la distribution de probabilité F. Dans Excel 2007, il s'agit d'une fonction statistique
+FISHER                       | Renvoie la transformation de Fisher
+FISHER.INVERSE               | Renvoie l'inverse de la transformation de Fisher
+FIXED                        | Convertit un nombre en texte avec un nombre de décimales fixe
+FLOOR                        | Arrondit un nombre à la valeur d'arrondi la plus proche de zéro. Dans Excel 2007 et Excel 2010, il s'agit d'une fonction mathématique et trigonométrique
+FLOOR.MATH                   | Arrondit un nombre à l'entier ou au multiple inférieur le plus proche de l'argument de précision
+FLOOR.PRECISE                | Arrondit un nombre à l'entier ou au multiple le plus proche de l'argument de précision. Quel que soit le signe du nombre, le nombre est arrondi à l'unité supérieure
+FORMULETEXTE                 | Renvoie la formule à la référence donnée sous forme de texte
+F.TEST                       | Renvoie le résultat d'un test F
+TEST.F                       | Renvoie le résultat d'un test F.. Dans Excel 2007, il s'agit d'une fonction statistique
+FV                           | Renvoie la valeur future d'un investissement
+VC.PAIEMENTS                 | Renvoie la valeur future d'un investissement en appliquant une série de taux d'intérêt composites
+GAMMA                        | Renvoie la valeur de la fonction Gamma
+GAMMA.DIST                   | Renvoie la distribution suivant une loi Gamma
+LOI.GAMMA                    | Renvoie la distribution suivant une loi Gamma. Dans Excel 2007, il s'agit d'une fonction statistique
+GAMMA.INV                    | Renvoie l'inverse de la distribution cumulée suivant une loi Gamma
+LOI.GAMMA.INVERSE            | Renvoie l'inverse de la distribution cumulée suivant une loi Gamma. Dans Excel 2007, il s'agit d'une fonction statistique
+GAMMALN                      | Renvoie le logarithme népérien de la fonction gamma, Γ(x)
+GAMMALN.PRECISE              | Renvoie le logarithme népérien de la fonction gamma, Γ(x)
+GAUSS                        | Renvoie 0,5 de moins que la distribution cumulée suivant une loi normale centrée réduite
+GCD                          | Renvoie le plus grand diviseur commun
+GEOMEAN                      | Renvoie la moyenne géométrique
+GESTEP                       | Vérifie si un nombre est supérieur à une valeur seuil
+CROISSANCE                   | Calcule des valeurs par rapport à une tendance exponentielle
+MOYENNE.HARMONIQUE           | Renvoie la moyenne harmonique
+HEX2BIN                      | Convertit un nombre hexadécimal en nombre binaire
+HEXDEC                       | Convertit un nombre hexadécimal en nombre décimal
+HEXOCT                       | Convertit un nombre hexadécimal en nombre octal
+HLOOKUP                      | Cherche dans la première ligne d'un tableau et renvoie la valeur de la cellule indiquée
+HOUR                         | Convertit un numéro de série en heure
+HYPERLINK                    | Crée un raccourci ou un renvoi qui ouvre un document stocké sur un serveur réseau, un intranet ou Internet
+HYPGEOM.DIST                 | Renvoie la distribution suivant une loi hypergéométrique
+LOI.HYPERGEOMETRIQUE         | Renvoie la distribution suivant une loi hypergéométrique. Dans Excel 2007, il s'agit d'une fonction statistique
+SI                           | Indique un test logique à effectuer
+SIERREUR                     | Renvoie une valeur que vous spécifiez si une formule génère une erreur ; sinon, elle renvoie le résultat de la formule
+SI.NON.DISP                  | Renvoie la valeur que vous spécifiez si l'expression est résolue à #N/A ; autrement, renvoie le résultat de l'expression
+SI.CONDITIONS                | Vérifie si une ou plusieurs conditions sont remplies et renvoie une valeur correspondant à la première condition VRAI
+COMPLEXE.IMAGINAIRE          | Renvoie le coefficient imaginaire d'un nombre complexe
+COMPLEXE.ARGUMENT            | Renvoie l'argument thêta, un angle exprimé en radians
+COMPLEXE.CONJUGUE            | Renvoie le conjugué complexe d'un nombre complexe
+COMPLEXE.COS                 | Renvoie le cosinus d'un nombre complexe
+IMCOSH                       | Renvoie le cosinus hyperbolique d'un nombre complexe
+IMCOT                        | Renvoie la cotangente d'un nombre complexe
+IMCSC                        | Renvoie la cosécante d'un nombre complexe
+IMCSCH                       | Renvoie la cosécante hyperbolique d'un nombre complexe
+COMPLEXE.DIV                 | Renvoie le quotient de deux nombres complexes
+COMPLEXE.EXP                 | Renvoie la fonction exponentielle d'un nombre complexe
+COMPLEXE.LN                  | Renvoie le logarithme népérien d'un nombre complexe
+COMPLEXE.LOG10               | Calcule le logarithme d'un nombre complexe en base 10
+COMPLEXE.LOG2                | Calcule le logarithme d'un nombre complexe en base 2
+COMPLEXE.PUISSANCE           | Renvoie un nombre complexe élevé à une puissance entière
+IMPRODUCT                    | renvoie le produit de plusieurs nombres complexes
+IMREAL                       | Renvoie le coefficient réel d'un nombre complexe
+IMSEC                        | Renvoie la sécante d'un nombre complexe
+IMSECH                       | Renvoie la sécante hyperbolique d'un nombre complexe
+COMPLEXE.SIN                 | Renvoie le sinus d'un nombre complexe
+IMSINH                       | Renvoie le sinus hyperbolique d'un nombre complexe
+COMPLEXE.RACINE              | Renvoie la racine carrée d'un nombre complexe
+COMPLEXE.DIFFERENCE          | Renvoie la différence entre deux nombres complexes
+COMPLEXE.SOMME               | Renvoie la somme de plusieurs nombres complexes
+IMTAN                        | Renvoie la tangente d'un nombre complexe
+INDEX                        | Utilise un index pour choisir une valeur provenant d'une référence ou d'une matrice
+INDIRECT                     | Renvoie une référence indiquée par une valeur de texte
+INFORMATIONS                 | Renvoie des informations sur l'environnement d'exploitation actuel. Cette fonction n'est pas disponible dans Excel pour le web
+INT                          | Arrondit un nombre à l'entier inférieur le plus proche
+INTRATE                      | Renvoie le taux d'intérêt pour un titre totalement investi
+INTPER                       | Renvoie le montant des intérêts d'un investissement pour une période donnée
+TRI                          | Renvoie le taux de rendement interne pour une série de mouvements de trésorerie
+ESTVIDE                      | Renvoie VRAI si l'argument valeur est vide
+ESTERR                       | Renvoie TRUE si la valeur est une valeur d'erreur, sauf #N/A
+ESTERREUR                    | Renvoie TRUE si la valeur est une valeur d'erreur
+EST.PAIR                     | Renvoie TRUE si le nombre est pair
+ISFORMULA                    | Renvoie TRUE s'il existe une référence à une cellule qui contient une formule
+ESTLOGIQUE                   | Renvoie TRUE si la valeur est une valeur logique
+ESTNA                        | Renvoie TRUE si la valeur est la valeur d'erreur #N/A
+ESTNONTEXTE                  | Renvoie TRUE si la valeur n'est pas textuelle
+ESTNUM                       | Renvoie TRUE si la valeur est un nombre
+EST.IMPAIR                   | Renvoie TRUE si le nombre est impair
+ESTREF                       | Renvoie TRUE si la valeur est une référence
+ESTTEXTE                     | Renvoie TRUE si la valeur est textuelle
+ISO.CEILING                  | Renvoie un nombre arrondi à l'entier ou au multiple supérieur le plus proche de l'argument de précision
+ISOWEEKNUM                   | Renvoie le numéro de la semaine ISO de l'année pour une date donnée
+ISPMT                        | Calcule le montant des intérêts payés au cours d'une période spécifique d'un investissement
+KURT                         | Renvoie le kurtosis d'un jeu de données
+GRANDE.VALEUR                | Renvoie la k-ième plus grande valeur d'un jeu de données
+LCM                          | Renvoie le plus petit dénominateur commun
+LEFT                         | Renvoie les caractères les plus à gauche d'une valeur textuelle
+LEFTB                        | Renvoie les caractères les plus à gauche d'une valeur textuelle
+NBCAR                        | Renvoie le nombre de caractères dans une chaîne de texte
+LENB                         | Renvoie le nombre de caractères dans une chaîne de texte
+LN                           | Renvoie le logarithme népérien d'un nombre
+LOG                          | Renvoie le logarithme d'un nombre selon la base spécifiée
+LOG10                        | Renvoie le logarithme d'un nombre en base 10
+LOI.LOGNORMALE.INVERSE       | Renvoie l'inverse de la distribution cumulée suivant une loi lognormale
+LOGNORM.DIST                 | Renvoie la distribution suivant une loi lognormale cumulée
+LOI.LOGNORMALE               | Renvoie la distribution suivant une loi lognormale cumulée
+LOGNORM.INV                  | Renvoie l'inverse de la distribution cumulée suivant une loi lognormale
+LOOKUP                       | Cherche des valeurs dans un vecteur ou un tableau
+LOWER                        | Convertit le texte en minuscules
+EQUIV                        | Cherche des valeurs dans une référence ou un tableau
+MAX                          | Renvoie la valeur maximale contenue dans une liste d'arguments
+MAXA                         | Renvoie la valeur maximale contenue dans une liste d'arguments, y compris les nombres, le texte et les valeurs logiques
+MAX.SI.ENS                   | Renvoie la valeur maximale parmi les cellules spécifiées par un ensemble de conditions ou critères
+DETERMAT                     | Renvoie le déterminant d'une matrice
+MDURATION                    | Renvoie la durée modifiée de Macauley pour un titre avec une valeur estimée à 100 dollars
+MEDIAN                       | Renvoie la valeur médiane des nombres donnés
+MID                          | Renvoie un nombre déterminé de caractères d'une chaîne de texte en commençant à la position indiquée
+MIDB                         | Renvoie un nombre déterminé de caractères d'une chaîne de texte en commençant à la position indiquée
+MIN                          | Renvoie la valeur minimale contenue dans une liste d'arguments
+MIN.SI                       | Renvoie la valeur minimale parmi les cellules spécifiées par un ensemble de conditions ou critères
+MINA                         | Renvoie la plus petite valeur contenue dans une liste d'arguments, y compris les nombres, le texte et les valeurs logiques
+MINUTE                       | Convertit un numéro de série en minute
+INVERSEMAT                   | Renvoie la matrice inverse d'une matrice
+MIRR                         | Renvoie le taux de rendement interne lorsque des mouvements de trésorerie positifs et négatifs sont financés à des taux différents
+PRODUITMAT                   | Renvoie le produit de deux matrices
+MOD                          | Renvoie le reste d'une division
+MODE                         | Renvoie la valeur la plus courante d'une série de données.. Dans Excel 2007, il s'agit d'une fonction statistique
+MODE.MULTIPLE                | Renvoie une matrice verticale des valeurs les plus fréquentes ou répétitives dans une matrice ou une plage de données
+MODE.SIMPLE                  | Renvoie la valeur la plus courante d'une série de données
+MONTH                        | Convertit un numéro de série en mois
+MROUND                       | Renvoie un nombre arrondi au dénominateur souhaité
+MULTINOMIALE                 | Calcule la multinomiale d'un ensemble de nombres
+MATRICE.UNITAIRE             | Renvoie la matrice unitaire ou la dimension spécifiée
+N                            | Renvoie une valeur convertie en nombre
+NA                           | Renvoie la valeur d'erreur #N/A
+NEGBINOM.DIST                | Renvoie la distribution négative binomiale
+LOI.BINOMIALE.NEG            | Renvoie la distribution négative binomiale. Dans Excel 2007, il s'agit d'une fonction statistique
+NETWORKDAYS                  | Renvoie le nombre de jours ouvrés entiers entre deux dates
+NETWORKDAYS.INTL             | Renvoie le nombre de jours ouvrés entiers compris entre deux dates à l'aide de paramètres indiquant le nombre de jours compris dans un week-end
+NOMINAL                      | Renvoie le taux d'intérêt nominal annuel
+NORM.DIST                    | Renvoie la distribution cumulée suivant une loi normale
+LOI.NORMALE                  | Renvoie la distribution cumulée suivant une loi normale. Dans Excel 2007, il s'agit d'une fonction statistique
+LOI.NORMALE.INVERSE          | Renvoie l'inverse de la distribution cumulée suivant une loi normale
+NORM.INV                     | Renvoie l'inverse de la distribution cumulée suivant une loi normale. Dans Excel 2007, il s'agit d'une fonction statistique
+NORM.S.DIST                  | Renvoie la distribution cumulée suivant une loi normale centrée réduite
+LOI.NORMALE.STANDARD         | Renvoie la distribution cumulée suivant une loi normale centrée réduite. Dans Excel 2007, il s'agit d'une fonction statistique
+NORM.S.INV                   | Renvoie l'inverse de la distribution cumulée suivant une loi normale centrée réduite
+LOI.NORMALE.STANDARD.INVERSE | Renvoie l'inverse de la distribution cumulée suivant une loi normale centrée réduite. Dans Excel 2007, il s'agit d'une fonction statistique
+NOT                          | Inverse la logique de son argument
+NOW                          | Renvoie le numéro de série de la date et de l'heure actuelles
+NPER                         | Renvoie le nombre de paiements d'un investissement
+VAN                          | Renvoie la valeur nette actuelle d'un investissement, en fonction d'une série de flux de trésorerie périodiques et d'un taux d'escompte
+OCT2BIN                      | Convertit un nombre octal en nombre binaire
+OCTDEC                       | Convertit un nombre octal en nombre décimal
+OCTHEX                       | Convertit un nombre octal en nombre hexadécimal
+ODD                          | Arrondit un nombre à l'entier impair supérieur le plus proche
+ODDFPRICE                    | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont la première période est irrégulière
+OR                           | Renvoie TRUE si un argument a la valeur TRUE
+PDURATION                    | Renvoie le nombre de périodes requises par un investissement pour atteindre une valeur spécifiée
+PEARSON                      | Renvoie le coefficient de corrélation d'échantillonnage de Pearson
+PERCENTILE.EXC               | Renvoie le k-ième centile de valeur d'une plage, où k se trouve dans la plage de 0 à 1 exclus
+PERCENTILE.INC               | Renvoie le k-ième centile des valeurs d'une plage
+CENTILE                      | Renvoie le k-ième centile des valeurs d'une plage. Dans Excel 2007, il s'agit d'une fonction statistique
+PERCENTRANK.EXC              | Renvoie le rang d'une valeur dans un ensemble de données défini comme pourcentage (0..1, exclus) de cet ensemble
+PERCENTRANK.INC              | Renvoie le rang en pourcentage d'une valeur dans un jeu de données
+RANG.POURCENTAGE             | Renvoie le rang en pourcentage d'une valeur dans un jeu de données. Dans Excel 2007, il s'agit d'une fonction statistique
+PERMUT                       | Renvoie le nombre de permutations pour un nombre d'objets donné
+PERMUTATIONA                 | Renvoie le nombre de permutations pour un nombre d'objets donné (avec répétitions) pouvant être sélectionnés à partir du nombre total d'objets
+PHI                          | Renvoie la valeur de la fonction de densité pour une distribution suivant une loi normale centrée réduite
+PI                           | Renvoie la valeur de pi
+PMT                          | Renvoie le montant périodique d'une annuité
+POISSON.DIST                 | Renvoie la distribution suivant une loi de Poisson
+LOI.POISSON                  | Renvoie la distribution suivant une loi de Poisson. Dans Excel 2007, il s'agit d'une fonction statistique
+POWER                        | Renvoie le résultat d'un nombre élevé à une puissance
+PPMT                         | Renvoie la part de remboursement du principal d'un emprunt pour une période donnée
+PRIX.TITRE                   | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont les intérêts sont payés périodiquement
+VALEUR.ENCAISSEMENT          | Renvoie le prix par valeur faciale de 100 dollars pour un titre escompté
+PRIX.TITRE.ECHEANCE          | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont les intérêts sont payés à échéance
+PRODUCT                      | Multiplie ses arguments
+PROPER                       | Met en majuscule la première lettre de chaque mot d'une valeur textuelle
+PV                           | Renvoie la valeur actuelle d'un investissement
+QUARTILE                     | Renvoie le quartile d'un jeu de données. Dans Excel 2007, il s'agit d'une fonction statistique
+QUARTILE.EXC                 | Renvoie le quartile de l'ensemble de données d'après des valeurs de centile comprises entre 0 et 1, exclus
+QUARTILE.INC                 | Renvoie le quartile d'un jeu de données
+QUOTIENT                     | Renvoie la partie entière d'une division
+RADIANS                      | Convertit des degrés en radians
+ALEA                         | Renvoie un nombre aléatoire compris entre 0 et 1
+ALEA.ENTRE.BORNES            | Renvoie un nombre aléatoire entre les nombres que vous spécifiez
+RANK.EQ                      | Renvoie le rang d'un nombre dans une liste de nombres
+RANG                         | Renvoie le rang d'un nombre dans une liste de nombres. Dans Excel 2007, il s'agit d'une fonction statistique
+RATE                         | Renvoie le taux d'intérêt par période pour une annuité
+VALEUR.NOMINALE              | Renvoie le montant reçu lorsqu'un titre totalement investi arrive à échéance
+REPLACE                      | Remplace des caractères dans un texte
+REPLACEB                     | Remplace des caractères dans un texte
+REPT                         | Répète un texte un certain nombre de fois
+DROITE                       | Renvoie les caractères les plus à droite d'une valeur textuelle
+DROITEB                      | Renvoie les caractères les plus à droite d'une valeur textuelle
+ROMAN                        | convertit des chiffres arabes en chiffres romains, sous forme de texte
+ROUND                        | Arrondit un nombre à un nombre de chiffres spécifié
+ARRONDI.INF                  | Arrondit un nombre à la valeur d'arrondi la plus proche de zéro
+ARRONDI.SUP                  | Arrondit un nombre à la valeur d'arrondi la plus éloignée de zéro
+LIGNE                        | Renvoie le numéro de ligne d'une référence
+LIGNES                       | Renvoie le nombre de lignes dans une référence
+RRI                          | Renvoie un taux d'intérêt équivalent pour la croissance d'un investissement
+COEFFICIENT.DETERMINATION    | Renvoie la valeur du coefficient de détermination R^2 d'une régression linéaire
+SEC                          | Renvoie la sécante d'un angle
+SECH                         | Renvoie la sécante hyperbolique d'un angle
+SECOND                       | Convertit un numéro de série en seconde
+SERIESSUM                    | Renvoie le total d'une série de puissance basé sur la formule
+SHEET                        | Renvoie le numéro de la feuille référencée
+SHEETS                       | Renvoie le nombre de feuilles dans une référence
+SIGN                         | Renvoie le signe d'un nombre
+SIN                          | Renvoie le sinus d'un angle donné
+SINH                         | Renvoie le sinus hyperbolique d'un nombre
+SKEW                         | Renvoie l'asymétrie d'une distribution
+SKEW.P                       | Renvoie l'asymétrie d'une distribution en fonction d'une population : la caractérisation du degré d'asymétrie d'une distribution par rapport à sa moyenne
+SLN                          | Renvoie l'amortissement linéaire d'une immobilisation pour une période
+PENTE                        | Renvoie la pente d'une droite de régression linéaire
+PETITE.VALEUR                | Renvoie la k-ième plus petite valeur d'un jeu de données
+SQRT                         | Renvoie une racine carrée positive
+RACINE.PI                    | Renvoie la racine carrée de (nombre \* pi)
+STANDARDIZE                  | Renvoie une valeur normalisée
+ECARTYPE                     | Évalue l'écart type en fonction d'un échantillon
+ECARTYPE.PEARSON             | Calcule l'écart type en fonction de la population entière
+ECARTYPE.STANDARD            | Évalue l'écart type en fonction d'un échantillon
+STDEVA                       | Évalue l'écart type en fonction d'un échantillon, y compris les nombres, le texte et les valeurs logiques
+ECARTYPEP                    | Calcule l'écart type en fonction de la population entière. Dans Excel 2007, il s'agit d'une fonction statistique
+STDEVPA                      | Calcule l'écart type en fonction de la population entière, y compris les nombres, le texte et les valeurs logiques
+ERREUR.TYPE.XY               | Renvoie l'erreur type de la valeur y prévue pour chaque x de la régression
+SUBSTITUTE                   | Remplace le nouveau texte par l'ancien texte d'une chaîne de texte
+SUBTOTAL                     | Renvoie un sous-total dans une liste ou une base de données
+SOMME                        | Ajoute ses arguments
+SOMME.SI                     | Ajoute les cellules spécifiées par un critère donné
+SUMIFS                       | Ajoute les cellules d'une plage répondant à plusieurs critères
+SOMMEPROD                    | Multiplie les valeurs correspondantes des matrices spécifiées et calcule la somme de ces produits
+SOMME.CARRES                 | Renvoie le total des carrés des arguments
+SOMME.X2MY2                  | Renvoie la somme de la différence des carrés des valeurs correspondantes de deux matrices
+SOMME.X2PY2                  | Renvoie la somme de la somme des carrés des valeurs correspondantes de deux matrices
+SOMME.XMY2                   | Renvoie la somme des carrés des différences entre les valeurs correspondantes de deux matrices
+SI.MULTIPLE                  | Évalue une expression par rapport à une liste de valeurs et renvoie le résultat correspondant à la première valeur correspondante. S'il n'y a pas de correspondance, une valeur par défaut facultative peut être renvoyée
+SYD                          | Renvoie l'amortissement des chiffres cumulés sur l'année d'une immobilisation pour une période spécifique
+T                            | Convertit ses arguments en texte
+TAN                          | Renvoie la tangente d'un nombre
+TANH                         | Renvoie la tangente hyperbolique d'un nombre
+TAUX.ESCOMPTE.R              | Renvoie un nombre spécifié de lignes ou de colonnes contiguës à partir du début ou de la fin du tableau
+PRIX.BON.TRESOR              | Renvoie le prix par valeur faciale de 100 dollars pour un bon du Trésor
+RENDEMENT.BON.TRESOR         | Renvoie le rapport pour un bon du Trésor
+T.DIST                       | Renvoie les points de pourcentage (probabilité) pour la distribution suivant la loi T de Student
+T.DIST.2T                    | Renvoie les points de pourcentage (probabilité) pour la distribution suivant la loi T de Student
+T.DIST.RT                    | Renvoie la distribution suivant la loi T de Student
+LOI.STUDENT                  | Renvoie la distribution suivant la loi T de Student
+JOINDRE.TEXTE                | Met en forme un nombre et le convertit en texte
+TEMPS                        | Renvoie le numéro de série d'une heure précise
+TEMPSVAL                     | Convertit une heure au format texte en numéro de série
+T.INV                        | Renvoie la valeur t de la distribution suivant la loi T de Student sous forme de fonction de probabilité et de degrés de liberté
+T.INV.2T                     | Renvoie l'inverse de la distribution suivant la loi T de Student
+LOI.STUDENT.INVERSE          | Renvoie l'inverse de la distribution suivant la loi T de Student
+AUJOURDHUI                   | Renvoie le numéro de série de la date du jour
+TRANSPOSE                    | Renvoie la transposition d'une matrice
+TENDANCE                     | Renvoie des valeurs par rapport à une tendance linéaire
+TRIM                         | Supprime les espaces du texte
+TRIMMEAN                     | Renvoie la moyenne de la partie intérieure d'un jeu de données
+TRUE                         | Renvoie la valeur logique TRUE
+TRUNC                        | Tronque un nombre en entier
+T.TEST                       | Renvoie la probabilité associée à un test T de Student
+TEST.STUDENT                 | Renvoie la probabilité associée à un test T de Student.. Dans Excel 2007, il s'agit d'une fonction statistique
+TYPE                         | Renvoie un nombre indiquant le type de données d'une valeur
+UNICHAR                      | Renvoie le caractère unicode référencé par la valeur numérique donnée
+UNICODE                      | Renvoie le nombre (point de code) qui correspond au premier caractère du texte
+UPPER                        | Convertit le texte en majuscules
+CNUM                         | Convertit un argument textuel en nombre
+VAR                          | Fournit une estimation de l'écart à partir d'un échantillon. Dans Excel 2007, il s'agit d'une fonction statistique
+VAR.P                        | Calcule l'écart en fonction de la population entière
+VAR.S                        | Fournit une estimation de l'écart à partir d'un échantillon
+VARA                         | Évalue la varianceen fonction d'un échantillon, y compris les nombres, le texte et les valeurs logiques
+VAR.P                        | Calcule l'écart en fonction de la population entière. Dans Excel 2007, il s'agit d'une fonction statistique
+VARPA                        | Calcule la variance en fonction de la population entière, y compris les nombres, le texte et les valeurs logiques
+VDB                          | Renvoie l'amortissement d'un bien durant une période spécifiée ou partielle en utilisant une méthode d'amortissement dégressif
+VLOOKUP                      | Cherche dans la première colonne d'un tableau et se déplace horizontalement pour renvoyer la valeur d'une cellule
+JOURSEM                      | Ajoute des tableaux verticalement et en séquence pour renvoyer un tableau plus grand
+NO.SEMAINE                   | Convertit un numéro de série en un numéro de semaine correspondant à l'année
+LOI.WEIBULL                  | Calcule la variance en fonction de la population entière, y compris les nombres, le texte et les valeurs logiques. Dans Excel 2007, il s'agit d'une fonction statistique
+WEIBULL.DIST                 | Renvoie la distribution suivant la loi de Weibull
+SERIE.JOUR.OUVRE             | Renvoie le numéro de série de la date précédant ou suivant un nombre de jours ouvrés spécifié
+WORKDAY.INTL                 | Renvoie le numéro de série de la date précédant ou suivant un nombre spécifié de jours ouvrés à l'aide de paramètres indiquant le nombre de jours compris dans un week-end
+TRI.PAIEMENTS                | Renvoie le taux de rendement interne d'une planification de flux financiers qui n'est pas nécessairement périodique
+RECHERCHEX                   | Recherche une plage ou une matrice et renvoie un élément correspondant à la première correspondance qu'elle trouve. Si une correspondance n'existe pas, la recherche X peut renvoyer la correspondance la plus proche (approximative)
+VAN.PAIEMENTS                | Renvoie la valeur actuelle nette d'une planification de flux financiers qui n'est pas nécessairement périodique
+XOR                          | Renvoie une valeur logique exclusive OR de tous les arguments
+ANNEE                        | Convertit un numéro de série en année
+FRACTION.ANNEE               | Renvoie la fraction de l'année représentant le nombre de jours entiers compris entre start_date et end_date
+YIELD                        | Renvoie le rendement d'un titre rapportant des intérêts périodiquement
+RENDEMENT.SIMPLE             | Renvoie le rendement annuel d'un titre escompté, par exemple, un bon du Trésor
+RENDEMENT.TITRE.ECHEANCE     | Renvoie le rendement annuel d'un titre pour lequel des intérêts sont payés à l'échéance
+Z.TEST                       | Renvoie la valeur de probabilité unilatérale du test Z
+TEST.Z                       | Renvoie la valeur de probabilité unilatérale du test Z. Dans Excel 2007, il s'agit d'une fonction statistique

@@ -186,7 +186,7 @@ MergeCell fournit une fonction pour fusionner les cellules par une zone de coord
 func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 ```
 
-SetColWidth fournit une fonction pour définir la largeur d’une seule colonne ou de plusieurs colonnes pour le `StreamWriter`. Notez que vous devez appeler la fonction `SetColWidth` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, définissez la colonne de largeur `B:C` comme `20`:
+SetColWidth fournit une fonction pour définir la largeur d'une seule colonne ou de plusieurs colonnes pour le `StreamWriter`. Notez que vous devez appeler la fonction `SetColWidth` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, définissez la colonne de largeur `B:C` comme `20`:
 
 ```go
 err := sw.SetColWidth(2, 3, 20)

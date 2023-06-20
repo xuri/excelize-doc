@@ -393,7 +393,7 @@ Par exemple, recherchez les coordonnées de la valeur `100` sur `Sheet1`:
 result, err := f.SearchSheet("Sheet1", "100")
 ```
 
-Par exemple, recherchez les coordonnées d’une valeur comprise entre `0-9` dans une feuille de calcul nommée `Sheet1`:
+Par exemple, recherchez les coordonnées d'une valeur comprise entre `0-9` dans une feuille de calcul nommée `Sheet1`:
 
 ```go
 result, err := f.SearchSheet("Sheet1", "[0-9]", true)

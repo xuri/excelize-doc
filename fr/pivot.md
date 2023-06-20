@@ -1,6 +1,6 @@
 # Tableau croisé dynamique {#PivotTable}
 
-Un tableau croisé dynamique est un tableau de statistiques qui résume les données d'un tableau plus détaillé (tel qu'une base de données, un tableur ou un programme d'aide à la décision). Ce résumé peut inclure des sommes, des moyennes ou d’autres statistiques que le tableau croisé dynamique regroupe de manière significative.
+Un tableau croisé dynamique est un tableau de statistiques qui résume les données d'un tableau plus détaillé (tel qu'une base de données, un tableur ou un programme d'aide à la décision). Ce résumé peut inclure des sommes, des moyennes ou d'autres statistiques que le tableau croisé dynamique regroupe de manière significative.
 
 `PivotTableOptions` mappe directement les paramètres de format du tableau croisé dynamique.
 

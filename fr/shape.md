@@ -38,9 +38,9 @@ Ce qui suit montre le type de forme supporté par excelize:
 
 Type|Forme|Style
 ---|---|---
-accentBorderCallout1 | Légende 1 avec bordure et la forme d’accentuation | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout1.svg" height="50" width="50"></p>
-accentBorderCallout2 | Légende 2 avec bordure et la forme d’accentuation | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout2.svg" height="50" width="50"></p>
-accentBorderCallout3 | Légende 3 avec bordure et la forme d’accentuation | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout3.svg" height="50" width="50"></p>
+accentBorderCallout1 | Légende 1 avec bordure et la forme d'accentuation | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout1.svg" height="50" width="50"></p>
+accentBorderCallout2 | Légende 2 avec bordure et la forme d'accentuation | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout2.svg" height="50" width="50"></p>
+accentBorderCallout3 | Légende 3 avec bordure et la forme d'accentuation | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout3.svg" height="50" width="50"></p>
 accentCallout1 | Forme de légende 1 | <p style="text-align: center;"><img src="../images/shapes/accentCallout1.svg" height="50" width="50"></p>
 accentCallout2 | Forme de légende 2 | <p style="text-align: center;"><img src="../images/shapes/accentCallout2.svg" height="50" width="50"></p>
 accentCallout3 | Forme de légende 3 | <p style="text-align: center;"><img src="../images/shapes/accentCallout3.svg" height="50" width="50"></p>
@@ -50,21 +50,21 @@ actionButtonBlank | Forme bouton vide | <p style="text-align: center;"><img src=
 actionButtonDocument | Forme de bouton de document | <p style="text-align: center;"><img src="../images/shapes/actionButtonDocument.svg" height="50" width="50"></p>
 actionButtonEnd | Forme de bouton de fin | <p style="text-align: center;"><img src="../images/shapes/actionButtonEnd.svg" height="50" width="50"></p>
 actionButtonForwardNext | Transférer ou le bouton suivant de forme | <p style="text-align: center;"><img src="../images/shapes/actionButtonForwardNext.svg" height="50" width="50"></p>
-actionButtonHelp | Forme de bouton d’aide | <p style="text-align: center;"><img src="../images/shapes/actionButtonHelp.svg" height="50" width="50"></p>
+actionButtonHelp | Forme de bouton d'aide | <p style="text-align: center;"><img src="../images/shapes/actionButtonHelp.svg" height="50" width="50"></p>
 actionButtonHome | Bouton Accueil forme | <p style="text-align: center;"><img src="../images/shapes/actionButtonHome.svg" height="50" width="50"></p>
-actionButtonInformation | Forme de bouton d’informations | <p style="text-align: center;"><img src="../images/shapes/actionButtonInformation.svg" height="50" width="50"></p>
+actionButtonInformation | Forme de bouton d'informations | <p style="text-align: center;"><img src="../images/shapes/actionButtonInformation.svg" height="50" width="50"></p>
 actionButtonMovie | Forme de bouton vidéo | <p style="text-align: center;"><img src="../images/shapes/actionButtonMovie.svg" height="50" width="50"></p>
 actionButtonReturn | Retourne la forme du bouton | <p style="text-align: center;"><img src="../images/shapes/actionButtonReturn.svg" height="50" width="50"></p>
 actionButtonSound | Forme de son bouton | <p style="text-align: center;"><img src="../images/shapes/actionButtonSound.svg" height="50" width="50"></p>
-arc | Forme d’Arc courbé | <p style="text-align: center;"><img src="../images/shapes/arc.svg" height="50" width="50"></p>
+arc | Forme d'Arc courbé | <p style="text-align: center;"><img src="../images/shapes/arc.svg" height="50" width="50"></p>
 bentArrow | Forme de flèche courbée | <p style="text-align: center;"><img src="../images/shapes/bentArrow.svg" height="50" width="50"></p>
 bentConnector2 | Forme de connecteur courbé 2 | <p style="text-align: center;"><img src="../images/shapes/bentConnector2.svg" height="50" width="50"></p>
 bentConnector3 | Forme de connecteur courbé 3 | <p style="text-align: center;"><img src="../images/shapes/bentConnector3.svg" height="50" width="50"></p>
 bentConnector4 | Forme de connecteur courbé 4 | <p style="text-align: center;"><img src="../images/shapes/bentConnector4.svg" height="50" width="50"></p>
 bentConnector5 | Forme de connecteur courbé 5 | <p style="text-align: center;"><img src="../images/shapes/bentConnector5.svg" height="50" width="50"></p>
-bentUpArrow | Angle droit d’une forme de flèche | <p style="text-align: center;"><img src="../images/shapes/bentUpArrow.svg" height="50" width="50"></p>
+bentUpArrow | Angle droit d'une forme de flèche | <p style="text-align: center;"><img src="../images/shapes/bentUpArrow.svg" height="50" width="50"></p>
 bevel | Forme de biseau | <p style="text-align: center;"><img src="../images/shapes/bevel.svg" height="50" width="50"></p>
-blockArc | Forme d’Arc de bloc | <p style="text-align: center;"><img src="../images/shapes/blockArc.svg" height="50" width="50"></p>
+blockArc | Forme d'Arc de bloc | <p style="text-align: center;"><img src="../images/shapes/blockArc.svg" height="50" width="50"></p>
 borderCallout1 | Légende 1 avec la forme de la bordure | <p style="text-align: center;"><img src="../images/shapes/borderCallout1.svg" height="50" width="50"></p>
 borderCallout2 | Légende 2 avec la forme de la bordure | <p style="text-align: center;"><img src="../images/shapes/borderCallout2.svg" height="50" width="50"></p>
 borderCallout3 | Légende 3 avec la forme de la bordure | <p style="text-align: center;"><img src="../images/shapes/borderCallout3.svg" height="50" width="50"></p>
@@ -83,7 +83,7 @@ circularArrow | Forme de flèche circulaire | <p style="text-align: center;"><im
 cloud | Forme de nuage | <p style="text-align: center;"><img src="../images/shapes/cloud.svg" height="50" width="50"></p>
 cloudCallout | Forme de nuage de légende | <p style="text-align: center;"><img src="../images/shapes/cloudCallout.svg" height="50" width="50"></p>
 corner | Forme angle | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
-cornerTabs | Forme d’onglets angle | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
+cornerTabs | Forme d'onglets angle | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
 cube | Forme de cube | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
 curvedConnector2 | Connecteur en arc 2 forme | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
 curvedConnector3 | Connecteur en arc 3 forme | <p style="text-align: center;"><img src="../images/shapes/curvedConnector3.svg" height="50" width="50"></p>
@@ -101,30 +101,30 @@ donut | Forme café | <p style="text-align: center;"><img src="../images/shapes/
 doubleWave | Double vague forme | <p style="text-align: center;"><img src="../images/shapes/doubleWave.svg" height="50" width="50"></p>
 downArrow | La forme de flèche | <p style="text-align: center;"><img src="../images/shapes/downArrow.svg" height="50" width="50"></p>
 downArrowCallout | Forme de flèche vers le bas de la légende | <p style="text-align: center;"><img src="../images/shapes/downArrowCallout.svg" height="50" width="50"></p>
-ellipse | Forme de l’ellipse | <p style="text-align: center;"><img src="../images/shapes/ellipse.svg" height="50" width="50"></p>
+ellipse | Forme de l'ellipse | <p style="text-align: center;"><img src="../images/shapes/ellipse.svg" height="50" width="50"></p>
 ellipseRibbon | Forme de ruban ellipse | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon.svg" height="50" width="50"></p>
 ellipseRibbon2 | Forme de ruban 2 ellipse | <p style="text-align: center;"><img src="../images/shapes/ellipseRibbon2.svg" height="50" width="50"></p>
 flowChartAlternateProcess | Forme de flux de processus de substitution | <p style="text-align: center;"><img src="../images/shapes/flowChartAlternateProcess.svg" height="50" width="50"></p>
 flowChartCollate | Assembler des flux de forme | <p style="text-align: center;"><img src="../images/shapes/flowChartCollate.svg" height="50" width="50"></p>
 flowChartConnector | Forme de flux de connecteur| <p style="text-align: center;"><img src="../images/shapes/flowChartConnector.svg" height="50" width="50"></p>
 flowChartDecision | Forme de flux de décision | <p style="text-align: center;"><img src="../images/shapes/flowChartDecision.svg" height="50" width="50"></p>
-flowChartDelay | Forme de flux de délai d’attente | <p style="text-align: center;"><img src="../images/shapes/flowChartDelay.svg" height="50" width="50"></p>
+flowChartDelay | Forme de flux de délai d'attente | <p style="text-align: center;"><img src="../images/shapes/flowChartDelay.svg" height="50" width="50"></p>
 flowChartDisplay | Afficher la forme de flux | <p style="text-align: center;"><img src="../images/shapes/flowChartDisplay.svg" height="50" width="50"></p>
 flowChartDocument | Forme de flux de document | <p style="text-align: center;"><img src="../images/shapes/flowChartDocument.svg" height="50" width="50"></p>
 flowChartExtract | Extraire la forme de flux | <p style="text-align: center;"><img src="../images/shapes/flowChartExtract.svg" height="50" width="50"></p>
-flowChartInputOutput | Forme de flux d’entrée / sortie | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
+flowChartInputOutput | Forme de flux d'entrée / sortie | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
 flowChartInternalStorage | Forme de flux de stockage interne | <p style="text-align: center;"><img src="../images/shapes/flowChartInternalStorage.svg" height="50" width="50"></p>
 flowChartMagneticDisk | Forme de flux de disque magnétique | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticDisk.svg" height="50" width="50"></p>
 flowChartMagneticDrum | Forme de flux magnétique tambour | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticDrum.svg" height="50" width="50"></p>
 flowChartMagneticTape | Forme de flux de bande magnétique | <p style="text-align: center;"><img src="../images/shapes/flowChartMagneticTape.svg" height="50" width="50"></p>
-flowChartManualInput | Forme de flux d’entrée manuelle | <p style="text-align: center;"><img src="../images/shapes/flowChartManualInput.svg" height="50" width="50"></p>
+flowChartManualInput | Forme de flux d'entrée manuelle | <p style="text-align: center;"><img src="../images/shapes/flowChartManualInput.svg" height="50" width="50"></p>
 flowChartManualOperation | Forme de flux opération manuelle | <p style="text-align: center;"><img src="../images/shapes/flowChartManualOperation.svg" height="50" width="50"></p>
 flowChartMerge | Fusionner des flux de forme | <p style="text-align: center;"><img src="../images/shapes/flowChartMerge.svg" height="50" width="50"></p>
 flowChartMultidocument | Forme de flux de documents multiples | <p style="text-align: center;"><img src="../images/shapes/flowChartMultidocument.svg" height="50" width="50"></p>
 flowChartOfflineStorage | Forme de flux de stockage en mode hors connexion | <p style="text-align: center;"><img src="../images/shapes/flowChartOfflineStorage.svg" height="50" width="50"></p>
 flowChartOffpageConnector | Connecteur hors Page flux de forme | <p style="text-align: center;"><img src="../images/shapes/flowChartOffpageConnector.svg" height="50" width="50"></p>
 flowChartOnlineStorage | Forme de flux de stockage en ligne | <p style="text-align: center;"><img src="../images/shapes/flowChartOnlineStorage.svg" height="50" width="50"></p>
-flowChartOr | Ou d’une forme de flux | <p style="text-align: center;"><img src="../images/shapes/flowChartOr.svg" height="50" width="50"></p>
+flowChartOr | Ou d'une forme de flux | <p style="text-align: center;"><img src="../images/shapes/flowChartOr.svg" height="50" width="50"></p>
 flowChartPredefinedProcess | Forme de flux de processus prédéfinis | <p style="text-align: center;"><img src="../images/shapes/flowChartPredefinedProcess.svg" height="50" width="50"></p>
 flowChartPreparation | Préparation de la forme de flux | <p style="text-align: center;"><img src="../images/shapes/flowChartPredefinedProcess.svg" height="50" width="50"></p>
 flowChartProcess | Forme de flux de processus | <p style="text-align: center;"><img src="../images/shapes/flowChartPreparation.svg" height="50" width="50"></p>
@@ -136,19 +136,19 @@ flowChartTerminator | Forme de flux de terminaison | <p style="text-align: cente
 foldedCorner | Forme corné | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
 frame | Forme de cadre | <p style="text-align: center;"><img src="../images/shapes/frame.svg" height="50" width="50"></p>
 funnel | Entonnoir forme | <p style="text-align: center;"><img src="../images/shapes/funnel.svg" height="50" width="50"></p>
-gear6 | Forme d’engrenage 6 | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
-gear9 | Forme d’engrenage 9 | <p style="text-align: center;"><img src="../images/shapes/gear9.svg" height="50" width="50"></p>
+gear6 | Forme d'engrenage 6 | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
+gear9 | Forme d'engrenage 9 | <p style="text-align: center;"><img src="../images/shapes/gear9.svg" height="50" width="50"></p>
 halfFrame | Forme moitié du cadre | <p style="text-align: center;"><img src="../images/shapes/halfFrame.svg" height="50" width="50"></p>
 heart | Forme de cœur | <p style="text-align: center;"><img src="../images/shapes/heart.svg" height="50" width="50"></p>
 heptagon | Forme sur un heptagone | <p style="text-align: center;"><img src="../images/shapes/heptagon.svg" height="50" width="50"></p>
 hexagon | Forme hexagone | <p style="text-align: center;"><img src="../images/shapes/hexagon.svg" height="50" width="50"></p>
-homePlate | Forme de plaque d’accueil | <p style="text-align: center;"><img src="../images/shapes/homePlate.svg" height="50" width="50"></p>
+homePlate | Forme de plaque d'accueil | <p style="text-align: center;"><img src="../images/shapes/homePlate.svg" height="50" width="50"></p>
 horizontalScroll | Forme de défilement horizontale | <p style="text-align: center;"><img src="../images/shapes/horizontalScroll.svg" height="50" width="50"></p>
 irregularSeal1 | Forme joint irrégulier 1 | <p style="text-align: center;"><img src="../images/shapes/irregularSeal1.svg" height="50" width="50"></p>
 irregularSeal2 | Forme joint irrégulier 2 | <p style="text-align: center;"><img src="../images/shapes/irregularSeal2.svg" height="50" width="50"></p>
 leftArrow | Forme de flèche vers la gauche | <p style="text-align: center;"><img src="../images/shapes/leftArrow.svg" height="50" width="50"></p>
 leftArrowCallout | Forme de flèche gauche de la légende | <p style="text-align: center;"><img src="../images/shapes/leftArrowCallout.svg" height="50" width="50"></p>
-leftBrace | Forme de l’accolade gauche | <p style="text-align: center;"><img src="../images/shapes/leftBrace.svg" height="50" width="50"></p>
+leftBrace | Forme de l'accolade gauche | <p style="text-align: center;"><img src="../images/shapes/leftBrace.svg" height="50" width="50"></p>
 leftBracket | Forme crochet gauche | <p style="text-align: center;"><img src="../images/shapes/leftBracket.svg" height="50" width="50"></p>
 leftCircularArrow | Forme de flèche circulaire vers la gauche | <p style="text-align: center;"><img src="../images/shapes/leftCircularArrow.svg" height="50" width="50"></p>
 leftRightArrow | Forme de flèche gauche et droite | <p style="text-align: center;"><img src="../images/shapes/leftRightArrow.svg" height="50" width="50"></p>
@@ -175,8 +175,8 @@ parallelogram | Parallélogramme à forme | <p style="text-align: center;"><img 
 pentagon | Forme pentagone | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
 pie | Forme en secteurs | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
 pieWedge | Forme de coins en secteurs | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
-plaque | Forme d’étiquette | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
-plaqueTabs | Forme d’onglets plaque | <p style="text-align: center;"><img src="../images/shapes/plaqueTabs.svg" height="50" width="50"></p>
+plaque | Forme d'étiquette | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
+plaqueTabs | Forme d'onglets plaque | <p style="text-align: center;"><img src="../images/shapes/plaqueTabs.svg" height="50" width="50"></p>
 plus | Plus de forme | <p style="text-align: center;"><img src="../images/shapes/plus.svg" height="50" width="50"></p>
 quadArrow | Forme de flèche à quatre | <p style="text-align: center;"><img src="../images/shapes/quadArrow.svg" height="50" width="50"></p>
 quadArrowCallout | Forme de légende avec flèche à quatre cœurs | <p style="text-align: center;"><img src="../images/shapes/quadArrowCallout.svg" height="50" width="50"></p>
@@ -185,7 +185,7 @@ ribbon | Forme de ruban | <p style="text-align: center;"><img src="../images/sha
 ribbon2 | Forme de ruban 2 | <p style="text-align: center;"><img src="../images/shapes/ribbon2.svg" height="50" width="50"></p>
 rightArrow | Forme de flèche vers la droite | <p style="text-align: center;"><img src="../images/shapes/rightArrow.svg" height="50" width="50"></p>
 rightArrowCallout | Forme de flèche droite de la légende | <p style="text-align: center;"><img src="../images/shapes/rightArrowCallout.svg" height="50" width="50"></p>
-rightBrace | Forme de l’accolade droite | <p style="text-align: center;"><img src="../images/shapes/rightBrace.svg" height="50" width="50"></p>
+rightBrace | Forme de l'accolade droite | <p style="text-align: center;"><img src="../images/shapes/rightBrace.svg" height="50" width="50"></p>
 rightBracket | Forme de parenthèse fermante | <p style="text-align: center;"><img src="../images/shapes/rightBracket.svg" height="50" width="50"></p>
 round1Rect | Une forme de Rectangle arrondi angle | <p style="text-align: center;"><img src="../images/shapes/round1Rect.svg" height="50" width="50"></p>
 round2DiagRect | Forme de Rectangle deux coin arrondi Diagonal | <p style="text-align: center;"><img src="../images/shapes/round2DiagRect.svg" height="50" width="50"></p>
@@ -193,7 +193,7 @@ round2SameRect | Forme de Rectangle deux coin arrondi même côté | <p style="t
 roundRect | Forme de Rectangle arrondi angle | <p style="text-align: center;"><img src="../images/shapes/roundRect.svg" height="50" width="50"></p>
 rtTriangle | Forme Triangle rectangle | <p style="text-align: center;"><img src="../images/shapes/rtTriangle.svg" height="50" width="50"></p>
 smileyFace | Forme de Face émoticônes | <p style="text-align: center;"><img src="../images/shapes/smileyFace.svg" height="50" width="50"></p>
-snip1Rect | Capture d’une forme de Rectangle angle | <p style="text-align: center;"><img src="../images/shapes/snip1Rect.svg" height="50" width="50"></p>
+snip1Rect | Capture d'une forme de Rectangle angle | <p style="text-align: center;"><img src="../images/shapes/snip1Rect.svg" height="50" width="50"></p>
 snip2DiagRect | Forme de Rectangle coin deux rogner en diagonale | <p style="text-align: center;"><img src="../images/shapes/snip2DiagRect.svg" height="50" width="50"></p>
 snip2SameRect | Forme de Rectangle coin deux rogner même côté | <p style="text-align: center;"><img src="../images/shapes/snip2SameRect.svg" height="50" width="50"></p>
 snipRoundRect | Un rogner une forme de Rectangle coin arrondi | <p style="text-align: center;"><img src="../images/shapes/snipRoundRect.svg" height="50" width="50"></p>
