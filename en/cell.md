@@ -298,6 +298,11 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     if err := f.SetRowHeight("Sheet1", 1, 35); err != nil {
         fmt.Println(err)
         return
@@ -662,14 +667,20 @@ import (
 
 func main() {
     f := excelize.NewFile()
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
+        }
+    }()
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
         if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1", "C2",
-        `{"table_name":"Table1","table_style":"TableStyleMedium2"}`); err != nil {
+    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
+        Name: "Table1", StyleName: "TableStyleMedium2",
+    }); err != nil {
         fmt.Println(err)
         return
     }
@@ -851,7 +862,8 @@ FALSE                    | Returns the logical value FALSE
 F.DIST                   | Returns the F probability distribution
 FDIST                    | Returns the F probability distribution
 F.DIST.RT                | Returns the F probability distribution
-FIND, FINDB              | Finds one text value within another (case-sensitive)
+FIND                     | Finds one text value within another (case-sensitive)
+FINDB                    | Finds one text value within another (case-sensitive)
 F.INV                    | Returns the inverse of the F probability distribution
 F.INV.RT                 | Returns the inverse of the F probability distribution
 FINV                     | Returns the inverse of the F probability distribution
@@ -884,7 +896,6 @@ HEX2DEC                  | Converts a hexadecimal number to decimal
 HEX2OCT                  | Converts a hexadecimal number to octal
 HLOOKUP                  | Looks in the top row of an array and returns the value of the indicated cell
 HOUR                     | Converts a serial number to an hour
-HSTACK                   | Appends arrays horizontally and in sequence to return a larger array
 HYPERLINK                | Creates a shortcut or jump that opens a document stored on a network server, an intranet, or the Internet
 HYPGEOM.DIST             | Returns the hypergeometric distribution
 HYPGEOMDIST              | Returns the hypergeometric distribution

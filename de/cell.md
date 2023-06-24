@@ -786,7 +786,7 @@ KONFIDENZ                 | Gibt das Konfidenzintervall für den Erwartungswert 
 KONFIDENZ.NORM            | Gibt das Konfidenzintervall für den Erwartungswert einer Zufallsvariablen zurück
 KONFIDENZ.T               | Gibt das Konfidenzintervall für den Erwartungswert einer (Student) t-verteilten Zufallsvariablen zurück
 UMWANDELN                 | Wandelt eine Zahl von einem Maßsystem in ein anderes um
-CORREL                    | Gibt den Korrelationskoeffizienten zweier Reihen von Merkmalsausprägungen zurück
+KORREL                    | Gibt den Korrelationskoeffizienten zweier Reihen von Merkmalsausprägungen zurück
 COS                       | Gibt den Kosinus einer Zahl zurück
 COSHYP                    | Gibt den hyperbolischen Kosinus einer Zahl zurück
 COT                       | Gibt den hyperbolischen Kosinus einer Zahl zurück
@@ -835,7 +835,6 @@ DBMIN                     | Gibt den kleinsten Wert aus ausgewählten Datenbanke
 NOTIERUNGDEZ              | Konvertiert eine Notierung, die als Dezimalbruch ausgedrückt wurde, in eine Dezimalzahl
 NOTIERUNGBRU              | Konvertiert eine Notierung in dezimaler Schreibweise in einen gemischten Dezimalbruch
 DBPRODUKT                 | Multipliziert die Werte in einem bestimmten Feld von Datensätzen, die den Kriterien in einer Datenbank entsprechen
-WEGLASSEN                 | Schließt eine angegebene Anzahl von Zeilen oder Spalten vom Anfang oder Ende einer Matrix aus
 DBSTDABW                  | Schätzt die Standardabweichung basierend auf einer Stichprobe aus ausgewählten Datenbankeinträgen
 DBSTDABWN                 | Berechnet die Standardabweichung basierend auf der Grundgesamtheit ausgewählter Datenbankeinträge
 DBSUMME                   | Addiert die Zahlen in der Feldspalte von Datensätzen in der Datenbank, die den Kriterien entsprechen
@@ -995,7 +994,7 @@ NV                        | Gibt den Fehlerwert #NV zurück
 NEGBINOM.VERT             | Gibt Wahrscheinlichkeiten einer negativ binomialverteilten Zufallsvariablen zurück
 NEGBINOMDIST              | Gibt Wahrscheinlichkeiten einer negativ binomialverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
 NETTOARBEITSTAGE          | Gibt die Anzahl der vollen Arbeitstage zwischen zwei Datumswerten zurück
-NETTOARBEITSTAGE.INTL     | Excel 2010                                                                                                                                                                                                                                                                                                                                                | Gibt die Anzahl der vollen Arbeitstage zwischen zwei Datumsangaben zurück. Dabei werden Parameter verwendet, um anzugeben, welche und wie viele Tage auf Wochenenden fallen
+NETTOARBEITSTAGE.INTL     | ExceGibt die Anzahl der vollen Arbeitstage zwischen zwei Datumsangaben zurück. Dabei werden Parameter verwendet, um anzugeben, welche und wie viele Tage auf Wochenenden fallen
 NOMINAL                   | Gibt die jährliche Nominalverzinsung zurück
 NORM.VERT                 | Gibt Wahrscheinlichkeiten einer normalverteilten Zufallsvariablen zurück
 NORMDIST                  | Gibt Wahrscheinlichkeiten einer normalverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
@@ -1026,8 +1025,8 @@ PERCENTRANK               | Gibt den prozentualen Rang eines Werts in einer Date
 VARIATIONEN               | Gibt die Anzahl der Permutationen für eine bestimmte Anzahl von Objekten zurück
 VARIATIONEN2              | Gibt die Anzahl der Permutationen für eine angegebene Anzahl von Objekten zurück (mit Wiederholungen), die aus der Gesamtmenge der Objekte ausgewählt werden können
 PHI                       | Gibt den Wert der Dichtefunktion für eine Standardnormalverteilung zurück
-PHONETIC                  | Extrahiert die phonetischen (Furigana-)Zeichen aus einer Textzeichenfolge
 PI                        | Gibt den Wert von Pi zurück
+RMZ                       | Gibt die periodische Zahlung für eine Annuität zurück
 POISSON.VERT              | Gibt Wahrscheinlichkeiten einer poissonverteilten Zufallsvariablen zurück
 POISSON                   | Gibt Wahrscheinlichkeiten einer poissonverteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
 POTENZ                    | Gibt als Ergebnis eine potenzierte Zahl zurück
@@ -1062,8 +1061,8 @@ ROW                       | Gibt die Zeilennummer eines Bezugs zurück
 ZEILEN                    | Gibt die Anzahl von Zeilen in einem Bezug zurück
 ZSATZINVEST               | Gibt den effektiven Jahreszins für den Wertzuwachs einer Investition zurück
 RSQ                       | Gibt das Quadrat des Pearsonschen Korrelationskoeffizienten zurück
-RTD                       | Ruft Echtzeitdaten von einem Programm ab, das die COM-Automatisierung unterstützt
-SCAN                      | Scannt eine Matrix, indem ein LAMBDA auf jeden Wert angewendet wird, und gibt eine Matrix zurück, die jeden Zwischenwert enthält
+SEC                       | Gibt den Sekans eines Winkels zurück
+SUCHEN                    | Sucht einen in einem anderen Textwert enthaltenen Textwert (Groß-/Kleinschreibung wird nicht beachtet)
 SUCHENB                   | Sucht einen in einem anderen Textwert enthaltenen Textwert (Groß-/Kleinschreibung wird nicht beachtet)
 POTENZREIHE               | Gibt die Summe einer Potenzreihe auf der Grundlage der Formel zurück
 BLATT                     | Gibt die Blattnummer des Blatts zurück, auf das verwiesen wird
@@ -1143,7 +1142,7 @@ WEIBULL.VERT              | Gibt Wahrscheinlichkeiten einer Weibull-verteilten Z
 ARBEITSTAG                | Gibt die fortlaufende Zahl des Datums vor oder nach einer bestimmten Anzahl von Arbeitstagen zurück
 ARBEITSTAG.INTL           | Gibt die fortlaufende Zahl des Datums zurück, das vor oder nach einer bestimmten Anzahl von Arbeitstagen liegt. Dabei werden Parameter verwendet, um anzugeben, welche und wie viele Tage auf Wochenenden fallen
 XINTZINSFUSS              | Gibt den internen Zinsfuß für eine Reihe nicht unbedingt periodisch anfallender Zahlungen zurück
-XLOOKUP                   | Die XVERWEIS-Funktion sucht nach einem Bereich oder einer Matrix und gibt ein Element zurück, das zur ersten gefundenen Übereinstimmung passt. Wenn es keine Übereinstimmung gibt, kann XVERWEIS die beste (ungefähre) Übereinstimmung zurückgeben.
+XLOOKUP                   | Die XVERWEIS-Funktion sucht nach einem Bereich oder einer Matrix und gibt ein Element zurück, das zur ersten gefundenen Übereinstimmung passt. Wenn es keine Übereinstimmung gibt, kann XVERWEIS die beste (ungefähre) Übereinstimmung zurückgeben
 XKAPITALWERT              | Gibt den Nettobarwert für eine Reihe nicht unbedingt periodisch anfallender Zahlungen zurück
 XODER                     | Gibt ein logisches exklusives ODER aller Argumente zurück
 JAHR                      | Wandelt eine fortlaufende Zahl in ein Jahr um
@@ -1152,4 +1151,4 @@ RENDITE                   | Gibt die Rendite eines Wertpapiers zurück, das rege
 RENDITEDIS                | Gibt die jährliche Rendite eines diskontierten Wertpapiers zurück, zum Beispiel eines Schatzwechsels
 RENDITEFÄLL               | Gibt die Jahresrendite für ein Wertpapier zurück, für das Zinsen bei Fälligkeit gezahlt werden
 G.TEST                    | Gibt den einseitigen Wahrscheinlichkeitswert für einen Gauß-Test (Normalverteilung) zurück
-ZTEST                     | Gibt den einseitigen Wahrscheinlichkeitswert für einen Gauß-Test (Normalverteilung) zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
+GTEST                     | Gibt den einseitigen Wahrscheinlichkeitswert für einen Gauß-Test (Normalverteilung) zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
