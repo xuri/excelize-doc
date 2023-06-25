@@ -131,32 +131,39 @@ ShowVal         | `bool` | `false` | 值
 
 參數|類別|默認值|含義
 ---|---|---|---
-None           | `bool`     | `false` | 隱藏坐標軸
-MajorGridLines | `bool`     | `false` | 主要網格線
-MinorGridLines | `bool`     | `false` | 次要網格線
-TickLabelSkip  | `int`      | `1`     | 指定標籤間隔單位
-ReverseOrder   | `bool`     | `false` | 逆序刻度值
-Maximum        | `*float64` | `0`     | 最大值，`0` 代表自動
-Minimum        | `*float64` | `0`     | 最小值，`0` 代表自動
+None           | `bool`          | `false` | 隱藏坐標軸
+MajorGridLines | `bool`          | `false` | 主要網格線
+MinorGridLines | `bool`          | `false` | 次要網格線
+TickLabelSkip  | `int`           | `1`     | 指定標籤間隔單位
+ReverseOrder   | `bool`          | `false` | 逆序刻度值
+Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自動
+Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
+Font           | `Font`          | N/A     | 設定水平坐標軸刻度字體格式
+NumFmt         | `ChartNumFmt`   | N/A     | 設定水平坐標軸數字格式和鏈接到源
+Title          | `[]RichTextRun` | N/A     | 設定位於坐標軸下方的主要橫坐標軸標題，並調整圖表大小
 
 下面是 `YAxis` 參數的可選值：
 
 參數|類別|默認值|含義
 ---|---|---|---
-None           | `bool`     | `false` | 隱藏坐標軸
-MajorGridLines | `bool`     | `false` | 主要網格線
-MinorGridLines | `bool`     | `false` | 次要網格線
-MajorUnit      | `float64`  | `0`     | 坐標軸主要刻度單位，`MajorUnit` 參數為可選參數，默認值 `0` 代表為自動
-ReverseOrder   | `bool`     | `false` | 逆序刻度值
-Maximum        | `*float64` | `0`     | 最大值，`0` 代表自動
-Minimum        | `*float64` | `0`     | 最小值，`0` 代表自動
+None           | `bool`          | `false` | 隱藏坐標軸
+MajorGridLines | `bool`          | `false` | 主要網格線
+MinorGridLines | `bool`          | `false` | 次要網格線
+MajorUnit      | `float64`       | `0`     | 坐標軸主要刻度單位，`MajorUnit` 參數為可選參數，默認值 `0` 代表為自動
+ReverseOrder   | `bool`          | `false` | 逆序刻度值
+Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自動
+Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
+Font           | `Font`          | N/A     | 設定垂直坐標軸刻度字體格式
+LogBase        | `float64`       | N/A     | 設定垂直坐標軸對數刻度的基底
+NumFmt         | `ChartNumFmt`   | N/A     | 設定垂直坐標軸數字格式和鏈接到源
+Title          | `[]RichTextRun` | N/A     | 設定旋轉過的主要縱坐標軸標題，並調整圖表大小
 
 通過可選 `Dimension` 對象設定圖表的大小，可選參數如下：
 
 參數|類別|默認值|含義
 ---|---|---|---
-Height | `int` | 290 | 高度
-Width  | `int` | 480 | 寬度
+Height | `uint` | 260 | 高度
+Width  | `uint` | 480 | 寬度
 
 參數 `combo` 用來指定創建組合圖表，該圖表將兩個或多個圖表類別組合在一個圖表中。例如，在 `Sheet1!$E$1:$L$15` 區域創建一個 群組柱形圖 - 折線圖：
 

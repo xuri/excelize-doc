@@ -131,32 +131,39 @@ ShowVal         | `bool` | `false` | 值
 
 参数|类型|默认值|含义
 ---|---|---|---
-None           | `bool`     | `false` | 隐藏坐标轴
-MajorGridLines | `bool`     | `false` | 主要网格线
-MinorGridLines | `bool`     | `false` | 次要网格线
-TickLabelSkip  | `int`      | `1`     | 指定标签间隔单位
-ReverseOrder   | `bool`     | `false` | 逆序刻度值
-Maximum        | `*float64` | `0`     | 最大值，`0` 代表自动
-Minimum        | `*float64` | `0`     | 最小值，`0` 代表自动
+None           | `bool`          | `false` | 隐藏坐标轴
+MajorGridLines | `bool`          | `false` | 主要网格线
+MinorGridLines | `bool`          | `false` | 次要网格线
+TickLabelSkip  | `int`           | `1`     | 指定标签间隔单位
+ReverseOrder   | `bool`          | `false` | 逆序刻度值
+Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自动
+Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自动
+Font           | `Font`          | N/A     | 设置水平坐标轴刻度字体格式
+NumFmt         | `ChartNumFmt`   | N/A     | 设置水平坐标轴数字格式和链接到源
+Title          | `[]RichTextRun` | N/A     | 设置位于坐标轴下方的主要横坐标轴标题，并调整图表大小
 
 下面是 `YAxis` 参数的可选值：
 
 参数|类型|默认值|含义
 ---|---|---|---
-None           | `bool`     | `false` | 隐藏坐标轴
-MajorGridLines | `bool`     | `false` | 主要网格线
-MinorGridLines | `bool`     | `false` | 次要网格线
-MajorUnit      | `float64`  | `0`     | 坐标轴主要刻度单位，`MajorUnit` 参数为可选参数，默认值 `0` 代表为自动
-ReverseOrder   | `bool`     | `false` | 逆序刻度值
-Maximum        | `*float64` | `0`     | 最大值，`0` 代表自动
-Minimum        | `*float64` | `0`     | 最小值，`0` 代表自动
+None           | `bool`          | `false` | 隐藏坐标轴
+MajorGridLines | `bool`          | `false` | 主要网格线
+MinorGridLines | `bool`          | `false` | 次要网格线
+MajorUnit      | `float64`       | `0`     | 坐标轴主要刻度单位，`MajorUnit` 参数为可选参数，默认值 `0` 代表为自动
+ReverseOrder   | `bool`          | `false` | 逆序刻度值
+Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自动
+Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自动
+Font           | `Font`          | N/A     | 设置垂直坐标轴刻度字体格式
+LogBase        | `float64`       | N/A     | 设置垂直坐标轴对数刻度的基数
+NumFmt         | `ChartNumFmt`   | N/A     | 设置垂直坐标轴数字格式和链接到源
+Title          | `[]RichTextRun` | N/A     | 设置旋转过的主要纵坐标轴标题，并调整图表大小
 
 通过可选 `Dimension` 对象设置图表的大小，可选参数如下：
 
 参数|类型|默认值|含义
 ---|---|---|---
-Height | `int` | 290 | 高度
-Width  | `int` | 480 | 宽度
+Height | `uint` | 260 | 高度
+Width  | `uint` | 480 | 宽度
 
 参数 `combo` 用来指定创建组合图表，该图表将两个或多个图表类型组合在一个图表中。例如，在 `Sheet1!$E$1:$L$15` 区域创建一个 簇状柱形图 - 折线图：
 
