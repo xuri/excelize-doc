@@ -131,32 +131,39 @@ Les propriétés de `XAxis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-None           | `bool`     | `false` | Désactiver les axes.
-MajorGridLines | `bool`     | `false` | Spécifie les lignes de grille principales.
-MinorGridLines | `bool`     | `false` | Spécifie les lignes de grille mineures.
-TickLabelSkip  | `int`      | `1`     | Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété `TickLabelSkip` est facultative. La valeur par défaut est auto.
-ReverseOrder   | `bool`     | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `ReverseOrder` est facultative.
-Maximum        | `*float64` | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
-Minimum        | `*float64` | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+None           | `bool`          | `false` | Désactiver les axes.
+MajorGridLines | `bool`          | `false` | Spécifie les lignes de grille principales.
+MinorGridLines | `bool`          | `false` | Spécifie les lignes de grille mineures.
+TickLabelSkip  | `int`           | `1`     | Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété `TickLabelSkip` est facultative. La valeur par défaut est auto.
+ReverseOrder   | `bool`          | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `ReverseOrder` est facultative.
+Maximum        | `*float64`      | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
+Minimum        | `*float64`      | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+Font           | `Font`          | N/A     | Spécifie que la police de l'axe horizontal.
+NumFmt         | `ChartNumFmt`   | N/A     | Spécifie que s'il est lié à la source et définit le code de format de nombre personnalisé pour l'axe.
+Title          | `[]RichTextRun` | N/A     | Spécifie que le titre de l'axe horizontal principal et le graphique de redimensionnement.
 
 Les propriétés de `YAxis` qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-None           | `bool`     | `false` |Désactiver les axes.
-MajorGridLines | `bool`     | `false` | Spécifie les lignes de grille principales.
-MinorGridLines | `bool`     | `false` | Spécifie les lignes de grille mineures.
-MajorUnit      | `float64`  | `0`     | Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété `MajorUnit` est facultative. La valeur par défaut est auto.
-ReverseOrder   | `bool`     | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `ReverseOrder` est facultative.
-Maximum        | `*float64` | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
-Minimum        | `*float64` | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+None           | `bool`          | `false` | Désactiver les axes.
+MajorGridLines | `bool`          | `false` | Spécifie les lignes de grille principales.
+MinorGridLines | `bool`          | `false` | Spécifie les lignes de grille mineures.
+MajorUnit      | `float64`       | `0`     | Spécifie la distance entre les graduations principales. Doit contenir un nombre à virgule flottante positif. La propriété `MajorUnit` est facultative. La valeur par défaut est auto.
+ReverseOrder   | `bool`          | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `ReverseOrder` est facultative.
+Maximum        | `*float64`      | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
+Minimum        | `*float64`      | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+Font           | `Font`          | N/A     | Spécifie que la police de l'axe vertical.
+LogBase        | `float64`       | N/A     | Spécifie le numéro de base de l'échelle logarithmique de l'axe vertical.
+NumFmt         | `ChartNumFmt`   | N/A     | Spécifie que s'il est lié à la source et définit le code de format de nombre personnalisé pour l'axe.
+Title          | `[]RichTextRun` | N/A     | Spécifie que le titre de l'axe vertical principal et le graphique de redimensionnement.
 
 Définissez la taille du graphique par la propriété `Dimension`. La propriété dimension est facultative. Les propriétés qui peuvent être définies sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-Height | `int` | 290 | Hauteur
-Width  | `int` | 480 | Largeur
+Height | `uint` | 260 | Hauteur
+Width  | `uint` | 480 | Largeur
 
 Le paramètre `combo` spécifie la création d'un graphique qui combine deux ou plusieurs types de graphiques dans un seul graphique. Par exemple, créez un graphique à colonnes groupées avec des données `Sheet1!$E$1:$L$15`:
 

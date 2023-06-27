@@ -131,32 +131,39 @@ Die Eigenschaften von `XAxis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-None           | `bool`     | `false` | Achsen deaktivieren.
-MajorGridLines | `bool`     | `false` | Gibt die Hauptgitterlinien an.
-MinorGridLines | `bool`     | `false` | Gibt kleinere Gitterlinien an.
-TickLabelSkip  | `int`      | `1`     | Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `TickLabelSkip` ist optional. Der Standardwert ist auto.
-ReverseOrder   | `bool`     | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
-Maximum        | `*float64` | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
-Minimum        | `*float64` | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+None           | `bool`          | `false` | Achsen deaktivieren.
+MajorGridLines | `bool`          | `false` | Gibt die Hauptgitterlinien an.
+MinorGridLines | `bool`          | `false` | Gibt kleinere Gitterlinien an.
+TickLabelSkip  | `int`           | `1`     | Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `TickLabelSkip` ist optional. Der Standardwert ist auto.
+ReverseOrder   | `bool`          | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
+Maximum        | `*float64`      | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
+Minimum        | `*float64`      | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+Font           | `Font`          | N/A     | Gibt die Schriftart der horizontalen Achse an.
+NumFmt         | `ChartNumFmt`   | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für die Achse festgelegt wird.
+Title          | `[]RichTextRun` | N/A     | Gibt den Titel der primären horizontalen Achse und die Größenänderung des Diagramms an.
 
 Die Eigenschaften von `YAxis`, die eingestellt werden können, sind:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-None           | `bool`     | `false` | Achsen deaktivieren.
-MajorGridLines | `bool`     | `false` | Gibt die Hauptgitterlinien an.
-MinorGridLines | `bool`     | `false` | Gibt kleinere Gitterlinien an.
-MajorUnit      | `float64`  | `0`     | Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `MajorUnit` ist optional. Der Standardwert ist auto.
-ReverseOrder   | `bool`     | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
-Maximum        | `*float64` | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
-Minimum        | `*float64` | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+None           | `bool`          | `false` | Achsen deaktivieren.
+MajorGridLines | `bool`          | `false` | Gibt die Hauptgitterlinien an.
+MinorGridLines | `bool`          | `false` | Gibt kleinere Gitterlinien an.
+MajorUnit      | `float64`       | `0`     | Gibt den Abstand zwischen den Hauptstrichen an. Muss eine positive Gleitkommazahl enthalten. Die Eigenschaft `MajorUnit` ist optional. Der Standardwert ist auto.
+ReverseOrder   | `bool`          | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
+Maximum        | `*float64`      | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
+Minimum        | `*float64`      | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+Font           | `Font`          | N/A     | Gibt die Schriftart der vertikalen Achse an.
+LogBase        | `float64`       | N/A     | Gibt die Basiszahl der logarithmischen Skala der vertikalen Achse an.
+NumFmt         | `ChartNumFmt`   | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für die Achse festgelegt wird.
+Title          | `[]RichTextRun` | N/A     | Gibt den Titel der primären vertikalen Achse und die Größenänderung des Diagramms an.
 
 Legen Sie die Diagrammgröße anhand der Eigenschaft `Dimension` fest. Die Dimensionseigenschaft ist optional. Folgende Eigenschaften können festgelegt werden:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-Height | `int` | 290 | Height
-Width  | `int` | 480 | Width
+Height | `uint` | 260 | Height
+Width  | `uint` | 480 | Width
 
 Der Parameter `combo` gibt an, dass ein Diagramm erstellt wird, das zwei oder mehr Diagrammtypen in einem einzelnen Diagramm kombiniert. Erstellen Sie beispielsweise ein gruppiertes Spalten-Liniendiagramm mit den Daten `Sheet1!$E$1:$L$15`:
 

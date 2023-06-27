@@ -131,32 +131,39 @@ The properties of `XAxis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-None           | `bool` | `false` | Disable axes.
-MajorGridLines | `bool` | `false` | Specifies major grid lines.
-MinorGridLines | `bool` | `false` | Specifies minor grid lines.
-TickLabelSkip  | `int`  | `1`     | Specifies how many tick labels to skip between label that is drawn. The `TickLabelSkip` property is optional. The default value is auto.
-ReverseOrder   | `bool` | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `ReverseOrder` property is optional.
-Maximum        | `int`  | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-Minimum        | `int`  | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+None           | `bool`          | `false` | Disable axes.
+MajorGridLines | `bool`          | `false` | Specifies major grid lines.
+MinorGridLines | `bool`          | `false` | Specifies minor grid lines.
+TickLabelSkip  | `int`           | `1`     | Specifies how many tick labels to skip between label that is drawn. The `TickLabelSkip` property is optional. The default value is auto.
+ReverseOrder   | `bool`          | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `ReverseOrder` property is optional.
+Maximum        | `*float64`      | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+Minimum        | `*float64`      | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+Font           | `Font`          | N/A     | Specifies that the font of the horizontal axis.
+NumFmt         | `ChartNumFmt`   | N/A     | Specifies that if linked to source and set custom number format code for axis.
+Title          | `[]RichTextRun` | N/A     | Specifies that the primary horizontal axis title and resize chart.
 
 The properties of `YAxis` that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-None           | `bool`    | `false` | Disable axes.
-MajorGridLines | `bool`    | `false` | Specifies major grid lines.
-MinorGridLines | `bool`    | `false` | Specifies minor grid lines.
-MajorUnit      | `float64` | `0`     | Specifies the distance between major ticks. Shall contain a positive floating-point number. The `MajorUnit` property is optional. The default value is auto.
-ReverseOrder   | `bool`    | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `ReverseOrder` property is optional.
-Maximum        | `int`     | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
-Minimum        | `int`     | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+None           | `bool`          | `false` | Disable axes.
+MajorGridLines | `bool`          | `false` | Specifies major grid lines.
+MinorGridLines | `bool`          | `false` | Specifies minor grid lines.
+MajorUnit      | `float64`       | `0`     | Specifies the distance between major ticks. Shall contain a positive floating-point number. The `MajorUnit` property is optional. The default value is auto.
+ReverseOrder   | `bool`          | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `ReverseOrder` property is optional.
+Maximum        | `*float64`      | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
+Minimum        | `*float64`      | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+Font           | `Font`          | N/A     | Specifies that the font of the vertical axis.
+LogBase        | `float64`       | N/A     | Specifies logarithmic scale base number of the vertical axis.
+NumFmt         | `ChartNumFmt`   | N/A     | Specifies that if linked to source and set custom number format code for axis.
+Title          | `[]RichTextRun` | N/A     | Specifies that the primary vertical axis title and resize chart.
 
 Set the chart size by `Dimension` property. The dimension property is optional. The properties that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-Height | `int` | 290 | Height
-Width  | `int` | 480 | Width
+Height | `uint` | 260 | Height
+Width  | `uint` | 480 | Width
 
 The parameter `combo` specifies the create a chart that combines two or more chart types in a single chart. For example, create a clustered column - line chart with data `Sheet1!$E$1:$L$15`:
 

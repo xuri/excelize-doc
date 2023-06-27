@@ -132,32 +132,39 @@ ShowVal         | `bool` | `false` | 값이 데이터 레이블에 표시되도�
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-None           | `bool`     | `false` | 축 비활성화.
-MajorGridLines | `bool`     | `false` | 주요 눈금 선을 지정합니다.
-MinorGridLines | `bool`     | `false` | 작은 눈금 선을 지정합니다.
-TickLabelSkip  | `int`      | `1`     | 그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `TickLabelSkip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
-ReverseOrder   | `bool`     | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `ReverseOrder` 속성은 선택 사항입니다.
-Maximum        | `*float64` | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
-Minimum        | `*float64` | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+None           | `bool`          | `false` | 축 비활성화.
+MajorGridLines | `bool`          | `false` | 주요 눈금 선을 지정합니다.
+MinorGridLines | `bool`          | `false` | 작은 눈금 선을 지정합니다.
+TickLabelSkip  | `int`           | `1`     | 그려진 레이블간에 건너 뛸 눈금 레이블 수를 지정합니다. `TickLabelSkip` 속성은 선택 사항입니다. 기본값은 auto 입니다.
+ReverseOrder   | `bool`          | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `ReverseOrder` 속성은 선택 사항입니다.
+Maximum        | `*float64`      | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
+Minimum        | `*float64`      | `0`     | 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+Font           | `Font`          | N/A     | 가로축의 글꼴을 지정합니다.
+NumFmt         | `ChartNumFmt`   | N/A     | 소스에 연결된 경우를 지정하고 축에 대한 사용자 지정 숫자 형식 코드를 설정합니다.
+Title          | `[]RichTextRun` | N/A     | 기본 가로 축 제목 및 차트 크기 조정을 지정합니다.
 
 설정할 수있는 `YAxis` 의 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-None           | `bool`     | `false` | 축 비활성화.
-MajorGridLines | `bool`     | `false` | 주요 눈금 선을 지정합니다.
-MinorGridLines | `bool`     | `false` | 작은 눈금 선을 지정합니다.
-MajorUnit      | `float64`  | `0`     | 주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. `MajorUnit` 속성은 선택 사항입니다. 기본값은 auto 입니다.
-ReverseOrder   | `bool`     | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `ReverseOrder` 속성은 선택 사항입니다.
-Maximum        | `*float64` | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
-Minimum        | `*float64` | `0`     |  고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+None           | `bool`          | `false` | 축 비활성화.
+MajorGridLines | `bool`          | `false` | 주요 눈금 선을 지정합니다.
+MinorGridLines | `bool`          | `false` | 작은 눈금 선을 지정합니다.
+MajorUnit      | `float64`       | `0`     | 주요 눈금 사이의 거리를 지정합니다. 양의 부동 소수점 숫자를 포함해야합니다. `MajorUnit` 속성은 선택 사항입니다. 기본값은 auto 입니다.
+ReverseOrder   | `bool`          | `false` | 역순 (차트 방향) 의 범주 또는 값을 지정합니다. `ReverseOrder` 속성은 선택 사항입니다.
+Maximum        | `*float64`      | `0`     | 고정 최대값 0 이 자동임을 지정합니다. 최대 속성은 선택 사항입니다.
+Minimum        | `*float64`      | `0`     | 고정 된 최소, 0 은 자동 지정 합니다. 최소 속성은 선택 사항입니다. 기본값은 자동입니다.
+Font           | `Font`          | N/A     | 세로축의 글꼴을 지정합니다.
+LogBase        | `float64`       | N/A     | 세로축의 대수 눈금 밑수를 지정합니다.
+NumFmt         | `ChartNumFmt`   | N/A     | 소스에 연결된 경우를 지정하고 축에 대한 사용자 지정 숫자 형식 코드를 설정합니다.
+Title          | `[]RichTextRun` | N/A     | 기본 세로 축 제목 및 차트 크기 조정을 지정합니다.
 
 차트 크기를 `Dimension` 속성으로 설정합니다. 차원 속성은 선택 사항입니다. 설정할 수 있는 속성은 다음과 같습니다:
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-Height | `int` | 290 | 높이
-Width  | `int` | 480 | 너비
+Height | `uint` | 260 | 높이
+Width  | `uint` | 480 | 너비
 
 `combo` 매개 변수는 단일 차트에서 둘 이상의 차트 유형을 결합하는 차트 작성을 지정합니다. 예를 들어, `Sheet1!$E$1:$L$15` 데이터가 포함 된 군집 기둥 형 꺾은 선형 차트를 만듭니다:
 

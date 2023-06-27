@@ -131,32 +131,39 @@ Las propiedades de `XAxis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-None           | `bool`     | `false` | Deshabilitar ejes.
-MajorGridLines | `bool`     | `false` | Especifica las principales líneas de cuadrícula.
-MinorGridLines | `bool`     | `false` | Especifica líneas de cuadrícula menores.
-TickLabelSkip  | `int`      | `1`     | Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `TickLabelSkip` es opcional. El valor predeterminado es automático.
-ReverseOrder   | `bool`     | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
-Maximum        | `*float64` | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
-Minimum        | `*float64` | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+None           | `bool`          | `false` | Deshabilitar ejes.
+MajorGridLines | `bool`          | `false` | Especifica las principales líneas de cuadrícula.
+MinorGridLines | `bool`          | `false` | Especifica líneas de cuadrícula menores.
+TickLabelSkip  | `int`           | `1`     | Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `TickLabelSkip` es opcional. El valor predeterminado es automático.
+ReverseOrder   | `bool`          | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
+Maximum        | `*float64`      | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
+Minimum        | `*float64`      | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+Font           | `Font`          | N/A     | Especifica que la fuente del eje horizontal.
+NumFmt         | `ChartNumFmt`   | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para el eje.
+Title          | `[]RichTextRun` | N/A     | Especifica que el título del eje horizontal principal y el gráfico de cambio de tamaño.
 
 Las propiedades de `YAxis` que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-None           | `bool`     | `false` | Deshabilitar ejes.
-MajorGridLines | `bool`     | `false` | Especifica las principales líneas de cuadrícula.
-MinorGridLines | `bool`     | `false` | Especifica líneas de cuadrícula menores.
-MajorUnit      | `float64`  | `0`     | Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `MajorUnit` es opcional. El valor predeterminado es automático.
-ReverseOrder   | `bool`     | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
-Maximum        | `*float64` | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
-Minimum        | `*float64` | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+None           | `bool`          | `false` | Deshabilitar ejes.
+MajorGridLines | `bool`          | `false` | Especifica las principales líneas de cuadrícula.
+MinorGridLines | `bool`          | `false` | Especifica líneas de cuadrícula menores.
+MajorUnit      | `float64`       | `0`     | Especifica la distancia entre las marcas principales. Debe contener un número de coma flotante positivo. La propiedad `MajorUnit` es opcional. El valor predeterminado es automático.
+ReverseOrder   | `bool`          | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
+Maximum        | `*float64`      | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
+Minimum        | `*float64`      | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+Font           | `Font`          | N/A     | Especifica que la fuente del eje vertical.
+LogBase        | `float64`       | N/A     | Especifica el número base de la escala logarítmica del eje vertical.
+NumFmt         | `ChartNumFmt`   | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para el eje.
+Title          | `[]RichTextRun` | N/A     | Especifica que el título del eje vertical principal y el gráfico de cambio de tamaño.
 
 Establezca el tamaño del gráfico por la propiedad `Dimension`. La propiedad de dimensión es opcional. Las propiedades que se pueden configurar son:
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-Height | `int` | 290 | Altura
-Width  | `int` | 480 | Anchura
+Height | `uint` | 260 | Altura
+Width  | `uint` | 480 | Anchura
 
 El parámetro `combo` especifica la creación de un gráfico que combine dos o más tipos de gráficos en un solo gráfico. Por ejemplo, cree un gráfico de líneas y columnas agrupadas con los datos `Sheet1!$E$1:$L$15`:
 

@@ -131,32 +131,39 @@ ShowVal         | `bool` | `false` | 値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-None           | `bool`     | `false` | 軸を無効にする
-MajorGridLines | `bool`     | `false` | 主グリッド線を指定します
-MinorGridLines | `bool`     | `false` | 副グリッド線を指定します
-TickLabelSkip  | `int`      | `1`     | 描画されるラベル間でスキップする目盛りラベルの数を指定します。`TickLabelSkip` プロパティはオプションです。デフォルト値は auto です
-ReverseOrder   | `bool`     | `false` | 逆シーケンススケール値
-Maximum        | `*float64` | `0`     | 最大値、`0` は自動
-Minimum        | `*float64` | `0`     | 最小値、`0` は自動
+None           | `bool`          | `false` | 軸を無効にする
+MajorGridLines | `bool`          | `false` | 主グリッド線を指定します
+MinorGridLines | `bool`          | `false` | 副グリッド線を指定します
+TickLabelSkip  | `int`           | `1`     | 描画されるラベル間でスキップする目盛りラベルの数を指定します。`TickLabelSkip` プロパティはオプションです。デフォルト値は auto です
+ReverseOrder   | `bool`          | `false` | 逆シーケンススケール値
+Maximum        | `*float64`      | `0`     | 最大値、`0` は自動
+Minimum        | `*float64`      | `0`     | 最小値、`0` は自動
+Font           | `Font`          | N/A     | 横軸のフォントを指定します
+NumFmt         | `ChartNumFmt`   | N/A     | ソースにリンクされている場合に指定し、軸のカスタム数値形式コードを設定します
+Title          | `[]RichTextRun` | N/A     | グラフの主な横軸のタイトルとサイズ変更を指定します
 
 設定できる `YAxis` のプロパティは次のとおりです。
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-None           | `bool`     | `false` | 軸を無効にする
-MajorGridLines | `bool`     | `false` | 主グリッド線を指定します
-MinorGridLines | `bool`     | `false` | 副グリッド線を指定します
-MajorUnit      | `float64`  | `0`     | 大目盛り間の距離を指定します。正の浮動小数点数を含める必要があります。`MajorUnit` プロパティはオプションです。デフォルト値は auto です
-ReverseOrder   | `bool`     | `false` | 逆シーケンススケール値
-Maximum        | `*float64` | `0`     | 最大値、`0` は自動
-Minimum        | `*float64` | `0`     | 最小値、`0` は自動
+None           | `bool`          | `false` | 軸を無効にする
+MajorGridLines | `bool`          | `false` | 主グリッド線を指定します
+MinorGridLines | `bool`          | `false` | 副グリッド線を指定します
+MajorUnit      | `float64`       | `0`     | 大目盛り間の距離を指定します。正の浮動小数点数を含める必要があります。`MajorUnit` プロパティはオプションです。デフォルト値は auto です
+ReverseOrder   | `bool`          | `false` | 逆シーケンススケール値
+Maximum        | `*float64`      | `0`     | 最大値、`0` は自動
+Minimum        | `*float64`      | `0`     | 最小値、`0` は自動
+Font           | `Font`          | N/A     | 縦軸のフォントを指定します
+LogBase        | `float64`       | N/A     | 縦軸の対数スケールの底番号を指定します
+NumFmt         | `ChartNumFmt`   | N/A     | ソースにリンクされている場合に指定し、軸のカスタム数値形式コードを設定します
+Title          | `[]RichTextRun` | N/A     | グラフの主な縦軸のタイトルとサイズ変更を指定します
 
 次のオプションパラメーターを使用して、オプションの `Dimension` オブジェクトを使用してグラフのサイズを設定します:
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-Height | `int` | 290 | 高さ
-Width  | `int` | 480 | 幅
+Height | `uint` | 260 | 高さ
+Width  | `uint` | 480 | 幅
 
 パラメータ `combo` は、2つ以上のチャートタイプを1つのチャートに結合するチャートの作成を指定します。たとえば、クラスター化された列を作成します-データ `Sheet1!$E$1:$L$15` の折れ線グラフ：
 
