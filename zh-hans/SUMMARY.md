@@ -228,6 +228,7 @@
 * [性能数据](performance.md)
 * [参与贡献](contribution.md)
 * 版本历史
+  * [v2.8.0](releases/v2.8.0.md)
   * [v2.7.1 (2023-04-10)](releases/v2.7.1.md)
   * [v2.7.0 (2023-01-09)](releases/v2.7.0.md)
   * [v2.6.1 (2022-08-22)](releases/v2.6.1.md)
