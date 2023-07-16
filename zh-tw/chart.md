@@ -80,7 +80,7 @@ Values|圖表資料區域，是 `Series` 中最重要的參數，也是創建圖
 Line|設定折線圖的折線格式。`Line` 屬性是可選的，如果未指定該屬性，則為默認樣式。可以設定的選項是 `Width`，寬度範圍是 0.25pt 至 999pt。如果 `Width` 的值超出範圍，則線的默認寬度為 2pt。
 Marker|設定折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
 
-參數 `legend` 提供對圖例項的屬性設定方法，下面是 Excelize 中 `legend` 的可選參數：
+參數 `Legend` 提供對圖例項的屬性設定方法，下面是 Excelize 中 `Legend` 的可選參數：
 
 參數|類別|含義
 ---|---|---

@@ -84,7 +84,6 @@ Set properties of the chart legend. The options that can be set are:
 
 Parameter|Type|Explanation
 ---|---|---
-None          | `bool`   | Specify if show the legend without overlapping the chart. The default value is `false`
 Position      | `string` | The position of the chart legend
 ShowLegendKey | `bool`   | Set the legend keys shall be shown in data labels
 
@@ -92,6 +91,7 @@ Set the `Position` of the chart legend. The default legend position is `right`. 
 
 Parameter|Explanation
 ---|---
+none|Disable legend
 top|On top
 bottom|On bottom
 left|On left
