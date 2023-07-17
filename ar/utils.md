@@ -923,7 +923,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 يوفر UnsetConditionalFormat وظيفة لإلغاء تعيين التنسيق الشرطي عن طريق اسم ورقة العمل المحددة والنطاق.
 
-## جزء من جانب شيء {#SetPanes}
+## تعيين الأجزاء {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -1012,6 +1012,14 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## الحصول على الأجزاء {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+يوفر GetPanes وظيفة للحصول على أجزاء التجميد والأجزاء المنقسمة وطرق عرض ورقة العمل حسب اسم ورقة العمل المحدد.
 
 ## اللون {#ThemeColor}
 

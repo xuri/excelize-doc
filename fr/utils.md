@@ -903,7 +903,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 UnsetConditionalFormat fournit une fonction pour annuler le format conditionnel en fonction du nom et de la plage de la feuille de calcul.
 
-## Panes {#SetPanes}
+## Définir les volets {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -992,6 +992,14 @@ Exemple 4, dégeler et supprimer tous les volets sur `Sheet1`:
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## Obtenir des volets {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes fournit une fonction permettant d’obtenir des volets figés, des volets fractionnés et des vues de feuille de calcul par nom de feuille de calcul donné.
 
 ## Couleur {#ThemeColor}
 

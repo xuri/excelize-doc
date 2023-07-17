@@ -903,7 +903,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 UnsetConditionalFormat предоставляет функцию для сброса условного формата по заданному имени и диапазону листа.
 
-## панель {#SetPanes}
+## Настройка панелей {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -992,6 +992,14 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## Получение панелей {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes предоставляет функцию для получения закрепления областей, разделенных областей и представлений рабочего листа по заданному имени рабочего листа.
 
 ## Цвет {#ThemeColor}
 

@@ -903,7 +903,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 UnsetConditionalFormat bietet eine Funktion zum Aufheben des bedingten Formats anhand des angegebenen Arbeitsblattnamens und -bereichs.
 
-## Bereiche {#SetPanes}
+## Festlegen von Fenstern {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -992,6 +992,14 @@ Beispiel 4: Entfrieren und entfernen Sie alle Fenster auf `Sheet1`:
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## Abrufen von Fenstern {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes bietet eine Funktion zum Abrufen von fixierten Bereichen, geteilten Bereichen und Arbeitsblattansichten anhand des angegebenen Arbeitsblattnamens.
 
 ## Farbe {#ThemeColor}
 

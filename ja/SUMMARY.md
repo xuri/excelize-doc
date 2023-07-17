@@ -212,6 +212,7 @@
   * [条件付き書式を取得](utils.md#GetConditionalFormats)
   * [条件付きフォーマットを削除](utils.md#UnsetConditionalFormat)
   * [設定ペイン](utils.md#SetPanes)
+  * [ペインの取得](utils.md#GetPanes)
   * [カラー値計算](utils.md#ThemeColor)
   * [RGBおよびHSLカラースペースカラー値変換](utils.md#RGBToHSL)
   * [HSLとRGBカラースペースカラー値変換](utils.md#HSLToRGB)

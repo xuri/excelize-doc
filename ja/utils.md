@@ -993,6 +993,14 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
+## ペインの取得 {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes は、指定されたワークシート名でフリーズペイン、分割ペイン、およびワークシートビューを取得する機能を提供します。
+
 ## カラー値計算 {#ThemeColor}
 
 ```go

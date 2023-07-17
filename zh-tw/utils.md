@@ -988,6 +988,14 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
+## 獲取窗格 {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+通過給定的工作表名稱獲取帶有凍結窗格或拆分窗格的窗格格式。
+
 ## 色值計算 {#ThemeColor}
 
 ```go

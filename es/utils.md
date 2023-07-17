@@ -903,7 +903,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 UnsetConditionalFormat proporciona una función para anular el formato condicional por el nombre y el rango de la hoja de trabajo.
 
-## Paneles {#SetPanes}
+## Establecer paneles {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -992,6 +992,14 @@ Ejemplo 4, descongelar y quitar todos los paneles en `Sheet1`:
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## Obtener paneles {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes proporciona una función para obtener paneles inmovilizados, paneles divididos y vistas de hoja de cálculo por nombre de hoja de cálculo determinado.
 
 ## Color {#ThemeColor}
 

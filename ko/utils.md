@@ -903,7 +903,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 UnsetConditionalFormat 은 주어진 워크 시트 이름과 범위에 따라 조건부 서식을 설정 해제하는 기능을 제공합니다.
 
-## 설정 창 {#SetPanes}
+## 창 설정 {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -992,6 +992,14 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## 창 가져오기 {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes 는 지정된 워크시트 이름으로 고정 창, 분할 창 및 워크시트 보기를 가져오는 함수를 제공합니다.
 
 ## 색상 값 계산 {#ThemeColor}
 

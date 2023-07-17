@@ -212,6 +212,7 @@
   * [獲取條件式格式](utils.md#GetConditionalFormats)
   * [刪除條件式格式](utils.md#UnsetConditionalFormat)
   * [設定窗格](utils.md#SetPanes)
+  * [獲取窗格](utils.md#GetPanes)
   * [色值計算](utils.md#ThemeColor)
   * [RGB與HSL色彩空間色值轉換](utils.md#RGBToHSL)
   * [HSL與RGB色彩空間色值轉換](utils.md#HSLToRGB)

@@ -903,7 +903,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 
 UnsetConditionalFormat provides a function to unset the conditional format by given worksheet name and range reference.
 
-## Panes {#SetPanes}
+## Set panes {#SetPanes}
 
 ```go
 func (f *File) SetPanes(sheet string, panes *Panes) error
@@ -992,6 +992,14 @@ Example 4, unfreeze and remove all panes on `Sheet1`:
 ```go
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
+
+## Get panes {#GetPanes}
+
+```go
+func (f *File) GetPanes(sheet string) (Panes, error)
+```
+
+GetPanes provides a function to get freeze panes, split panes, and worksheet views by given worksheet name.
 
 ## Color {#ThemeColor}
 
