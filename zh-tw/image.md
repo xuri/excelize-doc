@@ -69,27 +69,29 @@ func main() {
 }
 ```
 
-可選參數 `AutoFit` 設定是否使圖片尺寸自動適合存儲格，其缺省值為 `false`。
+可選參數 `AltText` 設定圖形對象的可選文字。
 
-可選參數 `Hyperlink` 用以設定圖片的超鏈接。
+可選參數 `PrintObject` 設定列印工作表時是否列印圖形對象，其缺省值為 `true`。
 
-可選參數 `HyperlinkType` 設定圖片超鏈接的類型，支持外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到存儲格位置時，坐標需要以 `#` 開始。
+可選參數 `Locked` 設定是否鎖定圖形對象。除非工作表受到保護，否則鎖定對象無效。
 
-可選參數 `Positioning` 定義了 Excel 電子錶格中圖片位置屬性支持 `oneCell`（大小固定，位置隨存儲格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設定此參數時，默認屬性為大小、位置隨存儲格而改變。
+可選參數 `LockAspectRatio` 設定是否鎖定圖形對象的縱橫比，其缺省值為 `false`。
 
-可選參數 `PrintObject` 設定列印工作表時是否列印圖片，其缺省值為 `true`。
+可選參數 `AutoFit` 設定是否使圖形對象尺寸自動適合存儲格，其缺省值為 `false`。
 
-可選參數 `LockAspectRatio` 設定是否鎖定圖片的縱橫比，其缺省值為 `false。`
+可選參數 `OffsetX` 設定圖形對象與插入存儲格的水平偏移量，其缺省值為 0。
 
-可選參數 `Locked` 設定是否鎖定圖片。除非工作表受到保護，否則鎖定對象無效。
+可選參數 `OffsetY` 設定圖形對象與插入存儲格的垂直偏移量，缺省值為 0。
 
-可選參數 `OffsetX` 設定圖片與插入存儲格的水平偏移量，其缺省值為 0。
+可選參數 `ScaleX` 設定圖形對象的水平縮放比例，其缺省值為 1.0，表示 100%。
 
-可選參數 `ScaleX` 設定圖片的水平縮放比例，其缺省值為 1.0，表示 100%。
+可選參數 `ScaleY` 設定圖形對象的垂直縮放比例，其缺省值為 1.0，表示 100%。
 
-可選參數 `OffsetY` 設定圖片與插入存儲格的垂直偏移量，缺省值為 0。
+可選參數 `Hyperlink` 用以設定圖形對象的超鏈接。
 
-可選參數 `ScaleY` 設定圖片的垂直縮放比例，其缺省值為 1.0，表示 100%。
+可選參數 `HyperlinkType` 設定圖形對象超鏈接的類型，支持外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到存儲格位置時，坐標需要以 `#` 開始。
+
+可選參數 `Positioning` 定義了電子錶格中圖形對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨存儲格改變）、`twoCell`（大小和位置隨存儲格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設置此參數時，默認屬性為大小、位置隨存儲格改變。
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
@@ -142,7 +144,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。此功能是併發安全的。該函數暫不支持獲取通過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
+根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。此功能是併發安全的。該函式暫不支持獲取通過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")

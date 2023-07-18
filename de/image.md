@@ -70,27 +70,29 @@ func main() {
 }
 ```
 
+Der optionale Parameter `AltText` wird verwendet, um alternativen Text zu einem Diagrammobjekt hinzuzufügen.
+
+Der optionale Parameter `PrintObject` gibt an, ob das Bild gedruckt wird, wenn das Arbeitsblatt gedruckt wird, der Standardwert dafür ist `true`.
+
+Der optionale Parameter `Locked` gibt an, ob das Bild gesperrt ist. Das Sperren eines Objekts hat keine Auswirkung, es sei denn, das Blatt ist geschützt.
+
+Der optionale Parameter `LockAspectRatio` gibt an, ob das Seitenverhältnis für das Bild gesperrt ist, der Standardwert dafür ist `false`.
+
 Der optionale Parameter `AutoFit` gibt an, ob die Bildgröße automatisch in die Zelle passt, der Standardwert dafür ist `false`.
+
+Der optionale Parameter `OffsetX` gibt den horizontalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
+
+Der optionale Parameter `OffsetY` gibt den vertikalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
+
+Der optionale Parameter `ScaleX` spezifiziert die horizontale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+
+Der optionale Parameter `ScaleY` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
 
 Der optionale Parameter `Hyperlink` spezifiziert den Hyperlink des Bildes.
 
 Der optionale Parameter `HyperlinkType` definiert zwei Arten von Hyperlinks `External` für die Website oder `Location` zum Verschieben in eine der Zellen in dieser Arbeitsmappe. Wenn der `HyperlinkType` `Location` ist, müssen die Koordinaten mit `#` beginnen.
 
-Der optionale Parameter `Positioning` definiert zwei Arten der Position eines Bildes in einer Excel-Tabelle, `oneCell` (Verschieben, aber nicht mit Zellen skalieren) oder `absolute` (Nicht verschieben oder mit Zellen skalieren). Wenn Sie diesen Parameter nicht festlegen, ist die Standardpositionierung Verschieben und Größe mit Zellen.
-
-Der optionale Parameter `PrintObject` gibt an, ob das Bild gedruckt wird, wenn das Arbeitsblatt gedruckt wird, der Standardwert dafür ist `true`.
-
-Der optionale Parameter `LockAspectRatio` gibt an, ob das Seitenverhältnis für das Bild gesperrt ist, der Standardwert dafür ist `false`.
-
-Der optionale Parameter `Locked` gibt an, ob das Bild gesperrt ist. Das Sperren eines Objekts hat keine Auswirkung, es sei denn, das Blatt ist geschützt.
-
-Der optionale Parameter `OffsetX` gibt den horizontalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
-
-Der optionale Parameter `ScaleX` spezifiziert die horizontale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
-
-Der optionale Parameter `OffsetY` gibt den vertikalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
-
-Der optionale Parameter `ScaleY` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+Der optionale Parameter `Positioning` definiert drei Arten der Position eines Diagrammobjekts in einer Tabellenkalkulation: `oneCell` (Verschieben, aber Größe nicht mit Zellen anpassen), `twoCell` (Verschieben und Größe mit Zellen anpassen) und `absolute` ( Zellen nicht verschieben oder vergrößern). Wenn Sie diesen Parameter nicht festlegen, erfolgt die Standardpositionierung durch Verschieben und Größe mit Zellen.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error

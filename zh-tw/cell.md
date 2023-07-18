@@ -18,7 +18,7 @@ type HyperlinkOpts struct {
 }
 ```
 
-`FormulaOpts` 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函數中指定設定特殊公式類型。
+`FormulaOpts` 用於在 [`SetCellFormula`](cell.md#SetCellFormula) 函式中指定設定特殊公式類型。
 
 ```go
 type FormulaOpts struct {
@@ -56,7 +56,7 @@ func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 |bool|
 |nil|
 
-請注意，此函數默認為 `time.Time` 類型的存儲格的值設定 `m/d/yy h:mm` 數字格式，您可透過 [`SetCellStyle`](cell.md#SetCellStyle) 更改該設定。若您需設定無法通過 Go 語言 `time.Time` 類型表示的 Excel 特殊日期，例如 1900 年 1 月 0 日或 1900 年 2 月 29 日，請先設定存儲格的值為 0 或 60，再為其設定具有日期數字格式的樣式。
+請注意，此函式默認為 `time.Time` 類型的存儲格的值設定 `m/d/yy h:mm` 數字格式，您可透過 [`SetCellStyle`](cell.md#SetCellStyle) 更改該設定。若您需設定無法透過 Go 語言 `time.Time` 類型表示的 Excel 特殊日期，例如 1900 年 1 月 0 日或 1900 年 2 月 29 日，請先設定存儲格的值為 0 或 60，再為其設定具有日期數字格式的樣式。
 
 ## 設定布林型值 {#SetCellBool}
 
@@ -104,7 +104,7 @@ func (f *File) SetCellStr(sheet, cell, value string) error
 func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以通過 [`NewStyle`](style.md#NewStyle) 函數獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
+根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 - 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定外框樣式：
 
@@ -127,7 +127,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_01.png" alt="為儲存格設定外框樣式"></p>
 
-儲存格 `D7` 的四個外框被設定了不同的樣式和色彩，這與調用 [`NewStyle`](style.md#NewStyle) 函數時的參數有關，需要設定不同的樣式可參考該章節的文檔。
+儲存格 `D7` 的四個外框被設定了不同的樣式和色彩，這與調用 [`NewStyle`](style.md#NewStyle) 函式時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
 - 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設定漸變樣式：
 
@@ -143,7 +143,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="為儲存格設定漸變樣式"></p>
 
-儲存格 `D7` 被設定了漸變效果的色彩填滿，漸變填滿效果與調用 [`NewStyle`](style.md#NewStyle) 函數時的參數有關，需要設定不同的樣式可參考該章節的文檔。
+儲存格 `D7` 被設定了漸變效果的色彩填滿，漸變填滿效果與調用 [`NewStyle`](style.md#NewStyle) 函式時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
 - 例3，為名為 `Sheet1` 的工作表 `D7` 儲存格設定純色填滿：
 
@@ -200,7 +200,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="為儲存格設定時間格式"></p>
 
-儲存格 `D7` 被設定了時間格式。注意，當應用了時間格式的儲存格寬度過窄無法完整展示時會顯示為 `####`，可以拖拽調整欄寬或者通過調用 `SetColWidth` 函數設定欄寬到合適的大小使其正常顯示。
+儲存格 `D7` 被設定了時間格式。注意，當應用了時間格式的儲存格寬度過窄無法完整展示時會顯示為 `####`，可以拖拽調整欄寬或者透過調用 `SetColWidth` 函式設定欄寬到合適的大小使其正常顯示。
 
 - 例6，為名為 `Sheet1` 的工作表 `D7` 儲存格設定字型、字號、色彩和傾斜樣式：
 
@@ -246,7 +246,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
-根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定存儲格的超鏈接而不影響存儲格的值，若需設定存儲格的值，請通過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函數另行設定。
+根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定存儲格的超鏈接而不影響存儲格的值，若需設定存儲格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
@@ -501,7 +501,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函數的參數使用。
+根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函式的參數使用。
 
 ## 合併儲存格 {#MergeCell}
 
@@ -610,7 +610,7 @@ err := f.DeleteComment("Sheet1", "A30")
 func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或通過 [CalcCellValue](cell.md#CalcCellValue) 函數計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
+根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 存儲格設定普通公式 `=SUM(A1,B1)`：
 
@@ -710,11 +710,11 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持反覆運算、隱式交集、顯式交集、數組函數、數組函數、表格函數和其他部分函數。
+根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
 
-支持的公式函數列表如下：
+支持的公式函式列表如下：
 
-函數名稱 | 描述
+函式名稱 | 描述
 ---|---
 ABS                      | 傳回數字的絕對值
 ACCRINT                  | 傳回支付定期利息之債券的應計利息
@@ -740,14 +740,14 @@ AVERAGEA                 | 傳回其引數的平均值，包括數字、文字�
 AVERAGEIF                | 傳回符合指定準則的範圍中所有儲存格的平均 (算術平均數)
 AVERAGEIFS               | 傳回符合多個準則的所有儲存格的平均 (算術平均數)
 BASE                     | 將數字轉換為具有指定基數 (底數) 的文字表示
-BESSELI                  | 傳回修正 Bessel 函數 In(x)
-BESSELJ                  | 傳回 Bessel 函數 Jn(x)
-BESSELK                  | 傳回修正 Bessel 函數 Kn(x)
-BESSELY                  | 傳回 Bessel 函數 Yn(x)
-BETADIST                 | 傳回 Beta 累加分配函數
-BETA.DIST                | 傳回 Beta 累加分配函數
-BETAINV                  | 傳回指定 Beta 分配累加分配函數的反函數
-BETA.INV                 | 傳回指定 Beta 分配累加分配函數的反函數
+BESSELI                  | 傳回修正 Bessel 函式 In(x)
+BESSELJ                  | 傳回 Bessel 函式 Jn(x)
+BESSELK                  | 傳回修正 Bessel 函式 Kn(x)
+BESSELY                  | 傳回 Bessel 函式 Yn(x)
+BETADIST                 | 傳回 Beta 累加分配函式
+BETA.DIST                | 傳回 Beta 累加分配函式
+BETAINV                  | 傳回指定 Beta 分配累加分配函式的反函式
+BETA.INV                 | 傳回指定 Beta 分配累加分配函式的反函式
 BIN2DEC                  | 將二進位數字轉換為十進位
 BIN2HEX                  | 將二進位數字轉換為十六進位
 BIN2OCT                  | 將二進位數字轉換為八進位
@@ -765,12 +765,12 @@ CEILING.MATH             | 將數字四捨五入至最接近的整數，或四�
 CEILING.PRECISE          | 將數字四捨五入至最接近的整數，或四捨五入至最接近的基數倍數。不論數字正負號，數字都會四捨五入
 CHAR                     | 傳回代碼所指定的字元
 CHIDIST                  | 傳回卡方分佈的單側機率
-CHIINV                   | 傳回卡方分佈單側機率的反函數
+CHIINV                   | 傳回卡方分佈單側機率的反函式
 CHITEST                  | 傳回獨立性檢定的結果
-CHISQ.DIST               | 傳回累加 beta 機率密度函數
+CHISQ.DIST               | 傳回累加 beta 機率密度函式
 CHISQ.DIST.RT            | 傳回卡方分佈的單側機率
-CHISQ.INV                | 傳回累加 beta 機率密度函數
-CHISQ.INV.RT             | 傳回卡方分佈單側機率的反函數
+CHISQ.INV                | 傳回累加 beta 機率密度函式
+CHISQ.INV.RT             | 傳回卡方分佈單側機率的反函式
 CHISQ.TEST               | 傳回獨立性檢定的結果
 CHOOSE                   | 從值清單選取一個值
 CLEAN                    | 移除文字中所有無法列印的字元
@@ -811,7 +811,7 @@ CSCH                     | 傳回角度的雙曲餘割值
 CUMIPMT                  | 傳回兩個期間之間的累積支付利息
 CUMPRINC                 | 傳回兩個期間之間的累積支付本金
 DATE                     | 傳回特定日期的序列值
-DATEDIF                  | 計算兩個日期之間的日數、月數或年數。若您需要在公式中計算年齡，此函數很有用
+DATEDIF                  | 計算兩個日期之間的日數、月數或年數。若您需要在公式中計算年齡，此函式很有用
 DATEVALUE                | 將文字形式的日期轉換為序列值
 DAVERAGE                 | 傳回選取資料庫項目的平均值
 DAY                      | 將序列值轉換為一月中的某日
@@ -845,10 +845,10 @@ EDATE                    | 傳回開始日期之前或之後的指定月數的�
 EFFECT                   | 傳回有效年利率
 ENCODEURL                | 傳回 URL 編碼字串
 EOMONTH                  | 傳回指定月數之前或之後的當月最後一天的序列值
-ERF                      | 傳回誤差函數
-ERF.PRECISE              | 傳回誤差函數
-ERFC                     | 傳回補充誤差函數
-ERFC.PRECISE             | 傳回 x 和無限之間整合的補充 ERF 函數
+ERF                      | 傳回誤差函式
+ERF.PRECISE              | 傳回誤差函式
+ERFC                     | 傳回補充誤差函式
+ERFC.PRECISE             | 傳回 x 和無限之間整合的補充 ERF 函式
 ERROR.TYPE               | 傳回對應至錯誤類型的數字
 EUROCONVERT              | 用於將數字轉換為歐元形式、將數字由歐元形式轉換為歐元成員國貨幣形式，或利用歐元做為中間貨幣，將數字由某一歐元成員國貨幣轉化為另一歐元成員國貨幣形式
 EVEN                     | 將數字四捨五入至最接近的偶數整數
@@ -864,11 +864,11 @@ FDIST                    | 傳回 F 機率分佈
 F.DIST.RT                | 傳回 F 機率分佈
 FIND                     | 在文字值間尋找文字值 (區分大小寫)
 FINDB                    | 在文字值間尋找文字值 (區分大小寫)
-F.INV                    | 傳回 F 機率分佈的反函數值
-F.INV.RT                 | 傳回 F 機率分佈的反函數值
-FINV                     | 傳回 F 機率分佈的反函數值
+F.INV                    | 傳回 F 機率分佈的反函式值
+F.INV.RT                 | 傳回 F 機率分佈的反函式值
+FINV                     | 傳回 F 機率分佈的反函式值
 FISHER                   | 傳回 Fisher 轉換
-FISHERINV                | 傳回 Fisher 轉換的反函數值
+FISHERINV                | 傳回 Fisher 轉換的反函式值
 FIXED                    | 將數字格式化為具有固定小數位數字的文字
 FLOOR                    | 將數字無條件捨去，趨近於零
 FLOOR.MATH               | 將數字無條件捨去至最接近的整數，或無條件捨去至最接近的基數倍數
@@ -878,13 +878,13 @@ F.TEST                   | 傳回 F 檢定的結果
 FTEST                    | 傳回 F 檢定的結果
 FV                       | 傳回投資的未來值
 FVSCHEDULE               | 傳回一筆本金在經過一系列複利計算後的本利和
-GAMMA                    | 傳回 Gamma 函數值
+GAMMA                    | 傳回 Gamma 函式值
 GAMMA.DIST               | 傳回 Gamma 分佈
 GAMMADIST                | 傳回 Gamma 分佈
-GAMMA.INV                | 傳回 Gamma 累加分佈的反函數值
-GAMMAINV                 | 傳回 Gamma 累加分佈的反函數值
-GAMMALN                  | 傳回伽瑪函數的自然對數 Γ(x)
-GAMMALN.PRECISE          | 傳回伽瑪函數的自然對數 Γ(x)
+GAMMA.INV                | 傳回 Gamma 累加分佈的反函式值
+GAMMAINV                 | 傳回 Gamma 累加分佈的反函式值
+GAMMALN                  | 傳回伽瑪函式的自然對數 Γ(x)
+GAMMALN.PRECISE          | 傳回伽瑪函式的自然對數 Γ(x)
 GAUSS                    | 傳回較標準常態累加分佈小 0.5 的值
 GCD                      | 傳回最大公因數
 GEOMEAN                  | 傳回幾何平均數
@@ -959,10 +959,10 @@ LENB                     | 傳回文字字串中的字元數
 LN                       | 傳回數字的自然對數
 LOG                      | 傳回數字的對數至指定的底數
 LOG10                    | 傳回數字以 10 為底數的對數
-LOGINV                   | 傳回對數累加分佈的反函數值
+LOGINV                   | 傳回對數累加分佈的反函式值
 LOGNORM.DIST             | 傳回累加對數分佈
 LOGNORMDIST              | 傳回累加對數分佈
-LOGNORM.INV              | 傳回對數累加分佈的反函數值
+LOGNORM.INV              | 傳回對數累加分佈的反函式值
 LOOKUP                   | 在向量或陣列中查詢值
 LOWER                    | 將文字轉換為小寫
 MATCH                    | 在參照或陣列中查詢值
@@ -998,12 +998,12 @@ NETWORKDAYS.INTL         | 使用參數傳回兩個日期之間的全部工作�
 NOMINAL                  | 傳回名目年利率
 NORM.DIST                | 傳回常態累加分佈
 NORMDIST                 | 傳回常態累加分佈
-NORMINV                  | 傳回常態累加分佈的反函數值
-NORM.INV                 | 傳回常態累加分佈的反函數值
+NORMINV                  | 傳回常態累加分佈的反函式值
+NORM.INV                 | 傳回常態累加分佈的反函式值
 NORM.S.DIST              | 傳回標準常態累加分佈
 NORMSDIST                | 傳回標準常態累加分佈
-NORM.S.INV               | 傳回標準常態累加分佈的反函數值
-NORMSINV                 | 傳回標準常態累加分佈的反函數值
+NORM.S.INV               | 傳回標準常態累加分佈的反函式值
+NORMSINV                 | 傳回標準常態累加分佈的反函式值
 NOT                      | 將引數的邏輯值反轉
 NOW                      | 傳回目前日期和時間的序列值
 NPER                     | 傳回投資的期數
@@ -1024,7 +1024,7 @@ PERCENTRANK.INC          | 傳回值在資料集中的百分比排名
 PERCENTRANK              | 傳回值在資料集中的百分比排名
 PERMUT                   | 傳回指定數量物件的排列方式的數目
 PERMUTATIONA             | 傳回從所有物件選取指定數量的物件時 (包括重複選取物件)，所有可能排列方式的數目
-PHI                      | 傳回標準常態分佈的密度函數值
+PHI                      | 傳回標準常態分佈的密度函式值
 PI                       | 傳回 Pi 的值
 PMT                      | 傳回年金的定期付款
 POISSON.DIST             | 傳回波式分佈
@@ -1110,9 +1110,9 @@ TDIST                    | 傳回 Student T 分配
 TEXTJOIN                 | 合併多個範圍和/或字串中的文字
 TIME                     | 傳回特定時間的序列值
 TIMEVALUE                | 將文字形式的時間轉換為序列值
-T.INV                    | 以機率函數和自由度為形式，傳回 Student T 分配的 t 值
-T.INV.2T                 | 傳回 Student T 分配的反函數值
-TINV                     | 傳回 Student T 分配的反函數值
+T.INV                    | 以機率函式和自由度為形式，傳回 Student T 分配的 t 值
+T.INV.2T                 | 傳回 Student T 分配的反函式值
+TINV                     | 傳回 Student T 分配的反函式值
 TODAY                    | 傳回今天日期的序列值
 TRANSPOSE                | 傳回陣列的轉置
 TREND                    | 傳回線性趨勢值

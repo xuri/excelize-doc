@@ -70,27 +70,29 @@ func main() {
 }
 ```
 
+El parámetro opcional `AltText` se usa para agregar texto alternativo a un objeto gráfico.
+
+El parámetro opcional `PrintObject` indica si la imagen se imprime cuando se imprime la hoja de trabajo, el valor predeterminado de eso es `true`.
+
+El parámetro opcional `Locked` indica si se bloquea la imagen. Bloquear un objeto no tiene ningún efecto a menos que la hoja esté protegida.
+
+El parámetro opcional `LockAspectRatio` indica si se bloquea la relación de aspecto de la imagen, el valor predeterminado es `false`.
+
 El parámetro opcional `AutoFit` especifica si el tamaño de la imagen se ajusta automáticamente a la celda, el valor predeterminado es `false`.
+
+El parámetro opcional `OffsetX` especifica el desplazamiento horizontal de la imagen con la celda, el valor predeterminado es 0.
+
+El parámetro opcional `OffsetY` especifica el desplazamiento vertical de la imagen con la celda, cuyo valor predeterminado es 0.
+
+El parámetro opcional `ScaleX` especifica la escala horizontal de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
+
+El parámetro opcional `ScaleY` especifica la escala vertical de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
 
 El parámetro opcional `Hyperlink` especifica el hipervínculo de la imagen.
 
 El parámetro opcional `HyperlinkType` define dos tipos de hipervínculo `External` para el sitio web o `Location` para moverse a una de las celdas de este libro de trabajo. Cuando el `HyperlinkType` es `Location`, las coordenadas deben comenzar con `#`.
 
-El parámetro opcional `Positioning` define dos tipos de posición de una imagen en una hoja de cálculo de Excel, `oneCell` (mover pero no dimensionar con celdas) o `absolute` (no mover ni dimensionar con celdas). Si no configura este parámetro, la posición predeterminada es mover y tamaño con celdas.
-
-El parámetro opcional `PrintObject` indica si la imagen se imprime cuando se imprime la hoja de trabajo, el valor predeterminado de eso es `true`.
-
-El parámetro opcional `LockAspectRatio` indica si se bloquea la relación de aspecto de la imagen, el valor predeterminado es `false`.
-
-El parámetro opcional `Locked` indica si se bloquea la imagen. Bloquear un objeto no tiene ningún efecto a menos que la hoja esté protegida.
-
-El parámetro opcional `OffsetX` especifica el desplazamiento horizontal de la imagen con la celda, el valor predeterminado es 0.
-
-El parámetro opcional `ScaleX` especifica la escala horizontal de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
-
-El parámetro opcional `OffsetY` especifica el desplazamiento vertical de la imagen con la celda, cuyo valor predeterminado es 0.
-
-El parámetro opcional `ScaleY` especifica la escala vertical de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
+El parámetro opcional `Positioning` define 3 tipos de posición de un objeto gráfico en una hoja de cálculo: `oneCell` (Mover pero no cambiar el tamaño de las celdas), `twoCell` (Mover y cambiar el tamaño de las celdas) y `absolute` (No mover ni dimensionar con celdas). Si no establece este parámetro, el posicionamiento predeterminado es mover y cambiar el tamaño de las celdas.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error

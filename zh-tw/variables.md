@@ -58,7 +58,7 @@ var (
     ErrSheetIdx = errors.New("invalid worksheet index")
     // ErrUnprotectSheet 定義了取消保護工作表時的錯誤提示信息
     ErrUnprotectSheet = errors.New("worksheet has set no protect")
-    // ErrUnprotectSheetPassword 定義了通過密碼驗證取消保護工作表失敗時的錯誤提示信息
+    // ErrUnprotectSheetPassword 定義了透過密碼驗證取消保護工作表失敗時的錯誤提示信息
     ErrUnprotectSheetPassword = errors.New("worksheet protect password not match")
     // ErrGroupSheets 定義了工作表分組異常時的錯誤提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
@@ -98,7 +98,7 @@ var (
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
     // ErrUnprotectWorkbook 定義了取消保護活頁簿時的錯誤提示信息
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
-    // ErrUnprotectWorkbookPassword 定義了通過密碼驗證取消保護活頁簿失敗時的錯誤提示信息
+    // ErrUnprotectWorkbookPassword 定義了透過密碼驗證取消保護活頁簿失敗時的錯誤提示信息
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
 )
 ```

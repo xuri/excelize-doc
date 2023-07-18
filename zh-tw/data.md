@@ -6,7 +6,7 @@
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
 ```
 
-根據給定的工作表名和資料驗證對象設定資料驗證規則，資料驗證對象可通過 `NewDataValidation` 函數創建，資料驗證類別和條件參考[常量](constants.md)中的定義。
+根據給定的工作表名和資料驗證對象設定資料驗證規則，資料驗證對象可透過 `NewDataValidation` 函式創建，資料驗證類別和條件參考[常量](constants.md)中的定義。
 
 例1，為 `Sheet1!A1:B2` 設定包含驗證條件為允許介於整數 10 到 20 的資料驗證規則，輸入無效資料時顯示出錯警告，標題為: "error title"，錯誤信息 "error body":
 

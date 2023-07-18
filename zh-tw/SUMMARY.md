@@ -197,7 +197,7 @@
   * [刪除資料驗證](data.md#DeleteDataValidation)
 * [樞紐分析表](pivot.md#PivotTable)
   * [創建樞紐分析表](pivot.md#AddPivotTable)
-* [工具函數](utils.md)
+* [工具函式](utils.md)
   * [創建表格](utils.md#AddTable)
   * [自動過濾器](utils.md#AutoFilter)
   * [清除儲存格緩存](utils.md#UpdateLinkedValue)

@@ -115,7 +115,7 @@ func (f *File) GetSheetIndex(sheet string) (int, error)
 
 根據給定的工作表名稱獲取該工作表的索引，如果工作表不存在將傳回 `-1`。
 
-獲取到的索引可以在設定活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函數的參數使用。
+獲取到的索引可以在設定活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函式的參數使用。
 
 ## 獲取工作表映射表 {#GetSheetMap}
 
@@ -345,7 +345,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-此函數流式逐列讀取工作表，傳回當前列中各欄存儲格的值，不會跳過工作表尾部的有效空白列。
+此函式流式逐列讀取工作表，傳回當前列中各欄存儲格的值，不會跳過工作表尾部的有效空白列。
 
 ### 列迭代器 - 遍歷操作
 
@@ -385,7 +385,7 @@ func (rows *Rows) Close() error
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-根據給定的工作表名稱，儲存格值或正則表達式來獲取坐標。此函數僅支持字符串和數字的完全匹配，不支持公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
+根據給定的工作表名稱，儲存格值或正則表達式來獲取坐標。此函式僅支持字符串和數字的完全匹配，不支持公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
 
 例如，在名為 `Sheet1` 的工作表中搜尋值 `100` 的坐標:
 
@@ -449,7 +449,7 @@ type SheetProtectionOptions struct {
 func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
-根據給定的工作表名稱取消保護該工作表，指定第二個可選密碼參數以通過密碼驗證來取消工作表保護。
+根據給定的工作表名稱取消保護該工作表，指定第二個可選密碼參數以透過密碼驗證來取消工作表保護。
 
 ## 刪除欄 {#RemoveCol}
 

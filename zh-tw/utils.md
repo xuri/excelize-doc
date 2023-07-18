@@ -1,4 +1,4 @@
-# 工具函數
+# 工具函式
 
 ## 創建表格 {#AddTable}
 
@@ -33,7 +33,7 @@ err := f.AddTable("Sheet2", &excelize.Table{
 })
 ```
 
-注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，並且必須在調用 AddTable 函數前設定表格的標題列資料。多個表格的坐標區域不能有交集。
+注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，並且必須在調用 AddTable 函式前設定表格的標題列資料。多個表格的坐標區域不能有交集。
 
 可選參數 `Name` 用以設定自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
 
@@ -118,7 +118,7 @@ x >  2000 and x <  5000
 x == 2000 or  x == 5000
 ```
 
-可以通過在表達式中使用空白或非空白值來實現空白或非空白資料的過濾：
+可以透過在表達式中使用空白或非空白值來實現空白或非空白資料的過濾：
 
 ```text
 x == Blanks
@@ -153,7 +153,7 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-Excel 會在儲存時將儲存帶有公式的儲存格的計算結果，這會導致在 Office Excel 2007 和 2010 中文檔在打開時，即便計算因子已經發生變化，公式的計算結果不會自動更新。參考鏈接：[https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) 此函數會將活頁簿中所有緩存結果清除，這樣文檔在 Office Excel 中被重新打開時會自動計算新的公式結果，但是由於計算後文檔發生了變化，在關閉文檔時 Office Excel 會提示是否儲存活頁簿。
+Excel 會在儲存時將儲存帶有公式的儲存格的計算結果，這會導致在 Office Excel 2007 和 2010 中文檔在打開時，即便計算因子已經發生變化，公式的計算結果不會自動更新。參考鏈接：[https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) 此函式會將活頁簿中所有緩存結果清除，這樣文檔在 Office Excel 中被重新打開時會自動計算新的公式結果，但是由於計算後文檔發生了變化，在關閉文檔時 Office Excel 會提示是否儲存活頁簿。
 
 清除儲存格緩存對活頁簿的影響表現為對 `<v>` 標籤的修改，例如，清除前的儲存格緩存：
 
@@ -252,7 +252,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
-通過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函數的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和外框的色彩。
+透過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函式的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和外框的色彩。
 
 ## 設定條件式格式 {#SetConditionalFormat}
 
@@ -488,7 +488,7 @@ err := f.SetConditionalFormat("Sheet1", "D1:D10",
 )
 ```
 
-類別：`Format` - `Format` 參數用於指定滿足條件式格式標準時將應用於儲存格的格式。該參數可以通過 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 方法來創建：
+類別：`Format` - `Format` 參數用於指定滿足條件式格式標準時將應用於儲存格的格式。該參數可以透過 [`NewConditionalStyle()`](utils.md#NewConditionalStyle) 方法來創建：
 
 ```go
 format, err := f.NewConditionalStyle(
@@ -796,9 +796,9 @@ rightToLeft | 從左向右
 
 `StopIfTrue` - 用於設定是否「如果 True 則停止」，當一個條件式格式規則套用至一個或多個存儲格時，如果開啓此設定，一旦找到匹配規則的一個存儲格，將不會繼續查找後續存儲格是否匹配。
 
-例如，為名為 `Sheet1` 的工作表中，通過設定條件式格式高亮 `A1:D4` 區域存儲格中的最大值與最小值:
+例如，為名為 `Sheet1` 的工作表中，透過設定條件式格式高亮 `A1:D4` 區域存儲格中的最大值與最小值:
 
-<p align="center"><img width="884" src="./images/condition_format_01.png" alt="通過設定條件式格式高亮區域存儲格中的最大值與最小值"></p>
+<p align="center"><img width="884" src="./images/condition_format_01.png" alt="透過設定條件式格式高亮區域存儲格中的最大值與最小值"></p>
 
 ```go
 func main() {
@@ -904,7 +904,7 @@ func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 func (f *File) SetPanes(sheet string, panes *Panes) error
 ```
 
-通過給定的工作表名稱和窗格樣式參數設定凍結窗格或拆分窗格。
+透過給定的工作表名稱和窗格樣式參數設定凍結窗格或拆分窗格。
 
 `ActivePane` 定義了活動窗格，下表為該屬性的可選值：
 
@@ -994,7 +994,7 @@ err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 func (f *File) GetPanes(sheet string) (Panes, error)
 ```
 
-通過給定的工作表名稱獲取帶有凍結窗格或拆分窗格的窗格格式。
+透過給定的工作表名稱獲取帶有凍結窗格或拆分窗格的窗格格式。
 
 ## 色值計算 {#ThemeColor}
 
@@ -1002,7 +1002,7 @@ func (f *File) GetPanes(sheet string) (Panes, error)
 func ThemeColor(baseColor string, tint float64) string
 ```
 
-通過給定的 RGB 格式色值與色調參數，計算出最終色彩。例如，獲取名為 `Sheet1` 的工作表 `A1` 儲存格的背景色彩：
+透過給定的 RGB 格式色值與色調參數，計算出最終色彩。例如，獲取名為 `Sheet1` 的工作表 `A1` 儲存格的背景色彩：
 
 ```go
 package main
@@ -1062,7 +1062,7 @@ func getCellBgColor(f *excelize.File, sheet, cell string) string {
 func RGBToHSL(r, g, b uint8) (h, s, l float64)
 ```
 
-該函數提供方法將 RGB 色彩空間三元組轉換為 HSL 色彩空間三元組。
+該函式提供方法將 RGB 色彩空間三元組轉換為 HSL 色彩空間三元組。
 
 ## HSL與RGB色彩空間色值轉換 {#HSLToRGB}
 
@@ -1070,7 +1070,7 @@ func RGBToHSL(r, g, b uint8) (h, s, l float64)
 func HSLToRGB(h, s, l float64) (r, g, b uint8)
 ```
 
-該函數提供方法將 HSL 色彩空間三元組轉換為 RGB 色彩空間三元組。
+該函式提供方法將 HSL 色彩空間三元組轉換為 RGB 色彩空間三元組。
 
 ## 檔案 Writer {#FileWriter}
 
@@ -1080,7 +1080,7 @@ func HSLToRGB(h, s, l float64) (r, g, b uint8)
 func (f *File) Write(w io.Writer, opts ...Options) error
 ```
 
-該函數提供方法將當前檔案內容寫入給定的 `io.Writer`。
+該函式提供方法將當前檔案內容寫入給定的 `io.Writer`。
 
 ### WriteTo {#WriteTo}
 
@@ -1088,7 +1088,7 @@ func (f *File) Write(w io.Writer, opts ...Options) error
 func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 ```
 
-該函數通過實現 `io.WriterTo` 以儲存檔案。
+該函式透過實現 `io.WriterTo` 以儲存檔案。
 
 ### WriteToBuffer {#WriteToBuffer}
 
@@ -1096,7 +1096,7 @@ func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 ```
 
-該函數提供獲取當前檔案內容 `*bytes.Buffer` 的方法。
+該函式提供獲取當前檔案內容 `*bytes.Buffer` 的方法。
 
 ## 嵌入 VBA 專案 {#AddVBAProject}
 
@@ -1104,7 +1104,7 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 func (f *File) AddVBAProject(file []byte) error
 ```
 
-該函數提供方法將包含函數和/或宏的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
+該函式提供方法將包含函式和/或宏的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
 
 ```go
 codeName := "Sheet1"

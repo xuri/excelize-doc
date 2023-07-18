@@ -69,27 +69,29 @@ func main() {
 }
 ```
 
+Le paramètre optionnel `AltText` est utilisé pour ajouter un texte alternatif à un objet graphique.
+
+Le paramètre facultatif `PrintObject` indique si l'image est imprimée lors de l'impression de la feuille de calcul, la valeur par défaut est `true`.
+
+Le paramètre optionnel `Locked` indique si verrouiller l'image. Le verrouillage d'un objet n'a d'effet que si la feuille est protégée.
+
+Le paramètre optionnel `LockAspectRatio` indique si verrouiller le rapport hauteur/largeur de l'image, la valeur par défaut de celui-ci est `false`.
+
 Le paramètre facultatif `AutoFit` spécifie si make image size auto s'adapte à la cellule, la valeur par défaut est `false`.
+
+Le paramètre facultatif `OffsetX` spécifie le décalage horizontal de l'image avec la cellule, la valeur par défaut est 0.
+
+Le paramètre facultatif `OffsetY` spécifie le décalage vertical de l'image avec la cellule, la valeur par défaut est 0.
+
+Le paramètre facultatif `ScaleX` spécifie l'échelle horizontale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+
+Le paramètre facultatif `ScaleY` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
 
 Le paramètre facultatif `Hyperlink` spécifie le lien hypertexte de l'image.
 
 Le paramètre facultatif `HyperlinkType` définit deux types de lien hypertexte `External` pour le site Web ou `Location` pour se déplacer vers l'une des cellules de ce classeur. Lorsque le `HyperlinkType` est `Location`, les coordonnées doivent commencer par `#`.
 
-Le paramètre facultatif `Positioning` définit deux types de position d'une image dans une feuille de calcul Excel, `oneCell` (Déplacer mais ne pas dimensionner avec des cellules) ou `absolute` (Ne pas déplacer ou dimensionner avec des cellules). Si vous ne définissez pas ce paramètre, le positionnement par défaut est le déplacement et la taille avec les cellules.
-
-Le paramètre facultatif `PrintObject` indique si l'image est imprimée lors de l'impression de la feuille de calcul, la valeur par défaut est `true`.
-
-Le paramètre optionnel `LockAspectRatio` indique si verrouiller le rapport hauteur/largeur de l'image, la valeur par défaut de celui-ci est `false`.
-
-Le paramètre optionnel `Locked` indique si verrouiller l'image. Le verrouillage d'un objet n'a d'effet que si la feuille est protégée.
-
-Le paramètre facultatif `OffsetX` spécifie le décalage horizontal de l'image avec la cellule, la valeur par défaut est 0.
-
-Le paramètre facultatif `ScaleX` spécifie l'échelle horizontale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
-
-Le paramètre facultatif `OffsetY` spécifie le décalage vertical de l'image avec la cellule, la valeur par défaut est 0.
-
-Le paramètre facultatif `ScaleY` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+Le paramètre optionnel `Positioning` définit 3 types de position d'un objet graphique dans une feuille de calcul: `oneCell` (déplacer mais ne pas redimensionner avec les cellules), `twoCell` (déplacer et redimensionner avec les cellules) et `absolute` (Ne pas déplacer ou dimensionner avec les cellules). Si vous ne définissez pas ce paramètre, le positionnement par défaut consiste à déplacer et dimensionner avec les cellules.
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error

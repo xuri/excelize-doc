@@ -38,7 +38,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 通過給定的工作表名稱傳回流式寫入器，用於生成包含大規模資料的工作表。請注意通過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的行號是遞增的，普通函数不能與流式函数混合使用在工作表中寫入資料。例如，向工作表流式按行寫入 `102400` 行 x `50` 列帶有樣式的數據：
+NewStreamWriter 透過給定的工作表名稱返回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確所保寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中內存資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少內存使用，此時您無法獲取存儲格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
 
 ```go
 f := excelize.NewFile()
@@ -123,7 +123,7 @@ err := sw.SetRow("A1", []interface{}{
 func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
 ```
 
-SetRow 通過給定的起始坐標和指向數組類別「切片」的指針將資料按行流式寫入工作表中。請注意，在設定行之後，必須調用 [`Flush`](stream.md#Flush) 函數來結束流式寫入過程，並需要確所保寫入的列號是遞增的。
+SetRow 透過給定的起始坐標和指向數組類別「切片」的指針將資料按行流式寫入工作表中。請注意，在設定行之後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確所保寫入的列號是遞增的。
 
 ## 流式創建表格 {#AddTable}
 
@@ -154,7 +154,7 @@ err := sw.AddTable(&excelize.Table{
 })
 ```
 
-注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函數前通過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
+注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函式前透過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
 
 ## 流式插入分頁符 {#InsertPageBreak}
 
@@ -170,7 +170,7 @@ func (sw *StreamWriter) InsertPageBreak(cell string) error
 func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
-通過給定的窗格樣式參數流式設定凍結窗格，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函數設定窗格。
+透過給定的窗格樣式參數流式設定凍結窗格，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定窗格。
 
 ## 流式合併存儲格 {#MergeCell}
 
@@ -178,7 +178,7 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 ```
 
-通過給定的存儲格坐標區域流式合併存儲格，當前僅支持合併非交疊區域存儲格。
+透過給定的存儲格坐標區域流式合併存儲格，當前僅支持合併非交疊區域存儲格。
 
 ## 流式設定欄寬度 {#SetColWidth}
 
@@ -186,7 +186,7 @@ func (sw *StreamWriter) MergeCell(hCell, vCell string) error
 func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 ```
 
-根據給定的欄範圍和寬度值設定單個或多個欄的寬度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函數設定欄寬度。例如設定工作表上 `B` 到 `C` 欄的寬度為 `20`：
+根據給定的欄範圍和寬度值設定單個或多個欄的寬度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄寬度。例如設定工作表上 `B` 到 `C` 欄的寬度為 `20`：
 
 ```go
 err := sw.SetColWidth(2, 3, 20)

@@ -2,7 +2,7 @@
 
 走勢圖是 Excel 2010 及以上版本中的功能，是放入儲存格中的小型圖，每個走勢圖代表所選內容中的一行資料。將走勢圖放在其資料附近可提供非常好的視覺衝擊。
 
-<p align="center"><img width="612" src="./images/sparkline_01.png" alt="使用 Go 語言通過 Excelize 創建走勢圖"></p>
+<p align="center"><img width="612" src="./images/sparkline_01.png" alt="使用 Go 語言透過 Excelize 創建走勢圖"></p>
 
 [走勢圖](https://en.wikipedia.org/wiki/Sparklines) 是由 [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte) 發明的。
 
@@ -22,7 +22,7 @@ err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
 })
 ```
 
-<p align="center"><img width="653" src="./images/sparkline_02.png" alt="使用 Go 語言通過 Excelize 創建走勢圖"></p>
+<p align="center"><img width="653" src="./images/sparkline_02.png" alt="使用 Go 語言透過 Excelize 創建走勢圖"></p>
 
 下表為 Excelize 支持的走勢圖格式選項：
 

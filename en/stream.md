@@ -38,7 +38,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter return stream writer struct by given worksheet name to generate a new worksheet with large amounts of data. Note that after set rows, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process and ensure that the order of line numbers is ascending, the normal mode functions and stream mode functions can't be work mixed to writing data on the worksheets. For example, set data for the worksheet of size `102400` rows x `50` columns with numbers and style:
+NewStreamWriter returns stream writer struct by given worksheet name used for writing data on a new existing empty worksheet with large amounts of data. Note that after writing data with the stream writer for the worksheet, you must call the [`Flush`](stream.md#Flush) method to end the streaming writing process, ensure that the order of row numbers is ascending when set rows, and the normal mode functions and stream mode functions can not be work mixed to writing data on the worksheets. The stream writer will try to use temporary files on disk to reduce the memory usage when in-memory chunks data over 16MB, and you can't get cell value at this time. For example, set data for worksheet of size `102400` rows x `50` columns with numbers and style:
 
 ```go
 f := excelize.NewFile()

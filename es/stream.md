@@ -38,7 +38,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter devuelve la estructura del escritor de flujo por el nombre de la hoja de trabajo para generar una nueva hoja de trabajo con grandes cantidades de datos. Tenga en cuenta que después de establecer filas, debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de transmisión y asegurarse de que el orden de los números de línea sea ascendente, no utilice las funciones de modo normal y modo de secuencia mezcladas para escribir datos en las hojas de cálculo. Por ejemplo, configure los datos para la hoja de trabajo de tamaño `102400` filas x `50` columnas con números y estilo:
+NewStreamWriter devuelve la estructura del escritor de secuencias por el nombre de la hoja de trabajo dado que se usa para escribir datos en una nueva hoja de trabajo vacía existente con grandes cantidades de datos. Tenga en cuenta que después de escribir datos con el escritor de flujo para la hoja de trabajo, debe llamar al método [`Flush`](stream.md#Flush) para finalizar el proceso de escritura de flujo, asegurarse de que el orden de los números de fila sea ascendente cuando se configuran las filas, y las funciones de modo normal y modo de flujo no puede ser un trabajo mixto para escribir datos en las hojas de trabajo. El escritor de flujo intentará usar archivos temporales en el disco para reducir el uso de la memoria cuando los datos en fragmentos en la memoria superen los 16 MB y no pueda obtener el valor de la celda en este momento. Por ejemplo, establezca datos para una hoja de trabajo de tamaño `102400` filas x `50` columnas con números y estilo:
 
 ```go
 f := excelize.NewFile()

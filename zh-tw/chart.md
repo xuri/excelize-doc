@@ -100,7 +100,7 @@ top_right|右上
 
 其中參數 `ShowLegendKey`  默認值為 `false`。
 
-通過可選 `Title` 對象的 `Name` 參數設定圖表標題，標題將會在圖表上方顯示。參數 `Name` 支持使用公式表示，例如 `Sheet1!$A$1`，圖表標題的默認值為空。
+透過可選 `Title` 對象的 `Name` 參數設定圖表標題，標題將會在圖表上方顯示。參數 `Name` 支持使用公式表示，例如 `Sheet1!$A$1`，圖表標題的默認值為空。
 
 參數 `ShowBlanksAs` 提供「隱藏和清空儲存格」設定，默認值為：`gap` 即「空儲存格顯示為」：「空距」。下面是該參數的可選值：
 
@@ -110,11 +110,11 @@ gap|空距
 span|用直線連接資料點
 zero|零值
 
-通過參數 `VaryColors` 指定是否設定圖表數據系列格式為自動填滿色彩，默認值為 `true`。
+透過參數 `VaryColors` 指定是否設定圖表數據系列格式為自動填滿色彩，默認值為 `true`。
 
-參數 `Format` 提供對圖表偏移、縮放、高寬比設定和列印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函數中所使用的相同。
+參數 `Format` 提供對圖表偏移、縮放、高寬比設定和列印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函式中所使用的相同。
 
-通過可選 `PlotArea` 對象設定資料標籤格式，可選參數如下：
+透過可選 `PlotArea` 對象設定資料標籤格式，可選參數如下：
 
 參數|類別|默認值|含義
 ---|---|---|---
@@ -125,7 +125,7 @@ ShowPercent     | `bool` | `false` | 百分比
 ShowSerName     | `bool` | `false` | 系列名稱
 ShowVal         | `bool` | `false` | 值
 
-通過參數 `XAxis` 和 `YAxis` 參數設定坐標軸選項。
+透過參數 `XAxis` 和 `YAxis` 參數設定坐標軸選項。
 
 下面是 `XAxis` 參數的可選值：
 
@@ -158,7 +158,7 @@ LogBase        | `float64`       | N/A     | 設定垂直坐標軸對數刻度�
 NumFmt         | `ChartNumFmt`   | N/A     | 設定垂直坐標軸數字格式和鏈接到源
 Title          | `[]RichTextRun` | N/A     | 設定旋轉過的主要縱坐標軸標題，並調整圖表大小
 
-通過可選 `Dimension` 對象設定圖表的大小，可選參數如下：
+透過可選 `Dimension` 對象設定圖表的大小，可選參數如下：
 
 參數|類別|默認值|含義
 ---|---|---|---
@@ -279,7 +279,7 @@ func main() {
 func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
-根據給定的工作表名稱和圖表樣式屬性創建圖表工作表，圖表樣式屬性的定義與 [AddChart](chart.md#AddChart) 函數相同。Excel 中的圖表工作表是僅包含圖表的工作表。
+根據給定的工作表名稱和圖表樣式屬性創建圖表工作表，圖表樣式屬性的定義與 [AddChart](chart.md#AddChart) 函式相同。Excel 中的圖表工作表是僅包含圖表的工作表。
 
 ## 刪除圖表 {#DeleteChart}
 
