@@ -4,6 +4,8 @@
 var (
     // ErrStreamSetColWidth 定義了在流式寫入模式下設定欄寬度時的錯誤提示信息
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
+    // ErrStreamSetPanes 定義了在流式寫入模式下設定窗格時的錯誤提示信息
+    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrColumnNumber 定義了收到無效欄名時的錯誤提示信息
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth 定義了收到無效欄寬度時的錯誤提示信息
@@ -29,7 +31,7 @@ var (
     // ErrWorkbookFileFormat 定義了不受支持的活頁簿文件類型的錯誤提示信息
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength 定義了活頁簿存儲路徑長度超出最大限制時的錯誤提示信息
-    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
+    ErrMaxFilePathLength = fmt.Errorf("file path length exceeds maximum limit %d characters", MaxFilePathLength)
     // ErrUnknownEncryptMechanism 定義了檢測到未知加密機制時的錯誤提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism 定義了檢測到不受支持的加密機制時的錯誤提示信息
@@ -96,10 +98,18 @@ var (
     ErrSheetNameBlank = errors.New("the sheet name can not be blank")
     // ErrSheetNameLength 定義了工作表名稱長度超出最大限制時的錯誤提示信息
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrNameLength 定義了自定義名稱或表格名稱長度超出最大限制時的錯誤提示信息
+    ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrExistsTableName 定義了給定表格名稱已存在時的錯誤提示信息
+    ErrExistsTableName = errors.New("the same name table already exists")
+    // ErrCellStyles 定義了存儲格格式數量超出最大限制時的錯誤提示信息
+    ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // ErrUnprotectWorkbook 定義了取消保護活頁簿時的錯誤提示信息
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
     // ErrUnprotectWorkbookPassword 定義了透過密碼驗證取消保護活頁簿失敗時的錯誤提示信息
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
+    // ErrorFormControlValue 定義了表單控制項捲軸值超過有效範圍時的錯誤提示信息
+    ErrorFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
 )
 ```
 

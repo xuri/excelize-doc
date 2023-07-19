@@ -4,6 +4,8 @@
 var (
     // ErrStreamSetColWidth は、ストリーム書き込みモードでの列幅の設定に関するエラーメッセージを定義しました
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
+    // ErrStreamSetPanes は、ストリーム書き込みモードのセット ペインでのエラー メッセージを定義しました
+    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrColumnNumber は、無効な列番号を受信したときのエラーメッセージを定義しました
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth は、無効な列幅を受信したときのエラーメッセージを定義しました
@@ -29,7 +31,7 @@ var (
     // ErrWorkbookFileFormat は、サポートされていないワークブックファイル形式を受信したときのエラーメッセージを定義しました
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength は、ファイルパス長のオーバーフローを受信したときのエラーメッセージを定義しました
-    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
+    ErrMaxFilePathLength = fmt.Errorf("file path length exceeds maximum limit %d characters", MaxFilePathLength)
     // ErrUnknownEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnsupportedEncryptMechanism は、サポートされていない暗号化メカニズムに関するエラーメッセージを定義しました
@@ -95,10 +97,18 @@ var (
     ErrSheetNameBlank = errors.New("the sheet name can not be blank")
     // ErrSheetNameLength は、シート名の長さが制限を超えた場合のエラー メッセージを定義しました
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrNameLength は、定義された名前またはテーブル名の長さが制限を超えていることを受信した際のエラー メッセージを定義しました
+    ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrExistsTableName は、指定されたテーブルにエラー メッセージを定義しましたが、すでに存在します
+    ErrExistsTableName = errors.New("the same name table already exists")
+    // ErrCellStyles で定義されたセル スタイルのエラー メッセージが制限を超えています
+    ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // ErrUnprotectWorkbook は、ワークブックのエラー メッセージを定義し、保護を設定していません
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
     // ErrUnprotectWorkbookPassword は、パスワードの検証に失敗したワークブックの保護を削除する際のエラー メッセージを定義しました
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
+    // ErrorFormControlValue は、スクロール値が制限を超えた場合のエラー メッセージを定義しました
+    ErrorFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
 )
 ```
 

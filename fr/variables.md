@@ -5,6 +5,9 @@ var (
     // ErrStreamSetColWidth a défini le message d'erreur sur la largeur de
     // colonne définie en mode d'écriture de flux.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
+    // ErrStreamSetPanes a défini le message d'erreur sur les volets définis en
+    // mode d'écriture de flux.
+    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrColumnNumber a défini le message d'erreur lors de la réception d'un
     // numéro de colonne invalide.
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
@@ -43,7 +46,7 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength a défini le message d'erreur lors de la réception
     // du dépassement de longueur de nom de fichier.
-    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
+    ErrMaxFilePathLength = fmt.Errorf("file path length exceeds maximum limit %d characters", MaxFilePathLength)
     // ErrUnknownEncryptMechanism a défini le message d'erreur sur un
     // mécanisme de chiffrement non pris en charge.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
@@ -140,6 +143,15 @@ var (
     // ErrSheetNameLength défini le message d'erreur lors de la réception de la
     // longueur du nom de la feuille dépasse la limite.
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrNameLength a défini le message d'erreur lors de la réception du nom
+    // défini ou la longueur du nom de table dépasse la limite.
+    ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrExistsTableName a défini que le message d'erreur sur la table donnée
+    // existe déjà.
+    ErrExistsTableName = errors.New("the same name table already exists")
+    // ErrCellStyles defined the error message on cell styles exceeds the
+    // limit.
+    ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // ErrUnprotectWorkbook a défini le message d'erreur sur le classeur n'a
     // défini aucune protection.
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
@@ -147,6 +159,9 @@ var (
     // suppression de la protection du classeur avec échec de la vérification
     // du mot de passe.
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
+    // ErrorFormControlValue a défini le message d'erreur pour la réception
+    // d'une valeur de défilement dépassant la limite.
+    ErrorFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
 )
 ```
 

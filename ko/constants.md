@@ -162,11 +162,12 @@ Excel 사양 및 제한:
 
 ```go
 const (
-    MaxCellStyles        = 64000
+    MaxCellStyles        = 65430
     MaxColumns           = 16384
     MaxColumnWidth       = 255
     MaxFieldLength       = 255
     MaxFilePathLength    = 207
+    MaxFormControlValue  = 30000
     MaxFontFamilyLength  = 31
     MaxFontSize          = 409
     MaxRowHeight         = 409

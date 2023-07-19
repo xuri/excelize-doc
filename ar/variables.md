@@ -5,6 +5,8 @@ var (
     // حدد ErrStreamSetColWidth رسالة الخطأ على عرض العمود المحدد في وضع كتابة
     // الدفق.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
+    // حدد ErrStreamSetPanes رسالة الخطأ في الأجزاء المحددة في وضع كتابة الدفق.
+    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // حدد ErrColumnNumber رسالة الخطأ عند تلقي رقم عمود غير صالح.
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // حدد ErrColumnWidth رسالة الخطأ عند تلقي عرض عمود غير صالح.
@@ -31,7 +33,7 @@ var (
     // حدد ErrWorkbookFileFormat رسالة الخطأ عند تلقي تنسيق ملف مصنف غير معتمد.
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // حدد ErrMaxFilePathLength رسالة الخطأ عند تلقي تجاوز طول مسار الملف.
-    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
+    ErrMaxFilePathLength = fmt.Errorf("file path length exceeds maximum limit %d characters", MaxFilePathLength)
     // حدد ErrUnknownEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // حدد ErrUnsupportedEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
@@ -108,11 +110,19 @@ var (
     // حدد ErrSheetNameLength رسالة الخطأ عند تلقي اسم الورقة يتجاوز الحد
     // المسموح به.
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // حدد ErrNameLength رسالة الخطأ عند تلقي الاسم المحدد أو تجاوز طول اسم الجدول الحد.
+    ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // حدد ErrExistsTableName رسالة الخطأ في الجدول المحدد موجود بالفعل.
+    ErrExistsTableName = errors.New("the same name table already exists")
+    // حدد ErrCellStyles رسالة الخطأ على أنماط الخلية يتجاوز الحد.
+    ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // حدد ErrUnprotectWorkbook رسالة الخطأ في المصنف ولم يقم بتعيين أي حماية.
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
     // حدد ErrUnprotectWorkbookPassword رسالة الخطأ عند إزالة حماية المصنف مع
     // فشل التحقق من كلمة المرور.
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
+    // حدد ErrorFormControlValue رسالة الخطأ لتلقي قيمة تمرير تتجاوز الحد.
+    ErrorFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
 )
 ```
 

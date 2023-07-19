@@ -5,6 +5,9 @@ var (
     // ErrStreamSetColWidth defined the error message on set column width in
     // stream writing mode.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
+    // ErrStreamSetPanes defined the error message on set panes in stream
+    // writing mode.
+    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrColumnNumber defined the error message on receive an invalid column
     // number.
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
@@ -17,8 +20,7 @@ var (
     // ErrCoordinates defined the error message on invalid coordinates tuples
     // length.
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrExistsSheet defined the error message on given worksheet already
-    // exists.
+    // ErrExistsSheet defined the error message on given sheet already exists.
     ErrExistsSheet = errors.New("the same name sheet already exists")
     // ErrTotalSheetHyperlinks defined the error message on hyperlinks count
     // overflow.
@@ -28,9 +30,8 @@ var (
     ErrInvalidFormula = errors.New("formula not valid")
     // ErrAddVBAProject defined the error message on add the VBA project in
     // the workbook.
-    ErrAddVBAProject = errors.New("unsupported VBA project extension")
-    // ErrMaxRows defined the error message on receive a row number exceeds
-    // maximum limit.
+    ErrAddVBAProject = errors.New("unsupported VBA project")
+    // ErrMaxRows defined the error message on receive a row number exceeds maximum limit.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrMaxRowHeight defined the error message on receive an invalid row
     // height.
@@ -43,7 +44,7 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength defined the error message on receive the file path
     // length overflow.
-    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
+    ErrMaxFilePathLength = fmt.Errorf("file path length exceeds maximum limit %d characters", MaxFilePathLength)
     // ErrUnknownEncryptMechanism defined the error message on unsupported
     // encryption mechanism.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
@@ -53,8 +54,8 @@ var (
     // ErrUnsupportedHashAlgorithm defined the error message on unsupported
     // hash algorithm.
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
-    // ErrUnsupportedNumberFormat defined the error message on unsupported
-    // number format expression.
+    // ErrUnsupportedNumberFormat defined the error message on unsupported number format
+    // expression.
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
     // ErrPasswordLengthInvalid defined the error message on invalid password
     // length.
@@ -68,11 +69,10 @@ var (
     // ErrDefinedNameScope defined the error message on not found defined name
     // in the given scope.
     ErrDefinedNameScope = errors.New("no defined name on the scope")
-    // ErrDefinedNameduplicate defined the error message on the same name
+    // ErrDefinedNameDuplicate defined the error message on the same name
     // already exists on the scope.
-    ErrDefinedNameduplicate = errors.New("the same name already exists on the scope")
-    // ErrCustomNumFmt defined the error message on receive the empty custom
-    // number format.
+    ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
+    // ErrCustomNumFmt defined the error message on receive the empty custom number format.
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrFontLength defined the error message on the length of the font
     // family name overflow.
@@ -137,12 +137,22 @@ var (
     // ErrSheetNameLength defined the error message on receiving the sheet
     // name length exceeds the limit.
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrNameLength defined the error message on receiving the defined name or
+    // table name length exceeds the limit.
+    ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrExistsTableName defined the error message on given table already exists.
+    ErrExistsTableName = errors.New("the same name table already exists")
+    // ErrCellStyles defined the error message on cell styles exceeds the limit.
+    ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // ErrUnprotectWorkbook defined the error message on workbook has set no
     // protection.
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
     // ErrUnprotectWorkbookPassword defined the error message on remove workbook
     // protection with password verification failed.
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
+    // ErrorFormControlValue defined the error message for receiving a scroll
+    // value exceeds limit.
+    ErrorFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
 )
 ```
 

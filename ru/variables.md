@@ -5,6 +5,9 @@ var (
     // ErrStreamSetColWidth определяет сообщение об ошибке при установке
     // ширины столбца в режиме записи потока
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
+    // ErrStreamSetPanes определяет сообщение об ошибке на установленных панелях
+    // в режиме потоковой записи.
+    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrColumnNumber определил сообщение об ошибке при получении
     // недопустимого номера столбца
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
@@ -43,7 +46,7 @@ var (
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrMaxFilePathLength определяет сообщение об ошибке при получении
     // переполнения длины имени файла
-    ErrMaxFilePathLength = errors.New("file path length exceeds maximum limit")
+    ErrMaxFilePathLength = fmt.Errorf("file path length exceeds maximum limit %d characters", MaxFilePathLength)
     // ErrUnknownEncryptMechanism определил сообщение об ошибке для
     // неподдерживаемого механизма шифрования
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
@@ -131,12 +134,24 @@ var (
     // ErrSheetNameLength определяет сообщение об ошибке при получении длины
     // имени листа, превышающей лимит
     ErrSheetNameLength = fmt.Errorf("the sheet name length exceeds the %d characters limit", MaxSheetNameLength)
+    // ErrNameLength определил сообщение об ошибке при получении определенного
+    // имени или длины имени таблицы, превышающей лимит.
+    ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrExistsTableName определил сообщение об ошибке в данной таблице,
+    // которая уже существует.
+    ErrExistsTableName = errors.New("the same name table already exists")
+    // ErrCellStyles определил, что сообщение об ошибке для стилей ячеек
+    // превышает лимит.
+    ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // ErrUnprotectWorkbook определил, что сообщение об ошибке в рабочей книге
     // не имеет защиты
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
     // ErrUnprotectWorkbookPassword определил сообщение об ошибке при удалении
     // защиты книги с ошибкой проверки пароля
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
+    // ErrorFormControlValue определил сообщение об ошибке для получения
+    // значения прокрутки, превышающего лимит.
+    ErrorFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
 )
 ```
 
