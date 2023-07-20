@@ -71,7 +71,7 @@ var (
     // ErrCellCharsLength 定義了單個存儲格字符長度超出最大限制時的錯誤提示信息
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
     // ErrOptionsUnzipSizeLimit
-    // 定義了打開活頁簿時，「用以指定打開電子錶格檔案時的解壓縮大小限制參數」和
+    // 定義了開啓活頁簿時，「用以指定開啓電子錶格檔案時的解壓縮大小限制參數」和
     //「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrSave 定義了保存活頁簿時的錯誤提示信息
@@ -88,7 +88,7 @@ var (
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
     // ErrSparklineStyle 定義了收到無效走勢圖創建樣式參數時的錯誤提示信息
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
-    // ErrWorkbookPassword 定義了打開活頁簿時密碼驗證失敗的錯誤提示信息
+    // ErrWorkbookPassword 定義了開啓活頁簿時密碼驗證失敗的錯誤提示信息
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")
     // ErrSheetNameInvalid 定義了收到帶有無效字符的工作表名稱時的錯誤提示信息
     ErrSheetNameInvalid = errors.New("the sheet can not contain any of the characters :\\/?*[or]")

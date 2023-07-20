@@ -610,7 +610,7 @@ err := f.DeleteComment("Sheet1", "A30")
 func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式打開時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算存儲格的值。若 Excel 應用程式打開活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
+根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式開啓時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算存儲格的值。若 Excel 應用程式開啓活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 存儲格設定普通公式 `=SUM(A1,B1)`：
 

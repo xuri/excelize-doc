@@ -18,11 +18,11 @@ type Options struct {
 
 `MaxCalcIterations` 用以指定計算公式時最多迭代次數，默認值為 0。
 
-`Password` 以明文形式指定打開和儲存活頁簿時所使用的密碼，默認值為空。
+`Password` 以明文形式指定開啓和儲存活頁簿時所使用的密碼，默認值為空。
 
 `RawCellValue` 用以指定讀取存儲格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
 
-`UnzipSizeLimit` 用以指定打開電子錶格檔案時的解壓縮大小限制（以位元組為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
+`UnzipSizeLimit` 用以指定開啓電子錶格檔案時的解壓縮大小限制（以位元組為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
 
 `UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以位元組為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
@@ -34,21 +34,21 @@ type Options struct {
 
 `CultureInfo` 用以指定區域格式，該設定將在讀取受到作業系統特定的區域日期和時間設定影響的數字格式時使用。
 
-## 創建 {#NewFile}
+## 新增 {#NewFile}
 
 ```go
 func NewFile(opts ...Options) *File
 ```
 
-使用 `NewFile` 新建 Excel 工作薄，新創建的活頁簿中會默認包含一個名為 `Sheet1` 的工作表。
+使用 `NewFile` 新增 Excel 工作薄，新創建的活頁簿中會默認包含一個名為 `Sheet1` 的工作表。
 
-## 打開 {#OpenFile}
+## 開啓 {#OpenFile}
 
 ```go
 func OpenFile(filename string, opts ...Options) (*File, error)
 ```
 
-使用 `OpenFile` 打開已有 Excel 檔案。例如，打開帶有密碼保護的電子表格檔案：
+使用 `OpenFile` 開啓已有 Excel 檔案。例如，開啓帶有密碼保護的電子表格檔案：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx", excelize.Options{Password: "password"})
@@ -57,9 +57,9 @@ if err != nil {
 }
 ```
 
-使用 [`Close()`](workbook.md#Close) 關閉已打開的活頁簿。
+使用 [`Close()`](workbook.md#Close) 關閉已開啓的活頁簿。
 
-## 打開數據流 {#OpenReader}
+## 開啓數據流 {#OpenReader}
 
 ```go
 func OpenReader(r io.Reader, opts ...Options) (*File, error)
@@ -135,9 +135,9 @@ func (f *File) SaveAs(name string, opts ...Options) error
 func (f *File) Close() error
 ```
 
-關閉活頁簿並清理打開檔案時可能產生的系統磁盤緩存。
+關閉活頁簿並清理開啓檔案時可能產生的系統磁盤緩存。
 
-## 新建工作表 {#NewSheet}
+## 新增工作表 {#NewSheet}
 
 ```go
 func (f *File) NewSheet(sheet string) (int, error)
@@ -151,7 +151,7 @@ func (f *File) NewSheet(sheet string) (int, error)
 func (f *File) DeleteSheet(sheet string) error
 ```
 
-根據給定的工作表名稱刪除指定工作表，謹慎使用此方法，這將會影響到與被刪除工作表相關聯的公式、引用、圖表等元素。如果有其他組件引用了被刪除工作表上的值，將會引發錯誤提示，甚至將會導致打開活頁簿失敗。當活頁簿中僅包含一個工作表時，調用此方法無效。
+根據給定的工作表名稱刪除指定工作表，謹慎使用此方法，這將會影響到與被刪除工作表相關聯的公式、引用、圖表等元素。如果有其他組件引用了被刪除工作表上的值，將會引發錯誤提示，甚至將會導致開啓活頁簿失敗。當活頁簿中僅包含一個工作表時，調用此方法無效。
 
 ## 複製工作表 {#CopySheet}
 
@@ -605,7 +605,7 @@ FirstHeader      | 首頁頁首控制字符
         </tr>
         <tr>
             <td><code>&amp;B</code> or <code>&amp;&quot;-,Bold&quot;</code></td>
-            <td>粗體文本格式, 關閉或打開，默認關閉。</td>
+            <td>粗體文本格式, 關閉或開啓，默認關閉。</td>
         </tr>
         <tr>
             <td><code>&amp;D</code></td>
@@ -784,10 +784,10 @@ func (f *File) SetAppProps(appProperties *AppProperties) error
 ---|---
 Application       | 創建此檔案的應用程式的名稱
 ScaleCrop         | 指定檔案縮略圖的顯示方式。設定為 `true` 指定將檔案縮略圖縮放顯示，設定為 `false` 指定將檔案縮略圖剪裁顯示
-DocSecurity       | 以數值表示的檔案安全級別。檔案安全定義為: <br>1 - 檔案受密碼保護<br>2 - 建議以只讀方式打開檔案<br>3 - 強制以只讀方式打開檔案<br>4 - 檔案批注被鎖定
+DocSecurity       | 以數值表示的檔案安全級別。檔案安全定義為: <br>1 - 檔案受密碼保護<br>2 - 建議以只讀方式開啓檔案<br>3 - 強制以只讀方式開啓檔案<br>4 - 檔案批注被鎖定
 Company           | 與檔案關聯的公司的名稱
 LinksUpToDate     | 設定檔案中的超鏈接是否是最新的。設定為 `true` 表示超鏈接已更新，設定為 `false` 表示超鏈接已過時
-HyperlinksChanged | 指定下一次打開此檔案時是否應使用本部分中指定的新超鏈接更新超鏈接關係
+HyperlinksChanged | 指定下一次開啓此檔案時是否應使用本部分中指定的新超鏈接更新超鏈接關係
 AppVersion        | 指定生成此檔案的應用程式的版本。值應為 XX.YYYY 格式，其中 X 和 Y 代表數值，否則文件將不符合標準
 
 例如：
