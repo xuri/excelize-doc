@@ -192,7 +192,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 err := f.DuplicateRow("Sheet1", 2)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
 
 ## 複製列 {#DuplicateRowTo}
 
@@ -206,7 +206,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
 
 ## 創建列的分級顯示 {#SetRowOutlineLevel}
 
@@ -377,7 +377,7 @@ func (rows *Rows) GetRowOpts() RowOpts
 func (rows *Rows) Close() error
 ```
 
-關閉數據流並清理打開工作表時可能產生的系統磁盤緩存。
+關閉數據流並清理開啓工作表時可能產生的系統磁盤緩存。
 
 ## 在工作表中搜尋 {#SearchSheet}
 
@@ -463,7 +463,7 @@ func (f *File) RemoveCol(sheet, col string) error
 err := f.RemoveCol("Sheet1", "C")
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
 
 ## 刪除列 {#RemoveRow}
 
@@ -477,7 +477,7 @@ func (f *File) RemoveRow(sheet string, row int) error
 err := f.RemoveRow("Sheet1", 3)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式打開它時將可能導致檔案錯誤。Excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。Excelize 目前僅支持對工作表上部分引用的更新。
 
 ## 按欄賦值 {#SetSheetCol}
 
