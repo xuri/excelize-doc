@@ -3,15 +3,16 @@
 ## 셰이프 추가
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 AddShape는 지정된 워크시트 인덱스, 모양 형식 집합(예: 간격띄우기, 축척, 종횡비 설정 및 인쇄 설정) 및 속성 집합을 사용하여 시트에 셰이프를 추가하는 방법을 제공합니다. 예를 들어 `Sheet1` 에 텍스트 상자 (직사각형 모양) 를 추가합니다:
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},

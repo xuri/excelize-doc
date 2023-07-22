@@ -3,15 +3,16 @@
 ## Добавить форму
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 AddShape предоставляет метод добавления фигуры на листе с помощью заданного индекса рабочего листа, формата формы (например, смещения, масштаба, настройки соотношения сторон и параметров печати) и свойств. Например, добавьте текстовое поле (прямая форма) в `Sheet1`:
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},

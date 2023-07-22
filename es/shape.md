@@ -3,15 +3,16 @@
 ## Agregar forma
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 AddShape proporciona el método para agregar forma en una hoja mediante un índice de hoja de trabajo determinado, un conjunto de formato de forma (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y conjunto de propiedades. Por ejemplo, agregue un cuadro de texto (forma rectangular) en `Sheet1`:
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},

@@ -3,15 +3,16 @@
 ## 添加形状
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 根据给定的工作表名、单元格坐标和样式（包括偏移、缩放、拉伸、宽高比和打印属性等）在指定单元格添加形状。例如，在名为 `Sheet1` 的工作表上添加文本框（矩形）：
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},

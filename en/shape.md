@@ -3,15 +3,16 @@
 ## Add Shape
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 AddShape provides the method to add shape in a sheet by given worksheet index, shape format set (such as offset, scale, aspect ratio setting and print settings) and properties set. For example, add text box (rect shape) in `Sheet1`:
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},
