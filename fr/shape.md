@@ -3,15 +3,16 @@
 ## Ajouter une forme
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 AddShape fournit la méthode permettant d'ajouter une forme dans une feuille en fonction d'un index de feuille de calcul donné, d'un ensemble de formats de forme (tels que décalage, échelle, paramètres de format et paramètres d'impression) et de propriétés. Par exemple, ajoutez une zone de texte (forme rectale) dans `Sheet1`:
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},

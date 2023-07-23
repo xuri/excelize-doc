@@ -3,15 +3,16 @@
 ## 添加圖形
 
 ```go
-func (f *File) AddShape(sheet, cell string, opts *Shape) error
+func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
 根據給定的工作表名、儲存格坐標和樣式（包括偏移、縮放、拉伸、寬高比和列印屬性等）在指定儲存格添加圖形。例如，在名為 `Sheet1` 的工作表上添加文本框（矩形）：
 
 ```go
 lineWidth := 1.2
-err := f.AddShape("Sheet1", "G6",
+err := f.AddShape("Sheet1",
     &excelize.Shape{
+        Cell: "G6",
         Type: "rect",
         Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},
