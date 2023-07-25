@@ -2,7 +2,7 @@
 
 使用 Go 语言在 Excel 文档中创建多级联动菜单列表:
 
-<p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="使用 Go 语言在 Excel 文档中创建多级联动菜单列表"></p>
+<p align="center"><img width="379" src="../images/dependent_drop_list.gif" alt="使用 Go 语言在 Excel 文档中创建多级联动菜单列表"></p>
 
 ```go
 package main
@@ -19,12 +19,12 @@ func main() {
     var (
         // 定义单元格的值
         data = [][]interface{}{
-            {"Fruits", "Vegetables"},
-            {"Mango", "Potato", nil, "Drop Down 1", "Drop Down 2"},
-            {"Apple", "Tomato"},
-            {"Grapes", "Spinach"},
-            {"Strawberry", "Onion"},
-            {"Kiwi", "Cucumber"},
+            {"水果", "蔬菜"},
+            {"芒果", "土豆", nil, "下拉列表 1", "下拉列表 2"},
+            {"苹果", "番茄"},
+            {"葡萄", "菠菜"},
+            {"草莓", "洋葱"},
+            {"猕猴桃", "黄瓜"},
         }
         addr                    string
         err                     error
@@ -58,7 +58,7 @@ func main() {
     }
     // 设置自定义名称
     if err = f.SetDefinedName(&excelize.DefinedName{
-        Name:     "Fruits",
+        Name:     "水果",
         RefersTo: "Sheet1!$A$2:$A$6",
         Scope:    "Sheet1",
     }); err != nil {
@@ -66,7 +66,7 @@ func main() {
         return
     }
     if err = f.SetDefinedName(&excelize.DefinedName{
-        Name:     "Vegetables",
+        Name:     "蔬菜",
         RefersTo: "Sheet1!$B$2:$B$6",
         Scope:    "Sheet1",
     }); err != nil {
