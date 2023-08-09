@@ -999,7 +999,7 @@ err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 func (f *File) GetPanes(sheet string) (Panes, error)
 ```
 
-GetPanes fournit une fonction permettant d’obtenir des volets figés, des volets fractionnés et des vues de feuille de calcul par nom de feuille de calcul donné.
+GetPanes fournit une fonction permettant d'obtenir des volets figés, des volets fractionnés et des vues de feuille de calcul par nom de feuille de calcul donné.
 
 ## Couleur {#ThemeColor}
 

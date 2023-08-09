@@ -1,4 +1,4 @@
-# Picture
+# Image
 
 ## Ajouter une image {#AddPicture}
 
