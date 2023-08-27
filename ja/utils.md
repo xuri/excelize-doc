@@ -283,10 +283,10 @@ SetConditionalFormat には、セル値の条件付き書式設定規則を作�
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -296,10 +296,10 @@ SetConditionalFormat には、セル値の条件付き書式設定規則を作�
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -550,7 +550,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-type: `Minimum` - `minimum` パラメーターは、`Criteria` が `between` または `not between` でない場合に、より低い制限値を設定するために使用されます。
+type: `MinValue` - `MinValue` パラメーターは、`Criteria` が `between` または `not between` でない場合に、より低い制限値を設定するために使用されます。
 
 ```go
 // Highlight cells rules: between...
@@ -560,14 +560,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-type: `Maximum` - `maximum` パラメータは、条件が `between` または `not between` の場合に、上限制限値を設定するために使用されます。前の例を参照してください。
+type: `MaxValue` - `maximum` パラメータは、条件が `between` または `not between` の場合に、上限制限値を設定するために使用されます。前の例を参照してください。
 
 type: `average` - `average` タイプは、Office Excel の "平均" スタイルの条件付き形式を指定するために使用されます:
 
@@ -716,12 +716,12 @@ err := f.SetConditionalFormat("Sheet1", "K1:K10",
 
 パラメータ|説明
 ---|---
-min|Minimum value (for `MinType` only)
+min|MinValue value (for `MinType` only)
 num|Numeric
 percent|Percentage
 percentile|Percentile
 formula|Formula
-max|Maximum (for `MaxType` only)
+max|MaxValue (for `MaxType` only)
 
 `MidType` - `3_color_scale` に使用されます。`MinType` と同じ, 上記を参照してください。
 

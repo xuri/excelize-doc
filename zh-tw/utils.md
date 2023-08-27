@@ -280,10 +280,10 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -293,10 +293,10 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -545,7 +545,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-類別：`Minimum` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`Minimum` 參數用於設定下限值。
+類別：`MinValue` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`MinValue` 參數用於設定下限值。
 
 ```go
 // 高亮儲存格條件式格式規則： between...
@@ -555,14 +555,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-類別：`Maximum` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`Maximum` 參數用於設定上限值，參考上面的例子。
+類別：`MaxValue` - 當條件式格式 `Criteria` 為 `between` 或 `not between` 時，`MaxValue` 參數用於設定上限值，參考上面的例子。
 
 類別：`average` - 平均類別用於指定 Office Excel 「前段後段規則」中「經典」樣式的「僅高於或低於平均值的數值設定格式」條件式格式：
 
@@ -1104,7 +1104,7 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 func (f *File) AddVBAProject(file []byte) error
 ```
 
-該函式提供方法將包含函式和/或宏的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
+該函式提供方法將包含函式和/或巨集的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
 
 ```go
 codeName := "Sheet1"

@@ -43,6 +43,8 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
+如果您在序列中设置的项目超过限制累计 255 个字符的限制，请使用另一种方式设置：在工作表单元格中设置允许的值，并使用 `SetSqrefDropList` 函数设置序列中引用单元格的范围。
+
 例4，为 `Sheet1!A7:B8` 设置以 `Sheet1!E1:E3` 为来源的验证条件，忽略空值并提供下拉箭头:
 
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="数据验证"></p>
@@ -53,6 +55,8 @@ dv.SetSqref("A7:B8")
 dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
+
+数据验证下拉列表中显示的项目数量有限制：该列表最多可以显示 32768 个项目。如果您需要更多项目，可以通过级联列表将项目分类。
 
 ## 获取数据验证 {#GetDataValidations}
 

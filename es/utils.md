@@ -283,10 +283,10 @@ La opción `Type` es un parámetro obligatorio y no tiene un valor predeterminad
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -296,10 +296,10 @@ La opción `Type` es un parámetro obligatorio y no tiene un valor predeterminad
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -550,7 +550,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-type: `Minimum` - El parámetro `minimum` se utiliza para establecer el valor límite inferior cuando el `Criteria` es `between` o `not between`.
+type: `MinValue` - El parámetro `MinValue` se utiliza para establecer el valor límite inferior cuando el `Criteria` es `between` o `not between`.
 
 ```go
 // Regla de las celdas resaltadas: entre...
@@ -560,14 +560,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-type: `Maximum` - El parámetro `maximum` se utiliza para establecer el valor límite superior cuando los criterios están `between` o `not between`. Vea el ejemplo anterior.
+type: `MaxValue` - El parámetro `maximum` se utiliza para establecer el valor límite superior cuando los criterios están `between` o `not between`. Vea el ejemplo anterior.
 
 type: `average` - El tipo `average` se utiliza para especificar el formato condicional de estilo "Average" de Office Excel:
 

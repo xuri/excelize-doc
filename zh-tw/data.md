@@ -43,6 +43,8 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
+如果您在序列中設定的項目超過限制累計 255 個字符的限制，請使用另一種方式設定：在工作表存儲格中設定允許的值，並使用 `SetSqrefDropList` 函數設定序列中引用存儲格的範圍。
+
 例4，為 `Sheet1!A7:B8` 設定以 `Sheet1!E1:E3` 為來源的驗證條件，忽略空值並提供下拉箭頭:
 
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="資料驗證"></p>
@@ -53,6 +55,8 @@ dv.SetSqref("A7:B8")
 dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
+
+資料驗證下拉列表中顯示的項目數量有限制：該列表最多可以顯示 32768 個項目。如果您需要更多項目，可以通過級聯列表將項目分類。
 
 ## 獲取資料驗證 {#GetDataValidations}
 

@@ -43,6 +43,8 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
+If you type the items into the data validation dialog box (a delimited list), the limit is 255 characters, including the separators. If your data validation list source formula is over the maximum length limit, please set the allowed values in the worksheet cells, and use the `SetSqrefDropList` function to set the reference for their cells.
+
 Example 4，set data validation on `Sheet1!A7:B8` with validation criteria source `Sheet1!E1:E3` settings, create in-cell dropdown by allowing list source:
 
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="Data validation"></p>
@@ -53,6 +55,8 @@ dv.SetSqref("A7:B8")
 dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
+
+There are limits to the number of items that will show in a data validation drop down list: The list can show up to show 32768 items from a list on the worksheet. If you need more items than that, you could create a dependent drop down list, broken down by category.
 
 ## Get data validations {#GetDataValidations}
 

@@ -283,10 +283,10 @@ L'option `Type` est un paramètre obligatoire et n'a pas de valeur par défaut. 
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -296,10 +296,10 @@ L'option `Type` est un paramètre obligatoire et n'a pas de valeur par défaut. 
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -550,7 +550,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-type: `Minimum` - Le paramètre `minimum` est utilisé pour définir la valeur limite inférieure lorsque le `critère` est entre `between` ou `not between`.
+type: `MinValue` - Le paramètre `MinValue` est utilisé pour définir la valeur limite inférieure lorsque le `critère` est entre `between` ou `not between`.
 
 ```go
 // Highlight cells rules: between...
@@ -560,14 +560,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-type: `Maximum` - Le paramètre `maximum` est utilisé pour définir la valeur limite supérieure lorsque les critères sont entre `between` ou `not between`. Voir l'exemple précédent.
+type: `MaxValue` - Le paramètre `maximum` est utilisé pour définir la valeur limite supérieure lorsque les critères sont entre `between` ou `not between`. Voir l'exemple précédent.
 
 type: `average` - Le type `average` est utilisé pour spécifier le format conditionnel de style "Moyenne" d'Office Excel:
 
@@ -716,12 +716,12 @@ Les types `min/mid/max` disponibles sont:
 
 Paramètre|Explication
 ---|---
-min|Minimum value (for `MinType` only)
+min|MinValue value (for `MinType` only)
 num|Numeric
 percent|Percentage
 percentile|Percentile
 formula|Formula
-max|Maximum (for `MaxType` only)
+max|MaxValue (for `MaxType` only)
 
 `MidType` - Utilisé pour `3_color_scale`. Pareil que `MinType`, voir au dessus.
 

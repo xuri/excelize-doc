@@ -43,6 +43,8 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
+Si vous saisissez les éléments dans la boîte de dialogue de validation des données (une liste délimitée), la limite est de 255 caractères, séparateurs compris. Si la formule source de votre liste de validation de données dépasse la limite de longueur maximale, veuillez définir les valeurs autorisées dans les cellules de la feuille de calcul et utilisez la fonction `SetSqrefDropList` pour définir la référence de leurs cellules.
+
 Example 4，définir la validation des données sur `Sheet1!A7:B8` avec la source des critères de validation `Sheet1!E1:E3`, créer un menu déroulant dans la cellule en autorisant la source de liste:
 
 !["Data validation"](./images/data_validation_04.png "Data validation")
@@ -53,6 +55,8 @@ dv.SetSqref("A7:B8")
 dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
+
+Il existe des limites au nombre d'éléments qui s'afficheront dans une liste déroulante de validation des données: la liste peut afficher 32768 éléments d'une liste sur la feuille de calcul. Si vous avez besoin de plus d'éléments que cela, vous pouvez créer une liste déroulante dépendante, divisée par catégorie.
 
 ## Obtenir la validation des données{#GetDataValidations}
 

@@ -43,6 +43,8 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
+Wenn Sie die Elemente in das Datenvalidierungsdialogfeld (eine durch Trennzeichen getrennte Liste) eingeben, beträgt die Grenze 255 Zeichen, einschließlich der Trennzeichen. Wenn die Quellformel Ihrer Datenvalidierungsliste die maximale Längenbeschränkung überschreitet, legen Sie bitte die zulässigen Werte in den Arbeitsblattzellen fest und verwenden Sie die Funktion `SetSqrefDropList`, um die Referenz für ihre Zellen festzulegen.
+
 Beispiel 4: Setzen Sie die Datenvalidierung auf `Sheet1!A7:B8` mit den Einstellungen der Validierungskriterienquelle `Sheet1!E1:E3`. Erstellen Sie ein Dropdown-Menü in der Zelle, indem Sie die Listenquelle zulassen:
 
 <p align="center"><img width="665" src="./images/data_validation_04.png" alt="Datenvalidierung"></p>
@@ -53,6 +55,8 @@ dv.SetSqref("A7:B8")
 dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
+
+Die Anzahl der Elemente, die in einer Datenvalidierungs-Dropdown-Liste angezeigt werden, ist begrenzt: Die Liste kann bis zu 32768 Elemente aus einer Liste im Arbeitsblatt anzeigen. Wenn Sie mehr Elemente benötigen, können Sie eine abhängige Dropdown-Liste erstellen, die nach Kategorien aufgeschlüsselt ist.
 
 ## Datenvalidierung erhalten {#GetDataValidations}
 

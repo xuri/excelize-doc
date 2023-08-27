@@ -280,10 +280,10 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -293,10 +293,10 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -545,7 +545,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-类型：`minimum` - 当条件格式 `Criteria` 为 `between` 或 `not between` 时，`minimum` 参数用于设置下限值。
+类型：`MinValue` - 当条件格式 `Criteria` 为 `between` 或 `not between` 时，`MinValue` 参数用于设置下限值。
 
 ```go
 // 高亮单元格条件格式规则： between...
@@ -555,14 +555,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-类型：`Maximum` - 当条件格式 `Criteria` 为 `between` 或 `not between` 时，`Maximum` 参数用于设置上限值，参考上面的例子。
+类型：`MaxValue` - 当条件格式 `Criteria` 为 `between` 或 `not between` 时，`MaxValue` 参数用于设置上限值，参考上面的例子。
 
 类型：`average` - 平均类型用于指定 Office Excel “最前最后规则”中“经典”样式的“仅高于或低于平均值的数值设置格式”条件格式：
 

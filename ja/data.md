@@ -43,6 +43,8 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
+データ検証ダイアログ ボックス (区切り文字で区切られたリスト) に項目を入力する場合、制限は区切り文字を含めて 255 文字です。データ検証リストのソース式が最大長制限を超えている場合は、ワークシートのセルに許容値を設定し、`SetSqrefDropList` 関数を使用してセルの参照を設定してください。
+
 例4、`Sheet1!A7:B8` に設定されています。`Sheet1!E1:E3` はソースの検証条件であり、空の値を無視してドロップダウン矢印を表示します:
 
 <p align="center"><img width="708" src="./images/data_validation_04.png" alt="データの検証"></p>
@@ -53,6 +55,8 @@ dv.SetSqref("A7:B8")
 dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
+
+データ検証ドロップダウン リストに表示される項目の数には制限があります。ワークシート上のリストから最大 32768 個の項目を表示できます。それ以上の項目が必要な場合は、カテゴリ別に分類された依存ドロップダウン リストを作成できます。
 
 ## データ検証を取得する {#GetDataValidations}
 

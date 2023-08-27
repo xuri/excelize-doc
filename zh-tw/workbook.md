@@ -40,7 +40,7 @@ type Options struct {
 func NewFile(opts ...Options) *File
 ```
 
-使用 `NewFile` 新增 Excel 工作薄，新創建的活頁簿中會默認包含一個名為 `Sheet1` 的工作表。
+使用 `NewFile` 新增 Excel 活頁簿，新創建的活頁簿中會默認包含一個名為 `Sheet1` 的工作表。
 
 ## 開啓 {#OpenFile}
 

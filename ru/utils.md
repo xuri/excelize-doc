@@ -283,10 +283,10 @@ SetConditionalFormat предоставляет функцию для созда
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -296,10 +296,10 @@ SetConditionalFormat предоставляет функцию для созда
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -550,7 +550,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-Тип: `Minimum` - Минимальный параметр используется для установки нижнего предельного значения, когда `Criteria` либо `between`или `not between`.
+Тип: `MinValue` - Минимальный параметр используется для установки нижнего предельного значения, когда `Criteria` либо `between`или `not between`.
 
 ```go
 // Выделяйте правила ячеек: между...
@@ -560,14 +560,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-Тип: `Maximum` - `Maximum` параметр используется для задания верхнего предельного значения, когда критерии являются либо `between` или `not between`. См. Предыдущий пример.
+Тип: `MaxValue` - `MaxValue` параметр используется для задания верхнего предельного значения, когда критерии являются либо `between` или `not between`. См. Предыдущий пример.
 
 Тип: `average` - `average` типа используются для указания «Average» стиль условного формата Office Excel в:
 

@@ -283,10 +283,10 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td rowspan=4>date</td>
@@ -296,10 +296,10 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
             <td>Value</td>
         </tr>
         <tr>
-            <td>Minimum</td>
+            <td>MinValue</td>
         </tr>
         <tr>
-            <td>Maximum</td>
+            <td>MaxValue</td>
         </tr>
         <tr>
             <td>time_period</td>
@@ -550,7 +550,7 @@ format3, err := f.NewConditionalStyle(
 )
 ```
 
-type: `Minimum` - 최소 매개변수는 `Criteria` 가 `between` 또는 `not between` 일 때 하한 값을 설정하는 데 사용됩니다.
+type: `MinValue` - 최소 매개변수는 `Criteria` 가 `between` 또는 `not between` 일 때 하한 값을 설정하는 데 사용됩니다.
 
 ```go
 // Highlight cells rules: between...
@@ -560,14 +560,14 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Type:     "cell",
             Criteria: "between",
             Format:   format,
-            Minimum:  "6",
-            Maximum:  "8",
+            MinValue: "6",
+            MaxValue: "8",
         },
     },
 )
 ```
 
-type: `Maximum` - `maximum` 매개변수는 기준이 `between` 또는 `not between` 일 때 상한 값을 설정하는 데 사용됩니다. 이전 예제를 참조하십시오.
+type: `MaxValue` - `maximum` 매개변수는 기준이 `between` 또는 `not between` 일 때 상한 값을 설정하는 데 사용됩니다. 이전 예제를 참조하십시오.
 
 type: `average` - `average` 형식은 Office Excel 의 "Average" 스타일 조건부 형식을 지정하는 데 사용됩니다.
 
@@ -716,12 +716,12 @@ err := f.SetConditionalFormat("Sheet1", "K1:K10",
 
 매개 변수|설명
 ---|---
-min|Minimum value (for `MinType` only)
+min|MinValue value (for `MinType` only)
 num|Numeric
 percent|Percentage
 percentile|Percentile
 formula|Formula
-max|Maximum (for `MaxType` only)
+max|MaxValue (for `MaxType` only)
 
 `MidType` - `3_color_scale` 에 사용. `MinType` 와 동일, 위의 참조.
 
