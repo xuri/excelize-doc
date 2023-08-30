@@ -180,8 +180,10 @@ func main() {
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$4:$D$4",
             }},
-        Title: excelize.ChartTitle{
-            Name: "مخطط عمودي مُكدَّد ثلاثي الأبعاد",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط عمودي مُكدَّد ثلاثي الأبعاد",
+            },
         },
     }); err != nil {
         fmt.Println(err)

@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "2D Flächendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D Flächendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

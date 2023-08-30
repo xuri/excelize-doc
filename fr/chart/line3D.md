@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: excelize.ChartTitle{
-            Name: "Graphique en courbes 3D",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Graphique en courbes 3D",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de contornos",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de contornos",
+            },
         },
     }); err != nil {
         fmt.Println(err)

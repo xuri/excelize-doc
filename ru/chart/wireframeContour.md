@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "диаграмма контура каркасной проволоки",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "диаграмма контура каркасной проволоки",
+            },
         },
     }); err != nil {
         fmt.Println(err)

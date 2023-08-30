@@ -47,8 +47,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Fruit Pie Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Fruit Pie Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent: true,

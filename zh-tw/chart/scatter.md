@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "散佈圖",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "散佈圖",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

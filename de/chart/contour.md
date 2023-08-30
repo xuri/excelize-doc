@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Konturdiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Konturdiagramm",
+            },
         },
     }); err != nil {
         fmt.Println(err)

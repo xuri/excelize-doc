@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "2D 100% gestapeltes Balkendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D 100% gestapeltes Balkendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

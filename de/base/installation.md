@@ -168,8 +168,10 @@ func main() {
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$4:$D$4",
             }},
-        Title: excelize.ChartTitle{
-            Name: "3D Cluster-Säulendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Cluster-Säulendiagramm",
+            },
         },
     }); err != nil {
         fmt.Println(err)

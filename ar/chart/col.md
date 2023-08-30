@@ -69,8 +69,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "مخطط عمودي ثنائي الأبعاد متفاوت",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط عمودي ثنائي الأبعاد متفاوت",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

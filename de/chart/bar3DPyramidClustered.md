@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Pyramiden-Cluster-Balkendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Pyramiden-Cluster-Balkendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

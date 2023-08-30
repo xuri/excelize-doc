@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Fruit 2D Column Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Fruit 2D Column Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

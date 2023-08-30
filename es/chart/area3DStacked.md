@@ -63,8 +63,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de áreas apiladas 3D",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de áreas apiladas 3D",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

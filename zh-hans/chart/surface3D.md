@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "三维曲面图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "三维曲面图",
+            },
         },
     }); err != nil {
         fmt.Println(err)

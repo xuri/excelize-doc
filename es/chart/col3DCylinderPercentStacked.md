@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de columnas apiladas 3D 100% cilindro",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de columnas apiladas 3D 100% cilindro",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

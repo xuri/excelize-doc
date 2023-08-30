@@ -218,8 +218,10 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: excelize.ChartTitle{
-            Name: "Columna agrupada - gráfico de líneas",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Columna agrupada - gráfico de líneas",
+            },
         },
         Legend: excelize.ChartLegend{
             Position: "left",

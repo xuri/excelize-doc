@@ -218,8 +218,10 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: excelize.ChartTitle{
-            Name: "2D tableau à colonnes groupées - graphique en ligne",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D tableau à colonnes groupées - graphique en ligne",
+            },
         },
         Legend: excelize.ChartLegend{
             Position: "left",

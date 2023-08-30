@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "二维簇状条形图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "二维簇状条形图",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

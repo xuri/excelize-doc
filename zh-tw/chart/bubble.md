@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "泡泡圖",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "泡泡圖",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowBubbleSize:  true,

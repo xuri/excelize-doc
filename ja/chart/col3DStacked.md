@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D 積み上げ縦棒グラフ",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D 積み上げ縦棒グラフ",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

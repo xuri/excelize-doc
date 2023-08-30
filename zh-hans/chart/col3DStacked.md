@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "三维堆积柱形图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "三维堆积柱形图",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

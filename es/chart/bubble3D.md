@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de burbujas 3D",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de burbujas 3D",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowBubbleSize:  true,

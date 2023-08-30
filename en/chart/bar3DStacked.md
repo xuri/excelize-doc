@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Fruit 3D Stacked Bar Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Fruit 3D Stacked Bar Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

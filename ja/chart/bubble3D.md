@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D バブル チャート",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D バブル チャート",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowBubbleSize:  true,

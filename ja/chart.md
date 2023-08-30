@@ -218,8 +218,10 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: excelize.ChartTitle{
-            Name: "2D クラスター縦棒グラフ - 折れ線グラフ",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D クラスター縦棒グラフ - 折れ線グラフ",
+            },
         },
         Legend: excelize.ChartLegend{
             Position: "left",

@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Wireframe Surface Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Wireframe Surface Chart",
+            },
         },
     }); err != nil {
         fmt.Println(err)

@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D 100% Zylinder gestapeltsäulendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D 100% Zylinder gestapeltsäulendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

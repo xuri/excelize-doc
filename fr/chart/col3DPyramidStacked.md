@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D graphique de colonne empilé de pyramide",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D graphique de colonne empilé de pyramide",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

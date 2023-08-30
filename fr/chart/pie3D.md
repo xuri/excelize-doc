@@ -47,8 +47,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "3D graphique tarte",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D graphique tarte",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent: true,

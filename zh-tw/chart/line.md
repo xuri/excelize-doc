@@ -71,8 +71,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: excelize.ChartTitle{
-            Name: "折線圖",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "折線圖",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -69,8 +69,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "مخطط كفاف الإطار السلكي",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط كفاف الإطار السلكي",
+            },
         },
     }); err != nil {
         fmt.Println(err)

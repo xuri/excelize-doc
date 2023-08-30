@@ -51,8 +51,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Kreisdiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Kreisdiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent: true,

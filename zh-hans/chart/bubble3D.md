@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "三维气泡图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "三维气泡图",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowBubbleSize:  true,

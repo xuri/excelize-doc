@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "등고선 차트",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "등고선 차트",
+            },
         },
     }); err != nil {
         fmt.Println(err)

@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "와이어프레임 윤곽 차트",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "와이어프레임 윤곽 차트",
+            },
         },
     }); err != nil {
         fmt.Println(err)

@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Blasendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Blasendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowBubbleSize:  true,

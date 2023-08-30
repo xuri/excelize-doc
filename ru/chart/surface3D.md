@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D поверхностная диаграмма",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D поверхностная диаграмма",
+            },
         },
     }); err != nil {
         fmt.Println(err)

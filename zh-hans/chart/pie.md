@@ -47,8 +47,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "三维饼图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "三维饼图",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent: true,

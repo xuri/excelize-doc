@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "2D 100% сложены диаграммы колонки",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D 100% сложены диаграммы колонки",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

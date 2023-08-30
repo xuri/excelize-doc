@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "輪郭グラフ",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "輪郭グラフ",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

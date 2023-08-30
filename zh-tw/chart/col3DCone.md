@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "立體圓錐圖",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "立體圓錐圖",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

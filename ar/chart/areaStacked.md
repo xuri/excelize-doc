@@ -66,8 +66,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "مخطط مساحي مكدس ثنائي الأبعاد",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط مساحي مكدس ثنائي الأبعاد",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D 원뿔 열차트",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D 원뿔 열차트",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

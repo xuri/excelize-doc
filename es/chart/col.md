@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de columnas agrupadas 2D",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de columnas agrupadas 2D",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

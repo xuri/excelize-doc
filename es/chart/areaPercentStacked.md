@@ -63,8 +63,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de área 2D 100% apilada",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de área 2D 100% apilada",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

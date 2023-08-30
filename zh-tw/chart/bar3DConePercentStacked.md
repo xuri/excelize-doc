@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "立體堆疊百分比水平圓錐圖",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "立體堆疊百分比水平圓錐圖",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

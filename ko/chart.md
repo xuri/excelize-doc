@@ -219,8 +219,10 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: excelize.ChartTitle{
-            Name: "2D 클러스터형 세로 막 대형 차트 - 꺾은 선형 차트",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D 클러스터형 세로 막 대형 차트 - 꺾은 선형 차트",
+            },
         },
         Legend: excelize.ChartLegend{
             Position: "left",

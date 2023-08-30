@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "graphique de contour de trame de fil",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "graphique de contour de trame de fil",
+            },
         },
     }); err != nil {
         fmt.Println(err)

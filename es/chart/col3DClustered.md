@@ -64,8 +64,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de columnas agrupadas 3D",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de columnas agrupadas 3D",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

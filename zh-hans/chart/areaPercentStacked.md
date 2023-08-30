@@ -59,8 +59,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "二维百分比堆积面积图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "二维百分比堆积面积图",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

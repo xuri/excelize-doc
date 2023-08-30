@@ -55,8 +55,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "مخطط دائري ثلاثي الأبعاد",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط دائري ثلاثي الأبعاد",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent:     true,

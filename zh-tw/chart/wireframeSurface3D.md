@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "立體曲面圖（只顯示線條）",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "立體曲面圖（只顯示線條）",
+            },
         },
     }); err != nil {
         fmt.Println(err)

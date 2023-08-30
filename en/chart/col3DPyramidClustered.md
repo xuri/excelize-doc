@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Pyramid Clustered Column Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Pyramid Clustered Column Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Cone Stacked Solumn Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Cone Stacked Solumn Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

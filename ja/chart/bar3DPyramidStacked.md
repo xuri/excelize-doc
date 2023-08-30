@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D ピラミッド積み上げ棒グラフ",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D ピラミッド積み上げ棒グラフ",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -69,8 +69,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "مخطط سطح إطار سلكي ثلاثي الأبعاد",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط سطح إطار سلكي ثلاثي الأبعاد",
+            },
         },
     }); err != nil {
         fmt.Println(err)

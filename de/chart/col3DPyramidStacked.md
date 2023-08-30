@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Pyramidenstapelsäulendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Pyramidenstapelsäulendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

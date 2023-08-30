@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "2D Cluster-Säulendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D Cluster-Säulendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

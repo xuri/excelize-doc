@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "2D graphique à colonnes empilées",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "2D graphique à colonnes empilées",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

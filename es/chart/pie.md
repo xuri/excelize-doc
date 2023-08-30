@@ -51,8 +51,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico circular",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico circular",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent: true,

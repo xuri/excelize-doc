@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D ワイヤフレーム サーフェス チャート",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D ワイヤフレーム サーフェス チャート",
+            },
         },
     }); err != nil {
         fmt.Println(err)

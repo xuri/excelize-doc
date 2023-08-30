@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D 100% graphique à barres cylindre empilées",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D 100% graphique à barres cylindre empilées",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

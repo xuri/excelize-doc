@@ -75,8 +75,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: excelize.ChartTitle{
-            Name: "Liniendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Liniendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

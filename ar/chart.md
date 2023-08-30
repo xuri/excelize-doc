@@ -223,8 +223,10 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: excelize.ChartTitle{
-            Name: "عمود متفاوت المسافات - تخطيط خطي",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "عمود متفاوت المسافات - تخطيط خطي",
+            },
         },
         Legend: excelize.ChartLegend{
             Position: "left",

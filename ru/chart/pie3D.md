@@ -51,8 +51,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "3D круговая диаграмма",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D круговая диаграмма",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowPercent: true,

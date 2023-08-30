@@ -69,8 +69,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "مخطط شريطي مكدس ثنائي الأبعاد بنسبة 100٪",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "مخطط شريطي مكدس ثنائي الأبعاد بنسبة 100٪",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

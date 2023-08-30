@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "曲面图（俯视框架图）",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "曲面图（俯视框架图）",
+            },
         },
     }); err != nil {
         fmt.Println(err)

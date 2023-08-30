@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de barras de cono 3D 100%",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de barras de cono 3D 100%",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

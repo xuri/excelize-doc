@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "3D Zylinder-Cluster-Säulendiagramm",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "3D Zylinder-Cluster-Säulendiagramm",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

@@ -218,8 +218,10 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: excelize.ChartTitle{
-            Name: "簇状柱形图 - 折线图",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "簇状柱形图 - 折线图",
+            },
         },
         Legend: excelize.ChartLegend{
             Position: "left",

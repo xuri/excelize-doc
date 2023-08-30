@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "ワイヤフレーム輪郭グラフ",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "ワイヤフレーム輪郭グラフ",
+            },
         },
     }); err != nil {
         fmt.Println(err)

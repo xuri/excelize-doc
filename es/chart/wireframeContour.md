@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de contorno de estructura alámbrica",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de contorno de estructura alámbrica",
+            },
         },
     }); err != nil {
         fmt.Println(err)

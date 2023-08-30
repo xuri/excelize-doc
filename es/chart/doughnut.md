@@ -54,8 +54,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "right",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de rosquillas",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de rosquillas",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

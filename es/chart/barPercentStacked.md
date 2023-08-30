@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de barras 2D 100% apilado",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de barras 2D 100% apilado",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

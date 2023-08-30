@@ -66,8 +66,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Gráfico de dispersión",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Gráfico de dispersión",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

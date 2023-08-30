@@ -71,8 +71,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: excelize.ChartTitle{
-            Name: "Fruit Line Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Fruit Line Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

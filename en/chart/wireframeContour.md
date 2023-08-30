@@ -62,8 +62,10 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: excelize.ChartTitle{
-            Name: "Wireframe Contour Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Wireframe Contour Chart",
+            },
         },
     }); err != nil {
         fmt.Println(err)

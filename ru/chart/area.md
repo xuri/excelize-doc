@@ -59,8 +59,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "Fruit 2D Area Chart",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "Fruit 2D Area Chart",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,

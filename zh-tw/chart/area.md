@@ -59,8 +59,10 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: excelize.ChartTitle{
-            Name: "平面區域圖",
+        Title: []excelize.RichTextRun{
+            {
+                Text: "平面區域圖",
+            },
         },
         PlotArea: excelize.ChartPlotArea{
             ShowCatName:     false,
