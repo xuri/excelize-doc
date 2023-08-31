@@ -577,7 +577,7 @@ func (f *File) AddComment(sheet string, comment Comment) error
 err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
-    Runs: []excelize.RichTextRun{
+    Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
         {Text: "This is a comment."},
     },

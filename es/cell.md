@@ -577,7 +577,7 @@ AddComment proporciona el método para agregar comentarios en una hoja por índi
 err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
-    Runs: []excelize.RichTextRun{
+    Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
         {Text: "Este es un comentario."},
     },

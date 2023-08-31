@@ -577,7 +577,7 @@ AddComment provides the method to add comments in a sheet by given worksheet ind
 err := f.AddComment(sheet, excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
-    Runs: []excelize.RichTextRun{
+    Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
         {Text: "This is a comment."},
     },
@@ -729,6 +729,7 @@ AMORDEGRC                | Returns the depreciation for each accounting period b
 AMORLINC                 | Returns the depreciation for each accounting period
 AND                      | Returns TRUE if all of its arguments are TRUE
 ARABIC                   | Converts a Roman number to Arabic, as a number
+ARRAYTOTEXT              | Returns an array of text values from any specified range
 ASIN                     | Returns the arcsine of a number
 ASINH                    | Returns the inverse hyperbolic sine of a number
 ATAN                     | Returns the arctangent of a number
@@ -872,8 +873,11 @@ FISHERINV                | Returns the inverse of the Fisher transformation
 FIXED                    | Formats a number as text with a fixed number of decimals
 FLOOR                    | Rounds a number down, toward zero
 FLOOR.MATH               | Rounds a number down, to the nearest integer or to the nearest multiple of significance
-FLOOR.PRECISE            | Rounds a number the nearest integer or to the nearest multiple of significance. Regardless of the sign of the number, the number is rounded up.
+FLOOR.PRECISE            | Rounds a number the nearest integer or to the nearest multiple of significance. Regardless of the sign of the number, the number is rounded up
+FORECAST                 | Returns a value along a linear trend
+FORECAST.LINEAR          | Returns a value along a linear trend
 FORMULATEXT              | Returns the formula at the given reference as text
+FREQUENCY                | Returns a frequency distribution as a vertical array
 F.TEST                   | Returns the result of an F-test
 FTEST                    | Returns the result of an F-test
 FV                       | Returns the future value of an investment
@@ -931,6 +935,7 @@ IMTAN                    | Returns the tangent of a complex number
 INDEX                    | Uses an index to choose a value from a reference or array
 INDIRECT                 | Returns a reference indicated by a text value
 INT                      | Rounds a number down to the nearest integer
+INTERCEPT                | Returns the intercept of the linear regression line
 INTRATE                  | Returns the interest rate for a fully invested security
 IPMT                     | Returns the interest payment for an investment for a given period
 IRR                      | Returns the internal rate of return for a series of cash flows
@@ -1013,6 +1018,9 @@ OCT2DEC                  | Converts an octal number to decimal
 OCT2HEX                  | Converts an octal number to hexadecimal
 ODD                      | Rounds a number up to the nearest odd integer
 ODDFPRICE                | Returns the price per $100 face value of a security with an odd first period
+ODDFYIELD                | Returns the yield of a security with an odd first period
+ODDLPRICE                | Returns the price per $100 face value of a security with an odd last period
+ODDLYIELD                | Returns the yield of a security with an odd last period
 OR                       | Returns TRUE if any argument is TRUE
 PDURATION                | Returns the number of periods required by an investment to reach a specified value
 PEARSON                  | Returns the Pearson product moment correlation coefficient
@@ -1034,6 +1042,7 @@ PPMT                     | Returns the payment on the principal for an investmen
 PRICE                    | Returns the price per $100 face value of a security that pays periodic interest
 PRICEDISC                | Returns the price per $100 face value of a discounted security
 PRICEMAT                 | Returns the price per $100 face value of a security that pays interest at maturity
+PROB                     | Returns the probability that values in a range are between two limits
 PRODUCT                  | Multiplies its arguments
 PROPER                   | Capitalizes the first letter in each word of a text value
 PV                       | Returns the present value of an investment
@@ -1127,6 +1136,7 @@ UNICHAR                  | Returns the Unicode character that is references by t
 UNICODE                  | Returns the number (code point) that corresponds to the first character of the text
 UPPER                    | Converts text to uppercase
 VALUE                    | Converts a text argument to a number
+VALUETOTEXT              | Returns text from any specified value
 VAR                      | Estimates variance based on a sample
 VAR.P                    | Calculates variance based on the entire population
 VAR.S                    | Estimates variance based on a sample

@@ -577,7 +577,7 @@ AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: �
 err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
-    Runs: []excelize.RichTextRun{
+    Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
         {Text: "This is a comment."},
     },
