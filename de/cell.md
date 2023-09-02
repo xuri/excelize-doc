@@ -577,7 +577,7 @@ AddComment bietet die Methode zum Hinzufügen von Kommentaren zu einem Blatt anh
 err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
-    Runs: []excelize.RichTextRun{
+    Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
         {Text: "Dies ist ein Kommentar."},
     },
@@ -729,6 +729,7 @@ AMORDEGRK                 | Gibt die Abschreibung für die einzelnen Abschreibun
 AMORLINEARK               | Gibt die Abschreibung für die einzelnen Abschreibungszeiträume zurück
 UND                       | Gibt WAHR zurück, wenn alle Argumente WAHR sind
 ARABISCH                  | Konvertiert eine römische Zahl in eine arabische (als Zahl)
+ARRAYTOTEXT               | Gibt ein Array von Textwerten aus einem beliebigen angegebenen Range zurück
 ARCSIN                    | Gibt den Arkussinus einer Zahl zurück
 ARCSINHYP                 | Gibt den umgekehrten hyperbolischen Sinus einer Zahl zurück
 ARCTAN                    | Gibt den Arkustangens einer Zahl zurück
@@ -872,7 +873,10 @@ FEST                      | Formatiert eine Zahl als Text mit einer festen Anzah
 UNTERGRENZE               | Rundet eine Zahl in Richtung Null ab In Excel 2007 und Excel 2010 ist dies eine Funktion aus dem Bereich Mathematik und Trigonometrie
 UNTERGRENZE.MATHEMATIK    | Rundet eine Zahl auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts ab
 UNTERGRENZE.GENAU         | Rundet eine Zahl auf die nächste ganze Zahl oder auf das kleinste Vielfache des angegebenen Schritts. Die Zahl wird Unabhängig vom ihrem Vorzeichen aufgerundet
+PROGNOSE                  | Gibt einen zukünftigen Wert basierend auf vorhandenen Werten zurück
+PROGNOSE.LINEAR           | Gibt einen zukünftigen Wert basierend auf vorhandenen Werten zurück
 FORMULATEXT               | Gibt die Formel am angegebenen Bezug als Text zurück
+HÄUFIGKEIT                | Gibt eine Häufigkeitsverteilung als einspaltige Matrix zurück
 F.TEST                    | Gibt die Teststatistik eines F-Tests zurück
 FTEST                     | Gibt die Teststatistik eines F-Tests zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
 ZW                        | Gibt den zukünftigen Wert einer Investition zurück
@@ -902,7 +906,7 @@ HYPGEOMDIST               | Gibt Wahrscheinlichkeiten einer hypergeometrisch ver
 WENN                      | Gibt einen auszuführenden logischen Test an
 WENNFEHLER                | Wenn eine Formel mit einem Fehler ausgewertet wird, wird ein angegebener Wert zurückgegeben; andernfalls wird das Ergebnis der Formel zurückgegeben
 WENNNV                    | Gibt den Wert zurück, den Sie angeben, wenn der Ausdruck zu #N/V ausgewertet wird; gibt andernfalls das Ergebnis des Ausdrucks zurück
-WENNS                     | Hiermit wird geprüft, ob eine oder mehrere Bedingungen zutreffen, und es wird der Wert zurückgegeben, der der ersten auf WAHR lautenden Bedingung entspricht                                                                                                                                                                                                                                                                                                                                                      | Hiermit wird geprüft, ob eine oder mehrere Bedingungen zutreffen, und es wird der Wert zurückgegeben, der der ersten auf WAHR lautenden Bedingung entspricht
+WENNS                     | Hiermit wird geprüft, ob eine oder mehrere Bedingungen zutreffen, und es wird der Wert zurückgegeben, der der ersten auf WAHR lautenden Bedingung entspricht
 IMABS                     | Gibt den Absolutbetrag (Modul) einer komplexen Zahl zurück
 IMAGINÄRE                 | Gibt den Imaginärteil einer komplexen Zahl zurück
 IMARGUMENT                | Gibt das Argument Theta zurück, einen Winkel, der als Bogenmaß ausgedrückt wird
@@ -931,6 +935,7 @@ IMTAN                     | Gibt den Tangens einer komplexen Zahl zurück
 INDEX                     | Verwendet einen Index, um einen Wert aus einem Bezug oder einem Array auszuwählen
 INDIREKT                  | Gibt einen Bezug zurück, der von einem Textwert angegeben wird
 GANZZAHL                  | Rundet eine Zahl auf die nächste ganze Zahl ab
+INTERCEPT                 | Gibt den Schnittpunkt der linearen Regressionsgeraden zurück
 ZINSSATZ                  | Gibt den Zinssatz eines voll investierten Wertpapiers zurück
 ZINSZ                     | Gibt die Zinszahlung einer Investition für eine angegebene Periode zurück
 IKV                       | Gibt den internen Zinsfuß für eine Reihe von Zahlungen zurück
@@ -1013,6 +1018,9 @@ OKTINDEZ                  | Wandelt eine oktale Zahl in eine dezimale Zahl um
 OKTINHEX                  | Wandelt eine oktale Zahl in eine hexadezimale Zahl um
 UNGERADE                  | Rundet eine Zahl auf die nächste ungerade ganze Zahl auf
 UNREGER.KURS              | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers mit einem unregelmäßigen ersten Zinstermin zurück
+UNREGER.REND              | Gibt die Rendite eines Wertpapiers mit einem unregelmäßigen ersten Zinstermin zurück
+UNREGLE.KURS              | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers mit einem unregelmäßigen letzten Zinstermin zurück
+UNREGLE.REND              | Gibt die Rendite eines Wertpapiers mit einem unregelmäßigen letzten Zinstermin zurück
 ODER                      | Gibt WAHR zurück, wenn ein Argument WAHR ist
 PDURATION                 | Gibt die Anzahl der Zahlungsperioden zurück, die eine Investition zum Erreichen eines angegebenen Werts benötigt
 PEARSON                   | Gibt den Pearsonschen Korrelationskoeffizienten zurück
@@ -1034,6 +1042,7 @@ KAPZ                      | Gibt die Kapitalrückzahlung einer Investition für 
 KURS                      | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers zurück, das periodisch Zinsen auszahlt
 KURSDISAGIO               | Gibt den Kurs pro 100 $ Nennwert eines unverzinslichen Wertpapiers zurück
 KURSFÄLLIG                | Gibt den Kurs pro 100 $ Nennwert eines Wertpapiers zurück, das Zinsen am Fälligkeitsdatum auszahlt
+WAHRSCHBEREICH            | Gibt die Wahrscheinlichkeit zurück, dass die Werte in einem Bereich zwischen zwei Grenzwerten liegen
 PRODUKT                   | Multipliziert die Argumente
 GROSS2                    | Schreibt den ersten Buchstaben jedes Worts in einem Textwert groß
 BW                        | Gibt den Barwert einer Investition zurück
@@ -1127,6 +1136,7 @@ UNIZEICHEN                | Gibt das Unicode-Zeichen zurück, auf das durch den 
 UNICODE                   | Gibt die Zahl (Codepoint) zurück, die dem ersten Zeichen des Texts entspricht
 GROSS                     | Wandelt Text in Großbuchstaben um
 WERT                      | Wandelt ein Textargument in eine Zahl um
+WERTZUTEXT                | Gibt Text aus einem beliebigen angegebenen Wert zurück
 VARIANZ                   | Schätzt die Varianz anhand einer Stichprobe. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
 VAR.P                     | Berechnet die Varianz anhand der Grundgesamtheit
 VAR.S                     | Schätzt die Varianz anhand einer Stichprobe

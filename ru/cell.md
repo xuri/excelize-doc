@@ -577,7 +577,7 @@ AddComment предоставляет метод добавления комме
 err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
-    Runs: []excelize.RichTextRun{
+    Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
         {Text: "This is a comment."},
     },
