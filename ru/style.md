@@ -892,6 +892,14 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 
 клетка `Sheet1!A6` в приложении Excel: `martes, 04 de Julio de 2017`
 
+## Получите стиль {#GetStyle}
+
+```go
+func (f *File) GetStyle(idx int) (*Style, error)
+```
+
+GetStyle предоставляет функцию для получения определения стиля по заданному индексу стиля.
+
 ## Установить стиль столбца {#SetColStyle}
 
 ```go

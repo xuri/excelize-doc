@@ -1,6 +1,6 @@
 # أدوات
 
-## الطاولة {#AddTable}
+## إضافة الطاولة {#AddTable}
 
 ```go
 func (f *File) AddTable(sheet string, table *Table) error
@@ -68,6 +68,22 @@ TableStyleDark2|<img src="../images/table_style/dark/2.png" width="61">|TableSty
 TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableStyleDark6|<img src="../images/table_style/dark/6.png" width="61">|TableStyleDark7|<img src="../images/table_style/dark/7.png" width="61">
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
+
+## الحصول على الجداول {#GetTables}
+
+```go
+func (f *File) GetTables(sheet string) ([]Table, error)
+```
+
+يوفر GetTables الطريقة للحصول على كافة الجداول في ورقة العمل حسب اسم ورقة العمل المحدد.
+
+## حذف الجدول {#DeleteTable}
+
+```go
+func (f *File) DeleteTable(name string) error
+```
+
+يوفر DeleteTable طريقة لحذف الجدول حسب اسم الجدول المحدد.
 
 ## فلتر السيارات {#AutoFilter}
 

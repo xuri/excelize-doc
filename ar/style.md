@@ -892,6 +892,14 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 
 الخلية `Sheet1!A6` في تطبيق Excel: `martes, 04 de Julio de 2017`
 
+## احصل على الاسلوب {#GetStyle}
+
+```go
+func (f *File) GetStyle(idx int) (*Style, error)
+```
+
+يوفر GetStyle وظيفة للحصول على تعريف النمط من خلال فهرس النمط المحدد.
+
 ## تعيين نمط العمود {#SetColStyle}
 
 ```go

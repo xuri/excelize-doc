@@ -1,6 +1,6 @@
 # 유틸리티 기능
 
-## 양식 만들기 {#AddTable}
+## 테이블 추가 {#AddTable}
 
 ```go
 func (f *File) AddTable(sheet string, table *Table) error
@@ -68,6 +68,22 @@ TableStyleDark2|<img src="../images/table_style/dark/2.png" width="61">|TableSty
 TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableStyleDark6|<img src="../images/table_style/dark/6.png" width="61">|TableStyleDark7|<img src="../images/table_style/dark/7.png" width="61">
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
+
+## 테이블 가져오기 {#GetTables}
+
+```go
+func (f *File) GetTables(sheet string) ([]Table, error)
+```
+
+GetTables 는 지정된 워크시트 이름으로 워크시트의 모든 테이블을 가져오는 방법을 제공합니다.
+
+## 테이블 삭제 {#DeleteTable}
+
+```go
+func (f *File) DeleteTable(name string) error
+```
+
+DeleteTable 은 주어진 테이블 이름으로 테이블을 삭제하는 방법을 제공합니다.
 
 ## 자동 필터 {#AutoFilter}
 

@@ -69,13 +69,29 @@ TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableSty
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 
+## 获取表格 {#GetTables}
+
+```go
+func (f *File) GetTables(sheet string) ([]Table, error)
+```
+
+根据给定的工作表名称获取指定工作表中的全部表格。
+
+## 删除表格 {#DeleteTable}
+
+```go
+func (f *File) DeleteTable(name string) error
+```
+
+根据给定的表格名称删除表格。
+
 ## 自动过滤器 {#AutoFilter}
 
 ```go
 func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
-根据给定的工作表名、单元格坐标区域和条件格式创建自动过滤器。Excel 中的自动过滤器可以对一些简单的二维数据数据进行数据筛选。
+根据给定的工作表名称、单元格坐标区域和条件格式创建自动过滤器。电子表格中的自动过滤器可以对一些简单的二维数据数据进行数据筛选。
 
 例1，在名称为 `Sheet1` 的工作表 `A1:D4` 区域创建自动过滤器：
 

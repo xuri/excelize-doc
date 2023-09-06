@@ -892,6 +892,14 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 
 单元格 `Sheet1!A6` 在 Office Excel 应用程序中将会被格式化为：`martes, 04 de Julio de 2017`
 
+## 获取样式 {#GetStyle}
+
+```go
+func (f *File) GetStyle(idx int) (*Style, error)
+```
+
+根据给定的样式索引获取样式定义。
+
 ## 设置列样式 {#SetColStyle}
 
 ```go

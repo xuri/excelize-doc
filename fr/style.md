@@ -892,6 +892,14 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 
 Cellule `Sheet1!A6` dans l'application Excel: `martes, 04 de Julio de 2017`
 
+## Obtenez du style {#GetStyle}
+
+```go
+func (f *File) GetStyle(idx int) (*Style, error)
+```
+
+GetStyle fournit une fonction pour obtenir la définition du style par index de style donné.
+
 ## Définir le style de colonne {#SetColStyle}
 
 ```go

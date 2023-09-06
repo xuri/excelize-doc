@@ -69,13 +69,29 @@ TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableSty
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 
+## 獲取表格 {#GetTables}
+
+```go
+func (f *File) GetTables(sheet string) ([]Table, error)
+```
+
+根據給定的工作表名稱獲取指定工作表中的全部表格。
+
+## 刪除表格 {#DeleteTable}
+
+```go
+func (f *File) DeleteTable(name string) error
+```
+
+根據給定的表格名稱刪除表格。
+
 ## 自動過濾器 {#AutoFilter}
 
 ```go
 func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和條件式格式創建自動過濾器。Excel 中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。
+根據給定的工作表名稱、儲存格坐標區域和條件式格式創建自動過濾器。电子表格中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。
 
 例1，在名稱為 `Sheet1` 的工作表 `A1:D4` 區域創建自動過濾器：
 
