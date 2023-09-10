@@ -566,8 +566,8 @@ AlignWithMargins | 设定页眉页脚边距与页边距对齐
 DifferentFirst   | 设定第一页页眉和页脚
 DifferentOddEven | 设定奇数和偶数页页眉和页脚
 ScaleWithDoc     | 设定页眉和页脚跟随文档缩放
-OddFooter        | 奇数页页脚控制字符
-OddHeader        | 奇数页页眉控制字符
+OddFooter        | 奇数页页脚控制字符，当 `DifferentOddEven` 的值为 `false` 时，用于设定第一页页脚
+OddHeader        | 奇数页页眉控制字符，当 `DifferentOddEven` 的值为 `false` 时，用于设定第一页页眉
 EvenFooter       | 偶数页页脚控制字符
 EvenHeader       | 偶数页页眉控制字符
 FirstFooter      | 首页页脚控制字符

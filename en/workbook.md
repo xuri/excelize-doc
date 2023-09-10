@@ -566,8 +566,8 @@ AlignWithMargins | Align header footer margins with page margins
 DifferentFirst   | Different first-page header and footer indicator
 DifferentOddEven | Different odd and even page headers and footers indicator
 ScaleWithDoc     | Scale header and footer with document scaling
-OddFooter        | Odd Page Footer
-OddHeader        | Odd Header
+OddFooter        | Odd Page Footer, or primary Page Footer if `DifferentOddEven` is `false`
+OddHeader        | Odd Header, or primary Page Header if `DifferentOddEven` is `false`
 EvenFooter       | Even Page Footer
 EvenHeader       | Even Page Header
 FirstFooter      | First Page Footer

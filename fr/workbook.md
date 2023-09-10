@@ -566,8 +566,8 @@ AlignWithMargins | Aligner les marges de l'en-tête et du pied de page avec les 
 DifferentFirst   | Indicateur d'en-tête et de pied de page de première page différent
 DifferentOddEven | Différents en-têtes et pieds de page pairs et impairs
 ScaleWithDoc     | Mettre à l'échelle l'en-tête et le pied de page avec la mise à l'échelle du document
-OddFooter        | Pied de page impair
-OddHeader        | En-tête impair
+OddFooter        | Pied de page impair ou pied de page principal si `DifferentOddEven` est `false`
+OddHeader        | En-tête impair ou en-tête de page principal si `DifferentOddEven` est `false`
 EvenFooter       | Pied de page pair
 EvenHeader       | En-tête de page pair
 FirstFooter      | Pied de page de la première page

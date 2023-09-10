@@ -571,8 +571,8 @@ AlignWithMargins | محاذاة هوامش تذييل الرأس مع هوامش
 DifferentFirst   | مؤشر مختلف لرأس وتذييل الصفحة الأولىمؤشر مختلف لرأس وتذييل الصفحة الأولى
 DifferentOddEven | مؤشرات مختلفة للرؤوس والتذييلات الفردية والزوجية
 ScaleWithDoc     | مقياس الرأس والتذييل باستخدام مقياس المستند
-OddFooter        | تذييل الصفحة الفردية
-OddHeader        | رأس فردي
+OddFooter        | تذييل الصفحة الفردية، أو تذييل الصفحة الأساسي إذا كانت قيمة `DifferentOddEven` هي `false`
+OddHeader        | رأس فردي، أو رأس الصفحة الأساسي إذا كانت قيمة `DifferentOddEven` هي `false`
 EvenFooter       | حتى تذييل الصفحة
 EvenHeader       | حتى رأس الصفحة
 FirstFooter      | تذييل الصفحة الأولى

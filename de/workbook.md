@@ -566,8 +566,8 @@ AlignWithMargins | Richten Sie die Fußzeilenränder der Kopfzeilen an den Seite
 DifferentFirst   | Unterschiedliche Kopf- und Fußzeile der ersten Seite
 DifferentOddEven | Unterschiedliche ungerade und gerade Seitenkopf- und Fußzeilenanzeige
 ScaleWithDoc     | Skalieren Sie Kopf- und Fußzeile mit Dokumentenskalierung
-OddFooter        | Ungerader Seitenfußzeile
-OddHeader        | Ungerader Seitenkopf
+OddFooter        | Ungerade Seitenfußzeile oder primäre Seitenfußzeile, wenn `DifferentOddEven` `false` ist
+OddHeader        | Ungerader Header oder primärer Seitenheader, wenn `DifferentOddEven` `false` ist
 EvenFooter       | Sogar Seitenfußzeile
 EvenHeader       | Sogar Seitenüberschriften
 FirstFooter      | Fußzeile der ersten Seite

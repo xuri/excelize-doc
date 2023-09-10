@@ -566,8 +566,8 @@ AlignWithMargins | Alinee los márgenes de pie de página de encabezado con los 
 DifferentFirst   | Diferente indicador de encabezado y pie de página de primera página
 DifferentOddEven | Diferente indicador de encabezados y pies de página impares e pares
 ScaleWithDoc     | Escalar encabezado y pie de página con escalado de documentos
-OddFooter        | Pie de página impar
-OddHeader        | Encabezado extraño
+OddFooter        | Pie de página impar o pie de página principal si `DifferentOddEven` es `false`
+OddHeader        | Encabezado impar o encabezado de página principal si `DifferentOddEven` es `false`
 EvenFooter       | Pie de página par
 EvenHeader       | Incluso encabezado de página
 FirstFooter      | Primer pie de página

@@ -566,8 +566,8 @@ AlignWithMargins | 머리글 바닥글 여백을 페이지 여백에 맞추기
 DifferentFirst   | 다른 첫 페이지 머리글 및 바닥글 표시기
 DifferentOddEven | 다른 홀수 및 짝수 페이지 머리글 및 바닥글 표시기
 ScaleWithDoc     | 문서 크기 조정으로 머리글 및 바닥글 크기 조정
-OddFooter        | 홀수 페이지 바닥글
-OddHeader        | 홀수 헤더
+OddFooter        | 홀수 페이지 바닥글 또는 `DifferentOddEven` 이 `false` 인 경우 기본 페이지 바닥글
+OddHeader        | 홀수 헤더 또는 `DifferentOddEven` 이 `false` 인 경우 기본 페이지 헤더
 EvenFooter       | 짝수 페이지 바닥글
 EvenHeader       | 짝수 페이지 머리글
 FirstFooter      | 첫 페이지 바닥글

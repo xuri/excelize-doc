@@ -566,8 +566,8 @@ AlignWithMargins | 設定頁首頁尾邊界與頁邊界對齊
 DifferentFirst   | 設定第一頁頁首和頁尾
 DifferentOddEven | 設定奇數和偶數頁頁首和頁尾
 ScaleWithDoc     | 設定頁首和頁尾跟隨檔案縮放
-OddFooter        | 奇數頁頁尾控制字符
-OddHeader        | 奇數頁頁首控制字符
+OddFooter        | 奇數頁頁尾控制字符，當 `DifferentOddEven` 的值為 `false` 時，用於設定第一頁頁尾
+OddHeader        | 奇數頁頁首控制字符，當 `DifferentOddEven` 的值為 `false` 時，用於設定第一頁頁首
 EvenFooter       | 偶數頁頁尾控制字符
 EvenHeader       | 偶數頁頁首控制字符
 FirstFooter      | 首頁頁尾控制字符

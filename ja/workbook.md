@@ -566,8 +566,8 @@ AlignWithMargins | ヘッダーフッターの余白をページの余白に揃�
 DifferentFirst   | 別の最初のページのヘッダーとフッターのインジケーター
 DifferentOddEven | 異なる奇数ページと偶数ページのヘッダーとフッターのインジケーター
 ScaleWithDoc     | ドキュメントスケーリングを使用してヘッダーとフッターをスケーリングします
-OddFooter        | 奇数ページのフッター
-OddHeader        | 奇数ヘッダー
+OddFooter        | 奇数ページ フッター、または `DifferentOddEven` が `false` の場合はプライマリ ページ フッター
+OddHeader        | 奇数ヘッダー、または `DifferentOddEven` が `false` の場合はプライマリ ページ ヘッダー
 EvenFooter       | ページフッターも
 EvenHeader       | ページヘッダーも
 FirstFooter      | 最初のページのフッター
