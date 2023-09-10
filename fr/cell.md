@@ -729,6 +729,7 @@ AMORDEGRC                    | Renvoie l'amortissement correspondant à chaque p
 AMORLINC                     | Renvoie l'amortissement correspondant à chaque période comptable
 AND                          | Renvoie TRUE si tous les arguments ont la valeur TRUE
 ARABIC                       | Convertit un nombre romain en chiffre arabe
+TABLEAU.EN.TEXTE             | Renvoie un tableau de valeurs de texte dans une plage spécifiée.
 ASIN                         | Renvoie l'arcsinus d'un nombre
 ASINH                        | Renvoie le sinus hyperbolique inverse d'un nombre
 ATAN                         | Renvoie l'arctangente d'un nombre
@@ -873,7 +874,10 @@ FIXED                        | Convertit un nombre en texte avec un nombre de d�
 FLOOR                        | Arrondit un nombre à la valeur d'arrondi la plus proche de zéro. Dans Excel 2007 et Excel 2010, il s'agit d'une fonction mathématique et trigonométrique
 FLOOR.MATH                   | Arrondit un nombre à l'entier ou au multiple inférieur le plus proche de l'argument de précision
 FLOOR.PRECISE                | Arrondit un nombre à l'entier ou au multiple le plus proche de l'argument de précision. Quel que soit le signe du nombre, le nombre est arrondi à l'unité supérieure
+PREVISION                    | Renvoie une valeur par rapport à une tendance linéaire
+PREVISION.LINEAIRE           | Renvoie une valeur par rapport à une tendance linéaire
 FORMULETEXTE                 | Renvoie la formule à la référence donnée sous forme de texte
+FREQUENCE                    | Calcule la fréquence d'apparition des valeurs dans une plage de valeurs, puis renvoie des nombres sous forme de matrice verticale
 F.TEST                       | Renvoie le résultat d'un test F
 TEST.F                       | Renvoie le résultat d'un test F.. Dans Excel 2007, il s'agit d'une fonction statistique
 FV                           | Renvoie la valeur future d'un investissement
@@ -903,6 +907,7 @@ SI                           | Indique un test logique à effectuer
 SIERREUR                     | Renvoie une valeur que vous spécifiez si une formule génère une erreur ; sinon, elle renvoie le résultat de la formule
 SI.NON.DISP                  | Renvoie la valeur que vous spécifiez si l'expression est résolue à #N/A ; autrement, renvoie le résultat de l'expression
 SI.CONDITIONS                | Vérifie si une ou plusieurs conditions sont remplies et renvoie une valeur correspondant à la première condition VRAI
+COMPLEXE.MODULE              | Renvoie la valeur absolue (module) d'un nombre complexe
 COMPLEXE.IMAGINAIRE          | Renvoie le coefficient imaginaire d'un nombre complexe
 COMPLEXE.ARGUMENT            | Renvoie l'argument thêta, un angle exprimé en radians
 COMPLEXE.CONJUGUE            | Renvoie le conjugué complexe d'un nombre complexe
@@ -1006,14 +1011,17 @@ NORM.S.INV                   | Renvoie l'inverse de la distribution cumulée sui
 LOI.NORMALE.STANDARD.INVERSE | Renvoie l'inverse de la distribution cumulée suivant une loi normale centrée réduite. Dans Excel 2007, il s'agit d'une fonction statistique
 NOT                          | Inverse la logique de son argument
 NOW                          | Renvoie le numéro de série de la date et de l'heure actuelles
-NPER                         | Renvoie le nombre de paiements d'un investissement
+NPM                          | Renvoie le nombre de paiements d'un investissement
 VAN                          | Renvoie la valeur nette actuelle d'un investissement, en fonction d'une série de flux de trésorerie périodiques et d'un taux d'escompte
 OCT2BIN                      | Convertit un nombre octal en nombre binaire
 OCTDEC                       | Convertit un nombre octal en nombre décimal
 OCTHEX                       | Convertit un nombre octal en nombre hexadécimal
-ODD                          | Arrondit un nombre à l'entier impair supérieur le plus proche
-ODDFPRICE                    | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont la première période est irrégulière
-OR                           | Renvoie TRUE si un argument a la valeur TRUE
+IMPAIR                       | Arrondit un nombre à l'entier impair supérieur le plus proche
+PRIX.PCOUPON.IRREG           | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont la première période est irrégulière
+REND.PCOUPON.IRREG           | Renvoie le rendement d'un titre dont la première période est irrégulière
+PRIX.DCOUPON.IRREG           | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont la dernière période est irrégulière
+REND.DCOUPON.IRREG           | Renvoie le rendement d'un titre dont la dernière période est irrégulière
+OU                           | Renvoie TRUE si un argument a la valeur TRUE
 PDURATION                    | Renvoie le nombre de périodes requises par un investissement pour atteindre une valeur spécifiée
 PEARSON                      | Renvoie le coefficient de corrélation d'échantillonnage de Pearson
 PERCENTILE.EXC               | Renvoie le k-ième centile de valeur d'une plage, où k se trouve dans la plage de 0 à 1 exclus
@@ -1034,12 +1042,13 @@ PPMT                         | Renvoie la part de remboursement du principal d'u
 PRIX.TITRE                   | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont les intérêts sont payés périodiquement
 VALEUR.ENCAISSEMENT          | Renvoie le prix par valeur faciale de 100 dollars pour un titre escompté
 PRIX.TITRE.ECHEANCE          | Renvoie le prix par valeur faciale de 100 dollars d'un titre dont les intérêts sont payés à échéance
-PRODUCT                      | Multiplie ses arguments
-PROPER                       | Met en majuscule la première lettre de chaque mot d'une valeur textuelle
-PV                           | Renvoie la valeur actuelle d'un investissement
+PROBABILITE                  | Renvoie la probabilité que des valeurs dans une plage soient comprises entre deux limites
+PRODUIT                      | Multiplie ses arguments
+NOMPROPRE                    | Met en majuscule la première lettre de chaque mot d'une valeur textuelle
+VA                           | Renvoie la valeur actuelle d'un investissement
 QUARTILE                     | Renvoie le quartile d'un jeu de données. Dans Excel 2007, il s'agit d'une fonction statistique
-QUARTILE.EXC                 | Renvoie le quartile de l'ensemble de données d'après des valeurs de centile comprises entre 0 et 1, exclus
-QUARTILE.INC                 | Renvoie le quartile d'un jeu de données
+QUARTILE.EXCLURE             | Renvoie le quartile de l'ensemble de données d'après des valeurs de centile comprises entre 0 et 1, exclus
+QUARTILE.INCLURE             | Renvoie le quartile d'un jeu de données
 QUOTIENT                     | Renvoie la partie entière d'une division
 RADIANS                      | Convertit des degrés en radians
 ALEA                         | Renvoie un nombre aléatoire compris entre 0 et 1
@@ -1127,6 +1136,7 @@ UNICHAR                      | Renvoie le caractère unicode référencé par la
 UNICODE                      | Renvoie le nombre (point de code) qui correspond au premier caractère du texte
 UPPER                        | Convertit le texte en majuscules
 CNUM                         | Convertit un argument textuel en nombre
+VALEUR.EN.TEXTE              | Renvoie le texte de toute valeur spécifiée
 VAR                          | Fournit une estimation de l'écart à partir d'un échantillon. Dans Excel 2007, il s'agit d'une fonction statistique
 VAR.P                        | Calcule l'écart en fonction de la population entière
 VAR.S                        | Fournit une estimation de l'écart à partir d'un échantillon
