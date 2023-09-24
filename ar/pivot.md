@@ -145,3 +145,11 @@ func main() {
     }
 }
 ```
+
+## الحصول على الجداول المحورية {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+تقوم GetPivotTables بإرجاع كافة تعريفات الجدول المحوري في ورقة العمل حسب اسم ورقة العمل المحدد.
