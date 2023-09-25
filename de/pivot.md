@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## Holen Sie sich Pivot-Tabellen {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables gibt alle Pivot-Tabellendefinitionen in einem Arbeitsblatt nach dem angegebenen Arbeitsblattnamen zurück.

@@ -73,3 +73,59 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 DeleteDataValidation Löscht die Datenvalidierung anhand des angegebenen Arbeitsblattnamens und der Referenzsequenz. Alle Datenvalidierungen im Arbeitsblatt werden gelöscht, wenn kein Referenzsequenzparameter angegeben wird.
+
+## Slicer hinzufügen {#AddSlicer}
+
+`SlicerOptions` repräsentiert die Einstellungen des Slicers.
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` gibt den Slicer-Namen an. Es sollte ein vorhandener Feldname der angegebenen Tabelle oder Pivot-Tabelle sein. Diese Einstellung ist erforderlich.
+
+`Table` gibt den Namen der Tabelle oder Pivot-Tabelle an, diese Einstellung ist erforderlich.
+
+`Cell` gibt die linken oberen Zellkoordinaten und die Position zum Einfügen des Slicers an. Diese Einstellung ist erforderlich.
+
+`Caption` gibt die Beschriftung des Slicers an, diese Einstellung ist optional.
+
+`Macro` wird zum Festlegen des Makros für den Slicer verwendet. Die Arbeitsmappenerweiterung sollte XLSM oder XLTM sein.
+
+`Width` gibt die Breite des Slicers an, diese Einstellung ist optional.
+
+`Height` gibt die Höhe des Slicers an, diese Einstellung ist optional.
+
+`DisplayHeader` gibt an, ob der Header des Slicers angezeigt wird. Diese Einstellung ist optional, die Standardeinstellung ist `Anzeige`.
+
+`ItemDesc` gibt die absteigende Sortierung (Z-A) der Elemente an. Diese Einstellung ist optional und die Standardeinstellung ist `false` (steht für aufsteigend).
+
+`Format` gibt das Format des Slicers an, diese Einstellung ist optional.
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+Die AddSlicer-Funktion fügt einen Slicer ein, indem sie den Arbeitsblattnamen und die Slicer-Einstellungen angibt. Der Pivot-Tabellen-Slicer wird derzeit nicht unterstützt. Fügen Sie beispielsweise einen Slicer auf `Sheet1!E1` mit dem Feld `Column1` für die Tabelle `Table1` ein:
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:    "Column1",
+    Table:   "Table1",
+    Cell:    "E1",
+    Caption: "Column1",
+    Width:   200,
+    Height:  200,
+})
+```
