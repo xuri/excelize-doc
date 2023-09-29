@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 DeleteDataValidation delete data validation by given worksheet name and reference sequence. All data validations in the worksheet will be deleted if not specify reference sequence parameter.
+
+## Add slicer {#AddSlicer}
+
+`SlicerOptions` represents the settings of the slicer.
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` specifies the slicer name, should be an existing field name of the given table or pivot table, this setting is required.
+
+`Table` specifies the name of the table or pivot table, this setting is required.
+
+`Cell` specifies the left top cell coordinates the position for inserting the slicer, this setting is required.
+
+`Caption` specifies the caption of the slicer, this setting is optional.
+
+`Macro` used for set macro for the slicer, the workbook extension should be XLSM or XLTM.
+
+`Width` specifies the width of the slicer, this setting is optional.
+
+`Height` specifies the height of the slicer, this setting is optional.
+
+`DisplayHeader` specifies if display header of the slicer, this setting is optional, the default setting is display.
+
+`ItemDesc` specifies descending (Z-A) item sorting, this setting is optional, and the default setting is `false` (represents ascending).
+
+`Format` specifies the format of the slicer, this setting is optional.
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+AddSlicer function inserts a slicer by giving the worksheet name and slicer settings. For example, insert a slicer on the `Sheet1!E1` with field `Column1` for the table named `Table1`:
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```

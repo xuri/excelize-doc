@@ -117,15 +117,16 @@ type SlicerOptions struct {
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
 ```
 
-Die AddSlicer-Funktion fügt einen Slicer ein, indem sie den Arbeitsblattnamen und die Slicer-Einstellungen angibt. Der Pivot-Tabellen-Slicer wird derzeit nicht unterstützt. Fügen Sie beispielsweise einen Slicer auf `Sheet1!E1` mit dem Feld `Column1` für die Tabelle `Table1` ein:
+Die AddSlicer-Funktion fügt einen Slicer ein, indem sie den Arbeitsblattnamen und die Slicer-Einstellungen angibt. Fügen Sie beispielsweise einen Slicer auf `Sheet1!E1` mit dem Feld `Column1` für die Tabelle `Table1` ein:
 
 ```go
 err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
-    Name:    "Column1",
-    Table:   "Table1",
-    Cell:    "E1",
-    Caption: "Column1",
-    Width:   200,
-    Height:  200,
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
 })
 ```

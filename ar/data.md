@@ -117,15 +117,16 @@ type SlicerOptions struct {
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
 ```
 
-تقوم وظيفة AddSlicer بإدراج أداة تقطيع شرائح عن طريق إعطاء اسم ورقة العمل وإعدادات أداة تقطيع شرائح البيانات. أداة تقطيع الجدول المحوري غير مدعومة حاليًا. على سبيل المثال، قم بإدراج مقسم طريقة عرض في `ورقة1!E1` مع الحقل `Column1` للجدول المسمى `Table1`:
+تقوم وظيفة AddSlicer بإدراج أداة تقطيع شرائح عن طريق إعطاء اسم ورقة العمل وإعدادات أداة تقطيع شرائح البيانات. على سبيل المثال، قم بإدراج مقسم طريقة عرض في `الورقة1!E1` مع الحقل `Column1` للجدول المسمى `Table1`:
 
 ```go
 err := f.AddSlicer("ورقة1", &excelize.SlicerOptions{
-    Name:    "Column1",
-    Table:   "Table1",
-    Cell:    "E1",
-    Caption: "Column1",
-    Width:   200,
-    Height:  200,
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "ورقة1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
 })
 ```

@@ -69,7 +69,7 @@ type PivotTableField struct {
 
 `Name` specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
 
-## Create Pivot Table {#AddPivotTable}
+## Create pivot table {#AddPivotTable}
 
 ```go
 func (f *File) AddPivotTable(opts *PivotTableOptions) error
@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## Get pivot tables {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables returns all pivot table definitions in a worksheet by given worksheet name.
