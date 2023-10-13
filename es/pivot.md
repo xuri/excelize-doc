@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## Obtener tablas dinámicas {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables devuelve todas las definiciones de tablas dinámicas en una hoja de trabajo por nombre de hoja de trabajo dado.

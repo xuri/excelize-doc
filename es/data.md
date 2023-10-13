@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 DeleteDataValidation elimina la validación de datos por el nombre de la hoja de trabajo y la secuencia de referencia. Todas las validaciones de datos en la hoja de trabajo se eliminarán si no se especifica el parámetro de secuencia de referencia.
+
+## Agregar rebanadora {#AddSlicer}
+
+`SlicerOptions` representa la configuración de la segmentación de datos.
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` especifica el nombre de la segmentación de datos; debe ser un nombre de campo existente de la tabla o tabla dinámica dada; esta configuración es obligatoria.
+
+`Table` especifica el nombre de la tabla o tabla dinámica; esta configuración es obligatoria.
+
+`Cell` especifica que la celda superior izquierda coordina la posición para insertar la segmentación; esta configuración es obligatoria.
+
+`Caption` especifica el título de la segmentación de datos; esta configuración es opcional.
+
+`Macro` se usa para configurar la macro para la segmentación, la extensión del libro de trabajo debe ser XLSM o XLTM.
+
+`Width` especifica el ancho de la segmentación, esta configuración es opcional.
+
+`Height` especifica la altura de la segmentación de datos, esta configuración es opcional.
+
+`DisplayHeader` especifica si se muestra el encabezado de la segmentación de datos, esta configuración es opcional, la configuración predeterminada es visualización.
+
+`ItemDesc` especifica la clasificación de elementos descendente (Z-A), esta configuración es opcional y la configuración predeterminada es `false` (representa ascendente).
+
+`Format` especifica el formato de la segmentación, esta configuración es opcional.
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+La función AddSlicer inserta una segmentación de datos proporcionando el nombre de la hoja de trabajo y la configuración de la segmentación. Por ejemplo, inserte una segmentación de datos en `Hoja1!E1` con el campo `Column1` para la tabla denominada `Table1`:
+
+```go
+err := f.AddSlicer("Hoja1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Hoja1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```
