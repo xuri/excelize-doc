@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 DeleteDataValidation 指定されたワークシート名と参照シーケンスによるデータ検証を削除します。参照シーケンスパラメータを指定しない場合、ワークシート内のすべてのデータ検証が削除されます。
+
+## スライサーを追加する {#AddSlicer}
+
+`SlicerOptions` はスライサーの設定を表します。
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` は、スライサーの名前を指定し、テーブルのテーブルで動的に動的にテーブルを作成し、義務を負うパラメータを指定します。
+
+`Table` は、テーブルの名を表し、ダイナミックなテーブルを規定し、義務を課します。
+
+`Cell` は、スライサーの挿入位置、最高の義務を負う最高のセルルールを指定します。
+
+`Caption` は、スライサーの最新情報、最高のパラメータを指定します。
+
+`Macro` は、マクロ デュ スライサーの定義を使用し、XLSM または XLTM の拡張機能を提供します。
+
+`Width` はスライサーの最大のパラメータであり、機能を指定します。
+
+`Height` はスライサーのオート仕様であり、機能のパラメータです。
+
+`DisplayHeader` は、スライサーの添付ファイルを指定し、機能のパラメータを設定し、添付ファイルのパラメータを指定します。
+
+`ItemDesc` は、クロワッサンのトリデ要素 (Z-A) を指定し、機能のパラメータとデフォルトのパラメータを `false` に指定します (クロワッサンの注文を表します)。
+
+`Format` はスライサーのフォーマットを指定し、パラメータを設定します。
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+AddSlicer 関数は、ワークシート名とスライサー設定を指定してスライサーを挿入します。たとえば、`Table1` という名前のテーブルのフィールド `Column1` を含むスライサーを `Sheet1!E1` に挿入します。
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```

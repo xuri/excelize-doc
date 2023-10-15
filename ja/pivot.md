@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## ピボットテーブルを取得する {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables は、指定されたワークシート名によりワークシート内のすべてのピボット テーブル定義を返します。
