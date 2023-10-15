@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 DeleteDataValidation supprimer la validation des données par le nom de feuille de calcul et la séquence de référence donnés. Toutes les validations de données dans la feuille de calcul seront supprimées si vous ne spécifiez pas le paramètre de séquence de référence.
+
+## Ajouter une trancheuse {#AddSlicer}
+
+`SlicerOptions` représente les paramètres du slicer.
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` spécifie le nom du slicer, doit être un nom de champ existant de la table ou du tableau croisé dynamique donné, ce paramètre est obligatoire.
+
+`Table` spécifie le nom du tableau ou du tableau croisé dynamique, ce paramètre est obligatoire.
+
+`Cell` spécifie la cellule supérieure gauche coordonne la position d'insertion du slicer, ce paramètre est obligatoire.
+
+`Caption` spécifie la légende du slicer, ce paramètre est facultatif.
+
+`Macro` utilisé pour définir la macro du slicer, l'extension du classeur doit être XLSM ou XLTM.
+
+`Width` spécifie la largeur du slicer, ce paramètre est facultatif.
+
+`Height` spécifie la hauteur du slicer, ce paramètre est facultatif.
+
+`DisplayHeader` spécifie si l'en-tête d'affichage du slicer, ce paramètre est facultatif, le paramètre par défaut est l'affichage.
+
+`ItemDesc` spécifie le tri des éléments décroissant (Z-A), ce paramètre est facultatif et le paramètre par défaut est `false` (représente un ordre croissant).
+
+`Format` spécifie le format du slicer, ce paramètre est facultatif.
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+La fonction AddSlicer insère un slicer en donnant le nom de la feuille de calcul et les paramètres du slicer. Par exemple, insérez un slicer sur `Sheet1!E1` avec le champ `Column1` pour la table nommée `Table1`:
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```

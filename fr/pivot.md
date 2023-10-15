@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## Obtenir des tableaux pivotants {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables renvoie toutes les définitions de tableau croisé dynamique dans une feuille de calcul par nom de feuille de calcul donné.
