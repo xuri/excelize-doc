@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 DeleteDataValidation 은 주어진 워크시트 이름과 참조 순서로 데이터 유효성 검사를 삭제합니다. 참조 시퀀스 매개변수를 지정하지 않으면 워크시트의 모든 데이터 유효성 검사가 삭제됩니다.
+
+## 슬라이서 추가 {#AddSlicer}
+
+`SlicerOptions` 는 슬라이서의 설정을 나타냅니다.
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` 은 슬라이서 이름을 지정하며 해당 테이블 또는 피벗 테이블의 기존 필드 이름이어야 하며 이 설정이 필요합니다.
+
+`Table` 은 테이블 또는 피벗 테이블의 이름을 지정하며 이 설정은 필수입니다.
+
+`Cell` 은 왼쪽 상단 셀 좌표를 슬라이서 삽입 위치를 지정하므로 이 설정이 필요합니다.
+
+`Caption` 은 슬라이서의 캡션을 지정하며 이 설정은 선택 사항입니다.
+
+`Macro` 은 슬라이서의 매크로를 지정하며, 통합 문서 확장은 XLSM 또는 XLTM 이어야 합니다.
+
+`Width` 는 슬라이서의 너비를 지정하며 이 설정은 선택 사항입니다.
+
+`Height` 는 슬라이서의 높이를 지정하며 이 설정은 선택 사항입니다.
+
+`DisplayHeader` 는 슬라이서의 헤더 표시 여부를 지정합니다. 이 설정은 선택 사항이며 기본 설정은 표시입니다.
+
+`ItemDesc` 는 내림차순 (Z-A) 항목 정렬을 지정합니다. 이 설정은 선택 사항이며 기본 설정은 `false` (오름차순을 나타냄) 입니다.
+
+`Format` 은 슬라이서의 형식을 지정하며 이 설정은 선택 사항입니다.
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+AddSlicer 함수는 워크시트 이름과 슬라이서 설정을 제공하여 슬라이서를 삽입합니다. 예를 들어 `Table1` 이라는 테이블에 대해 `Column1` 필드가 있는 `Sheet1!E1` 에 슬라이서를 삽입합니다.
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```

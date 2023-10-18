@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## 피벗 테이블 가져오기 {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables 는 지정된 워크시트 이름으로 워크시트의 모든 피벗 테이블 정의를 반환합니다.
