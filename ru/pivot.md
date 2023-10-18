@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## Получить сводные таблицы {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+GetPivotTables возвращает все определения сводных таблиц на листе по заданному имени листа.
