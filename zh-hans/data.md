@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 根据给定的工作表名和数据验证区域删除数据验证规则。若未指定数据验证区域，将删除给定工作表中全部数据验证规则。
+
+## 添加切片器 {#AddSlicer}
+
+`SlicerOptions` 定义了切片器的属性。
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` 为必选参数，用于设置切片器的名称，必须是工作表中已有表格或数据透视表中字段名称。
+
+`Table` 为必选参数，用于设置切片器关联的表格或数据透视表名称。
+
+`Cell` 为必选参数，用于设置切片器左上角单元格坐标位置。
+
+`Caption` 为可选参数，用于设置切片器的标题。
+
+`Macro` 为可选参数，用于为切片器设置宏。当使用该参数设置时，保存工作簿时的文件扩展名应为 `.xlsm` 或者 `.xltm`。
+
+`Width` 为可选参数，用于为设置切片器的宽度。
+
+`Height` 为可选参数，用于为设置切片器的高度。
+
+`DisplayHeader` 为可选参数，用于设置是否显示切片器的标题，默认显示切片器的标题。
+
+`ItemDesc` 为可选参数，用于设置使用降序 (Z-A) 为切片器项目排序，默认设置为 `false`（表示使用升序）。
+
+`Format` 为可选参数，用于设置切片器的格式（大小和属性）。
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+通过给定的工作表名称和切片器设置，在工作表中添加切片器。例如，在 `Sheet1!E1` 单元格中，为表格 `Table1` 名为 `Column1` 的列添加切片器:
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```

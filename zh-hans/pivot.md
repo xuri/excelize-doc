@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## 获取数据透视表 {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+根据给定的工作表名称返回该工作表中的全部数据透视表属性。
