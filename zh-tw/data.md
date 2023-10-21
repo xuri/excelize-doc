@@ -56,7 +56,7 @@ dv.SetSqrefDropList("$E$1:$E$3")
 f.AddDataValidation("Sheet1", dv)
 ```
 
-資料驗證下拉列表中顯示的項目數量有限制：該列表最多可以顯示 32768 個項目。如果您需要更多項目，可以通過級聯列表將項目分類。
+資料驗證下拉列表中顯示的項目數量有限制：該列表最多可以顯示 32768 個項目。如果您需要更多項目，可以透過級聯列表將項目分類。
 
 ## 獲取資料驗證 {#GetDataValidations}
 
@@ -73,3 +73,60 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
 根據給定的工作表名和資料驗證區域刪除資料驗證規則。若未指定資料驗證區域，將刪除給定工作表中全部資料驗證區規則。
+
+## 添加交叉分析篩選器 {#AddSlicer}
+
+`SlicerOptions` 定義了交叉分析篩選器的屬性。
+
+```go
+type SlicerOptions struct {
+    Name          string
+    Table         string
+    Cell          string
+    Caption       string
+    Macro         string
+    Width         uint
+    Height        uint
+    DisplayHeader *bool
+    ItemDesc      bool
+    Format        GraphicOptions
+}
+```
+
+`Name` 為必選參數，用於設定交叉分析篩選器的名稱，必須是工作表中已有表格或數據透視表中字段名稱。
+
+`Table` 為必選參數，用於設定交叉分析篩選器關聯的表格或數據透視表名稱。
+
+`Cell` 為必選參數，用於設定交叉分析篩選器左上角存儲格坐標位置。
+
+`Caption` 為可選參數，用於設定交叉分析篩選器的標題。
+
+`Macro` 為可選參數，用於為交叉分析篩選器設定巨集。當使用該參數設定時，保存活頁簿時的文件擴展名應為 `.xlsm` 或者 `.xltm`。
+
+`Width` 為可選參數，用於為設定交叉分析篩選器的寬度。
+
+`Height` 為可選參數，用於為設定交叉分析篩選器的高度。
+
+`DisplayHeader` 為可選參數，用於設定是否顯示交叉分析篩選器的頁首，默認顯示交叉分析篩選器的頁首。
+
+`ItemDesc` 為可選參數，用於設定使用遞減 (Z-A) 為交叉分析篩選器項目排序，默認設定為 `false`（表示使用遞增）。
+
+`Format` 為可選參數，用於設定交叉分析篩選器的格式（大小和屬性）。
+
+```go
+func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
+```
+
+透過給定的工作表名稱和交叉分析篩選器設定，在工作表中添加交叉分析篩選器。例如，在 `Sheet1!E1` 存儲格中，為表格 `Table1` 名為 `Column1` 的列添加交叉分析篩選器:
+
+```go
+err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+    Name:       "Column1",
+    Cell:       "E1",
+    TableSheet: "Sheet1",
+    TableName:  "Table1",
+    Caption:    "Column1",
+    Width:      200,
+    Height:     200,
+})
+```

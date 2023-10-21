@@ -29,7 +29,7 @@ type FormControl struct {
 func (f *File) AddFormControl(sheet string, opts FormControl) error
 ```
 
-AddFormControl 通過給定的工作表名稱和表單控制項選項在工作表中添加表單控制項。支持的表單控制項類型為：按鈕、核取方塊、群組方塊、標籤、選項按鈕、捲軸和微調按鈕。若需要為表單控制項指定巨集，保存的活頁簿擴展名應為 `.xlsm` 或者 `.xltm`。滾動值應介於 0 到 30000 之間。
+AddFormControl 透過給定的工作表名稱和表單控制項選項在工作表中添加表單控制項。支持的表單控制項類型為：按鈕、核取方塊、群組方塊、標籤、選項按鈕、捲軸和微調按鈕。若需要為表單控制項指定巨集，保存的活頁簿擴展名應為 `.xlsm` 或者 `.xltm`。滾動值應介於 0 到 30000 之間。
 
 例1，在 `Sheet1!A2` 存儲格添加帶有指定巨集、富文本、自定義尺寸和摘要資訊的按鈕表單控制項：
 
@@ -103,7 +103,7 @@ err := f.AddFormControl("Sheet1", excelize.FormControl{
 })
 ```
 
-例4，在 `Sheet1!A2` 存儲格添加水平捲軸，通過拖動滾動框輸入或修改 `Sheet1!A1` 存儲格的值：
+例4，在 `Sheet1!A2` 存儲格添加水平捲軸，透過拖動滾動框輸入或修改 `Sheet1!A1` 存儲格的值：
 
 <p align="center"><img width="180" src="./images/form_ctrl_scroll_bar.gif" alt="使用 Excelize 在工作表中添加水平捲軸表單控制項"></p>
 
@@ -137,7 +137,7 @@ func (f *File) GetFormControls(sheet string) ([]FormControl, error)
 func (f *File) DeleteFormControl(sheet, cell string) error
 ```
 
-DeleteFormControl 通過給定的工作表名稱和存儲格坐標刪除指定的表單控制項。例如，刪除位於 `Sheet1!$A$1` 存儲格的表單控制項:
+DeleteFormControl 透過給定的工作表名稱和存儲格坐標刪除指定的表單控制項。例如，刪除位於 `Sheet1!$A$1` 存儲格的表單控制項:
 
 ```go
 err := f.DeleteFormControl("Sheet1", "A1")

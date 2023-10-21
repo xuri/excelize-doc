@@ -138,3 +138,11 @@ func main() {
     }
 }
 ```
+
+## 獲取樞紐分析表 {#GetPivotTables}
+
+```go
+func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
+```
+
+根據給定的工作表名稱返回該工作表中的全部樞紐分析表屬性。
