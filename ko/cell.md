@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -1070,6 +1073,8 @@ ROW                      | 참조의 행 번호를 반환합니다
 ROWS                     | 참조 영역에 있는 행 수를 반환합니다
 RRI                      | 투자 수익에 해당하는 이자율을 반환합니다
 RSQ                      | 피어슨 곱 모멘트 상관 계수의 제곱을 반환합니다
+SEARCH                   | 지정한 텍스트 값을 다른 텍스트 값 내에서 찾습니다 (대/소문자 구분 안 함)
+SEARCHB                  | 지정한 텍스트 값을 다른 텍스트 값 내에서 찾습니다 (대/소문자 구분 안 함)
 SEC                      | 각도의 시컨트 값을 반환합니다
 SECH                     | 각도의 하이퍼볼릭 시컨트 값을 반환합니다
 SECOND                   | 일련 번호를 초로 변환합니다
@@ -1116,6 +1121,7 @@ T.DIST                   | 스튜던트 t-분포의 백분율 (확률값) 을 �
 T.DIST.2T                | 스튜던트 t-분포의 백분율 (확률값) 을 반환합니다
 T.DIST.RT                | 스튜던트 t-분포값을 반환합니다
 TDIST                    | 스튜던트 t-분포값을 반환합니다
+TEXT                     | 숫자 표시 형식을 지정하고 텍스트로 변환합니다
 TEXTJOIN                 | 여러 범위 및/또는 문자열의 텍스트 결합
 TIME                     | 특정 시간의 일련 번호를 반환합니다
 TIMEVALUE                | 텍스트 형태의 시간을 일련 번호로 변환합니다

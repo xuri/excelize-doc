@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -1116,6 +1119,7 @@ T.DIST            | 返回学生 t-分布的百分点（概率）
 T.DIST.2T         | 返回学生 t-分布的百分点（概率）
 T.DIST.RT         | 返回学生 t-分布
 TDIST             | 返回学生 t-分布
+TEXT              | 设置数字格式并将其转换为文本
 TEXTJOIN          | 将多个区域和/或字符串的文本组合起来，并包括你在要组合的各文本值之间指定的分隔符。 如果分隔符是空的文本字符串，则此函数将有效连接这些区域
 TIME              | 返回特定时间的序列号
 TIMEVALUE         | 将文本格式的时间转换为序列号

@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -1070,6 +1073,8 @@ ROW                      | 傳回參照的列號
 ROWS                     | 傳回參照範圍的列數
 RRI                      | 傳回投資成長的對等利率
 RSQ                      | 傳回 Pearson 積差相關係數的平方
+SEARCH                   | 在文字值間尋找文字值 (不區分大小寫)
+SEARCHB                  | 在文字值間尋找文字值 (不區分大小寫)
 SEC                      | 傳回角度的正割
 SECH                     | 傳回角度的雙曲正割值
 SECOND                   | 將序列值轉換為秒鐘
@@ -1116,6 +1121,7 @@ T.DIST                   | 傳回 Student T 分配的百分比點 (機率)
 T.DIST.2T                | 傳回 Student T 分配的百分比點 (機率)
 T.DIST.RT                | 傳回 Student T 分配
 TDIST                    | 傳回 Student T 分配
+TEXT                     | 格式化數字並將其轉換為文字
 TEXTJOIN                 | 合併多個範圍和/或字串中的文字
 TIME                     | 傳回特定時間的序列值
 TIMEVALUE                | 將文字形式的時間轉換為序列值

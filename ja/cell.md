@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -1070,6 +1073,8 @@ ROW                      | セル参照の行番号を返します
 ROWS                     | 指定の範囲に含まれる行数を返します
 RRI                      | 投資の成長に対する等価利率を返します
 RSQ                      | ピアソンの積率相関係数の 2 乗値を返します
+SEARCH                   | 大文字と小文字は区別されません
+SEARCHB                  | 大文字と小文字は区別されません
 SEC                      | 角度の正割 (セカント) を返します
 SECH                     | 角度の双曲線正割を返します
 SECOND                   | シリアル値を秒に変換します
@@ -1116,6 +1121,7 @@ T.DIST                   | スチューデントの t 分布のパーセンテ�
 T.DIST.2T                | スチューデントの t 分布のパーセンテージ (確率) を返します
 T.DIST.RT                | スチューデントの t 分布の値を返します
 TDIST                    | スチューデントの t 分布の値を返します
+TEXT                     | 数値を、書式設定したテキストに変換します
 TEXTJOIN                 | 複数の範囲や文字列のテキストを結合す
 TIME                     | 指定した時刻に対応するシリアル値を返します
 TIMEVALUE                | 時刻を表す文字列をシリアル値に変換します

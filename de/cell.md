@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -842,6 +845,7 @@ DBSUMME                   | Addiert die Zahlen in der Feldspalte von Datensätze
 DURATION                  | Gibt die jährliche Duration eines Wertpapiers mit periodischen Zinszahlungen zurück
 DBVARIANZ                 | Schätzt die Varianz basierend auf einer Stichprobe aus ausgewählten Datenbankeinträgen
 DBVARIANZEN               | Berechnet die Varianz basierend auf der Grundgesamtheit ausgewählter Datenbankeinträge
+EDATUM                    | Gibt die fortlaufende Zahl des Datums zurück, das die angegebene Anzahl von Monaten vor oder nach dem Ausgangsdatum liegt
 EFFEKTIV                  | Gibt die jährliche Effektivverzinsung zurück
 ENCODEURL                 | Gibt eine URL-codierte Zeichenfolge zurück Diese Funktion steht in Excel für das Web nicht zur Verfügung
 MONATSENDE                | Gibt die fortlaufende Zahl des letzten Tags des Monats vor oder nach einer bestimmten Anzahl von Monaten zurück
@@ -899,7 +903,6 @@ HEXINDEZ                  | Wandelt eine hexadezimale Zahl in eine Dezimalzahl u
 HEXINOKT                  | Wandelt eine hexadezimale Zahl in eine Oktalzahl um
 WVERWEIS                  | Sucht in der obersten Zeile einer Matrix und gibt den Wert der angegebenen Zelle zurück
 STUNDE                    | Wandelt eine fortlaufende Zahl in eine Stunde um
-HSTAPELN                  | Fügt Matrizen horizontal und nacheinander an, um eine größere Matrix zurückzugeben
 HYPERLINK                 | Erstellt eine Verknüpfung oder einen Sprung, über den ein auf einem Netzwerkserver, in einem Intranet oder im Internet gespeichertes Dokument geöffnet wird
 HYPGEOM.VERT              | Gibt Wahrscheinlichkeiten einer hypergeometrisch verteilten Zufallsvariablen zurück
 HYPGEOMDIST               | Gibt Wahrscheinlichkeiten einer hypergeometrisch verteilten Zufallsvariablen zurück. In Excel 2007 ist dies ist eine Funktion aus dem Bereich Statistik
@@ -1070,9 +1073,11 @@ ROW                       | Gibt die Zeilennummer eines Bezugs zurück
 ZEILEN                    | Gibt die Anzahl von Zeilen in einem Bezug zurück
 ZSATZINVEST               | Gibt den effektiven Jahreszins für den Wertzuwachs einer Investition zurück
 RSQ                       | Gibt das Quadrat des Pearsonschen Korrelationskoeffizienten zurück
-SEC                       | Gibt den Sekans eines Winkels zurück
 SUCHEN                    | Sucht einen in einem anderen Textwert enthaltenen Textwert (Groß-/Kleinschreibung wird nicht beachtet)
 SUCHENB                   | Sucht einen in einem anderen Textwert enthaltenen Textwert (Groß-/Kleinschreibung wird nicht beachtet)
+SEC                       | Gibt den Sekans eines Winkels zurück
+SECHYP                    | Gibt den hyperbolischen Sekans eines Winkels zurück
+SEKUNDE                   | Wandelt eine fortlaufende Zahl in eine Sekunde um
 POTENZREIHE               | Gibt die Summe einer Potenzreihe auf der Grundlage der Formel zurück
 BLATT                     | Gibt die Blattnummer des Blatts zurück, auf das verwiesen wird
 BLÄTTER                   | Gibt die Anzahl von Blättern in einem Bezug zurück
@@ -1116,7 +1121,8 @@ T.VERT                    | Gibt die Prozentpunkte (Wahrscheinlichkeit) entsprec
 T.VERT.2S                 | Gibt die Prozentpunkte (Wahrscheinlichkeit) entsprechend der Student-t-Verteilung zurück
 T.VERT.RE                 | Gibt Werte der (Student) t-Verteilung zurück
 TDIST                     | Gibt Werte der (Student) t-Verteilung zurück
-TEXTJOIN                  | Formatiert eine Zahl und wandelt sie in Text um
+TEXT                      | Formatiert eine Zahl und wandelt sie in Text um
+TEXTVERKETTEN             | Kombiniert den Text aus mehreren Bereichen und/oder Zeichenfolgen
 ZEIT                      | Gibt die fortlaufende Zahl einer bestimmten Uhrzeit zurück
 ZEITWERT                  | Wandelt eine Uhrzeit in Form von Text in eine fortlaufende Zahl um
 T.INV                     | Gibt den t-Wert der (Student) t-Verteilung als Funktion der Wahrscheinlichkeit und der Freiheitsgrade zurück

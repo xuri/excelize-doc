@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -730,6 +733,7 @@ AMORTIZ.LIN              | Devuelve la depreciación de cada período contable
 AND                      | Devuelve TRUE si todos sus argumentos son TRUE
 NUMERO.ARABE             | Convierte un número romano en arábigo, como un número
 MATRIZATEXTO             | Devuelve una matriz de valores de texto de cualquier rango especificado
+ASENO                    | Devuelve el arcoseno de un número
 ASINH                    | Devuelve el seno hiperbólico inverso de un número
 ATAN                     | Devuelve el arco tangente de un número
 ATAN2                    | Devuelve el arco tangente de las coordenadas x e y
@@ -873,7 +877,10 @@ FIXED                    | Da formato a un número como texto con un número fij
 FLOOR                    | Redondea un número hacia abajo, hacia cero. En Excel 2007 y Excel 2010, esta es una función de Matemáticas y trigonometría
 MULTIPLO.INFERIOR.MAT    | Redondea un número hacia abajo, al entero más cercano o al múltiplo más cercano de la cifra significativa
 FLOOR.PRECISE            | Redondea un número al entero mayor más cercano o al múltiplo más cercano de la cifra significativa. Independientemente del signo del número, el número se redondea hacia arriba
+PRONOSTICAR              | Devuelve un valor en una tendencia lineal
+PRONOSTICAR.LINEAL       | Devuelve un valor en una tendencia lineal
 FORMULATEXT              | Devuelve la fórmula en la referencia dada como texto
+FRECUENCIA               | Devuelve una distribución de frecuencia como una matriz vertical
 F.TEST                   | Devuelve el resultado de una prueba F
 FTEST                    | Devuelve el resultado de una prueba F. En Excel 2007, esta es una función Estadística
 FV                       | Devuelve el valor futuro de una inversión
@@ -931,6 +938,7 @@ IM.TAN                   | Devuelve la tangente de un número complejo
 INDEX                    | Usa un índice para elegir un valor de una referencia o matriz
 INDIRECTO                | Devuelve una referencia indicada por un valor de texto
 INT                      | Redondea un número hacia abajo hasta el próximo entero
+INTERSECCION.EJE         | Devuelve la intersección de la línea de regresión lineal
 TASA.INT                 | Devuelve la tasa de interés para la inversión total en un valor bursátil
 PAGOINT                  | Devuelve el pago de intereses de una inversión durante un período determinado
 TIR                      | Devuelve la tasa interna de retorno de una inversión para una serie de valores en efectivo
@@ -1013,6 +1021,9 @@ OCT.A.DEC                | Convierte un número octal en decimal
 OCT.A.HEX                | Convierte un número octal en hexadecimal
 ODD                      | Redondea un número hacia arriba hasta el próximo entero impar
 PRECIO.PER.IRREGULAR.1   | Devuelve el precio por cada 100$ del valor nominal de un valor bursátil con un período inicial impar
+RENDTO.PER.IRREGULAR.1   | Devuelve el rendimiento de un valor bursátil con un período inicial impar
+PRECIO.PER.IRREGULAR.2   | Devuelve el precio por cada 100$ del valor nominal de un valor bursátil con un período final impar
+RENDTO.PER.IRREGULAR.2   | Devuelve el rendimiento de un valor bursátil con un período final impar
 OR                       | Devuelve TRUE si algún argumento es TRUE
 P.DURACION               | Devuelve el número de períodos que requiere una inversión para alcanzar un valor especificado
 PEARSON                  | Devuelve el coeficiente de momento de correlación del producto Pearson
@@ -1034,6 +1045,7 @@ PPMT                     | Devuelve el pago del capital de una inversión durant
 PRECIO                   | Devuelve el precio por cada 100$ del valor nominal de un valor bursátil que paga una tasa de interés periódica
 PRECIO.DESCUENTO         | Devuelve el precio por cada 100$ del valor nominal de un valor bursátil con descuento
 PRECIO.VENCIMIENTO       | Devuelve el precio por cada 100$ del valor nominal de un valor bursátil que genera intereses al vencimiento
+PROBABILIDAD             | Devuelve la probabilidad de que los valores de un intervalo se encuentren entre dos límites
 PRODUCT                  | Multiplica sus argumentos
 PROPER                   | Pone en mayúscula la primera letra de cada palabra de un valor de texto
 PV                       | Devuelve el valor presente de una inversión
@@ -1061,6 +1073,8 @@ ROW                      | Devuelve el número de fila de una referencia
 FILAS                    | Devuelve el número de filas de una referencia
 RRI                      | Devuelve una tasa de interés equivalente para el crecimiento de una inversión
 RSQ                      | Devuelve el cuadrado del coeficiente de momento de correlación del producto Pearson
+HALLAR                   | Busca un valor de texto dentro de otro (no distingue mayúsculas de minúsculas)
+HALLARB                  | Busca un valor de texto dentro de otro (no distingue mayúsculas de minúsculas)
 SEC                      | Devuelve la secante de un ángulo
 SECH                     | Devuelve la secante hiperbólica de un ángulo
 SECOND                   | Convierte un número de serie en un segundo
@@ -1107,6 +1121,7 @@ T.DIST                   | Devuelve los puntos porcentuales (probabilidad) de la
 T.DIST.2T                | Devuelve los puntos porcentuales (probabilidad) de la distribución t del Estudiante
 T.DIST.RT                | Devuelve la distribución t del Estudiante
 TDIST                    | Devuelve la distribución t del Estudiante
+TEXTO                    | Da formato a un número y lo convierte en texto
 UNIRCADENAS              | Combinar el texto de múltiples rangos o cadenas
 NSHORA                   | Devuelve el número de serie de una hora determinada
 HORANUMERO               | Convierte una hora en un número de serie en formato de texto
@@ -1127,6 +1142,7 @@ UNICAR                   | Devuelve el carácter Unicode al que hace referencia 
 UNICODE                  | Devuelve el número (punto de código) que corresponde con el primer carácter del texto
 UPPER                    | Convierte el texto en mayúsculas
 VALOR                    | Convierte un argumento de texto en un número
+VALORATEXTO              | Devuelve texto de cualquier valor especificado
 VAR                      | Calcula la varianza en función de una muestra. En Excel 2007, esta es una función Estadística
 VAR.P                    | Calcula la varianza en función de toda la población
 VAR.S                    | Calcula la varianza en función de una muestra

@@ -81,8 +81,9 @@ func main() {
         }
     }
     // create a table
-    if err = f.AddTable(sheetName, "A1:B5",
-        &excelize.TableOptions{
+    if err = f.AddTable(sheetName,
+        &excelize.Table{
+            Range:     "A1:B5",
             Name:      "table",
             StyleName: "TableStyleMedium2",
         },

@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -1070,6 +1073,8 @@ ROW                      | Returns the row number of a reference
 ROWS                     | Returns the number of rows in a reference
 RRI                      | Returns an equivalent interest rate for the growth of an investment
 RSQ                      | Returns the square of the Pearson product moment correlation coefficient
+SEARCH                   | Finds one text value within another (not case-sensitive)
+SEARCHB                  | Finds one text value within another (not case-sensitive)
 SEC                      | Returns the secant of an angle
 SECH                     | Returns the hyperbolic secant of an angle
 SECOND                   | Converts a serial number to a second
@@ -1116,6 +1121,7 @@ T.DIST                   | Returns the Percentage Points (probability) for the S
 T.DIST.2T                | Returns the Percentage Points (probability) for the Student t-distribution
 T.DIST.RT                | Returns the Student's t-distribution
 TDIST                    | Returns the Student's t-distribution
+TEXT                     | Formats a number and converts it to text
 TEXTJOIN                 | Combines the text from multiple ranges and/or strings
 TIME                     | Returns the serial number of a particular time
 TIMEVALUE                | Converts a time in the form of text to a serial number

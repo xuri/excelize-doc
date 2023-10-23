@@ -678,9 +678,12 @@ func main() {
             return
         }
     }
-    if err := f.AddTable("Sheet1", "A1:C2", &excelize.TableOptions{
-        Name: "Table1", StyleName: "TableStyleMedium2",
-    }); err != nil {
+    if err := f.AddTable("Sheet1",
+        &excelize.Table{
+            Range:     "A1:C2",
+            Name:      "Table1",
+            StyleName: "TableStyleMedium2",
+        }); err != nil {
         fmt.Println(err)
         return
     }
@@ -1070,6 +1073,8 @@ LIGNE                        | Renvoie le numéro de ligne d'une référence
 LIGNES                       | Renvoie le nombre de lignes dans une référence
 RRI                          | Renvoie un taux d'intérêt équivalent pour la croissance d'un investissement
 COEFFICIENT.DETERMINATION    | Renvoie la valeur du coefficient de détermination R^2 d'une régression linéaire
+CHERCHE                      | Trouve un texte dans un autre texte (sans respecter la casse)
+CHERCHERB                    | Trouve un texte dans un autre texte (sans respecter la casse)
 SEC                          | Renvoie la sécante d'un angle
 SECH                         | Renvoie la sécante hyperbolique d'un angle
 SECOND                       | Convertit un numéro de série en seconde
@@ -1116,7 +1121,8 @@ T.DIST                       | Renvoie les points de pourcentage (probabilité) 
 T.DIST.2T                    | Renvoie les points de pourcentage (probabilité) pour la distribution suivant la loi T de Student
 T.DIST.RT                    | Renvoie la distribution suivant la loi T de Student
 LOI.STUDENT                  | Renvoie la distribution suivant la loi T de Student
-JOINDRE.TEXTE                | Met en forme un nombre et le convertit en texte
+TEXTE                        | Met en forme un nombre et le convertit en texte
+JOINDRE.TEXTE                | Combiner le texte de plusieurs plages et/ou chaînes
 TEMPS                        | Renvoie le numéro de série d'une heure précise
 TEMPSVAL                     | Convertit une heure au format texte en numéro de série
 T.INV                        | Renvoie la valeur t de la distribution suivant la loi T de Student sous forme de fonction de probabilité et de degrés de liberté
