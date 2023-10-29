@@ -1122,6 +1122,8 @@ T.DIST.2T                    | Renvoie les points de pourcentage (probabilité) 
 T.DIST.RT                    | Renvoie la distribution suivant la loi T de Student
 LOI.STUDENT                  | Renvoie la distribution suivant la loi T de Student
 TEXTE                        | Met en forme un nombre et le convertit en texte
+TEXTEAPRES                   | Retourne le texte qui se trouve après le caractère ou la chaîne de caractères donnés
+TEXTEAVANT                   | Retourne le texte qui se trouve avant un caractère ou une chaîne de caractères donnés
 JOINDRE.TEXTE                | Combiner le texte de plusieurs plages et/ou chaînes
 TEMPS                        | Renvoie le numéro de série d'une heure précise
 TEMPSVAL                     | Convertit une heure au format texte en numéro de série

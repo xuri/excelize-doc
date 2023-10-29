@@ -1122,6 +1122,8 @@ T.DIST.2T                | Devuelve los puntos porcentuales (probabilidad) de la
 T.DIST.RT                | Devuelve la distribución t del Estudiante
 TDIST                    | Devuelve la distribución t del Estudiante
 TEXTO                    | Da formato a un número y lo convierte en texto
+TEXTODESPUES             | Devuelve texto que aparece después de un carácter o una cadena determinados
+TEXTOANTES               | Devuelve el texto que aparece antes de un carácter o una cadena determinados
 UNIRCADENAS              | Combinar el texto de múltiples rangos o cadenas
 NSHORA                   | Devuelve el número de serie de una hora determinada
 HORANUMERO               | Convierte una hora en un número de serie en formato de texto

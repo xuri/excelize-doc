@@ -1122,6 +1122,8 @@ T.DIST.2T                | 傳回 Student T 分配的百分比點 (機率)
 T.DIST.RT                | 傳回 Student T 分配
 TDIST                    | 傳回 Student T 分配
 TEXT                     | 格式化數字並將其轉換為文字
+TEXTAFTER                | 傳回在特定字元或字串之後出現的文字
+TEXTBEFORE               | 傳回特定字元或字串之前的文字
 TEXTJOIN                 | 合併多個範圍和/或字串中的文字
 TIME                     | 傳回特定時間的序列值
 TIMEVALUE                | 將文字形式的時間轉換為序列值

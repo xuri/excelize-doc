@@ -1122,6 +1122,8 @@ T.VERT.2S                 | Gibt die Prozentpunkte (Wahrscheinlichkeit) entsprec
 T.VERT.RE                 | Gibt Werte der (Student) t-Verteilung zurück
 TDIST                     | Gibt Werte der (Student) t-Verteilung zurück
 TEXT                      | Formatiert eine Zahl und wandelt sie in Text um
+TEXTNACH                  | Gibt Text zurück, der nach einem bestimmten Zeichen oder einer Zeichenfolge auftritt
+TEXTVOR                   | Gibt Text zurück, der vor einem bestimmten Zeichen oder einer bestimmten Zeichenfolge auftritt
 TEXTVERKETTEN             | Kombiniert den Text aus mehreren Bereichen und/oder Zeichenfolgen
 ZEIT                      | Gibt die fortlaufende Zahl einer bestimmten Uhrzeit zurück
 ZEITWERT                  | Wandelt eine Uhrzeit in Form von Text in eine fortlaufende Zahl um

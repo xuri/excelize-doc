@@ -1122,6 +1122,8 @@ T.DIST.2T                | Returns the Percentage Points (probability) for the S
 T.DIST.RT                | Returns the Student's t-distribution
 TDIST                    | Returns the Student's t-distribution
 TEXT                     | Formats a number and converts it to text
+TEXTAFTER                | Returns text that occurs after given character or string
+TEXTBEFORE               | Returns text that occurs before a given character or string
 TEXTJOIN                 | Combines the text from multiple ranges and/or strings
 TIME                     | Returns the serial number of a particular time
 TIMEVALUE                | Converts a time in the form of text to a serial number
