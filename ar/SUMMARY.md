@@ -200,6 +200,7 @@
 * [الجدول المحوري](pivot.md#PivotTable)
   * [إنشاء جدول محوري](pivot.md#AddPivotTable)
   * [الحصول على الجداول المحورية](pivot.md#GetPivotTables)
+  * [حذف الجدول المحوري](pivot.md#DeletePivotTable)
 * [عناصر تحكم النموذج](formControl.md)
   * [إضافة عنصر تحكم نموذج](formControl.md#AddFormControl)
   * [احصل على عناصر تحكم النموذج](formControl.md#GetFormControls)

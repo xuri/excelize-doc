@@ -200,6 +200,7 @@
 * [Pivot-Tabelle](pivot.md#PivotTable)
   * [Erstellen einer Pivot-Tabelle](pivot.md#AddPivotTable)
   * [Holen Sie sich Pivot-Tabellen](pivot.md#GetPivotTables)
+  * [Pivot-Tabelle entfernen](pivot.md#DeletePivotTable)
 * [Formular-Steuerelemente](formControl.md)
   * [Hinzufügen von Formularsteuerelemente](formControl.md#AddFormControl)
   * [Holen Sie sich Formularsteuerelemente](formControl.md#GetFormControls)

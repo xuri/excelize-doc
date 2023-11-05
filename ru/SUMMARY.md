@@ -200,6 +200,7 @@
 * [Сводная таблица](pivot.md#PivotTable)
   * [Создать сводную таблицу](pivot.md#AddPivotTable)
   * [Получить сводные таблицы](pivot.md#GetPivotTables)
+  * [Удалить сводную таблицу](pivot.md#DeletePivotTable)
 * [Элементы управления формы](formControl.md)
   * [Добавить элемент управления формой](formControl.md#AddFormControl)
   * [Получить элементы управления формой](formControl.md#GetFormControls)

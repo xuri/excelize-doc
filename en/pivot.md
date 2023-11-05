@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables returns all pivot table definitions in a worksheet by given worksheet name.
+
+## Delete pivot table {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable delete a pivot table by giving the worksheet name and pivot table name. Note that this function does not clean cell values in the pivot table range.

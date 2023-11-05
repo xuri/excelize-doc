@@ -153,3 +153,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 تقوم GetPivotTables بإرجاع كافة تعريفات الجدول المحوري في ورقة العمل حسب اسم ورقة العمل المحدد.
+
+## حذف الجدول المحوري {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+تقوم DeletePivotTable بحذف جدول محوري عن طريق إعطاء اسم ورقة العمل واسم الجدول المحوري. لاحظ أن هذه الوظيفة لا تقوم بتنظيف قيم الخلايا في نطاق الجدول المحوري.

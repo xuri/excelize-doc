@@ -200,6 +200,7 @@
 * [피벗 테이블](pivot.md#PivotTable)
   * [피벗 테이블 만들기](pivot.md#AddPivotTable)
   * [피벗 테이블 가져오기](pivot.md#GetPivotTables)
+  * [피벗 테이블 삭제](pivot.md#DeletePivotTable)
 * [양식 컨트롤](formControl.md)
   * [양식 컨트롤 추가](formControl.md#AddFormControl)
   * [양식 컨트롤 가져오기](formControl.md#GetFormControls)

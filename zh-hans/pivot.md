@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 根据给定的工作表名称返回该工作表中的全部数据透视表属性。
+
+## 删除数据透视表 {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+根据给定的工作表名称和数据透视表名称删除指定数据透视表。请注意，该函数不会清除数据透视表区域内单元格的值。

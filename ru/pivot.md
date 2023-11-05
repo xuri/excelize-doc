@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables возвращает все определения сводных таблиц на листе по заданному имени листа.
+
+## Удалить сводную таблицу {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable удалите сводную таблицу, указав имя рабочего листа и имя сводной таблицы. Обратите внимание, что эта функция не очищает значения ячеек в диапазоне сводной таблицы.

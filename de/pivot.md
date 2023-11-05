@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables gibt alle Pivot-Tabellendefinitionen in einem Arbeitsblatt nach dem angegebenen Arbeitsblattnamen zurück.
+
+## Pivot-Tabelle entfernen {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable löscht eine Pivot-Tabelle durch Angabe des Arbeitsblattnamens und des Pivot-Tabellennamens. Beachten Sie, dass diese Funktion keine Zellwerte im Pivot-Tabellenbereich bereinigt.

@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables は、指定されたワークシート名によりワークシート内のすべてのピボット テーブル定義を返します。
+
+## ピボットテーブルの削除 {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable は、ワークシート名とピボット テーブル名を指定してピボット テーブルを削除します。この関数はピボット テーブル範囲内のセル値を消去しないことに注意してください。

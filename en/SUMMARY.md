@@ -200,6 +200,7 @@
 * [Pivot Table](pivot.md#PivotTable)
   * [Create pivot table](pivot.md#AddPivotTable)
   * [Get pivot tables](pivot.md#GetPivotTables)
+  * [Delete pivot table](pivot.md#DeletePivotTable)
 * [Form controls](formControl.md)
   * [Add form control](formControl.md#AddFormControl)
   * [Get form controls](formControl.md#GetFormControls)

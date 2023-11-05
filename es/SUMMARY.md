@@ -200,6 +200,7 @@
 * [Tabla dinámica](pivot.md#PivotTable)
   * [Crear una tabla dinámica](pivot.md#AddPivotTable)
   * [Obtener tablas dinámicas](pivot.md#GetPivotTables)
+  * [Eliminar tabla dinámica](pivot.md#DeletePivotTable)
 * [Controles de formulario](formControl.md)
   * [Agregar control de formulario](formControl.md#AddFormControl)
   * [Obtener controles de formulario](formControl.md#GetFormControls)

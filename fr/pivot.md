@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables renvoie toutes les définitions de tableau croisé dynamique dans une feuille de calcul par nom de feuille de calcul donné.
+
+## Supprimer le tableau croisé dynamique {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable supprime un tableau croisé dynamique en donnant le nom de la feuille de calcul et le nom du tableau croisé dynamique. Notez que cette fonction ne nettoie pas les valeurs des cellules dans la plage du tableau croisé dynamique.

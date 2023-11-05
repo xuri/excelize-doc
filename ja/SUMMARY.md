@@ -200,6 +200,7 @@
 * [ピボットテーブル](pivot.md#PivotTable)
   * [ピボットテーブルを作成する](pivot.md#AddPivotTable)
   * [ピボットテーブルを取得する](pivot.md#GetPivotTables)
+  * [ピボットテーブルの削除](pivot.md#DeletePivotTable)
 * [フォーム コントロール](formControl.md)
   * [フォーム コントロールの追加](formControl.md#AddFormControl)
   * [フォーム コントロールを取得する](formControl.md#GetFormControls)

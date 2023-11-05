@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables devuelve todas las definiciones de tablas dinámicas en una hoja de trabajo por nombre de hoja de trabajo dado.
+
+## Eliminar tabla dinámica {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable elimina una tabla dinámica dando el nombre de la hoja de trabajo y el nombre de la tabla dinámica. Tenga en cuenta que esta función no limpia los valores de celda en el rango de la tabla dinámica.

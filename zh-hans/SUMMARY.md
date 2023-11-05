@@ -200,6 +200,7 @@
 * [数据透视表](pivot.md#PivotTable)
   * [创建数据透视表](pivot.md#AddPivotTable)
   * [获取数据透视表](pivot.md#GetPivotTables)
+  * [删除数据透视表](pivot.md#DeletePivotTable)
 * [表单控件](formControl.md)
   * [添加表单控件](formControl.md#AddFormControl)
   * [获取表单控件](formControl.md#GetFormControls)

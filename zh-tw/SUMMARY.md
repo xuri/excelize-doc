@@ -200,6 +200,7 @@
 * [樞紐分析表](pivot.md#PivotTable)
   * [創建樞紐分析表](pivot.md#AddPivotTable)
   * [獲取樞紐分析表](pivot.md#GetPivotTables)
+  * [刪除樞紐分析表](pivot.md#DeletePivotTable)
 * [表單控制項](formControl.md)
   * [添加表單控制項](formControl.md#AddFormControl)
   * [獲取表單控制項](formControl.md#GetFormControls)

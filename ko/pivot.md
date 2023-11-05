@@ -146,3 +146,11 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
 GetPivotTables 는 지정된 워크시트 이름으로 워크시트의 모든 피벗 테이블 정의를 반환합니다.
+
+## 피벗 테이블 삭제 {#DeletePivotTable}
+
+```go
+func (f *File) DeletePivotTable(sheet, name string) error
+```
+
+DeletePivotTable 는 워크시트 이름과 피벗 테이블 이름을 제공하여 피벗 테이블을 삭제합니다. 이 함수는 피벗 테이블 범위의 셀 값을 정리하지 않습니다.

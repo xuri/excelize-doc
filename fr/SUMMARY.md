@@ -200,6 +200,7 @@
 * [Tableau croisé dynamique](pivot.md#PivotTable)
   * [Créer un tableau croisé dynamique](pivot.md#AddPivotTable)
   * [Obtenir des tableaux pivotants](pivot.md#GetPivotTables)
+  * [Supprimer le tableau croisé dynamique](pivot.md#DeletePivotTable)
 * [Contrôles de formulaire](formControl.md)
   * [Ajouter un contrôle de formulaire](formControl.md#AddFormControl)
   * [Obtenir des contrôles de formulaire](formControl.md#GetFormControls)
