@@ -85,6 +85,7 @@
   * [Définir la valeur booléenne](cell.md#SetCellBool)
   * [Définir la valeur RAW](cell.md#SetCellDefault)
   * [Définir la valeur entière](cell.md#SetCellInt)
+  * [Définir une valeur entière non signée](cell.md#SetCellUint)
   * [Définir la valeur en virgule flottante](cell.md#SetCellFloat)
   * [Définir la valeur de chaîne](cell.md#SetCellStr)
   * [Définir le style de cellule](cell.md#SetCellStyle)

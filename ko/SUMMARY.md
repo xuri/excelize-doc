@@ -85,6 +85,7 @@
   * [부울 값 설정](cell.md#SetCellBool)
   * [RAW 값 설정](cell.md#SetCellDefault)
   * [정수 값 설정](cell.md#SetCellInt)
+  * [부호 없는 정수 값 설정](cell.md#SetCellUint)
   * [부동 소수점 값 설정](cell.md#SetCellFloat)
   * [문자열 값 설정](cell.md#SetCellStr)
   * [셀 스타일 설정](cell.md#SetCellStyle)

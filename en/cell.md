@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt provides a function to set the int type value of a cell by given worksheet name, cell reference, and cell value.
 
+## Set unsigned integer value {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+SetCellUint provides a function to set unsigned integer data type value of a cell by given worksheet name, cell reference and cell value.
+
 ## Set floating point value {#SetCellFloat}
 
 ```go

@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 指定されたワークシート名とセル座標に基づいて、実際のセルの値を設定します。
 
+## 符号なし整数値を設定する {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+SetCellUint は、指定されたワークシート名、セル参照、およびセル値によってセルの符号なし整数データ型の値を設定する関数を提供します。
+
 ## 浮動小数点値の設定 {#SetCellFloat}
 
 ```go

@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt fournit une fonction pour définir la valeur de type int d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
 
+## Définir une valeur entière non signée {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+SetCellUint fournit une fonction permettant de définir la valeur de type de données entier non signé d'une cellule par nom de feuille de calcul, référence de cellule et valeur de cellule donnés.
+
 ## Définir la valeur en virgule flottante {#SetCellFloat}
 
 ```go

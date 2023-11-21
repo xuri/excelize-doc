@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 根据给定的工作表名和单元格坐标设置整数型单元格的值。
 
+## 设置无符号整型值 {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+根据给定的工作表名和单元格坐标设置无符号整型单元格的值。
+
 ## 设置浮点数 {#SetCellFloat}
 
 ```go

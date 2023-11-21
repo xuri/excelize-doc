@@ -85,6 +85,7 @@
   * [设置布尔型值](cell.md#SetCellBool)
   * [设置默认字符型值](cell.md#SetCellDefault)
   * [设置整数](cell.md#SetCellInt)
+  * [设置无符号整型值](cell.md#SetCellUint)
   * [设置浮点数](cell.md#SetCellFloat)
   * [设置字符型值](cell.md#SetCellStr)
   * [设置单元格样式](cell.md#SetCellStyle)

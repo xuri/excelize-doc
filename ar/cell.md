@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 يوفر SetCellInt دالة لتعيين قيمة نوع int لخلية من خلال اسم ورقة العمل المحدد وإحداثيات الخلية وقيمة الخلية.
 
+## تعيين قيمة عدد صحيح غير موقعة {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+يوفر SetCellUint وظيفة لتعيين قيمة نوع البيانات الصحيحة غير الموقعة للخلية من خلال اسم ورقة العمل المحددة ومرجع الخلية وقيمة الخلية.
+
 ## تعيين قيمة النقطة العائمة {#SetCellFloat}
 
 ```go

@@ -85,6 +85,7 @@
   * [Festlegen eines booleschen Werts](cell.md#SetCellBool)
   * [Festlegen des RAW-Werts](cell.md#SetCellDefault)
   * [Ganzzahlwert festlegen](cell.md#SetCellInt)
+  * [Legen Sie einen vorzeichenlosen Ganzzahlwert fest](cell.md#SetCellUint)
   * [Gleitkommawert festlegen](cell.md#SetCellFloat)
   * [Festlegen des Zeichenfolgenwerts](cell.md#SetCellStr)
   * [Festlegen des Zellstils](cell.md#SetCellStyle)

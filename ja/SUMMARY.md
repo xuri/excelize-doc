@@ -86,6 +86,7 @@
   * [既定の文字の種類の値を設定する](cell.md#SetCellDefault)
   * [実数を設定する](cell.md#SetCellInt)
   * [浮動小数点値の設定](cell.md#SetCellFloat)
+  * [符号なし整数値を設定する](cell.md#SetCellUint)
   * [文字列値の設定](cell.md#SetCellStr)
   * [セルスタイルの設定](cell.md#SetCellStyle)
   * [ハイパーリンクの設定](cell.md#SetCellHyperLink)

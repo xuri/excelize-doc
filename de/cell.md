@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt bietet eine Funktion zum Festlegen des Int-Typ-Werts einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellkoordinaten und des Zellenwerts.
 
+## Legen Sie einen vorzeichenlosen Ganzzahlwert fest {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+SetCellUint bietet eine Funktion zum Festlegen eines vorzeichenlosen ganzzahligen Datentypwerts einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellreferenz und des Zellwerts.
+
 ## Gleitkommawert festlegen {#SetCellFloat}
 
 ```go

@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt proporciona una función para establecer el valor de tipo int de una celda por nombre de hoja de trabajo, coordenadas de celda y valor de celda dados.
 
+## Establecer un valor entero sin signo {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+SetCellUint proporciona una función para establecer el valor del tipo de datos entero sin signo de una celda según el nombre de la hoja de trabajo, la referencia de celda y el valor de celda.
+
 ## Establecer valor de coma flotante {#SetCellFloat}
 
 ```go

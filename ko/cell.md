@@ -82,6 +82,14 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 
 SetCellInt 는 지정된 워크 시트 이름, 셀 좌표 및 셀 값으로 셀의 int 형식 값을 설정하는 기능을 제공합니다.
 
+## 부호 없는 정수 값 설정 {#SetCellUint}
+
+```go
+func (f *File) SetCellUint(sheet, cell string, value uint64) error
+```
+
+SetCellUint 는 주어진 워크시트 이름, 셀 참조 및 셀 값을 기준으로 셀의 부호 없는 정수 데이터 유형 값을 설정하는 기능을 제공합니다.
+
 ## 부동 소수점 값 설정 {#SetCellFloat}
 
 ```go
