@@ -101,6 +101,7 @@
   * [دمج الخلايا](cell.md#MergeCell)
   * [خلايا إلغاء الدمج](cell.md#UnmergeCell)
   * [الحصول على خلايا دمج](cell.md#GetMergeCells)
+  * [الحصول على خلايا الصورة](cell.md#GetPictureCells)
   * [إضافة تعليق](cell.md#AddComment)
   * [الحصول على تعليق](cell.md#GetComments)
   * [حذف تعليق](cell.md#DeleteComment)

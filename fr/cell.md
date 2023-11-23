@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis renvoie les coordonnées de la cellule en bas à droite de la plage fusionnée, par exemple: `D4`.
 
+## Obtenir des cellules d'image {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells renvoie toutes les références de cellules d'image dans une feuille de calcul par un nom de feuille de calcul spécifique.
+
 ## Ajouter un commentaire {#AddComment}
 
 ```go

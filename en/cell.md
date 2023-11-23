@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis returns the bottom right cell reference of merged range, for example: `D4`.
 
+## Get picture cells {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells returns all picture cell references in a worksheet by a specific worksheet name.
+
 ## Add comment {#AddComment}
 
 ```go

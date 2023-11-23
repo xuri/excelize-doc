@@ -101,6 +101,7 @@
   * [Combinar celdas](cell.md#MergeCell)
   * [Unmerge celdas](cell.md#UnmergeCell)
   * [Obtener celdas de combinación](cell.md#GetMergeCells)
+  * [Obtener celdas de imagen](cell.md#GetPictureCells)
   * [Añadir comentario](cell.md#AddComment)
   * [Obtener comentarios](cell.md#GetComments)
   * [Eliminar comentario](cell.md#DeleteComment)

@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis devuelve las coordenadas de la celda inferior derecha del rango combinado, por ejemplo: `D4`.
 
+## Obtener celdas de imagen {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells devuelve todas las referencias de celdas de imágenes en una hoja de trabajo con un nombre de hoja de trabajo específico.
+
 ## Añadir comentario {#AddComment}
 
 ```go

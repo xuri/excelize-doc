@@ -101,6 +101,7 @@
   * [Zusammenführen von Zellen](cell.md#MergeCell)
   * [Unmerge-Zellen](cell.md#UnmergeCell)
   * [Abrufen von Zusammenführungszellen](cell.md#GetMergeCells)
+  * [Holen Sie sich Bildzellen](cell.md#GetPictureCells)
   * [Kommentar hinzufügen](cell.md#AddComment)
   * [Kommentar abrufen](cell.md#GetComments)
   * [Kommentar löschen](cell.md#DeleteComment)

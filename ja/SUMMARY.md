@@ -101,6 +101,7 @@
   * [セルを結合](cell.md#MergeCell)
   * [セルの結合を解除](cell.md#UnmergeCell)
   * [セルを結合する](cell.md#GetMergeCells)
+  * [画像セルを取得する](cell.md#GetPictureCells)
   * [コメント追加](cell.md#AddComment)
   * [コメントを得る](cell.md#GetComments)
   * [コメントを削除](cell.md#DeleteComment)

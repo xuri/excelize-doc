@@ -101,6 +101,7 @@
   * [Объединить ячейки](cell.md#MergeCell)
   * [Отменить объединение ячеек](cell.md#UnmergeCell)
   * [Получить ячейки слияния](cell.md#GetMergeCells)
+  * [Получить клетки изображения](cell.md#GetPictureCells)
   * [Добавить комментарий](cell.md#AddComment)
   * [Получить комментарий](cell.md#GetComments)
   * [Удалить комментарий](cell.md#DeleteComment)

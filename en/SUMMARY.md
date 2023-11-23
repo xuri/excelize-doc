@@ -101,6 +101,7 @@
   * [Merge cells](cell.md#MergeCell)
   * [Unmerge cells](cell.md#UnmergeCell)
   * [Get merge cells](cell.md#GetMergeCells)
+  * [Get picture cells](cell.md#GetPictureCells)
   * [Add comment](cell.md#AddComment)
   * [Get comment](cell.md#GetComments)
   * [Delete comment](cell.md#DeleteComment)

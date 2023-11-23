@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis возвращает координаты нижней правой ячейки объединенного диапазона, например: `D4`.
 
+## Получить клетки изображения {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells возвращает все ссылки на ячейки изображений на листе по определенному имени листа.
+
 ## Добавить комментарий {#AddComment}
 
 ```go

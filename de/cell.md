@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis gibt die unteren rechten Zellenkoordinaten des zusammengeführten Bereichs zurück, zum Beispiel: `D4`.
 
+## Holen Sie sich Bildzellen {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells gibt alle Bildzellenverweise in einem Arbeitsblatt unter einem bestimmten Arbeitsblattnamen zurück.
+
 ## Kommentar hinzufügen {#AddComment}
 
 ```go

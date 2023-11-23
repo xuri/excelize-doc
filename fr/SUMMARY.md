@@ -101,6 +101,7 @@
   * [Fusionner les cellules](cell.md#MergeCell)
   * [Dissocier les cellules](cell.md#UnmergeCell)
   * [Obtenir les cellules fusionnées](cell.md#GetMergeCells)
+  * [Obtenir des cellules d'image](cell.md#GetPictureCells)
   * [Ajouter un commentaire](cell.md#AddComment)
   * [Obtenir un commentaire](cell.md#GetComments)
   * [Supprimer le commentaire](cell.md#DeleteComment)

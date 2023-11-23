@@ -101,6 +101,7 @@
   * [合并单元格](cell.md#MergeCell)
   * [取消合并单元格](cell.md#UnmergeCell)
   * [获取合并单元格](cell.md#GetMergeCells)
+  * [获取图片单元格](cell.md#GetPictureCells)
   * [添加批注](cell.md#AddComment)
   * [获取批注](cell.md#GetComments)
   * [删除批注](cell.md#DeleteComment)

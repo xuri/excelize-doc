@@ -101,6 +101,7 @@
   * [合併儲存格](cell.md#MergeCell)
   * [取消合併儲存格](cell.md#UnmergeCell)
   * [獲取合併儲存格](cell.md#GetMergeCells)
+  * [獲取圖片存儲格](cell.md#GetPictureCells)
   * [添加註解](cell.md#AddComment)
   * [獲取註解](cell.md#GetComments)
   * [刪除註解](cell.md#DeleteComment)

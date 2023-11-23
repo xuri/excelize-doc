@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis 返回合併存儲格區域右下角存儲格的坐標，例如：`D4`。
 
+## 獲取圖片存儲格 {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+根據給定的工作表名稱獲取該工作表中，包含圖片的全部存儲格坐標。
+
 ## 添加註解 {#AddComment}
 
 ```go

@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis は、マージされた範囲の右下のセル座標を返します（例：`D4`）。
 
+## 画像セルを取得する {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells は、特定のワークシート名でワークシート内のすべてのピクチャ セル参照を返します。
+
 ## コメント追加 {#AddComment}
 
 ```go

@@ -577,6 +577,14 @@ func (m *MergeCell) GetEndAxis() string
 
 يُرجع GetEndAxis إحداثيات الخلية اليمنى السفلية للنطاق المدمج ، على سبيل المثال: `D4`.
 
+## الحصول على خلايا الصورة {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+تقوم GetPictureCells بإرجاع كافة مراجع خلايا الصورة في ورقة عمل بواسطة اسم ورقة عمل محدد.
+
 ## إضافة تعليق {#AddComment}
 
 ```go

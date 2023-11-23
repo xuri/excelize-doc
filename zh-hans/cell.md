@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis 返回合并单元格区域右下角单元格的坐标，例如：`D4`。
 
+## 获取图片单元格 {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+根据给定的工作表名称获取该工作表中，包含图片的全部单元格坐标。
+
 ## 添加批注 {#AddComment}
 
 ```go

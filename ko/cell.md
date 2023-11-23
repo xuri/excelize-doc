@@ -571,6 +571,14 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis 는 병합된 범위의 오른쪽 하단 셀 좌표를 반환합니다, 예: `D4`.
 
+## 그림 셀 얻기 {#GetPictureCells}
+
+```go
+func (f *File) GetPictureCells(sheet string) ([]string, error)
+```
+
+GetPictureCells 는 특정 워크시트 이름으로 워크시트의 모든 그림 셀 참조를 반환합니다.
+
 ## 의견 추가 {#AddComment}
 
 ```go

@@ -101,6 +101,7 @@
   * [셀 병합](cell.md#MergeCell)
   * [셀 병합 취소](cell.md#UnmergeCell)
   * [병합 셀 가져 오기](cell.md#GetMergeCells)
+  * [그림 셀 얻기](cell.md#GetPictureCells)
   * [의견 추가](cell.md#AddComment)
   * [의견 가져 오기](cell.md#GetComments)
   * [댓글 삭제](cell.md#DeleteComment)
