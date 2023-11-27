@@ -265,13 +265,21 @@ excelize.CoordinatesToCellName(1, 1) // إرجاع "A1", nil
 excelize.CoordinatesToCellName(1, 1, true) // إرجاع "$A$1", nil
 ```
 
-## النمط الشرطي {#NewConditionalStyle}
+## إنشاء نمط شرطي {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 يوفر NewConditionalStyle وظيفة لإنشاء نمط للتنسيق الشرطي بتنسيق نمط معين. المعلمات هي نفس الوظيفة [`NewStyle`](style.md#NewStyle). لاحظ أن حقل اللون يستخدم رمز لون RGB ويدعم فقط تعيين الخط والتعبئة والمحاذاة والحدود حاليًا.
+
+## احصل على النمط الشرطي {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+يقوم GetConditionalStyle بإرجاع تعريف نمط التنسيق الشرطي من خلال فهرس النمط المحدد.
 
 ## تعيين تنسيق شرطي {#SetConditionalFormat}
 

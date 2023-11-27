@@ -265,13 +265,21 @@ excelize.CoordinatesToCellName(1, 1) // rückkehr "A1", nil
 excelize.CoordinatesToCellName(1, 1, true) // rückkehr "$A$1", nil
 ```
 
-## Bedingter Stil {#NewConditionalStyle}
+## Erstellen Sie einen bedingten Stil {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle bietet eine Funktion zum Erstellen eines Stils für das bedingte Format anhand des angegebenen Stilformats. Die Parameter sind die gleichen wie bei der Funktion [`NewStyle`](style.md#NewStyle). Beachten Sie, dass das Farbfeld RGB-Farbcode verwendet und nur das Festlegen von Schriftart, Füllungen, Ausrichtung und Rahmen unterstützt.
+
+## Holen Sie sich den bedingten Stil {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+GetConditionalStyle gibt die Definition des bedingten Formatstils anhand des angegebenen Stilindex zurück.
 
 ## Bedingtes Format festlegen {#SetConditionalFormat}
 

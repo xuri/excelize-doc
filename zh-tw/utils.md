@@ -270,6 +270,14 @@ func (f *File) NewConditionalStyle(style *Style) (int, error)
 
 透過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函式的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和外框的色彩。
 
+## 獲取條件式格式樣式 {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+根據給定的條件式格式樣式索引獲取條件式格式樣式定義。
+
 ## 設定條件式格式 {#SetConditionalFormat}
 
 ```go

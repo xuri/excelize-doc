@@ -265,13 +265,21 @@ excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
 excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
-## Стиль стиля {#NewConditionalStyle}
+## Создать условный стиль {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle предоставляет функцию для создания стиля для условного формата по заданному стилю. Параметры такие же, как и функция [`NewStyle`](style.md#NewStyle). Обратите внимание, что в цветовом поле используется цветовой код RGB и поддерживается только для установки шрифта, заливок, выравнивания и границ в настоящее время.
+
+## Получить условный стиль {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+GetConditionalStyle возвращает определение стиля условного формата по указанному индексу стиля.
 
 ## Установка условного формата {#SetConditionalFormat}
 

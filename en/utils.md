@@ -265,13 +265,21 @@ excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
 excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
-## Conditional style {#NewConditionalStyle}
+## Create conditional style {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle provides a function to create a style for the conditional format by given style format. The parameters are the same with the [`NewStyle`](style.md#NewStyle) function. Note that the color field uses RGB color code and only supports setting the font, fills, alignment, and borders currently.
+
+## Get conditional style {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+GetConditionalStyle returns conditional format style definition by specified style index.
 
 ## Set conditional format {#SetConditionalFormat}
 

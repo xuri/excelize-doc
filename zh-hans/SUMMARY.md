@@ -220,6 +220,7 @@
   * [单元格坐标转索引](utils.md#CellNameToCoordinates)
   * [索引转单元格坐标](utils.md#CoordinatesToCellName)
   * [创建条件格式样式](utils.md#NewConditionalStyle)
+  * [获取条件格式样式](utils.md#GetConditionalStyle)
   * [设置条件格式](utils.md#SetConditionalFormat)
   * [获取条件格式](utils.md#GetConditionalFormats)
   * [删除条件格式](utils.md#UnsetConditionalFormat)

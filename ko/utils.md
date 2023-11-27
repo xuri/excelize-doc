@@ -265,13 +265,21 @@ excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
 excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
-## 조건 스타일 {#NewConditionalStyle}
+## 조건부 스타일 만들기 {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle 지정된 스타일 형식에 의해 조건부 형식에 대 한 스타일을 만드는 함수를 제공 합니다. 매개 변수는 함수 [`NewStyle`](style.md#NewStyle) 와 동일합니다. 색상 필드는 RGB 색상 코드를 사용하고 현재 글꼴, 채우기, 정렬 및 테두리를 설정하기 위해 지원만 사용합니다.
+
+## 조건부 스타일 가져오기 {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+GetConditionalStyle 은 지정된 스타일 인덱스로 조건부 형식 스타일 정의를 반환합니다.
 
 ## 조건 형식 {#SetConditionalFormat}
 

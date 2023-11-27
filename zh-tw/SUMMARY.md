@@ -220,6 +220,7 @@
   * [儲存格坐標轉索引](utils.md#CellNameToCoordinates)
   * [索引轉儲存格坐標](utils.md#CoordinatesToCellName)
   * [創建條件式格式樣式](utils.md#NewConditionalStyle)
+  * [獲取條件式格式樣式](utils.md#GetConditionalStyle)
   * [設定條件式格式](utils.md#SetConditionalFormat)
   * [獲取條件式格式](utils.md#GetConditionalFormats)
   * [刪除條件式格式](utils.md#UnsetConditionalFormat)

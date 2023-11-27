@@ -265,13 +265,21 @@ excelize.CoordinatesToCellName(1, 1) // returns "A1", nil
 excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 ```
 
-## 条件付き書式スタイルの作成 {#NewConditionalStyle}
+## 条件付きスタイルを作成する {#NewConditionalStyle}
 
 ```go
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
 NewConditionalStyle には、指定されたスタイル形式で条件付き書式のスタイルを作成する関数が提供されます。パラメータは関数 [`NewStyle`](style.md#NewStyle) と同じです。カラー フィールドは RGB カラー コードを使用し、現在のフォント、塗りつぶし、位置合わせ、および罫線の設定のみをサポートすることに注意してください。
+
+## 条件付きスタイルを取得する {#GetConditionalStyle}
+
+```go
+func (f *File) GetConditionalStyle(idx int) (*Style, error)
+```
+
+GetConditionalStyle は、指定されたスタイル インデックスによる条件付き書式スタイル定義を返します。
 
 ## 条件付き書式の設定 {#SetConditionalFormat}
 
