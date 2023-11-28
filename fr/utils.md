@@ -313,19 +313,6 @@ L'option `Type` est un paramètre obligatoire et n'a pas de valeur par défaut. 
             <td>MaxValue</td>
         </tr>
         <tr>
-            <td rowspan=4>date</td>
-            <td>Criteria</td>
-        </tr>
-        <tr>
-            <td>Value</td>
-        </tr>
-        <tr>
-            <td>MinValue</td>
-        </tr>
-        <tr>
-            <td>MaxValue</td>
-        </tr>
-        <tr>
             <td>time_period</td>
             <td>Criteria</td>
         </tr>

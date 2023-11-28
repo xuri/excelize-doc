@@ -313,19 +313,6 @@ SetConditionalFormat 는 셀 값에 대한 조건부 서식 지정 규칙을 만
             <td>MaxValue</td>
         </tr>
         <tr>
-            <td rowspan=4>date</td>
-            <td>Criteria</td>
-        </tr>
-        <tr>
-            <td>Value</td>
-        </tr>
-        <tr>
-            <td>MinValue</td>
-        </tr>
-        <tr>
-            <td>MaxValue</td>
-        </tr>
-        <tr>
             <td>time_period</td>
             <td>Criteria</td>
         </tr>
