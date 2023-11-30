@@ -10,7 +10,7 @@ AddDataValidation fournit la validation des données définies sur une plage de 
 
 Exemple 1, validation de données situé sur `Sheet1!A1:B2` avec les paramètres de critères de validation, d'alerte d'erreur de série après des données non valides sont entrées avec "Stop" style et titre personnalisé "error body":
 
-!["La validation des données"](./images/data_validation_01.png "La validation des données")
+<p align="center"><img width="705" src="./images/data_validation_01.png" alt="La validation des données"></p>
 
 ```go
 dv := excelize.NewDataValidation(true)
@@ -22,7 +22,7 @@ f.AddDataValidation("Sheet1", dv)
 
 Exemple 2, définissez la validation des données sur `Sheet1!A3:B4` avec les paramètres de validation et affichez le message lorsque la cellule est sélectionnée:
 
-!["La validation des données"](./images/data_validation_02.png "La validation des données")
+<p align="center"><img width="705" src="./images/data_validation_02.png" alt="La validation des données"></p>
 
 ```go
 dv = excelize.NewDataValidation(true)
@@ -34,7 +34,7 @@ f.AddDataValidation("Sheet1", dv)
 
 Exemple 3, définissez la validation des données sur `Sheet1!A5:B6` avec les paramètres de validation, créez un menu déroulant dans la cellule en autorisant la source de liste:
 
-!["La validation des données"](./images/data_validation_03.png "La validation des données")
+<p align="center"><img width="705" src="./images/data_validation_03.png" alt="La validation des données"></p>
 
 ```go
 dv = excelize.NewDataValidation(true)
@@ -47,7 +47,7 @@ Si vous saisissez les éléments dans la boîte de dialogue de validation des do
 
 Example 4，définir la validation des données sur `Sheet1!A7:B8` avec la source des critères de validation `Sheet1!E1:E3`, créer un menu déroulant dans la cellule en autorisant la source de liste:
 
-!["Data validation"](./images/data_validation_04.png "Data validation")
+<p align="center"><img width="705" src="./images/data_validation_04.png" alt="La validation des données"></p>
 
 ```go
 dv := excelize.NewDataValidation(true)

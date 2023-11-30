@@ -587,7 +587,7 @@ func (f *File) AddComment(sheet string, comment Comment) error
 
 AddComment fournit la méthode pour ajouter un commentaire dans une feuille par index de feuille de calcul, cellule et ensemble de formats donnés (tels que l'auteur et le texte). Notez que la longueur maximale de l'auteur est 255 et la longueur maximale du texte est 32512. Par exemple, ajoutez un commentaire dans `Sheet1!$A$3`:
 
-!["Ajouter un commentaire à un document Excel"](./images/comment.png "Ajouter un commentaire à un document Excel")
+<p align="center"><img width="612" src="./images/comment.png" alt="Ajouter un commentaire à un document Excel"></p>
 
 ```go
 err := f.AddComment("Sheet1", excelize.Comment{
@@ -595,7 +595,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
     Author: "Excelize",
     Paragraph: []excelize.RichTextRun{
         {Text: "Excelize: ", Font: &excelize.Font{Bold: true}},
-        {Text: "This is a comment."},
+        {Text: "Il s'agit d'un commentaire."},
     },
 })
 ```
