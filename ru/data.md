@@ -10,7 +10,7 @@ AddDataValidation предоставляет проверенную провер
 
 Пример 1, установите проверку данных на `Sheet1!A1:B2` с настройками критериев проверки, покажите предупреждение об ошибке после ввода неверных данных с стилем "Stop" и пользовательским названием "error body":
 
-!["Проверка данных"](./images/data_validation_01.png "Проверка данных")
+<p align="center"><img width="710" src="./images/data_validation_01.png" alt="Проверка данных"></p>
 
 ```go
 dv := excelize.NewDataValidation(true)
@@ -22,7 +22,7 @@ f.AddDataValidation("Sheet1", dv)
 
 Пример 2, установите проверку данных на `Sheet1!A3:B4` с настройками критериев проверки и покажите входное сообщение, когда выбрана ячейка:
 
-!["Проверка данных"](./images/data_validation_02.png "Проверка данных")
+<p align="center"><img width="710" src="./images/data_validation_02.png" alt="Проверка данных"></p>
 
 ```go
 dv = excelize.NewDataValidation(true)
@@ -34,7 +34,7 @@ f.AddDataValidation("Sheet1", dv)
 
 Пример 3, установите проверку данных на `Sheet1!A5:B6` с настройками критериев проверки, создайте раскрывающийся список в ячейке, используя источник списка:
 
-!["Проверка данных"](./images/data_validation_03.png "Проверка данных")
+<p align="center"><img width="710" src="./images/data_validation_03.png" alt="Проверка данных"></p>
 
 ```go
 dv = excelize.NewDataValidation(true)
@@ -47,7 +47,7 @@ f.AddDataValidation("Sheet1", dv)
 
 Пример 4, установите проверку данных на `Sheet1!A7:B8` с параметрами критериев проверки. Параметры `Sheet1!E1:E3`, создайте раскрывающийся список в ячейке, разрешив источник списка:
 
-!["Data validation"](./images/data_validation_04.png "Data validation")
+<p align="center"><img width="710" src="./images/data_validation_04.png" alt="Проверка данных"></p>
 
 ```go
 dv := excelize.NewDataValidation(true)
