@@ -6,16 +6,16 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-يوفر SetColVisible وظيفة لتعيين مرئي لعمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، إخفاء العمود `D` في `Sheet1`:
+يوفر SetColVisible وظيفة لتعيين مرئي لعمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، إخفاء العمود `D` في `ورقة1`:
 
 ```go
-err := f.SetColVisible("Sheet1", "D", false)
+err := f.SetColVisible("ورقة1", "D", false)
 ```
 
 إخفاء الأعمدة من `D` إلى `F` (مضمنة):
 
 ```go
-err := f.SetColVisible("Sheet1", "D:F", false)
+err := f.SetColVisible("ورقة1", "D:F", false)
 ```
 
 ## تعيين عرض العمود {#SetColWidth}
@@ -28,7 +28,7 @@ func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 
 ```go
 f := excelize.NewFile()
-err := f.SetColWidth("Sheet1", "A", "H", 20)
+err := f.SetColWidth("ورقة1", "A", "H", 20)
 ```
 
 ## تعيين ارتفاع الصف {#SetRowHeight}
@@ -37,10 +37,10 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-يوفر SetRowHeight وظيفة لتعيين ارتفاع صف واحد. على سبيل المثال ، عيِّن ارتفاع الصف الأول في `Sheet1`:
+يوفر SetRowHeight وظيفة لتعيين ارتفاع صف واحد. إذا كانت قيمة الارتفاع هي `0`، فسيتم إخفاء الصف المحدد، وإذا كانت قيمة الارتفاع `-1`، فسيتم إلغاء تعيين ارتفاع الصف المخصص. على سبيل المثال، قم بتعيين ارتفاع الصف الأول في `ورقة1`:
 
 ```go
-err := f.SetRowHeight("Sheet1", 1, 50)
+err := f.SetRowHeight("ورقة1", 1, 50)
 ```
 
 ## تعيين رؤية الصف {#SetRowVisible}
@@ -49,10 +49,10 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-يوفر SetRowVisible وظيفة لتعيين مرئي لصف واحد من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، إخفاء الصف `2` في `Sheet1`:
+يوفر SetRowVisible وظيفة لتعيين مرئي لصف واحد من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، إخفاء الصف `2` في `ورقة1`:
 
 ```go
-err := f.SetRowVisible("Sheet1", 2, false)
+err := f.SetRowVisible("ورقة1", 2, false)
 ```
 
 ## احصل على اسم الورقة {#GetSheetName}
@@ -69,10 +69,10 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-يوفر GetColVisible وظيفة لإظهار عمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، احصل على الحالة المرئية للعمود `D` في `Sheet1`:
+يوفر GetColVisible وظيفة لإظهار عمود واحد من خلال اسم ورقة العمل واسم العمود المحدد. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، احصل على الحالة المرئية للعمود `D` في `ورقة1`:
 
 ```go
-visible, err := f.GetColVisible("Sheet1", "D")
+visible, err := f.GetColVisible("ورقة1", "D")
 ```
 
 ## احصل على عرض العمود {#GetColWidth}
@@ -89,10 +89,10 @@ func (f *File) GetColWidth(sheet, col string) (float64, error)
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-يوفر GetRowHeight وظيفة للحصول على ارتفاع الصف من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، احصل على ارتفاع الصف الأول في `Sheet1`:
+يوفر GetRowHeight وظيفة للحصول على ارتفاع الصف من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، احصل على ارتفاع الصف الأول في `ورقة1`:
 
 ```go
-height, err := f.GetRowHeight("Sheet1", 1)
+height, err := f.GetRowHeight("ورقة1", 1)
 ```
 
 ## احصل على رؤية للخط {#GetRowVisible}
@@ -101,10 +101,10 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-يوفر GetRowVisible وظيفة لإظهار صف واحد من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، احصل على الحالة المرئية للصف `2` في `Sheet1`:
+يوفر GetRowVisible وظيفة لإظهار صف واحد من خلال اسم ورقة العمل وفهرس الصف. على سبيل المثال ، احصل على الحالة المرئية للصف `2` في `ورقة1`:
 
 ```go
-visible, err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("ورقة1", 2)
 ```
 
 ## احصل على فهرس ورقة العمل {#GetSheetIndex}
@@ -162,10 +162,10 @@ func (f *File) SetSheetName(source, target string) error
 func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-يوفر InsertCols وظيفة لإدراج أعمدة جديدة قبل اسم العمود المحدد وعدد الأعمدة. على سبيل المثال، أنشئ عمودين قبل العمود `C` في `Sheet1`:
+يوفر InsertCols وظيفة لإدراج أعمدة جديدة قبل اسم العمود المحدد وعدد الأعمدة. على سبيل المثال، أنشئ عمودين قبل العمود `C` في `ورقة1`:
 
 ```go
-err := f.InsertCols("Sheet1", "C", 2)
+err := f.InsertCols("ورقة1", "C", 2)
 ```
 
 ## إدراج صفوف {#InsertRows}
@@ -174,10 +174,10 @@ err := f.InsertCols("Sheet1", "C", 2)
 func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-يوفر InsertRows وظيفة لإدراج صفوف جديدة بعد رقم صف Excel المحدد بدءا من `1` وعدد الصفوف. على سبيل المثال، أنشئ صفين قبل الصف `3` في `Sheet1`:
+يوفر InsertRows وظيفة لإدراج صفوف جديدة بعد رقم صف Excel المحدد بدءا من `1` وعدد الصفوف. على سبيل المثال، أنشئ صفين قبل الصف `3` في `ورقة1`:
 
 ```go
-err := f.InsertRows("Sheet1", 3, 2)
+err := f.InsertRows("ورقة1", 3, 2)
 ```
 
 ## إلحاق صف مكرر {#DuplicateRow}
@@ -189,7 +189,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 يُدرج DuplicateRow نسخة من صف معين أدناه المحدد ، على سبيل المثال:
 
 ```go
-err := f.DuplicateRow("Sheet1", 2)
+err := f.DuplicateRow("ورقة1", 2)
 ```
 
 استخدم هذه الطريقة بحذر ، مما سيؤثر على التغييرات في المراجع مثل الصيغ والمخططات وما إلى ذلك. إذا كان هناك أي قيمة مرجعية لورقة العمل ، فسوف يتسبب ذلك في حدوث خطأ في الملف عند فتحه. برنامج excelize يقوم بتحديث هذه المراجع جزئيًا فقط حاليًا.
@@ -203,7 +203,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 يُدرج DuplicateRowTo نسخة من الصف المحدد بواسطته رقم Excel إلى موضع الصف المحدد ويتحرك إلى أسفل الصفوف الموجودة بعد الموضع الهدف ، على سبيل المثال:
 
 ```go
-err := f.DuplicateRowTo("Sheet1", 2, 7)
+err := f.DuplicateRowTo("ورقة1", 2, 7)
 ```
 
 استخدم هذه الطريقة بحذر ، مما سيؤثر على التغييرات في المراجع مثل الصيغ والمخططات وما إلى ذلك. إذا كان هناك أي قيمة مرجعية لورقة العمل ، فسوف يتسبب ذلك في حدوث خطأ في الملف عند فتحه. برنامج excelize يقوم بتحديث هذه المراجع جزئيًا فقط حاليًا.
@@ -242,10 +242,10 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-يوفر GetRowOutlineLevel وظيفة للحصول على رقم مستوى المخطط التفصيلي لصف واحد عن طريق اسم ورقة العمل المعطى ورقم صف Excel. على سبيل المثال ، احصل على رقم المخطط التفصيلي للصف 2 في `Sheet1`:
+يوفر GetRowOutlineLevel وظيفة للحصول على رقم مستوى المخطط التفصيلي لصف واحد عن طريق اسم ورقة العمل المعطى ورقم صف Excel. على سبيل المثال ، احصل على رقم المخطط التفصيلي للصف 2 في `ورقة1`:
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+err := f.GetRowOutlineLevel("ورقة1", 2)
 ```
 
 ## الحصول على مخطط تفصيلي للعمود {#GetColOutlineLevel}
@@ -254,10 +254,10 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-يوفر GetColOutlineLevel وظيفة للحصول على مستوى المخطط التفصيلي لعمود واحد عن طريق اسم ورقة العمل واسم العمود. على سبيل المثال ، احصل على مستوى المخطط التفصيلي للعمود `D` في `Sheet1`:
+يوفر GetColOutlineLevel وظيفة للحصول على مستوى المخطط التفصيلي لعمود واحد عن طريق اسم ورقة العمل واسم العمود. على سبيل المثال ، احصل على مستوى المخطط التفصيلي للعمود `D` في `ورقة1`:
 
 ```go
-level, err := f.GetColOutlineLevel("Sheet1", "D")
+level, err := f.GetColOutlineLevel("ورقة1", "D")
 ```
 
 ## مُكَرِّد عمود {#Cols}
@@ -269,7 +269,7 @@ func (f *File) Cols(sheet string) (*Cols, error)
 تقوم Cols بإرجاع مكرر العمود ، المستخدم لدفق بيانات القراءة لورقة عمل ذات بيانات كبيرة. هذه الوظيفة آمنة للتزامن. فمثلا:
 
 ```go
-cols, err := f.Cols("Sheet1")
+cols, err := f.Cols("ورقة1")
 if err != nil {
     fmt.Println(err)
     return
@@ -319,7 +319,7 @@ func (f *File) Rows(sheet string) (*Rows, error)
 يقوم Rows بإرجاع مكرر الصفوف ، يُستخدم لدفق بيانات القراءة لورقة عمل تحتوي على بيانات كبيرة. هذه الوظيفة آمنة للتزامن. فمثلا:
 
 ```go
-rows, err := f.Rows("Sheet1")
+rows, err := f.Rows("ورقة1")
 if err != nil {
     fmt.Println(err)
     return
@@ -387,16 +387,16 @@ func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 
 يوفر SearchSheet وظيفة للحصول على الإحداثيات من خلال اسم ورقة العمل المعطى وقيمة الخلية والتعبير العادي. لا تدعم الوظيفة البحث في النتيجة المحسوبة والأرقام المنسقة والبحث الشرطي حاليًا. إذا كانت خلية مدمجة ، فستقوم بإرجاع إحداثيات الزاوية اليسرى العليا للمنطقة المدمجة.
 
-على سبيل المثال ، ابحث عن إحداثيات القيمة `100` في `Sheet1`:
+على سبيل المثال ، ابحث عن إحداثيات القيمة `100` في `ورقة1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "100")
+result, err := f.SearchSheet("ورقة1", "100")
 ```
 
-على سبيل المثال ، ابحث في الإحداثيات حيث يتم وصف القيمة العددية في النطاق `0-9` من `Sheet1`:
+على سبيل المثال ، ابحث في الإحداثيات حيث يتم وصف القيمة العددية في النطاق `0-9` من `ورقة1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "[0-9]", true)
+result, err := f.SearchSheet("ورقة1", "[0-9]", true)
 ```
 
 ## حماية الورقة {#ProtectSheet}
@@ -457,10 +457,10 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-يوفر RemoveCol وظيفة لإزالة عمود واحد من خلال إعطاء اسم ورقة العمل وفهرس العمود. على سبيل المثال ، أزل العمود `C` في `Sheet1`:
+يوفر RemoveCol وظيفة لإزالة عمود واحد من خلال إعطاء اسم ورقة العمل وفهرس العمود. على سبيل المثال ، أزل العمود `C` في `ورقة1`:
 
 ```go
-err := f.RemoveCol("Sheet1", "C")
+err := f.RemoveCol("ورقة1", "C")
 ```
 
 استخدم هذه الطريقة بحذر ، مما سيؤثر على التغييرات في المراجع مثل الصيغ والمخططات وما إلى ذلك. إذا كان هناك أي قيمة مرجعية لورقة العمل ، فسوف يتسبب ذلك في حدوث خطأ في الملف عند فتحه. برنامج excelize يقوم بتحديث هذه المراجع جزئيًا فقط حاليًا.
@@ -471,10 +471,10 @@ err := f.RemoveCol("Sheet1", "C")
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-يوفر RemoveRow وظيفة لإزالة صف واحد عن طريق اسم ورقة العمل المحددة ورقم صف Excel. على سبيل المثال ، أزل الصف `3` في `Sheet1`:
+يوفر RemoveRow وظيفة لإزالة صف واحد عن طريق اسم ورقة العمل المحددة ورقم صف Excel. على سبيل المثال ، أزل الصف `3` في `ورقة1`:
 
 ```go
-err := f.RemoveRow("Sheet1", 3)
+err := f.RemoveRow("ورقة1", 3)
 ```
 
 استخدم هذه الطريقة بحذر ، مما سيؤثر على التغييرات في المراجع مثل الصيغ والمخططات وما إلى ذلك. إذا كان هناك أي قيمة مرجعية لورقة العمل ، فسوف يتسبب ذلك في حدوث خطأ في الملف عند فتحه. برنامج excelize يقوم بتحديث هذه المراجع جزئيًا فقط حاليًا.
@@ -485,10 +485,10 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-يقوم SetSheetCol بكتابة مصفوفة إلى عمود من خلال اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع المصفوفة `slice`. على سبيل المثال ، يكتب صفيفًا في العمود `B` يبدأ بالخلية `B6` في `Sheet1`:
+يقوم SetSheetCol بكتابة مصفوفة إلى عمود من خلال اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع المصفوفة `slice`. على سبيل المثال ، يكتب صفيفًا في العمود `B` يبدأ بالخلية `B6` في `ورقة1`:
 
 ```go
-err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetCol("ورقة1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## تعيين قيم الصفوف {#SetSheetRow}
@@ -497,10 +497,10 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-يكتب SetSheetRow مصفوفة إلى صف بواسطة اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع الصفيف `slice`. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، يكتب مصفوفة في الصف `6` تبدأ بالخلية `B6` في `Sheet1`:
+يكتب SetSheetRow مصفوفة إلى صف بواسطة اسم ورقة العمل المحدد ، وبدء التنسيق ومؤشر لنوع الصفيف `slice`. هذه الوظيفة آمنة للتزامن. على سبيل المثال ، يكتب مصفوفة في الصف `6` تبدأ بالخلية `B6` في `ورقة1`:
 
 ```go
-err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetRow("ورقة1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## إدراج فاصل الصفحات {#InsertPageBreak}

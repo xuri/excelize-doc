@@ -37,7 +37,7 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-指定されたシート名、行番号、および高さの値に基づいて単一行の高さを設定します。たとえば、`Sheet1` という名前の最初の行の高さを `50` に設定します。
+SetRowHeight は、単一行の高さを設定する関数を提供します。高さの値が `0` の場合は指定された行を非表示にし、高さの値が `-1` の場合はカスタム行の高さの設定を解除します。たとえば、`Sheet1` という名前の最初の行の高さを `50` に設定します：
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)

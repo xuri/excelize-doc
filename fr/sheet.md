@@ -6,16 +6,16 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible fournit une fonction pour définir visible d'une seule colonne par nom de feuille de calcul et nom de colonne donné. Cette fonction est sécurisée pour la concurrence. Par exemple, cachez la colonne `D` dans `Sheet1`:
+SetColVisible fournit une fonction pour définir visible d'une seule colonne par nom de feuille de calcul et nom de colonne donné. Cette fonction est sécurisée pour la concurrence. Par exemple, cachez la colonne `D` dans `Feuil1`:
 
 ```go
-err := f.SetColVisible("Sheet1", "D", false)
+err := f.SetColVisible("Feuil1", "D", false)
 ```
 
 Masquez les colonnes de `D` à `F` (incluses):
 
 ```go
-err := f.SetColVisible("Sheet1", "D:F", false)
+err := f.SetColVisible("Feuil1", "D:F", false)
 ```
 
 ## Définir la largeur de la colonne {#SetColWidth}
@@ -28,7 +28,7 @@ SetColWidth fournit la fonction permettant de définir la largeur d'une ou de pl
 
 ```go
 f := excelize.NewFile()
-err := f.SetColWidth("Sheet1", "A", "H", 20)
+err := f.SetColWidth("Feuil1", "A", "H", 20)
 ```
 
 ## Définir la hauteur de ligne {#SetRowHeight}
@@ -37,10 +37,10 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-SetRowHeight fournit une fonction pour définir la hauteur d'une seule ligne. Par exemple, définissez la hauteur de la première ligne dans `Sheet1`:
+SetRowHeight fournit une fonction pour définir la hauteur d'une seule ligne. Si la valeur de la hauteur est `0`, masquera la ligne spécifiée, si la valeur de la hauteur est `-1`, la hauteur de ligne personnalisée sera supprimée. Par exemple, définissez la hauteur de la première ligne dans `Feuil1`:
 
 ```go
-err := f.SetRowHeight("Sheet1", 1, 50)
+err := f.SetRowHeight("Feuil1", 1, 50)
 ```
 
 ## Définir la visibilité de la ligne {#SetRowVisible}
@@ -49,10 +49,10 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-SetRowVisible fournit une fonction pour définir visible d'une seule ligne par nom de feuille de calcul donné et index de ligne. Par exemple, masquez la ligne `2` dans `Sheet1`:
+SetRowVisible fournit une fonction pour définir visible d'une seule ligne par nom de feuille de calcul donné et index de ligne. Par exemple, masquez la ligne `2` dans `Feuil1`:
 
 ```go
-err := f.SetRowVisible("Sheet1", 2, false)
+err := f.SetRowVisible("Feuil1", 2, false)
 ```
 
 ## Obtenir le nom de la feuille de calcul {#GetSheetName}
@@ -69,10 +69,10 @@ GetSheetName fournit une fonction pour obtenir le nom de feuille de calcul de XL
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible fournit une fonction permettant d'afficher une seule colonne par nom de feuille de calcul et nom de colonne donnés. Cette fonction est sécurisée pour la concurrence. Par exemple, obtenez l'état visible de la colonne `D` dans `Sheet1`:
+GetColVisible fournit une fonction permettant d'afficher une seule colonne par nom de feuille de calcul et nom de colonne donnés. Cette fonction est sécurisée pour la concurrence. Par exemple, obtenez l'état visible de la colonne `D` dans `Feuil1`:
 
 ```go
-visible, err := f.GetColVisible("Sheet1", "D")
+visible, err := f.GetColVisible("Feuil1", "D")
 ```
 
 ## Obtenir la largeur de la colonne {#GetColWidth}
@@ -89,10 +89,10 @@ GetColWidth fournit une fonction permettant d'obtenir la largeur de colonne par 
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-GetRowHeight fournit une fonction pour obtenir la hauteur de ligne par nom de feuille de calcul donné et index de ligne. Par exemple, obtenez la hauteur de la première ligne dans `Sheet1`:
+GetRowHeight fournit une fonction pour obtenir la hauteur de ligne par nom de feuille de calcul donné et index de ligne. Par exemple, obtenez la hauteur de la première ligne dans `Feuil1`:
 
 ```go
-height, err := f.GetRowHeight("Sheet1", 1)
+height, err := f.GetRowHeight("Feuil1", 1)
 ```
 
 ## Obtenir la visibilité des lignes {#GetRowVisible}
@@ -101,10 +101,10 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-GetRowVisible fournit une fonction permettant d'afficher une seule ligne par nom de feuille de calcul et index de ligne donnés. Par exemple, obtenez l'état visible de la ligne `2` dans `Sheet1`:
+GetRowVisible fournit une fonction permettant d'afficher une seule ligne par nom de feuille de calcul et index de ligne donnés. Par exemple, obtenez l'état visible de la ligne `2` dans `Feuil1`:
 
 ```go
-visible, err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Feuil1", 2)
 ```
 
 ## Obtenir l'index de la feuille de calcul {#GetSheetIndex}
@@ -162,10 +162,10 @@ SetSheetName fournit une fonction pour définir le nom de la feuille de calcul e
 func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCols fournit une fonction permettant d'insérer de nouvelles colonnes avant le nom de colonne et le nombre de colonnes donnés. Par exemple, créez deux colonnes avant la colonne `C` dans `Sheet1`:
+InsertCols fournit une fonction permettant d'insérer de nouvelles colonnes avant le nom de colonne et le nombre de colonnes donnés. Par exemple, créez deux colonnes avant la colonne `C` dans `Feuil1`:
 
 ```go
-err := f.InsertCols("Sheet1", "C", 2)
+err := f.InsertCols("Feuil1", "C", 2)
 ```
 
 ## Insérer des lignes {#InsertRows}
@@ -174,10 +174,10 @@ err := f.InsertCols("Sheet1", "C", 2)
 func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRows fournit une fonction permettant d'insérer de nouvelles lignes après le numéro de ligne Excel donné à partir de `1` et le nombre de lignes. Par exemple, créez deux lignes avant la ligne `3` dans `Sheet1`:
+InsertRows fournit une fonction permettant d'insérer de nouvelles lignes après le numéro de ligne Excel donné à partir de `1` et le nombre de lignes. Par exemple, créez deux lignes avant la ligne `3` dans `Feuil1`:
 
 ```go
-err := f.InsertRows("Sheet1", 3, 2)
+err := f.InsertRows("Feuil1", 3, 2)
 ```
 
 ## Ajouter une ligne en double {#DuplicateRow}
@@ -189,7 +189,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 DuplicateRow insère une copie de la ligne spécifiée ci-dessous, par exemple:
 
 ```go
-err := f.DuplicateRow("Sheet1", 2)
+err := f.DuplicateRow("Feuil1", 2)
 ```
 
 Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, cela provoquera une erreur de fichier lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
@@ -203,7 +203,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 DuplicateRowTo insère une copie de la ligne spécifiée à la position indiquée, en descendant les lignes existantes après la position cible, par exemple:
 
 ```go
-err := f.DuplicateRowTo("Sheet1", 2, 7)
+err := f.DuplicateRowTo("Feuil1", 2, 7)
 ```
 
 Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, cela provoquera une erreur de fichier lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
@@ -242,10 +242,10 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-GetRowOutlineLevel fournit une fonction pour obtenir le numéro de niveau hiérarchique d'une seule ligne par nom de feuille de calcul donné et index de ligne. Par exemple, obtenez le numéro de contour de la ligne 2 dans `Sheet1`:
+GetRowOutlineLevel fournit une fonction pour obtenir le numéro de niveau hiérarchique d'une seule ligne par nom de feuille de calcul donné et index de ligne. Par exemple, obtenez le numéro de contour de la ligne 2 dans `Feuil1`:
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+err := f.GetRowOutlineLevel("Feuil1", 2)
 ```
 
 ## Obtenir le plan de la colonne {#GetColOutlineLevel}
@@ -254,10 +254,10 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-GetColOutlineLevel fournit une fonction permettant d'obtenir le niveau hiérarchique d'une seule colonne par nom de feuille de calcul et nom de colonne donnés. Par exemple, obtenez le niveau hiérarchique de la colonne `D` dans `Sheet1`:
+GetColOutlineLevel fournit une fonction permettant d'obtenir le niveau hiérarchique d'une seule colonne par nom de feuille de calcul et nom de colonne donnés. Par exemple, obtenez le niveau hiérarchique de la colonne `D` dans `Feuil1`:
 
 ```go
-level, err := f.GetColOutlineLevel("Sheet1", "D")
+level, err := f.GetColOutlineLevel("Feuil1", "D")
 ```
 
 ## Itérateur de colonne {#Cols}
@@ -269,7 +269,7 @@ func (f *File) Cols(sheet string) (*Cols, error)
 Cols renvoie un itérateur de colonnes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Cette fonction est sécurisée pour la concurrence. Par exemple:
 
 ```go
-cols, err := f.Cols("Sheet1")
+cols, err := f.Cols("Feuil1")
 if err != nil {
     fmt.Println(err)
     return
@@ -319,7 +319,7 @@ func (f *File) Rows(sheet string) (*Rows, error)
 Rows renvoie un itérateur de lignes, utilisé pour diffuser en continu les données de lecture d'une feuille de calcul contenant de grandes données. Cette fonction est sécurisée pour la concurrence. Par exemple:
 
 ```go
-rows, err := f.Rows("Sheet1")
+rows, err := f.Rows("Feuil1")
 if err != nil {
     fmt.Println(err)
     return
@@ -387,16 +387,16 @@ func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 
 SearchSheet fournit une fonction permettant d'obtenir les coordonnées en fonction du nom de la feuille de calcul et de la valeur de la cellule. Cette fonction ne prend en charge que la correspondance exacte des chaînes et des nombres, mais ne prend pas en charge le résultat calculé, les nombres mis en forme et la recherche conditionnelle. S'il s'agit d'une cellule fusionnée, les coordonnées du coin supérieur gauche de la zone fusionnée seront renvoyées.
 
-Par exemple, recherchez les coordonnées de la valeur `100` sur `Sheet1`:
+Par exemple, recherchez les coordonnées de la valeur `100` sur `Feuil1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "100")
+result, err := f.SearchSheet("Feuil1", "100")
 ```
 
-Par exemple, recherchez les coordonnées d'une valeur comprise entre `0-9` dans une feuille de calcul nommée `Sheet1`:
+Par exemple, recherchez les coordonnées d'une valeur comprise entre `0-9` dans une feuille de calcul nommée `Feuil1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "[0-9]", true)
+result, err := f.SearchSheet("Feuil1", "[0-9]", true)
 ```
 
 ## Protéger la feuille {#ProtectSheet}
@@ -457,10 +457,10 @@ UnprotectSheet fournit une fonction pour supprimer la protection d'une feuille, 
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-RemoveCol fournit une fonction permettant de supprimer une colonne unique par un nom de feuille de calcul et un index de colonne donnés. Par exemple, supprimez la colonne `C` dans `Sheet1`:
+RemoveCol fournit une fonction permettant de supprimer une colonne unique par un nom de feuille de calcul et un index de colonne donnés. Par exemple, supprimez la colonne `C` dans `Feuil1`:
 
 ```go
-err := f.RemoveCol("Sheet1", "C")
+err := f.RemoveCol("Feuil1", "C")
 ```
 
 Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, une erreur de fichier se produira lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
@@ -471,10 +471,10 @@ Utilisez cette méthode avec prudence, car elle affectera les modifications de r
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-RemoveRow fournit une fonction permettant de supprimer une seule ligne par un nom de feuille de calcul et un numéro de ligne Excel donnés. Par exemple, supprimez la ligne `3` dans `Sheet1`:
+RemoveRow fournit une fonction permettant de supprimer une seule ligne par un nom de feuille de calcul et un numéro de ligne Excel donnés. Par exemple, supprimez la ligne `3` dans `Feuil1`:
 
 ```go
-err := f.RemoveRow("Sheet1", 3)
+err := f.RemoveRow("Feuil1", 3)
 ```
 
 Utilisez cette méthode avec prudence, car elle affectera les modifications de références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul, une erreur de fichier se produira lorsque vous l'ouvrirez. Excelize ne met à jour que partiellement ces références.
@@ -485,10 +485,10 @@ Utilisez cette méthode avec prudence, car elle affectera les modifications de r
 func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetCol écrit un tableau dans une colonne par nom de feuille de calcul donné, coordonnée de départ et pointeur vers le type de tableau `slice`. Par exemple, écrit un tableau dans la colonne `B` en commençant par la cellule `B6` de la feuille `Sheet1`:
+SetSheetCol écrit un tableau dans une colonne par nom de feuille de calcul donné, coordonnée de départ et pointeur vers le type de tableau `slice`. Par exemple, écrit un tableau dans la colonne `B` en commençant par la cellule `B6` de la feuille `Feuil1`:
 
 ```go
-err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetCol("Feuil1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## Définir les valeurs de ligne {#SetSheetRow}
@@ -497,10 +497,10 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Cette fonction est sécurisée pour la concurrence. Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Sheet1`:
+SetSheetRow écrit un tableau dans une rangée en lui attribuant un nom, une coordonnée de départ et un pointeur sur le type de tableau `slice`. Cette fonction est sécurisée pour la concurrence. Par exemple, écrit un tableau dans la ligne `6` avec la cellule `B6` sur `Feuil1`:
 
 ```go
-err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetRow("Feuil1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## Insérer un saut de page {#InsertPageBreak}

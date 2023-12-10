@@ -6,16 +6,16 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible bietet eine Funktion zum Festlegen der Sichtbarkeit einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Verstecken Sie beispielsweise die Spalte `D` in `Sheet1`:
+SetColVisible bietet eine Funktion zum Festlegen der Sichtbarkeit einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Verstecken Sie beispielsweise die Spalte `D` in `Tabelle1`:
 
 ```go
-err := f.SetColVisible("Sheet1", "D", false)
+err := f.SetColVisible("Tabelle1", "D", false)
 ```
 
 Blenden Sie die Spalten von `D` bis `F` aus (enthalten):
 
 ```go
-err := f.SetColVisible("Sheet1", "D:F", false)
+err := f.SetColVisible("Tabelle1", "D:F", false)
 ```
 
 ## Spaltenbreite festlegen {#SetColWidth}
@@ -28,7 +28,7 @@ SetColWidth bietet eine Funktion zum Festlegen der Breite einer einzelnen Spalte
 
 ```go
 f := excelize.NewFile()
-err := f.SetColWidth("Sheet1", "A", "H", 20)
+err := f.SetColWidth("Tabelle1", "A", "H", 20)
 ```
 
 ## Zeilenhöhe festlegen {#SetRowHeight}
@@ -37,10 +37,10 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-SetRowHeight bietet eine Funktion zum Festlegen der Höhe einer einzelnen Zeile. Stellen Sie beispielsweise die Höhe der ersten Zeile in `Sheet1` ein:
+SetRowHeight bietet eine Funktion zum Festlegen der Höhe einer einzelnen Zeile. Wenn der Höhenwert `0` ist, wird die angegebene Zeile ausgeblendet. Wenn der Höhenwert `-1` ist, wird die benutzerdefinierte Zeilenhöhe deaktiviert. Legen Sie beispielsweise die Höhe der ersten Zeile in `Tabelle1` fest:
 
 ```go
-err := f.SetRowHeight("Sheet1", 1, 50)
+err := f.SetRowHeight("Tabelle1", 1, 50)
 ```
 
 ## Festlegen der Zeilensichtbarkeit {#SetRowVisible}
@@ -49,10 +49,10 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-SetRowVisible bietet eine Funktion zum Festlegen der Sichtbarkeit einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Verstecken Sie beispielsweise die Zeile `2` in `Sheet1`:
+SetRowVisible bietet eine Funktion zum Festlegen der Sichtbarkeit einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Verstecken Sie beispielsweise die Zeile `2` in `Tabelle1`:
 
 ```go
-err := f.SetRowVisible("Sheet1", 2, false)
+err := f.SetRowVisible("Tabelle1", 2, false)
 ```
 
 ## Abrufen des Blattnamens {#GetSheetName}
@@ -69,10 +69,10 @@ GetSheetName bietet eine Funktion zum Abrufen des Blattnamens der Arbeitsmappe a
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible bietet eine Funktion zum Anzeigen einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Holen Sie sich zum Beispiel den sichtbaren Zustand der Spalte `D` in `Sheet1`:
+GetColVisible bietet eine Funktion zum Anzeigen einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Holen Sie sich zum Beispiel den sichtbaren Zustand der Spalte `D` in `Tabelle1`:
 
 ```go
-visible, err := f.GetColVisible("Sheet1", "D")
+visible, err := f.GetColVisible("Tabelle1", "D")
 ```
 
 ## Spaltenbreite abrufen {#GetColWidth}
@@ -89,10 +89,10 @@ GetColWidth bietet eine Funktion zum Abrufen der Spaltenbreite anhand des Arbeit
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-GetRowHeight bietet eine Funktion zum Abrufen der Zeilenhöhe anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Ermitteln Sie beispielsweise die Höhe der ersten Zeile in `Sheet1`:
+GetRowHeight bietet eine Funktion zum Abrufen der Zeilenhöhe anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Ermitteln Sie beispielsweise die Höhe der ersten Zeile in `Tabelle1`:
 
 ```go
-height, err := f.GetRowHeight("Sheet1", 1)
+height, err := f.GetRowHeight("Tabelle1", 1)
 ```
 
 ## Abrufen der Zeilensichtbarkeit {#GetRowVisible}
@@ -101,10 +101,10 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-GetRowVisible bietet eine Funktion zum Anzeigen einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Erhalten Sie beispielsweise den sichtbaren Status der Zeile `2` in `Sheet1`:
+GetRowVisible bietet eine Funktion zum Anzeigen einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und des Zeilenindex. Erhalten Sie beispielsweise den sichtbaren Status der Zeile `2` in `Tabelle1`:
 
 ```go
-visible, err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Tabelle1", 2)
 ```
 
 ## Abrufen des Blattindexes {#GetSheetIndex}
@@ -162,10 +162,10 @@ SetSheetName bietet eine Funktion zum Festlegen des Arbeitsblattnamens unter Ang
 func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCols stellt eine Funktion zum Einfügen neuer Spalten vor dem angegebenen Spaltennamen und der angegebenen Anzahl von Spalten bereit. Erstellen Sie beispielsweise zwei Spalten vor Spalte `C` in `Sheet1`:
+InsertCols stellt eine Funktion zum Einfügen neuer Spalten vor dem angegebenen Spaltennamen und der angegebenen Anzahl von Spalten bereit. Erstellen Sie beispielsweise zwei Spalten vor Spalte `C` in `Tabelle1`:
 
 ```go
-err := f.InsertCols("Sheet1", "C", 2)
+err := f.InsertCols("Tabelle1", "C", 2)
 ```
 
 ## Zeilen einfügen {#InsertRows}
@@ -174,10 +174,10 @@ err := f.InsertCols("Sheet1", "C", 2)
 func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRows bietet eine Funktion zum Einfügen neuer Zeilen nach der angegebenen Excel-Zeilennummer beginnend mit `1` und der Anzahl der Zeilen. Erstellen Sie beispielsweise zwei Zeilen vor Zeile `3` in `Sheet1`:
+InsertRows bietet eine Funktion zum Einfügen neuer Zeilen nach der angegebenen Excel-Zeilennummer beginnend mit `1` und der Anzahl der Zeilen. Erstellen Sie beispielsweise zwei Zeilen vor Zeile `3` in `Tabelle1`:
 
 ```go
-err := f.InsertRows("Sheet1", 3, 2)
+err := f.InsertRows("Tabelle1", 3, 2)
 ```
 
 ## Doppelte Zeile anfügen {#DuplicateRow}
@@ -189,7 +189,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 DuplicateRow fügt eine Kopie einer bestimmten Zeile unter der unten angegebenen ein, Zum Beispiel:
 
 ```go
-err := f.DuplicateRow("Sheet1", 2)
+err := f.DuplicateRow("Tabelle1", 2)
 ```
 
 Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn das Arbeitsblatt einen referenzierten Wert enthält, verursacht es beim Öffnen einen Dateifehler. Die Excelize aktualisiert diese Referenzen derzeit nur teilweise.
@@ -203,7 +203,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 DuplicateRowTo fügt eine Kopie der angegebenen Zeile durch die Excel-Nummer in die angegebene Zeilenposition ein und verschiebt vorhandene Zeilen nach der Zielposition. Zum Beispiel:
 
 ```go
-err := f.DuplicateRowTo("Sheet1", 2, 7)
+err := f.DuplicateRowTo("Tabelle1", 2, 7)
 ```
 
 Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn das Arbeitsblatt einen referenzierten Wert enthält, verursacht es beim Öffnen einen Dateifehler. Die Excelize aktualisiert diese Referenzen derzeit nur teilweise.
@@ -242,10 +242,10 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-GetRowOutlineLevel bietet eine Funktion zum Abrufen der Gliederungsebenennummer einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und der Excel-Zeilennummer. Erhalten Sie beispielsweise die Umrissnummer von Zeile 2 in `Sheet1`:
+GetRowOutlineLevel bietet eine Funktion zum Abrufen der Gliederungsebenennummer einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und der Excel-Zeilennummer. Erhalten Sie beispielsweise die Umrissnummer von Zeile 2 in `Tabelle1`:
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+err := f.GetRowOutlineLevel("Tabelle1", 2)
 ```
 
 ## Abrufen der Spaltenumrisslinie {#GetColOutlineLevel}
@@ -254,10 +254,10 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-GetColOutlineLevel bietet eine Funktion zum Abrufen der Gliederungsebene einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Holen Sie sich zum Beispiel die Gliederungsebene der Spalte `D` in `Sheet1`:
+GetColOutlineLevel bietet eine Funktion zum Abrufen der Gliederungsebene einer einzelnen Spalte anhand des angegebenen Arbeitsblattnamens und Spaltennamens. Holen Sie sich zum Beispiel die Gliederungsebene der Spalte `D` in `Tabelle1`:
 
 ```go
-level, err := f.GetColOutlineLevel("Sheet1", "D")
+level, err := f.GetColOutlineLevel("Tabelle1", "D")
 ```
 
 ## Spalteniterator {#Cols}
@@ -269,7 +269,7 @@ func (f *File) Cols(sheet string) (*Cols, error)
 Cols gibt einen Spalteniterator zurück, der zum Streaming von Lesedaten für ein Arbeitsblatt mit großen Datenmengen verwendet wird. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Zum Beispiel:
 
 ```go
-cols, err := f.Cols("Sheet1")
+cols, err := f.Cols("Tabelle1")
 if err != nil {
     fmt.Println(err)
     return
@@ -319,7 +319,7 @@ func (f *File) Rows(sheet string) (*Rows, error)
 Rows gibt einen Zeileniterator zurück, der zum Streaming von Lesedaten für ein Arbeitsblatt mit großen Datenmengen verwendet wird. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Zum Beispiel:
 
 ```go
-rows, err := f.Rows("Sheet1")
+rows, err := f.Rows("Tabelle1")
 if err != nil {
     fmt.Println(err)
     return
@@ -387,16 +387,16 @@ func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 
 SearchSheet bietet eine Funktion zum Abrufen von Koordinaten anhand des angegebenen Arbeitsblattnamens, des Zellenwerts und des regulären Ausdrucks. Die Funktion unterstützt derzeit keine Suche nach dem berechneten Ergebnis, den formatierten Zahlen und der bedingten Suche. Wenn es sich um eine zusammengeführte Zelle handelt, werden die Koordinaten der oberen linken Ecke des zusammengeführten Bereichs zurückgegeben.
 
-For example, search the coordinates of the value of `100` on `Sheet1`:
+For example, search the coordinates of the value of `100` on `Tabelle1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "100")
+result, err := f.SearchSheet("Tabelle1", "100")
 ```
 
-Suchen Sie beispielsweise die Koordinaten, in denen der numerische Wert im Bereich von `0-9` von `Sheet1` beschrieben wird:
+Suchen Sie beispielsweise die Koordinaten, in denen der numerische Wert im Bereich von `0-9` von `Tabelle1` beschrieben wird:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "[0-9]", true)
+result, err := f.SearchSheet("Tabelle1", "[0-9]", true)
 ```
 
 ## Arbeitsblatt schützen {#ProtectSheet}
@@ -457,10 +457,10 @@ UnprotectSheet bietet eine Funktion zum Aufheben des Schutzes für ein Blatt, sp
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-RemoveCol bietet eine Funktion zum Entfernen einer einzelnen Spalte unter Angabe des Arbeitsblattnamens und des Spaltenindex. Entfernen Sie beispielsweise die Spalte `C` in `Sheet1`:
+RemoveCol bietet eine Funktion zum Entfernen einer einzelnen Spalte unter Angabe des Arbeitsblattnamens und des Spaltenindex. Entfernen Sie beispielsweise die Spalte `C` in `Tabelle1`:
 
 ```go
-err := f.RemoveCol("Sheet1", "C")
+err := f.RemoveCol("Tabelle1", "C")
 ```
 
 Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn das Arbeitsblatt einen referenzierten Wert enthält, verursacht es beim Öffnen einen Dateifehler. Die Excelize aktualisiert diese Referenzen derzeit nur teilweise.
@@ -471,10 +471,10 @@ Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Refere
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-RemoveRow bietet eine Funktion zum Entfernen einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und der Excel-Zeilennummer. Entfernen Sie beispielsweise die Zeile `3` in `Sheet1`:
+RemoveRow bietet eine Funktion zum Entfernen einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und der Excel-Zeilennummer. Entfernen Sie beispielsweise die Zeile `3` in `Tabelle1`:
 
 ```go
-err := f.RemoveRow("Sheet1", 3)
+err := f.RemoveRow("Tabelle1", 3)
 ```
 
 Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn das Arbeitsblatt einen referenzierten Wert enthält, verursacht es beim Öffnen einen Dateifehler. Die Excelize aktualisiert diese Referenzen derzeit nur teilweise.
@@ -485,10 +485,10 @@ Verwenden Sie diese Methode mit Vorsicht, da sich dies auf Änderungen in Refere
 func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetCol schreibt ein Array in die Spalte mit dem Namen des Arbeitsblatts, der Startkoordinate und einem Zeiger auf den Arraytyp `slice`. Schreiben Sie beispielsweise ein Array in Spalte `B` und beginnen Sie mit der Zelle `B6` in `Sheet1`:
+SetSheetCol schreibt ein Array in die Spalte mit dem Namen des Arbeitsblatts, der Startkoordinate und einem Zeiger auf den Arraytyp `slice`. Schreiben Sie beispielsweise ein Array in Spalte `B` und beginnen Sie mit der Zelle `B6` in `Tabelle1`:
 
 ```go
-err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetCol("Tabelle1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## Festlegen von Zeilenwerten {#SetSheetRow}
@@ -497,10 +497,10 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetRow schreibt ein Array in eine Zeile mit dem angegebenen Arbeitsblattnamen, der Startkoordinate und einem Zeiger auf den Array-Typ `slice`. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Schreibt beispielsweise ein Array in die Zeile `6`, beginnend mit der Zelle `B6` auf `Sheet1`:
+SetSheetRow schreibt ein Array in eine Zeile mit dem angegebenen Arbeitsblattnamen, der Startkoordinate und einem Zeiger auf den Array-Typ `slice`. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Schreibt beispielsweise ein Array in die Zeile `6`, beginnend mit der Zelle `B6` auf `Tabelle1`:
 
 ```go
-err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetRow("Tabelle1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## Seitenumbruch einfügen {#InsertPageBreak}

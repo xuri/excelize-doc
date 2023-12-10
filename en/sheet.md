@@ -37,7 +37,7 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-SetRowHeight provides a function to set the height of a single row. For example, set the height of the first row in `Sheet1`:
+SetRowHeight provides a function to set the height of a single row. If the value of height is `0`, will hide the specified row, if the value of height is `-1`, will unset the custom row height. For example, set the height of the first row in `Sheet1`:
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)

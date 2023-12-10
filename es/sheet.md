@@ -6,16 +6,16 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-SetColVisible proporciona una función para establecer la visibilidad de una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Esta función es segura para la simultaneidad. Por ejemplo, oculte la columna `D` en `Sheet1`:
+SetColVisible proporciona una función para establecer la visibilidad de una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Esta función es segura para la simultaneidad. Por ejemplo, oculte la columna `D` en `Hoja1`:
 
 ```go
-err := f.SetColVisible("Sheet1", "D", false)
+err := f.SetColVisible("Hoja1", "D", false)
 ```
 
 Ocultar las columnas de la `D` a la `F` (incluidas):
 
 ```go
-err := f.SetColVisible("Sheet1", "D:F", false)
+err := f.SetColVisible("Hoja1", "D:F", false)
 ```
 
 ## Establecer el ancho de la columna {#SetColWidth}
@@ -28,7 +28,7 @@ SetColWidth proporciona una función para establecer el ancho de una sola column
 
 ```go
 f := excelize.NewFile()
-err := f.SetColWidth("Sheet1", "A", "H", 20)
+err := f.SetColWidth("Hoja1", "A", "H", 20)
 ```
 
 ## Establecer la altura de la fila {#SetRowHeight}
@@ -37,10 +37,10 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-SetRowHeight proporciona una función para establecer la altura de una sola fila. Por ejemplo, establezca la altura de la primera fila en `Sheet1`:
+SetRowHeight proporciona una función para establecer la altura de una sola fila. Si el valor de altura es `0`, ocultará la fila especificada, si el valor de altura es `-1`, eliminará la altura de fila personalizada. Por ejemplo, establezca la altura de la primera fila en `Hoja1`:
 
 ```go
-err := f.SetRowHeight("Sheet1", 1, 50)
+err := f.SetRowHeight("Hoja1", 1, 50)
 ```
 
 ## Establecer visibilidad de fila {#SetRowVisible}
@@ -49,10 +49,10 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-SetRowVisible proporciona una función para establecer la visibilidad de una sola fila por el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, oculte la fila `2` en `Sheet1`:
+SetRowVisible proporciona una función para establecer la visibilidad de una sola fila por el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, oculte la fila `2` en `Hoja1`:
 
 ```go
-err := f.SetRowVisible("Sheet1", 2, false)
+err := f.SetRowVisible("Hoja1", 2, false)
 ```
 
 ## Obtener el nombre de la hoja {#GetSheetName}
@@ -69,10 +69,10 @@ GetSheetName proporciona una función para obtener el nombre de la hoja del libr
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-GetColVisible proporciona una función para hacer visible una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Esta función es segura para la simultaneidad. Por ejemplo, obtenga el estado visible de la columna `D` en `Sheet1`:
+GetColVisible proporciona una función para hacer visible una sola columna por el nombre de la hoja de trabajo y el nombre de la columna. Esta función es segura para la simultaneidad. Por ejemplo, obtenga el estado visible de la columna `D` en `Hoja1`:
 
 ```go
-visible, err := f.GetColVisible("Sheet1", "D")
+visible, err := f.GetColVisible("Hoja1", "D")
 ```
 
 ## Obtener ancho de columna {#GetColWidth}
@@ -89,10 +89,10 @@ GetColWidth proporciona una función para obtener el ancho de la columna dado el
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-GetRowHeight proporciona una función para obtener la altura de la fila según el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, obtenga la altura de la primera fila en `Sheet1`:
+GetRowHeight proporciona una función para obtener la altura de la fila según el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, obtenga la altura de la primera fila en `Hoja1`:
 
 ```go
-height, err := f.GetRowHeight("Sheet1", 1)
+height, err := f.GetRowHeight("Hoja1", 1)
 ```
 
 ## Obtenga visibilidad de filas {#GetRowVisible}
@@ -101,10 +101,10 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-GetRowVisible proporciona una función para visualizar una sola fila por el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, obtenga el estado visible de la fila `2` en `Sheet1`:
+GetRowVisible proporciona una función para visualizar una sola fila por el nombre de la hoja de trabajo y el índice de fila. Por ejemplo, obtenga el estado visible de la fila `2` en `Hoja1`:
 
 ```go
-visible, err := f.GetRowVisible("Sheet1", 2)
+visible, err := f.GetRowVisible("Hoja1", 2)
 ```
 
 ## Obtener índice de hoja {#GetSheetIndex}
@@ -162,10 +162,10 @@ SetSheetName proporciona una función para establecer el nombre de la hoja de tr
 func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-InsertCols proporciona una función para insertar nuevas columnas antes del nombre de columna dado y el número de columnas. Por ejemplo, cree dos columnas antes de la columna `C` en `Sheet1`:
+InsertCols proporciona una función para insertar nuevas columnas antes del nombre de columna dado y el número de columnas. Por ejemplo, cree dos columnas antes de la columna `C` en `Hoja1`:
 
 ```go
-err := f.InsertCols("Sheet1", "C", 2)
+err := f.InsertCols("Hoja1", "C", 2)
 ```
 
 ## Insertar filas {#InsertRows}
@@ -174,10 +174,10 @@ err := f.InsertCols("Sheet1", "C", 2)
 func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-InsertRows proporciona una función para insertar nuevas filas después del número de fila de Excel dado a partir de `1` y el número de filas. Por ejemplo, cree dos filas antes de la fila `3` en `Sheet1`:
+InsertRows proporciona una función para insertar nuevas filas después del número de fila de Excel dado a partir de `1` y el número de filas. Por ejemplo, cree dos filas antes de la fila `3` en `Hoja1`:
 
 ```go
-err := f.InsertRows("Sheet1", 3, 2)
+err := f.InsertRows("Hoja1", 3, 2)
 ```
 
 ## Anexar fila duplicada {#DuplicateRow}
@@ -189,7 +189,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 DuplicateRow inserta una copia de una fila específica debajo de la especificada, Por ejemplo:
 
 ```go
-err := f.DuplicateRow("Sheet1", 2)
+err := f.DuplicateRow("Hoja1", 2)
 ```
 
 Utilice este método con precaución, ya que afectará a los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor referenciado de la hoja de trabajo, provocará un error de archivo cuando lo abra. Excelize solo actualiza parcialmente estas referencias actualmente.
@@ -203,7 +203,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 DuplicateRowTo inserta una copia de la fila especificada por su número de Excel en la posición de fila especificada moviéndose hacia abajo existen filas después de la posición de destino, Por ejemplo:
 
 ```go
-err := f.DuplicateRowTo("Sheet1", 2, 7)
+err := f.DuplicateRowTo("Hoja1", 2, 7)
 ```
 
 Utilice este método con precaución, ya que afectará a los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor referenciado de la hoja de trabajo, provocará un error de archivo cuando lo abra. Excelize solo actualiza parcialmente estas referencias actualmente.
@@ -242,10 +242,10 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-GetRowOutlineLevel proporciona una función para obtener el número de nivel de esquema de una sola fila por nombre de hoja de cálculo y número de fila de Excel. Por ejemplo, obtenga el número de esquema de la fila 2 en `Sheet1`:
+GetRowOutlineLevel proporciona una función para obtener el número de nivel de esquema de una sola fila por nombre de hoja de cálculo y número de fila de Excel. Por ejemplo, obtenga el número de esquema de la fila 2 en `Hoja1`:
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+err := f.GetRowOutlineLevel("Hoja1", 2)
 ```
 
 ## Obtener esquema de columna {#GetColOutlineLevel}
@@ -254,10 +254,10 @@ err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-GetColOutlineLevel proporciona una función para obtener el nivel de esquema de una sola columna por nombre de hoja de trabajo y nombre de columna dados. Por ejemplo, obtenga el nivel de esquema de la columna `D` en `Sheet1`:
+GetColOutlineLevel proporciona una función para obtener el nivel de esquema de una sola columna por nombre de hoja de trabajo y nombre de columna dados. Por ejemplo, obtenga el nivel de esquema de la columna `D` en `Hoja1`:
 
 ```go
-level, err := f.GetColOutlineLevel("Sheet1", "D")
+level, err := f.GetColOutlineLevel("Hoja1", "D")
 ```
 
 ## Iterador de columnas {#Cols}
@@ -269,7 +269,7 @@ func (f *File) Cols(sheet string) (*Cols, error)
 Cols devuelve un iterador de columna, que se utiliza para transmitir datos de lectura para una hoja de trabajo con datos grandes. Esta función es segura para la simultaneidad. Por ejemplo:
 
 ```go
-cols, err := f.Cols("Sheet1")
+cols, err := f.Cols("Hoja1")
 if err != nil {
     fmt.Println(err)
     return
@@ -319,7 +319,7 @@ func (f *File) Rows(sheet string) (*Rows, error)
 Rows returns a rows iterator, used for streaming reading data for a worksheet with a large data. Esta función es segura para la simultaneidad. Por ejemplo:
 
 ```go
-rows, err := f.Rows("Sheet1")
+rows, err := f.Rows("Hoja1")
 if err != nil {
     fmt.Println(err)
     return
@@ -387,16 +387,16 @@ func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 
 SearchSheet proporciona una función para obtener coordenadas por nombre de hoja de trabajo, valor de celda y expresión regular dados. La función no admite la búsqueda en el resultado calculado, los números formateados y la búsqueda condicional actualmente. Si es una celda fusionada, devolverá las coordenadas de la esquina superior izquierda del área fusionada.
 
-Por ejemplo, busque las coordenadas del valor de `100` en `Sheet1`:
+Por ejemplo, busque las coordenadas del valor de `100` en `Hoja1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "100")
+result, err := f.SearchSheet("Hoja1", "100")
 ```
 
-Por ejemplo, busque las coordenadas donde se describe el valor numérico en el rango de `0-9` de `Sheet1`:
+Por ejemplo, busque las coordenadas donde se describe el valor numérico en el rango de `0-9` de `Hoja1`:
 
 ```go
-result, err := f.SearchSheet("Sheet1", "[0-9]", true)
+result, err := f.SearchSheet("Hoja1", "[0-9]", true)
 ```
 
 ## Hoja de protección {#ProtectSheet}
@@ -457,10 +457,10 @@ UnprotectSheet proporciona una función para eliminar la protección de una hoja
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-RemoveCol proporciona una función para eliminar una sola columna dado el nombre de la hoja de trabajo y el índice de columna. Por ejemplo, elimine la columna `C` en `Sheet1`:
+RemoveCol proporciona una función para eliminar una sola columna dado el nombre de la hoja de trabajo y el índice de columna. Por ejemplo, elimine la columna `C` en `Hoja1`:
 
 ```go
-err := f.RemoveCol("Sheet1", "C")
+err := f.RemoveCol("Hoja1", "C")
 ```
 
 Este método con precaución, ya que afectará a los cambios en las referencias, como fórmulas, gráficos, etc. Si utiliza algún valor de referencia de la hoja de trabajo, provocará un error de archivo cuando lo abra. Excelize solo actualiza parcialmente estas referencias actualmente.
@@ -471,10 +471,10 @@ Este método con precaución, ya que afectará a los cambios en las referencias,
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-RemoveRow proporciona una función para eliminar una sola fila por el nombre de la hoja de trabajo y el número de fila de Excel. Por ejemplo, elimine la fila `3` en `Sheet1`:
+RemoveRow proporciona una función para eliminar una sola fila por el nombre de la hoja de trabajo y el número de fila de Excel. Por ejemplo, elimine la fila `3` en `Hoja1`:
 
 ```go
-err := f.RemoveRow("Sheet1", 3)
+err := f.RemoveRow("Hoja1", 3)
 ```
 
 Utilice este método con precaución, ya que afectará a los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor referenciado de la hoja de trabajo, provocará un error de archivo cuando lo abra. Excelize solo actualiza parcialmente estas referencias actualmente.
@@ -485,10 +485,10 @@ Utilice este método con precaución, ya que afectará a los cambios en las refe
 func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetCol escribe una matriz en la columna por el nombre de la hoja de cálculo, la coordenada inicial y un puntero al tipo de matriz `slice`. Por ejemplo, escribe una matriz en la columna `B` a partir de la celda `B6` de `Sheet1`:
+SetSheetCol escribe una matriz en la columna por el nombre de la hoja de cálculo, la coordenada inicial y un puntero al tipo de matriz `slice`. Por ejemplo, escribe una matriz en la columna `B` a partir de la celda `B6` de `Hoja1`:
 
 ```go
-err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetCol("Hoja1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## Establecer valores de fila {#SetSheetRow}
@@ -497,10 +497,10 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-SetSheetRow escribe una matriz en una fila según el nombre de la hoja de trabajo, la coordenada inicial y un puntero al tipo de matriz `slice`. Esta función es segura para la simultaneidad. Por ejemplo, escribe una matriz en la fila `6` y comienza con la celda `B6` en `Sheet1`:
+SetSheetRow escribe una matriz en una fila según el nombre de la hoja de trabajo, la coordenada inicial y un puntero al tipo de matriz `slice`. Esta función es segura para la simultaneidad. Por ejemplo, escribe una matriz en la fila `6` y comienza con la celda `B6` en `Hoja1`:
 
 ```go
-err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
+err := f.SetSheetRow("Hoja1", "B6", &[]interface{}{"1", nil, 2})
 ```
 
 ## Insertar salto de página {#InsertPageBreak}

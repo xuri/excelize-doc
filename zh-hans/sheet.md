@@ -37,7 +37,7 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-根据给定的工作表名称、行号和高度值设置单行高度。例如设置名为 `Sheet1` 工作表首行的高度为 `50`：
+根据给定的工作表名称、行号和高度值设置单行高度，如果将高度的值设置为 `0` 将隐藏指定的行，如果将高度的值设置为 `-1` 将清除自定义行高。例如将工作表 `Sheet1` 首行的高度设置为 `50`：
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)
