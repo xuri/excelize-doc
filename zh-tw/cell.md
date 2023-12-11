@@ -585,7 +585,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被忽略。例如，為 `Sheet1!$A$3` 儲存格添加註解：
+根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被忽略。例如，為 `Sheet1!A3` 儲存格添加註解：
 
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 文檔中添加註解"></p>
 
@@ -614,7 +614,7 @@ func (f *File) GetComments(sheet string) ([]Comment, error)
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-根據給定的工作表名稱、儲存格坐標刪除註解。例如，刪除 `Sheet1!$A$30` 儲存格註解：
+根據給定的工作表名稱、儲存格坐標刪除註解。例如，刪除 `Sheet1!A30` 儲存格註解：
 
 ```go
 err := f.DeleteComment("Sheet1", "A30")

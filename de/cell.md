@@ -449,10 +449,10 @@ func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 
 GetCols ruft den Wert aller Zellen nach Spalten auf dem Arbeitsblatt basierend auf dem angegebenen Arbeitsblattnamen ab und wird als zweidimensionales Array zurückgegeben, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. Zum Beispiel:
 
-Abrufen und Durchlaufen des Werts aller Zellen durch Spalten in einem Arbeitsblatt mit dem Namen `Sheet1`:
+Abrufen und Durchlaufen des Werts aller Zellen durch Spalten in einem Arbeitsblatt mit dem Namen `Tabelle1`:
 
 ```go
-cols, err := f.GetCols("Sheet1")
+cols, err := f.GetCols("Tabelle1")
 if err != nil {
     fmt.Println(err)
     return
@@ -473,10 +473,10 @@ func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 
 GetRows gibt alle Zeilen in einem Blatt mit dem angegebenen Arbeitsblattnamen zurück, der als zweidimensionales Array zurückgegeben wird, wobei der Wert der Zelle in den Typ `string` konvertiert wird. Wenn das Zellenformat auf den Wert der Zelle angewendet werden kann, wird der angewendete Wert verwendet, andernfalls wird der ursprüngliche Wert verwendet. GetRows die Zeilen mit Wert- oder Formelzellen abgerufen hat, werden die ständig leeren Zellen am Ende jeder Zeile übersprungen, sodass die Länge jeder Zeile möglicherweise inkonsistent ist.
 
-Abrufen und Durchlaufen des Werts aller Zellen in Zeilen in einem Arbeitsblatt mit dem Namen `Sheet1`:
+Abrufen und Durchlaufen des Werts aller Zellen in Zeilen in einem Arbeitsblatt mit dem Namen `Tabelle1`:
 
 ```go
-rows, err := f.GetRows("Sheet1")
+rows, err := f.GetRows("Tabelle1")
 if err != nil {
     fmt.Println(err)
     return
@@ -497,10 +497,10 @@ func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 
 GetCellHyperLink ruft einen Zell-Hyperlink basierend auf dem angegebenen Arbeitsblattnamen und Zellkoordinaten ab. Wenn die Zelle einen Hyperlink hat, gibt sie `true` und die Linkadresse zurück, andernfalls gibt sie `false` und eine leere Linkadresse zurück.
 
-Holen Sie sich beispielsweise einen Hyperlink zu einer `H6`-Zelle in einem Arbeitsblatt mit dem Namen `Sheet1`:
+Holen Sie sich beispielsweise einen Hyperlink zu einer `H6`-Zelle in einem Arbeitsblatt mit dem Namen `Tabelle1`:
 
 ```go
-link, target, err := f.GetCellHyperLink("Sheet1", "H6")
+link, target, err := f.GetCellHyperLink("Tabelle1", "H6")
 ```
 
 ## Stilindex abrufen {#GetCellStyle}
@@ -517,10 +517,10 @@ Der Zellenstilindex wird aus dem angegebenen Arbeitsblattnamen und den Zellkoord
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen und den Zellkoordinatenbereichen zusammen. Beim Zusammenführen von Zellen wird nur der obere linke Zellenwert beibehalten und die anderen Werte verworfen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Sheet1` zusammen:
+Führen Sie Zellen basierend auf dem angegebenen Arbeitsblattnamen und den Zellkoordinatenbereichen zusammen. Beim Zusammenführen von Zellen wird nur der obere linke Zellenwert beibehalten und die anderen Werte verworfen. Führen Sie beispielsweise Zellen im Bereich `D3:E9` in einem Arbeitsblatt mit dem Namen `Tabelle1` zusammen:
 
 ```go
-err := f.MergeCell("Sheet1", "D3", "E9")
+err := f.MergeCell("Tabelle1", "D3", "E9")
 ```
 
 Wenn sich der angegebene Zellkoordinatenbereich mit anderen vorhandenen zusammengeführten Zellen überschneidet, werden die vorhandenen zusammengeführten Zellen gelöscht.
@@ -531,10 +531,10 @@ Wenn sich der angegebene Zellkoordinatenbereich mit anderen vorhandenen zusammen
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-UnmergeCell bietet eine Funktion zum Aufheben der Zusammenführung eines bestimmten Koordinatenbereichs. Zum Beispiel den Bereich `D3:E9` auf `Sheet1` entfernen:
+UnmergeCell bietet eine Funktion zum Aufheben der Zusammenführung eines bestimmten Koordinatenbereichs. Zum Beispiel den Bereich `D3:E9` auf `Tabelle1` entfernen:
 
 ```go
-err := f.UnmergeCell("Sheet1", "D3", "E9")
+err := f.UnmergeCell("Tabelle1", "D3", "E9")
 ```
 
 Achtung: Überlappende Bereiche werden ebenfalls nicht zusammengeführt.
@@ -585,7 +585,7 @@ GetPictureCells gibt alle Bildzellenverweise in einem Arbeitsblatt unter einem b
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment bietet die Methode zum Hinzufügen von Kommentaren zu einem Blatt anhand eines bestimmten Arbeitsblattindex, einer bestimmten Zelle und eines bestimmten Formatsatzes (z. B. Autor und Text). Beachten Sie, dass die maximale Autorenlänge 255 und die maximale Textlänge 32512 beträgt. Fügen Sie beispielsweise einen Kommentar in `Sheet1!$A$3` hinzu:
+AddComment bietet die Methode zum Hinzufügen von Kommentaren zu einem Blatt anhand eines bestimmten Arbeitsblattindex, einer bestimmten Zelle und eines bestimmten Formatsatzes (z. B. Autor und Text). Beachten Sie, dass die maximale Autorenlänge 255 und die maximale Textlänge 32512 beträgt. Fügen Sie beispielsweise einen Kommentar in `Sheet1!A3` hinzu:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Fügen Sie einem Excel-Dokument einen Kommentar hinzu"></p>
 
@@ -614,10 +614,10 @@ GetComments ruft alle Kommentare in einem Arbeitsblatt nach dem angegebenen Arbe
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-DeleteComment bietet die Methode zum Löschen von Kommentaren in einem Blatt nach gegebenem Arbeitsblatt. Löschen Sie beispielsweise den Kommentar in `Sheet1!$A$30`:
+DeleteComment bietet die Methode zum Löschen von Kommentaren in einem Blatt nach gegebenem Arbeitsblatt. Löschen Sie beispielsweise den Kommentar in `Tabelle1!A30`:
 
 ```go
-err := f.DeleteComment("Sheet1", "A30")
+err := f.DeleteComment("Tabelle1", "A30")
 ```
 
 ## Festlegen der Zellenformel {#SetCellFormula}
@@ -628,49 +628,49 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 
 SetCellFormula bietet eine Funktion zum Festlegen der Formel für die Zelle, die gemäß dem angegebenen Arbeitsblattnamen und den Zellformeleinstellungen verwendet wird. Das Ergebnis der Formelzelle kann berechnet werden, wenn das Arbeitsblatt von der Office Excel-Anwendung geöffnet wird, oder kann die [CalcCellValue](cell.md#CalcCellValue) Funktion auch den berechneten Zellenwert abrufen. Wenn die Excel-Anwendung die Formel beim Öffnen der Arbeitsmappe nicht automatisch berechnet, rufen Sie nach dem Einstellen der Zellenformelfunktionen [UpdateLinkedValue](utils.md#UpdateLinkedValue) auf.
 
-- Beispiel 1, setzen Sie die normale Formel `=SUM(A1,B1)` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 1, setzen Sie die normale Formel `=SUM(A1,B1)` für die Zelle `A3` auf `Tabelle1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Tabelle1", "A3", "=SUM(A1,B1)")
 ```
 
-- Beispiel 2, setze eindimensionale vertikale Konstantenarray (Spaltenarray) Formel `1;2;3` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 2, setze eindimensionale vertikale Konstantenarray (Spaltenarray) Formel `1;2;3` für die Zelle `A3` auf `Tabelle1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Tabelle1", "A3", "={1;2;3}")
 ```
 
-- Beispiel 3, setze eindimensionales horizontales konstantes Array (Zeilenarray) Formel `"a","b","c"` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 3, setze eindimensionales horizontales konstantes Array (Zeilenarray) Formel `"a","b","c"` für die Zelle `A3` auf `Tabelle1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Tabelle1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Beispiel 4, setze die zweidimensionale konstante Arrayformel `{1,2;"a","b"}` für die Zelle `A3` auf `Sheet1`:
-
-```go
-formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
-    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
-```
-
-- Beispiel 5, setze die Range-Array-Formel `A1:A2` für die Zelle `A3` auf `Sheet1`:
+- Beispiel 4, setze die zweidimensionale konstante Arrayformel `{1,2;"a","b"}` für die Zelle `A3` auf `Tabelle1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("Tabelle1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Beispiel 6, setze die gemeinsame Formel `=A1+B1` für die Zellen `C1:C5` auf `Sheet1`, `C1` ist die Masterzelle:
+- Beispiel 5, setze die Range-Array-Formel `A1:A2` für die Zelle `A3` auf `Tabelle1`:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Tabelle1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Beispiel 6, setze die gemeinsame Formel `=A1+B1` für die Zellen `C1:C5` auf `Tabelle1`, `C1` ist die Masterzelle:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("Tabelle1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Beispiel 7, setze die Tabellenformel `=SUM(Table1[[A]:[B]])` für die Zelle `C2` auf `Sheet1`:
+- Beispiel 7, setze die Tabellenformel `=SUM(Table1[[A]:[B]])` für die Zelle `C2` auf `Tabelle1`:
 
 ```go
 package main
@@ -688,13 +688,17 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Tabelle1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+        if err := f.SetSheetRow("Tabelle1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1",
+    if err := f.AddTable("Tabelle1",
         &excelize.Table{
             Range:     "A1:C2",
             Name:      "Table1",
@@ -704,12 +708,12 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Tabelle1", "C2", "=SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Mappe1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

@@ -113,8 +113,8 @@ func main() {
         f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
-        DataRange:       "Sheet1!$A$1:$E$31",
-        PivotTableRange: "Sheet1!$G$2:$M$34",
+        DataRange:       "Sheet1!A1:E31",
+        PivotTableRange: "Sheet1!G2:M34",
         Rows: []excelize.PivotTableField{
             {Data: "Mes", DefaultSubtotal: true}, {Data: "Año"}},
         Filter: []excelize.PivotTableField{

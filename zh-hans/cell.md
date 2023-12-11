@@ -585,7 +585,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-根据给定的工作表名称、单元格坐标和样式参数（作者与文本信息）添加批注。作者信息最大长度为 255 个字符，最大文本内容长度为 32512 个字符，超出该范围的字符将会被忽略。例如，为 `Sheet1!$A$3` 单元格添加批注：
+根据给定的工作表名称、单元格坐标和样式参数（作者与文本信息）添加批注。作者信息最大长度为 255 个字符，最大文本内容长度为 32512 个字符，超出该范围的字符将会被忽略。例如，为 `Sheet1!A3` 单元格添加批注：
 
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 文档中添加批注"></p>
 
@@ -614,7 +614,7 @@ func (f *File) GetComments(sheet string) ([]Comment, error)
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-根据给定的工作表名称、单元格坐标删除批注。例如，删除 `Sheet1!$A$30` 单元格批注：
+根据给定的工作表名称、单元格坐标删除批注。例如，删除 `Sheet1!A30` 单元格批注：
 
 ```go
 err := f.DeleteComment("Sheet1", "A30")

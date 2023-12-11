@@ -183,30 +183,34 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Лист1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{
-        {nil, "Apple", "Orange", "Pear"},
-        {"Small", 2, 3, 3},
-        {"Normal", 5, 2, 4},
-        {"Large", 6, 7, 8},
+        {nil, "Яблоко", "Апельсин", "Груша"},
+        {"Маленький", 2, 3, 3},
+        {"Нормальный", 5, 2, 4},
+        {"Большой", 6, 7, 8},
     } {
         cell, err := excelize.CoordinatesToCellName(1, idx+1)
         if err != nil {
             fmt.Println(err)
             return
         }
-        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+        if err := f.SetSheetRow("Лист1", cell, &row); err != nil {
             fmt.Println(err)
             return
         }
     }
     enable, disable := true, false
-    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+    if err := f.AddChart("Лист1", "E1", &excelize.Chart{
         Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
-                Name:       "Sheet1!$A$2",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$2:$D$2",
+                Name:       "Лист1!$A$2",
+                Categories: "Лист1!$B$1:$D$1",
+                Values:     "Лист1!$B$2:$D$2",
             },
         },
         Format: excelize.GraphicOptions{
@@ -237,9 +241,9 @@ func main() {
         Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
-                Name:       "Sheet1!$A$4",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$4:$D$4",
+                Name:       "Лист1!$A$4",
+                Categories: "Лист1!$B$1:$D$1",
+                Values:     "Лист1!$B$4:$D$4",
                 Marker: excelize.ChartMarker{
                     Symbol: "none", Size: 10,
                 },
@@ -269,7 +273,7 @@ func main() {
         return
     }
     // Сохранить workbook
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Книга1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

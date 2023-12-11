@@ -449,10 +449,10 @@ func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 
 GetCols obtient la valeur de toutes les cellules par colonnes de la feuille de calcul en fonction du nom de feuille de calcul donné, renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée.
 
-Par exemple, obtenez et parcourez la valeur de toutes les cellules par colonnes dans une feuille de calcul nommée `Sheet1`:
+Par exemple, obtenez et parcourez la valeur de toutes les cellules par colonnes dans une feuille de calcul nommée `Feuil1`:
 
 ```go
-cols, err := f.GetCols("Sheet1")
+cols, err := f.GetCols("Feuil1")
 if err != nil {
     fmt.Println(err)
     return
@@ -473,10 +473,10 @@ func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 
 GetRows renvoie toutes les lignes d'une feuille par nom de feuille de calcul donné, renvoyé sous la forme d'un tableau à deux dimensions, où la valeur de la cellule est convertie en type `string`. Si le format de cellule peut être appliqué à la valeur de la cellule, la valeur appliquée sera utilisée, sinon la valeur d'origine sera utilisée. GetRows a récupéré les lignes avec des cellules de valeur ou de formule, les cellules continuellement vides à la fin de chaque ligne seront ignorées, de sorte que la longueur de chaque ligne peut être incohérente.
 
-Par exemple, obtenez et parcourez la valeur de toutes les cellules par lignes sur une feuille de calcul nommée `Sheet1`:
+Par exemple, obtenez et parcourez la valeur de toutes les cellules par lignes sur une feuille de calcul nommée `Feuil1`:
 
 ```go
-rows, err := f.GetRows("Sheet1")
+rows, err := f.GetRows("Feuil1")
 if err != nil {
     fmt.Println(err)
     return
@@ -497,10 +497,10 @@ func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 
 Obtient un lien hypertexte de cellule basé sur le nom de feuille de calcul donné et les coordonnées de cellule. Si la cellule a un lien hypertexte, elle retournera `true` et l'adresse du lien, sinon elle retournera `false` et une adresse de lien vide.
 
-Par exemple, obtenez un lien hypertexte vers une cellule `H6` sur une feuille de calcul nommée `Sheet1`:
+Par exemple, obtenez un lien hypertexte vers une cellule `H6` sur une feuille de calcul nommée `Feuil1`:
 
 ```go
-link, target, err := f.GetCellHyperLink("Sheet1", "H6")
+link, target, err := f.GetCellHyperLink("Feuil1", "H6")
 ```
 
 ## Obtenir l'index de style {#GetCellStyle}
@@ -517,10 +517,10 @@ L'index de style de cellule est obtenu à partir du nom de feuille de calcul don
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Fusionner des cellules en fonction du nom de feuille de calcul donné et des régions de coordonnées de cellule. La fusion de cellules ne conserve que la valeur de la cellule supérieure gauche et ignore les autres valeurs. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Sheet1`:
+Fusionner des cellules en fonction du nom de feuille de calcul donné et des régions de coordonnées de cellule. La fusion de cellules ne conserve que la valeur de la cellule supérieure gauche et ignore les autres valeurs. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Feuil1`:
 
 ```go
-err := f.MergeCell("Sheet1", "D3", "E9")
+err := f.MergeCell("Feuil1", "D3", "E9")
 ```
 
 Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusionnées existantes, les cellules fusionnées existantes seront supprimées.
@@ -531,10 +531,10 @@ Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusion
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-UnmergeCell fournit une fonction pour annuler la fusion d'une zone de coordonnées donnée. Par exemple, annuler la fusion de la zone `D3:E9` sur `Sheet1`:
+UnmergeCell fournit une fonction pour annuler la fusion d'une zone de coordonnées donnée. Par exemple, annuler la fusion de la zone `D3:E9` sur `Feuil1`:
 
 ```go
-err := f.UnmergeCell("Sheet1", "D3", "E9")
+err := f.UnmergeCell("Feuil1", "D3", "E9")
 ```
 
 Attention: les zones qui se chevauchent seront également non fusionnées.
@@ -585,7 +585,7 @@ GetPictureCells renvoie toutes les références de cellules d'image dans une feu
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment fournit la méthode pour ajouter un commentaire dans une feuille par index de feuille de calcul, cellule et ensemble de formats donnés (tels que l'auteur et le texte). Notez que la longueur maximale de l'auteur est 255 et la longueur maximale du texte est 32512. Par exemple, ajoutez un commentaire dans `Sheet1!$A$3`:
+AddComment fournit la méthode pour ajouter un commentaire dans une feuille par index de feuille de calcul, cellule et ensemble de formats donnés (tels que l'auteur et le texte). Notez que la longueur maximale de l'auteur est 255 et la longueur maximale du texte est 32512. Par exemple, ajoutez un commentaire dans `Sheet1!A3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Ajouter un commentaire à un document Excel"></p>
 
@@ -614,10 +614,10 @@ GetComments récupère tous les commentaires d'une feuille de calcul par nom de 
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-DeleteComment fournit la méthode pour supprimer un commentaire dans une feuille par feuille de calcul donnée. Par exemple, supprimez le commentaire dans `Sheet1!$A$30`:
+DeleteComment fournit la méthode pour supprimer un commentaire dans une feuille par feuille de calcul donnée. Par exemple, supprimez le commentaire dans `Feuil1!A30`:
 
 ```go
-err := f.DeleteComment("Sheet1", "A30")
+err := f.DeleteComment("Feuil1", "A30")
 ```
 
 ## Formule de définition de cellule {#SetCellFormula}
@@ -628,49 +628,49 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 
 SetCellFormula fournit une fonction pour définir la formule sur la cellule en fonction du nom de feuille de calcul donné et des paramètres de formule de cellule. Le résultat de la cellule de formule peut être calculé lorsque la feuille de travail est ouverte par l'application Office Excel ou peut utiliser la fonction [CalcCellValue](cell.md#CalcCellValue) peut également obtenir la valeur cellulaire calculée. Si l'application Excel ne calcule pas la formule automatiquement lorsque le classeur a été ouvert, veuillez appeler [UpdateLinkedValue](utils.md#UpdateLinkedValue) après avoir défini les fonctions de formule de cellule.
 
-- Exemple 1, définissez la formule normale `=SUM(A1,B1)` pour la cellule `A3` sur `Sheet1`:
+- Exemple 1, définissez la formule normale `=SUM(A1,B1)` pour la cellule `A3` sur `Feuil1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Feuil1", "A3", "=SUM(A1,B1)")
 ```
 
-- Exemple 2, définissez la formule de tableau de constantes verticales unidimensionnelles (tableau de colonnes) `1;2;3` pour la cellule `A3` sur `Sheet1`:
+- Exemple 2, définissez la formule de tableau de constantes verticales unidimensionnelles (tableau de colonnes) `1;2;3` pour la cellule `A3` sur `Feuil1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Feuil1", "A3", "={1;2;3}")
 ```
 
-- Exemple 3, définissez la formule de tableau constant horizontal unidimensionnel (tableau de lignes) `"a","b","c"` pour la cellule `A3` sur `Sheet1`:
+- Exemple 3, définissez la formule de tableau constant horizontal unidimensionnel (tableau de lignes) `"a","b","c"` pour la cellule `A3` sur `Feuil1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Feuil1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Exemple 4, définissez la formule matricielle constante à deux dimensions `{1,2;"a","b"}` pour la cellule `A3` sur `Sheet1`:
-
-```go
-formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
-    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
-```
-
-- Exemple 5, définissez la formule matricielle de plage `A1:A2` pour la cellule `A3` sur `Sheet1`:
+- Exemple 4, définissez la formule matricielle constante à deux dimensions `{1,2;"a","b"}` pour la cellule `A3` sur `Feuil1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("Feuil1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Exemple 6, définissez la formule partagée `=A1+B1` pour les cellules `C1:C5` sur `Sheet1`, `C1` est la cellule maître:
+- Exemple 5, définissez la formule matricielle de plage `A1:A2` pour la cellule `A3` sur `Feuil1`:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Feuil1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Exemple 6, définissez la formule partagée `=A1+B1` pour les cellules `C1:C5` sur `Feuil1`, `C1` est la cellule maître:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("Feuil1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Exemple 7, définissez la formule de table `=SUM(Table1[[A]:[B]])` pour la cellule `C2` sur `Sheet1`:
+- Exemple 7, définissez la formule de table `=SUM(Table1[[A]:[B]])` pour la cellule `C2` sur `Feuil1`:
 
 ```go
 package main
@@ -688,13 +688,17 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Feuil1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+        if err := f.SetSheetRow("Feuil1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1",
+    if err := f.AddTable("Feuil1",
         &excelize.Table{
             Range:     "A1:C2",
             Name:      "Table1",
@@ -704,12 +708,12 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Feuil1", "C2", "=SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Classeur1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

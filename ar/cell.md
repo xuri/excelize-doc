@@ -455,10 +455,10 @@ func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 
 يحصل GetCols على قيمة جميع الخلايا حسب الأعمدة في ورقة العمل استنادًا إلى اسم ورقة العمل المحدد ، ويتم إرجاعه كمصفوفة ثنائية الأبعاد ، حيث يتم تحويل قيمة الخلية إلى نوع `string`. إذا كان من الممكن تطبيق تنسيق الخلية على قيمة الخلية ، فسيتم استخدام القيمة المطبقة ، وإلا سيتم استخدام القيمة الأصلية. فمثلا:
 
-على سبيل المثال ، احصل على قيمة جميع الخلايا واجتيازها حسب الأعمدة في ورقة عمل تسمى `Sheet1`:
+على سبيل المثال ، احصل على قيمة جميع الخلايا واجتيازها حسب الأعمدة في ورقة عمل تسمى `ورقة1`:
 
 ```go
-cols, err := f.GetCols("Sheet1")
+cols, err := f.GetCols("ورقة1")
 if err != nil {
     fmt.Println(err)
     return
@@ -479,10 +479,10 @@ func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 
 يُرجع GetRows كافة الصفوف في الورقة بواسطة اسم ورقة العمل المحدد ، ويتم إرجاعه كمصفوفة ثنائية الأبعاد ، حيث يتم تحويل قيمة الخلية إلى نوع `string`. إذا كان من الممكن تطبيق تنسيق الخلية على قيمة الخلية ، فسيتم استخدام القيمة المطبقة ، وإلا سيتم استخدام القيمة الأصلية. جلب GetRows الصفوف ذات القيمة أو خلايا الصيغة ، وسيتم تخطي الخلايا الفارغة باستمرار في ذيل كل صف ، لذلك قد يكون طول كل صف غير متسق.
 
-على سبيل المثال ، احصل على قيمة جميع الخلايا واجتيازها حسب الصفوف في ورقة عمل تسمى `Sheet1`:
+على سبيل المثال ، احصل على قيمة جميع الخلايا واجتيازها حسب الصفوف في ورقة عمل تسمى `ورقة1`:
 
 ```go
-rows, err := f.GetRows("Sheet1")
+rows, err := f.GetRows("ورقة1")
 if err != nil {
     fmt.Println(err)
     return
@@ -503,10 +503,10 @@ func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 
 يحصل GetCellHyperLink على ارتباط تشعبي للخلية استنادًا إلى اسم ورقة العمل المحددة وإحداثيات الخلية. إذا كانت الخلية تحتوي على ارتباط تشعبي ، فستعرض `true` وعنوان الارتباط ، وإلا ستعرض `false` وعنوان ارتباط فارغًا.
 
-على سبيل المثال ، احصل على ارتباط تشعبي لخلية `H6` في ورقة عمل باسم `Sheet1`:
+على سبيل المثال ، احصل على ارتباط تشعبي لخلية `H6` في ورقة عمل باسم `ورقة1`:
 
 ```go
-link, target, err := f.GetCellHyperLink("Sheet1", "H6")
+link, target, err := f.GetCellHyperLink("ورقة1", "H6")
 ```
 
 ## الحصول على فهرس النمط {#GetCellStyle}
@@ -523,10 +523,10 @@ func (f *File) GetCellStyle(sheet, cell string) (int, error)
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-دمج الخلايا بناءً على اسم ورقة العمل المحدد ومناطق إحداثيات الخلية. يؤدي دمج الخلايا إلى الاحتفاظ فقط بقيمة الخلية العلوية اليسرى ، ويتجاهل القيم الأخرى. على سبيل المثال ، ادمج الخلايا في منطقة `D3:E9` في ورقة عمل تسمى `Sheet1`:
+دمج الخلايا بناءً على اسم ورقة العمل المحدد ومناطق إحداثيات الخلية. يؤدي دمج الخلايا إلى الاحتفاظ فقط بقيمة الخلية العلوية اليسرى ، ويتجاهل القيم الأخرى. على سبيل المثال ، ادمج الخلايا في منطقة `D3:E9` في ورقة عمل تسمى `ورقة1`:
 
 ```go
-err := f.MergeCell("Sheet1", "D3", "E9")
+err := f.MergeCell("ورقة1", "D3", "E9")
 ```
 
 إذا تداخلت منطقة إحداثيات الخلية المحددة مع الخلايا المدمجة الأخرى الموجودة ، فسيتم حذف الخلايا المدمجة الحالية.
@@ -537,10 +537,10 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-يوفر UnmergeCell وظيفة لإلغاء دمج منطقة إحداثيات معينة. على سبيل المثال ، إلغاء دمج المنطقة `D3:E9` في `Sheet1`:
+يوفر UnmergeCell وظيفة لإلغاء دمج منطقة إحداثيات معينة. على سبيل المثال ، إلغاء دمج المنطقة `D3:E9` في `ورقة1`:
 
 ```go
-err := f.UnmergeCell("Sheet1", "D3", "E9")
+err := f.UnmergeCell("ورقة1", "D3", "E9")
 ```
 
 تنبيه: المناطق المتداخلة ستكون أيضًا غير مدمجة.
@@ -591,7 +591,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-يوفر AddComment طريقة لإضافة التعليقات في ورقة من خلال فهرس ورقة العمل والخلية ومجموعة التنسيق (مثل المؤلف والنص). لاحظ أن الحد الأقصى لطول المؤلف هو 255 والحد الأقصى لطول النص هو 32512. على سبيل المثال ، أضف تعليقًا في `Sheet1!$A$3`:
+يوفر AddComment طريقة لإضافة التعليقات في ورقة من خلال فهرس ورقة العمل والخلية ومجموعة التنسيق (مثل المؤلف والنص). لاحظ أن الحد الأقصى لطول المؤلف هو 255 والحد الأقصى لطول النص هو 32512. على سبيل المثال ، أضف تعليقًا في `Sheet1!A3`:
 
 <p align="center"><img width="613" src="./images/comment.png" alt="أضف تعليقًا إلى مستند Excel"></p>
 
@@ -620,10 +620,10 @@ func (f *File) GetComments(sheet string) ([]Comment, error)
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-يوفر DeleteComment طريقة حذف تعليق في ورقة بواسطة ورقة عمل معينة. على سبيل المثال ، احذف التعليق في `Sheet1!$A$30`:
+يوفر DeleteComment طريقة حذف تعليق في ورقة بواسطة ورقة عمل معينة. على سبيل المثال ، احذف التعليق في `ورقة1!A30`:
 
 ```go
-err := f.DeleteComment("Sheet1", "A30")
+err := f.DeleteComment("ورقة1", "A30")
 ```
 
 ## تعيين صيغة الخلية {#SetCellFormula}
@@ -634,49 +634,49 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 
 يوفر SetCellFormula وظيفة لتعيين الصيغة على الخلية يتم أخذها وفقًا لاسم ورقة العمل المحدد وإعدادات صيغة الخلية. يمكن حساب نتيجة خلية الصيغة عند فتح ورقة العمل بواسطة تطبيق Office Excel أو يمكن أن تستخدم الدالة [CalcCellValue](cell.md#CalcCellValue) أيضاً الحصول على قيمة الخلية المحسوبة. إذا لم يقم تطبيق Excel بحساب الصيغة تلقائيًا عند فتح المصنف ، يرجى الاتصال بـ [UpdateLinkedValue](utils.md#UpdateLinkedValue) بعد تعيين وظائف صيغة الخلية.
 
-- مثال 1 ،  تعيين الصيغة العادية `=SUM(A1,B1)` للخلية `A3` على `Sheet1`:
+- مثال 1 ،  تعيين الصيغة العادية `=SUM(A1,B1)` للخلية `A3` على `ورقة1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("ورقة1", "A3", "=SUM(A1,B1)")
 ```
 
-- مثال 2 ،  تعيين صفيف ثابت عمودي أحادي الأبعاد (صفيف عمود) الصيغة `1;2;3` للخلية `A3` على `Sheet1`:
+- مثال 2 ،  تعيين صفيف ثابت عمودي أحادي الأبعاد (صفيف عمود) الصيغة `1;2;3` للخلية `A3` على `ورقة1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("ورقة1", "A3", "={1;2;3}")
 ```
 
-- مثال 3 ،  تعيين صفيف ثابت أفقي أحادي الأبعاد (صف صف الصفيف) الصيغة `"a","b","c"` للخلية `A3` على `Sheet1`:
+- مثال 3 ،  تعيين صفيف ثابت أفقي أحادي الأبعاد (صف صف الصفيف) الصيغة `"a","b","c"` للخلية `A3` على `ورقة1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("ورقة1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- مثال 4 ،  تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2;"a","b"}` للخلية `A3` على `Sheet1`:
-
-```go
-formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
-    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
-```
-
-- مثال 5 ،  تعيين صيغة صفيف النطاق `A1:A2` للخلية `A3` على `Sheet1`:
+- مثال 4 ،  تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2;"a","b"}` للخلية `A3` على `ورقة1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("ورقة1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- مثال 6 ، قم بتعيين الصيغة المشتركة `=A1+B1` للخلايا `C1:C5` في `Sheet1` ، `C1` هي الخلية الرئيسية:
+- مثال 5 ،  تعيين صيغة صفيف النطاق `A1:A2` للخلية `A3` على `ورقة1`:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("ورقة1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- مثال 6 ، قم بتعيين الصيغة المشتركة `=A1+B1` للخلايا `C1:C5` في `ورقة1` ، `C1` هي الخلية الرئيسية:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("ورقة1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- مثال 7 ، تعيين صيغة الجدول `=SUM(Table1[[A]:[B]])` للخلية `C2` في `Sheet1`:
+- مثال 7 ، تعيين صيغة الجدول `=SUM(Table1[[A]:[B]])` للخلية `C2` في `ورقة1`:
 
 ```go
 package main
@@ -694,13 +694,17 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "ورقة1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+        if err := f.SetSheetRow("ورقة1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1",
+    if err := f.AddTable("ورقة1",
         &excelize.Table{
             Range:     "A1:C2",
             Name:      "Table1",
@@ -710,12 +714,12 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("ورقة1", "C2", "=SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("المصنف1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
