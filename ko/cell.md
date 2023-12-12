@@ -585,7 +585,7 @@ GetPictureCells 는 특정 워크시트 이름으로 워크시트의 모든 그�
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: 작성자 및 텍스트) 을 사용하여 시트에 주석을 추가하는 방법을 제공합니다. 최대 작성자 길이는 255 이고 최대 텍스트 길이는 32512 입니다. 예를 들어 `Sheet1!$A$3` 에 주석을 추가합니다:
+AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: 작성자 및 텍스트) 을 사용하여 시트에 주석을 추가하는 방법을 제공합니다. 최대 작성자 길이는 255 이고 최대 텍스트 길이는 32512 입니다. 예를 들어 `Sheet1!A3` 에 주석을 추가합니다:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Excel 문서에 주석 추가"></p>
 
@@ -614,7 +614,7 @@ GetComments 는 지정된 워크시트 이름으로 워크시트의 모든 주�
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-DeleteComment 는 주어진 워크시트에 의해 시트의 주석을 삭제하는 방법을 제공합니다. 예를 들어 `Sheet1!$A$30` 에서 댓글을 삭제합니다:
+DeleteComment 는 주어진 워크시트에 의해 시트의 주석을 삭제하는 방법을 제공합니다. 예를 들어 `Sheet1!A30` 에서 댓글을 삭제합니다:
 
 ```go
 err := f.DeleteComment("Sheet1", "A30")

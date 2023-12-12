@@ -183,6 +183,10 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Tabelle1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{
         {nil, "Apfel", "Orange", "Birne"},
         {"Klein", 2, 3, 3},
@@ -194,19 +198,19 @@ func main() {
             fmt.Println(err)
             return
         }
-        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+        if err := f.SetSheetRow("Tabelle1", cell, &row); err != nil {
             fmt.Println(err)
             return
         }
     }
     enable, disable := true, false
-    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+    if err := f.AddChart("Tabelle1", "E1", &excelize.Chart{
         Type: excelize.Col,
         Series: []excelize.ChartSeries{
             {
-                Name:       "Sheet1!$A$2",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$2:$D$2",
+                Name:       "Tabelle1!$A$2",
+                Categories: "Tabelle1!$B$1:$D$1",
+                Values:     "Tabelle1!$B$2:$D$2",
             },
         },
         Format: excelize.GraphicOptions{
@@ -237,9 +241,9 @@ func main() {
         Type: excelize.Line,
         Series: []excelize.ChartSeries{
             {
-                Name:       "Sheet1!$A$4",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$4:$D$4",
+                Name:       "Tabelle1!$A$4",
+                Categories: "Tabelle1!$B$1:$D$1",
+                Values:     "Tabelle1!$B$4:$D$4",
                 Marker: excelize.ChartMarker{
                     Symbol: "none", Size: 10,
                 },
@@ -269,7 +273,7 @@ func main() {
         return
     }
     // Speichern Sie die Tabelle unter dem angegebenen Pfad.
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Mappe1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

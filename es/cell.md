@@ -449,10 +449,10 @@ func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 
 GetCols obtiene el valor de todas las celdas por columnas en la hoja de trabajo en función del nombre de la hoja de trabajo dado, devuelto como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original.
 
-Por ejemplo, obtenga y recorra el valor de todas las celdas por columnas en una hoja de trabajo llamada `Sheet1`:
+Por ejemplo, obtenga y recorra el valor de todas las celdas por columnas en una hoja de trabajo llamada `Hoja1`:
 
 ```go
-cols, err := f.GetCols("Sheet1")
+cols, err := f.GetCols("Hoja1")
 if err != nil {
     fmt.Println(err)
     return
@@ -473,10 +473,10 @@ func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 
 GetRows devuelve todas las filas de una hoja por el nombre de la hoja de cálculo dado, devueltas como una matriz bidimensional, donde el valor de la celda se convierte al tipo `string`. Si el formato de celda se puede aplicar al valor de la celda, se usará el valor aplicado; de lo contrario, se usará el valor original. GetRows obtuvo las filas con celdas de valor o fórmula, las celdas continuamente en blanco en la cola de cada fila se omitirán, por lo que la longitud de cada fila puede ser inconsistente.
 
-Por ejemplo, obtenga y recorra el valor de todas las celdas por filas en una hoja de trabajo llamada `Sheet1`:
+Por ejemplo, obtenga y recorra el valor de todas las celdas por filas en una hoja de trabajo llamada `Hoja1`:
 
 ```go
-rows, err := f.GetRows("Sheet1")
+rows, err := f.GetRows("Hoja1")
 if err != nil {
     fmt.Println(err)
     return
@@ -497,10 +497,10 @@ func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 
 Obtiene un hipervínculo de celda según el nombre de la hoja de trabajo y las coordenadas de la celda. Si la celda tiene un hipervínculo, devolverá `true` y la dirección del enlace; de lo contrario, devolverá `false` y una dirección de enlace vacía.
 
-Por ejemplo, obtenga un hipervínculo a una celda `H6` en una hoja de trabajo llamada `Sheet1`:
+Por ejemplo, obtenga un hipervínculo a una celda `H6` en una hoja de trabajo llamada `Hoja1`:
 
 ```go
-link, target, err := f.GetCellHyperLink("Sheet1", "H6")
+link, target, err := f.GetCellHyperLink("Hoja1", "H6")
 ```
 
 ## Obtener índice de estilo {#GetCellStyle}
@@ -517,10 +517,10 @@ El índice de estilo de celda se obtiene a partir del nombre de la hoja de traba
 func (f *File) MergeCell(sheet, hCell, vCell string) error
 ```
 
-Fusionar celdas según el nombre de la hoja de trabajo y las regiones de coordenadas de celda. La combinación de celdas solo conserva el valor de la celda superior izquierda y descarta los demás valores. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Sheet1`:
+Fusionar celdas según el nombre de la hoja de trabajo y las regiones de coordenadas de celda. La combinación de celdas solo conserva el valor de la celda superior izquierda y descarta los demás valores. Por ejemplo, combine celdas en el área `D3:E9` en una hoja de trabajo llamada `Hoja1`:
 
 ```go
-err := f.MergeCell("Sheet1", "D3", "E9")
+err := f.MergeCell("Hoja1", "D3", "E9")
 ```
 
 Si el área de coordenadas de celda dada se superpone con otras celdas fusionadas existentes, las celdas fusionadas existentes se eliminarán.
@@ -531,10 +531,10 @@ Si el área de coordenadas de celda dada se superpone con otras celdas fusionada
 func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
 ```
 
-UnmergeCell proporciona una función para separar un área de coordenadas determinada. Por ejemplo, separe el área `D3:E9` en `Sheet1`:
+UnmergeCell proporciona una función para separar un área de coordenadas determinada. Por ejemplo, separe el área `D3:E9` en `Hoja1`:
 
 ```go
-err := f.UnmergeCell("Sheet1", "D3", "E9")
+err := f.UnmergeCell("Hoja1", "D3", "E9")
 ```
 
 Atención: las áreas superpuestas tampoco se fusionarán.
@@ -585,7 +585,7 @@ GetPictureCells devuelve todas las referencias de celdas de imágenes en una hoj
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment proporciona el método para agregar comentarios en una hoja por índice de hoja de trabajo, celda y conjunto de formato dado (como autor y texto). Tenga en cuenta que la longitud máxima del autor es 255 y la longitud máxima del texto es 32512. Por ejemplo, agregue un comentario en `Sheet1!$A$3`:
+AddComment proporciona el método para agregar comentarios en una hoja por índice de hoja de trabajo, celda y conjunto de formato dado (como autor y texto). Tenga en cuenta que la longitud máxima del autor es 255 y la longitud máxima del texto es 32512. Por ejemplo, agregue un comentario en `Sheet1!A3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Agregar un comentario a un documento de Excel"></p>
 
@@ -614,10 +614,10 @@ GetComments recupera todos los comentarios en una hoja de trabajo por nombre de 
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-DeleteComment proporciona el método para eliminar comentarios en una hoja por hoja de trabajo dada. Por ejemplo, elimine el comentario en `Sheet1!$A$30`:
+DeleteComment proporciona el método para eliminar comentarios en una hoja por hoja de trabajo dada. Por ejemplo, elimine el comentario en `Hoja1!A30`:
 
 ```go
-err := f.DeleteComment("Sheet1", "A30")
+err := f.DeleteComment("Hoja1", "A30")
 ```
 
 ## Establecer fórmula de celda {#SetCellFormula}
@@ -628,49 +628,49 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 
 SetCellFormula proporciona una función para establecer la fórmula en la celda que se toma de acuerdo con el nombre de la hoja de trabajo dada y la configuración de la fórmula de la celda. El resultado de la celda de fórmula se puede calcular cuando la aplicación de Office Excel abre la hoja de cálculo o puede usar la función [CalcCellValue](cell.md#CalcCellValue) también puede obtener el valor de celda calculado. Si la aplicación de Excel no calcula la fórmula automáticamente cuando se abre el libro, llame a [UpdateLinkedValue](utils.md#UpdateLinkedValue) después de configurar las funciones de la fórmula de la celda.
 
-- Ejemplo 1, establezca la fórmula normal `=SUM(A1,B1)` para la celda `A3` en `Sheet1`:
+- Ejemplo 1, establezca la fórmula normal `=SUM(A1,B1)` para la celda `A3` en `Hoja1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Hoja1", "A3", "=SUM(A1,B1)")
 ```
 
-- Ejemplo 2, establezca la fórmula de matriz constante vertical unidimensional (matriz de columnas) `1;2;3` para la celda `A3` en `Sheet1`:
+- Ejemplo 2, establezca la fórmula de matriz constante vertical unidimensional (matriz de columnas) `1;2;3` para la celda `A3` en `Hoja1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Hoja1", "A3", "={1;2;3}")
 ```
 
-- Ejemplo 3, establezca la fórmula de matriz constante horizontal unidimensional (matriz de fila) `"a","b","c"` para la celda `A3` en `Sheet1`:
+- Ejemplo 3, establezca la fórmula de matriz constante horizontal unidimensional (matriz de fila) `"a","b","c"` para la celda `A3` en `Hoja1`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Hoja1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- Ejemplo 4, establezca la fórmula de matriz constante bidimensional `{1,2;"a","b"}` para la celda `A3` en `Sheet1`:
-
-```go
-formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
-    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
-```
-
-- Ejemplo 5, establezca la fórmula de matriz de rango `A1:A2` para la celda `A3` en `Sheet1`:
+- Ejemplo 4, establezca la fórmula de matriz constante bidimensional `{1,2;"a","b"}` para la celda `A3` en `Hoja1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("Hoja1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Ejemplo 6, establezca la fórmula compartida `=A1+B1` para las celdas `C1:C5` en `Sheet1`, `C1` es la celda maestra:
+- Ejemplo 5, establezca la fórmula de matriz de rango `A1:A2` para la celda `A3` en `Hoja1`:
+
+```go
+formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
+err := f.SetCellFormula("Hoja1", "A3", "=A1:A2",
+    excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
+```
+
+- Ejemplo 6, establezca la fórmula compartida `=A1+B1` para las celdas `C1:C5` en `Hoja1`, `C1` es la celda maestra:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("Hoja1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- Ejemplo 7, establecer la fórmula de tabla `=SUM(Table1[[A]:[B]])` para la celda `C2` en `Sheet1`:
+- Ejemplo 7, establecer la fórmula de tabla `=SUM(Table1[[A]:[B]])` para la celda `C2` en `Hoja1`:
 
 ```go
 package main
@@ -688,13 +688,17 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Hoja1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{{"A", "B", "C"}, {1, 2}} {
-        if err := f.SetSheetRow("Sheet1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
+        if err := f.SetSheetRow("Hoja1", fmt.Sprintf("A%d", idx+1), &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddTable("Sheet1",
+    if err := f.AddTable("Hoja1",
         &excelize.Table{
             Range:     "A1:C2",
             Name:      "Table1",
@@ -704,12 +708,12 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Hoja1", "C2", "=SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Libro1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
