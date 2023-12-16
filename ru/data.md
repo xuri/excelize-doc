@@ -8,7 +8,7 @@ func (f *File) AddDataValidation(sheet string, dv *DataValidation)
 
 AddDataValidation предоставляет проверенную проверку данных в диапазоне рабочего листа с помощью заданного объекта проверки данных и имени листа. Объект проверки данных может быть создан с помощью функции `NewDataValidation`. Тип и операторы проверки данных можно найти в разделе [Константы](constants.md).
 
-Пример 1, установите проверку данных на `Sheet1!A1:B2` с настройками критериев проверки, покажите предупреждение об ошибке после ввода неверных данных с стилем "Stop" и пользовательским названием "error body":
+Пример 1, установите проверку данных на `Лист1!A1:B2` с настройками критериев проверки, покажите предупреждение об ошибке после ввода неверных данных с стилем "Stop" и пользовательским названием "error body":
 
 <p align="center"><img width="710" src="./images/data_validation_01.png" alt="Проверка данных"></p>
 
@@ -17,10 +17,10 @@ dv := excelize.NewDataValidation(true)
 dv.SetSqref("A1:B2")
 dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
 dv.SetError(excelize.DataValidationErrorStyleStop, "error title", "error body")
-f.AddDataValidation("Sheet1", dv)
+f.AddDataValidation("Лист1", dv)
 ```
 
-Пример 2, установите проверку данных на `Sheet1!A3:B4` с настройками критериев проверки и покажите входное сообщение, когда выбрана ячейка:
+Пример 2, установите проверку данных на `Лист1!A3:B4` с настройками критериев проверки и покажите входное сообщение, когда выбрана ячейка:
 
 <p align="center"><img width="710" src="./images/data_validation_02.png" alt="Проверка данных"></p>
 
@@ -29,10 +29,10 @@ dv = excelize.NewDataValidation(true)
 dv.SetSqref("A3:B4")
 dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
 dv.SetInput("input title", "input body")
-f.AddDataValidation("Sheet1", dv)
+f.AddDataValidation("Лист1", dv)
 ```
 
-Пример 3, установите проверку данных на `Sheet1!A5:B6` с настройками критериев проверки, создайте раскрывающийся список в ячейке, используя источник списка:
+Пример 3, установите проверку данных на `Лист1!A5:B6` с настройками критериев проверки, создайте раскрывающийся список в ячейке, используя источник списка:
 
 <p align="center"><img width="710" src="./images/data_validation_03.png" alt="Проверка данных"></p>
 
@@ -40,20 +40,20 @@ f.AddDataValidation("Sheet1", dv)
 dv = excelize.NewDataValidation(true)
 dv.SetSqref("A5:B6")
 dv.SetDropList([]string{"1", "2", "3"})
-f.AddDataValidation("Sheet1", dv)
+f.AddDataValidation("Лист1", dv)
 ```
 
 Если вы вводите элементы в диалоговое окно проверки данных (список с разделителями), ограничение составляет 255 символов, включая разделители. Если ваша исходная формула списка проверки данных превышает максимальный предел длины, установите допустимые значения в ячейках рабочего листа и используйте функцию `SetSqrefDropList`, чтобы установить ссылку для их ячеек.
 
-Пример 4, установите проверку данных на `Sheet1!A7:B8` с параметрами критериев проверки. Параметры `Sheet1!E1:E3`, создайте раскрывающийся список в ячейке, разрешив источник списка:
+Пример 4, установите проверку данных на `Лист1!A7:B8` с параметрами критериев проверки. Параметры `Лист1!E1:E3`, создайте раскрывающийся список в ячейке, разрешив источник списка:
 
 <p align="center"><img width="710" src="./images/data_validation_04.png" alt="Проверка данных"></p>
 
 ```go
 dv := excelize.NewDataValidation(true)
 dv.SetSqref("A7:B8")
-dv.SetSqrefDropList("$E$1:$E$3")
-f.AddDataValidation("Sheet1", dv)
+dv.SetSqrefDropList("E1:E3")
+f.AddDataValidation("Лист1", dv)
 ```
 
 Существуют ограничения на количество элементов, которые будут отображаться в раскрывающемся списке проверки данных: в списке может отображаться 32768 элементов из списка на листе. Если вам нужно больше элементов, вы можете создать зависимый раскрывающийся список, разбитый по категориям.
@@ -117,13 +117,13 @@ type SlicerOptions struct {
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
 ```
 
-Функция AddSlicer вставляет срез, задавая имя листа и настройки среза. Например, вставьте срез на лист `Sheet1!E1` с полем `Column1` для таблицы с именем `Table1`:
+Функция AddSlicer вставляет срез, задавая имя листа и настройки среза. Например, вставьте срез на лист `Лист1!E1` с полем `Column1` для таблицы с именем `Table1`:
 
 ```go
-err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
+err := f.AddSlicer("Лист1", &excelize.SlicerOptions{
     Name:       "Column1",
     Cell:       "E1",
-    TableSheet: "Sheet1",
+    TableSheet: "Лист1",
     TableName:  "Table1",
     Caption:    "Column1",
     Width:      200,

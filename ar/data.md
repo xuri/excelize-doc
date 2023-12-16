@@ -8,7 +8,7 @@ func (f *File) AddDataValidation(sheet string, dv *DataValidation)
 
 يوفر AddDataValidation التحقق من صحة البيانات المحددة في نطاق من ورقة العمل من خلال كائن التحقق من صحة البيانات واسم ورقة العمل المحدد. يمكن إنشاء كائن التحقق من صحة البيانات بواسطة الدالة `NewDataValidation`. يمكن العثور على نوع التحقق من صحة البيانات وعوامل التشغيل في قسم [الثوابت](constants.md).
 
-مثال 1 ، قم بتعيين التحقق من صحة البيانات على `Sheet1!A1:B2` بإعدادات معايير التحقق ، إظهار تنبيه خطأ بعد إدخال بيانات غير صالحة بنمط "إيقاف" والعنوان المخصص "نص الخطأ":
+مثال 1 ، قم بتعيين التحقق من صحة البيانات على `ورقة1!A1:B2` بإعدادات معايير التحقق ، إظهار تنبيه خطأ بعد إدخال بيانات غير صالحة بنمط "إيقاف" والعنوان المخصص "نص الخطأ":
 
 <p align="center"><img width="654" src="./images/data_validation_01.png" alt="تأكيد صحة البيانات"></p>
 
@@ -17,10 +17,10 @@ dv := excelize.NewDataValidation(true)
 dv.SetSqref("A1:B2")
 dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorBetween)
 dv.SetError(excelize.DataValidationErrorStyleStop, "error title", "نص الخطأ")
-f.AddDataValidation("Sheet1", dv)
+f.AddDataValidation("ورقة1", dv)
 ```
 
-Example 2, set data validation on `Sheet1!A3:B4` with validation criteria settings, and show input message when cell is selected:
+Example 2, set data validation on `ورقة1!A3:B4` with validation criteria settings, and show input message when cell is selected:
 
 <p align="center"><img width="654" src="./images/data_validation_02.png" alt="تأكيد صحة البيانات"></p>
 
@@ -29,10 +29,10 @@ dv = excelize.NewDataValidation(true)
 dv.SetSqref("A3:B4")
 dv.SetRange(10, 20, excelize.DataValidationTypeWhole, excelize.DataValidationOperatorGreaterThan)
 dv.SetInput("input title", "input body")
-f.AddDataValidation("Sheet1", dv)
+f.AddDataValidation("ورقة1", dv)
 ```
 
-مثال 3 ، قم بتعيين التحقق من صحة البيانات على `Sheet1!A5:B6` باستخدام إعدادات معايير التحقق ، قم بإنشاء قائمة منسدلة داخل الخلية عن طريق السماح بمصدر القائمة:
+مثال 3 ، قم بتعيين التحقق من صحة البيانات على `ورقة1!A5:B6` باستخدام إعدادات معايير التحقق ، قم بإنشاء قائمة منسدلة داخل الخلية عن طريق السماح بمصدر القائمة:
 
 <p align="center"><img width="654" src="./images/data_validation_03.png" alt="تأكيد صحة البيانات"></p>
 
@@ -40,20 +40,20 @@ f.AddDataValidation("Sheet1", dv)
 dv = excelize.NewDataValidation(true)
 dv.SetSqref("A5:B6")
 dv.SetDropList([]string{"1", "2", "3"})
-f.AddDataValidation("Sheet1", dv)
+f.AddDataValidation("ورقة1", dv)
 ```
 
 إذا قمت بكتابة العناصر في مربع حوار التحقق من صحة البيانات (قائمة محددة)، فإن الحد الأقصى هو 255 حرفًا، بما في ذلك الفواصل. إذا كانت صيغة مصدر قائمة التحقق من صحة البيانات الخاصة بك تتجاوز الحد الأقصى للطول، فيرجى تعيين القيم المسموح بها في خلايا ورقة العمل، واستخدام وظيفة `SetSqrefDropList` لتعيين المرجع للخلايا الخاصة بها.
 
-المثال 4 ، قم بتعيين التحقق من صحة البيانات على `Sheet1!A7:B8` باستخدام إعدادات مصدر معايير التحقق `Sheet1!E1:E3` ، قم بإنشاء قائمة منسدلة داخل الخلية عن طريق السماح بمصدر القائمة:
+المثال 4 ، قم بتعيين التحقق من صحة البيانات على `ورقة1!A7:B8` باستخدام إعدادات مصدر معايير التحقق `ورقة1!E1:E3` ، قم بإنشاء قائمة منسدلة داخل الخلية عن طريق السماح بمصدر القائمة:
 
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="تأكيد صحة البيانات"></p>
 
 ```go
 dv := excelize.NewDataValidation(true)
 dv.SetSqref("A7:B8")
-dv.SetSqrefDropList("$E$1:$E$3")
-f.AddDataValidation("Sheet1", dv)
+dv.SetSqrefDropList("E1:E3")
+f.AddDataValidation("ورقة1", dv)
 ```
 
 هناك حدود لعدد العناصر التي ستظهر في القائمة المنسدلة للتحقق من صحة البيانات: يمكن أن تظهر القائمة حتى تعرض 32768 عنصرًا من قائمة في ورقة العمل. إذا كنت بحاجة إلى المزيد من العناصر، فيمكنك إنشاء قائمة منسدلة تابعة، مقسمة حسب الفئة.
