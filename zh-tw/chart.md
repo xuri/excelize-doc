@@ -74,11 +74,13 @@ ID|列舉|圖表類別
 
 參數|含義
 ---|---
-Name|圖例項（系列），在圖表圖例和公式欄中顯示。`Name` 參數是可選的，如果不指定該值默認將會使用 `Series 1 .. n` 表示。`Name` 支持使用公式表示，例如：`Sheet1!$A$1`。
-Categories|水平（類別）軸標籤。在大多數圖表類別中，`Categories` 屬性是可選的，默認為形如 `1..n` 的連續序列。
-Values|圖表資料區域，是 `Series` 中最重要的參數，也是創建圖表時唯一的必選參數。該選項將圖表與其顯示的工作表資料鏈接起來。
-Line|設定折線圖的折線格式。`Line` 屬性是可選的，如果未指定該屬性，則為默認樣式。可以設定的選項是 `Width`，寬度範圍是 0.25pt 至 999pt。如果 `Width` 的值超出範圍，則線的默認寬度為 2pt。
-Marker|設定折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
+Name              | 圖例項（系列），在圖表圖例和公式欄中顯示。`Name` 參數是可選的，如果不指定該值默認將會使用 `Series 1 .. n` 表示。`Name` 支持使用公式表示，例如：`Sheet1!$A$1`。
+Categories        | 水平（類別）軸標籤。在大多數圖表類別中，`Categories` 屬性是可選的，默認為形如 `1..n` 的連續序列。
+Values            | 圖表資料區域，是 `Series` 中最重要的參數，也是創建圖表時唯一的必選參數。該選項將圖表與其顯示的工作表資料鏈接起來。
+Fill              | 設定圖表中每個資料數列的填滿格式。
+Line              | 設定折線圖的折線格式。`Line` 屬性是可選的，如果未指定該屬性，則為默認樣式。可以設定的選項是 `Width`，寬度範圍是 0.25pt 至 999pt。如果 `Width` 的值超出範圍，則線的默認寬度為 2pt。
+Marker            | 設定折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
+DataLabelPosition | 設定圖表中每個數據數列資料標籤的位置。
 
 參數 `Legend` 提供對圖例項的屬性設定方法，下面是 Excelize 中 `Legend` 的可選參數：
 
@@ -110,7 +112,11 @@ gap|空距
 span|用直線連接資料點
 zero|零值
 
-透過參數 `VaryColors` 指定是否設定圖表數據系列格式為自動填滿色彩，默認值為 `true`。
+參數 `BubbleSize` 用於設定泡泡圖和立體泡泡圖的泡泡大小。該參數是可選的，其取值範圍是 1-300 (默認缺省值為 `100`)
+
+參數 `HoleSize` 用於設定環圈圖的環圈內徑大小。該參數是可選的，其取值範圍是 1-90 (默認缺省值為 `75`)
+
+透過參數 `VaryColors` 指定是否設定圖表資料數列格式為自動填滿色彩，默認值為 `true`。
 
 參數 `Format` 提供對圖表偏移、縮放、高寬比設定和列印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函式中所使用的相同。
 
@@ -118,12 +124,14 @@ zero|零值
 
 參數|類別|默認值|含義
 ---|---|---|---
-ShowBubbleSize  | `bool` | `false` | 泡泡大小
-ShowCatName     | `bool` | `false` | 類別名稱
-ShowLeaderLines | `bool` | `false` | 顯示引導線
-ShowPercent     | `bool` | `false` | 百分比
-ShowSerName     | `bool` | `false` | 系列名稱
-ShowVal         | `bool` | `false` | 值
+SecondPlotValues | `int`         | `0`     | 子母圓形圖和圓形圖帶有子橫條圖中第二繪圖區域中的資料數列數量
+ShowBubbleSize   | `bool`        | `false` | 泡泡大小
+ShowCatName      | `bool`        | `false` | 類別名稱
+ShowLeaderLines  | `bool`        | `false` | 顯示引導線
+ShowPercent      | `bool`        | `false` | 百分比
+ShowSerName      | `bool`        | `false` | 系列名稱
+ShowVal          | `bool`        | `false` | 值
+NumFmt           | `ChartNumFmt` | N/A     | 設定資料標籤的數字格式和鏈接到源
 
 透過參數 `XAxis` 和 `YAxis` 參數設定坐標軸選項。
 

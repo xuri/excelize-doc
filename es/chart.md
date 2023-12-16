@@ -74,11 +74,13 @@ Las opciones de `Series` que se pueden configurar son:
 
 Parámetro|Explicación
 ---|---
-Name|Elemento de leyenda (serie), que se muestra en la barra de fórmulas y la leyenda del gráfico. El parámetro `Name` es opcional. Si no especifica este valor, el valor predeterminado será `Serie 1 .. n`. Soporte de `Name` para la representación de fórmulas, por ejemplo: `Sheet1!$A$1`.
-Categories|Etiqueta de eje horizontal (categoría). El parámetro `Categories` es opcional en la mayoría de los tipos de gráficos, el valor predeterminado es una secuencia contigua de la forma `1..n`.
-Values|El área de datos del gráfico, que es el parámetro más importante de la `Series`, también es el único parámetro obligatorio al crear un gráfico. Esta opción vincula el gráfico a los datos de la hoja de trabajo que muestra.
-Line|Esto establece el formato de línea del gráfico de líneas. La propiedad `Line` es opcional y, si no se proporciona, tendrá el estilo predeterminado. Las opciones que se pueden configurar son `Width`. El rango de `Width` es 0.25pt - 999pt. Si el valor del ancho está fuera del rango, el ancho predeterminado de la línea es 2 puntos.
-Marker|Esto establece el marcador del gráfico de líneas y el gráfico de dispersión. El rango del campo opcional `Size` es 2-72 (el valor predeterminado es `5`). El valor de enumeración del campo opcional `Symbol` es (el valor predeterminado es `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name              | Elemento de leyenda (serie), que se muestra en la barra de fórmulas y la leyenda del gráfico. El parámetro `Name` es opcional. Si no especifica este valor, el valor predeterminado será `Serie 1 .. n`. Soporte de `Name` para la representación de fórmulas, por ejemplo: `Sheet1!$A$1`.
+Categories        | Etiqueta de eje horizontal (categoría). El parámetro `Categories` es opcional en la mayoría de los tipos de gráficos, el valor predeterminado es una secuencia contigua de la forma `1..n`.
+Values            | El área de datos del gráfico, que es el parámetro más importante de la `Series`, también es el único parámetro obligatorio al crear un gráfico. Esta opción vincula el gráfico a los datos de la hoja de trabajo que muestra.
+Fill              | Esto establece el formato para el relleno de la serie de datos.
+Line              | Esto establece el formato de línea del gráfico de líneas. La propiedad `Line` es opcional y, si no se proporciona, tendrá el estilo predeterminado. Las opciones que se pueden configurar son `Width`. El rango de `Width` es 0.25pt - 999pt. Si el valor del ancho está fuera del rango, el ancho predeterminado de la línea es 2 puntos.
+Marker            | Esto establece el marcador del gráfico de líneas y el gráfico de dispersión. El rango del campo opcional `Size` es 2-72 (el valor predeterminado es `5`). El valor de enumeración del campo opcional `Symbol` es (el valor predeterminado es `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+DataLabelPosition | Esto establece la posición de la etiqueta de datos de la serie del gráfico.
 
 Establezca las propiedades de la leyenda del gráfico. Las opciones que se pueden configurar son:
 
@@ -91,12 +93,12 @@ Establece la `Position` de la leyenda del gráfico. La posición predeterminada 
 
 Parámetro|Explicación
 ---|---
-none|Deshabilitar leyenda
-top|En la parte superior
-bottom|En la parte inferior
-left|A la izquierda
-right|A la derecha
-top_right|Arriba a la derecha
+none      | Deshabilitar leyenda
+top       | En la parte superior
+bottom    | En la parte inferior
+left      | A la izquierda
+right     | A la derecha
+top_right | Arriba a la derecha
 
 El parámetro `ShowLegendKey`  establece las claves de la leyenda se mostrarán en las etiquetas de datos. El valor predeterminado es `false`.
 
@@ -106,9 +108,13 @@ El parámetro `ShowBlanksAs` proporciona la configuración "Ocultar y vaciar cel
 
 Parámetro|Explicación
 ---|---
-gap|espacio
-span|Conecte puntos de datos con líneas rectas
-zero|valor cero
+gap  | espacio
+span | Conecte puntos de datos con líneas rectas
+zero | valor cero
+
+Establezca el tamaño de la burbuja en todas las series de datos para el gráfico de burbujas o el gráfico de burbujas 3D mediante la propiedad `BubbleSizes`. La propiedad `BubbleSizes` es opcional. El ancho predeterminado es `100` y el valor debe ser mayor que 0 y menor o igual que 300.
+
+Establezca el tamaño del agujero de anillo en todas las series de datos para el gráfico de anillos mediante la propiedad `HoleSize`. La propiedad `HoleSize` es opcional. El ancho predeterminado es `75` y el valor debe ser mayor que 0 y menor o igual que 90.
 
 Especifica que cada marcador de datos de la serie tiene un color diferente por `VaryColors`. El valor predeterminado es `true`.
 
@@ -118,12 +124,14 @@ Establezca la posición del área de trazado del gráfico por área de trazado. 
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-ShowBubbleSize  | `bool` | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
-ShowCatName     | `bool` | `false` | Nombre de la categoría.
-ShowLeaderLines | `bool` | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
-ShowPercent     | `bool` | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
-ShowSerName     | `bool` | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
-ShowVal         | `bool` | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
+SecondPlotValues | `int`         | `0`     | Especifica los valores en el segundo gráfico para los gráficos `pieOfPie` y `barOfPie`.
+ShowBubbleSize   | `bool`        | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
+ShowCatName      | `bool`        | `false` | Nombre de la categoría.
+ShowLeaderLines  | `bool`        | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.
+ShowPercent      | `bool`        | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
+ShowSerName      | `bool`        | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
+ShowVal          | `bool`        | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
+NumFmt           | `ChartNumFmt` | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para las etiquetas de datos. La propiedad `NumFmt` es opcional. El código de formato predeterminado es `General`.
 
 Establezca las opciones principales de eje horizontal y vertical por `XAxis` y `YAxis`.
 

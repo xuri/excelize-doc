@@ -74,11 +74,13 @@ Folgende Optionen können für die `Series` eingestellt werden:
 
 Parameter|Erläuterung
 ---|---
-Name|Legendenelement (Serie), angezeigt in der Diagrammlegende und in der Formelleiste. Der Parameter `Name` ist optional. Wenn Sie diesen Wert nicht angeben, lautet der Standardwert `Serie 1 .. n`. `Name` Unterstützung für die Darstellung von Formeln, zum Beispiel: `Sheet1!$A$1`.
-Categories|Beschriftung der horizontalen Achse (Kategorie). Der Parameter `Categories` ist in den meisten Diagrammtypen optional. Der Standardwert ist eine zusammenhängende Folge der Form `1..n`.
-Values|Der Diagrammdatenbereich, der der wichtigste Parameter in `Series` ist, ist auch der einzige erforderliche Parameter beim Erstellen eines Diagramms. Diese Option verknüpft das Diagramm mit den angezeigten Arbeitsblattdaten.
-Line|Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `Line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `Width`. Der Bereich von `Width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
-Marker|Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `Size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `Symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name              | Legendenelement (Serie), angezeigt in der Diagrammlegende und in der Formelleiste. Der Parameter `Name` ist optional. Wenn Sie diesen Wert nicht angeben, lautet der Standardwert `Serie 1 .. n`. `Name` Unterstützung für die Darstellung von Formeln, zum Beispiel: `Sheet1!$A$1`.
+Categories        | Beschriftung der horizontalen Achse (Kategorie). Der Parameter `Categories` ist in den meisten Diagrammtypen optional. Der Standardwert ist eine zusammenhängende Folge der Form `1..n`.
+Values            | Der Diagrammdatenbereich, der der wichtigste Parameter in `Series` ist, ist auch der einzige erforderliche Parameter beim Erstellen eines Diagramms. Diese Option verknüpft das Diagramm mit den angezeigten Arbeitsblattdaten.
+Fill              | Dadurch wird das Format für die Datenreihenfüllung festgelegt.
+Line              | Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `Line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `Width`. Der Bereich von `Width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
+Marker            | Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `Size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `Symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+DataLabelPosition | Dadurch wird die Position der Datenbeschriftung der Diagrammreihe festgelegt.
 
 Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können eingestellt werden:
 
@@ -91,12 +93,12 @@ Stellen Sie die `Position` der Diagrammlegende ein. Die Standard-Legendenpositio
 
 Parameter|Erläuterung
 ---|---
-none|Legende deaktivieren
-top|Oben drauf
-bottom|Am Boden
-left|Links
-right|Rechts
-top_right|Oben rechts
+none      | Legende deaktivieren
+top       | Oben drauf
+bottom    | Am Boden
+left      | Links
+right     | Rechts
+top_right | Oben rechts
 
 Der Parametersatz `ShowLegendKey`  der Legendenschlüssel soll in Datenbeschriftungen angezeigt werden. Der Standardwert ist `false`.
 
@@ -106,9 +108,13 @@ Der Parameter `ShowBlanksAs` liefert die Einstellung "Zellen ausblenden und leer
 
 Parameter|Erläuterung
 ---|---
-gap|Leerzeichen
-span|Verbinden Sie Datenpunkte mit geraden Linien
-zero|Nullwert
+gap  | Leerzeichen
+span | Verbinden Sie Datenpunkte mit geraden Linien
+zero | Nullwert
+
+Legen Sie die Blasengröße in allen Datenreihen für das Blasendiagramm oder 3D-Blasendiagramm mit der Eigenschaft `BubbleSizes` fest. Die Eigenschaft `BubbleSizes` ist optional. Die Standardbreite ist `100` und der Wert sollte größer als 0 und kleiner oder gleich 300 sein.
+
+Legen Sie die Donut-Lochgröße in allen Datenreihen für das Donut-Diagramm mit der Eigenschaft `HoleSize` fest. Die Eigenschaft `HoleSize` ist optional. Die Standardbreite ist `75` und der Wert sollte größer als 0 und kleiner oder gleich 90 sein.
 
 Gibt an, dass jede Datenpunktmarkierung in der Reihe eine andere Farbe durch `VaryColors` hat. Der Standardwert ist `true`.
 
@@ -118,12 +124,14 @@ Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende 
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-ShowBubbleSize  | `bool` | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
-ShowCatName     | `bool` | `false` | Kategoriename.
-ShowLeaderLines | `bool` | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
-ShowPercent     | `bool` | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
-ShowSerName     | `bool` | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
-ShowVal         | `bool` | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
+SecondPlotValues | `int`         | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `pieOfPie` und `barOfPie` an.
+ShowBubbleSize   | `bool`        | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
+ShowCatName      | `bool`        | `false` | Kategoriename.
+ShowLeaderLines  | `bool`        | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
+ShowPercent      | `bool`        | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
+ShowSerName      | `bool`        | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
+ShowVal          | `bool`        | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
+NumFmt           | `ChartNumFmt` | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für Datenbeschriftungen festgelegt wird. Die Eigenschaft `NumFmt` ist optional. Der Standardformatcode ist `General`.
 
 Stellen Sie die primären Optionen für die horizontale und vertikale Achse auf `XAxis` und `YAxis` ein.
 

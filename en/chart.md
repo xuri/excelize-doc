@@ -74,11 +74,13 @@ The `Series` options that can be set are:
 
 Parameter|Explanation
 ---|---
-Name|Legend item (series), displayed in the chart legend and formula bar. The `Name` parameter is optional. If you don't specify this value, the default will be `Series 1 .. n`. `name` support for formula representation, for example: `Sheet1!$A$1`.
-Categories|Horizontal (category) axis label. The `Categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
-Values|The chart data area, which is the most important parameter in `Series`, is also the only required parameter when creating a chart. This option links the chart to the worksheet data it displays.
-Line|This sets the line format of the line chart. The `Line` property is optional and if it isn't supplied it will default style. The options that can be set is `Width`. The range of `Width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
-Marker|This sets the marker of the line chart and scatter chart. The range of the optional field `Size` is 2-72 (default value is `5`). The enumeration value of optional field `Symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
+Name              | Legend item (series), displayed in the chart legend and formula bar. The `Name` parameter is optional. If you don't specify this value, the default will be `Series 1 .. n`. `name` support for formula representation, for example: `Sheet1!$A$1`.
+Categories        | Horizontal (category) axis label. The `Categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
+Values            | The chart data area, which is the most important parameter in `Series`, is also the only required parameter when creating a chart. This option links the chart to the worksheet data it displays.
+Fill              | This sets the format for the data series fill.
+Line              | This sets the line format of the line chart. The `Line` property is optional and if it isn't supplied it will default style. The options that can be set is `Width`. The range of `Width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
+Marker            | This sets the marker of the line chart and scatter chart. The range of the optional field `Size` is 2-72 (default value is `5`). The enumeration value of optional field `Symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
+DataLabelPosition | This sets the position of the chart series data label.
 
 Set properties of the chart legend. The options that can be set are:
 
@@ -91,12 +93,12 @@ Set the `Position` of the chart legend. The default legend position is `right`. 
 
 Parameter|Explanation
 ---|---
-none|Disable legend
-top|On top
-bottom|On bottom
-left|On left
-right|On right
-top_right|On top right
+none      | Disable legend
+top       | On top
+bottom    | On bottom
+left      | On left
+right     | On right
+top_right | On top right
 
 The `ShowLegendKey` parameter set the legend keys shall be shown in data labels. The default value is `false`.
 
@@ -106,9 +108,13 @@ The parameter `ShowBlanksAs` provides the "Hide and empty cells" setting. The de
 
 Parameter|Explanation
 ---|---
-gap|space
-span|Connect data points with straight lines
-zero|zero value
+gap  | space
+span | Connect data points with straight lines
+zero | zero value
+
+Set the bubble size in all data series for the bubble chart or 3D bubble chart by `BubbleSizes` property. The `BubbleSizes` property is optional. The default width is `100`, and the value should be great than 0 and less or equal than 300.
+
+Set the doughnut hole size in all data series for the doughnut chart by `HoleSize` property. The `HoleSize` property is optional. The default width is `75`, and the value should be great than 0 and less or equal than 90.
 
 Specifies that each data marker in the series has a different color by `VaryColors`. The default value is `true`.
 
@@ -118,12 +124,14 @@ Set the position of the chart plot area by plot area. The properties that can be
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-ShowBubbleSize  | `bool` | `false` | Specifies the bubble size shall be shown in a data label.
-ShowCatName     | `bool` | `true`  | Category name.
-ShowLeaderLines | `bool` | `false` | Specifies that the category name shall be shown in the data label.
-ShowPercent     | `bool` | `false` | Specifies that the percentage shall be shown in a data label.
-ShowSerName     | `bool` | `false` | Specifies that the series name shall be shown in a data label.
-ShowVal         | `bool` | `false` | Specifies that the value shall be shown in a data label.
+SecondPlotValues | `int`         | `0`     | Specifies the values in second plot for the `pieOfPie` and `barOfPie` chart.
+ShowBubbleSize   | `bool`        | `false` | Specifies the bubble size shall be shown in a data label.
+ShowCatName      | `bool`        | `true`  | Category name.
+ShowLeaderLines  | `bool`        | `false` | Specifies that the category name shall be shown in the data label.
+ShowPercent      | `bool`        | `false` | Specifies that the percentage shall be shown in a data label.
+ShowSerName      | `bool`        | `false` | Specifies that the series name shall be shown in a data label.
+ShowVal          | `bool`        | `false` | Specifies that the value shall be shown in a data label.
+NumFmt           | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `NumFmt` property is optional. The default format code is `General`.
 
 Set the primary horizontal and vertical axis options by `XAxis` and `YAxis`.
 

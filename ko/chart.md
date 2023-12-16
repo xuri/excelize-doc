@@ -74,12 +74,13 @@ Office Excel 차트 데이터 영역 `Series` 에서 데이터를 그릴 정보 
 
 매개 변수|설명
 ---|---
-Name|범례 항목 (계열) 은 차트 범례 및 수식 표시줄에 표시됩니다. `Name` 매개 변수는 선택 사항입니다. 이 값을 지정하지 않으면 기본값은 `Series 1 .. n`. 수식 표현에 대한 `Name` 지원(예: `Sheet1!$A$1`).
-Categories|Horizontal (category) axis label. The `Categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
-수평(범주) 축 레이블입니다. '범주' 매개 변수는 대부분의 차트 유형에서 선택 사항이며 기본값은 '1..n' 형식의 연속 시퀀스입니다.
-Values|`Series` 에서 가장 중요한 매개 변수인 차트 데이터 영역도 차트를 만들 때 필요한 유일한 매개 변수입니다. 이 옵션은 차트를 차트가 표시하는 워크시트 데이터에 연결합니다.
-Line| 선 차트의 선 형식을 설정합니다. `Line` 속성은 선택 사항이며 제공되지 않으면 기본 스타일이됩니다. 설정할 수있는 옵션은 `Width` 입니다. `Width` 의 범위는 0.25pt-999pt 입니다. 너비 값이 범위를 벗어나면 선의 기본 너비는 2pt 입니다.
-Marker|선형 차트 및 분산 형 차트의 마커를 설정합니다. 선택적 필드 `Size` 의 범위는 2-72 입니다 (기본값은 `5`). 선택적 필드 `Symbol` 의 열거 값은 다음과 같습니다 (기본값은 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name              | 범례 항목 (계열) 은 차트 범례 및 수식 표시줄에 표시됩니다. `Name` 매개 변수는 선택 사항입니다. 이 값을 지정하지 않으면 기본값은 `Series 1 .. n`. 수식 표현에 대한 `Name` 지원(예: `Sheet1!$A$1`).
+Categories        | 가로(범주) 축 레이블입니다. `Categories` 매개변수는 대부분의 차트 유형에서 선택사항이며, 기본값은 `1..n` 형식의 연속 시퀀스입니다.
+Values            | `Series` 에서 가장 중요한 매개 변수인 차트 데이터 영역도 차트를 만들 때 필요한 유일한 매개 변수입니다. 이 옵션은 차트를 차트가 표시하는 워크시트 데이터에 연결합니다.
+Fill              | 데이터 시리즈 채우기 형식을 설정합니다.
+Line              | 선 차트의 선 형식을 설정합니다. `Line` 속성은 선택 사항이며 제공되지 않으면 기본 스타일이됩니다. 설정할 수있는 옵션은 `Width` 입니다. `Width` 의 범위는 0.25pt-999pt 입니다. 너비 값이 범위를 벗어나면 선의 기본 너비는 2pt 입니다.
+Marker            | 선형 차트 및 분산 형 차트의 마커를 설정합니다. 선택적 필드 `Size` 의 범위는 2-72 입니다 (기본값은 `5`). 선택적 필드 `Symbol` 의 열거 값은 다음과 같습니다 (기본값은 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+DataLabelPosition | 차트 시리즈 데이터 라벨의 위치를 설정합니다.
 
 차트 범례의 속성을 설정합니다. 설정할 수 있는 옵션은 다음과 같습니다:
 
@@ -92,12 +93,12 @@ ShowLegendKey   | `bool`   | 데이터 레이블에 범례 항목 레이블을 �
 
 매개 변수|설명
 ---|---
-none|범례 비활성화
-top|On top
-bottom|On bottom
-left|On left
-right|On right
-top_right|On top right
+none      | 범례 비활성화
+top       | 상단에
+bottom    | 바닥에
+left      | 왼쪽
+right     | 오른쪽
+top_right | 오른쪽 상단
 
 범례 키를 설정하는 `ShowLegendKey`  매개 변수는 데이터 레이블에 표시됩니다. 기본값은 `false` 입니다.
 
@@ -107,9 +108,13 @@ top_right|On top right
 
 매개 변수|설명
 ---|---
-gap|space
-span|Connect data points with straight lines
-zero|zero value
+gap  | 공간
+span | 데이터 포인트를 직선으로 연결
+zero | 0 값
+
+버블 차트 또는 3D 버블 차트의 모든 데이터 시리즈에 버블 크기를 'BubbleSizes' 속성으로 설정합니다. `BubbleSizes` 속성은 선택 사항입니다. 기본 너비는 `100` 이며 값은 0 보다 크고 300 보다 작거나 같아야 합니다.
+
+`HoleSize` 속성으로 도넛 차트의 모든 데이터 계열에 있는 도넛 구멍 크기를 설정합니다. `HoleSize` 속성은 선택사항입니다. 기본 너비는 `75` 이며 값은 0 보다 크고 90 보다 작거나 같아야 합니다.
 
 계열의 각 데이터 마커는 `VaryColors` 에 의해 다른 색상을 가지고 있음을 지정합니다. 기본 값은 `true` 입니다.
 
@@ -119,12 +124,14 @@ zero|zero value
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-ShowBubbleSize  | `bool` | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
-ShowCatName     | `bool` | `false` | 범주 이름
-ShowLeaderLines | `bool` | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.
-ShowPercent     | `bool` | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
-ShowSerName     | `bool` | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
-ShowVal         | `bool` | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
+SecondPlotValues | `int`         | `0`     | `pieOfPie` 및 `barOfPie` 차트에 대한 두 번째 플롯의 값을 지정합니다.
+ShowBubbleSize   | `bool`        | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
+ShowCatName      | `bool`        | `false` | 범주 이름
+ShowLeaderLines  | `bool`        | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.
+ShowPercent      | `bool`        | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
+ShowSerName      | `bool`        | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
+ShowVal          | `bool`        | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
+NumFmt           | `ChartNumFmt` | N/A     | 소스에 연결된 경우 데이터 레이블에 대한 사용자 정의 숫자 형식 코드를 설정하도록 지정합니다. `NumFmt` 속성은 선택 사항입니다. 기본 형식 코드는 `General` 입니다.
 
 기본 수평 및 세로 축 옵션을 `XAxis` 및 `YAxis` 으로 설정합니다.
 

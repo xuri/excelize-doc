@@ -74,11 +74,13 @@ Les options `Series` qui peuvent être définies sont:
 
 Paramètre|Explication
 ---|---
-Name|Élément de légende (série), affiché dans la légende du graphique et la barre de formule. Le paramètre `Name` est facultatif. Si vous ne spécifiez pas cette valeur, la valeur par défaut sera `Series 1 .. n`. Support `Name` pour la représentation de la formule, par exemple: `Sheet1!$A$1`.
-Categories|Etiquette d'axe horizontal (catégorie). Le paramètre `Categories` est facultatif dans la plupart des types de graphiques, la valeur par défaut est une séquence contiguë de la forme `1..n`.
-Values|La zone de données de graphique, qui est le paramètre le plus important dans `Series`, est également le seul paramètre requis lors de la création d'un graphique. Cette option lie le graphique aux données de la feuille de calcul qu'il affiche.
-Line|Ceci définit le format de ligne du graphique en courbes. La propriété `Line` est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `Width`. La plage de `Width` est comprise entre 0.25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
-Marker|Ceci définit le marqueur du graphique linéaire et du nuage de points. La plage du champ facultatif `Size` est comprise entre 2 et 72 (la valeur par défaut est `5`). La valeur d'énumération du champ facultatif `Symbol` est (la valeur par défaut est `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+Name              | Élément de légende (série), affiché dans la légende du graphique et la barre de formule. Le paramètre `Name` est facultatif. Si vous ne spécifiez pas cette valeur, la valeur par défaut sera `Series 1 .. n`. Support `Name` pour la représentation de la formule, par exemple: `Sheet1!$A$1`.
+Categories        | Etiquette d'axe horizontal (catégorie). Le paramètre `Categories` est facultatif dans la plupart des types de graphiques, la valeur par défaut est une séquence contiguë de la forme `1..n`.
+Values            | La zone de données de graphique, qui est le paramètre le plus important dans `Series`, est également le seul paramètre requis lors de la création d'un graphique. Cette option lie le graphique aux données de la feuille de calcul qu'il affiche.
+Fill              | Ceci définit le format de remplissage de la série de données.
+Line              | Ceci définit le format de ligne du graphique en courbes. La propriété `Line` est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `Width`. La plage de `Width` est comprise entre 0.25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
+Marker            | Ceci définit le marqueur du graphique linéaire et du nuage de points. La plage du champ facultatif `Size` est comprise entre 2 et 72 (la valeur par défaut est `5`). La valeur d'énumération du champ facultatif `Symbol` est (la valeur par défaut est `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
+DataLabelPosition | Ceci définit la position de l’étiquette de données de la série de graphiques.
 
 Définir les propriétés de la légende du graphique. Les options qui peuvent être définies sont:
 
@@ -91,12 +93,12 @@ Définissez la `Position` de la légende du graphique. La position par défaut d
 
 Paramètre|Explication
 ---|---
-none|Désactiver la légende
-top|En haut
-bottom|Au fond
-left|Sur la gauche
-right|Sur la droite
-top_right|En haut à droite
+none      | Désactiver la légende
+top       | En haut
+bottom    | Au fond
+left      | Sur la gauche
+right     | Sur la droite
+top_right | En haut à droite
 
 Le paramètre `ShowLegendKey`  défini les clés de légende doit être affiché dans les étiquettes de données. La valeur par défaut est `false`.
 
@@ -106,9 +108,13 @@ Le paramètre `ShowBlanksAs` fournit le paramètre "Hide and empty cells". La va
 
 Paramètre|Explication
 ---|---
-gap|espace
-span|Connecter des points de données avec des lignes droites
-zero|zvaleur zéro
+gap  | espace
+span | Connecter des points de données avec des lignes droites
+zero | zvaleur zéro
+
+Définissez la taille des bulles dans toutes les séries de données pour le graphique à bulles ou le graphique à bulles 3D par la propriété `BubbleSizes`. La propriété `BubbleSizes` est facultative. La largeur par défaut est `100` et la valeur doit être supérieure à 0 et inférieure ou égale à 300.
+
+Définissez la taille du trou du beignet dans toutes les séries de données pour le graphique en beignet par la propriété `HoleSize`. La propriété `HoleSize` est facultative. La largeur par défaut est `75` et la valeur doit être supérieure à 0 et inférieure ou égale à 90.
 
 Spécifie que chaque marqueur de données de la série a une couleur différente par `VaryColors`. La valeur par défaut est `true`.
 
@@ -118,12 +124,14 @@ Définissez la position de la zone de tracé de graphique par plotarea. Les prop
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-ShowBubbleSize  | `bool` | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
-ShowCatName     | `bool` | `false` | Nom de catégorie
-ShowLeaderLines | `bool` | `false` | Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.
-ShowPercent     | `bool` | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
-ShowSerName     | `bool` | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
-ShowVal         | `bool` | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
+SecondPlotValues | `int`         | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `pieOfPie` et `barOfPie`.
+ShowBubbleSize   | `bool`        | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
+ShowCatName      | `bool`        | `false` | Nom de catégorie
+ShowLeaderLines  | `bool`        | `false` | Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.
+ShowPercent      | `bool`        | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
+ShowSerName      | `bool`        | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
+ShowVal          | `bool`        | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
+NumFmt           | `ChartNumFmt` | N/A     | Spécifie cela s’il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
 
 Définissez les options de l'axe horizontal et vertical principal par `XAxis` et `YAxis`.
 
