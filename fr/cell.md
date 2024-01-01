@@ -109,7 +109,7 @@ SetCellStr fournit une fonction pour définir la valeur du type de chaîne d'une
 ## Définir le style de cellule {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
+func (f *File) SetCellStyle(sheet, topLeftCell, bottomRightCell string, styleID int) error
 ```
 
 SetCellStyle fournit la fonction pour ajouter l'attribut de style pour les cellules par nom de feuille de calcul donné, zone de coordonnées et ID de style. Cette fonction est sécurisée pour la concurrence. Les index de style peuvent être obtenus avec la fonction [`NewStyle`](style.md#NewStyle). Notez que les bordures de type `diagonalDown` et `diagonalUp` doivent utiliser la même couleur dans la même zone de coordonnées. SetCellStyle écrasera les styles existants pour la cellule, il n'ajoutera ni ne fusionnera le style avec les styles existants.
@@ -514,7 +514,7 @@ L'index de style de cellule est obtenu à partir du nom de feuille de calcul don
 ## Fusionner les cellules {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hCell, vCell string) error
+func (f *File) MergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
 Fusionner des cellules en fonction du nom de feuille de calcul donné et des régions de coordonnées de cellule. La fusion de cellules ne conserve que la valeur de la cellule supérieure gauche et ignore les autres valeurs. Par exemple, fusionner des cellules dans la zone `D3:E9` sur une feuille de calcul nommée `Feuil1`:
@@ -528,7 +528,7 @@ Si la zone de coordonnées de cellule donnée chevauche d'autres cellules fusion
 ## Dissocier les cellules {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
+func (f *File) UnmergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
 UnmergeCell fournit une fonction pour annuler la fusion d'une zone de coordonnées donnée. Par exemple, annuler la fusion de la zone `D3:E9` sur `Feuil1`:

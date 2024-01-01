@@ -175,7 +175,7 @@ SetPanes предоставляет функцию для создания и у
 ## Объединить ячейку в поток {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 MergeCell предоставляет функцию объединения ячеек по заданной области координат для StreamWriter. Не создавайте объединенную ячейку, которая перекрывается с другой существующей объединенной ячейкой.

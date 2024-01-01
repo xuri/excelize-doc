@@ -175,7 +175,7 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 ## 流式合并单元格 {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 通过给定的单元格坐标区域流式合并单元格，当前仅支持合并非交叠区域单元格。

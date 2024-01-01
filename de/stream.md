@@ -175,7 +175,7 @@ SetPanes bietet eine Funktion zum Erstellen und Entfernen von Einfrierfenstern u
 ## Zelle zum Streaming zusammenführen {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den StreamWriter. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.

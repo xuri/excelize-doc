@@ -175,7 +175,7 @@ SetPanes proporciona una función para crear y eliminar paneles congelados y pan
 ## Combinar celda para transmitir {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 MergeCell proporciona una función para fusionar celdas por un área de coordenadas determinada para StreamWriter. No cree una celda combinada que se superponga con otra celda combinada existente.

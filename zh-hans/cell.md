@@ -109,7 +109,7 @@ func (f *File) SetCellStr(sheet, cell, value string) error
 ## 设置单元格样式 {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
+func (f *File) SetCellStyle(sheet, topLeftCell, bottomRightCell string, styleID int) error
 ```
 
 根据给定的工作表名、单元格坐标区域和样式索引设置单元格的值。此功能是并发安全的。样式索引可以通过 [`NewStyle`](style.md#NewStyle) 函数获取。注意，在同一个坐标区域内的 `diagonalDown` 和 `diagonalUp` 需要保持颜色一致。SetCellStyle 将覆盖单元格的已有样式，而不会将样式与已有样式叠加或合并。
@@ -514,7 +514,7 @@ func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ## 合并单元格 {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hCell, vCell string) error
+func (f *File) MergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
 根据给定的工作表名和单元格坐标区域合并单元格。合并区域内仅保留左上角单元格的值，其他单元格的值将被忽略。例如，合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：
@@ -528,7 +528,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 ## 取消合并单元格 {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
+func (f *File) UnmergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
 根据给定的工作表名和单元格坐标区域取消合并单元格。例如，取消合并名为 `Sheet1` 的工作表上 `D3:E9` 区域内的单元格：

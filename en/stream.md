@@ -175,7 +175,7 @@ SetPanes provides a function to create and remove freeze panes and split panes b
 ## Merge cell to stream {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 MergeCell provides a function to merge cells by a given range reference for the `StreamWriter`. Don't create a merged cell that overlaps with another existing merged cell.

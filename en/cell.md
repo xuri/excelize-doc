@@ -109,7 +109,7 @@ SetCellStr provides a function to set the string type value of a cell. The total
 ## Set cell style {#SetCellStyle}
 
 ```go
-func (f *File) SetCellStyle(sheet, hCell, vCell string, styleID int) error
+func (f *File) SetCellStyle(sheet, topLeftCell, bottomRightCell string, styleID int) error
 ```
 
 SetCellStyle provides a function to add style attribute for cells by given worksheet name, range reference and style ID. This function is concurrency safe. Style indexes can be obtained with the [`NewStyle`](style.md#NewStyle) function. Note that `diagonalDown` and `diagonalUp` type border should use the same color in the same range. SetCellStyle will overwrite the existing styles for the cell, it won't append or merge style with existing styles.
@@ -514,7 +514,7 @@ The cell style index is obtained from the given worksheet name and cell referenc
 ## Merge cells {#MergeCell}
 
 ```go
-func (f *File) MergeCell(sheet, hCell, vCell string) error
+func (f *File) MergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
 MergeCell provides a function to merge cells by given range reference and sheet name. Merging cells only keeps the upper-left cell value, and discards the other values. For example, merge cells in the `D3:E9` area on a worksheet named `Sheet1`:
@@ -528,7 +528,7 @@ If you create a merged cell that overlaps with another existing merged cell, tho
 ## Unmerge cells {#UnmergeCell}
 
 ```go
-func (f *File) UnmergeCell(sheet string, hCell, vCell string) error
+func (f *File) UnmergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
 UnmergeCell provides a function to unmerge a given range reference. For example unmerge area `D3:E9` on `Sheet1`:

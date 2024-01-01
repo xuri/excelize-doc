@@ -175,7 +175,7 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 ## 流式合併存儲格 {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 透過給定的存儲格坐標區域流式合併存儲格，當前僅支持合併非交疊區域存儲格。

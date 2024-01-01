@@ -175,7 +175,7 @@ SetPanes 는 `StreamWriter` 에 대한 패인 옵션을 제공하여 고정 페�
 ## 셀을 스트리밍병합합니다 {#MergeCell}
 
 ```go
-func (sw *StreamWriter) MergeCell(hCell, vCell string) error
+func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 지정된 셀 좌표 범위 스트리밍병합 셀을 통해 현재 겹침이 아닌 범위 셀만 병합할 수 있습니다.
