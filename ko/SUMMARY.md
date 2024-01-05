@@ -242,6 +242,7 @@
 * [성능](performance.md)
 * [의연금](contribution.md)
 * 릴리스된 버전
+  * [v2.8.1](releases/v2.8.1.md)
   * [v2.8.0 (2023-08-28)](releases/v2.8.0.md)
   * [v2.7.1 (2023-04-10)](releases/v2.7.1.md)
   * [v2.7.0 (2023-01-09)](releases/v2.7.0.md)
