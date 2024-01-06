@@ -90,7 +90,7 @@ func (f *File) NewStyle(style *Style) (int, error)
 
 ### 外框 {#border}
 
-下面的表格是 Excelize 中 `Border.Type` 支持的框線類型：
+下面的表格是 Excelize 中 `Border.Type` 支援的框線類型：
 
 類型|說明|類型|說明
 ---|---|---|---
@@ -98,7 +98,7 @@ left|左側外框|top|頂部外框
 right|右側外框|bottom|底部外框
 diagonalDown|對角線向下|diagonalUp|對角線向上
 
-下面的表格是 Excelize 中 `Border.Style` 支持的外框線型索引與對應的線型名稱、粗細及預覽效果：
+下面的表格是 Excelize 中 `Border.Style` 支援的外框線型索引與對應的線型名稱、粗細及預覽效果：
 
 索引|線型名稱|粗細|預覽效果
 ---|---|---|---
@@ -216,7 +216,7 @@ double|雙線
 
 ### 數字自定義格式 {#number_format}
 
-下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -260,7 +260,7 @@ double|雙線
 
 #### 繁體中文數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與繁體中文 `zh-tw` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與繁體中文 `zh-tw` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -286,7 +286,7 @@ double|雙線
 
 #### 簡體中文數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與簡體中文 `zh-cn` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與簡體中文 `zh-cn` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -312,7 +312,7 @@ double|雙線
 
 #### 日本語數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與日本語 `ja-jp` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與日本語 `ja-jp` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -338,7 +338,7 @@ double|雙線
 
 #### 韓語數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與韓語 `ko-kr` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與韓語 `ko-kr` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -364,7 +364,7 @@ double|雙線
 
 #### 泰國語數字自定義格式
 
-下面的表格是 Excelize 中支持的索引 `Style.NumFmt` 參數與泰國語 `th-th` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與泰國語 `th-th` 版本數字自定義格式類別對照表：
 
 索引|類別
 ---|---
@@ -390,7 +390,7 @@ double|雙線
 
 ### 貨幣格式
 
-Excelize 目前支持的貨幣格式索引如下表所示，索引號僅用於標記，不在 Office Excel 檔案中使用，目前無法透過函式 [`GetCellValue`](cell.md#GetCellValue) 獲取格式化值後的值。
+Excelize 目前支援的貨幣格式索引如下表所示，索引號僅用於標記，不在 Office Excel 檔案中使用，目前無法透過函式 [`GetCellValue`](cell.md#GetCellValue) 獲取格式化值後的值。
 
 索引|貨幣格式
 ---|---
@@ -866,7 +866,7 @@ Excelize 目前支持的貨幣格式索引如下表所示，索引號僅用於�
 633|ZWN
 634|ZWR
 
-Excelize 支持為儲存格設定自定義數字格式。例如，將 `Sheet1` 工作表的 `A6` 儲存格 設定為烏拉圭（西班牙）格式的日期類別：
+Excelize 支援為儲存格設定自定義數字格式。例如，將 `Sheet1` 工作表的 `A6` 儲存格 設定為烏拉圭（西班牙）格式的日期類別：
 
 <p align="center"><img width="612" src="./images/number_format_01.png" alt="設定自定義數字格式"></p>
 

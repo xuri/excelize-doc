@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.8.0](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2023年12月17日
+- 文档更新: 2024年1月7日
 
 ## 项目使命
 
@@ -21,17 +21,21 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 ## 项目荣誉
 
+入选 2023 开源创新榜[优秀开源项目](https://cccst.org.cn/zxyw/tzgg/art/2023/art_748b3428e4184ccc825ea6de1a2d273f.html)
+
+<p align="center"><img width="330" src="../images/award2023.jpg" alt="Excelize 入选 2023 开源创新榜优秀开源项目"></p>
+
 荣获 2022 年中国开源创新大赛[一等奖](http://www.ce.cn/cysc/tech/gd2012/202306/05/t20230605_38576356.shtml)
 
 <p align="center"><img width="330" src="../images/award2022.jpg" alt="Excelize 荣获 2022 年中国开源创新大赛一等奖"></p>
 
 入选 2020 Gopher China - Go 领域明星开源项目 ([GSP](https://mp.weixin.qq.com/s/XyLAaqpN-3urYcNmM_vPeg))
 
-<p align="center"><img width="100" src="../images/gsp2020.png" alt="2020 Gopher China Go 领域明星开源项目"></p>
+<p align="center"><img width="100" src="../images/gsp2020.png" alt="Excelize 入选 2020 Gopher China Go 领域明星开源项目"></p>
 
 入选 2018 年开源中国码云最有价值开源项目 ([Gitee Most Valuable Project](https://gitee.com/xurime/excelize))
 
-<p align="center"><img width="330" src="../images/gvp2018.jpg" alt="2018 年开源中国码云最有价值开源项目"></p>
+<p align="center"><img width="330" src="../images/gvp2018.jpg" alt="Excelize 入选 2018 年开源中国码云最有价值开源项目"></p>
 
 ## 知名企业用户
 

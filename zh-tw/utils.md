@@ -37,7 +37,7 @@ err := f.AddTable("Sheet2", &excelize.Table{
 
 可選參數 `Name` 用以設定自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
 
-Excelize 支持的表格樣式 `StyleName` 參數：
+Excelize 支援的表格樣式 `StyleName` 參數：
 
 ```text
 TableStyleLight1 - TableStyleLight21
@@ -109,9 +109,9 @@ err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
 })
 ```
 
-參數 `Column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支持自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
+參數 `Column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支援自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
 
-為欄設定過濾條件，參數 `Expression` 用於指定過濾條件運算，支持下列運算符：
+為欄設定過濾條件，參數 `Expression` 用於指定過濾條件運算，支援下列運算符：
 
 ```text
 ==
@@ -153,7 +153,7 @@ x != *b*     // 不包含 b
 ```
 
 我們還可以使用 `*` 來匹配任何字符或數字，用
-`?` 匹配任何單個字符或數字。除此之外，Office Excel 的自動過濾器不支持其他正則表達式的關鍵字。Excel 的正則表達式字符可以使用 `~` 進行轉義。
+`?` 匹配任何單個字符或數字。除此之外，Office Excel 的自動過濾器不支援其他正則表達式的關鍵字。Excel 的正則表達式字符可以使用 `~` 進行轉義。
 
 上述示例中的佔位符變數 `x` 可以被任何簡單的字符串替換。實際的佔位符名稱在內部被忽略，所以以下所有表達式的效果都是等同的：
 
@@ -268,7 +268,7 @@ excelize.CoordinatesToCellName(1, 1, true) // returns "$A$1", nil
 func (f *File) NewConditionalStyle(style *Style) (int, error)
 ```
 
-透過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函式的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支持設定字型、填滿、對齊和外框的色彩。
+透過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函式的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支援設定字型、填滿、對齊和外框的色彩。
 
 ## 獲取條件式格式樣式 {#GetConditionalStyle}
 
@@ -454,7 +454,7 @@ func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFo
     </tbody>
 </table>
 
-`Criteria` 參數用於設定儲存格資料的條件式格式運算符。它沒有默認值，同常與 `excelize.ConditionalFormatOptions{Type: "cell"}` 一起使用，支持的參數為：
+`Criteria` 參數用於設定儲存格資料的條件式格式運算符。它沒有默認值，同常與 `excelize.ConditionalFormatOptions{Type: "cell"}` 一起使用，支援的參數為：
 
 文本描述字符|符號表示
 ---|---
@@ -926,7 +926,7 @@ bottomRight (Bottom Right Pane) | 當垂直和水平時，位於底部右側的�
 topLeft (Top Left Pane)|當應用垂直和水平分割時，位於左上方的窗格。<br><br>此值也適用於僅應用了水平分割的情況，將窗格分為上下兩個區域。在這種情況下，該值指定頂部窗格。<br><br>此值也適用於僅應用垂直分割的情況，將窗格分割為右側和左側區域。在這種情況下，該值指定左側窗格。
 topRight (Top Right Pane)|當應用垂直和水平分割時，位於右上方窗格。<br><br> 此值也適用於僅應用垂直分割的情況，將窗格分割為右側和左側區域。在這種情況下，該值指定右側窗格。
 
-窗格狀態類別僅限於下表中當前列出的受支持的值：
+窗格狀態類別僅限於下表中當前列出的受支援的值：
 
 枚舉值|描述
 ---|---
@@ -1154,4 +1154,4 @@ ExcelDateToTime 將 Excel 中以 `float` 類型表示的日期轉換為 `time.Ti
 func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
 ```
 
-CharsetTranscoder 為非 UTF-8 編碼的電子錶格文檔設定用戶提供指定自定義編碼轉換器支持。
+CharsetTranscoder 為非 UTF-8 編碼的電子錶格文檔設定用戶提供指定自定義編碼轉換器支援。

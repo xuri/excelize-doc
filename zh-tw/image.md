@@ -89,7 +89,7 @@ func main() {
 
 可選參數 `Hyperlink` 用以設定圖形對象的超鏈接。
 
-可選參數 `HyperlinkType` 設定圖形對象超鏈接的類型，支持外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到存儲格位置時，坐標需要以 `#` 開始。
+可選參數 `HyperlinkType` 設定圖形對象超鏈接的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到存儲格位置時，坐標需要以 `#` 開始。
 
 可選參數 `Positioning` 定義了電子錶格中圖形對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨存儲格改變）、`twoCell`（大小和位置隨存儲格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設置此參數時，默認屬性為大小、位置隨存儲格改變。
 
@@ -144,7 +144,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。此功能是併發安全的。該函式暫不支持獲取透過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
+根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 文檔中的圖片。此功能是併發安全的。該函式暫不支援獲取透過 Kingsoft WPS&trade; 應用程式添加的存儲格圖片。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")

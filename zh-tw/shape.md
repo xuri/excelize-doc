@@ -35,7 +35,7 @@ err := f.AddShape("Sheet1",
 )
 ```
 
-下面是 Excelize 所支持的所有圖形：
+下面是 Excelize 所支援的所有圖形：
 
 名稱|圖形|預覽
 ---|---|---

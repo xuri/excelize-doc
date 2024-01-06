@@ -35,7 +35,7 @@ func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 
 根據給定的工作表名和儲存格坐標設定儲存格的值。此功能是併發安全的。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
 
-|支持的資料類別|
+|支援的資料類別|
 |---|
 |int|
 |int8|
@@ -729,9 +729,9 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支持反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
+根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支援反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
 
-支持的公式函式列表如下：
+支援的公式函式列表如下：
 
 函式名稱 | 描述
 ---|---

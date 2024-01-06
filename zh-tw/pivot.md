@@ -30,7 +30,7 @@ type PivotTableOptions struct {
 }
 ```
 
-`PivotTableStyleName`: 支持的樞紐分析表樣式:
+`PivotTableStyleName`: 支援的樞紐分析表樣式:
 
 ```text
 PivotStyleLight1 - PivotStyleLight28

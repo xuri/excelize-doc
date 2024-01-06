@@ -159,7 +159,7 @@ func (f *File) DeleteSheet(sheet string) error
 func (f *File) CopySheet(from, to int) error
 ```
 
-根據給定的被複製工作表與目標工作表索引複製工作表，目標工作表索引需要開發者自行確認是否已經存在。目前支持僅包含儲存格值和公式的工作表間的複製，不支持包含表格、圖片、圖表和透視表等元素的工作表之間的複製。
+根據給定的被複製工作表與目標工作表索引複製工作表，目標工作表索引需要開發者自行確認是否已經存在。目前支援僅包含儲存格值和公式的工作表間的複製，不支援包含表格、圖片、圖表和透視表等元素的工作表之間的複製。
 
 ```go
 // 名稱為 Sheet1 的工作表已經存在 ...
@@ -193,13 +193,13 @@ func (f *File) UngroupSheets() error
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-根據給定的工作表名稱和圖片文件路徑為指定的工作表設定平鋪效果的背景圖片。支持的圖片文件格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+根據給定的工作表名稱和圖片文件路徑為指定的工作表設定平鋪效果的背景圖片。支援的圖片文件格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-根據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支持的圖片文件格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+根據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支援的圖片文件格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 設定默認工作表 {#SetActiveSheet}
 
@@ -249,7 +249,7 @@ visible, err := f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-根據給定的工作表名稱和屬性參數設定工作表屬性。支持設定的工作表屬性選項：
+根據給定的工作表名稱和屬性參數設定工作表屬性。支援設定的工作表屬性選項：
 
 屬性 | 類型 | 描述
 ---|---|---
@@ -303,7 +303,7 @@ func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支持設定的工作表檢視屬性選項：
+根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支援設定的工作表檢視屬性選項：
 
 屬性 | 類型 | 描述
 ---|---|---
@@ -332,7 +332,7 @@ func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
-根據給定的工作表名稱和頁面配置參數設定工作表的頁面配置屬性。目前支持設定的頁面配置屬性：
+根據給定的工作表名稱和頁面配置參數設定工作表的頁面配置屬性。目前支援設定的頁面配置屬性：
 
 `Size` 屬性用以設定頁面紙張大小，默認頁面配置大小為「信紙 8½ × 11 英吋」。下面的表格是 Excelize 中頁面配置大小和索引 `Size` 參數的關係對照：
 
@@ -507,7 +507,7 @@ func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
-根據給定的工作表名稱和頁邊界參數設定工作表的頁邊界。支持設定的頁邊界選項：
+根據給定的工作表名稱和頁邊界參數設定工作表的頁邊界。支援設定的頁邊界選項：
 
 選項 | 類別 | 描述
 ---|---|---
@@ -534,7 +534,7 @@ func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 func (f *File) SetWorkbookProps(opts *WorkbookPropsOptions) error
 ```
 
-SetWorkbookProps 用於設定活頁簿的屬性。支持設定的活頁簿屬性：
+SetWorkbookProps 用於設定活頁簿的屬性。支援設定的活頁簿屬性：
 
 屬性 | 類別 | 描述
 ---|---|---
@@ -625,7 +625,7 @@ FirstHeader      | 首頁頁首控制字符
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>將指定對象做為背景（暫不支持）</td>
+            <td>將指定對象做為背景（暫不支援）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -872,7 +872,7 @@ func (f *File) GetDocProps() (*DocProperties, error)
 func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
 ```
 
-使用密碼保護活頁簿的結構，以防止其他用戶查看隱藏的工作表，添加、移動或隱藏工作表以及重命名工作表，選字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，使用密碼保護活頁簿結構：
+使用密碼保護活頁簿的結構，以防止其他用戶查看隱藏的工作表，添加、移動或隱藏工作表以及重命名工作表，選字段 `AlgorithmName` 支援指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，使用密碼保護活頁簿結構：
 
 ```go
 err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{

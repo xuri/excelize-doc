@@ -154,7 +154,7 @@ err := sw.AddTable(&excelize.Table{
 })
 ```
 
-注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支持在每個工作表中流式創建一張表格，並且必須在調用該函式前透過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支持的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
+注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，當前僅支援在每個工作表中流式創建一張表格，並且必須在調用該函式前透過 [`SetRow`](stream.md#SetRow) 流式設定表格的標題列數據。支援的表格樣式與非流式創建表格 [`AddTable`](utils.md#AddTable) 相同。
 
 ## 流式插入分頁符 {#InsertPageBreak}
 
@@ -178,7 +178,7 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
-透過給定的存儲格坐標區域流式合併存儲格，當前僅支持合併非交疊區域存儲格。
+透過給定的存儲格坐標區域流式合併存儲格，當前僅支援合併非交疊區域存儲格。
 
 ## 流式設定欄寬度 {#SetColWidth}
 

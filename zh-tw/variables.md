@@ -38,7 +38,7 @@ var (
     ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
     // ErrGroupSheets 定義了工作表分組異常時的錯誤提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
-    // ErrImgExt 定義了不受支持的圖片擴展名的錯誤提示信息
+    // ErrImgExt 定義了不受支援的圖片擴展名的錯誤提示信息
     ErrImgExt = errors.New("unsupported image extension")
     // ErrInvalidFormula 定義了收到無效公式時的錯誤提示信息
     ErrInvalidFormula = errors.New("formula not valid")
@@ -98,13 +98,13 @@ var (
     ErrUnprotectWorkbook = errors.New("workbook has set no protect")
     // ErrUnprotectWorkbookPassword 定義了透過密碼驗證取消保護活頁簿失敗時的錯誤提示信息
     ErrUnprotectWorkbookPassword = errors.New("workbook protect password not match")
-    // ErrUnsupportedEncryptMechanism 定義了檢測到不受支持的加密機制時的錯誤提示信息
+    // ErrUnsupportedEncryptMechanism 定義了檢測到不受支援的加密機制時的錯誤提示信息
     ErrUnsupportedEncryptMechanism = errors.New("unsupported encryption mechanism")
-    // ErrUnsupportedHashAlgorithm 定義了檢測到不受支持的哈希算法時的錯誤提示信息
+    // ErrUnsupportedHashAlgorithm 定義了檢測到不受支援的哈希算法時的錯誤提示信息
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
-    // ErrUnsupportedNumberFormat 定義了檢測到不受支持的數字格式時的錯誤提示信息
+    // ErrUnsupportedNumberFormat 定義了檢測到不受支援的數字格式時的錯誤提示信息
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
-    // ErrWorkbookFileFormat 定義了不受支持的活頁簿文件類型的錯誤提示信息
+    // ErrWorkbookFileFormat 定義了不受支援的活頁簿文件類型的錯誤提示信息
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword 定義了開啓活頁簿時密碼驗證失敗的錯誤提示信息
     ErrWorkbookPassword = errors.New("the supplied open workbook password is not correct")

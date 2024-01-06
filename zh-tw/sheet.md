@@ -192,7 +192,7 @@ func (f *File) DuplicateRow(sheet string, row int) error
 err := f.DuplicateRow("Sheet1", 2)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支援對工作表上部分引用的更新。
 
 ## 複製列 {#DuplicateRowTo}
 
@@ -206,7 +206,7 @@ func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 err := f.DuplicateRowTo("Sheet1", 2, 7)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支援對工作表上部分引用的更新。
 
 ## 創建列的分級顯示 {#SetRowOutlineLevel}
 
@@ -385,7 +385,7 @@ func (rows *Rows) Close() error
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-根據給定的工作表名稱，儲存格值或正則表達式來獲取坐標。此函式僅支持字符串和數字的完全匹配，不支持公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
+根據給定的工作表名稱，儲存格值或正則表達式來獲取坐標。此函式僅支援字符串和數字的完全匹配，不支援公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
 
 例如，在名為 `Sheet1` 的工作表中搜尋值 `100` 的坐標:
 
@@ -405,7 +405,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
-防止其他用戶意外或有意更改、移動或刪除工作表中的資料。可選字段 `AlgorithmName` 支持指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，為名為 `Sheet1` 的工作表設定密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
+防止其他用戶意外或有意更改、移動或刪除工作表中的資料。可選字段 `AlgorithmName` 支援指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，為名為 `Sheet1` 的工作表設定密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
 
 <p align="center"><img width="791" src="./images/protect_sheet.png" alt="保護工作表"></p>
 
@@ -463,7 +463,7 @@ func (f *File) RemoveCol(sheet, col string) error
 err := f.RemoveCol("Sheet1", "C")
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。excelize 目前僅支援對工作表上部分引用的更新。
 
 ## 刪除列 {#RemoveRow}
 
@@ -477,7 +477,7 @@ func (f *File) RemoveRow(sheet string, row int) error
 err := f.RemoveRow("Sheet1", 3)
 ```
 
-請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。Excelize 目前僅支持對工作表上部分引用的更新。
+請謹慎使用此方法，這將影響所有對該工作表中原有公式、圖表等資源引用的更改。如果該工作表包含任何引用值，在使用此方法後使用 Excel 應用程式開啓它時將可能導致檔案錯誤。Excelize 目前僅支援對工作表上部分引用的更新。
 
 ## 按欄賦值 {#SetSheetCol}
 

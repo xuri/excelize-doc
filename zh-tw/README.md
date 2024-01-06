@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基於 ECMA-376，ISO/IEC 29500 國際標準。可以使用它來讀取、寫入由 Microsoft Excel&trade; 2007 及以上版本創建的電子錶格檔案。支持 XLAM / XLSM / XLSX / XLTM / XLTX 等多種檔案格式，高度兼容帶有樣式、圖片(表)、樞紐分析表、切片器等複雜組件的檔案，並提供流式讀寫 API，用於處理包含大規模數據的活頁簿。可應用於各類報表平台、雲計算、邊緣計算等系統。使用本類庫要求使用的 Go 語言為 1.16 或更高版本。
+Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基於 ECMA-376，ISO/IEC 29500 國際標準。可以使用它來讀取、寫入由 Microsoft Excel&trade; 2007 及以上版本創建的電子錶格檔案。支援 XLAM / XLSM / XLSX / XLTM / XLTX 等多種檔案格式，高度兼容帶有樣式、圖片(表)、樞紐分析表、切片器等複雜組件的檔案，並提供流式讀寫 API，用於處理包含大規模數據的活頁簿。可應用於各類報表平台、雲計算、邊緣計算等系統。使用本類庫要求使用的 Go 語言為 1.16 或更高版本。
 
 - Source Code: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - Issue: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.8.0](https://github.com/xuri/excelize/releases/latest)
-- 檔案更新: 2023年12月17日
+- 檔案更新: 2024年1月7日
 
 ## 專案使命
 
@@ -21,17 +21,21 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 
 ## 專案榮譽
 
+入選 2023 開源創新榜[優秀開源專案](https://cccst.org.cn/zxyw/tzgg/art/2023/art_748b3428e4184ccc825ea6de1a2d273f.html)
+
+<p align="center"><img width="330" src="../images/award2023.jpg" alt="Excelize 入選 2023 開源創新榜優秀開源專案"></p>
+
 榮獲 2022 年中國開源創新大賽[一等獎](http://www.ce.cn/cysc/tech/gd2012/202306/05/t20230605_38576356.shtml)
 
 <p align="center"><img width="330" src="../images/award2022.jpg" alt="Excelize 榮獲 2022 年中國開源創新大賽一等獎"></p>
 
 入選 2020 Gopher China - Go 領域明星開源專案 ([GSP](https://mp.weixin.qq.com/s/XyLAaqpN-3urYcNmM_vPeg))
 
-<p align="center"><img width="100" src="../images/gsp2020.png" alt="2020 Gopher China Go 領域明星開源專案"></p>
+<p align="center"><img width="100" src="../images/gsp2020.png" alt="Excelize 入選 2020 Gopher China Go 領域明星開源專案"></p>
 
 入選 2018 年開源中國碼雲最有價值開源專案 ([Gitee Most Valuable Project](https://gitee.com/xurime/excelize))
 
-<p align="center"><img width="330" src="../images/gvp2018.jpg" alt="2018 年開源中國碼雲最有價值開源專案"></p>
+<p align="center"><img width="330" src="../images/gvp2018.jpg" alt="Excelize 入選 2018 年開源中國碼雲最有價值開源專案"></p>
 
 ## 知名企業用戶
 

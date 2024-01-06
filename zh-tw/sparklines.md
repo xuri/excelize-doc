@@ -24,7 +24,7 @@ err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
 
 <p align="center"><img width="653" src="./images/sparkline_02.png" alt="使用 Go 語言透過 Excelize 創建走勢圖"></p>
 
-下表為 Excelize 支持的走勢圖格式選項：
+下表為 Excelize 支援的走勢圖格式選項：
 
 參數 | 描述
 ---|---

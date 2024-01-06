@@ -2,7 +2,7 @@
 
 ## 如何參與貢獻
 
-Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Office Open XML)，是一種基於 XML 和 ZIP 技術的新的文檔格式。下面列出了包括文檔標準、文檔驗證對比工具和瀏覽器插件等在內的開發符合該文檔格式的相關參考資料。
+Microsoft Excel&trade; 2007 版本後支援基於 XML 的文檔格式 OOXML (Office Open XML)，是一種基於 XML 和 ZIP 技術的新的文檔格式。下面列出了包括文檔標準、文檔驗證對比工具和瀏覽器插件等在內的開發符合該文檔格式的相關參考資料。
 
 ### 參考資料
 
@@ -60,8 +60,8 @@ Microsoft Excel&trade; 2007 版本後支持基於 XML 的文檔格式 OOXML (Off
 
 ### 贊助 Excelize 開發
 
-專案的發展離不開你的支持，請作者喝杯咖啡吧！Excelize 透過以下方式接受贊助：
+專案的發展離不開你的支援，請作者喝杯咖啡吧！Excelize 透過以下方式接受贊助：
 
 <a href="https://www.paypal.com/paypalme/xuri" title="贊助 Excelize 開發" target="_blank"><img width="710" src="./images/donate@2x.png" alt="贊助 Excelize 開發"></a>
 
-<a href="https://opencollective.com/excelize" title="成為 Excelize 贊助商" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="成為 Excelize 贊助商"></a> <a href="https://www.patreon.com/xuri" title="在 Patreon 上支持 Excelize" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="在 Patreon 上支持 Excelize"></a>
+<a href="https://opencollective.com/excelize" title="成為 Excelize 贊助商" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="成為 Excelize 贊助商"></a> <a href="https://www.patreon.com/xuri" title="在 Patreon 上支援 Excelize" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="在 Patreon 上支援 Excelize"></a>
