@@ -41,7 +41,7 @@ func main() {
             return
         }
     }
-    // 設定自定義名稱
+    // 設定自訂名稱
     for index, value := range selection {
         if cell, err = excelize.CoordinatesToCellName(1, index+2, true); err != nil {
             fmt.Println(err)
@@ -73,7 +73,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 自定義欄寬
+    // 自訂欄寬
     for col, width := range map[string]float64{"A": 10, "B": 18, "D": 18} {
         if err = f.SetColWidth(sheetName, col, col, width); err != nil {
             fmt.Println(err)

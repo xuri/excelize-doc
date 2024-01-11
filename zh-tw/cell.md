@@ -137,7 +137,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 儲存格 `D7` 的四個外框被設定了不同的樣式和色彩，這與調用 [`NewStyle`](style.md#NewStyle) 函式時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
-- 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設定漸變樣式：
+- 例2，為名為 `Sheet1` 的工作表 `D7` 儲存格設定漸層樣式：
 
 ```go
 style, err := f.NewStyle(&excelize.Style{
@@ -149,9 +149,9 @@ if err != nil {
 err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 ```
 
-<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="為儲存格設定漸變樣式"></p>
+<p align="center"><img width="612" src="./images/SetCellStyle_02.png" alt="為儲存格設定漸層樣式"></p>
 
-儲存格 `D7` 被設定了漸變效果的色彩填滿，漸變填滿效果與調用 [`NewStyle`](style.md#NewStyle) 函式時的參數有關，需要設定不同的樣式可參考該章節的文檔。
+儲存格 `D7` 被設定了漸層效果的色彩填滿，漸層填滿效果與調用 [`NewStyle`](style.md#NewStyle) 函式時的參數有關，需要設定不同的樣式可參考該章節的文檔。
 
 - 例3，為名為 `Sheet1` 的工作表 `D7` 儲存格設定純色填滿：
 

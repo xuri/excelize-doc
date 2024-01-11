@@ -35,7 +35,7 @@ err := f.AddTable("Sheet2", &excelize.Table{
 
 注意，表格坐標區域至少需要包含兩列：字符型的標題列和內容列。每欄標題列的字符需保證是唯一的，並且必須在調用 AddTable 函式前設定表格的標題列資料。多個表格的坐標區域不能有交集。
 
-可選參數 `Name` 用以設定自定義表格名稱，同一個工作表內的表格名稱應該是唯一的。
+可選參數 `Name` 用以設定自訂表格名稱，同一個工作表內的表格名稱應該是唯一的。
 
 Excelize 支援的表格樣式 `StyleName` 參數：
 
@@ -704,7 +704,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 `MinType` - 參數 `MinType` 在條件式格式類別為 `2_color_scale`、`3_color_scale` 或 `data_bar` 時可用。參數 `MidType` 在條件式格式類別為 `3_color_scale` 時可用。例如：
 
 ```go
-// 資料橫條：漸變填滿
+// 資料橫條：漸層填滿
 err := f.SetConditionalFormat("Sheet1", "K1:K10",
     []excelize.ConditionalFormatOptions{
         {
@@ -1154,4 +1154,4 @@ ExcelDateToTime 將 Excel 中以 `float` 類型表示的日期轉換為 `time.Ti
 func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
 ```
 
-CharsetTranscoder 為非 UTF-8 編碼的電子錶格文檔設定用戶提供指定自定義編碼轉換器支援。
+CharsetTranscoder 為非 UTF-8 編碼的電子錶格文檔設定用戶提供指定自訂編碼轉換器支援。

@@ -214,9 +214,9 @@ distributed|分散對齊
 single|單線
 double|雙線
 
-### 數字自定義格式 {#number_format}
+### 數字自訂格式 {#number_format}
 
-下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與數字自訂格式類別對照表：
 
 索引|類別
 ---|---
@@ -258,9 +258,9 @@ double|雙線
 48|`##0.0E+0`
 49|`@`
 
-#### 繁體中文數字自定義格式
+#### 繁體中文數字自訂格式
 
-下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與繁體中文 `zh-tw` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與繁體中文 `zh-tw` 版本數字自訂格式類別對照表：
 
 索引|類別
 ---|---
@@ -284,9 +284,9 @@ double|雙線
 57|`[$-404]e/m/d`
 58|`[$-404]e"年"m"月"d"日"`
 
-#### 簡體中文數字自定義格式
+#### 簡體中文數字自訂格式
 
-下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與簡體中文 `zh-cn` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與簡體中文 `zh-cn` 版本數字自訂格式類別對照表：
 
 索引|類別
 ---|---
@@ -310,9 +310,9 @@ double|雙線
 57|`yyyy"年"m"月`
 58|`m"月"d"日"`
 
-#### 日本語數字自定義格式
+#### 日本語數字自訂格式
 
-下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與日本語 `ja-jp` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與日本語 `ja-jp` 版本數字自訂格式類別對照表：
 
 索引|類別
 ---|---
@@ -336,9 +336,9 @@ double|雙線
 57|`[$-411]ge.m.d`
 58|`[$-411]ggge"年"m"月"d"日"`
 
-#### 韓語數字自定義格式
+#### 韓語數字自訂格式
 
-下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與韓語 `ko-kr` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與韓語 `ko-kr` 版本數字自訂格式類別對照表：
 
 索引|類別
 ---|---
@@ -362,9 +362,9 @@ double|雙線
 57|`yyyy"年" mm"月" dd"日`
 58|`mm-dd`
 
-#### 泰國語數字自定義格式
+#### 泰國語數字自訂格式
 
-下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與泰國語 `th-th` 版本數字自定義格式類別對照表：
+下面的表格是 Excelize 中支援的索引 `Style.NumFmt` 參數與泰國語 `th-th` 版本數字自訂格式類別對照表：
 
 索引|類別
 ---|---
@@ -866,9 +866,9 @@ Excelize 目前支援的貨幣格式索引如下表所示，索引號僅用於�
 633|ZWN
 634|ZWR
 
-Excelize 支援為儲存格設定自定義數字格式。例如，將 `Sheet1` 工作表的 `A6` 儲存格 設定為烏拉圭（西班牙）格式的日期類別：
+Excelize 支援為儲存格設定自訂數字格式。例如，將 `Sheet1` 工作表的 `A6` 儲存格 設定為烏拉圭（西班牙）格式的日期類別：
 
-<p align="center"><img width="612" src="./images/number_format_01.png" alt="設定自定義數字格式"></p>
+<p align="center"><img width="612" src="./images/number_format_01.png" alt="設定自訂數字格式"></p>
 
 ```go
 f := excelize.NewFile()

@@ -31,7 +31,7 @@ func (f *File) AddFormControl(sheet string, opts FormControl) error
 
 AddFormControl 透過給定的工作表名稱和表單控制項選項在工作表中添加表單控制項。支援的表單控制項類型為：按鈕、核取方塊、群組方塊、標籤、選項按鈕、捲軸和微調按鈕。若需要為表單控制項指定巨集，保存的活頁簿擴展名應為 `.xlsm` 或者 `.xltm`。滾動值應介於 0 到 30000 之間。
 
-例1，在 `Sheet1!A2` 存儲格添加帶有指定巨集、富文本、自定義尺寸和摘要資訊的按鈕表單控制項：
+例1，在 `Sheet1!A2` 存儲格添加帶有指定巨集、富文本、自訂尺寸和摘要資訊的按鈕表單控制項：
 
 <p align="center"><img width="180" src="./images/form_ctrl_button.gif" alt="使用 Excelize 在工作表中添加按鈕表單控制項"></p>
 

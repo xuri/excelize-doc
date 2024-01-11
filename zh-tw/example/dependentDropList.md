@@ -56,7 +56,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 設定自定義名稱
+    // 設定自訂名稱
     if err = f.SetDefinedName(&excelize.DefinedName{
         Name:     "Fruits",
         RefersTo: "Sheet1!$A$2:$A$6",
@@ -73,7 +73,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 自定義欄寬
+    // 自訂欄寬
     for col, width := range map[string]float64{
         "A": 12, "B": 12, "C": 6, "D": 12, "E": 12} {
         if err = f.SetColWidth("Sheet1", col, col, width); err != nil {

@@ -36,7 +36,7 @@ func main() {
             14: {31, 1, 2, 3, 4, 5, 6},
             18: {"筆記"},
         }
-        // 自定義列高
+        // 自訂列高
         height = map[int]float64{
             1: 45, 3: 22, 5: 44, 7: 44, 9: 44, 11: 44, 13: 44, 15: 44,
             18: 24, 19: 24, 20: 24, 21: 24, 22: 24, 23: 24, 24: 24,
@@ -58,7 +58,7 @@ func main() {
             return
         }
     }
-    // 設定自定義列高
+    // 設定自訂列高
     for r, ht := range height {
         if err = f.SetRowHeight(sheet, r, ht); err != nil {
             fmt.Println(err)

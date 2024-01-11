@@ -267,7 +267,7 @@ OutlineSummaryRight               | `*bool`    | 指定分級顯示方向，是�
 BaseColWidth                      | `*uint8`   | 以字符數為單位表示的基本列寬度，默認值為 `8`
 DefaultColWidth                   | `*float64` | 包含邊界和網格線的默認欄寬度
 DefaultRowHeight                  | `*float64` | 以磅為單位表示的行高度
-CustomHeight                      | `*bool`    | 指定是否應用自定義列高度，默認值為 `false`
+CustomHeight                      | `*bool`    | 指定是否應用自訂列高度，默認值為 `false`
 ZeroHeight                        | `*bool`    | 指定是否默認隱藏列，默認值為 `false`
 ThickTop                          | `*bool`    | 指定默認情況下列是否具有粗上外框，默認值為 `false`
 ThickBottom                       | `*bool`    | 指定默認情況下列是否具有粗下外框，默認值為 `false`

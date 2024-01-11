@@ -16,7 +16,7 @@ var (
     ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
     // ErrCoordinates 定義了收到無效存儲格坐標元組時的錯誤提示信息
     ErrCoordinates = errors.New("coordinates length must be 4")
-    // ErrCustomNumFmt 定義了指定自定義數字格式表達式為空時的錯誤提示信息
+    // ErrCustomNumFmt 定義了指定自訂數字格式表達式為空時的錯誤提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
     // ErrDataValidationFormulaLength 定義了數據驗證公式長度超出最大限制時錯誤提示信息
     ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
@@ -48,7 +48,7 @@ var (
     ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrMaxRows 定義了當列號超出最大限制時的錯誤提示信息
     ErrMaxRows = errors.New("row number exceeds maximum limit")
-    // ErrNameLength 定義了自定義名稱或表格名稱長度超出最大限制時的錯誤提示信息
+    // ErrNameLength 定義了自訂名稱或表格名稱長度超出最大限制時的錯誤提示信息
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // ErrOptionsUnzipSizeLimit 定義了開啓活頁簿時，「用以指定開啓電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的內存限制參數」產生衝突時的錯誤提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
