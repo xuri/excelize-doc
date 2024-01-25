@@ -9,7 +9,7 @@ Excelize is a library written in pure Go providing a set of functions that allow
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Last version: [v2.8.0](https://github.com/xuri/excelize/releases/latest)
-- Document update time: January 7, 2024
+- Document update time: January 26, 2024
 
 ## Project mission
 
@@ -47,7 +47,7 @@ If your company or product is also using Excelize, welcome <a href="mailto: xuri
 
 If you are an individual user and have enjoyed the productivity of using Excelize, consider donating as a sign of appreciation - like buying me coffee once in a while, or support this project by becoming a sponsor.
 
-<a href="https://www.paypal.com/paypalme/xuri" title="Donate with Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Donate with Paypal"></a> <a href="https://opencollective.com/excelize" title="Become a Sponsor" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="Become a Sponsor"></a> <a href="https://www.patreon.com/xuri" title="Support Excelize on Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Support Excelize on Patreon"></a>
+<a href="https://github.com/sponsors/xuri" title="GitHub Sponsor" target="_blank"><img width="170" src="../images/github_sponsor@2x.png" alt="GitHub Sponsor"></a> <a href="https://www.paypal.com/paypalme/xuri" title="Donate with Paypal" target="_blank"><img width="170" src="../images/donate@2x.png" alt="Donate with Paypal"></a> <a href="https://opencollective.com/excelize" title="Become a Sponsor" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="Become a Sponsor"></a> <a href="https://www.patreon.com/xuri" title="Support Excelize on Patreon" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="Support Excelize on Patreon"></a>
 
 ## Commercial Support
 

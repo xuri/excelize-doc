@@ -62,6 +62,8 @@ Microsoft Excel&trade; 2007 版本後支援基於 XML 的文檔格式 OOXML (Off
 
 專案的發展離不開你的支援，請作者喝杯咖啡吧！Excelize 透過以下方式接受贊助：
 
+<a href="https://github.com/sponsors/xuri" title="GitHub Sponsor" target="_blank"><img width="170" src="../images/github_sponsor@2x.png" alt="GitHub Sponsor"></a>
+
 <a href="https://www.paypal.com/paypalme/xuri" title="贊助 Excelize 開發" target="_blank"><img width="710" src="./images/donate@2x.png" alt="贊助 Excelize 開發"></a>
 
 <a href="https://opencollective.com/excelize" title="成為 Excelize 贊助商" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="成為 Excelize 贊助商"></a> <a href="https://www.patreon.com/xuri" title="在 Patreon 上支援 Excelize" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="在 Patreon 上支援 Excelize"></a>
