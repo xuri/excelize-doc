@@ -1,8 +1,8 @@
-# Doughnut chart {#doughnut}
+# Gráfico de rosca {#doughnut}
 
-For example, add a doughnut chart that like the this:
+Por exemplo, adicione um gráfico de rosca semelhante a este:
 
-<p align="center"><img width="770" src="../images/doughnut_chart.png" alt="create doughnut chart with excelize using Go"></p>
+<p align="center"><img width="770" src="../images/doughnut_chart.png" alt="crie gráfico de rosca com Excelize usando Go"></p>
 
 ```go
 package main
@@ -20,8 +20,12 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Planilha1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{
-        {"Apple", "Orange", "Pear"},
+        {"Maçã", "Laranja", "Pera"},
         {2, 3, 3},
     } {
         cell, err := excelize.CoordinatesToCellName(1, idx+1)
@@ -29,18 +33,18 @@ func main() {
             fmt.Println(err)
             return
         }
-        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+        if err := f.SetSheetRow("Planilha1", cell, &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+    if err := f.AddChart("Planilha1", "E1", &excelize.Chart{
         Type: excelize.Doughnut,
         Series: []excelize.ChartSeries{
             {
-                Name:       "Amount",
-                Categories: "Sheet1!$A$1:$C$1",
-                Values:     "Sheet1!$A$2:$C$2",
+                Name:       "Quantia",
+                Categories: "Planilha1!$A$1:$C$1",
+                Values:     "Planilha1!$A$2:$C$2",
             },
         },
         Format: excelize.GraphicOptions{
@@ -52,7 +56,7 @@ func main() {
         },
         Title: []excelize.RichTextRun{
             {
-                Text: "Fruit Doughnut Chart",
+                Text: "Gráfico de rosca",
             },
         },
         PlotArea: excelize.ChartPlotArea{
@@ -67,8 +71,8 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Save workbook
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    // Salva a pasta de trabalho
+    if err := f.SaveAs("Pasta1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

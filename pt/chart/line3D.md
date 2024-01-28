@@ -1,8 +1,8 @@
-# 3D Line chart {#line3D}
+# Gráfico de linhas 3D {#line3D}
 
-For example, add a 3D line chart that like the this:
+Por exemplo, adicione um gráfico de linhas 3D semelhante a este:
 
-<p align="center"><img width="770" src="../images/3d_line_chart.png" alt="create 3D line chart with excelize using Go"></p>
+<p align="center"><img width="770" src="../images/3d_line_chart.png" alt="crie gráfico de linhas 3D com Excelize usando Go"></p>
 
 ```go
 package main
@@ -20,39 +20,43 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Planilha1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     for idx, row := range [][]interface{}{
-        {nil, "Apple", "Orange", "Pear"},
-        {"Small", 2, 3, 3},
+        {nil, "Maçã", "Laranja", "Pera"},
+        {"Pequeno", 2, 3, 3},
         {"Normal", 5, 2, 4},
-        {"Large", 6, 7, 8},
+        {"Grande", 6, 7, 8},
     } {
         cell, err := excelize.CoordinatesToCellName(1, idx+1)
         if err != nil {
             fmt.Println(err)
             return
         }
-        if err := f.SetSheetRow("Sheet1", cell, &row); err != nil {
+        if err := f.SetSheetRow("Planilha1", cell, &row); err != nil {
             fmt.Println(err)
             return
         }
     }
-    if err := f.AddChart("Sheet1", "E1", &excelize.Chart{
+    if err := f.AddChart("Planilha1", "E1", &excelize.Chart{
         Type: excelize.Line3D,
         Series: []excelize.ChartSeries{
             {
-                Name:       "Sheet1!$A$2",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$2:$D$2",
+                Name:       "Planilha1!$A$2",
+                Categories: "Planilha1!$B$1:$D$1",
+                Values:     "Planilha1!$B$2:$D$2",
             },
             {
-                Name:       "Sheet1!$A$3",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$3:$D$3",
+                Name:       "Planilha1!$A$3",
+                Categories: "Planilha1!$B$1:$D$1",
+                Values:     "Planilha1!$B$3:$D$3",
             },
             {
-                Name:       "Sheet1!$A$4",
-                Categories: "Sheet1!$B$1:$D$1",
-                Values:     "Sheet1!$B$4:$D$4",
+                Name:       "Planilha1!$A$4",
+                Categories: "Planilha1!$B$1:$D$1",
+                Values:     "Planilha1!$B$4:$D$4",
             },
         },
         Format: excelize.GraphicOptions{
@@ -64,7 +68,7 @@ func main() {
         },
         Title: []excelize.RichTextRun{
             {
-                Text: "3D Line Chart",
+                Text: "Gráfico de linhas 3D",
             },
         },
         PlotArea: excelize.ChartPlotArea{
@@ -79,8 +83,8 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Save workbook
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    // Salva a pasta de trabalho
+    if err := f.SaveAs("Pasta1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
