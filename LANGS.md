@@ -9,4 +9,5 @@
 * [한국어](ko)
 * [Español](es)
 * [Deutsch](de)
+* [Português](pt)
 * [العربية](ar)

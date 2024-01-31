@@ -33,7 +33,7 @@ go get github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2
 ```
 
-## Crie um documento Excel {#NewFile}
+## Crie uma planilha {#NewFile}
 
 Aqui está um exemplo mínimo de uso que criará um arquivo de planilha:
 
@@ -75,7 +75,7 @@ func main() {
 }
 ```
 
-## Reading Excel document {#read}
+## Lendo uma planilha {#read}
 
 O seguinte constitui o básico para ler um documento de planilha:
 
@@ -122,11 +122,11 @@ func main() {
 }
 ```
 
-## Adicionar gráfico ao documento Excel {#chart}
+## Crie um gráfico em uma planilha {#chart}
 
 Com o Excelize, a geração e o gerenciamento de gráficos são tão fáceis quanto algumas linhas de código. Você pode construir gráficos com base nos dados da sua planilha ou gerar gráficos sem nenhum dado na sua planilha.
 
-<p align="center"><img width="770" src="../images/base.png" alt="Adicionar gráfico ao documento Excel"></p>
+<p align="center"><img width="770" src="../images/base.png" alt="Crie um gráfico em uma planilha"></p>
 
 ```go
 package main
@@ -193,7 +193,7 @@ func main() {
 }
 ```
 
-## Adicionar imagem ao documento Excel {#image}
+## Inserir imagem na planilha {#image}
 
 ```go
 package main

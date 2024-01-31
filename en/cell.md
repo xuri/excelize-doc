@@ -590,7 +590,7 @@ AddComment provides the method to add comments in a sheet by given worksheet ind
 <p align="center"><img width="612" src="./images/comment.png" alt="Add a comment to an Excel document"></p>
 
 ```go
-err := f.AddComment(sheet, excelize.Comment{
+err := f.AddComment("Sheet1", excelize.Comment{
     Cell:   "A3",
     Author: "Excelize",
     Paragraph: []excelize.RichTextRun{
