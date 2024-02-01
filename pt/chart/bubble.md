@@ -1,4 +1,4 @@
-# gráfico de bolhas {#bubble}
+# Gráfico de bolhas {#bubble}
 
 Por exemplo, adicione um gráfico de bolhas semelhante a este:
 

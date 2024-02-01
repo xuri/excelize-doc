@@ -1,4 +1,4 @@
-# gráfico de contorno de wireframe {#wireframeContour}
+# Gráfico de contorno de wireframe {#wireframeContour}
 
 Por exemplo, adicione um gráfico de contorno de wireframe semelhante a este:
 

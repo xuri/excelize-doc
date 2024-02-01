@@ -108,9 +108,9 @@ The parameter `ShowBlanksAs` provides the "Hide and empty cells" setting. The de
 
 Parameter|Explanation
 ---|---
-gap  | space
+gap  | Space
 span | Connect data points with straight lines
-zero | zero value
+zero | Zero value
 
 Set the bubble size in all data series for the bubble chart or 3D bubble chart by `BubbleSizes` property. The `BubbleSizes` property is optional. The default width is `100`, and the value should be great than 0 and less or equal than 300.
 

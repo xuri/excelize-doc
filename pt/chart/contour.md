@@ -1,4 +1,4 @@
-# gráfico de contorno {#contour}
+# Gráfico de contorno {#contour}
 
 Por exemplo, adicione um gráfico de contorno como este:
 

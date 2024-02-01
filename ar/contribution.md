@@ -7,10 +7,9 @@
 ### مرجع
 
 * [تنسيقات ملفات ECMA-376 Office Open XML القياسية](https://www.ecma-international.org/publications-and-standards/standards/ecma-376/)
-* [وثائق مطور المكتب](https://developer.microsoft.com/ar-sa/office/docs)
-* [هيكل مستند SpreadsheetML (Open XML SDK)](https://learn.microsoft.com/ar-sa/office/open-xml/structure-of-a-spreadsheetml-document)
+* [هيكل مستند SpreadsheetML (Open XML SDK)](https://learn.microsoft.com/ar-sa/office/open-xml/spreadsheet/structure-of-a-spreadsheetml-document)
 * [افتح XML SDK 2.5 لـ Microsoft Office (يعمل فقط على Windows)](https://github.com/OfficeDev/Open-XML-SDK/releases/tag/v2.5)
-* [فهم تنسيقات ملفات Open XML](https://learn.microsoft.com/ar-sa/office/open-xml/understanding-the-open-xml-file-formats)
+* [يدعم المعايير](https://learn.microsoft.com/ar-sa/openspecs/standards_support/ms-stdsuplp/17a32be7-10b3-4025-bea4-133a66b4c689)
 * [ملحقات Google Chrome: أدوات OOXML](https://chrome.google.com/webstore/detail/ooxml-tools/bjmmjfdegplhkefakjkccocjanekbapn)
 * [[MS-OFFCRYPTO]: مواصفات بنية تشفير مستندات Office](https://learn.microsoft.com/ar-sa/openspecs/office_file_formats/ms-offcrypto/3c34d72a-1a61-4b52-a893-196f9157f083)
 

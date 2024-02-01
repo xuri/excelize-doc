@@ -36,6 +36,7 @@ AddFormControl предоставляет метод для добавления
 <p align="center"><img width="180" src="./images/form_ctrl_button.gif" alt="добавить управление формой кнопки с помощью Excelize"></p>
 
 ```go
+enable := true
 err := f.AddFormControl("Лист1", excelize.FormControl{
     Cell:   "A2",
     Type:   excelize.FormControlButton,
@@ -73,6 +74,7 @@ if err := f.AddFormControl("Лист1", excelize.FormControl{
     Type:    excelize.FormControlOptionButton,
     Text:    "Option Button 1",
     Checked: true,
+    Height:  20,
 }); err != nil {
     fmt.Println(err)
 }
@@ -80,6 +82,7 @@ if err := f.AddFormControl("Лист1", excelize.FormControl{
     Cell:    "A2",
     Type:    excelize.FormControlOptionButton,
     Text:    "Option Button 2",
+    Height:  20,
 }); err != nil {
     fmt.Println(err)
 }
