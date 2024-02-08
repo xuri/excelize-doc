@@ -165,3 +165,7 @@
   * [Gráfico de bolhas](chart/bubble.md)
   * [Gráfico de bolhas 3D](chart/bubble3D.md)
   * [Excluir gráfico](chart.md#DeleteChart)
+* [Imagem](image.md)
+  * [Inserir imagem](image.md#AddPicture)
+  * [Obter imagem](image.md#GetPicture)
+  * [Excluir imagem](image.md#DeletePicture)
