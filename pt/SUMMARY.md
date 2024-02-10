@@ -169,3 +169,4 @@
   * [Inserir imagem](image.md#AddPicture)
   * [Obter imagem](image.md#GetPicture)
   * [Excluir imagem](image.md#DeletePicture)
+* [Formas](shape.md)
