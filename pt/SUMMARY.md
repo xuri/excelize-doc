@@ -194,3 +194,8 @@
   * [Mesclar célula para transmitir](stream.md#MergeCell)
   * [Defina a largura da coluna para transmitir](stream.md#SetColWidth)
   * [Fluxo de descarga](stream.md#Flush)
+* [Dados](data.md)
+  * [Adicionar validação de dados](data.md#AddDataValidation)
+  * [Obtenha validações de dados](data.md#GetDataValidations)
+  * [Excluir validação de dados](data.md#DeleteDataValidation)
+  * [Adicionar fatiador](data.md#AddSlicer)
