@@ -233,3 +233,5 @@
   * [Adicionar projeto VBA](utils.md#AddVBAProject)
   * [Excel de vez em quando](utils.md#ExcelDateToTime)
   * [Transcodificador de conjunto de caracteres](utils.md#CharsetTranscoder)
+* Exemplos
+  * [Calendário](example/calendar.md)
