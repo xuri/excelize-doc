@@ -236,3 +236,4 @@
 * Exemplos
   * [Calendário](example/calendar.md)
   * [Lista suspensa de dependentes](example/dependentDropList.md)
+  * [Lista suspensa de seleção múltipla](example/multiselectDropList.md)
