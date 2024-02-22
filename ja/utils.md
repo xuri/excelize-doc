@@ -1015,17 +1015,24 @@ GetPanes は、指定されたワークシート名でフリーズペイン、�
 ## カラー値計算 {#ThemeColor}
 
 ```go
+func (f *File) GetBaseColor(hexColor string, indexedColor int, themeColor *int) string
+```
+
+GetBaseColor は、16 進カラー コード、インデックス カラー、テーマ カラーを指定することにより、優先される 16 進カラー コードを返します。
+
+```go
 func ThemeColor(baseColor string, tint float64) string
 ```
 
-ThemeColor は色の値を持つ色を適用しました:
+ThemeColor は、色合いの値を使用して色を適用しました。
+
+スプレッドシート内のテキストの色は、16 進数カラー、インデックスカラー、テーマカラーの 3 種類があります。これらの色の優先順位は、16 進数の色がテーマの色よりも優先され、テーマの色がインデックス付きの色よりも優先されます。さらに、この色は 16 進数のカラーに基づいた色合い値の適用もサポートしているため、計算された 16 進数のカラー値を取得するには、ThemeColor 関数を使用してベースの色に色合いを適用する必要があります。例えば：
 
 ```go
 package main
 
 import (
     "fmt"
-    "strings"
 
     "github.com/xuri/excelize/v2"
 )
@@ -1036,39 +1043,24 @@ func main() {
         fmt.Println(err)
         return
     }
-    fmt.Println(getCellBgColor(f, "Sheet1", "A1"))
-    if err = f.Close(); err != nil {
-        fmt.Println(err)
-    }
-}
-
-func getCellBgColor(f *excelize.File, sheet, cell string) string {
-    styleID, err := f.GetCellStyle(sheet, cell)
-    if err != nil {
-        return err.Error()
-    }
-    fillID := *f.Styles.CellXfs.Xf[styleID].FillID
-    fgColor := f.Styles.Fills.Fill[fillID].PatternFill.FgColor
-    if fgColor != nil && f.Theme != nil {
-        if clrScheme := f.Theme.ThemeElements.ClrScheme; fgColor.Theme != nil {
-            if val, ok := map[int]*string{
-                0: &clrScheme.Lt1.SysClr.LastClr,
-                1: &clrScheme.Dk1.SysClr.LastClr,
-                2: clrScheme.Lt2.SrgbClr.Val,
-                3: clrScheme.Dk2.SrgbClr.Val,
-                4: clrScheme.Accent1.SrgbClr.Val,
-                5: clrScheme.Accent2.SrgbClr.Val,
-                6: clrScheme.Accent3.SrgbClr.Val,
-                7: clrScheme.Accent4.SrgbClr.Val,
-                8: clrScheme.Accent5.SrgbClr.Val,
-                9: clrScheme.Accent6.SrgbClr.Val,
-            }[*fgColor.Theme]; ok && val != nil {
-                return strings.TrimPrefix(excelize.ThemeColor(*val, fgColor.Tint), "FF")
-            }
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
         }
-        return strings.TrimPrefix(fgColor.RGB, "FF")
+    }()
+    runs, err := f.GetCellRichText("Sheet1", "A1")
+    if err != nil {
+        fmt.Println(err)
+        return
     }
-    return "FFFFFF"
+    for _, run := range runs {
+        var hexColor string
+        if run.Font != nil {
+            baseColor := f.GetBaseColor(run.Font.Color, run.Font.ColorIndexed, run.Font.ColorTheme)
+            hexColor = strings.TrimPrefix(excelize.ThemeColor(baseColor, run.Font.ColorTint), "FF")
+        }
+        fmt.Printf("text: %s, color: %s\r\n", run.Text, hexColor)
+    }
 }
 ```
 

@@ -1015,17 +1015,24 @@ GetPanes bietet eine Funktion zum Abrufen von fixierten Bereichen, geteilten Ber
 ## Farbe {#ThemeColor}
 
 ```go
+func (f *File) GetBaseColor(hexColor string, indexedColor int, themeColor *int) string
+```
+
+GetBaseColor gibt den bevorzugten Hex-Farbcode zurück, indem es den Hex-Farbcode, die indizierte Farbe und die Designfarbe angibt.
+
+```go
 func ThemeColor(baseColor string, tint float64) string
 ```
 
-ThemeColor hat die Farbe mit dem Farbtonwert angewendet:
+ThemeColor hat die Farbe mit dem Farbtonwert angewendet.
+
+Es gibt drei Arten von Farben für den Text in der Tabelle: Hexadezimalfarbe, indizierte Farbe und Designfarbe. Die Priorität dieser Farben besteht darin, dass die Hex-Farbe Vorrang vor der Designfarbe hat und die Designfarbe Vorrang vor der indizierten Farbe hat. Darüber hinaus unterstützt die Farbe auch das Anwenden eines Farbtonwerts basierend auf der Hex-Farbe. Daher müssen wir die ThemeColor-Funktion verwenden, um den Farbton für die Basisfarbe anzuwenden, um den berechneten Hex-Farbwert zu erhalten. Zum Beispiel:
 
 ```go
 package main
 
 import (
     "fmt"
-    "strings"
 
     "github.com/xuri/excelize/v2"
 )
@@ -1036,39 +1043,24 @@ func main() {
         fmt.Println(err)
         return
     }
-    fmt.Println(getCellBgColor(f, "Sheet1", "A1"))
-    if err = f.Close(); err != nil {
-        fmt.Println(err)
-    }
-}
-
-func getCellBgColor(f *excelize.File, sheet, cell string) string {
-    styleID, err := f.GetCellStyle(sheet, cell)
-    if err != nil {
-        return err.Error()
-    }
-    fillID := *f.Styles.CellXfs.Xf[styleID].FillID
-    fgColor := f.Styles.Fills.Fill[fillID].PatternFill.FgColor
-    if fgColor != nil && f.Theme != nil {
-        if clrScheme := f.Theme.ThemeElements.ClrScheme; fgColor.Theme != nil {
-            if val, ok := map[int]*string{
-                0: &clrScheme.Lt1.SysClr.LastClr,
-                1: &clrScheme.Dk1.SysClr.LastClr,
-                2: clrScheme.Lt2.SrgbClr.Val,
-                3: clrScheme.Dk2.SrgbClr.Val,
-                4: clrScheme.Accent1.SrgbClr.Val,
-                5: clrScheme.Accent2.SrgbClr.Val,
-                6: clrScheme.Accent3.SrgbClr.Val,
-                7: clrScheme.Accent4.SrgbClr.Val,
-                8: clrScheme.Accent5.SrgbClr.Val,
-                9: clrScheme.Accent6.SrgbClr.Val,
-            }[*fgColor.Theme]; ok && val != nil {
-                return strings.TrimPrefix(excelize.ThemeColor(*val, fgColor.Tint), "FF")
-            }
+    defer func() {
+        if err := f.Close(); err != nil {
+            fmt.Println(err)
         }
-        return strings.TrimPrefix(fgColor.RGB, "FF")
+    }()
+    runs, err := f.GetCellRichText("Sheet1", "A1")
+    if err != nil {
+        fmt.Println(err)
+        return
     }
-    return "FFFFFF"
+    for _, run := range runs {
+        var hexColor string
+        if run.Font != nil {
+            baseColor := f.GetBaseColor(run.Font.Color, run.Font.ColorIndexed, run.Font.ColorTheme)
+            hexColor = strings.TrimPrefix(excelize.ThemeColor(baseColor, run.Font.ColorTint), "FF")
+        }
+        fmt.Printf("text: %s, color: %s\r\n", run.Text, hexColor)
+    }
 }
 ```
 
