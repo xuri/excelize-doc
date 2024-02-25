@@ -2,14 +2,14 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize 는 순수 Go로 작성된 라이브러리로 XLAM / XLSM / XLSX / XLTM / XLTX 파일에서 읽고 쓸 수있는 기능 세트를 제공합니다. Microsoft Excel&trade; 2007 이상에서 생성 된 스프레드 시트 문서 읽기 및 쓰기를 지원합니다. 높은 호환성으로 복잡한 구성 요소를 지원하고 대량의 데이터가있는 워크 시트에서 데이터를 생성하거나 읽을 수있는 스트리밍 API 를 제공했습니다. 이 라이브러리에는 Go 버전 1.16 이상이 필요합니다.
+Excelize 는 순수 Go로 작성된 라이브러리로 XLAM / XLSM / XLSX / XLTM / XLTX 파일에서 읽고 쓸 수있는 기능 세트를 제공합니다. Microsoft Excel&trade; 2007 이상에서 생성 된 스프레드 시트 문서 읽기 및 쓰기를 지원합니다. 높은 호환성으로 복잡한 구성 요소를 지원하고 대량의 데이터가있는 워크 시트에서 데이터를 생성하거나 읽을 수있는 스트리밍 API 를 제공했습니다. 이 라이브러리에는 Go 버전 1.18 이상이 필요합니다.
 
 - 소스 코드: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - 발행물: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 면허: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- 마지막 버전: [v2.8.0](https://github.com/xuri/excelize/releases/latest)
-- 문서 업데이트 시간: 2024 년 1 월 26 일
+- 마지막 버전: [v2.8.1](https://github.com/xuri/excelize/releases/latest)
+- 문서 업데이트 시간: 2024 년 2 월 26 일
 
 ## 프로젝트 미션
 

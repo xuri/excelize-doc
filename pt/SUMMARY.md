@@ -238,4 +238,4 @@
   * [Lista suspensa de dependentes](example/dependentDropList.md)
   * [Lista suspensa de seleção múltipla](example/multiselectDropList.md)
 * Versões lançadas
-  * [v2.8.1](releases/v2.8.1.md)
+  * [v2.8.1 (2024-02-26)](releases/v2.8.1.md)
