@@ -238,5 +238,6 @@
   * [Lista suspensa de dependentes](example/dependentDropList.md)
   * [Lista suspensa de seleção múltipla](example/multiselectDropList.md)
 * [Constantes](constants.md)
+* [Variáveis](variables.md)
 * Versões lançadas
   * [v2.8.1 (2024-02-26)](releases/v2.8.1.md)
