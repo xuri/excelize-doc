@@ -172,12 +172,12 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue fix linked values within a spreadsheet are not updating in Office Excel 2007 and 2010. This function will remove the value tag when met a cell have a linked value. Reference [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Notice: after open the spreadsheet file Excel will be updating the linked value and generate a new value and will prompt the save file or not.
+UpdateLinkedValue fix linked values within a spreadsheet are not updating in Office Excel 2007 and 2010. This function will remove the value tag when met a cell have a linked value. Reference [https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). Notice: after open the spreadsheet file Excel will be updating the linked value and generate a new value and will prompt the save file or not.
 
 The effect of clearing the cell cache on the workbook appears as a modification to the `<v>` tag, for example, the cell cache before clearing:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
         <v>100</v>
@@ -188,7 +188,7 @@ The effect of clearing the cell cache on the workbook appears as a modification 
 After clearing the cell cache:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
     </c>

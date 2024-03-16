@@ -172,12 +172,12 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-スプレッドシート内のリンクされた値を修正する UpdateLinkedValue は、Office Excel 2007 および 2010 では更新されません。この関数は、セルにリンクされた値を持つセルが満たされたときに値タグを削除します。リファレンス [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) 注意: XLSX ファイルを開くと、XlSXファイル Excel はリンクされた値を更新し、新しい値を生成し、保存ファイルをプロンプト表示されます。
+スプレッドシート内のリンクされた値を修正する UpdateLinkedValue は、Office Excel 2007 および 2010 では更新されません。この関数は、セルにリンクされた値を持つセルが満たされたときに値タグを削除します。リファレンス [https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). 注意: XLSX ファイルを開くと、XlSXファイル Excel はリンクされた値を更新し、新しい値を生成し、保存ファイルをプロンプト表示されます。
 
 ブック上のセル キャッシュをクリアすると、クリア前のセル キャッシュなど、`<v>` タグの変更として表示されます:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
         <v>100</v>
@@ -188,7 +188,7 @@ func (f *File) UpdateLinkedValue() error
 セル キャッシュをクリアした後:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
     </c>

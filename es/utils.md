@@ -172,12 +172,12 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue corrige los valores vinculados dentro de una hoja de cálculo no se actualizan en Office Excel 2007 y 2010. Esta función eliminará la etiqueta de valor cuando se encuentre una celda que tenga un valor vinculado. Referencia [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Aviso: después de abrir el archivo de hoja de cálculo, Excel actualizará el valor vinculado y generará un nuevo valor y solicitará guardar el archivo o no.
+UpdateLinkedValue corrige los valores vinculados dentro de una hoja de cálculo no se actualizan en Office Excel 2007 y 2010. Esta función eliminará la etiqueta de valor cuando se encuentre una celda que tenga un valor vinculado. Referencia [https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). Aviso: después de abrir el archivo de hoja de cálculo, Excel actualizará el valor vinculado y generará un nuevo valor y solicitará guardar el archivo o no.
 
 El efecto de borrar el caché de la celda en el libro de trabajo aparece como una modificación de la etiqueta `<v>`, por ejemplo, el caché de la celda antes de borrar:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
         <v>100</v>
@@ -188,7 +188,7 @@ El efecto de borrar el caché de la celda en el libro de trabajo aparece como un
 Después de borrar la memoria caché de la celda:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
     </c>

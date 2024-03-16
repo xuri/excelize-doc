@@ -172,12 +172,12 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue fix verknüpfte Werte in einer Tabelle werden in Office Excel 2007 und 2010 nicht aktualisiert. Diese Funktion entfernt das Wertetag, wenn eine Zelle einen verknüpften Wert hat. Referenz [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Hinweis: Nach dem Öffnen der Tabellenkalkulationsdatei aktualisiert Excel den verknüpften Wert, generiert einen neuen Wert und fordert zum Speichern der Datei auf oder nicht.
+UpdateLinkedValue fix verknüpfte Werte in einer Tabelle werden in Office Excel 2007 und 2010 nicht aktualisiert. Diese Funktion entfernt das Wertetag, wenn eine Zelle einen verknüpften Wert hat. Referenz [https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). Hinweis: Nach dem Öffnen der Tabellenkalkulationsdatei aktualisiert Excel den verknüpften Wert, generiert einen neuen Wert und fordert zum Speichern der Datei auf oder nicht.
 
 Der Effekt des Löschens des Zellencaches in der Arbeitsmappe wird als Änderung des Tags `<v>` angezeigt, z. B. des Zellencaches vor dem Löschen:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
         <v>100</v>
@@ -188,7 +188,7 @@ Der Effekt des Löschens des Zellencaches in der Arbeitsmappe wird als Änderung
 Nach dem Löschen des Zellencaches:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
     </c>

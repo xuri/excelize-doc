@@ -172,12 +172,12 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-업데이트링크드밸류 수정 스프레드시트 내의 링크된 값은 Office Excel 2007 및 2010 에서 업데이트되지 않습니다. 이 함수는 셀에 연결된 값이 있을 때 값 태그를 제거합니다. 참조 [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) 주의 사항 : 열면 XLSX 파일 Excel 은 연결된 값을 업데이트하고 새 값을 생성하며 파일을 저장하거나 저장하라는 메시지가 표시됩니다.
+업데이트링크드밸류 수정 스프레드시트 내의 링크된 값은 Office Excel 2007 및 2010 에서 업데이트되지 않습니다. 이 함수는 셀에 연결된 값이 있을 때 값 태그를 제거합니다. 참조 [https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). 주의 사항 : 열면 XLSX 파일 Excel 은 연결된 값을 업데이트하고 새 값을 생성하며 파일을 저장하거나 저장하라는 메시지가 표시됩니다.
 
 통합 문서의 셀 캐시를 지우는 효과는 `<v>` 태그에 대한 수정으로 나타납니다. 예를 들어 지우기 전에 셀 캐시를 선택합니다:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
         <v>100</v>
@@ -188,7 +188,7 @@ func (f *File) UpdateLinkedValue() error
 셀 캐시를 지운 후:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
     </c>

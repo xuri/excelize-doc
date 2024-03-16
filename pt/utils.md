@@ -172,12 +172,12 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-UpdateLinkedValue corrige valores vinculados em uma planilha que não são atualizados no Office Excel 2007 e 2010. Esta função removerá a tag de valor quando uma célula tiver um valor vinculado. Referência [https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating](https://social.technet.microsoft.com/Forums/office/en-US/e16bae1f-6a2c-4325-8013-e989a3479066/excel-2010-linked-cells-not-updating) Aviso: após abrir o arquivo da planilha o Excel estará atualizando o valor vinculado e gerará um novo valor e solicitará o salvamento do arquivo ou não.
+UpdateLinkedValue corrige valores vinculados em uma planilha que não são atualizados no Office Excel 2007 e 2010. Esta função removerá a tag de valor quando uma célula tiver um valor vinculado. Referência [https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). Aviso: após abrir o arquivo da planilha o Excel estará atualizando o valor vinculado e gerará um novo valor e solicitará o salvamento do arquivo ou não.
 
 O efeito de limpar o cache da célula na pasta de trabalho aparece como uma modificação na tag `<v>`, por exemplo, o cache da célula antes da limpeza:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
         <v>100</v>
@@ -188,7 +188,7 @@ O efeito de limpar o cache da célula na pasta de trabalho aparece como uma modi
 After clearing the cell cache:
 
 ```xml
-<row r="19" spans="2:2">
+<row r="19">
     <c r="B19">
         <f>SUM(Sheet2!D2,Sheet2!D11)</f>
     </c>
