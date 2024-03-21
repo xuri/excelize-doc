@@ -169,7 +169,7 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-Excel 會在儲存時將儲存帶有公式的儲存格的計算結果，這會導致在 Office Excel 2007 和 2010 中文檔在開啓時，即便計算因子已經發生變化，公式的計算結果不會自動更新。參考鏈接：[https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). 此函式會將活頁簿中所有緩存結果清除，這樣文檔在 Office Excel 中被重新開啓時會自動計算新的公式結果，但是由於計算後文檔發生了變化，在關閉文檔時 Office Excel 會提示是否儲存活頁簿。
+Excel 會在儲存時將儲存帶有公式的儲存格的計算結果，這會導致在 Office Excel 2007 和 2010 中文檔在開啓時，即便計算因子已經發生變化，公式的計算結果不會自動更新。參考鏈接：[https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066)。此函式會將活頁簿中所有緩存結果清除，這樣文檔在 Office Excel 中被重新開啓時會自動計算新的公式結果，但是由於計算後文檔發生了變化，在關閉文檔時 Office Excel 會提示是否儲存活頁簿。
 
 清除儲存格緩存對活頁簿的影響表現為對 `<v>` 標籤的修改，例如，清除前的儲存格緩存：
 

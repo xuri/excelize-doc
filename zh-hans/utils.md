@@ -169,7 +169,7 @@ Price < 2000
 func (f *File) UpdateLinkedValue() error
 ```
 
-Excel 会在保存时将保存带有公式的单元格的计算结果，这会导致在 Office Excel 2007 和 2010 中文档在打开时，即便计算因子已经发生变化，公式的计算结果不会自动更新。参考链接：[https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066). 此函数会将工作簿中所有缓存结果清除，这样文档在 Office Excel 中被重新打开时会自动计算新的公式结果，但是由于计算后文档发生了变化，在关闭文档时 Office Excel 会提示是否保存工作簿。
+Excel 会在保存时将保存带有公式的单元格的计算结果，这会导致在 Office Excel 2007 和 2010 中文档在打开时，即便计算因子已经发生变化，公式的计算结果不会自动更新。参考链接：[https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066](https://learn.microsoft.com/en-us/archive/msdn-technet-forums/e16bae1f-6a2c-4325-8013-e989a3479066)。此函数会将工作簿中所有缓存结果清除，这样文档在 Office Excel 中被重新打开时会自动计算新的公式结果，但是由于计算后文档发生了变化，在关闭文档时 Office Excel 会提示是否保存工作簿。
 
 清除单元格缓存对工作簿的影响表现为对 `<v>` 标签的修改，例如，清除前的单元格缓存：
 
