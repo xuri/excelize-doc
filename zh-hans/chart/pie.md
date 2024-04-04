@@ -49,7 +49,7 @@ func main() {
         },
         Title: []excelize.RichTextRun{
             {
-                Text: "三维饼图",
+                Text: "饼图",
             },
         },
         PlotArea: excelize.ChartPlotArea{

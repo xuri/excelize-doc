@@ -16,7 +16,7 @@ type Options struct {
 }
 ```
 
-`MaxCalcIterations` specifies the maximum iterations for iterative calculation, the default value is 0.
+`MaxCalcIterations` spécifie le nombre maximum d'itérations pour le calcul itératif, la valeur par défaut est 0.
 
 `Password` spécifie le mot de passe de la feuille de calcul en texte brut.
 
@@ -26,13 +26,13 @@ type Options struct {
 
 `UnzipXMLSizeLimit` spécifie la limite de mémoire pour décompresser la feuille de calcul et la table de chaînes partagée en octets, la feuille de calcul XML sera extraite dans le répertoire temporaire du système lorsque la taille du fichier dépasse cette valeur, cette valeur doit être inférieure ou égale à `UnzipSizeLimit`, la valeur par défaut la valeur est de 16 Mo.
 
-`ShortDatePattern` specifies the short date number format code. In the spreadsheet applications, date formats display date and time serial numbers as date values. Date formats that begin with an asterisk (\*) respond to changes in regional date and time settings that are specified for the operating system. Formats without an asterisk are not affected by operating system settings. The `ShortDatePattern` used for specifies apply date formats that begin with an asterisk.
+`ShortDatePattern` spécifie le code de format de numéro de date court. Dans les applications de feuille de calcul, les formats de date affichent les numéros de série de date et d'heure sous forme de valeurs de date. Les formats de date commençant par un astérisque (\*) répondent aux modifications des paramètres de date et d'heure régionaux spécifiés pour le système d'exploitation. Les formats sans astérisque ne sont pas affectés par les paramètres du système d'exploitation. Le `ShortDatePattern` utilisé pour spécifie les formats de date à appliquer qui commencent par un astérisque.
 
-`LongDatePattern` specifies the long date number format code.
+`LongDatePattern` spécifie le code de format de numéro de date long.
 
-`LongTimePattern` specifies the long time number format code.
+`LongTimePattern` spécifie le code de format de nombre de temps long.
 
-`CultureInfo` specifies the country code for applying built-in language number format code these effect by the system's local language settings.
+`CultureInfo` spécifie le code du pays pour l'application du code de format de numéro de langue intégré, qui s'effectue en fonction des paramètres de langue locale du système.
 
 ## Créer un document Excel {#NewFile}
 

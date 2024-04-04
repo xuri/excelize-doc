@@ -24,7 +24,7 @@ type Options struct {
 
 `UnzipSizeLimit` especifica el límite de tamaño de descompresión en bytes al abrir la hoja de cálculo, este valor debe ser mayor o igual que `UnzipXMLSizeLimit`, el límite de tamaño predeterminado es 16GB.
 
-`UnzipXMLSizeLimit` specifies the memory limit on unzipping worksheet and shared string table in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `UnzipSizeLimit`, the default value is 16MB.
+`UnzipXMLSizeLimit` especifica el límite de memoria al descomprimir la hoja de trabajo y la tabla de cadenas compartidas en bytes, la hoja de trabajo XML se extraerá al directorio temporal del sistema cuando el tamaño del archivo supere este valor, este valor debe ser menor o igual a `UnzipSizeLimit`, el valor predeterminado El valor es 16MB.
 
 `ShortDatePattern` especifica el código de formato de número de fecha corta. En las aplicaciones de hojas de cálculo, los formatos de fecha muestran números de serie de fecha y hora como valores de fecha. Los formatos de fecha que comienzan con un asterisco (\*) responden a cambios en la configuración regional de fecha y hora que se especifican para el sistema operativo. Los formatos sin asterisco no se ven afectados por la configuración del sistema operativo. El `ShortDatePattern` usado para especifica aplicar formatos de fecha que comienzan con un asterisco.
 
