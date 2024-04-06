@@ -1,4 +1,4 @@
-# wireframe contour chart {#wireframeContour}
+# Wireframe contour chart {#wireframeContour}
 
 For example, add a wireframe contour chart that like the this:
 

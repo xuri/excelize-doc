@@ -64,7 +64,7 @@ func main() {
         },
         Title: []excelize.RichTextRun{
             {
-                Text: "3D Cone Stacked Solumn Chart",
+                Text: "3D Cone Stacked Column Chart",
             },
         },
         PlotArea: excelize.ChartPlotArea{

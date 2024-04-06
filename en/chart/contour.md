@@ -1,4 +1,4 @@
-# contour chart {#contour}
+# Contour chart {#contour}
 
 For example, add a contour chart that like the this:
 

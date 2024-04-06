@@ -1,4 +1,4 @@
-# bubble chart {#bubble}
+# Bubble chart {#bubble}
 
 For example, add a bubble chart that like the this:
 
