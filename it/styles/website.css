@@ -1,0 +1,16 @@
+.gitbook-link {
+    display: none !important;
+}
+
+.dropdown-menu {
+    min-width: 270px;
+}
+
+@media (min-width: 1240px) {
+    .page-inner {
+        position: relative;
+        margin: 0 auto;
+        max-width: 80% !important;
+        padding: 20px 50px 40px 50px !important;
+    }
+}
