@@ -482,7 +482,7 @@ err := f.SetConditionalFormat("Sheet1", "D1:D10",
         {
             Type:     "cell",
             Criteria: ">",
-            Format:   format,
+            Format:   &format,
             Value:    "6",
         },
     },
@@ -497,7 +497,7 @@ err := f.SetConditionalFormat("Sheet1", "D1:D10",
         {
             Type:     "cell",
             Criteria: ">",
-            Format:   format,
+            Format:   &format,
             Value:    "$C$1",
         },
     },
@@ -520,7 +520,7 @@ if err != nil {
 }
 err = f.SetConditionalFormat("Sheet1", "D1:D10",
     []excelize.ConditionalFormatOptions{
-        {Type: "cell", Criteria: ">", Format: format, Value: "6"},
+        {Type: "cell", Criteria: ">", Format: &format, Value: "6"},
     },
 )
 ```
@@ -570,7 +570,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
         {
             Type:     "cell",
             Criteria: "between",
-            Format:   format,
+            Format:   &format,
             MinValue: "6",
             MaxValue: "8",
         },
@@ -589,7 +589,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
         {
             Type:         "average",
             Criteria:     "=",
-            Format:       format1,
+            Format:       &format1,
             AboveAverage: true,
         },
     },
@@ -601,7 +601,7 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
         {
             Type:         "average",
             Criteria:     "=",
-            Format:       format2,
+            Format:       &format2,
             AboveAverage: false,
         },
     },
@@ -614,7 +614,7 @@ type: `duplicate` - يستخدم النوع `duplicate` لتمييز الخلا�
 // قاعدة تمييز الخلايا: القيم المكررة...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
-        {Type: "duplicate", Criteria: "=", Format: format},
+        {Type: "duplicate", Criteria: "=", Format: &format},
     },
 )
 ```
@@ -625,7 +625,7 @@ type: `unique` - يستخدم النوع `unique` لإبراز الخلايا ا
 // قاعدة تمييز الخلايا: لا تساوي...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
-        {Type: "unique", Criteria: "=", Format: format},
+        {Type: "unique", Criteria: "=", Format: &format},
     },
 )
 ```
@@ -639,7 +639,7 @@ err := f.SetConditionalFormat("Sheet1", "H1:H10",
         {
             Type:     "top",
             Criteria: "=",
-            Format:   format,
+            Format:   &format,
             Value:    "6",
         },
     },
@@ -654,7 +654,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
         {
             Type:     "top",
             Criteria: "=",
-            Format:   format,
+            Format:   &format,
             Value:    "6",
             Percent:  true,
         },
@@ -875,7 +875,7 @@ func main() {
                 Type:     "bottom",
                 Criteria: "=",
                 Value:    "1",
-                Format:   red,
+                Format:   &red,
             },
         },
     ); err != nil {
@@ -904,7 +904,7 @@ func main() {
                 Type:     "top",
                 Criteria: "=",
                 Value:    "1",
-                Format:   green,
+                Format:   &green,
             },
         },
     ); err != nil {

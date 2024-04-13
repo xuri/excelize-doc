@@ -482,7 +482,7 @@ err := f.SetConditionalFormat("Planilha1", "D1:D10",
         {
             Type:     "cell",
             Criteria: ">",
-            Format:   format,
+            Format:   &format,
             Value:    "6",
         },
     },
@@ -497,7 +497,7 @@ err := f.SetConditionalFormat("Planilha1", "D1:D10",
         {
             Type:     "cell",
             Criteria: ">",
-            Format:   format,
+            Format:   &format,
             Value:    "$C$1",
         },
     },
@@ -520,7 +520,7 @@ if err != nil {
 }
 err = f.SetConditionalFormat("Planilha1", "D1:D10",
     []excelize.ConditionalFormatOptions{
-        {Type: "cell", Criteria: ">", Format: format, Value: "6"},
+        {Type: "cell", Criteria: ">", Format: &format, Value: "6"},
     },
 )
 ```
@@ -570,7 +570,7 @@ err := f.SetConditionalFormat("Planilha1", "A1:A10",
         {
             Type:     "cell",
             Criteria: "between",
-            Format:   format,
+            Format:   &format,
             MinValue: "6",
             MaxValue: "8",
         },
@@ -589,7 +589,7 @@ err := f.SetConditionalFormat("Planilha1", "A1:A10",
         {
             Type:         "average",
             Criteria:     "=",
-            Format:       format1,
+            Format:       &format1,
             AboveAverage: true,
         },
     },
@@ -601,7 +601,7 @@ err := f.SetConditionalFormat("Planilha1", "B1:B10",
         {
             Type:         "average",
             Criteria:     "=",
-            Format:       format2,
+            Format:       &format2,
             AboveAverage: false,
         },
     },
@@ -614,7 +614,7 @@ type: `duplicate` - O tipo `duplicate` é usado para destacar células duplicada
 // Regras de realçar células: valores duplicados...
 err := f.SetConditionalFormat("Planilha1", "A1:A10",
     []excelize.ConditionalFormatOptions{
-        {Type: "duplicate", Criteria: "=", Format: format},
+        {Type: "duplicate", Criteria: "=", Format: &format},
     },
 )
 ```
@@ -625,7 +625,7 @@ type: `unique` - O tipo `unique` é usado para destacar células únicas em um i
 // Regras de realçar células: diferente de...
 err := f.SetConditionalFormat("Planilha1", "A1:A10",
     []excelize.ConditionalFormatOptions{
-        {Type: "unique", Criteria: "=", Format: format},
+        {Type: "unique", Criteria: "=", Format: &format},
     },
 )
 ```
@@ -639,7 +639,7 @@ err := f.SetConditionalFormat("Planilha1", "H1:H10",
         {
             Type:     "top",
             Criteria: "=",
-            Format:   format,
+            Format:   &format,
             Value:    "6",
         },
     },
@@ -654,7 +654,7 @@ err := f.SetConditionalFormat("Planilha1", "A1:A10",
         {
             Type:     "top",
             Criteria: "=",
-            Format:   format,
+            Format:   &format,
             Value:    "6",
             Percent:  true,
         },
@@ -859,7 +859,7 @@ func main() {
                 Type:     "bottom",
                 Criteria: "=",
                 Value:    "1",
-                Format:   red,
+                Format:   &red,
             },
         },
     ); err != nil {
@@ -888,7 +888,7 @@ func main() {
                 Type:     "top",
                 Criteria: "=",
                 Value:    "1",
-                Format:   green,
+                Format:   &green,
             },
         },
     ); err != nil {
