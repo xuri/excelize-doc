@@ -108,3 +108,4 @@
   * [Imposta la formula della cella](cell.md#SetCellFormula)
   * [Ottieni la formula cellulare](cell.md#GetCellFormula)
   * [Calcola il valore della cella](cell.md#CalcCellValue)
+* [Grafico](chart.md)

@@ -1188,7 +1188,7 @@ CERCA.X                     | Trovare elementi in una tabella o in un intervallo
 VAN.X                       | Restituisce il valore attuale netto di un impiego di flussi di cassa non necessariamente periodico
 XOR                         | Restituisce un or esclusivo logico di tutti gli argomenti
 ANNO                        | Converte un numero seriale in un anno
-FRAZIONE.ANNO               | Restituisce la frazione dell'anno che rappresenta il numero dei giorni compresi tra una data_ iniziale e una data_finale
+FRAZIONE.ANNO               | Restituisce la frazione dell'anno che rappresenta il numero dei giorni compresi tra una data\_iniziale e una data\_finale
 REND                        | Restituisce il rendimento di un titolo che frutta interessi periodici
 REND.TITOLI.SCONT           | Restituisce il rendimento annuale di un titolo scontato, ad esempio un Buono del Tesoro
 REND.SCAD                   | Restituisce il rendimento annuo di un titolo che paga interessi alla scadenza
