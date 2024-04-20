@@ -109,3 +109,7 @@
   * [Ottieni la formula cellulare](cell.md#GetCellFormula)
   * [Calcola il valore della cella](cell.md#CalcCellValue)
 * [Grafico](chart.md)
+* [Immagine](image.md)
+  * [Aggiungi immagine](image.md#AddPicture)
+  * [Ottieni immagine](image.md#GetPicture)
+  * [Elimina immagine](image.md#DeletePicture)
