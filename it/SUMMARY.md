@@ -113,3 +113,4 @@
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
   * [Elimina immagine](image.md#DeletePicture)
+* [Forma](shape.md)
