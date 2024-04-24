@@ -114,3 +114,4 @@
   * [Ottieni immagine](image.md#GetPicture)
   * [Elimina immagine](image.md#DeletePicture)
 * [Forma](shape.md)
+* [Grafici sparkline](sparklines.md)
