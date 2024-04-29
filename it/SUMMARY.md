@@ -138,3 +138,8 @@
   * [Unisci la cella allo streaming](stream.md#MergeCell)
   * [Imposta la larghezza della colonna per lo streaming](stream.md#SetColWidth)
   * [Flusso a streaming](stream.md#Flush)
+* [Dati](data.md)
+  * [Aggiungi la convalida dei dati](data.md#AddDataValidation)
+  * [Ottieni convalide dei dati](data.md#GetDataValidations)
+  * [Elimina la convalida dei dati](data.md#DeleteDataValidation)
+  * [Aggiungi affettatrice](data.md#AddSlicer)
