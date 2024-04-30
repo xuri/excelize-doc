@@ -143,3 +143,7 @@
   * [Ottieni convalide dei dati](data.md#GetDataValidations)
   * [Elimina la convalida dei dati](data.md#DeleteDataValidation)
   * [Aggiungi affettatrice](data.md#AddSlicer)
+* [Tabella pivot](pivot.md#PivotTable)
+  * [Crea tabella pivot](pivot.md#AddPivotTable)
+  * [Ottieni tabelle pivot](pivot.md#GetPivotTables)
+  * [Elimina la tabella pivot](pivot.md#DeletePivotTable)
