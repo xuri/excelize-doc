@@ -177,3 +177,5 @@
   * [Aggiungi progetto VBA](utils.md#AddVBAProject)
   * [Excel aggiornato di volta in volta](utils.md#ExcelDateToTime)
   * [Transcodificatore del set di caratteri](utils.md#CharsetTranscoder)
+* Esempi
+  * [Calendario](example/calendar.md)
