@@ -182,3 +182,4 @@
   * [Elenco a discesa dipendente](example/dependentDropList.md)
   * [Elenco a discesa a selezione multipla](example/multiselectDropList.md)
 * [Costanti](constants.md)
+* [Variabili](variables.md)
