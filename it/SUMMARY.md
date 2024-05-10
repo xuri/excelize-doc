@@ -183,3 +183,4 @@
   * [Elenco a discesa a selezione multipla](example/multiselectDropList.md)
 * [Costanti](constants.md)
 * [Variabili](variables.md)
+* [Prestazione](performance.md)
