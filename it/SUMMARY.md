@@ -187,3 +187,4 @@
 * [Contributo](contribution.md)
 * Versioni rilasciate
   * [v2.8.1 (2024-02-26)](releases/v2.8.1.md)
+  * [v2.8.0 (2023-08-28)](releases/v2.8.0.md)
