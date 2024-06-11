@@ -113,6 +113,7 @@
   * [Aggiungi foglio grafico](chart.md#AddChartSheet)
   * [Grafico ad area 2D](chart/area.md)
   * [Grafico ad area in pila 2D](chart/areaStacked.md)
+  * [Grafico ad area in pila 2D al 100%](chart/areaPercentStacked.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
