@@ -114,6 +114,7 @@
   * [Grafico ad area 2D](chart/area.md)
   * [Grafico ad area in pila 2D](chart/areaStacked.md)
   * [Grafico ad area in pila 2D al 100%](chart/areaPercentStacked.md)
+  * [Grafico ad area 3D](chart/area3D.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
