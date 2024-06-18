@@ -119,6 +119,7 @@
   * [Grafico ad area in pila 3D al 100%](chart/area3DPercentStacked.md)
   * [Grafico a barre raggruppate 2D](chart/bar.md)
   * [Grafico a barre in pila 2D](chart/barStacked.md)
+  * [Grafico a barre in pila 2D al 100%](chart/barPercentStacked.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
