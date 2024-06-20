@@ -120,6 +120,7 @@
   * [Grafico a barre raggruppate 2D](chart/bar.md)
   * [Grafico a barre in pila 2D](chart/barStacked.md)
   * [Grafico a barre in pila 2D al 100%](chart/barPercentStacked.md)
+  * [Grafico a barre raggruppate 3D](chart/bar3DClustered.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
