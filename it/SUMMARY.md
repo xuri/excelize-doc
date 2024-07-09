@@ -129,6 +129,7 @@
   * [Grafico a barre raggruppato a piramide 3D](chart/bar3DPyramidClustered.md)
   * [Grafico a barre in pila piramidale 3D](chart/bar3DPyramidStacked.md)
   * [Grafico a barre in pila piramidale 3D al 100%](chart/bar3DPyramidPercentStacked.md)
+  * [Grafico a barre raggruppato di cilindri 3D](chart/bar3DCylinderClustered.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
