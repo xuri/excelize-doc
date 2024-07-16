@@ -132,6 +132,7 @@
   * [Grafico a barre raggruppato di cilindri 3D](chart/bar3DCylinderClustered.md)
   * [Grafico a barre in pila a cilindri 3D](chart/bar3DCylinderStacked.md)
   * [Grafico a barre in pila 3D con cilindri al 100%](chart/bar3DCylinderPercentStacked.md)
+  * [Istogramma a colonne raggruppate 2D](chart/col.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
