@@ -134,6 +134,7 @@
   * [Grafico a barre in pila 3D con cilindri al 100%](chart/bar3DCylinderPercentStacked.md)
   * [Istogramma a colonne raggruppate 2D](chart/col.md)
   * [Istogramma in pila 2D](chart/colStacked.md)
+  * [Istogramma in pila 2D al 100%](chart/colPercentStacked.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
