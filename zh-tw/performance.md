@@ -1,5 +1,7 @@
 # 性能資料
 
+{{ book.info }}
+
 <a href="https://xuri.me/wp-content/uploads/2016/08/excelize-performance.svg"><img src="https://xuri.me/wp-content/uploads/2016/08/excelize-performance.svg" alt="Excelize benchmark" width="1506"></a>
 
 性能數據由[此基準測試腳本](https://github.com/xuri/excelize-benchmark)生成。

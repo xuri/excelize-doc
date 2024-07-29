@@ -1,5 +1,7 @@
 # 数据
 
+{{ book.info }}
+
 ## 添加数据验证 {#AddDataValidation}
 
 ```go

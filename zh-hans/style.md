@@ -1,5 +1,7 @@
 # 样式
 
+{{ book.info }}
+
 Alignment 映射单元格对齐样式设置。
 
 ```go

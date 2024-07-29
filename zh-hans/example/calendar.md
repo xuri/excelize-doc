@@ -1,5 +1,7 @@
 # 日历
 
+{{ book.info }}
+
 使用 Go 语言在 Excel 文档中创建日历：
 
 <p align="center"><img width="933" src="../images/example_calendar.png" alt="使用 Go 语言在 Excel 文档中创建日历"></p>

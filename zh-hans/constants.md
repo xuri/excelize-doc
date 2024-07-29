@@ -1,5 +1,7 @@
 # 常量
 
+{{ book.info }}
+
 CultureName 是受支持的区域格式类型定义。
 
 ```go

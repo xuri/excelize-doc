@@ -1,5 +1,7 @@
 # 快速开始
 
+{{ book.info }}
+
 ## 安装 {#install}
 
 下表列出了各版本 Excelize 基础库对 Go 语言版本最低要求的情况：

@@ -19,6 +19,14 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 在一些情况下我们需要通过程序操作 Excel 文档，例如：打开读取已有 Excel 文档内容、创建新的 Excel 文档、基于已有文档（模版）生成新的 Excel 文档、向 Excel 文档中插入图片、图表和表格等元素，有时还需要跨平台实现这些操作。使用 Excelize 可以方便的满足上述需求。
 
+## 《Excelize 权威指南》
+
+<p align="center"><img width="240" src="../images/book.png" alt="人民邮电出版社《Excelize 权威指南》"></p>
+
+本书基于 Excelize 基础库，从 Office 办公文档格式国际标准出发，以源代码为基础，结合大量直观的配图，循序渐进地讲解 Excelize 中的模块实现，详细解读技术标准内容和基础库的设计。主要内容包括 Excelize 开发环境准备、文档格式国际标准解读、文档数据结构建模、工作簿、工作表、单元格和行列的相关操作、复杂样式解析、图表、图片与形状的相关操作、数据验证与筛选、数据透视表、流式读写技术以及一个综合实践应用。阅读本书，具有一定 Go 语言基础，想入门 Excelize 的开发人员能够进一步系统理解 Excelize 基础库的实现细节，不具备 Go 语言开发经验的开发人员也能够快速掌握 Excelize 的设计原理。
+
+网上购买方式：<a href="https://www.epubit.com/bookDetails?id=UB88d55b2b00d26" title="在异步社区购买《Excelize 权威指南》图书" target="_blank">异步社区</a> | <a href="https://detail.tmall.com/item.htm?id=818853544894" title="在天猫商城购买《Excelize 权威指南》图书" target="_blank">天猫</a> | <a href="https://item.jd.com/14710146.html" title="在京东购买《Excelize 权威指南》图书" target="_blank">京东</a> | <a href="https://product.dangdang.com/11781983074.html" title="在当当网购买《Excelize 权威指南》图书" target="_blank">当当</a> | <a href="https://j.youzan.com/AYJQXF" title="在微店购买《Excelize 权威指南》图书" target="_blank">微店</a> | <a href="https://v.douyin.com/iMmtmks2" title="在抖音商城购买《Excelize 权威指南》图书" target="_blank">抖音</a> | <a href="https://mobile.yangkeduo.com/goods2.html?ps=w8ZH3afuel" title="在拼多多购买《Excelize 权威指南》图书" target="_blank">拼多多</a>
+
 ## 项目荣誉
 
 入选 2023 开源创新榜[优秀开源项目](https://cccst.org.cn/zxyw/tzgg/art/2023/art_748b3428e4184ccc825ea6de1a2d273f.html)

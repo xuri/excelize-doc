@@ -1,5 +1,7 @@
 # 樣式
 
+{{ book.info }}
+
 Alignment 映射儲存格對齊樣式設定。
 
 ```go

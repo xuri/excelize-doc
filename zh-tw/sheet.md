@@ -1,5 +1,7 @@
 # 工作表
 
+{{ book.info }}
+
 ## 設定欄可見性 {#SetColVisible}
 
 ```go

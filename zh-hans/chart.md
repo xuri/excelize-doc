@@ -1,5 +1,7 @@
 # 图表
 
+{{ book.info }}
+
 ## 添加图表 {#AddChart}
 
 ```go

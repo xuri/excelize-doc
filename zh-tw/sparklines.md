@@ -1,5 +1,7 @@
 # 走勢圖
 
+{{ book.info }}
+
 走勢圖是 Excel 2010 及以上版本中的功能，是放入儲存格中的小型圖，每個走勢圖代表所選內容中的一行資料。將走勢圖放在其資料附近可提供非常好的視覺衝擊。
 
 <p align="center"><img width="612" src="./images/sparkline_01.png" alt="使用 Go 語言透過 Excelize 創建走勢圖"></p>

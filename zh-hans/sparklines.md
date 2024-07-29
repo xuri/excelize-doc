@@ -1,5 +1,7 @@
 # 迷你图
 
+{{ book.info }}
+
 迷你图是 Excel 2010 及以上版本中的功能，是放入单元格中的小型图，每个迷你图代表所选内容中的一行数据。将迷你图放在其数据附近可提供非常好的视觉冲击。
 
 <p align="center"><img width="612" src="./images/sparkline_01.png" alt="使用 Go 语言通过 Excelize 创建迷你图"></p>

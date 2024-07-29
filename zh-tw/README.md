@@ -19,6 +19,14 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 
 在一些情況下我們需要透過程式操作 Excel 檔案，例如：開啓讀取已有 Excel 檔案內容、創建新的 Excel 檔案、基於已有檔案（範本）生成新的 Excel 檔案、向 Excel 檔案中插入圖片、圖表和表格等元素，有時還需要跨平台實現這些操作。使用 Excelize 可以方便的滿足上述需求。
 
+## 《Excelize 權威指南》
+
+<p align="center"><img width="240" src="../images/book.png" alt="人民郵電出版社《Excelize 權威指南》"></p>
+
+本書基於 Excelize 基礎庫，從 Office 辦公檔案格式國際標準出發，以源代碼為基礎，結合大量直觀的配圖，循序漸進地講解 Excelize 中的模塊實現，詳細解讀技術標準內容和基礎庫的設計。主要內容包括 Excelize 開發環境準備、檔案格式國際標準解讀、檔案數據結構建模、活頁簿、工作表、儲存格和列欄的相關操作、複雜樣式解析、圖表、圖片與圖形的相關操作、資料驗證與篩選、樞紐分析表、流式讀寫技術以及一個綜合實踐應用。閱讀本書，具有一定 Go 語言基礎，想入門 Excelize 的開發人員能夠進一步系統理解 Excelize 基礎庫的實現細節，不具備 Go 語言開發經驗的開發人員也能夠快速掌握 Excelize 的設計原理。
+
+網上購買方式：<a href="https://www.epubit.com/bookDetails?id=UB88d55b2b00d26" title="在異步社區購買《Excelize 權威指南》圖書" target="_blank">異步社區</a> | <a href="https://detail.tmall.com/item.htm?id=818853544894" title="在天貓商城購買《Excelize 權威指南》圖書" target="_blank">天貓</a> | <a href="https://item.jd.com/14710146.html" title="在京東購買《Excelize 權威指南》圖書" target="_blank">京東</a> | <a href="https://product.dangdang.com/11781983074.html" title="在當當網購買《Excelize 權威指南》圖書" target="_blank">當當</a> | <a href="https://j.youzan.com/AYJQXF" title="在微店購買《Excelize 權威指南》圖書" target="_blank">微店</a> | <a href="https://v.douyin.com/iMmtmks2" title="在抖音商城購買《Excelize 權威指南》圖書" target="_blank">抖音</a> | <a href="https://mobile.yangkeduo.com/goods2.html?ps=w8ZH3afuel" title="在拼多多購買《Excelize 權威指南》圖書" target="_blank">拼多多</a>
+
 ## 專案榮譽
 
 入選 2023 開源創新榜[優秀開源專案](https://cccst.org.cn/zxyw/tzgg/art/2023/art_748b3428e4184ccc825ea6de1a2d273f.html)

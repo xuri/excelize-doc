@@ -1,5 +1,7 @@
 # 變數
 
+{{ book.info }}
+
 ```go
 var (
     // ErrAddVBAProject 定義了向活頁簿嵌入 VBA 專案發生異常時的錯誤提示信息

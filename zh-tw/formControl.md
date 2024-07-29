@@ -1,5 +1,7 @@
 # 表單控制項
 
+{{ book.info }}
+
 FormControl 定義了表單控制項的屬性。
 
 ```go

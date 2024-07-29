@@ -1,5 +1,7 @@
 # 单元格
 
+{{ book.info }}
+
 `RichTextRun` 定义了富文本的属性。
 
 ```go

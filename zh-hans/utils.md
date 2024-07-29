@@ -1,5 +1,7 @@
 # 工具函数
 
+{{ book.info }}
+
 ## 创建表格 {#AddTable}
 
 ```go

@@ -1,5 +1,7 @@
 # 儲存格
 
+{{ book.info }}
+
 `RichTextRun` 定義了富文本的屬性。
 
 ```go

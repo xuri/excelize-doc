@@ -1,5 +1,7 @@
 # 表单控件
 
+{{ book.info }}
+
 FormControl 定义了表单控件的属性。
 
 ```go

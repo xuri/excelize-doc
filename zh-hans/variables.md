@@ -1,5 +1,7 @@
 # 变量
 
+{{ book.info }}
+
 ```go
 var (
     // ErrAddVBAProject 定义了向工作簿嵌入 VBA 项目发生异常时的错误提示信息

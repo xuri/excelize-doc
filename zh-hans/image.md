@@ -1,5 +1,7 @@
 # 图片
 
+{{ book.info }}
+
 ## 插入图片 {#AddPicture}
 
 ```go

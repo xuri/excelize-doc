@@ -1,5 +1,7 @@
 # 級聯列表
 
+{{ book.info }}
+
 使用 Go 語言在 Excel 檔案中創建多級聯動菜單列表:
 
 <p align="center"><img width="375" src="../images/dependent_drop_list.gif" alt="使用 Go 語言在 Excel 檔案中創建多級聯動菜單列表"></p>

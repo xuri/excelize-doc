@@ -1,5 +1,7 @@
 # 多选列表
 
+{{ book.info }}
+
 使用 Go 语言在 Excel 文档中无需 VBA 创建可多选菜单列表:
 
 <p align="center"><img width="426" src="../images/multiselect_drop_list.gif" alt="使用 Go 语言在 Excel 文档中无需 VBA 创建可多选菜单列表"></p>

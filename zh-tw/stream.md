@@ -1,5 +1,7 @@
 # 流式寫入
 
+{{ book.info }}
+
 `StreamWriter` 用於定義流式寫入器的資料類別。
 
 ```go

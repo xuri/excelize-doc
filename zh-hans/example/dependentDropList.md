@@ -1,5 +1,7 @@
 # 级联列表
 
+{{ book.info }}
+
 使用 Go 语言在 Excel 文档中创建多级联动菜单列表:
 
 <p align="center"><img width="379" src="../images/dependent_drop_list.gif" alt="使用 Go 语言在 Excel 文档中创建多级联动菜单列表"></p>

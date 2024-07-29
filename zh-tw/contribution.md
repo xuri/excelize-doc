@@ -1,5 +1,7 @@
 # 參與貢獻
 
+{{ book.info }}
+
 ## 如何參與貢獻
 
 Microsoft Excel&trade; 2007 版本後支援基於 XML 的文檔格式 OOXML (Office Open XML)，是一種基於 XML 和 ZIP 技術的新的文檔格式。下面列出了包括文檔標準、文檔驗證對比工具和瀏覽器插件等在內的開發符合該文檔格式的相關參考資料。
