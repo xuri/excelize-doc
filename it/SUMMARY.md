@@ -137,6 +137,7 @@
   * [Istogramma in pila 2D al 100%](chart/colPercentStacked.md)
   * [Istogramma a colonne raggruppate 3D](chart/col3DClustered.md)
   * [Grafico a colonne 3D](chart/col3D.md)
+  * [Istogramma in pila 3D](chart/col3DStacked.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
