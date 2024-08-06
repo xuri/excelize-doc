@@ -141,6 +141,7 @@
   * [Istogramma in pila 3D al 100%](chart/col3DPercentStacked.md)
   * [Istogramma a cono 3D](chart/col3DCone.md)
   * [Istogramma a colonne raggruppate a cono 3D](chart/col3DConeClustered.md)
+  * [Istogramma in pila a cono 3D](chart/col3DConeStacked.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
