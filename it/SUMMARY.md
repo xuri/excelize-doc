@@ -147,6 +147,7 @@
   * [Istogramma a colonne raggruppate a piramide 3D](chart/col3DPyramidClustered.md)
   * [Istogramma in pila a piramide 3D](chart/col3DPyramidStacked.md)
   * [Grafico a colonne in pila piramidale 3D al 100%](chart/col3DPyramidPercentStacked.md)
+  * [Grafico a colonne del cilindro 3D](chart/col3DCylinder.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
