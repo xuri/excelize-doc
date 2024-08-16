@@ -151,6 +151,7 @@
   * [Istogramma a colonne raggruppate con cilindri 3D](chart/col3DCylinderClustered.md)
   * [Istogramma a colonne in pila a cilindri 3D](chart/col3DCylinderStacked.md)
   * [Grafico a colonne in pila a cilindri 3D al 100%](chart/col3DCylinderPercentStacked.md)
+  * [Grafico a ciambella](chart/doughnut.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
