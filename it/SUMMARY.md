@@ -153,6 +153,7 @@
   * [Grafico a colonne in pila a cilindri 3D al 100%](chart/col3DCylinderPercentStacked.md)
   * [Grafico a ciambella](chart/doughnut.md)
   * [Grafico a linee](chart/line.md)
+  * [Grafico a linee 3D](chart/line3D.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
