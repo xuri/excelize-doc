@@ -155,6 +155,7 @@
   * [Grafico a linee](chart/line.md)
   * [Grafico a linee 3D](chart/line3D.md)
   * [Grafico a torta](chart/pie.md)
+  * [Grafico a torta 3D](chart/pie3D.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
