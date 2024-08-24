@@ -749,6 +749,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+Если вы заполните свойство `RefersTo` только одним диапазоном столбцов без запятой, оно будет работать только как "Столбцы для повторения слева". Например:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+Если вы заполните свойство `RefersTo` только одним диапазоном строк без запятой, оно будет работать только как "Строки для повторения сверху". Например:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## Получить определенное имя {#GetDefinedName}
 
 ```go

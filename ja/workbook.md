@@ -749,6 +749,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+`RefersTo` プロパティにカンマなしで 1 つの列範囲のみを入力すると、「左側で繰り返す列」としてのみ機能します。例:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+`RefersTo` プロパティにコンマなしで 1 つの行範囲のみを入力すると、「上部で繰り返す行」としてのみ機能します。例:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## 名前を取得する {#GetDefinedName}
 
 ```go

@@ -757,6 +757,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+Se riempi la proprietà `RefersTo` con un solo intervallo di colonne senza virgole, funzionerà solo come "Colonne da ripetere a sinistra". Ad esempio:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Foglio1!$A:$A",
+    Scope:    "Foglio1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+Se riempi la proprietà `RefersTo` con un solo intervallo di righe senza virgole, funzionerà solo come "Righe da ripetere in alto". Ad esempio:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Foglio1!$1:$1",
+    Scope:    "Foglio1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## Ottieni un nome definito {#GetDefinedName}
 
 ```go

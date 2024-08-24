@@ -749,6 +749,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+Si vous remplissez la propriété `RefersTo` avec une seule plage de colonnes sans virgule, elle fonctionnera uniquement comme "Colonnes à répéter à gauche". Par exemple:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+Si vous remplissez la propriété `RefersTo` avec une seule plage de lignes sans virgule, elle fonctionnera uniquement comme "Lignes à répéter en haut". Par exemple:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## Obtenir le nom défini {#GetDefinedName}
 
 ```go

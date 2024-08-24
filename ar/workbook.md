@@ -754,6 +754,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+إذا قمت بملء خاصية `RefersTo` بنطاق عمود واحد فقط بدون فاصلة، فسوف تعمل كـ "الأعمدة التي سيتم تكرارها على اليسار" فقط. على سبيل المثال:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+إذا قمت بملء خاصية `RefersTo` بنطاق صف واحد فقط دون فاصلة، فسوف تعمل كـ "الصفوف التي سيتم تكرارها في الأعلى" فقط. على سبيل المثال:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## احصل على اسم محدد {#GetDefinedName}
 
 ```go

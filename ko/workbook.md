@@ -749,6 +749,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+`RefersTo` 속성을 쉼표 없이 열 범위 하나만 채우면 "왼쪽에서 반복할 열" 로만 작동합니다. 예를 들어:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+`RefersTo` 속성을 쉼표 없이 행 범위 하나만 채우면 "위에서 반복할 행" 으로만 작동합니다. 예를 들어:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## 이름 가져 오기 {#GetDefinedName}
 
 ```go

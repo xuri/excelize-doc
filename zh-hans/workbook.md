@@ -751,6 +751,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+在设置打印标题时，若将 `RefersTo` 选项的值设置为不包含逗号分隔符的列范围引用，将仅对“从左侧重复的列数”生效。例如：
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+在设置打印标题时，若将 `RefersTo` 选项的值设置为不包含逗号分隔符的行范围引用，将仅对“顶端标题行”生效。例如：
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## 获取名称 {#GetDefinedName}
 
 ```go

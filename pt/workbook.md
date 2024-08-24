@@ -757,6 +757,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+Se preencher a propriedade `RefersTo` com apenas um intervalo de colunas sem vírgula, apenas funcionará como "Colunas para repetir à esquerda". Por exemplo:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Planilha1!$A:$A",
+    Scope:    "Planilha1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+Se preencher a propriedade `RefersTo` com apenas um intervalo de linhas sem vírgula, apenas funcionará como "Linhas para repetir no topo". Por exemplo:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Planilha1!$1:$1",
+    Scope:    "Planilha1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## Obter nome definido {#GetDefinedName}
 
 ```go

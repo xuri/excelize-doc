@@ -749,6 +749,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+Si completa la propiedad `RefersTo` con un solo rango de columnas sin coma, funcionará solo como "Columnas para repetir a la izquierda". Por ejemplo:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Hoja1!$A:$A",
+    Scope:    "Hoja1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+Si completa la propiedad `RefersTo` con un solo rango de filas sin coma, funcionará solo como "Filas para repetir en la parte superior". Por ejemplo:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Hoja1!$1:$1",
+    Scope:    "Hoja1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## Obtener el nombre definido {#GetDefinedName}
 
 ```go

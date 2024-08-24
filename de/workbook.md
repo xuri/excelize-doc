@@ -749,6 +749,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+Wenn Sie die Eigenschaft `RefersTo` mit nur einem Spaltenbereich ohne Komma füllen, funktioniert sie nur als "Links zu wiederholende Spalten". Beispiel:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+Wenn Sie die Eigenschaft `RefersTo` mit nur einem Zeilenbereich ohne Komma füllen, funktioniert sie nur als "Zeilen, die oben wiederholt werden sollen". Beispiel:
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## Definierten Namen abrufen {#GetDefinedName}
 
 ```go

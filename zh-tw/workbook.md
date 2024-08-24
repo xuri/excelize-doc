@@ -751,6 +751,30 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+在設定列印標題時，若將 `RefersTo` 選項的值設定為不包含逗號分隔符的欄範圍引用，將僅對「標題欄」生效。例如：
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$A:$A",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
+在設定列印標題時，若將 `RefersTo` 選項的值設定為不包含逗號分隔符的列範圍引用，將僅對「標題列」生效。例如：
+
+```go
+if err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "_xlnm.Print_Titles",
+    RefersTo: "Sheet1!$1:$1",
+    Scope:    "Sheet1",
+}); err != nil {
+    fmt.Println(err)
+}
+```
+
 ## 獲取名稱 {#GetDefinedName}
 
 ```go
