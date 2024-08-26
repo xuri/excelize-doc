@@ -157,6 +157,7 @@
   * [Grafico a torta](chart/pie.md)
   * [Grafico a torta 3D](chart/pie3D.md)
   * [Grafico radar](chart/radar.md)
+  * [Grafico a dispersione](chart/scatter.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
