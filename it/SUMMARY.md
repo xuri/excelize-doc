@@ -161,6 +161,7 @@
   * [Grafico di superficie 3D](chart/surface3D.md)
   * [Grafico di superficie wireframe 3D](chart/wireframeSurface3D.md)
   * [Grafico del contorno](chart/contour.md)
+  * [Grafico di contorno wireframe](chart/wireframeContour.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
