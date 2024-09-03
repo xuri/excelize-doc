@@ -162,6 +162,7 @@
   * [Grafico di superficie wireframe 3D](chart/wireframeSurface3D.md)
   * [Grafico del contorno](chart/contour.md)
   * [Grafico di contorno wireframe](chart/wireframeContour.md)
+  * [Grafico a bolle](chart/bubble.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
