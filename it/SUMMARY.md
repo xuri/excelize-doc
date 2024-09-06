@@ -163,6 +163,7 @@
   * [Grafico del contorno](chart/contour.md)
   * [Grafico di contorno wireframe](chart/wireframeContour.md)
   * [Grafico a bolle](chart/bubble.md)
+  * [Grafico a bolle 3D](chart/bubble3D.md)
 * [Immagine](image.md)
   * [Aggiungi immagine](image.md#AddPicture)
   * [Ottieni immagine](image.md#GetPicture)
