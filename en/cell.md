@@ -852,6 +852,7 @@ DGET                     | Extracts from a database a single record that matches
 DISC                     | Returns the discount rate for a security
 DMAX                     | Returns the maximum value from selected database entries
 DMIN                     | Returns the minimum value from selected database entries
+DOLLAR                   | Converts a number to text using currency format, with the decimals rounded to the number of places you specify
 DOLLARDE                 | Converts a dollar price, expressed as a fraction, into a dollar price, expressed as a decimal number
 DOLLARFR                 | Converts a dollar price, expressed as a decimal number, into a dollar price, expressed as a fraction
 DPRODUCT                 | Multiplies the values in a particular field of records that match the criteria in a database

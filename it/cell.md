@@ -860,6 +860,7 @@ DB.VALORI                   | Estrae da un database un singolo record che soddis
 TASSO.SCONTO                | Restituisce il tasso di sconto per un titolo
 DB.MAX                      | Restituisce il valore massimo dalle voci selezionate in un database
 DB.MIN                      | Restituisce il valore minimo dalle voci selezionate in un database
+VALUTA                      | Converte un numero in testo usando il formato valuta, con i decimali arrotondati al numero di posizioni specificato
 VALUTA.DEC                  | Converte un prezzo valuta, espresso come frazione, in prezzo valuta, espresso come numero decimale
 VALUTA.FRAZ                 | Converte un prezzo valuta, espresso come numero decimale, in prezzo valuta, espresso come frazione
 DB.PRODOTTO                 | Moltiplica i valori in un determinato campo di record che soddisfano i criteri nel database

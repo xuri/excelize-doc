@@ -865,6 +865,7 @@ DBSUMME                   | Addiert die Zahlen in der Feldspalte von Datensätze
 DURATION                  | Gibt die jährliche Duration eines Wertpapiers mit periodischen Zinszahlungen zurück
 DBVARIANZ                 | Schätzt die Varianz basierend auf einer Stichprobe aus ausgewählten Datenbankeinträgen
 DBVARIANZEN               | Berechnet die Varianz basierend auf der Grundgesamtheit ausgewählter Datenbankeinträge
+DM                        | Konvertiert eine Zahl im Währungsformat in Text, wobei die Dezimalstellen auf die von Ihnen angegebene Anzahl von Stellen gerundet werden
 EDATUM                    | Gibt die fortlaufende Zahl des Datums zurück, das die angegebene Anzahl von Monaten vor oder nach dem Ausgangsdatum liegt
 EFFEKTIV                  | Gibt die jährliche Effektivverzinsung zurück
 ENCODEURL                 | Gibt eine URL-codierte Zeichenfolge zurück Diese Funktion steht in Excel für das Web nicht zur Verfügung

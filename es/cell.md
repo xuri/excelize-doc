@@ -856,6 +856,7 @@ DGET                     | Extrae de una base de datos un único registro que co
 TASA.DESC                | Devuelve la tasa de descuento de un valor bursátil
 DMAX                     | Devuelve el valor máximo de las entradas seleccionadas de una base de datos
 BDMIN                    | Devuelve el valor mínimo de las entradas seleccionadas de una base de datos
+MONEDA                   | Convierte un número en texto con formato de moneda, con los decimales redondeados al número de posiciones que especifique
 DOLLARDE                 | Convierte un precio en dólares expresado como una fracción en un precio en dólares expresado como un número decimal
 MONEDA.FRAC              | Convierte un precio en dólares expresado como un número decimal en un precio en dólares expresado como una fracción
 DPRODUCT                 | Multiplica los valores de un campo determinado de los registros que cumplen los criterios de una base de datos

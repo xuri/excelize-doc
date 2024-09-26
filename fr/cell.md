@@ -856,6 +856,7 @@ DGET                         | Extrait d'une base de données un seul enregistre
 DISC                         | Renvoie le taux d'escompte d'un titre
 DMAX                         | Renvoie la valeur maximale des entrées de base de données sélectionnées
 BDMIN                        | Renvoie la valeur minimale des entrées de base de données sélectionnées
+FRANC                        | Convertit un nombre en texte à l'aide du format monétaire, avec les décimales arrondies au nombre d'emplacements que vous spécifiez
 DOLLAR                       | Convertit un nombre en texte en utilisant le format monétaire $ (dollar)
 DOLLARDE                     | Convertit un prix en dollars, exprimé sous forme de fraction, en un prix en dollars exprimé sous forme de nombre décimal
 DPRODUCT                     | Multiplie les valeurs d'un champ particulier dans des enregistrements correspondant aux critères d'une base de données

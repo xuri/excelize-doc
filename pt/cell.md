@@ -860,6 +860,7 @@ DGET                     | Extrai de uma base de dados um único registo que cor
 DESC                     | Devolve a taxa de desconto de um título
 DMAX                     | Devolve o valor máximo das entradas da base de dados selecionada
 DMIN                     | Devolve o valor mínimo das entradas da base de dados selecionada
+MOEDA                    | Converte um número em texto utilizando o formato de moeda, com os decimais arredondados para o número de locais que especificar
 DOLLARDE                 | Converte um preço em unidade monetária expresso como uma fração, num preço em unidade monetária expresso como um número decimal
 DOLLARFR                 | Converte um preço em unidade monetária expresso como um número decimal, num preço em unidade monetária expresso como uma fração
 DPRODUCT                 | Multiplica os valores de um determinado campo de registos que correspondem aos critérios numa base de dados
