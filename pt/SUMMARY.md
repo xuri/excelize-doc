@@ -199,6 +199,8 @@
   * [Obtenha validações de dados](data.md#GetDataValidations)
   * [Excluir validação de dados](data.md#DeleteDataValidation)
   * [Adicionar fatiador](data.md#AddSlicer)
+  * [Obtenha fatiadores](data.md#GetSlicers)
+  * [Excluir fatiador](data.md#DeleteSlicer)
 * [Tabela dinâmica](pivot.md#PivotTable)
   * [Criar tabela dinâmica](pivot.md#AddPivotTable)
   * [Obtenha tabelas dinâmicas](pivot.md#GetPivotTables)

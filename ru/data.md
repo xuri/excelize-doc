@@ -130,3 +130,19 @@ err := f.AddSlicer("Лист1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Получить слайсеры {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers предоставляет метод для получения всех срезов на листе по заданному имени листа. Обратите внимание, что эта функция в настоящее время не поддерживает получение высоты, ширины и графических параметров формы среза.
+
+## Удалить слайсер {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer предоставляет метод для удаления слайсера по заданному имени.

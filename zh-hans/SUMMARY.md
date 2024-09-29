@@ -199,6 +199,8 @@
   * [获取数据验证](data.md#GetDataValidations)
   * [删除数据验证](data.md#DeleteDataValidation)
   * [添加切片器](data.md#AddSlicer)
+  * [获取切片器](data.md#GetSlicers)
+  * [删除切片器](data.md#DeleteSlicer)
 * [数据透视表](pivot.md#PivotTable)
   * [创建数据透视表](pivot.md#AddPivotTable)
   * [获取数据透视表](pivot.md#GetPivotTables)

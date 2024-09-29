@@ -199,6 +199,8 @@
   * [Get data validation](data.md#GetDataValidations)
   * [Delete data validation](data.md#DeleteDataValidation)
   * [Add slicer](data.md#AddSlicer)
+  * [Get slicers](data.md#GetSlicers)
+  * [Delete slicer](data.md#DeleteSlicer)
 * [Pivot Table](pivot.md#PivotTable)
   * [Create pivot table](pivot.md#AddPivotTable)
   * [Get pivot tables](pivot.md#GetPivotTables)

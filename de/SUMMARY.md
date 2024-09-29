@@ -199,6 +199,8 @@
   * [Datenvalidierung erhalten](data.md#GetDataValidations)
   * [Datenvalidierung löschen](data.md#DeleteDataValidation)
   * [Slicer hinzufügen](data.md#AddSlicer)
+  * [Slicer abrufen](data.md#GetSlicers)
+  * [Slicer löschen](data.md#DeleteSlicer)
 * [Pivot-Tabelle](pivot.md#PivotTable)
   * [Erstellen einer Pivot-Tabelle](pivot.md#AddPivotTable)
   * [Holen Sie sich Pivot-Tabellen](pivot.md#GetPivotTables)

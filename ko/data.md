@@ -130,3 +130,19 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## 슬라이서를 받으세요 {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers 는 주어진 워크시트 이름으로 워크시트의 모든 슬라이서를 가져오는 방법을 제공합니다. 이 함수는 현재 슬라이서 모양의 높이, 너비 및 그래픽 옵션을 가져오는 것을 지원하지 않는다는 점에 유의하세요.
+
+## 슬라이서 삭제 {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer 는 주어진 슬라이서 이름으로 슬라이서를 삭제하는 메서드를 제공합니다.

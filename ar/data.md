@@ -130,3 +130,19 @@ err := f.AddSlicer("ورقة1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## احصل على شرائح {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+توفر GetSlicers طريقة للحصول على جميع الشرائح في ورقة عمل حسب اسم ورقة عمل معين. لاحظ أن هذه الوظيفة لا تدعم الحصول على خيارات الارتفاع والعرض والرسومات لشكل الشريحة حاليًا.
+
+## حذف المقطع {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+يوفر DeleteSlicer طريقة لحذف شريحة حسب اسم شريحة معين.

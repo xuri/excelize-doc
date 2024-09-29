@@ -199,6 +199,8 @@
   * [الحصول على التحقق من صحة البيانات](data.md#GetDataValidations)
   * [حذف التحقق من صحة البيانات](data.md#DeleteDataValidation)
   * [أضف القطاعة](data.md#AddSlicer)
+  * [احصل على شرائح](data.md#GetSlicers)
+  * [حذف المقطع](data.md#DeleteSlicer)
 * [الجدول المحوري](pivot.md#PivotTable)
   * [إنشاء جدول محوري](pivot.md#AddPivotTable)
   * [الحصول على الجداول المحورية](pivot.md#GetPivotTables)

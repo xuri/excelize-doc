@@ -130,3 +130,19 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## スライサーを入手する {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers は、指定されたワークシート名でワークシート内のすべてのスライサーを取得するメソッドを提供します。この関数は現在、スライサー図形の高さ、幅、およびグラフィック オプションの取得をサポートしていないことに注意してください。
+
+## スライサーを削除 {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer は、指定されたスライサー名でスライサーを削除するメソッドを提供します。

@@ -199,6 +199,8 @@
   * [Ottieni convalide dei dati](data.md#GetDataValidations)
   * [Elimina la convalida dei dati](data.md#DeleteDataValidation)
   * [Aggiungi affettatrice](data.md#AddSlicer)
+  * [Ottieni gli slicer](data.md#GetSlicers)
+  * [Elimina affettatrice](data.md#DeleteSlicer)
 * [Tabella pivot](pivot.md#PivotTable)
   * [Crea tabella pivot](pivot.md#AddPivotTable)
   * [Ottieni tabelle pivot](pivot.md#GetPivotTables)

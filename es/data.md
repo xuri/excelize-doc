@@ -130,3 +130,19 @@ err := f.AddSlicer("Hoja1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Conseguir rebanadora {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers proporciona el método para obtener todas las segmentaciones de datos de una hoja de cálculo con un nombre de hoja de cálculo determinado. Tenga en cuenta que, actualmente, esta función no admite la obtención de la altura, el ancho y las opciones gráficas de la forma de la segmentación de datos.
+
+## Eliminar rebanadora {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer proporciona el método para eliminar una segmentación de datos con un nombre de segmentación de datos determinado.

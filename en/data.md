@@ -130,3 +130,19 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Get slicers {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers provides the method to get all slicers in a worksheet by a given worksheet name. Note that, this function does not support getting the height, width, and graphic options of the slicer shape currently.
+
+## Delete slicer {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer provides the method to delete a slicer by a given slicer name.

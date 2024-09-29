@@ -199,6 +199,8 @@
   * [Получение проверки данных](data.md#GetDataValidations)
   * [Удалить данные проверки](data.md#DeleteDataValidation)
   * [Добавить срез](data.md#AddSlicer)
+  * [Получить слайсеры](data.md#GetSlicers)
+  * [Удалить слайсер](data.md#DeleteSlicer)
 * [Сводная таблица](pivot.md#PivotTable)
   * [Создать сводную таблицу](pivot.md#AddPivotTable)
   * [Получить сводные таблицы](pivot.md#GetPivotTables)

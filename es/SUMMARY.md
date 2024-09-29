@@ -199,6 +199,8 @@
   * [Obtener validación de datos](data.md#GetDataValidations)
   * [Eliminar validación de datos](data.md#DeleteDataValidation)
   * [Agregar rebanadora](data.md#AddSlicer)
+  * [Conseguir rebanadora](data.md#GetSlicers)
+  * [Eliminar rebanadora](data.md#DeleteSlicer)
 * [Tabla dinámica](pivot.md#PivotTable)
   * [Crear una tabla dinámica](pivot.md#AddPivotTable)
   * [Obtener tablas dinámicas](pivot.md#GetPivotTables)

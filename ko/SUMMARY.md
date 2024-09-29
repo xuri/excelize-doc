@@ -199,6 +199,8 @@
   * [데이터 유효성 검사 받기](data.md#GetDataValidations)
   * [데이터 유효성 검사 삭제](data.md#DeleteDataValidation)
   * [슬라이서 추가](data.md#AddSlicer)
+  * [슬라이서를 받으세요](data.md#GetSlicers)
+  * [슬라이서 삭제](data.md#DeleteSlicer)
 * [피벗 테이블](pivot.md#PivotTable)
   * [피벗 테이블 만들기](pivot.md#AddPivotTable)
   * [피벗 테이블 가져오기](pivot.md#GetPivotTables)

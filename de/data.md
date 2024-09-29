@@ -130,3 +130,19 @@ err := f.AddSlicer("Tabelle1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Slicer abrufen {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers bietet die Methode, um alle Slicer in einem Arbeitsblatt anhand eines bestimmten Arbeitsblattnamens abzurufen. Beachten Sie, dass diese Funktion derzeit das Abrufen der Höhe, Breite und Grafikoptionen der Slicer-Form nicht unterstützt.
+
+## Slicer löschen {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer bietet die Methode zum Löschen eines Slicers anhand eines angegebenen Slicernamens.

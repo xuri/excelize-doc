@@ -132,3 +132,19 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## 获取交叉分析篩選器 {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+通過給定的工作表名稱獲取指定工作表中的全部交叉分析篩選器。注意，該函數目前尚未支持獲取交叉分析篩選器的高度、寬度和圖形屬性。
+
+## 刪除交叉分析篩選器 {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+根據給定的交叉分析篩選器名稱刪除指定交叉分析篩選器。

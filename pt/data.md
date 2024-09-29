@@ -130,3 +130,19 @@ err := f.AddSlicer("Planilha1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Obter fatiadores {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers fornece o método para obter todos os slicers em uma planilha por um nome de planilha fornecido. Observe que, atualmente, essa função não suporta obter a altura, largura e opções gráficas do formato do slicer.
+
+## Excluir fatiador {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer fornece o método para excluir um segmentador por um nome de segmentador fornecido.

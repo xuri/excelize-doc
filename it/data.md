@@ -130,3 +130,19 @@ err := f.AddSlicer("Foglio1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Ottieni gli slicer {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers fornisce il metodo per ottenere tutti gli slicer in un foglio di lavoro tramite un dato nome di foglio di lavoro. Nota che questa funzione non supporta attualmente l'ottenimento dell'altezza, della larghezza e delle opzioni grafiche della forma dello slicer.
+
+## Elimina affettatrice {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer fornisce il metodo per eliminare un'affettatrice in base al nome specificato.

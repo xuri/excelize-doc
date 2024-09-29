@@ -199,6 +199,8 @@
   * [獲取資料驗證](data.md#GetDataValidations)
   * [刪除資料驗證](data.md#DeleteDataValidation)
   * [添加交叉分析篩選器](data.md#AddSlicer)
+  * [獲取交叉分析篩選器](data.md#GetSlicers)
+  * [刪除交叉分析篩選器](data.md#DeleteSlicer)
 * [樞紐分析表](pivot.md#PivotTable)
   * [創建樞紐分析表](pivot.md#AddPivotTable)
   * [獲取樞紐分析表](pivot.md#GetPivotTables)

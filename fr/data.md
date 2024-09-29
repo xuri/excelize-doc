@@ -130,3 +130,19 @@ err := f.AddSlicer("Feuil1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## Obtenez des trancheuses {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+GetSlicers fournit la méthode permettant d'obtenir tous les slicers d'une feuille de calcul en fonction d'un nom de feuille de calcul donné. Notez que cette fonction ne prend actuellement pas en charge l'obtention des options de hauteur, de largeur et de graphique de la forme du slicer.
+
+## Supprimer le slicer {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+DeleteSlicer fournit la méthode pour supprimer un slicer par un nom de slicer donné.

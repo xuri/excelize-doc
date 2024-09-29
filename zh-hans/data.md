@@ -132,3 +132,19 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
     Height:     200,
 })
 ```
+
+## 获取切片器 {#GetSlicers}
+
+```go
+func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
+```
+
+通过给定的工作表名称获取指定工作表中的全部切片器。注意，该函数目前尚未支持获取切片器的高度、宽度和图形属性。
+
+## 删除切片器 {#DeleteSlicer}
+
+```go
+func (f *File) DeleteSlicer(name string) error
+```
+
+根据给定的切片器名称删除指定切片器。

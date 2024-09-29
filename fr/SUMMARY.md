@@ -199,6 +199,8 @@
   * [Obtenir la validation des données](data.md#GetDataValidations)
   * [Supprimer la validation des données](data.md#DeleteDataValidation)
   * [Ajouter une trancheuse](data.md#AddSlicer)
+  * [Obtenez des trancheuses](data.md#GetSlicers)
+  * [Supprimer le slicer](data.md#DeleteSlicer)
 * [Tableau croisé dynamique](pivot.md#PivotTable)
   * [Créer un tableau croisé dynamique](pivot.md#AddPivotTable)
   * [Obtenir des tableaux pivotants](pivot.md#GetPivotTables)

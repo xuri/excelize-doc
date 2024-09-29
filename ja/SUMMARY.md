@@ -199,6 +199,8 @@
   * [データ検証を取得する](data.md#GetDataValidations)
   * [データ検証の削除](data.md#DeleteDataValidation)
   * [スライサーを追加する](data.md#AddSlicer)
+  * [スライサーを入手する](data.md#GetSlicers)
+  * [スライサーを削除](data.md#DeleteSlicer)
 * [ピボットテーブル](pivot.md#PivotTable)
   * [ピボットテーブルを作成する](pivot.md#AddPivotTable)
   * [ピボットテーブルを取得する](pivot.md#GetPivotTables)
