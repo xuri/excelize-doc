@@ -153,6 +153,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 DeleteSheet bietet eine Funktion zum Löschen von Arbeitsblättern in einer Arbeitsmappe nach dem angegebenen Arbeitsblattnamen, bei den Blattnamen wird nicht zwischen Groß- und Kleinschreibung unterschieden. Verwenden Sie diese Methode mit Vorsicht, da sie sich auf Änderungen in Referenzen wie Formeln, Diagrammen usw. auswirkt. Wenn es einen referenzierten Wert des gelöschten Arbeitsblatts gibt, führt dies zu einem Dateifehler, wenn Sie es öffnen. Diese Funktion ist ungültig, wenn nur noch ein Arbeitsblatt übrig ist.
 
+## Arbeitsblatt verschieben {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+MoveSheet verschiebt ein Blatt an eine bestimmte Position in der Arbeitsmappe. Die Funktion verschiebt das Quellblatt vor das Zielblatt. Nach dem Verschieben werden andere Blätter nach links oder rechts verschoben. Wenn sich das Blatt bereits an der Zielposition befindet, führt die Funktion keine Aktion aus. Beachten Sie, dass diese Funktion nach dem Verschieben alle Blätter auflöst. Verschieben Sie beispielsweise `Tabelle2` vor `Tabelle1`:
+
+```go
+err := f.MoveSheet("Tabelle2", "Tabelle1")
+```
+
 ## Arbeitsblatt kopieren {#CopySheet}
 
 ```go

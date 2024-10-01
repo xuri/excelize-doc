@@ -17,6 +17,7 @@
   * [Chiudi la cartella di lavoro](workbook.md#Close)
   * [Crea foglio di lavoro](workbook.md#NewSheet)
   * [Elimina il foglio di lavoro](workbook.md#DeleteSheet)
+  * [Sposta il foglio di lavoro](workbook.md#MoveSheet)
   * [Copia foglio di lavoro](workbook.md#CopySheet)
   * [Fogli di lavoro di gruppo](workbook.md#GroupSheets)
   * [Separare i fogli di lavoro](workbook.md#UngroupSheets)

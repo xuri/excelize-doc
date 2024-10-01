@@ -153,6 +153,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 DeleteSheet fournit une fonction pour supprimer une feuille de calcul dans un classeur par nom de feuille de calcul donné, les noms de feuille ne sont pas sensibles à la casse. Utilisez cette méthode avec prudence, car cela affectera les modifications apportées aux références telles que les formules, les graphiques, etc. S'il existe une valeur référencée de la feuille de calcul supprimée, cela provoquera une erreur de fichier lorsque vous l'ouvrirez. Cette fonction sera invalide lorsqu'il ne reste qu'une seule feuille de calcul.
 
+## Déplacer la feuille de travail {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+MoveSheet déplace une feuille vers une position spécifiée dans le classeur. La fonction déplace la feuille source avant la feuille cible. Après le déplacement, les autres feuilles seront décalées vers la gauche ou la droite. Si la feuille est déjà à la position cible, la fonction n'effectuera aucune action. Cette fonction ne dégroupera pas toutes les feuilles après le déplacement. Par exemple, déplacez `Sheet2` avant `Sheet1`:
+
+```go
+err := f.MoveSheet("Sheet2", "Sheet1")
+```
+
 ## Copier la feuille de calcul {#CopySheet}
 
 ```go

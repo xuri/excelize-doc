@@ -153,6 +153,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 DeleteSheet fornece uma função para excluir planilha em uma pasta de trabalho por determinado nome de planilha. Use este método com cuidado, pois afetará alterações em referências como fórmulas, gráficos e assim por diante. Se houver algum valor referenciado da planilha excluída, isso causará um erro de arquivo ao abri-lo. Esta função será inválida quando sobrar apenas uma planilha.
 
+## Mover planilha {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+MoveSheet move uma planilha para uma posição especificada na pasta de trabalho. A função move a planilha de origem antes da planilha de destino. Após a movimentação, outras planilhas serão deslocadas para a esquerda ou direita. Se a planilha já estiver na posição de destino, a função não executará nenhuma ação. Não que esta função desagrupará todas as planilhas após a movimentação. Por exemplo, mova `Planilha2` antes de `Planilha1`:
+
+```go
+err := f.MoveSheet("Planilha2", "Planilha1")
+```
+
 ## Copiar planilha {#CopySheet}
 
 ```go

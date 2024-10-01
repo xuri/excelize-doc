@@ -17,6 +17,7 @@
   * [关闭工作簿](workbook.md#Close)
   * [新建工作表](workbook.md#NewSheet)
   * [删除工作表](workbook.md#DeleteSheet)
+  * [移动工作表](workbook.md#MoveSheet)
   * [复制工作表](workbook.md#CopySheet)
   * [工作表分组](workbook.md#GroupSheets)
   * [取消工作表分组](workbook.md#UngroupSheets)

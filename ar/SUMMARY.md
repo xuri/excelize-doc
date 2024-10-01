@@ -17,6 +17,7 @@
   * [إغلاق المصنف](workbook.md#Close)
   * [قم بإنشاء ورقة عمل](workbook.md#NewSheet)
   * [احذف ورقة العمل](workbook.md#DeleteSheet)
+  * [نقل ورقة العمل](workbook.md#MoveSheet)
   * [نسخ ورقة العمل](workbook.md#CopySheet)
   * [أوراق عمل المجموعة](workbook.md#GroupSheets)
   * [فك تجميع أوراق العمل](workbook.md#UngroupSheets)

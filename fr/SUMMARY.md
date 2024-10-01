@@ -17,6 +17,7 @@
   * [Fermer le classeur](workbook.md#Close)
   * [Créer une feuille de calcul](workbook.md#NewSheet)
   * [Supprimer la feuille de calcul](workbook.md#DeleteSheet)
+  * [Déplacer la feuille de travail](workbook.md#MoveSheet)
   * [Copier la feuille de calcul](workbook.md#CopySheet)
   * [Feuilles de travail de groupe](workbook.md#GroupSheets)
   * [Dissocier les feuilles de calcul](workbook.md#UngroupSheets)

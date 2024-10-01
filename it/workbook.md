@@ -153,6 +153,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 DeleteSheet fornisce una funzione per eliminare un foglio di lavoro in una cartella di lavoro in base al nome del foglio di lavoro specificato. Utilizzare questo metodo con cautela poiché influirà sulle modifiche ai riferimenti quali formule, grafici e così via. Se è presente un valore di riferimento del foglio di lavoro eliminato, causerà un errore di file quando lo apri. Questa funzione non sarà valida quando rimane un solo foglio di lavoro.
 
+## Sposta il foglio di lavoro {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+MoveSheet sposta un foglio in una posizione specificata nella cartella di lavoro. La funzione sposta il foglio di origine prima del foglio di destinazione. Dopo lo spostamento, gli altri fogli verranno spostati a sinistra o a destra. Se il foglio è già nella posizione di destinazione, la funzione non eseguirà alcuna azione. Non che questa funzione separerà tutti i fogli dopo lo spostamento. Ad esempio, sposta `Foglio2` prima di `Foglio1`:
+
+```go
+err := f.MoveSheet("Foglio2", "Foglio1")
+```
+
 ## Copia foglio di lavoro {#CopySheet}
 
 ```go

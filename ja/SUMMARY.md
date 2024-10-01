@@ -17,6 +17,7 @@
   * [閉じるワークブック](workbook.md#Close)
   * [ワークシートを作成する](workbook.md#NewSheet)
   * [ワークシートを削除する](workbook.md#DeleteSheet)
+  * [ワークシートを移動する](workbook.md#MoveSheet)
   * [ワークシートをコピーする](workbook.md#CopySheet)
   * [グループワークシート](workbook.md#GroupSheets)
   * [ワークシートのグループ化を解除する](workbook.md#UngroupSheets)

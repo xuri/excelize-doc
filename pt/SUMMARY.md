@@ -17,6 +17,7 @@
   * [Fechar pasta de trabalho](workbook.md#Close)
   * [Criar planilha](workbook.md#NewSheet)
   * [Excluir planilha](workbook.md#DeleteSheet)
+  * [Mover planilha](workbook.md#MoveSheet)
   * [Copiar planilha](workbook.md#CopySheet)
   * [Planilhas de grupo](workbook.md#GroupSheets)
   * [Desagrupar planilhas](workbook.md#UngroupSheets)

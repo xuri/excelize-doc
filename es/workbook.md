@@ -153,6 +153,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 DeleteSheet proporciona una función para eliminar la hoja de trabajo en un libro de trabajo por el nombre de la hoja de trabajo dado, los nombres de las hojas no distinguen entre mayúsculas y minúsculas. Utilice este método con precaución, ya que afectará los cambios en las referencias, como fórmulas, gráficos, etc. Si hay algún valor de referencia de la hoja de cálculo eliminada, se producirá un error de archivo cuando lo abra. Esta función no será válida cuando solo quede una hoja de trabajo.
 
+## Mover hoja de trabajo {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+MoveSheet mueve una hoja a una posición específica en el libro de trabajo. La función mueve la hoja de origen antes que la hoja de destino. Después de moverla, las demás hojas se desplazarán hacia la izquierda o hacia la derecha. Si la hoja ya está en la posición de destino, la función no realizará ninguna acción. Tenga en cuenta que esta función desagrupará todas las hojas después de moverla. Por ejemplo, mueva `Hoja2` antes que `Hoja1`:
+
+```go
+err := f.MoveSheet("Hoja2", "Hoja1")
+```
+
 ## Copiar hoja de trabajo {#CopySheet}
 
 ```go

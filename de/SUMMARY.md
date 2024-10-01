@@ -17,6 +17,7 @@
   * [Arbeitsmappe schließen](workbook.md#Close)
   * [Arbeitsblatt erstellen](workbook.md#NewSheet)
   * [Arbeitsblatt löschen](workbook.md#DeleteSheet)
+  * [Arbeitsblatt verschieben](workbook.md#MoveSheet)
   * [Arbeitsblatt kopieren](workbook.md#CopySheet)
   * [Gruppenarbeitsblätter](workbook.md#GroupSheets)
   * [Gruppierung von Arbeitsblättern aufheben](workbook.md#UngroupSheets)

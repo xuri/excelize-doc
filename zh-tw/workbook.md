@@ -155,6 +155,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 根據給定的工作表名稱刪除指定工作表，謹慎使用此方法，這將會影響到與被刪除工作表相關聯的公式、引用、圖表等元素。如果有其他組件引用了被刪除工作表上的值，將會引發錯誤提示，甚至將會導致開啓活頁簿失敗。當活頁簿中僅包含一個工作表時，調用此方法無效。
 
+## 移動工作表 {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+將工作表移動到活頁簿中的指定位置。根據給定的被移動工作表名稱和目標工作表名稱，將工作表移動至目標工作表之前。移動後，其他工作表的位置將向左或向右移動，如果工作表已經在目標位置，則該函式不會執行任何操作。請注意，該函式在移動工作表後將取消所有工作表分組。例如，將名為 `Sheet2` 的工作表移動至工作表 `Sheet1` 之前：
+
+```go
+err := f.MoveSheet("Sheet2", "Sheet1")
+```
+
 ## 複製工作表 {#CopySheet}
 
 ```go
@@ -227,7 +239,7 @@ func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) e
 
 根據給定的工作表名稱和可見性參數設定工作表的可見性。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見性設定無效。第三個可選參數 `veryHidden` 僅在 `visible` 參數值為 `false` 時有效。
 
-例如，隱藏名為 `Sheet1` 的工作表:
+例如，隱藏名為 `Sheet1` 的工作表：
 
 ```go
 err := f.SetSheetVisible("Sheet1", false)

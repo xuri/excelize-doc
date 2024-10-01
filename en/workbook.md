@@ -153,6 +153,18 @@ func (f *File) DeleteSheet(sheet string) error
 
 DeleteSheet provides a function to delete worksheet in a workbook by given worksheet name. Use this method with caution, which will affect changes in references such as formulas, charts, and so on. If there is any referenced value of the deleted worksheet, it will cause a file error when you open it. This function will be invalid when only one worksheet is left.
 
+## Move worksheet {#MoveSheet}
+
+```go
+func (f *File) MoveSheet(source, target string) error
+```
+
+MoveSheet moves a sheet to a specified position in the workbook. The function moves the source sheet before the target sheet. After moving, other sheets will be shifted to the left or right. If the sheet is already at the target position, the function will not perform any action. Not that this function will be ungroup all sheets after moving. For example, move `Sheet2` before `Sheet1`:
+
+```go
+err := f.MoveSheet("Sheet2", "Sheet1")
+```
+
 ## Copy worksheet {#CopySheet}
 
 ```go

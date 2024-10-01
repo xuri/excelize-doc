@@ -17,6 +17,7 @@
   * [Закрыть книгу](workbook.md#Close)
   * [Создать рабочий лист](workbook.md#NewSheet)
   * [Удалить рабочий лист](workbook.md#DeleteSheet)
+  * [Переместить рабочий лист](workbook.md#MoveSheet)
   * [Лист копирования](workbook.md#CopySheet)
   * [Рабочие листы группы](workbook.md#GroupSheets)
   * [Разгруппировать листы](workbook.md#UngroupSheets)

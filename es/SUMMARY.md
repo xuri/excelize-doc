@@ -17,6 +17,7 @@
   * [Cerrar libro de trabajo](workbook.md#Close)
   * [Crear hoja de trabajo](workbook.md#NewSheet)
   * [Eliminar hoja de trabajo](workbook.md#DeleteSheet)
+  * [Mover hoja de trabajo](workbook.md#MoveSheet)
   * [Copiar hoja de trabajo](workbook.md#CopySheet)
   * [Hojas de trabajo grupales](workbook.md#GroupSheets)
   * [Desagrupar hojas de trabajo](workbook.md#UngroupSheets)

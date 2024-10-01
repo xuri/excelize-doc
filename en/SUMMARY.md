@@ -17,6 +17,7 @@
   * [Close workbook](workbook.md#Close)
   * [Create worksheet](workbook.md#NewSheet)
   * [Delete worksheet](workbook.md#DeleteSheet)
+  * [Move worksheet](workbook.md#MoveSheet)
   * [Copy worksheet](workbook.md#CopySheet)
   * [Group worksheets](workbook.md#GroupSheets)
   * [Ungroup worksheets](workbook.md#UngroupSheets)
