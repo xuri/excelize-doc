@@ -60,6 +60,8 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid definiert die Fehlermeldung bei ungültiger Passwortlänge.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableClassicLayout definierte die Fehlermeldung beim gleichzeitigen Aktivieren von ClassicLayout und CompactData.
+    ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave definiert die Fehlermeldung zum Speichern der Datei.
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
     // ErrSheetIdx hat die Fehlermeldung beim Empfang des ungültigen Arbeitsblattindex definiert.

@@ -62,6 +62,8 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid 定义了密码长度超出限制时的错误提示信息
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableClassicLayout 定义了同时开启 ClassicLayout 与 CompactData 选项创建数据透视表时的错误提示信息
+    ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave 定义了保存工作簿时的错误提示信息
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
     // ErrSheetIdx 定义了收到了无效工作表索引时的错误提示信息

@@ -60,6 +60,8 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid 가 잘못된 암호 길이에 대한 오류 메시지를 정의했습니다
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableClassicLayout 은 ClassicLayout 과 CompactData 를 동시에 활성화할 때 오류 메시지를 정의했습니다
+    ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave 는 파일 저장에 대한 오류 메시지를 정의했습니다
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
     // ErrSheetIdx 는 잘못된 워크시트 인덱스를 수신할 때 오류 메시지를 정의했습니다

@@ -60,6 +60,8 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // حدد ErrPasswordLengthInvalid رسالة الخطأ بطول كلمة المرور غير الصالحة.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // قام ErrPivotTableClassicLayout بتعريف رسالة الخطأ عند تمكين ClassicLayout و CompactData في نفس الوقت
+    ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // حدد ErrSave رسالة الخطأ لحفظ الملف.
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
     // حدد ErrSheetIdx رسالة الخطأ عند تلقي فهرس ورقة العمل غير صالح.

@@ -60,6 +60,8 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid は、無効なパスワードの長さに関するエラーメッセージを定義しました
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableClassicLayout は、ClassicLayout と CompactData を同時に有効にした場合のエラーメッセージを定義しました
+    ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave は、ファイルを保存するためのエラーメッセージを定義しました
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
     // ErrSheetIdx は、無効なワークシートインデックスを受信したときのエラーメッセージを定義しました
