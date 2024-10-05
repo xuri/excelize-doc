@@ -10,6 +10,7 @@
 type PivotTableOptions struct {
     DataRange           string
     PivotTableRange     string
+    Name                string
     Rows                []PivotTableField
     Columns             []PivotTableField
     Data                []PivotTableField
@@ -20,6 +21,7 @@ type PivotTableOptions struct {
     UseAutoFormatting   bool
     PageOverThenDown    bool
     MergeItem           bool
+    ClassicLayout       bool
     CompactData         bool
     ShowError           bool
     ShowRowHeaders      bool
@@ -27,6 +29,8 @@ type PivotTableOptions struct {
     ShowRowStripes      bool
     ShowColStripes      bool
     ShowLastColumn      bool
+    FieldPrintTitles    bool
+    ItemPrintTitles     bool
     PivotTableStyleName string
     // 還包含其他已過濾或未導出的欄位
 }
@@ -48,8 +52,11 @@ type PivotTableField struct {
     Data            string
     Name            string
     Outline         bool
+    ShowAll         bool
+    InsertBlankRow  bool
     Subtotal        string
     DefaultSubtotal bool
+    NumFmt          int
 }
 ```
 

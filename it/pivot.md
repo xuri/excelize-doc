@@ -8,6 +8,7 @@ Una tabella pivot è una tabella di statistiche che riepiloga i dati di una tabe
 type PivotTableOptions struct {
     DataRange           string
     PivotTableRange     string
+    Name                string
     Rows                []PivotTableField
     Columns             []PivotTableField
     Data                []PivotTableField
@@ -18,6 +19,7 @@ type PivotTableOptions struct {
     UseAutoFormatting   bool
     PageOverThenDown    bool
     MergeItem           bool
+    ClassicLayout       bool
     CompactData         bool
     ShowError           bool
     ShowRowHeaders      bool
@@ -25,6 +27,8 @@ type PivotTableOptions struct {
     ShowRowStripes      bool
     ShowColStripes      bool
     ShowLastColumn      bool
+    FieldPrintTitles    bool
+    ItemPrintTitles     bool
     PivotTableStyleName string
     // contiene campi filtrati o non esportati
 }
@@ -46,8 +50,11 @@ type PivotTableField struct {
     Data            string
     Name            string
     Outline         bool
+    ShowAll         bool
+    InsertBlankRow  bool
     Subtotal        string
     DefaultSubtotal bool
+    NumFmt          int
 }
 ```
 
