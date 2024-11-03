@@ -386,7 +386,7 @@ Index|Paper Size
 34  | B5 envelope (176 mm × 250 mm)
 35  | B6 envelope (176 mm × 125 mm)
 36  | Italy envelope (110 mm × 230 mm)
-37  | Monarch envelope (3.875 in. × 7.5 in.).
+37  | Monarch envelope (3.875 in. × 7.5 in.)
 38  | 6¾ envelope (3.625 in. × 6.5 in.)
 39  | US standard fanfold (14.875 in. × 11 in.)
 40  | German standard fanfold (8.5 in. × 12 in.)
@@ -422,7 +422,7 @@ Index|Paper Size
 72  | Japanese Envelope Kaku #3
 73  | Japanese Envelope Chou #3
 74  | Japanese Envelope Chou #4
-75  | Letter Rotated (11 × 8½ in.)
+75  | Letter Rotated (11 in. × 8½ in.)
 76  | A3 Rotated (420 mm × 297 mm)
 77  | A4 Rotated (297 mm × 210 mm)
 78  | A5 Rotated (210 mm × 148 mm)
@@ -437,7 +437,7 @@ Index|Paper Size
 87  | Japanese Envelope Chou #4 Rotated
 88  | B6 (JIS) (128 mm × 182 mm)
 89  | B6 (JIS) Rotated (182 mm × 128 mm)
-90  | (12 in × 11 in)
+90  | 12 in. × 11 in.
 91  | Japanese Envelope You #4
 92  | Japanese Envelope You #4 Rotated
 93  | PRC 16K (146 mm × 215 mm)
