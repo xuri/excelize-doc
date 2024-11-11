@@ -350,7 +350,7 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 SetPageLayout fornisce una funzione per impostare il layout della pagina del foglio di lavoro. Opzioni disponibili:
 
-`Size` ha specificato il formato carta del foglio di lavoro, il formato carta predefinito del foglio di lavoro è "Carta da lettera (8,5 x 11 pollici)". Di seguito viene mostrato il formato carta ordinato in base al numero di indice Excelize:
+`Size` ha specificato il formato carta del foglio di lavoro, il formato carta predefinito del foglio di lavoro è "Carta da lettera (8,5 pollici x 11 pollici)". Di seguito viene mostrato il formato carta ordinato in base al numero di indice Excelize:
 
 Indice|Dimensioni del foglio
 ---|---
@@ -390,12 +390,12 @@ Indice|Dimensioni del foglio
 34  | Busta B5 (176 mm × 250 mm)
 35  | Busta B6 (176 mm × 125 mm)
 36  | Busta Italia (110 mm × 230 mm)
-37  | Busta Monarch (3,875 pollici × 7,5 pollici).
+37  | Busta Monarch (3,875 pollici × 7,5 pollici)
 38  | Busta da 6¾ (3,625 pollici × 6,5 pollici)
 39  | Fanfold standard statunitense (14,875 pollici × 11 pollici)
 40  | Fanfold standard tedesco (8,5 pollici × 12 pollici)
 41  | Fanfold legale tedesco (8,5 pollici × 13 pollici)
-42  | ISOB4 (250×353 mm)
+42  | ISO B4 (250×353 mm)
 43  | Cartolina giapponese (100 mm × 148 mm)
 44  | Carta standard (9 pollici × 11 pollici)
 45  | Carta standard (10 pollici × 11 pollici)
@@ -426,7 +426,7 @@ Indice|Dimensioni del foglio
 72  | Busta giapponese Kaku n. 3
 73  | Busta giapponese Chou #3
 74  | Busta giapponese Chou #4
-75  | Lettera ruotata (11 × 8½ pollici)
+75  | Lettera ruotata (11 pollici × 8½ pollici)
 76  | A3 ruotato (420 mm × 297 mm)
 77  | A4 ruotato (297 mm × 210 mm)
 78  | A5 ruotato (210 mm × 148 mm)
@@ -441,7 +441,7 @@ Indice|Dimensioni del foglio
 87  | Busta giapponese Chou n. 4 ruotata
 88  | B6 (JIS) (128 mm × 182 mm)
 89  | B6 (JIS) ruotato (182 mm × 128 mm)
-90  | (12 × 11 pollici)
+90  | 12 pollici × 11 pollici
 91  | Busta giapponese You #4
 92  | Busta giapponese n. 4 ruotata
 93  | RPC 16K (146 mm × 215 mm)
