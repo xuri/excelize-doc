@@ -34,6 +34,22 @@ type Options struct {
 
 يحدد `CultureInfo` رمز البلد لتطبيق كود تنسيق رقم اللغة المدمج الذي يؤثر على إعدادات اللغة المحلية للنظام.
 
+`HeaderFooterImagePositionType` هو نوع موضع صورة الرأس والتذييل.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+يقوم هذا القسم بتعريف أنواع مواضع صور الرأس والتذييل في ورقة العمل.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## قم بإنشاء جدول بيانات {#NewFile}
 
 ```go
@@ -484,6 +500,8 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 حدد `BlackAndWhite` الطباعة بالأبيض والأسود.
 
+يحدد `PageOrder` ترتيب الصفحات المتعددة. القيم المقبولة: `overThenDown` و `downThenOver`.
+
 - على سبيل المثال ، عيّن تخطيط الصفحة لـ `Sheet1` بطباعة بالأبيض والأسود ، ورقم الصفحة الأول المطبوع من `2` ، وورق A4 صغير الحجم أفقيًا (210 مم × 297 مم) ، صفحتان رأسيتان للملاءمة وصفحتان أفقيتان لملاءمتهما:
 
 ```go
@@ -642,7 +660,7 @@ FirstHeader      | رأس الصفحة الأولى
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>كائن رسومي كخلفية (لا يدعم حاليا)</td>
+            <td>كائن رسومي كخلفية (استخدم AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -727,6 +745,14 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 - التاريخ الحالي في القسم الأيسر والوقت الحالي في القسم الأيمن من تذييلات الصفحات الزوجية
 - النص "Center Bold Header" في السطر الأول من القسم الأوسط من الصفحة الأولى ، والتاريخ في السطر الثاني من القسم الأوسط من نفس الصفحة
 - لا يوجد تذييل في الصفحة الأولى
+
+## إضافة صورة رأس وتذييل {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+توفر AddHeaderFooterImage آلية لتعيين الرسومات التي يمكن الرجوع إليها في تعريفات الرأس والتذييل عبر `&G`، وأنواع الصور المدعومة: EMF، EMZ، GIF، JPEG، JPG، PNG، SVG، TIF، TIFF، WMF و WMZ.
 
 ## تعيين الاسم المحدد {#SetDefinedName}
 

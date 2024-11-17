@@ -37,6 +37,7 @@
   * [تعيين خصائص المصنف](workbook.md#SetWorkbookProps)
   * [احصل على خصائص المصنف](workbook.md#GetWorkbookProps)
   * [تعيين الرأس والتذييل](workbook.md#SetHeaderFooter)
+  * [إضافة صورة رأس وتذييل](workbook.md#AddHeaderFooterImage)
   * [تعيين الاسم المحدد](workbook.md#SetDefinedName)
   * [احصل على اسم محدد](workbook.md#GetDefinedName)
   * [حذف الاسم المحدد](workbook.md#DeleteDefinedName)
