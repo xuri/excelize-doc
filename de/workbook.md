@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` gibt den Ländercode für die Anwendung des integrierten Zahlenformatcodes in der Sprache an, der sich auf die lokalen Spracheinstellungen des Systems auswirkt.
 
+`HeaderFooterImagePositionType` ist der Typ der Kopf- und Fußzeilenbildposition.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+In diesem Abschnitt wird die Aufzählung der Bildpositionstypen für Kopf- und Fußzeilen des Arbeitsblatts definiert.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Erstellen einer Kalkulationstabelle {#NewFile}
 
 ```go
@@ -479,6 +495,8 @@ Index|Papiergröße
 
 `BlackAndWhite` spezifiziert Schwarz-Weiß-Druck.
 
+`PageOrder` gibt die Reihenfolge mehrerer Seiten an. Akzeptierte Werte: `overThenDown` und `downThenOver`.
+
 Legen Sie beispielsweise das Seitenlayout für `Sheet1` mit Schwarzweißdruck, erste gedruckte Seitenzahl von `2`, kleines A4-Querformatpapier (210 mm x 297 mm), 2 vertikale Seiten zum Anpassen und 2 horizontale Seiten zum Anpassen:
 
 ```go
@@ -637,7 +655,7 @@ Die folgenden Formatierungscodes können in Feldern mit 6 Zeichenfolgentypen ver
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Objekt als Hintergrund zeichnen (wird derzeit nicht unterstützt)</td>
+            <td>Objekt als Hintergrund zeichnen (Verwenden Sie AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -722,6 +740,14 @@ Dieses Beispiel zeigt:
 - Aktuelles Datum im linken Bereich und aktuelle Uhrzeit im rechten Bereich der Fußzeilen mit geraden Seiten
 - Der Text "Center Bold Header" in der ersten Zeile des mittleren Abschnitts der ersten Seite und das Datum in der zweiten Zeile des mittleren Abschnitts derselben Seite
 - Keine Fußzeile auf der ersten Seite
+
+## Kopf- und Fußzeilenbild hinzufügen {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage bietet einen Mechanismus zum Festlegen der Grafiken, auf die in den Kopf- und Fußzeilendefinitionen über `&G` verwiesen werden kann. Unterstützte Bildtypen: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
 
 ## Definierter Name festlegen {#SetDefinedName}
 

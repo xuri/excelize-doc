@@ -37,6 +37,7 @@
   * [Arbeitsmappeneigenschaften festlegen](workbook.md#SetWorkbookProps)
   * [Arbeitsmappeneigenschaften abrufen](workbook.md#GetWorkbookProps)
   * [Kopf- und Fußzeile einstellen](workbook.md#SetHeaderFooter)
+  * [Kopf- und Fußzeilenbild hinzufügen](workbook.md#AddHeaderFooterImage)
   * [Definierter Name festlegen](workbook.md#SetDefinedName)
   * [Definierten Namen abrufen](workbook.md#GetDefinedName)
   * [Definierter Name löschen](workbook.md#DeleteDefinedName)
