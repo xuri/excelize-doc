@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` specifies the country code for applying built-in language number format code these effect by the system's local language settings.
 
+`HeaderFooterImagePositionType` is the type of header and footer image position.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+This section defines the worksheet header and footer image position types enumeration.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Create Excel document {#NewFile}
 
 ```go
@@ -479,6 +495,8 @@ Index|Paper Size
 
 `BlackAndWhite` specified print black and white.
 
+`PageOrder` specifies the ordering of multiple pages. Values accepted: `overThenDown` and `downThenOver`.
+
 For example, set page layout for `Sheet1` with print black and white, first printed page number from `2`, landscape A4 small paper (210 mm by 297 mm), 2 vertical pages to fit on, and 2 horizontal pages to fit:
 
 ```go
@@ -637,7 +655,7 @@ The following formatting codes can be used in 6 string type fields: `OddHeader`,
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Drawing object as background (Not support currently)</td>
+            <td>Drawing object as background (Use AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -722,6 +740,14 @@ This example shows:
 - Current date in the left section and the current time in the right section of even-page footers
 - The text "Center Bold Header" on the first line of the center section of the first page, and the date on the second line of the center section of that same page
 - No footer on the first page
+
+## Add header and footer image {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage provides a mechanism to set the graphics that can be referenced in the header and footer definitions via `&G`, supported image types: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF and WMZ.
 
 ## Set defined name {#SetDefinedName}
 
