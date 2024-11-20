@@ -37,6 +37,7 @@
   * [Establecer las propiedades del libro de trabajo](workbook.md#SetWorkbookProps)
   * [Obtener propiedades del libro de trabajo](workbook.md#GetWorkbookProps)
   * [Establecer encabezado y pie de página](workbook.md#SetHeaderFooter)
+  * [Agregar imagen de encabezado y pie de página](workbook.md#AddHeaderFooterImage)
   * [Establecer nombre definido](workbook.md#SetDefinedName)
   * [Obtener el nombre definido](workbook.md#GetDefinedName)
   * [Eliminar nombre definido](workbook.md#DeleteDefinedName)

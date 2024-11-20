@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` especifica el código de país para aplicar el código de formato de número de idioma integrado que se aplica a la configuración de idioma local del sistema.
 
+`HeaderFooterImagePositionType` es el tipo de posición de la imagen de encabezado y pie de página.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+Esta sección define la enumeración de tipos de posición de imágenes de encabezado y pie de página de la hoja de cálculo.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Crear una hoja de cálculo {#NewFile}
 
 ```go
@@ -479,6 +495,8 @@ Indice|Tamaño del papel
 
 `BlackAndWhite` especificó la impresión en blanco y negro.
 
+`PageOrder` especifica el orden de varias páginas. Valores aceptados: `overThenDown` y `downThenOver`.
+
 Por ejemplo, configure el diseño de página para `Sheet1` con impresión en blanco y negro, primer número de página impresa desde `2`, papel pequeño A4 horizontal (210 mm por 297 mm), 2 páginas verticales para ajustar, 2 páginas verticales para encajar y 2 páginas horizontales para encajar:
 
 ```go
@@ -637,7 +655,7 @@ Los siguientes códigos de formato se pueden utilizar en 6 campos de tipo de cad
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Dibujar objeto como fondo (No es compatible actualmente)</td>
+            <td>Dibujar objeto como fondo (Utilice AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -722,6 +740,14 @@ Este ejemplo muestra:
 - Fecha actual en la sección izquierda y la hora actual en la sección derecha de pies de página pares
 - El texto "Center Bold Header" en la primera línea de la sección central de la primera página, y la fecha en la segunda línea de la sección central de esa misma página
 - No hay pie de página en la primera página
+
+## Agregar imagen de encabezado y pie de página {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage proporciona un mecanismo para establecer los gráficos a los que se puede hacer referencia en las definiciones de encabezado y pie de página a través de `&G`, tipos de imágenes admitidos: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
 
 ## Establecer nombre definido {#SetDefinedName}
 
