@@ -37,6 +37,7 @@
   * [Définir les propriétés du classeur](workbook.md#SetWorkbookProps)
   * [Obtenir les propriétés du classeur](workbook.md#GetWorkbookProps)
   * [Définir l'en-tête et le pied de page](workbook.md#SetHeaderFooter)
+  * [Ajouter une image d'en-tête et de pied de page](workbook.md#AddHeaderFooterImage)
   * [Définir le nom défini](workbook.md#SetDefinedName)
   * [Obtenir le nom défini](workbook.md#GetDefinedName)
   * [Supprimer le nom défini](workbook.md#DeleteDefinedName)

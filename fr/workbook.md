@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` spécifie le code du pays pour l'application du code de format de numéro de langue intégré, qui s'effectue en fonction des paramètres de langue locale du système.
 
+`HeaderFooterImagePositionType` est le type de position de l'image d'en-tête et de pied de page.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+Cette section définit l'énumération des types de position d'image d'en-tête et de pied de page de la feuille de calcul.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Créer un document Excel {#NewFile}
 
 ```go
@@ -479,6 +495,8 @@ Index | Taille de papier
 
 `BlackAndWhite` a spécifié l'impression en noir et blanc.
 
+`PageOrder` spécifie l'ordre de plusieurs pages. Valeurs acceptées: `overThenDown` et `downThenOver`.
+
 Par exemple, définissez la mise en page pour `Sheet1` avec impression en noir et blanc, premier numéro de page imprimée à partir de `2`, petit papier A4 paysage (210 mm sur 297 mm), 2 pages verticales pour s'adapter et 2 pages horizontales pour s'adapter:
 
 ```go
@@ -637,7 +655,7 @@ Les codes de formatage suivants peuvent être utilisés dans 6 champs de type ch
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Objet de dessin en arrière-plan (Non pris en charge actuellement)</td>
+            <td>Objet de dessin en arrière-plan (Utilisez AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -722,6 +740,14 @@ Cet exemple montre:
 - La date actuelle dans la partie gauche et l'heure actuelle dans la partie droite du pied de page pair
 - Le texte "Center Bold Header" sur la première ligne de la section centrale de la première page et la date sur la deuxième ligne de la section centrale de cette page
 - Pas de pied de page sur la première page
+
+## Ajouter une image d'en-tête et de pied de page {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage fournit un mécanisme pour définir les graphiques qui peuvent être référencés dans les définitions d'en-tête et de pied de page via `&G`, types d'images pris en charge: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
 
 ## Définir le nom défini {#SetDefinedName}
 
