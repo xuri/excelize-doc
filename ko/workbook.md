@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` 는 시스템의 현지 언어 설정에 따른 영향을 받는 내장 언어 번호 형식 코드를 적용하기 위한 국가 코드를 지정합니다.
 
+`HeaderFooterImagePositionType` 은 헤더와 푸터 이미지 위치의 유형입니다.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+이 섹션에서는 워크시트 머리글 및 바닥글 이미지 위치 유형 열거형을 정의합니다.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Excel 문서 만들기 {#NewFile}
 
 ```go
@@ -479,6 +495,8 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `BlackAndWhite` 는 흑백으로 인쇄를 지정했습니다.
 
+`PageOrder` 는 여러 페이지의 순서를 지정합니다. 허용되는 값: `overThenDown` 및 `downThenOver`.
+
 예를 들어 `Sheet1` 이라는 시트 페이지 레이아웃을 단색 인쇄로 설정하고, 시작 페이지 번호를 `2` 로 설정하고, 가로로, A4(작은) 210× 297mm 용지 사용, 2 세로 페이지에 맞게 조정하고 2 개의 가로 페이지를 맞출 수 있습니다:
 
 ```go
@@ -637,7 +655,7 @@ FirstHeader      | 첫 페이지 머리글
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>배경으로 개체 그리기（現在サポートされていません）</td>
+            <td>배경으로 개체 그리기 (AddHeaderFooterImage 를 사용하세요)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -722,6 +740,14 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 - 왼쪽 섹션의 현재 날짜와 짝수 페이지 바닥 글의 오른쪽 섹션의 현재 시간
 - 첫 번째 페이지의 가운데 섹션의 첫 번째 줄에있는 텍스트 "Center Bold Header"과 같은 페이지의 가운데 섹션의 두 번째 줄에있는 날짜
 - 첫 페이지에 꼬리말 없음
+
+## 헤더와 푸터 이미지 추가 {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage 는 `&G` 를 통해 헤더 및 푸터 정의에서 참조할 수 있는 그래픽을 설정하는 메커니즘을 제공하며, 지원되는 이미지 유형은 EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF 및 WMZ 입니다.
 
 ## 이름 설정 {#SetDefinedName}
 

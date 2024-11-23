@@ -35,6 +35,7 @@
   * [워크 시트 페이지 여백 설정](workbook.md#SetPageMargins)
   * [워크 시트 페이지 여백 가져 오기](workbook.md#GetPageMargins)
   * [머리글 및 바닥 글 설정](workbook.md#SetHeaderFooter)
+  * [헤더와 푸터 이미지 추가](workbook.md#AddHeaderFooterImage)
   * [통합 문서 속성 설정](workbook.md#SetWorkbookProps)
   * [통합 문서 속성 가져오기](workbook.md#GetWorkbookProps)
   * [이름 설정](workbook.md#SetDefinedName)
