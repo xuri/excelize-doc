@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` specifica il codice del paese per l'applicazione del codice del formato numerico della lingua incorporato che viene influenzato dalle impostazioni della lingua locale del sistema.
 
+`HeaderFooterImagePositionType` è il tipo di posizione dell'immagine di intestazione e piè di pagina.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+Questa sezione definisce l'enumerazione dei tipi di posizione delle immagini dell'intestazione e del piè di pagina del foglio di lavoro.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Crea un documento Excel {#NewFile}
 
 ```go
@@ -483,6 +499,8 @@ Orientamento del foglio di lavoro specificato da `Orientation`, l'orientamento p
 
 `BlackAndWhite` ha specificato la stampa in bianco e nero.
 
+`PageOrder` specifica l'ordinamento di più pagine. Valori accettati: `overThenDown` e `downThenOver`.
+
 Ad esempio, imposta il layout di pagina per `Foglio1` con stampa in bianco e nero, primo numero di pagina stampato da `2`, carta A4 orizzontale di piccole dimensioni (210 mm x 297 mm), 2 pagine verticali da adattare e 2 pagine orizzontali da adattare:
 
 ```go
@@ -645,7 +663,7 @@ I seguenti codici di formattazione possono essere utilizzati in 6 campi di tipo 
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Oggetto di disegno come sfondo (attualmente non supportato)</td>
+            <td>Oggetto di disegno come sfondo (Utilizzare AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -730,6 +748,14 @@ Questo esempio mostra:
 - Data corrente nella sezione sinistra e ora corrente nella sezione destra dei piè di pagina delle pagine pari
 - Il testo "Center Bold Header" sulla prima riga della sezione centrale della prima pagina e la data sulla seconda riga della sezione centrale della stessa pagina
 - Nessun piè di pagina nella prima pagina
+
+## Aggiungi immagine intestazione e piè di pagina {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage fornisce un meccanismo per impostare la grafica a cui è possibile fare riferimento nelle definizioni di intestazione e piè di pagina tramite `&G`, tipi di immagine supportati: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ## Imposta il nome definito {#SetDefinedName}
 

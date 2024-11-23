@@ -37,6 +37,7 @@
   * [Imposta le proprietà della cartella di lavoro](workbook.md#SetWorkbookProps)
   * [Ottieni le proprietà della cartella di lavoro](workbook.md#GetWorkbookProps)
   * [Imposta intestazione e piè di pagina](workbook.md#SetHeaderFooter)
+  * [Aggiungi immagine intestazione e piè di pagina](workbook.md#AddHeaderFooterImage)
   * [Imposta il nome definito](workbook.md#SetDefinedName)
   * [Ottieni un nome definito](workbook.md#GetDefinedName)
   * [Elimina il nome definito](workbook.md#DeleteDefinedName)
