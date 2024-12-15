@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` は、システムのローカル言語設定によって影響を受ける組み込みの言語数値形式コードを適用するための国コードを指定します。
 
+`HeaderFooterImagePositionType` は、ヘッダーとフッターの画像の位置のタイプです。
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+このセクションでは、ワークシートのヘッダーとフッターの画像位置の種類の列挙を定義します。
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Excel 文書を作成する {#NewFile}
 
 ```go
@@ -479,6 +495,8 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `BlackAndWhite` は白黒印刷を指定しました。
 
+`PageOrder` は複数のページの順序を指定します。受け入れられる値: `overThenDown` および `downThenOver`。
+
 たとえば、`Sheet1` という名前のシート ページ レイアウトをモノクロ印刷、開始ページ番号 `2`、横向き、A4 (小) 210 × 297 mm 用紙、縦に収まるように2ページ、収まるように横に2つのページ:
 
 ```go
@@ -637,7 +655,7 @@ FirstHeader      | 最初のページのヘッダー
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>背景としてオブジェクトを描画します（現在サポートされていません）</td>
+            <td>背景としてオブジェクトを描画します（AddHeaderFooterImage を使用する）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -722,6 +740,14 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 - 偶数ページのフッターの左側のセクションに現在の日付と右側のセクションに現在の時刻
 - 最初のページの中央セクションの1行目のテキスト "Center Bold Header"、および同じページの中央セクションの2行目の日付
 - 最初のページにフッターなし
+
+## ヘッダーとフッターの画像を追加する {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage は、`&G` を介してヘッダーとフッターの定義で参照できるグラフィックを設定するメカニズムを提供します。サポートされている画像タイプは、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ です。
 
 ### 名前を設定する {#SetDefinedName}
 

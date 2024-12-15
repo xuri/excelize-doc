@@ -37,6 +37,7 @@
   * [ブックのプロパティを設定する](workbook.md#SetWorkbookProps)
   * [ブックのプロパティを取得する](workbook.md#GetWorkbookProps)
   * [ヘッダとフッタを設定する](workbook.md#SetHeaderFooter)
+  * [ヘッダーとフッターの画像を追加する](workbook.md#AddHeaderFooterImage)
   * [名前を設定する](workbook.md#SetDefinedName)
   * [名前を取得する](workbook.md#GetDefinedName)
   * [定義された名前を削除](workbook.md#DeleteDefinedName)
