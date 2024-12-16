@@ -34,6 +34,22 @@ type Options struct {
 
 `CultureInfo` especifica o código do país para aplicar o código de formato de número de idioma integrado, que é afetado pelas configurações de idioma local do sistema.
 
+`HeaderFooterImagePositionType` é o tipo de posição da imagem do cabeçalho e rodapé.
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+Esta seção define a enumeração dos tipos de posição da imagem do cabeçalho e rodapé da planilha.
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## Criar nova pasta de trabalho {#NewFile}
 
 ```go
@@ -483,6 +499,8 @@ SetPageLayout fornece uma função para definir o layout da página da planilha.
 
 `BlackAndWhite` especificou impressão em preto e branco.
 
+`PageOrder` especifica a ordenação de múltiplas páginas. Valores aceitos: `overThenDown` e `downThenOver`.
+
 Por exemplo, defina o layout da página para `Planilha1` com impressão em preto e branco, número da primeira página impressa a partir de `2`, papel pequeno A4 paisagem (210 mm por 297 mm), 2 páginas verticais para caber e 2 páginas horizontais para caber :
 
 ```go
@@ -645,7 +663,7 @@ Os seguintes códigos de formatação podem ser usados em 6 campos de tipo strin
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>Objeto de desenho como plano de fundo (atualmente não é compatível)</td>
+            <td>Objeto de desenho como plano de fundo (Usar AddHeaderFooterImage)</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -730,6 +748,14 @@ Este exemplo mostra:
 - Data atual na seção esquerda e hora atual na seção direita dos rodapés das páginas pares
 - O texto "Center Bold Header" na primeira linha da seção central da primeira página e a data na segunda linha da seção central da mesma página
 - Sem rodapé na primeira página
+
+## Adicionar imagem de cabeçalho e rodapé {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+AddHeaderFooterImage fornece um mecanismo para definir os gráficos que podem ser referenciados nas definições de cabeçalho e rodapé via `&G`, tipos de imagem suportados: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ## Definir nome definido {#SetDefinedName}
 

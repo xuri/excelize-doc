@@ -37,6 +37,7 @@
   * [Definir propriedades da pasta de trabalho](workbook.md#SetWorkbookProps)
   * [Obtenha propriedades da pasta de trabalho](workbook.md#GetWorkbookProps)
   * [Definir cabeçalho e rodapé](workbook.md#SetHeaderFooter)
+  * [Adicionar imagem de cabeçalho e rodapé](workbook.md#AddHeaderFooterImage)
   * [Definir nome definido](workbook.md#SetDefinedName)
   * [Obter nome definido](workbook.md#GetDefinedName)
   * [Excluir nome definido](workbook.md#DeleteDefinedName)
