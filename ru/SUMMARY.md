@@ -37,6 +37,7 @@
   * [Установить свойства книги](workbook.md#SetWorkbookProps)
   * [Получить свойства книги](workbook.md#GetWorkbookProps)
   * [Установить верхний и нижний колонтитулы](workbook.md#SetHeaderFooter)
+  * [Добавить изображение верхнего и нижнего колонтитула](workbook.md#AddHeaderFooterImage)
   * [Установить определенное имя](workbook.md#SetDefinedName)
   * [Получить определенное имя](workbook.md#GetDefinedName)
   * [Удалить определенное имя](workbook.md#DeleteDefinedName)
