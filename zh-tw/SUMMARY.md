@@ -37,6 +37,7 @@
   * [設定活頁簿屬性](workbook.md#SetWorkbookProps)
   * [獲取活頁簿屬性](workbook.md#GetWorkbookProps)
   * [設定頁首和頁尾](workbook.md#SetHeaderFooter)
+  * [添加頁首和頁尾圖片](workbook.md#AddHeaderFooterImage)
   * [設定名稱](workbook.md#SetDefinedName)
   * [獲取名稱](workbook.md#GetDefinedName)
   * [刪除名稱](workbook.md#DeleteDefinedName)

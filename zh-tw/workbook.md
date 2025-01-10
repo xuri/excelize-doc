@@ -26,7 +26,7 @@ type Options struct {
 
 `UnzipSizeLimit` 用以指定開啓電子錶格檔案時的解壓縮大小限制（以位元組為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
 
-`UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以位元組為單位），當大小超過此值時工作表 XML 文件將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
+`UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以位元組為單位），當大小超過此值時工作表 XML 檔案將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
 `ShortDatePattern` 用以指定短日期數字格式代碼。在電子錶格應用程式中，可以透過為存儲格設定帶有日期格式的數字格式，將日期和時間序列號顯示為日期值。其中以星號 (\*) 開頭的日期格式響應為作業系統指定的區域日期和時間設定的更改。沒有星號的格式不受作業系統設定的影響。`ShortDatePattern` 用於指定讀取以星號開頭的日期格式時所應用的短日期數字格式代碼。
 
@@ -35,6 +35,22 @@ type Options struct {
 `LongTimePattern` 用以指定長時間數字格式代碼。
 
 `CultureInfo` 用以指定區域格式，該設定將在讀取受到作業系統特定的區域日期和時間設定影響的數字格式時使用。
+
+`HeaderFooterImagePositionType` 定義了頁首和頁尾圖片位置類型。
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+下面是工作表頁首和頁尾位置枚舉值。
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
 
 ## 新增 {#NewFile}
 
@@ -207,13 +223,13 @@ func (f *File) UngroupSheets() error
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-根據給定的工作表名稱和圖片文件路徑為指定的工作表設定平鋪效果的背景圖片。支援的圖片文件格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+根據給定的工作表名稱和圖片檔案路徑為指定的工作表設定平鋪效果的背景圖片。支援的圖片檔案格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-根據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支援的圖片文件格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+根據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支援的圖片檔案格式為：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 設定默認工作表 {#SetActiveSheet}
 
@@ -481,6 +497,8 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `BlackAndWhite` 屬性用以設定單色列印 `true` 或 `false`，默認值為 `false` 關閉。
 
+`PageOrder` 屬性用以設定頁面順序，可選值為：`overThenDown`（循列欄印）和 `downThenOver`（循欄列印），默認值為 `downThenOver`。
+
 - 例如，將名為 `Sheet1` 的工作表頁面配置設定為單色列印、起始頁碼為 `2`、橫向、使用 A4(小) 210 × 297 毫米紙張並調整為 2 頁寬、2 頁高：
 
 ```go
@@ -639,7 +657,7 @@ FirstHeader      | 首頁頁首控制字符
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>將指定對象做為背景（暫不支援）</td>
+            <td>將指定對象做為背景（使用 AddHeaderFooterImage 函式添加頁首和頁尾圖片）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -724,6 +742,14 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 - 左側部分為當前日期，偶數頁頁尾右側部分為當前時間
 - 第一頁中心部分的第一行上的文本為「Center Bold Header」, 第二行為日期
 - 第一頁上沒有頁尾
+
+## 添加頁首和頁尾圖片 {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+添加可透過 `&G` 控制字符在頁首和頁尾定義中引用的圖片，支援的圖片檔案格式為：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 設定名稱 {#SetDefinedName}
 
@@ -826,7 +852,7 @@ DocSecurity       | 以數值表示的檔案安全級別。檔案安全定義為
 Company           | 與檔案關聯的公司的名稱
 LinksUpToDate     | 設定檔案中的超鏈接是否是最新的。設定為 `true` 表示超鏈接已更新，設定為 `false` 表示超鏈接已過時
 HyperlinksChanged | 指定下一次開啓此檔案時是否應使用本部分中指定的新超鏈接更新超鏈接關係
-AppVersion        | 指定生成此檔案的應用程式的版本。值應為 XX.YYYY 格式，其中 X 和 Y 代表數值，否則文件將不符合標準
+AppVersion        | 指定生成此檔案的應用程式的版本。值應為 XX.YYYY 格式，其中 X 和 Y 代表數值，否則檔案將不符合標準
 
 例如：
 

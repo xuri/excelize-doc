@@ -36,6 +36,22 @@ type Options struct {
 
 `CultureInfo` 用以指定区域格式，该设置将在读取受到操作系统特定的区域日期和时间设置影响的数字格式时使用。
 
+`HeaderFooterImagePositionType` 定义了页眉页脚图片位置类型。
+
+```go
+type HeaderFooterImagePositionType byte
+```
+
+下面是工作表页眉页脚位置枚举值。
+
+```go
+const (
+    HeaderFooterImagePositionLeft HeaderFooterImagePositionType = iota
+    HeaderFooterImagePositionCenter
+    HeaderFooterImagePositionRight
+)
+```
+
 ## 创建 {#NewFile}
 
 ```go
@@ -481,6 +497,8 @@ func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 
 `BlackAndWhite` 属性用以指定单色打印，默认为关闭。
 
+`PageOrder` 属性用以指定页面顺序，可选值为：`overThenDown`（先行后列）和 `downThenOver`（先列后行），默认值为 `downThenOver`。
+
 例如，将名为 `Sheet1` 的工作表页面布局设置为单色打印、起始页码为 `2`、横向、使用 A4(小) 210 × 297 毫米纸张并调整为 2 页宽、2 页高：
 
 ```go
@@ -639,7 +657,7 @@ FirstHeader      | 首页页眉控制字符
         </tr>
         <tr>
             <td><code>&amp;G</code></td>
-            <td>将指定对象做为背景（暂不支持）</td>
+            <td>将指定对象做为背景（使用 AddHeaderFooterImage 函数添加页眉页脚图片）</td>
         </tr>
         <tr>
             <td><code>&amp;H</code></td>
@@ -724,6 +742,14 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 - 左侧部分为当前日期，偶数页页脚右侧部分为当前时间
 - 第一页中心部分的第一行上的文本为“Center Bold Header”, 第二行为日期
 - 第一页上没有页脚
+
+## 添加页眉页脚图片 {#AddHeaderFooterImage}
+
+```go
+func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
+```
+
+添加可通过 `&G` 控制字符在页眉和页脚定义中引用的图片，支持的图片文件格式为：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 设置名称 {#SetDefinedName}
 
