@@ -146,6 +146,7 @@ TickLabelSkip  | `int`           | `1`     | Specifies how many tick labels to s
 ReverseOrder   | `bool`          | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `ReverseOrder` property is optional.
 Maximum        | `*float64`      | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
 Minimum        | `*float64`      | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+Alignment      | `Alignment`     | N/A     | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `TextRotation` and `Vertical`
 Font           | `Font`          | N/A     | Specifies that the font of the horizontal axis.
 NumFmt         | `ChartNumFmt`   | N/A     | Specifies that if linked to source and set custom number format code for axis.
 Title          | `[]RichTextRun` | N/A     | Specifies that the primary horizontal axis title and resize chart.
@@ -161,10 +162,15 @@ MajorUnit      | `float64`       | `0`     | Specifies the distance between majo
 ReverseOrder   | `bool`          | `false` | Specifies that the categories or values in reverse order (orientation of the chart). The `ReverseOrder` property is optional.
 Maximum        | `*float64`      | `0`     | Specifies that the fixed maximum, 0 is auto. The maximum property is optional.
 Minimum        | `*float64`      | `0`     | Specifies that the fixed minimum, 0 is auto. The minimum property is optional. The default value is auto.
+Alignment      | `Alignment`     | N/A     | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `TextRotation` and `Vertical`
 Font           | `Font`          | N/A     | Specifies that the font of the vertical axis.
 LogBase        | `float64`       | N/A     | Specifies logarithmic scale base number of the vertical axis.
 NumFmt         | `ChartNumFmt`   | N/A     | Specifies that if linked to source and set custom number format code for axis.
 Title          | `[]RichTextRun` | N/A     | Specifies that the primary vertical axis title and resize chart.
+
+The value of `TextRotation` that can be set from -90 to 90.
+
+The value of `Vertical` that can be set are: `horz`, `vert`, `vert270`, `wordArtVert`, `eaVert`, `mongolianVert` and `wordArtVertRtl`.
 
 Set the chart size by `Dimension` property. The dimension property is optional. The properties that can be set are:
 

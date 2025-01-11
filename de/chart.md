@@ -146,6 +146,7 @@ TickLabelSkip  | `int`           | `1`     | Gibt an, wie viele Häkchen zwische
 ReverseOrder   | `bool`          | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
 Maximum        | `*float64`      | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
 Minimum        | `*float64`      | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+Alignment      | `Alignment`     | N/A     | Gibt die Ausrichtung der horizontalen und vertikalen Achse an. Die Eigenschaften der Schriftart, die festgelegt werden können, sind `TextRotation` und `Vertical`
 Font           | `Font`          | N/A     | Gibt die Schriftart der horizontalen Achse an.
 NumFmt         | `ChartNumFmt`   | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für die Achse festgelegt wird.
 Title          | `[]RichTextRun` | N/A     | Gibt den Titel der primären horizontalen Achse und die Größenänderung des Diagramms an.
@@ -161,10 +162,15 @@ MajorUnit      | `float64`       | `0`     | Gibt den Abstand zwischen den Haupt
 ReverseOrder   | `bool`          | `false` | Gibt an, dass die Kategorien oder Werte in umgekehrter Reihenfolge (Ausrichtung des Diagramms) sind. Die Eigenschaft `ReverseOrder` ist optional.
 Maximum        | `*float64`      | `0`     | Gibt an, dass das feste Maximum 0 automatisch ist. Die maximale Eigenschaft ist optional.
 Minimum        | `*float64`      | `0`     | Gibt an, dass das feste Minimum 0 automatisch ist. Die minimale Eigenschaft ist optional. Der Standardwert ist auto.
+Alignment      | `Alignment`     | N/A     | Gibt die Ausrichtung der horizontalen und vertikalen Achse an. Die Eigenschaften der Schriftart, die festgelegt werden können, sind `TextRotation` und `Vertical`
 Font           | `Font`          | N/A     | Gibt die Schriftart der vertikalen Achse an.
 LogBase        | `float64`       | N/A     | Gibt die Basiszahl der logarithmischen Skala der vertikalen Achse an.
 NumFmt         | `ChartNumFmt`   | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für die Achse festgelegt wird.
 Title          | `[]RichTextRun` | N/A     | Gibt den Titel der primären vertikalen Achse und die Größenänderung des Diagramms an.
+
+Der Wert von `TextRotation` kann von -90 bis 90 eingestellt werden.
+
+Die folgenden Werte für `Vertical` können festgelegt werden: `horz`, `vert`, `vert270`, `wordArtVert`, `eaVert`, `mongolianVert` und `wordArtVertRtl`.
 
 Legen Sie die Diagrammgröße anhand der Eigenschaft `Dimension` fest. Die Dimensionseigenschaft ist optional. Folgende Eigenschaften können festgelegt werden:
 

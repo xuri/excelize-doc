@@ -146,6 +146,7 @@ TickLabelSkip  | `int`           | `1`     | Especifica cuántas etiquetas de ma
 ReverseOrder   | `bool`          | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
 Maximum        | `*float64`      | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
 Minimum        | `*float64`      | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+Alignment      | `Alignment`     | N/A     | Especifica la alineación de los ejes horizontal y vertical. Las propiedades de fuente que se pueden configurar son: `TextRotation` y `Vertical`
 Font           | `Font`          | N/A     | Especifica que la fuente del eje horizontal.
 NumFmt         | `ChartNumFmt`   | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para el eje.
 Title          | `[]RichTextRun` | N/A     | Especifica que el título del eje horizontal principal y el gráfico de cambio de tamaño.
@@ -161,10 +162,15 @@ MajorUnit      | `float64`       | `0`     | Especifica la distancia entre las m
 ReverseOrder   | `bool`          | `false` | Especifica que las categorías o valores en orden inverso (orientación del gráfico). La propiedad `ReverseOrder` es opcional.
 Maximum        | `*float64`      | `0`     | Especifica que el máximo fijo, 0 es automático. La propiedad máxima es opcional.
 Minimum        | `*float64`      | `0`     | Especifica que el mínimo fijo, 0 es automático. La propiedad mínima es opcional. El valor predeterminado es automático.
+Alignment      | `Alignment`     | N/A     | Especifica la alineación de los ejes horizontal y vertical. Las propiedades de fuente que se pueden configurar son: `TextRotation` y `Vertical`
 Font           | `Font`          | N/A     | Especifica que la fuente del eje vertical.
 LogBase        | `float64`       | N/A     | Especifica el número base de la escala logarítmica del eje vertical.
 NumFmt         | `ChartNumFmt`   | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para el eje.
 Title          | `[]RichTextRun` | N/A     | Especifica que el título del eje vertical principal y el gráfico de cambio de tamaño.
+
+El valor de `TextRotation` que se puede establecer entre -90 y 90.
+
+Los valores de `Vertical` que se pueden configurar son: `horz`, `vert`, `vert270`, `wordArtVert`, `eaVert`, `mongolianVert` y `wordArtVertRtl`.
 
 Establezca el tamaño del gráfico por la propiedad `Dimension`. La propiedad de dimensión es opcional. Las propiedades que se pueden configurar son:
 

@@ -146,6 +146,7 @@ TickLabelSkip  | `int`           | `1`     | Spécifie le nombre d'étiquettes d
 ReverseOrder   | `bool`          | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `ReverseOrder` est facultative.
 Maximum        | `*float64`      | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
 Minimum        | `*float64`      | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+Alignment      | `Alignment`     | N/A     | Spécifie l'alignement des axes horizontaux et verticaux. Les propriétés de police qui peuvent être définies sont: `TextRotation` et `Vertical`
 Font           | `Font`          | N/A     | Spécifie que la police de l'axe horizontal.
 NumFmt         | `ChartNumFmt`   | N/A     | Spécifie que s'il est lié à la source et définit le code de format de nombre personnalisé pour l'axe.
 Title          | `[]RichTextRun` | N/A     | Spécifie que le titre de l'axe horizontal principal et le graphique de redimensionnement.
@@ -161,10 +162,15 @@ MajorUnit      | `float64`       | `0`     | Spécifie la distance entre les gra
 ReverseOrder   | `bool`          | `false` | Spécifie que les catégories ou valeurs dans l'ordre inverse (orientation du graphique). La propriété `ReverseOrder` est facultative.
 Maximum        | `*float64`      | `0`     | Indique que le maximum fixé, 0 est auto. La propriété maximum est facultative.
 Minimum        | `*float64`      | `0`     | Spécifie que le minimum fixé, 0 est auto. La propriété minimum est facultative. La valeur par défaut est auto.
+Alignment      | `Alignment`     | N/A     | Spécifie l'alignement des axes horizontaux et verticaux. Les propriétés de police qui peuvent être définies sont: `TextRotation` et `Vertical`
 Font           | `Font`          | N/A     | Spécifie que la police de l'axe vertical.
 LogBase        | `float64`       | N/A     | Spécifie le numéro de base de l'échelle logarithmique de l'axe vertical.
 NumFmt         | `ChartNumFmt`   | N/A     | Spécifie que s'il est lié à la source et définit le code de format de nombre personnalisé pour l'axe.
 Title          | `[]RichTextRun` | N/A     | Spécifie que le titre de l'axe vertical principal et le graphique de redimensionnement.
+
+La valeur de `TextRotation` peut être définie de -90 à 90.
+
+Les valeurs de `Vertical` qui peuvent être définies sont: `horz`, `vert`, `vert270`, `wordArtVert`, `eaVert`, `mongolianVert` et `wordArtVertRtl`.
 
 Définissez la taille du graphique par la propriété `Dimension`. La propriété dimension est facultative. Les propriétés qui peuvent être définies sont:
 
