@@ -12,7 +12,10 @@ Cette section définit l'énumération des types de codes de pays actuellement p
 const (
     CultureNameUnknown CultureName = iota
     CultureNameEnUS
+    CultureNameJaJP
+    CultureNameKoKR
     CultureNameZhCN
+    CultureNameZhTW
 )
 ```
 

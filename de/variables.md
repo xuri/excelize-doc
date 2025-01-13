@@ -54,6 +54,8 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel definierte die Fehlermeldung beim Empfang einer ungültigen Gliederungsebenennummer.
     ErrOutlineLevel = errors.New("invalid outline level")
+    // ErrPageSetupAdjustTo definiert die Fehlermeldung beim Empfang einer Seiteneinrichtungsanpassung, wenn der Wert den Grenzwert überschreitet.
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
     // ErrParameterInvalid hat die Fehlermeldung beim Empfang des ungültigen Parameters definiert.
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired definiert die Fehlermeldung beim Empfang des leeren Parameters.

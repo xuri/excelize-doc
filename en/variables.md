@@ -54,6 +54,8 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel defined the error message on receive an invalid outline level number.
     ErrOutlineLevel = errors.New("invalid outline level")
+    // ErrPageSetupAdjustTo defined the error message for receiving a page setup adjust to value exceeds limit.
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
     // ErrParameterInvalid defined the error message on receive the invalid parameter.
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired defined the error message on receive the empty parameter.

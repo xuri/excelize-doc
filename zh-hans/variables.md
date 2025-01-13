@@ -56,6 +56,8 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel 定义了在数据分组时收到无效级别时的错误提示信息
     ErrOutlineLevel = errors.New("invalid outline level")
+    // ErrPageSetupAdjustTo 定义了在设置工作表页面属性时页面缩放比例超出范围的错误提示信息
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
     // ErrParameterInvalid 定义了收到无效参数时的错误提示信息
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired 定义了必要参数为空时的错误提示信息

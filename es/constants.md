@@ -12,7 +12,10 @@ Esta sección define la enumeración de tipos de código de país admitida actua
 const (
     CultureNameUnknown CultureName = iota
     CultureNameEnUS
+    CultureNameJaJP
+    CultureNameKoKR
     CultureNameZhCN
+    CultureNameZhTW
 )
 ```
 

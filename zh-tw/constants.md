@@ -14,7 +14,10 @@ type CultureName byte
 const (
     CultureNameUnknown CultureName = iota
     CultureNameEnUS
+    CultureNameJaJP
+    CultureNameKoKR
     CultureNameZhCN
+    CultureNameZhTW
 )
 ```
 

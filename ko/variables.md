@@ -54,6 +54,8 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel 은 잘못된 개요 수준 번호를 수신할 때 오류 메시지를 정의했습니다
     ErrOutlineLevel = errors.New("invalid outline level")
+    // ErrPageSetupAdjustTo 는 페이지 설정 조정 값이 한도를 초과할 때의 오류 메시지를 정의했습니다
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
     // ErrParameterInvalid 는 잘못된 매개변수 수신 시 오류 메시지를 정의했습니다
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired 는 빈 매개변수 수신 시 오류 메시지를 정의했습니다

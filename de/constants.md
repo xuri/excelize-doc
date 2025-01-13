@@ -12,7 +12,10 @@ In diesem Abschnitt wird die derzeit unterstützte Aufzählung der Ländercodety
 const (
     CultureNameUnknown CultureName = iota
     CultureNameEnUS
+    CultureNameJaJP
+    CultureNameKoKR
     CultureNameZhCN
+    CultureNameZhTW
 )
 ```
 

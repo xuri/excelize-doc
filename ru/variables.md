@@ -46,7 +46,7 @@ var (
     ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrMaxRows определил сообщение об ошибке при получении номера строки, превышающей максимальный предел
     ErrMaxRows = errors.New("row number exceeds maximum limit")
-    // ErrNameLength определил сообщение об ошибке при получении определенного имени или длины имени таблицы, превышающей лимит.
+    // ErrNameLength определил сообщение об ошибке при получении определенного имени или длины имени таблицы, превышающей лимит
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // ErrOptionsUnzipSizeLimit определяет значение ошибки для получения UnzipSizeLimit и UnzipXMLSizeLimit без ограничений
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
@@ -54,6 +54,8 @@ var (
     ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
     // ErrOutlineLevel определил сообщение об ошибке при получении недопустимого номера уровня структуры
     ErrOutlineLevel = errors.New("invalid outline level")
+    // ErrPageSetupAdjustTo определил сообщение об ошибке при получении корректировки параметров страницы, значение которой превышает предел
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
     // ErrParameterInvalid определяет сообщение об ошибке при получении недопустимого параметра
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired определяет сообщение об ошибке при получении пустого параметра

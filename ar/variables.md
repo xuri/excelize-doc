@@ -54,13 +54,15 @@ var (
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // حدد ErrOutlineLevel رسالة الخطأ عند تلقي رقم مستوى مخطط تفصيلي غير صالح.
     ErrOutlineLevel = errors.New("invalid outline level")
+    // قام ErrPageSetupAdjustTo بتعريف رسالة الخطأ الخاصة باستلام ضبط إعداد الصفحة لقيمة تتجاوز الحد.
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
     // حدد ErrParameterInvalid رسالة الخطأ عند تلقي المعلمة غير الصالحة.
     ErrParameterInvalid = errors.New("parameter is invalid")
     // حدد ErrParameterRequired رسالة الخطأ عند تلقي المعلمة الفارغة.
     ErrParameterRequired = errors.New("parameter is required")
     // حدد ErrPasswordLengthInvalid رسالة الخطأ بطول كلمة المرور غير الصالحة.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
-    // قام ErrPivotTableClassicLayout بتعريف رسالة الخطأ عند تمكين ClassicLayout و CompactData في نفس الوقت
+    // قام ErrPivotTableClassicLayout بتعريف رسالة الخطأ عند تمكين ClassicLayout و CompactData في نفس الوقت.
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // حدد ErrSave رسالة الخطأ لحفظ الملف.
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
