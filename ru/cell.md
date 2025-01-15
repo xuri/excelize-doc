@@ -620,6 +620,18 @@ DeleteComment предоставляет метод для удаления ко
 err := f.DeleteComment("Лист1", "A30")
 ```
 
+## Добавить проигнорированные ошибки {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors предоставляет метод для игнорирования ошибок для диапазона ячеек. Например: игнорировать ошибку "число сохранено как текст" на `Лист1` для диапазона ячеек `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Лист1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Установить формулу ячейки {#SetCellFormula}
 
 ```go

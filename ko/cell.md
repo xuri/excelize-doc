@@ -620,6 +620,18 @@ DeleteComment 는 주어진 워크시트에 의해 시트의 주석을 삭제하
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 무시된 오류 추가 {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors 는 셀 범위에 대한 오류를 무시하는 방법을 제공합니다. 예를 들어: `Sheet1` 에서 `D15 C18:D19` 셀 범위에 대한 "텍스트로 저장된 숫자" 오류 무시:
+
+```go
+err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## 셀 수식 설정 {#SetCellFormula}
 
 ```go

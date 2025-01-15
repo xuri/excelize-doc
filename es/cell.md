@@ -620,6 +620,18 @@ DeleteComment proporciona el método para eliminar comentarios en una hoja por h
 err := f.DeleteComment("Hoja1", "A30")
 ```
 
+## Agregar errores ignorados {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors proporciona el método para ignorar los errores de un rango de celdas. Por ejemplo: ignorar el error "número almacenado como texto" en `Hoja1` para el rango de celdas `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Hoja1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Establecer fórmula de celda {#SetCellFormula}
 
 ```go

@@ -620,6 +620,18 @@ DeleteComment は、特定のワークシートでシート内のコメントを
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 無視されたエラーを追加する {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors は、セル範囲のエラーを無視する方法を提供します。たとえば、`Sheet1` のセル範囲 `D15 C18:D19` の「数値がテキストとして保存されています」エラーを無視します。
+
+```go
+err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## セル式の設定 {#SetCellFormula}
 
 ```go

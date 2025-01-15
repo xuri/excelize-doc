@@ -107,6 +107,7 @@
   * [Добавить комментарий](cell.md#AddComment)
   * [Получить комментарий](cell.md#GetComments)
   * [Удалить комментарий](cell.md#DeleteComment)
+  * [Добавить проигнорированные ошибки](cell.md#AddIgnoredErrors)
   * [Установить формулу ячейки](cell.md#SetCellFormula)
   * [Получить формулу ячейки](cell.md#GetCellFormula)
   * [Рассчитать значение ячейки](cell.md#CalcCellValue)

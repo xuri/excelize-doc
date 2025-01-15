@@ -624,6 +624,18 @@ EliminaComment fornisce il metodo per eliminare il commento in un foglio in base
 err := f.DeleteComment("Foglio1", "A30")
 ```
 
+## Aggiungi errori ignorati {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors fornisce il metodo per ignorare l'errore per un intervallo di celle. Ad esempio: ignora l'errore "numero memorizzato come testo" su `Foglio1` per l'intervallo di celle `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Foglio1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Imposta la formula della cella {#SetCellFormula}
 
 ```go

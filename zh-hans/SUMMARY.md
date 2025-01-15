@@ -107,6 +107,7 @@
   * [添加批注](cell.md#AddComment)
   * [获取批注](cell.md#GetComments)
   * [删除批注](cell.md#DeleteComment)
+  * [添加忽略错误](cell.md#AddIgnoredErrors)
   * [设置公式](cell.md#SetCellFormula)
   * [获取公式](cell.md#GetCellFormula)
   * [计算单元格的值](cell.md#CalcCellValue)

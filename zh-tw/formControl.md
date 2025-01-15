@@ -33,7 +33,7 @@ func (f *File) AddFormControl(sheet string, opts FormControl) error
 
 AddFormControl 透過給定的工作表名稱和表單控制項選項在工作表中添加表單控制項。支援的表單控制項類型為：按鈕、核取方塊、群組方塊、標籤、選項按鈕、捲軸和微調按鈕。若需要為表單控制項指定巨集，保存的活頁簿擴展名應為 `.xlsm` 或者 `.xltm`。滾動值應介於 0 到 30000 之間。
 
-例1，在 `Sheet1!A2` 存儲格添加帶有指定巨集、富文本、自訂尺寸和摘要資訊的按鈕表單控制項：
+例1，在 `Sheet1!A2` 儲存格添加帶有指定巨集、富文本、自訂尺寸和摘要資訊的按鈕表單控制項：
 
 <p align="center"><img width="180" src="./images/form_ctrl_button.gif" alt="使用 Excelize 在工作表中添加按鈕表單控制項"></p>
 
@@ -66,7 +66,7 @@ err := f.AddFormControl("Sheet1", excelize.FormControl{
 })
 ```
 
-例2，在 `Sheet1!A1` 和 `Sheet1!A2` 存儲格添加帶有選中狀態的選項按鈕表單控制項：
+例2，在 `Sheet1!A1` 和 `Sheet1!A2` 儲存格添加帶有選中狀態的選項按鈕表單控制項：
 
 <p align="center"><img width="127" src="./images/form_ctrl_option_button.gif" alt="使用 Excelize 在工作表中添加選項按鈕表單控制項"></p>
 
@@ -90,7 +90,7 @@ if err := f.AddFormControl("Sheet1", excelize.FormControl{
 }
 ```
 
-例3，在 `Sheet1!B1` 存儲格添加帶有控制選項的微調按鈕來增大或減小 `Sheet1!A1` 存儲格的值：
+例3，在 `Sheet1!B1` 儲存格添加帶有控制選項的微調按鈕來增大或減小 `Sheet1!A1` 儲存格的值：
 
 <p align="center"><img width="126" src="./images/form_ctrl_spin_button.gif" alt="使用 Excelize 在工作表中添加微調按鈕表單控制項"></p>
 
@@ -108,7 +108,7 @@ err := f.AddFormControl("Sheet1", excelize.FormControl{
 })
 ```
 
-例4，在 `Sheet1!A2` 存儲格添加水平捲軸，透過拖動滾動框輸入或修改 `Sheet1!A1` 存儲格的值：
+例4，在 `Sheet1!A2` 儲存格添加水平捲軸，透過拖動滾動框輸入或修改 `Sheet1!A1` 儲存格的值：
 
 <p align="center"><img width="180" src="./images/form_ctrl_scroll_bar.gif" alt="使用 Excelize 在工作表中添加水平捲軸表單控制項"></p>
 
@@ -142,7 +142,7 @@ func (f *File) GetFormControls(sheet string) ([]FormControl, error)
 func (f *File) DeleteFormControl(sheet, cell string) error
 ```
 
-DeleteFormControl 透過給定的工作表名稱和存儲格坐標刪除指定的表單控制項。例如，刪除位於 `Sheet1!$A$1` 存儲格的表單控制項:
+DeleteFormControl 透過給定的工作表名稱和儲存格坐標刪除指定的表單控制項。例如，刪除位於 `Sheet1!$A$1` 儲存格的表單控制項:
 
 ```go
 err := f.DeleteFormControl("Sheet1", "A1")

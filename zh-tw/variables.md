@@ -8,15 +8,15 @@ var (
     ErrAddVBAProject = errors.New("unsupported VBA project extension")
     // ErrAttrValBool 定義了序列化或反序列化 XML 布爾類型值失敗時的錯誤提示信息
     ErrAttrValBool = errors.New("unexpected child of attrValBool")
-    // ErrCellCharsLength 定義了單個存儲格字符長度超出最大限制時的錯誤提示信息
+    // ErrCellCharsLength 定義了單個儲存格字符長度超出最大限制時的錯誤提示信息
     ErrCellCharsLength = fmt.Errorf("cell value must be 0-%d characters", TotalCellChars)
-    // ErrCellStyles 定義了存儲格格式數量超出最大限制時的錯誤提示信息
+    // ErrCellStyles 定義了儲存格格式數量超出最大限制時的錯誤提示信息
     ErrCellStyles = fmt.Errorf("the cell styles exceeds the %d limit", MaxCellStyles)
     // ErrColumnNumber 定義了收到無效欄名時的錯誤提示信息
     ErrColumnNumber = fmt.Errorf(`the column number must be greater than or equal to %d and less than or equal to %d`, MinColumns, MaxColumns)
     // ErrColumnWidth 定義了收到無效欄寬度時的錯誤提示信息
     ErrColumnWidth = fmt.Errorf("the width of the column must be less than or equal to %d characters", MaxColumnWidth)
-    // ErrCoordinates 定義了收到無效存儲格坐標元組時的錯誤提示信息
+    // ErrCoordinates 定義了收到無效儲存格坐標元組時的錯誤提示信息
     ErrCoordinates = errors.New("coordinates length must be 4")
     // ErrCustomNumFmt 定義了指定自訂數字格式表達式為空時的錯誤提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")

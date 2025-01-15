@@ -107,6 +107,7 @@
   * [의견 추가](cell.md#AddComment)
   * [의견 가져 오기](cell.md#GetComments)
   * [댓글 삭제](cell.md#DeleteComment)
+  * [무시된 오류 추가](cell.md#AddIgnoredErrors)
   * [셀 수식 설정](cell.md#SetCellFormula)
   * [셀 수식 가져 오기](cell.md#GetCellFormula)
   * [셀 값 계산](cell.md#CalcCellValue)

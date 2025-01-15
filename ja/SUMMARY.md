@@ -107,6 +107,7 @@
   * [コメント追加](cell.md#AddComment)
   * [コメントを得る](cell.md#GetComments)
   * [コメントを削除](cell.md#DeleteComment)
+  * [無視されたエラーを追加する](cell.md#AddIgnoredErrors)
   * [セル式の設定](cell.md#SetCellFormula)
   * [セル式を取得する](cell.md#GetCellFormula)
   * [セル値を計算する](cell.md#CalcCellValue)

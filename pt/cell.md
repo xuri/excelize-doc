@@ -624,6 +624,18 @@ DeleteComment fornece o método para excluir comentários em uma planilha por de
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## Adicionar erros ignorados {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors fornece o método para ignorar erro para um intervalo de células. Por exemplo: ignorar erro "número armazenado como texto" em `Sheet1` para intervalo de células `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Definir fórmula de célula {#SetCellFormula}
 
 ```go

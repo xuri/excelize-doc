@@ -21,7 +21,7 @@ func main() {
     var (
         sheetName = "Sheet1"
         selection = []string{"red", "blue", "green", "yellow"}
-        // 定義存儲格的值
+        // 定義儲存格的值
         data = [][]interface{}{
             {"Element", "Picklist", nil, "Select below"},
             {selection[0] + " "},

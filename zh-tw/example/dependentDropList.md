@@ -19,7 +19,7 @@ func main() {
     // 創建活頁簿
     f := excelize.NewFile()
     var (
-        // 定義存儲格的值
+        // 定義儲存格的值
         data = [][]interface{}{
             {"Fruits", "Vegetables"},
             {"Mango", "Potato", nil, "Drop Down 1", "Drop Down 2"},
@@ -97,14 +97,14 @@ func main() {
         {Type: "right", Style: 1, Color: "cccccc"},
         {Type: "bottom", Style: 1, Color: "cccccc"},
     }
-    // 定義存儲格樣式
+    // 定義儲存格樣式
     if cellsStyle, err = f.NewStyle(&excelize.Style{
         Font:   &excelize.Font{Color: "333333"},
         Border: border}); err != nil {
         fmt.Println(err)
         return
     }
-    // 定義標題欄存儲格樣式
+    // 定義標題欄儲存格樣式
     if headerStyle, err = f.NewStyle(&excelize.Style{
         Font: &excelize.Font{Bold: true},
         Fill: excelize.Fill{
@@ -114,7 +114,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 為存儲格設定樣式
+    // 為儲存格設定樣式
     if err = f.SetCellStyle("Sheet1", "A2", "B6", cellsStyle); err != nil {
         fmt.Println(err)
         return

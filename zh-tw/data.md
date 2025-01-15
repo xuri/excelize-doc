@@ -34,7 +34,7 @@ dv.SetInput("input title", "input body")
 f.AddDataValidation("Sheet1", dv)
 ```
 
-例3，為 `Sheet1!A5:B6` 設定驗證條件為序列的資料驗證規則，忽略空值並提供下拉箭頭:
+例3，為 `Sheet1!A5:B6` 設定驗證條件為序列的資料驗證規則，略過空值並提供下拉箭頭:
 
 <p align="center"><img width="654" src="./images/data_validation_03.png" alt="資料驗證"></p>
 
@@ -45,9 +45,9 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
-如果您在序列中設定的項目超過限制累計 255 個字符的限制，請使用另一種方式設定：在工作表存儲格中設定允許的值，並使用 `SetSqrefDropList` 函數設定序列中引用存儲格的範圍。
+如果您在序列中設定的項目超過限制累計 255 個字符的限制，請使用另一種方式設定：在工作表儲存格中設定允許的值，並使用 `SetSqrefDropList` 函數設定序列中引用儲存格的範圍。
 
-例4，為 `Sheet1!A7:B8` 設定以 `Sheet1!E1:E3` 為來源的驗證條件，忽略空值並提供下拉箭頭:
+例4，為 `Sheet1!A7:B8` 設定以 `Sheet1!E1:E3` 為來源的驗證條件，略過空值並提供下拉箭頭:
 
 <p align="center"><img width="654" src="./images/data_validation_04.png" alt="資料驗證"></p>
 
@@ -99,7 +99,7 @@ type SlicerOptions struct {
 
 `Table` 為必選參數，用於設定交叉分析篩選器關聯的表格或數據透視表名稱。
 
-`Cell` 為必選參數，用於設定交叉分析篩選器左上角存儲格坐標位置。
+`Cell` 為必選參數，用於設定交叉分析篩選器左上角儲存格坐標位置。
 
 `Caption` 為可選參數，用於設定交叉分析篩選器的標題。
 
@@ -119,7 +119,7 @@ type SlicerOptions struct {
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
 ```
 
-透過給定的工作表名稱和交叉分析篩選器設定，在工作表中添加交叉分析篩選器。例如，在 `Sheet1!E1` 存儲格中，為表格 `Table1` 名為 `Column1` 的列添加交叉分析篩選器:
+透過給定的工作表名稱和交叉分析篩選器設定，在工作表中添加交叉分析篩選器。例如，在 `Sheet1!E1` 儲存格中，為表格 `Table1` 名為 `Column1` 的列添加交叉分析篩選器:
 
 ```go
 err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{

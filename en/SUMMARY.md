@@ -107,6 +107,7 @@
   * [Add comment](cell.md#AddComment)
   * [Get comment](cell.md#GetComments)
   * [Delete comment](cell.md#DeleteComment)
+  * [Add ignored errors](cell.md#AddIgnoredErrors)
   * [Set cell formula](cell.md#SetCellFormula)
   * [Get cell formula](cell.md#GetCellFormula)
   * [Calculate cell value](cell.md#CalcCellValue)

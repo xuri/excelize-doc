@@ -162,4 +162,4 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 func (f *File) DeletePivotTable(sheet, name string) error
 ```
 
-根據給定的工作表名稱和樞紐分析表名稱刪除指定樞紐分析表。請注意，該函數不會清除樞紐分析表區域內存儲格的值。
+根據給定的工作表名稱和樞紐分析表名稱刪除指定樞紐分析表。請注意，該函數不會清除樞紐分析表區域內儲存格的值。

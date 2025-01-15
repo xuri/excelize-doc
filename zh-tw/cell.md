@@ -58,7 +58,7 @@ func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 |bool|
 |nil|
 
-請注意，此函式默認為 `time.Time` 類型的存儲格的值設定 `m/d/yy h:mm` 數字格式，您可透過 [`SetCellStyle`](cell.md#SetCellStyle) 更改該設定。若您需設定無法透過 Go 語言 `time.Time` 類型表示的 Excel 特殊日期，例如 1900 年 1 月 0 日或 1900 年 2 月 29 日，請先設定存儲格的值為 0 或 60，再為其設定具有日期數字格式的樣式。
+請注意，此函式默認為 `time.Time` 類型的儲存格的值設定 `m/d/yy h:mm` 數字格式，您可透過 [`SetCellStyle`](cell.md#SetCellStyle) 更改該設定。若您需設定無法透過 Go 語言 `time.Time` 類型表示的 Excel 特殊日期，例如 1900 年 1 月 0 日或 1900 年 2 月 29 日，請先設定儲存格的值為 0 或 60，再為其設定具有日期數字格式的樣式。
 
 ## 設定布林型值 {#SetCellBool}
 
@@ -90,7 +90,7 @@ func (f *File) SetCellInt(sheet, cell string, value int) error
 func (f *File) SetCellUint(sheet, cell string, value uint64) error
 ```
 
-根據給定的工作表名和存儲格坐標設定無符號整型存儲格的值。
+根據給定的工作表名和儲存格坐標設定無符號整型儲存格的值。
 
 ## 設定浮點數 {#SetCellFloat}
 
@@ -98,7 +98,7 @@ func (f *File) SetCellUint(sheet, cell string, value uint64) error
 func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
 ```
 
-根據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型存儲格的值。
+根據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型儲存格的值。
 
 ## 設定字符型值 {#SetCellStr}
 
@@ -106,7 +106,7 @@ func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSiz
 func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
-根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被忽略。
+根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被略過。
 
 ## 設定儲存格樣式 {#SetCellStyle}
 
@@ -114,7 +114,7 @@ func (f *File) SetCellStr(sheet, cell, value string) error
 func (f *File) SetCellStyle(sheet, topLeftCell, bottomRightCell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋存儲格的已有樣式，而不會將樣式與已有樣式疊加或合併。
+根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋儲存格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 - 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定外框樣式：
 
@@ -256,7 +256,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
-根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定存儲格的超鏈接而不影響存儲格的值，若需設定存儲格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
+根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定儲存格的超鏈接而不影響儲存格的值，若需設定儲存格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
@@ -435,7 +435,7 @@ func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 
 根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
 
-## 獲取存儲格數據類型 {#GetCellType}
+## 獲取儲存格數據類型 {#GetCellType}
 
 ```go
 func (f *File) GetCellType(sheet, cell string) (CellType, error)
@@ -473,7 +473,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式存儲格的列，列尾連續為空的存儲格將被跳過，每列中的存儲格數目可能不同。
+根據給定的工作表名按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式儲存格的列，列尾連續為空的儲存格將被跳過，每列中的儲存格數目可能不同。
 
 例如，按列獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
@@ -519,7 +519,7 @@ func (f *File) GetCellStyle(sheet, cell string) (int, error)
 func (f *File) MergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
-根據給定的工作表名和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被忽略。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
+根據給定的工作表名和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被略過。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -549,37 +549,37 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
 ```
 
-### 獲取合併存儲格的值
+### 獲取合併儲存格的值
 
 ```go
 func (m *MergeCell) GetCellValue() string
 ```
 
-GetCellValue 返回合併存儲格的值。
+GetCellValue 返回合併儲存格的值。
 
-### 獲取合併存儲格區域左上角存儲格坐標
+### 獲取合併儲存格區域左上角儲存格坐標
 
 ```go
 func (m *MergeCell) GetStartAxis() string
 ```
 
-GetStartAxis 返回合併存儲格區域左上角存儲格的坐標，例如：`C2`。
+GetStartAxis 返回合併儲存格區域左上角儲存格的坐標，例如：`C2`。
 
-### 獲取合併存儲格區域右下角存儲格坐標
+### 獲取合併儲存格區域右下角儲存格坐標
 
 ```go
 func (m *MergeCell) GetEndAxis() string
 ```
 
-GetEndAxis 返回合併存儲格區域右下角存儲格的坐標，例如：`D4`。
+GetEndAxis 返回合併儲存格區域右下角儲存格的坐標，例如：`D4`。
 
-## 獲取圖片存儲格 {#GetPictureCells}
+## 獲取圖片儲存格 {#GetPictureCells}
 
 ```go
 func (f *File) GetPictureCells(sheet string) ([]string, error)
 ```
 
-根據給定的工作表名稱獲取該工作表中，包含圖片的全部存儲格坐標。
+根據給定的工作表名稱獲取該工作表中，包含圖片的全部儲存格坐標。
 
 ## 添加註解 {#AddComment}
 
@@ -587,7 +587,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被忽略。例如，為 `Sheet1!A3` 儲存格添加註解：
+根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過。例如，為 `Sheet1!A3` 儲存格添加註解：
 
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 文檔中添加註解"></p>
 
@@ -608,7 +608,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-根據給定的工作表名稱獲取工作表中的所有存儲格註解。
+根據給定的工作表名稱獲取工作表中的所有儲存格註解。
 
 ## 刪除註解 {#DeleteComment}
 
@@ -622,33 +622,45 @@ func (f *File) DeleteComment(sheet, cell string) error
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 添加略過錯誤 {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+根據給定的工作表名稱、儲存格坐標範圍和錯誤類型略過指定範圍內儲存格中的錯誤。例如，略過 `Sheet1` 工作表中 `D15 C18:D19` 範圍內儲存格中「數值儲存成文字」錯誤：
+
+```go
+err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## 設定公式 {#SetCellFormula}
 
 ```go
 func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式開啓時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算存儲格的值。若 Excel 應用程式開啓活頁簿後未對設定的存儲格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除存儲格緩存。
+根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式開啓時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算儲存格的值。若 Excel 應用程式開啓活頁簿後未對設定的儲存格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除儲存格緩存。
 
-- 例1，為名為 `Sheet1` 的工作表 `A3` 存儲格設定普通公式 `=SUM(A1,B1)`：
+- 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格設定普通公式 `=SUM(A1,B1)`：
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
 ```
 
-- 例2，為名為 `Sheet1` 的工作表 `A3` 存儲格設定一維縱向常量數組（欄數組）公式 `1;2;3`:
+- 例2，為名為 `Sheet1` 的工作表 `A3` 儲存格設定一維縱向常量數組（欄數組）公式 `1;2;3`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
 ```
 
-- 例3，為名為 `Sheet1` 的工作表 `A3` 存儲格設定一維橫向常量數組（列數組）公式 `"a","b","c"`:
+- 例3，為名為 `Sheet1` 的工作表 `A3` 儲存格設定一維橫向常量數組（列數組）公式 `"a","b","c"`:
 
 ```go
 err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
 ```
 
-- 例4，為名為 `Sheet1` 的工作表 `A3` 存儲格設定二維常量數組公式 `{1,2;"a","b"}`:
+- 例4，為名為 `Sheet1` 的工作表 `A3` 儲存格設定二維常量數組公式 `{1,2;"a","b"}`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
@@ -656,7 +668,7 @@ err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例5，為名為 `Sheet1` 的工作表 `A3` 存儲格設定區域數組公式 `A1:A2`:
+- 例5，為名為 `Sheet1` 的工作表 `A3` 儲存格設定區域數組公式 `A1:A2`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
@@ -664,7 +676,7 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例6，為名為 `Sheet1` 的工作表 `C1:C5` 區域的存儲格設定共享公式 `=A1+B1`，其中 `C1` 為主存儲格:
+- 例6，為名為 `Sheet1` 的工作表 `C1:C5` 區域的儲存格設定共享公式 `=A1+B1`，其中 `C1` 為主儲存格:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
@@ -672,7 +684,7 @@ err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
-- 例7，為名為 `Sheet1` 的工作表 `C2` 存儲格設定表格公式 `=SUM(Table1[[A]:[B]])`:
+- 例7，為名為 `Sheet1` 的工作表 `C2` 儲存格設定表格公式 `=SUM(Table1[[A]:[B]])`:
 
 ```go
 package main
@@ -725,13 +737,13 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 
 根據給定的工作表名和儲存格坐標獲取該儲存格上的公式。
 
-## 計算存儲格的值 {#CalcCellValue}
+## 計算儲存格的值 {#CalcCellValue}
 
 ```go
 func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表名和存儲格坐標計算包含公式存儲格的值。該方法目前正在開發中，尚未支援反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
+根據給定的工作表名和儲存格坐標計算包含公式儲存格的值。該方法目前正在開發中，尚未支援反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
 
 支援的公式函式列表如下：
 

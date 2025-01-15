@@ -107,6 +107,7 @@
   * [Ajouter un commentaire](cell.md#AddComment)
   * [Obtenir un commentaire](cell.md#GetComments)
   * [Supprimer le commentaire](cell.md#DeleteComment)
+  * [Ajouter les erreurs ignorées](cell.md#AddIgnoredErrors)
   * [Formule de définition de cellule](cell.md#SetCellFormula)
   * [Obtenir la formule cellulaire](cell.md#GetCellFormula)
   * [Calculer la valeur de la cellule](cell.md#CalcCellValue)

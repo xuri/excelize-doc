@@ -626,6 +626,18 @@ func (f *File) DeleteComment(sheet, cell string) error
 err := f.DeleteComment("ورقة1", "A30")
 ```
 
+## إضافة الأخطاء المتجاهلة {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+توفر AddIgnoredErrors طريقة لتجاهل الخطأ في نطاق من الخلايا. على سبيل المثال: تجاهل الخطأ "الرقم المحفوظ كنص" في `ورقة1` لنطاق من الخلايا `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("ورقة1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## تعيين صيغة الخلية {#SetCellFormula}
 
 ```go

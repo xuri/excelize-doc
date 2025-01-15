@@ -22,13 +22,13 @@ type Options struct {
 
 `Password` 以明文形式指定開啓和儲存活頁簿時所使用的密碼，默認值為空。
 
-`RawCellValue` 用以指定讀取存儲格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
+`RawCellValue` 用以指定讀取儲存格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
 
 `UnzipSizeLimit` 用以指定開啓電子錶格檔案時的解壓縮大小限制（以位元組為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
 
 `UnzipXMLSizeLimit` 用以指定解壓每個工作表以及共享字符表時的內存限制（以位元組為單位），當大小超過此值時工作表 XML 檔案將被解壓至系統臨時目錄，該值應小於或等於 `UnzipSizeLimit`，默認大小限制為 16MB。
 
-`ShortDatePattern` 用以指定短日期數字格式代碼。在電子錶格應用程式中，可以透過為存儲格設定帶有日期格式的數字格式，將日期和時間序列號顯示為日期值。其中以星號 (\*) 開頭的日期格式響應為作業系統指定的區域日期和時間設定的更改。沒有星號的格式不受作業系統設定的影響。`ShortDatePattern` 用於指定讀取以星號開頭的日期格式時所應用的短日期數字格式代碼。
+`ShortDatePattern` 用以指定短日期數字格式代碼。在電子錶格應用程式中，可以透過為儲存格設定帶有日期格式的數字格式，將日期和時間序列號顯示為日期值。其中以星號 (\*) 開頭的日期格式響應為作業系統指定的區域日期和時間設定的更改。沒有星號的格式不受作業系統設定的影響。`ShortDatePattern` 用於指定讀取以星號開頭的日期格式時所應用的短日期數字格式代碼。
 
 `LongDatePattern` 用以指定長日期數字格式代碼。
 
@@ -343,8 +343,8 @@ ShowFormulas      | `*bool`    | 指定工作表是否顯示公式，默認值�
 ShowGridLines     | `*bool`    | 指定工作表是否顯示網格線，默認值為 `true`
 ShowRowColHeaders | `*bool`    | 指定工作表是否顯示標題列和標題欄，默認值為 `true`
 ShowRuler         | `*bool`    | 指定是否在頁面配置檢視中顯示標尺，默認值為 `true`
-ShowZeros         | `*bool`    | 指定是否顯示存儲格的零值，默認值為 `true`，否則將顯示空白
-TopLeftCell       | `*string`  | 指定左上角可見存儲格的坐標
+ShowZeros         | `*bool`    | 指定是否顯示儲存格的零值，默認值為 `true`，否則將顯示空白
+TopLeftCell       | `*string`  | 指定左上角可見儲存格的坐標
 View              | `*string`  | 指示工作表檢視類型，枚舉值為 `normal`，`pageBreakPreview` 和 `pageLayout`
 ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口縮放比例，區間範圍限於 10 ~ 400，默認值為 `100`
 

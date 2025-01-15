@@ -347,7 +347,7 @@ if err = rows.Close(); err != nil {
 func (rows *Rows) Columns(opts ...Options) ([]string, error)
 ```
 
-此函式流式逐列讀取工作表，傳回當前列中各欄存儲格的值，不會跳過工作表尾部的有效空白列。
+此函式流式逐列讀取工作表，傳回當前列中各欄儲存格的值，不會跳過工作表尾部的有效空白列。
 
 ### 列迭代器 - 遍歷操作
 
@@ -487,7 +487,7 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-根據給定的工作表名稱、起始坐標和 `slice` 類型引用按欄賦值。例如，在名為 `Sheet1` 的工作表 `B` 欄上，以 `B6` 存儲格作為起始坐標按欄賦值：
+根據給定的工作表名稱、起始坐標和 `slice` 類型引用按欄賦值。例如，在名為 `Sheet1` 的工作表 `B` 欄上，以 `B6` 儲存格作為起始坐標按欄賦值：
 
 ```go
 err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
@@ -499,7 +499,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-根據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。此功能是併發安全的。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 存儲格作為起始坐標按列賦值：
+根據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。此功能是併發安全的。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 儲存格作為起始坐標按列賦值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
@@ -527,7 +527,7 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 func (f *File) SetSheetDimension(sheet string, rangeRef string) error
 ```
 
-根據給定的工作表名稱和存儲格坐標或存儲格坐標區域設定或移除工作表的已用區域。使用的存儲格包括具有公式、文本內容和存儲格格式的存儲格。例如 `A1:D5`。當給定的存儲格坐標區域為空字符時，將移除工作表的已用區域。
+根據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。
 
 ## 獲取工作表已用區域 {#GetSheetDimension}
 

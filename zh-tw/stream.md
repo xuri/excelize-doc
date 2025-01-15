@@ -13,7 +13,7 @@ type StreamWriter struct {
 }
 ```
 
-`Cell` 在 `StreamWriter.SetRow` 中使用，用於指定存儲格的值、公式和樣式。
+`Cell` 在 `StreamWriter.SetRow` 中使用，用於指定儲存格的值、公式和樣式。
 
 ```go
 type Cell struct {
@@ -40,7 +40,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 透過給定的工作表名稱返回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確保所寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中內存資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少內存使用，此時您無法獲取存儲格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
+NewStreamWriter 透過給定的工作表名稱返回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確保所寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中內存資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少內存使用，此時您無法獲取儲存格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
 
 ```go
 f := excelize.NewFile()
@@ -95,7 +95,7 @@ if err := f.SaveAs("Book1.xlsx"); err != nil {
 }
 ```
 
-流式設定存儲格的公式和值：
+流式設定儲存格的公式和值：
 
 ```go
 err := sw.SetRow("A1", []interface{}{
@@ -104,7 +104,7 @@ err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Formula: "SUM(A1,B1)"}})
 ```
 
-流式設定存儲格的值和列樣式：
+流式設定儲存格的值和列樣式：
 
 ```go
 err := sw.SetRow("A1", []interface{}{
@@ -112,7 +112,7 @@ err := sw.SetRow("A1", []interface{}{
     excelize.RowOpts{StyleID: styleID, Height: 20, Hidden: false})
 ```
 
-流式設定存儲格的值和列的分級顯示：
+流式設定儲存格的值和列的分級顯示：
 
 ```go
 err := sw.SetRow("A1", []interface{}{
@@ -133,7 +133,7 @@ SetRow 透過給定的起始坐標和指向數組類別「切片」的指針將�
 func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
-根據給定的存儲格坐標區域和條件式格式流式創建表格。
+根據給定的儲存格坐標區域和條件式格式流式創建表格。
 
 例1，在 `A1:D5` 區域流式創建表格：
 
@@ -174,13 +174,13 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 
 透過給定的窗格樣式參數流式設定凍結窗格，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定窗格。
 
-## 流式合併存儲格 {#MergeCell}
+## 流式合併儲存格 {#MergeCell}
 
 ```go
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
-透過給定的存儲格坐標區域流式合併存儲格，當前僅支援合併非交疊區域存儲格。
+透過給定的儲存格坐標區域流式合併儲存格，當前僅支援合併非交疊區域儲存格。
 
 ## 流式設定欄寬度 {#SetColWidth}
 

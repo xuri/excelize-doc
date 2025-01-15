@@ -620,6 +620,18 @@ DeleteComment fournit la méthode pour supprimer un commentaire dans une feuille
 err := f.DeleteComment("Feuil1", "A30")
 ```
 
+## Ajouter les erreurs ignorées {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors fournit la méthode permettant d'ignorer l'erreur pour une plage de cellules. Par exemple: ignorer l'erreur "nombre stocké sous forme de texte" sur `Feuille1` pour la plage de cellules `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Feuille1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Formule de définition de cellule {#SetCellFormula}
 
 ```go

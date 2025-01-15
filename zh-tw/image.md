@@ -79,11 +79,11 @@ func main() {
 
 可選參數 `LockAspectRatio` 設定是否鎖定圖形對象的縱橫比，其缺省值為 `false`。
 
-可選參數 `AutoFit` 設定是否使圖形對象尺寸自動適合存儲格，其缺省值為 `false`。
+可選參數 `AutoFit` 設定是否使圖形對象尺寸自動適合儲存格，其缺省值為 `false`。
 
-可選參數 `OffsetX` 設定圖形對象與插入存儲格的水平偏移量，其缺省值為 0。
+可選參數 `OffsetX` 設定圖形對象與插入儲存格的水平偏移量，其缺省值為 0。
 
-可選參數 `OffsetY` 設定圖形對象與插入存儲格的垂直偏移量，缺省值為 0。
+可選參數 `OffsetY` 設定圖形對象與插入儲存格的垂直偏移量，缺省值為 0。
 
 可選參數 `ScaleX` 設定圖形對象的水平縮放比例，其缺省值為 1.0，表示 100%。
 
@@ -91,9 +91,9 @@ func main() {
 
 可選參數 `Hyperlink` 用以設定圖形對象的超鏈接。
 
-可選參數 `HyperlinkType` 設定圖形對象超鏈接的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到存儲格位置時，坐標需要以 `#` 開始。
+可選參數 `HyperlinkType` 設定圖形對象超鏈接的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
 
-可選參數 `Positioning` 定義了電子錶格中圖形對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨存儲格改變）、`twoCell`（大小和位置隨存儲格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設置此參數時，默認屬性為大小、位置隨存儲格改變。
+可選參數 `Positioning` 定義了電子錶格中圖形對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨儲存格改變）、`twoCell`（大小和位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設置此參數時，默認屬性為大小、位置隨儲存格改變。
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error

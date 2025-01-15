@@ -620,6 +620,18 @@ DeleteComment provides the method to delete comment in a sheet by given workshee
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## Add ignored errors {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors provides the method to ignored error for a range of cells. For example: ignore "number stored as text" error on `Sheet1` for range of cells `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Set cell formula {#SetCellFormula}
 
 ```go

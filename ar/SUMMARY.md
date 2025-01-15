@@ -107,6 +107,7 @@
   * [إضافة تعليق](cell.md#AddComment)
   * [الحصول على تعليق](cell.md#GetComments)
   * [حذف تعليق](cell.md#DeleteComment)
+  * [إضافة الأخطاء المتجاهلة](cell.md#AddIgnoredErrors)
   * [تعيين صيغة الخلية](cell.md#SetCellFormula)
   * [الحصول على صيغة الخلية](cell.md#GetCellFormula)
   * [حساب قيمة الخلية](cell.md#CalcCellValue)

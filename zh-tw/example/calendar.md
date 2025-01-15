@@ -25,7 +25,7 @@ func main() {
         err   error
         addr  string
         sheet = "Sheet1"
-        // 定義存儲格的值
+        // 定義儲存格的值
         data = map[int][]interface{}{
             1: {"五月 2020"},
             3: {"日", "一", "二", "三",
@@ -72,19 +72,19 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 合併月份存儲格
+    // 合併月份儲存格
     if err = f.MergeCell(sheet, "B1", "D1"); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定月份存儲格樣式
+    // 設定月份儲存格樣式
     if monthStyle, err = f.NewStyle(&excelize.Style{
         Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Microsoft YaHei"},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定月份存儲格字型
+    // 設定月份儲存格字型
     if err = f.SetCellStyle(sheet, "B1", "D1", monthStyle); err != nil {
         fmt.Println(err)
         return
@@ -104,14 +104,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 創建日期存儲格樣式
+    // 創建日期儲存格樣式
     if dataStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{top, left, right},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定日期存儲格樣式
+    // 設定日期儲存格樣式
     for _, r := range []int{4, 6, 8, 10, 12, 14} {
         if err = f.SetCellStyle(sheet, "B"+strconv.Itoa(r),
             "H"+strconv.Itoa(r), dataStyle); err != nil {
@@ -119,14 +119,14 @@ func main() {
             return
         }
     }
-    // 創建空白存儲格樣式
+    // 創建空白儲存格樣式
     if blankStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{left, right, bottom},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定空白存儲格樣式
+    // 設定空白儲存格樣式
     for _, r := range []int{5, 7, 9, 11, 13, 15} {
         if err = f.SetCellStyle(sheet, "B"+strconv.Itoa(r),
             "H"+strconv.Itoa(r), blankStyle); err != nil {
@@ -134,14 +134,14 @@ func main() {
             return
         }
     }
-    // 創建上個月和下個月日期中的空白存儲格樣式
+    // 創建上個月和下個月日期中的空白儲存格樣式
     if grayBlankStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{left, right, bottom},
         Fill:   fill}); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定上個月和下個月日期中的空白存儲格樣式
+    // 設定上個月和下個月日期中的空白儲存格樣式
     if err = f.SetCellStyle(sheet, "B5", "F5", grayBlankStyle); err != nil {
         fmt.Println(err)
         return
@@ -150,14 +150,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 創建上個月和下個月日期的存儲格樣式
+    // 創建上個月和下個月日期的儲存格樣式
     if grayDataStyle, err = f.NewStyle(&excelize.Style{
         Border: []excelize.Border{left, right, top},
         Font:   &excelize.Font{Color: "777777"}, Fill: fill}); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定上個月和下個月日期的存儲格樣式
+    // 設定上個月和下個月日期的儲存格樣式
     if err = f.SetCellStyle(sheet, "B4", "F4", grayDataStyle); err != nil {
         fmt.Println(err)
         return
@@ -166,14 +166,14 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 創建筆記存儲格樣式
+    // 創建筆記儲存格樣式
     if noteStyle, err = f.NewStyle(&excelize.Style{
         Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Microsoft YaHei"},
     }); err != nil {
         fmt.Println(err)
         return
     }
-    // 設定筆記存儲格樣式
+    // 設定筆記儲存格樣式
     if err = f.SetCellStyle(sheet, "B18", "B18", noteStyle); err != nil {
         fmt.Println(err)
         return

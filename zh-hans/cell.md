@@ -622,6 +622,18 @@ func (f *File) DeleteComment(sheet, cell string) error
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 添加忽略错误 {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+根据给定的工作表名称、单元格坐标范围和错误类型忽略指定范围内单元格中的错误。例如，忽略 `Sheet1` 工作表中 `D15 C18:D19` 范围内单元格中“以文本形式存储的数字”错误：
+
+```go
+err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## 设置公式 {#SetCellFormula}
 
 ```go

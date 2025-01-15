@@ -620,6 +620,18 @@ DeleteComment bietet die Methode zum Löschen von Kommentaren in einem Blatt nac
 err := f.DeleteComment("Tabelle1", "A30")
 ```
 
+## Ignorierte Fehler hinzufügen {#AddIgnoredErrors}
+
+```go
+func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
+```
+
+AddIgnoredErrors bietet die Methode, Fehler für einen Zellbereich zu ignorieren. Beispiel: Ignorieren Sie den Fehler "Zahl als Text gespeichert" in `Tabelle1` für den Zellbereich `D15 C18:D19`:
+
+```go
+err := f.AddIgnoredErrors("Tabelle1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
+```
+
 ## Festlegen der Zellenformel {#SetCellFormula}
 
 ```go

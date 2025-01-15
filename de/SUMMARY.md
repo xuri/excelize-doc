@@ -107,6 +107,7 @@
   * [Kommentar hinzufügen](cell.md#AddComment)
   * [Kommentar abrufen](cell.md#GetComments)
   * [Kommentar löschen](cell.md#DeleteComment)
+  * [Ignorierte Fehler hinzufügen](cell.md#AddIgnoredErrors)
   * [Festlegen der Zellenformel](cell.md#SetCellFormula)
   * [Abrufen der Zellenformel](cell.md#GetCellFormula)
   * [Zellenwert berechnen](cell.md#CalcCellValue)
