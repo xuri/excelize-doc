@@ -13,7 +13,7 @@ v2.4.0 ~ v2.6.1 | 1.15
 v2.0.2 ~ v2.3.2 | 1.10
 v1.0.0 ~ v2.0.1 | 1.6
 
-Using the latest version Excelize library require to Go version 1.18 or later. Note that, there are some [incompatible changes](https://github.com/golang/go/issues/61881) in the Go 1.21.0, the Excelize library can not working with that version normally, if you are using the Go 1.21.x, please upgrade to the Go 1.21.1 and later version.
+Using the latest version Excelize library require to Go version 1.20 or later. Note that, there are some [incompatible changes](https://github.com/golang/go/issues/61881) in the Go 1.21.0, the Excelize library can not working with that version normally, if you are using the Go 1.21.x, please upgrade to the Go 1.21.1 and later version.
 
 - Installation
 
