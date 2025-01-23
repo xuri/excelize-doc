@@ -77,10 +77,10 @@ SetCellDefault 는 셀을 이스케이프하지 않고 셀의 문자열 형식 �
 ## 정수 값 설정 {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-SetCellInt 는 지정된 워크 시트 이름, 셀 좌표 및 셀 값으로 셀의 int 형식 값을 설정하는 기능을 제공합니다.
+SetCellInt 는 지정된 워크 시트 이름, 셀 좌표 및 셀 값으로 셀의 `int64` 형식 값을 설정하는 기능을 제공합니다.
 
 ## 부호 없는 정수 값 설정 {#SetCellUint}
 

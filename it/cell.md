@@ -77,10 +77,10 @@ SetCellDefault fornisce una funzione per impostare il valore del tipo di stringa
 ## Imposta il valore intero {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-SetCellInt fornisce una funzione per impostare il valore del tipo int di una cella in base al nome del foglio di lavoro, al riferimento di cella e al valore della cella specificati.
+SetCellInt fornisce una funzione per impostare il valore del tipo `int64` di una cella in base al nome del foglio di lavoro, al riferimento di cella e al valore della cella specificati.
 
 ## Imposta il valore intero senza segno {#SetCellUint}
 

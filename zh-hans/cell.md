@@ -79,7 +79,7 @@ func (f *File) SetCellDefault(sheet, cell, value string) error
 ## 设置整数 {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
 根据给定的工作表名和单元格坐标设置整数型单元格的值。

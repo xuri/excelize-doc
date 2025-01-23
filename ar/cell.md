@@ -77,10 +77,10 @@ func (f *File) SetCellDefault(sheet, cell, value string) error
 ## تعيين قيمة عدد صحيح {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-يوفر SetCellInt دالة لتعيين قيمة نوع int لخلية من خلال اسم ورقة العمل المحدد وإحداثيات الخلية وقيمة الخلية.
+يوفر SetCellInt دالة لتعيين قيمة نوع `int64` لخلية من خلال اسم ورقة العمل المحدد وإحداثيات الخلية وقيمة الخلية.
 
 ## تعيين قيمة عدد صحيح غير موقعة {#SetCellUint}
 

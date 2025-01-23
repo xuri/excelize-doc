@@ -77,10 +77,10 @@ SetCellDefault proporciona una función para establecer el valor del tipo de cad
 ## Establecer valor entero {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-SetCellInt proporciona una función para establecer el valor de tipo int de una celda por nombre de hoja de trabajo, coordenadas de celda y valor de celda dados.
+SetCellInt proporciona una función para establecer el valor de tipo `int64` de una celda por nombre de hoja de trabajo, coordenadas de celda y valor de celda dados.
 
 ## Establecer un valor entero sin signo {#SetCellUint}
 

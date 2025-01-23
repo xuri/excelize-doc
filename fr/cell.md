@@ -77,10 +77,10 @@ SetCellDefault fournit une fonction pour définir la valeur de type chaîne d'un
 ## Définir la valeur entière {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-SetCellInt fournit une fonction pour définir la valeur de type int d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
+SetCellInt fournit une fonction pour définir la valeur de type `int64` d'une cellule par nom de feuille de calcul donné, coordonnées de cellule et valeur de cellule.
 
 ## Définir une valeur entière non signée {#SetCellUint}
 

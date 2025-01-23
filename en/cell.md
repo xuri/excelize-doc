@@ -77,10 +77,10 @@ SetCellDefault provides a function to set the string type value of a cell as a d
 ## Set integer value {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-SetCellInt provides a function to set the int type value of a cell by given worksheet name, cell reference, and cell value.
+SetCellInt provides a function to set the `int64` type value of a cell by given worksheet name, cell reference, and cell value.
 
 ## Set unsigned integer value {#SetCellUint}
 

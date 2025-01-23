@@ -77,10 +77,10 @@ SetCellDefault bietet eine Funktion zum Festlegen des Zeichenfolgentypwerts eine
 ## Ganzzahlwert festlegen {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-SetCellInt bietet eine Funktion zum Festlegen des Int-Typ-Werts einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellkoordinaten und des Zellenwerts.
+SetCellInt bietet eine Funktion zum Festlegen des Werts vom Typ `int64` einer Zelle anhand des angegebenen Arbeitsblattnamens, der Zellreferenz und des Zellwerts.
 
 ## Legen Sie einen vorzeichenlosen Ganzzahlwert fest {#SetCellUint}
 

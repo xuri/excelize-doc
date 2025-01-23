@@ -77,10 +77,10 @@ func (f *File) SetCellDefault(sheet, cell, value string) error
 ## 実数を設定する {#SetCellInt}
 
 ```go
-func (f *File) SetCellInt(sheet, cell string, value int) error
+func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-指定されたワークシート名とセル座標に基づいて、実際のセルの値を設定します。
+指定されたワークシート名、セル参照、およびセル値によってセルの `int64` 型の値を設定する関数を提供します。
 
 ## 符号なし整数値を設定する {#SetCellUint}
 
