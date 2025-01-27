@@ -77,7 +77,7 @@ func main() {
     }
     // définir le style de police pour le "MOIS"
     if monthStyle, err = f.NewStyle(&excelize.Style{
-        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 22, Family: "Arial"},
+        Font: &excelize.Font{Color: "1F7F3B", Bold: true, Size: 22, Family: "Arial"},
     }); err != nil {
         fmt.Println(err)
         return
@@ -89,10 +89,10 @@ func main() {
     }
     // définir le style du 'DIMANCHE' au 'SAMEDI'
     if titleStyle, err = f.NewStyle(&excelize.Style{
-        Font:      &excelize.Font{Color: "1f7f3b", Bold: true, Family: "Arial"},
+        Font:      &excelize.Font{Color: "1F7F3B", Bold: true, Family: "Arial"},
         Fill:      excelize.Fill{Type: "pattern", Color: []string{"E6F4EA"}, Pattern: 1},
         Alignment: &excelize.Alignment{Vertical: "center", Horizontal: "center"},
-        Border:    []excelize.Border{{Type: "top", Style: 2, Color: "1f7f3b"}},
+        Border:    []excelize.Border{{Type: "top", Style: 2, Color: "1F7F3B"}},
     }); err != nil {
         fmt.Println(err)
         return
@@ -166,7 +166,7 @@ func main() {
     }
     // définir le style de police pour les "Notes"
     if noteStyle, err = f.NewStyle(&excelize.Style{
-        Font: &excelize.Font{Color: "1f7f3b", Bold: true, Size: 14, Family: "Arial"},
+        Font: &excelize.Font{Color: "1F7F3B", Bold: true, Size: 14, Family: "Arial"},
     }); err != nil {
         fmt.Println(err)
         return

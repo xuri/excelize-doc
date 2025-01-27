@@ -90,10 +90,10 @@ func main() {
     }
     // 테두리 스타일 정의
     border := []excelize.Border{
-        {Type: "top", Style: 1, Color: "cccccc"},
-        {Type: "left", Style: 1, Color: "cccccc"},
-        {Type: "right", Style: 1, Color: "cccccc"},
-        {Type: "bottom", Style: 1, Color: "cccccc"},
+        {Type: "top", Style: 1, Color: "CCCCCC"},
+        {Type: "left", Style: 1, Color: "CCCCCC"},
+        {Type: "right", Style: 1, Color: "CCCCCC"},
+        {Type: "bottom", Style: 1, Color: "CCCCCC"},
     }
     // 셀 스타일 정의
     if cellsStyle, err = f.NewStyle(&excelize.Style{
@@ -106,7 +106,7 @@ func main() {
     if headerStyle, err = f.NewStyle(&excelize.Style{
         Font: &excelize.Font{Bold: true},
         Fill: excelize.Fill{
-            Type: "pattern", Color: []string{"dae9f3"}, Pattern: 1},
+            Type: "pattern", Color: []string{"DAE9F3"}, Pattern: 1},
         Border: border},
     ); err != nil {
         fmt.Println(err)

@@ -61,8 +61,8 @@ if err := sw.SetRow("A1",
     []interface{}{
         excelize.Cell{StyleID: styleID, Value: "Dati"},
         []excelize.RichTextRun{
-            {Text: "Ricco ", Font: &excelize.Font{Color: "2354e8"}},
-            {Text: "Testo", Font: &excelize.Font{Color: "e83723"}},
+            {Text: "Ricco ", Font: &excelize.Font{Color: "2354E8"}},
+            {Text: "Testo", Font: &excelize.Font{Color: "E83723"}},
         },
     },
     excelize.RowOpts{Height: 45, Hidden: false}); err != nil {
