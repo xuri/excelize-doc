@@ -195,6 +195,7 @@
   * [Insert page break to stream](stream.md#InsertPageBreak)
   * [Set panes to stream](stream.md#SetPanes)
   * [Merge cell to stream](stream.md#MergeCell)
+  * [Set column style to stream](stream.md#SetColStyle)
   * [Set column width to stream](stream.md#SetColWidth)
   * [Flush stream](stream.md#Flush)
 * [Data](data.md)
