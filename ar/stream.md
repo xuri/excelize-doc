@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 يوفر MergeCell وظيفة لدمج الخلايا بواسطة منطقة إحداثيات معينة لـ StreamWriter. لا تقم بإنشاء خلية مدمجة تتداخل مع خلية مدمجة أخرى موجودة.
 
+## تعيين نمط العمود في الدفق {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+توفر SetColStyle دالة لتعيين نمط عمود واحد أو أعمدة متعددة لـ `StreamWriter`. لاحظ أنه يجب عليك استدعاء الدالة `SetColStyle` قبل الدالة [`SetRow`](stream.md#SetRow). على سبيل المثال، قم بتعيين نمط العمود `H`:
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## تعيين عرض العمود في الدفق {#SetColWidth}
 
 ```go

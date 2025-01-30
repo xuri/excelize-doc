@@ -195,6 +195,7 @@
   * [إدراج فاصل صفحة للدفق](stream.md#InsertPageBreak)
   * [تعيين جزء النافذة للدفق](stream.md#SetPanes)
   * [دمج الخلية للدفق](stream.md#MergeCell)
+  * [تعيين نمط العمود في الدفق](stream.md#SetColStyle)
   * [تعيين عرض العمود في الدفق](stream.md#SetColWidth)
   * [تدفق الدفق](stream.md#Flush)
 * [البيانات](data.md)

@@ -186,7 +186,7 @@ MergeCell provides a function to merge cells by a given range reference for the 
 func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 ```
 
-SetColStyle provides a function to set the style of a single column or multiple columns for the StreamWriter. Note that you must call  the `SetColStyle` function before the [`SetRow`](stream.md#SetRow) function. For example set style of column `H` on `Sheet1`:
+SetColStyle provides a function to set the style of a single column or multiple columns for the `StreamWriter`. Note that you must call  the `SetColStyle` function before the [`SetRow`](stream.md#SetRow) function. For example set style of column `H`:
 
 ```go
 err := sw.SetColStyle(8, 8, style)

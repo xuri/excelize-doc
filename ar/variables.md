@@ -86,6 +86,8 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // حدد ErrSparklineType رسالة الخطأ عند تلقي معلمات نوع خط المؤشر غير الصالحة.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // قام ErrStreamSetColStyle بتعريف رسالة الخطأ عند تعيين نمط العمود في وضع الكتابة المتدفقة.
+    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // حدد ErrStreamSetColWidth رسالة الخطأ على عرض العمود المحدد في وضع كتابة الدفق.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // حدد ErrStreamSetPanes رسالة الخطأ في الأجزاء المحددة في وضع كتابة الدفق.
