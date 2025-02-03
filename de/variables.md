@@ -86,6 +86,8 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrSparklineType definierte die Fehlermeldung beim Empfang der ungültigen Sparkline-'Type'-Parameter.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrStreamSetColStyle definierte die Fehlermeldung beim Festlegen des Spaltenstils im Stream-Schreibmodus.
+    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth definierte die Fehlermeldung beim Setzen der Spaltenbreite im Stream-Schreibmodus.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrStreamSetPanes hat die Fehlermeldung für festgelegte Bereiche im Stream-Schreibmodus definiert.

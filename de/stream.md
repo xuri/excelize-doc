@@ -180,7 +180,19 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den StreamWriter. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.
 
-## Festlegen der Spaltenbreite für den Stream {#SetColWidth}
+## Spaltenstil auf Stream setzen {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle bietet eine Funktion zum Festlegen des Stils einer einzelnen Spalte oder mehrerer Spalten für den `StreamWriter`. Beachten Sie, dass Sie die Funktion `SetColStyle` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen. Beispiel: Festlegen des Stils der Spalte `H`:
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
+## Spaltenbreite auf Stream festlegen {#SetColWidth}
 
 ```go
 func (sw *StreamWriter) SetColWidth(min, max int, width float64) error

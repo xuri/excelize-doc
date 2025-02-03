@@ -86,7 +86,7 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrSparklineType defined the error message on receive the invalid sparkline Type parameters.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
-    // قام ErrStreamSetColStyle بتعريف رسالة الخطأ عند تعيين نمط العمود في وضع الكتابة المتدفقة.
+    // ErrStreamSetColStyle defined the error message on set column style in stream writing mode.
     ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth defined the error message on set column width in stream writing mode.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
