@@ -86,6 +86,8 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrSparklineType definió el mensaje de error al recibir los parámetros de tipo de minigráfico no válidos.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrStreamSetColStyle definió el mensaje de error al establecer el estilo de columna en el modo de escritura de secuencia.
+    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth definió el mensaje de error en el ancho de columna establecido en el modo de escritura de flujo.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrStreamSetPanes definió el mensaje de error en los paneles establecidos en el modo de escritura de flujo.
