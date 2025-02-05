@@ -86,6 +86,8 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrSparklineType a défini le message d'erreur lors de la réception des paramètres de type sparkline non valides.
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrStreamSetColStyle a défini le message d'erreur lors de la définition du style de colonne en mode d'écriture de flux.
+    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth a défini le message d'erreur sur la largeur de colonne définie en mode d'écriture de flux.
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrStreamSetPanes a défini le message d'erreur sur les volets définis en mode d'écriture de flux.

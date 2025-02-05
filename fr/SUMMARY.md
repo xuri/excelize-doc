@@ -195,6 +195,7 @@
   * [Insérer un saut de page pour diffuser](stream.md#InsertPageBreak)
   * [Définir les volets pour la diffusion en continu](stream.md#SetPanes)
   * [Fusionner la cellule pour diffuser](stream.md#MergeCell)
+  * [Définir le style de colonne dans le flux](stream.md#SetColStyle)
   * [Définir la largeur de la colonne dans le flux](stream.md#SetColWidth)
   * [Flush le flux](stream.md#Flush)
 * [Données](data.md)

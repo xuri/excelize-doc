@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell fournit une fonction pour fusionner les cellules par une zone de coordonnées donnée pour StreamWriter. Ne créez pas de cellule fusionnée qui chevauche une autre cellule fusionnée existante.
 
+## Définir le style de colonne dans le flux {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle fournit une fonction permettant de définir le style d'une colonne unique ou de plusieurs colonnes pour `StreamWriter`. Notez que vous devez appeler la fonction `SetColStyle` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, définissez le style de la colonne `H` :
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## Définir la largeur de la colonne dans le flux {#SetColWidth}
 
 ```go
