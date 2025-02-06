@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell fornisce una funzione per unire le celle in base a un determinato intervallo di riferimento per `StreamWriter`. Non creare una cella unita che si sovrappone a un'altra cella unita esistente.
 
+## Imposta lo stile della colonna su streaming {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle fornisce una funzione per impostare lo stile di una singola colonna o di più colonne per `StreamWriter`. Nota che devi chiamare la funzione `SetColStyle` prima della funzione [`SetRow`](stream.md#SetRow). Ad esempio, imposta lo stile della colonna `H`:
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## Imposta la larghezza della colonna per lo streaming {#SetColWidth}
 
 ```go

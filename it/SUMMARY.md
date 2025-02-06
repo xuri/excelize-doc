@@ -195,6 +195,7 @@
   * [Inserisci interruzione di pagina per lo streaming](stream.md#InsertPageBreak)
   * [Imposta i riquadri per lo streaming](stream.md#SetPanes)
   * [Unisci la cella allo streaming](stream.md#MergeCell)
+  * [Imposta lo stile della colonna su streaming](stream.md#SetColStyle)
   * [Imposta la larghezza della colonna per lo streaming](stream.md#SetColWidth)
   * [Flusso a streaming](stream.md#Flush)
 * [Dati](data.md)
