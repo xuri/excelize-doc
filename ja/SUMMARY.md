@@ -195,6 +195,7 @@
   * [ストリームに改ページを挿入](stream.md#InsertPageBreak)
   * [ストリームによるペインの設定](stream.md#SetPanes)
   * [ストリームでマージセル](stream.md#MergeCell)
+  * [ストリームの列スタイルを設定する](stream.md#SetColStyle)
   * [ストリームの列幅を設定する](stream.md#SetColWidth)
   * [エンディングストリーム](stream.md#Flush)
 * [データ](data.md)

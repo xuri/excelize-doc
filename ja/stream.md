@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 指定されたセル座標範囲を使用してセルをストリーミングすると、現在、重なり合うセル以外のセルの結合のみがサポートされます。
 
+## ストリームの列スタイルを設定する {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle は、`StreamWriter` の単一列または複数列のスタイルを設定する関数を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetColStyle` 関数を呼び出す必要があることに注意してください。たとえば、列 `H` のスタイルを設定するには、次のようにします。
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## ストリームの列幅を設定する {#SetColWidth}
 
 ```go

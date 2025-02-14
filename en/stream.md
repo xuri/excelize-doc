@@ -117,7 +117,7 @@ err := sw.SetRow("A1", []interface{}{
     excelize.Cell{Value: 1}}, excelize.RowOpts{OutlineLevel: 1})
 ```
 
-## Write sheet row to stream {#SetRow}
+## Write sheet row in stream {#SetRow}
 
 ```go
 func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpts) error
@@ -125,7 +125,7 @@ func (sw *StreamWriter) SetRow(cell string, values []interface{}, opts ...RowOpt
 
 SetRow writes an array to stream rows by giving starting cell reference and a pointer to an array of values. Note that you must call the [`Flush`](stream.md#Flush) function to end the streaming writing process.
 
-## Add table to stream {#AddTable}
+## Add table in stream {#AddTable}
 
 ```go
 func (sw *StreamWriter) AddTable(table *Table) error
@@ -156,7 +156,7 @@ err := sw.AddTable(&excelize.Table{
 
 Note that the table must be at least two lines including the header. The header cells must contain strings and must be unique. Currently only one table is allowed for a `StreamWriter`. [`AddTable`](stream.md#AddTable) must be called after the rows are written but before `Flush`. See [`AddTable`](utils.md#AddTable) for details on the table format.
 
-## Insert page break to stream {#InsertPageBreak}
+## Insert page break in stream {#InsertPageBreak}
 
 ```go
 func (sw *StreamWriter) InsertPageBreak(cell string) error
@@ -164,7 +164,7 @@ func (sw *StreamWriter) InsertPageBreak(cell string) error
 
 InsertPageBreak creates a page break to determine where the printed page ends and where begins the next one by a given cell reference, the content before the page break will be printed on one page and after the page break on another.
 
-## Set panes to stream {#SetPanes}
+## Set panes in stream {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes *Panes) error
@@ -172,7 +172,7 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 
 SetPanes provides a function to create and remove freeze panes and split panes by giving panes options for the `StreamWriter`. Note that you must call the `SetPanes` function before the [`SetRow`](stream.md#SetRow) function.
 
-## Merge cell to stream {#MergeCell}
+## Merge cell in stream {#MergeCell}
 
 ```go
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
@@ -180,19 +180,19 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell provides a function to merge cells by a given range reference for the `StreamWriter`. Don't create a merged cell that overlaps with another existing merged cell.
 
-## Set column style to stream {#SetColStyle}
+## Set column style in stream {#SetColStyle}
 
 ```go
 func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 ```
 
-SetColStyle provides a function to set the style of a single column or multiple columns for the `StreamWriter`. Note that you must call  the `SetColStyle` function before the [`SetRow`](stream.md#SetRow) function. For example set style of column `H`:
+SetColStyle provides a function to set the style of a single column or multiple columns for the `StreamWriter`. Note that you must call the `SetColStyle` function before the [`SetRow`](stream.md#SetRow) function. For example set style of column `H`:
 
 ```go
 err := sw.SetColStyle(8, 8, style)
 ```
 
-## Set column width to stream {#SetColWidth}
+## Set column width in stream {#SetColWidth}
 
 ```go
 func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
