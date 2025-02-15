@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 지정된 셀 좌표 범위 스트리밍병합 셀을 통해 현재 겹침이 아닌 범위 셀만 병합할 수 있습니다.
 
+## 스트림에서 열 스타일 설정 {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle 은 `StreamWriter`에 대한 단일 열 또는 여러 열의 스타일을 설정하는 함수를 제공합니다. `SetColStyle` 함수는 [`SetRow`](stream.md#SetRow) 함수 전에 호출해야 합니다. 예를 들어 `H` 열의 스타일을 설정합니다:
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## 스트림에서 열 너비 설정 {#SetColWidth}
 
 ```go

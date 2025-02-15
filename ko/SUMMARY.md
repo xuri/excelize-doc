@@ -195,6 +195,7 @@
   * [스트림에 페이지 나누기 삽입](stream.md#InsertPageBreak)
   * [스트림에 쓰기 창](stream.md#SetPanes)
   * [셀을 스트리밍병합합니다](stream.md#MergeCell)
+  * [스트림에서 열 스타일 설정](stream.md#SetColStyle)
   * [스트림에서 열 너비 설정](stream.md#SetColWidth)
   * [플러시 스트림](stream.md#Flush)
 * [데이터](data.md)
