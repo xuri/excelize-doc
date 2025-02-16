@@ -185,6 +185,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell fornece uma função para mesclar células por uma determinada referência de intervalo para o `StreamWriter`. Não crie uma célula mesclada que se sobreponha a outra célula mesclada existente.
 
+## Definir estilo de coluna no fluxo {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle fornece uma função para definir o estilo de uma única coluna ou de várias colunas para o `StreamWriter`. Observe que você deve chamar a função `SetColStyle` antes da função [`SetRow`](stream.md#SetRow). Por exemplo, defina o estilo da coluna `H`:
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## Defina a largura da coluna para transmitir {#SetColWidth}
 
 ```go

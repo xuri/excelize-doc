@@ -195,6 +195,7 @@
   * [Insira quebra de página para transmitir](stream.md#InsertPageBreak)
   * [Definir painéis para transmitir](stream.md#SetPanes)
   * [Mesclar célula para transmitir](stream.md#MergeCell)
+  * [Definir estilo de coluna no fluxo](stream.md#SetColStyle)
   * [Defina a largura da coluna para transmitir](stream.md#SetColWidth)
   * [Fluxo de descarga](stream.md#Flush)
 * [Dados](data.md)
