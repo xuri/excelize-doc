@@ -194,6 +194,7 @@
   * [Добавить таблицу в поток](stream.md#AddTable)
   * [Вставить разрыв страницы в поток](stream.md#InsertPageBreak)
   * [Записать оконную панель в поток](stream.md#SetPanes)
+  * [Установить стиль столбца в потоке](stream.md#SetColStyle)
   * [Объединить ячейку в поток](stream.md#MergeCell)
   * [Установите ширину столбца в потоке](stream.md#SetColWidth)
   * [Flush поток](stream.md#Flush)

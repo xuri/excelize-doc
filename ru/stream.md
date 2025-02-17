@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell предоставляет функцию объединения ячеек по заданной области координат для StreamWriter. Не создавайте объединенную ячейку, которая перекрывается с другой существующей объединенной ячейкой.
 
+## Установить стиль столбца в потоке {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+SetColStyle предоставляет функцию для установки стиля одного или нескольких столбцов для `StreamWriter`. Обратите внимание, что вы должны вызвать функцию `SetColStyle` перед функцией [`SetRow`](stream.md#SetRow). Например, установите стиль столбца `H`:
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## Установите ширину столбца в потоке {#SetColWidth}
 
 ```go

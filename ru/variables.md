@@ -86,6 +86,8 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrSparklineType определил сообщение об ошибке при получении недопустимых параметров спарклайна 'Type'
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrStreamSetColStyle определяет сообщение об ошибке при установке стиля столбца в режиме потоковой записи
+    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth определяет сообщение об ошибке при установке ширины столбца в режиме записи потока
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrStreamSetPanes определяет сообщение об ошибке на установленных панелях в режиме потоковой записи
