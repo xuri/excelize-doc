@@ -182,6 +182,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 透過給定的儲存格坐標區域流式合併儲存格，當前僅支援合併非交疊區域儲存格。
 
+## 流式設定欄樣式 {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+透過給定的欄區域序號範圍和樣式索引設定欄樣式，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄樣式。例如設置工作表上 `H` 欄的樣式：
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## 流式設定欄寬度 {#SetColWidth}
 
 ```go
