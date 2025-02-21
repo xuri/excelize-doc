@@ -182,6 +182,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 通过给定的单元格坐标区域流式合并单元格，当前仅支持合并非交叠区域单元格。
 
+## 流式设置列样式 {#SetColStyle}
+
+```go
+func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
+```
+
+根据给定的列区域序号范围和样式索引设置列样式，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置列样式。例如设置工作表上 `H` 列的样式：
+
+```go
+err := sw.SetColStyle(8, 8, style)
+```
+
 ## 流式设置列宽度 {#SetColWidth}
 
 ```go

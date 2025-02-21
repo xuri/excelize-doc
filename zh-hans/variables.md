@@ -88,6 +88,8 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
     // ErrSparklineType 定义了创建迷你图收到无效参数时的错误提示信息
     ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    // ErrStreamSetColStyle 定义了在流式写入模式下设置列样式时的错误提示信息
+    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth 定义了在流式写入模式下设置列宽度时的错误提示信息
     ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
     // ErrStreamSetPanes 定义了在流式写入模式下设置窗格时的错误提示信息

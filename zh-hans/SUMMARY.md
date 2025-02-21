@@ -195,6 +195,7 @@
   * [流式插入分页符](stream.md#InsertPageBreak)
   * [流式设置窗格](stream.md#SetPanes)
   * [流式合并单元格](stream.md#MergeCell)
+  * [流式设置列样式](stream.md#SetColStyle)
   * [流式设置列宽度](stream.md#SetColWidth)
   * [结束流式写入](stream.md#Flush)
 * [数据](data.md)
