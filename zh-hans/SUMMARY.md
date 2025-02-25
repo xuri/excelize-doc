@@ -181,7 +181,7 @@
   * [图案填充](style.md#pattern)
   * [对齐方式](style.md#align)
   * [字体下划线](style.md#underline)
-  * [数字自定义格式](style.md#number_format)
+  * [自定义数字格式](style.md#number_format)
   * [获取样式](style.md#GetStyle)
   * [设置列样式](style.md#SetColStyle)
   * [获取列样式](style.md#GetColStyle)
