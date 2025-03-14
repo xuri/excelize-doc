@@ -50,6 +50,26 @@ const (
 )
 ```
 
+تعرف CalcPropsOptions مجموعة الخصائص التي تستخدمها التطبيق لتسجيل حالة الحساب والتفاصيل.
+
+```go
+type CalcPropsOptions struct {
+    CalcID                *uint
+    CalcMode              *string
+    FullCalcOnLoad        *bool
+    RefMode               *string
+    Iterate               *bool
+    IterateCount          *uint
+    IterateDelta          *float64
+    FullPrecision         *bool
+    CalcCompleted         *bool
+    CalcOnSave            *bool
+    ConcurrentCalc        *bool
+    ConcurrentManualCount *uint
+    ForceFullCalc         *bool
+}
+```
+
 ## قم بإنشاء جدول بيانات {#NewFile}
 
 ```go
@@ -932,6 +952,26 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 يوفر GetDocProps وظيفة للحصول على خصائص المستند الأساسية.
+
+## تعيين خصائص الحساب {#SetCalcProps}
+
+```go
+func (f *File) SetCalcProps(opts *CalcPropsOptions) error
+```
+
+يوفر SetCalcProps دالة لتعيين خصائص الحساب.
+
+القيمة الاختيارية لخاصية `CalcMode` هي: `manual` أو `auto` أو `autoNoTable`.
+
+القيمة الاختيارية للخاصية `RefMode` هي: `A1` أو `R1C1`.
+
+## الحصول على خصائص الحساب {#GetCalcProps}
+
+```go
+func (f *File) GetCalcProps() (CalcPropsOptions, error)
+```
+
+يوفر GetCalcProps دالة للحصول على خصائص الحساب.
 
 ## حماية المصنف {#ProtectWorkbook}
 

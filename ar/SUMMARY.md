@@ -45,6 +45,8 @@
   * [احصل على خصائص التطبيق](workbook.md#GetAppProps)
   * [تعيين خصائص الوثيقة](workbook.md#SetDocProps)
   * [احصل على خصائص المستند](workbook.md#GetDocProps)
+  * [تعيين خصائص الحساب](workbook.md#SetCalcProps)
+  * [الحصول على خصائص الحساب](workbook.md#GetCalcProps)
   * [حماية المصنف](workbook.md#ProtectWorkbook)
   * [إلغاء حماية المصنف](workbook.md#UnprotectWorkbook)
 * [ورقة عمل](sheet.md)
