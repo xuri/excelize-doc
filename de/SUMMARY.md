@@ -45,6 +45,8 @@
   * [Anwendungseigenschaften abrufen](workbook.md#GetAppProps)
   * [Festlegen von Dokumenteigenschaften](workbook.md#SetDocProps)
   * [Abrufen von Dokumenteigenschaften](workbook.md#GetDocProps)
+  * [Festlegen von Berechnungseigenschaften](workbook.md#SetCalcProps)
+  * [Abrufen von Berechnungseigenschaften](workbook.md#GetCalcProps)
   * [Arbeitsbuch schützen](workbook.md#ProtectWorkbook)
   * [Schutz der Arbeitsmappe aufheben](workbook.md#UnprotectWorkbook)
 * [Arbeitsblatt](sheet.md)
