@@ -50,6 +50,26 @@ const (
 )
 ```
 
+`CalcPropsOptions` define la colección de propiedades que utiliza la aplicación para registrar el estado y los detalles del cálculo.
+
+```go
+type CalcPropsOptions struct {
+    CalcID                *uint
+    CalcMode              *string
+    FullCalcOnLoad        *bool
+    RefMode               *string
+    Iterate               *bool
+    IterateCount          *uint
+    IterateDelta          *float64
+    FullPrecision         *bool
+    CalcCompleted         *bool
+    CalcOnSave            *bool
+    ConcurrentCalc        *bool
+    ConcurrentManualCount *uint
+    ForceFullCalc         *bool
+}
+```
+
 ## Crear una hoja de cálculo {#NewFile}
 
 ```go
@@ -927,6 +947,26 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps proporciona una función para obtener las propiedades principales del documento.
+
+## Establecer propiedades de cálculo {#SetCalcProps}
+
+```go
+func (f *File) SetCalcProps(opts *CalcPropsOptions) error
+```
+
+SetCalcProps proporciona una función para establecer propiedades de cálculo.
+
+El valor opcional de la propiedad `CalcMode` es: `manual`, `auto` o `autoNoTable`.
+
+El valor opcional de la propiedad `RefMode` es: `A1` o `R1C1`.
+
+## Obtener propiedades de cálculo {#GetCalcProps}
+
+```go
+func (f *File) GetCalcProps() (CalcPropsOptions, error)
+```
+
+GetCalcProps proporciona una función para obtener propiedades de cálculo.
 
 ## Proteger el libro de trabajo {#ProtectWorkbook}
 
