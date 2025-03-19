@@ -45,6 +45,8 @@
   * [Obtenir les propriétés de l'application](workbook.md#GetAppProps)
   * [Définir les propriétés du document](workbook.md#SetDocProps)
   * [Obtenir les propriétés du document](workbook.md#GetDocProps)
+  * [Définir les propriétés de calcul](workbook.md#SetCalcProps)
+  * [Obtenir les propriétés de calcul](workbook.md#GetCalcProps)
   * [Protéger le classeur](workbook.md#ProtectWorkbook)
   * [Déprotéger le classeur](workbook.md#UnprotectWorkbook)
 * [Feuille de travail](sheet.md)
