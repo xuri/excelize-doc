@@ -50,6 +50,26 @@ const (
 )
 ```
 
+`CalcPropsOptions` 는 애플리케이션이 계산 상태와 세부 정보를 기록하는 데 사용하는 속성 컬렉션을 정의합니다.
+
+```go
+type CalcPropsOptions struct {
+    CalcID                *uint
+    CalcMode              *string
+    FullCalcOnLoad        *bool
+    RefMode               *string
+    Iterate               *bool
+    IterateCount          *uint
+    IterateDelta          *float64
+    FullPrecision         *bool
+    CalcCompleted         *bool
+    CalcOnSave            *bool
+    ConcurrentCalc        *bool
+    ConcurrentManualCount *uint
+    ForceFullCalc         *bool
+}
+```
+
 ## Excel 문서 만들기 {#NewFile}
 
 ```go
@@ -927,6 +947,26 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 통합 문서의 핵심 속성을 가져옵니다.
+
+## 계산 속성 설정 {#SetCalcProps}
+
+```go
+func (f *File) SetCalcProps(opts *CalcPropsOptions) error
+```
+
+SetCalcProps는 계산 속성을 설정하는 함수를 제공합니다.
+
+`CalcMode` 속성의 선택 값은 `manual`, `auto` 또는 `autoNoTable` 입니다.
+
+`RefMode` 속성의 선택 값은 `A1` 또는 `R1C1` 입니다.
+
+## 계산 속성 가져오기 {#GetCalcProps}
+
+```go
+func (f *File) GetCalcProps() (CalcPropsOptions, error)
+```
+
+GetCalcProps 는 계산 속성을 가져오는 함수를 제공합니다.
 
 ## 통합 문서 보호 {#ProtectWorkbook}
 
