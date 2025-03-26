@@ -52,6 +52,26 @@ const (
 )
 ```
 
+`CalcPropsOptions` 定義了設定活頁簿計算屬性時的選項。
+
+```go
+type CalcPropsOptions struct {
+    CalcID                *uint
+    CalcMode              *string
+    FullCalcOnLoad        *bool
+    RefMode               *string
+    Iterate               *bool
+    IterateCount          *uint
+    IterateDelta          *float64
+    FullPrecision         *bool
+    CalcCompleted         *bool
+    CalcOnSave            *bool
+    ConcurrentCalc        *bool
+    ConcurrentManualCount *uint
+    ForceFullCalc         *bool
+}
+```
+
 ## 新增 {#NewFile}
 
 ```go
@@ -930,6 +950,26 @@ func (f *File) GetDocProps() (*DocProperties, error)
 
 獲取活頁簿的核心屬性。
 
+## 設定計算屬性 {#SetCalcProps}
+
+```go
+func (f *File) SetCalcProps(opts *CalcPropsOptions) error
+```
+
+設定活頁簿的計算屬性。
+
+可選屬性 `CalcMode` 的有效值為：`manual`、`auto` 或 `autoNoTable`。
+
+可選屬性 `RefMode` 的有效值為：`A1` 或 `R1C1`。
+
+## 獲取計算屬性 {#GetCalcProps}
+
+```go
+func (f *File) GetCalcProps() (CalcPropsOptions, error)
+```
+
+獲取活頁簿的計算屬性。
+
 ## 保護活頁簿 {#ProtectWorkbook}
 
 ```go
@@ -956,7 +996,7 @@ type WorkbookProtectionOptions struct {
 }
 ```
 
-## 取消保護保護活頁簿 {#UnprotectWorkbook}
+## 取消保護活頁簿 {#UnprotectWorkbook}
 
 ```go
 func (f *File) UnprotectWorkbook(password ...string) error
