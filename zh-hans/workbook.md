@@ -52,6 +52,26 @@ const (
 )
 ```
 
+`CalcPropsOptions` 定义了设置工作簿计算属性时的选项。
+
+```go
+type CalcPropsOptions struct {
+    CalcID                *uint
+    CalcMode              *string
+    FullCalcOnLoad        *bool
+    RefMode               *string
+    Iterate               *bool
+    IterateCount          *uint
+    IterateDelta          *float64
+    FullPrecision         *bool
+    CalcCompleted         *bool
+    CalcOnSave            *bool
+    ConcurrentCalc        *bool
+    ConcurrentManualCount *uint
+    ForceFullCalc         *bool
+}
+```
+
 ## 创建 {#NewFile}
 
 ```go
@@ -929,6 +949,26 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 获取工作簿的核心属性。
+
+## 设置计算属性 {#SetCalcProps}
+
+```go
+func (f *File) SetCalcProps(opts *CalcPropsOptions) error
+```
+
+设置工作簿的计算属性。
+
+可选属性 `CalcMode` 的有效值为：`manual`、`auto` 或 `autoNoTable`。
+
+可选属性 `RefMode` 的有效值为：`A1` 或 `R1C1`。
+
+## 获取计算属性 {#GetCalcProps}
+
+```go
+func (f *File) GetCalcProps() (CalcPropsOptions, error)
+```
+
+获取工作簿的计算属性。
 
 ## 保护工作簿 {#ProtectWorkbook}
 
