@@ -50,6 +50,26 @@ const (
 )
 ```
 
+`CalcPropsOptions` defines the collection of properties the application uses to record calculation status and details.
+
+```go
+type CalcPropsOptions struct {
+    CalcID                *uint
+    CalcMode              *string
+    FullCalcOnLoad        *bool
+    RefMode               *string
+    Iterate               *bool
+    IterateCount          *uint
+    IterateDelta          *float64
+    FullPrecision         *bool
+    CalcCompleted         *bool
+    CalcOnSave            *bool
+    ConcurrentCalc        *bool
+    ConcurrentManualCount *uint
+    ForceFullCalc         *bool
+}
+```
+
 ## Create Excel document {#NewFile}
 
 ```go
@@ -927,6 +947,26 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps provides a function to get document core properties.
+
+## Set calculation properties {#SetCalcProps}
+
+```go
+func (f *File) SetCalcProps(opts *CalcPropsOptions) error
+```
+
+SetCalcProps provides a function to sets calculation properties.
+
+Optional value of `CalcMode` property is: `manual`, `auto` or `autoNoTable`.
+
+Optional value of `RefMode` property is: `A1` or `R1C1`.
+
+## Get calculation properties {#GetCalcProps}
+
+```go
+func (f *File) GetCalcProps() (CalcPropsOptions, error)
+```
+
+GetCalcProps provides a function to gets calculation properties.
 
 ## Protect workbook {#ProtectWorkbook}
 

@@ -45,6 +45,8 @@
   * [Get application properties](workbook.md#GetAppProps)
   * [Set document properties](workbook.md#SetDocProps)
   * [Get document properties](workbook.md#GetDocProps)
+  * [Set calculation properties](workbook.md#SetCalcProps)
+  * [Get calculation properties](workbook.md#GetCalcProps)
   * [Protect workbook](workbook.md#ProtectWorkbook)
   * [Unprotect workbook](workbook.md#UnprotectWorkbook)
 * [Worksheet](sheet.md)
