@@ -6,7 +6,7 @@ The following table shows the minimum requirements of Go language with each Exce
 
 Excelize Version | Minimum Go Language Version Requirements
 ---|---
-master | 1.20
+master | 1.23
 v2.8.1 ~ v2.9.0 | 1.18
 v2.7.0 ~ v2.8.0 | 1.16
 v2.4.0 ~ v2.6.1 | 1.15

@@ -6,7 +6,7 @@ Le tableau suivant indique les exigences minimales du langage Go avec chaque ver
 
 Version Excelize | Configuration minimale requise pour la version de la langue Go
 ---|---
-master | 1.20
+master | 1.23
 v2.8.1 ~ v2.9.0 | 1.18
 v2.7.0 ~ v2.8.0 | 1.16
 v2.4.0 ~ v2.6.1 | 1.15
