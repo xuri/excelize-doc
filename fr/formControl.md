@@ -29,7 +29,7 @@ type FormControl struct {
 func (f *File) AddFormControl(sheet string, opts FormControl) error
 ```
 
-AddFormControl fournit la méthode permettant d'ajouter un bouton de contrôle de formulaire dans une feuille de calcul en fonction du nom de feuille de calcul et des options de contrôle de formulaire donnés. Type de contrôle de formulaire pris en charge : bouton, case à cocher, zone de groupe, étiquette, bouton d'option, barre de défilement et spinner. Si la macro définie pour le contrôle de formulaire, l'extension du classeur doit être `.xlsm` ou `.xltm`. La valeur de défilement doit être comprise entre 0 et 30000.
+AddFormControl fournit la méthode permettant d'ajouter un bouton de contrôle de formulaire dans une feuille de calcul en fonction du nom de feuille de calcul et des options de contrôle de formulaire donnés. Type de contrôle de formulaire pris en charge : bouton, case à cocher, zone de groupe, étiquette, bouton d'option, barre de défilement et spinner. Si la macro définie pour le contrôle de formulaire, l'extension du classeur doit être `.xlsm` ou `.xltm`. La valeur de défilement doit être comprise entre 0 et 30000. Veuillez noter que si un lien de cellule est défini pour un contrôle de formulaire de case à cocher, Excelize n’attribuera pas de valeur à la cellule liée lorsque la case est cochée. Pour refléter l’état de la case à cocher, veuillez utiliser la fonction [`SetCellValue`](cell.md#SetCellValue) pour définir manuellement la valeur de la cellule liée sur `true`.
 
 Exemple 1, ajout d'un contrôle de formulaire de bouton avec macro, texte enrichi, taille de bouton personnalisée, propriété print sur `Feuil1!A2`, et laissez le bouton ne pas bouger ou dimensionner avec des cellules:
 

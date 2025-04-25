@@ -29,7 +29,7 @@ type FormControl struct {
 func (f *File) AddFormControl(sheet string, opts FormControl) error
 ```
 
-AddFormControl fornece o método para adicionar botão de controle de formulário em uma planilha por meio do nome da planilha e das opções de controle de formulário. Tipo de controle de formulário suportado: botão, caixa de seleção, caixa de grupo, rótulo, botão de opção, barra de rolagem e controle giratório. Se definir macro para o controle de formulário, a extensão da pasta de trabalho deverá ser `.xlsm` ou `.xltm`. O valor de rolagem deve estar entre 0 e 30.000.
+AddFormControl fornece o método para adicionar botão de controle de formulário em uma planilha por meio do nome da planilha e das opções de controle de formulário. Tipo de controle de formulário suportado: botão, caixa de seleção, caixa de grupo, rótulo, botão de opção, barra de rolagem e controle giratório. Se definir macro para o controle de formulário, a extensão da pasta de trabalho deverá ser `.xlsm` ou `.xltm`. O valor de rolagem deve estar entre 0 e 30000. Observe que, se um link de célula estiver definido para um controle de formulário de caixa de seleção, o Excelize não atribuirá um valor à célula vinculada quando a caixa de seleção for verificada. Para refletir o estado da caixa de seleção, use a função [`SetCellValue`](cell.md#SetCellValue) para definir manualmente o valor da célula vinculada como `true`.
 
 Exemplo 1, adicione controle de formulário de botão com macro, rich text, tamanho de botão personalizado, propriedade de impressão em `Planilha1!A2` e deixe o botão não se mover ou dimensionar com células:
 

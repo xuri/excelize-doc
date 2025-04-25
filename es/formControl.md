@@ -29,7 +29,7 @@ type FormControl struct {
 func (f *File) AddFormControl(sheet string, opts FormControl) error
 ```
 
-AddFormControl proporciona el método para agregar un botón de control de formulario en una hoja de trabajo mediante el nombre de la hoja de trabajo y las opciones de control de formulario. Tipo de control de formulario admitido: botón, casilla de verificación, cuadro de grupo, etiqueta, botón de opción, barra de desplazamiento y control giratorio. Si establece una macro para el control de formulario, la extensión del libro debe ser `.xlsm` o `.xltm`. El valor de desplazamiento debe estar entre 0 y 30000.
+AddFormControl proporciona el método para agregar un botón de control de formulario en una hoja de trabajo mediante el nombre de la hoja de trabajo y las opciones de control de formulario. Tipo de control de formulario admitido: botón, casilla de verificación, cuadro de grupo, etiqueta, botón de opción, barra de desplazamiento y control giratorio. Si establece una macro para el control de formulario, la extensión del libro debe ser `.xlsm` o `.xltm`. El valor de desplazamiento debe estar entre 0 y 30000. Tenga en cuenta que si se establece un enlace de celda para un control de formulario de casilla de verificación, Excelize no asignará un valor a la celda vinculada cuando se verifique la casilla de verificación. Para reflejar el estado de casilla de verificación, use la función [`SetCellValue`](cell.md#SetCellValue) para establecer manualmente el valor de la celda vinculada en `true`.
 
 Ejemplo 1, agregue un control de formulario de botón con macro, texto enriquecido, tamaño de botón personalizado, propiedad de impresión en `Hoja1!A2`, y deje que el botón no se mueva ni cambie de tamaño con las celdas:
 

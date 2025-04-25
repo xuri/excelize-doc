@@ -2,7 +2,7 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Logo Excelize"></p>
 
-Excelize è una libreria scritta in puro Go che fornisce una serie di funzioni che consentono di scrivere e leggere da file XLAM / XLSM / XLSX / XLTM / XLTX. Supporta la lettura e la scrittura di documenti di fogli di calcolo generati da Microsoft Excel™ 2007 e versioni successive. Supporta componenti complessi grazie all'elevata compatibilità e fornisce API di streaming per generare o leggere dati da un foglio di lavoro con enormi quantità di dati. Questa libreria richiede Go versione 1.20 o successiva.
+Excelize è una libreria scritta in puro Go che fornisce una serie di funzioni che consentono di scrivere e leggere da file XLAM / XLSM / XLSX / XLTM / XLTX. Supporta la lettura e la scrittura di documenti di fogli di calcolo generati da Microsoft Excel™ 2007 e versioni successive. Supporta componenti complessi grazie all'elevata compatibilità e fornisce API di streaming per generare o leggere dati da un foglio di lavoro con enormi quantità di dati. Questa libreria richiede Go versione 1.23.0 o successiva.
 
 - Codice sorgente: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - Problema: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)

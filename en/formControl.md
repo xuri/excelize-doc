@@ -29,7 +29,7 @@ type FormControl struct {
 func (f *File) AddFormControl(sheet string, opts FormControl) error
 ```
 
-AddFormControl provides the method to add form control button in a worksheet by given worksheet name and form control options. Supported form control type: button, check box, group box, label, option button, scroll bar and spinner. If set macro for the form control, the workbook extension should be `.xlsm` or `.xltm`. Scroll value must be between 0 and 30000.
+AddFormControl provides the method to add form control button in a worksheet by given worksheet name and form control options. Supported form control type: button, check box, group box, label, option button, scroll bar and spinner. If set macro for the form control, the workbook extension should be `.xlsm` or `.xltm`. Scroll value must be between 0 and 30000. Please note that if a cell link is set for a checkbox form control, Excelize will not assign a value to the linked cell when the checkbox is checked. To reflect the checkbox state, please use the [`SetCellValue`](cell.md#SetCellValue) function to manually set the linked cell's value to `true`.
 
 Example 1, add button form control with macro, rich-text, custom button size, print property on `Sheet1!A2`, and let the button do not move or size with cells:
 

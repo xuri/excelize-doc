@@ -2,7 +2,7 @@
 
 <p align="center"><img width="650" src="../images/excelize.svg" alt="Excelize logo"></p>
 
-Excelize は、純粋な Go で記述されたライブラリで、XLAM / XLSM / XLSX / XLTM / XLTX ファイルの読み書きを可能にする一連の関数を提供します。Microsoft Excel&trade; 2007 以降で生成されたスプレッドシートドキュメントの読み取りと書き込みをサポートします。高い互換性により複雑なコンポーネントをサポートし、大量のデータを含むワークシートからデータを生成または読み取るためのストリーミング API を提供します。このライブラリには Go バージョン 1.20 以降が必要です。
+Excelize は、純粋な Go で記述されたライブラリで、XLAM / XLSM / XLSX / XLTM / XLTX ファイルの読み書きを可能にする一連の関数を提供します。Microsoft Excel&trade; 2007 以降で生成されたスプレッドシートドキュメントの読み取りと書き込みをサポートします。高い互換性により複雑なコンポーネントをサポートし、大量のデータを含むワークシートからデータを生成または読み取るためのストリーミング API を提供します。このライブラリには Go バージョン 1.23.0 以降が必要です。
 
 - ソースコード: [github.com/xuri/excelize](https://github.com/xuri/excelize)
 - 問題: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
