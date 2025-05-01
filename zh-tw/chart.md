@@ -148,7 +148,7 @@ TickLabelSkip  | `int`           | `1`     | 指定標籤間隔單位
 ReverseOrder   | `bool`          | `false` | 逆序刻度值
 Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自動
 Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
-Alignment      | `Alignment`     | N/A     | 設定水平坐標軸刻度字體對齊格式，支持設置屬性為：`TextRotation` 和 `Vertical`
+Alignment      | `Alignment`     | N/A     | 設定水平坐標軸刻度字體對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
 Font           | `Font`          | N/A     | 設定水平坐標軸刻度字型格式
 NumFmt         | `ChartNumFmt`   | N/A     | 設定水平坐標軸數字格式和鏈接到源
 Title          | `[]RichTextRun` | N/A     | 設定位於坐標軸下方的主要橫坐標軸標題，並調整圖表大小
@@ -164,7 +164,7 @@ MajorUnit      | `float64`       | `0`     | 坐標軸主要刻度單位，`Majo
 ReverseOrder   | `bool`          | `false` | 逆序刻度值
 Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自動
 Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
-Alignment      | `Alignment`     | N/A     | 設定垂直坐標軸刻度字體對齊格式，支持設置屬性為：`TextRotation` 和 `Vertical`
+Alignment      | `Alignment`     | N/A     | 設定垂直坐標軸刻度字體對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
 Font           | `Font`          | N/A     | 設定垂直坐標軸刻度字型格式
 LogBase        | `float64`       | N/A     | 設定垂直坐標軸對數刻度的基底
 NumFmt         | `ChartNumFmt`   | N/A     | 設定垂直坐標軸數字格式和鏈接到源

@@ -1109,7 +1109,7 @@ func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 func (f *File) AddVBAProject(file []byte) error
 ```
 
-該函式提供方法將包含函式和/或巨集的 `vbaProject.bin` 檔案嵌入到 Excel 文檔中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
+該函式提供方法將包含函式和/或巨集的 `vbaProject.bin` 檔案嵌入到 Excel 檔案中，檔案擴展名應為 `.xlsm` 或者 `.xltm`。例如:
 
 ```go
 codeName := "Sheet1"

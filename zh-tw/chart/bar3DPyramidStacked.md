@@ -2,7 +2,7 @@
 
 例如，創建如下效果的立體堆疊水平稜錐圖：
 
-<p align="center"><img width="770" src="../images/3d_pyramid_stacked_bar_chart.png" alt="使用 Go 語言在 Excel 文檔中創建立體堆疊水平稜錐圖"></p>
+<p align="center"><img width="770" src="../images/3d_pyramid_stacked_bar_chart.png" alt="使用 Go 語言在 Excel 檔案中創建立體堆疊水平稜錐圖"></p>
 
 ```go
 package main

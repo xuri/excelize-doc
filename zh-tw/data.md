@@ -139,7 +139,7 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
 func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
 ```
 
-通過給定的工作表名稱獲取指定工作表中的全部交叉分析篩選器。注意，該函數目前尚未支持獲取交叉分析篩選器的高度、寬度和圖形屬性。
+通過給定的工作表名稱獲取指定工作表中的全部交叉分析篩選器。注意，該函數目前尚未支援獲取交叉分析篩選器的高度、寬度和圖形屬性。
 
 ## 刪除交叉分析篩選器 {#DeleteSlicer}
 

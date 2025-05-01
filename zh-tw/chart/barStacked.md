@@ -2,7 +2,7 @@
 
 例如，創建如下效果的平面堆疊橫條圖：
 
-<p align="center"><img width="771" src="../images/2d_stacked_bar_chart.png" alt="使用 Go 語言在 Excel 文檔中創建平面堆疊橫條圖"></p>
+<p align="center"><img width="771" src="../images/2d_stacked_bar_chart.png" alt="使用 Go 語言在 Excel 檔案中創建平面堆疊橫條圖"></p>
 
 ```go
 package main

@@ -2,7 +2,7 @@
 
 例如，創建如下效果的立體堆疊區域圖：
 
-<p align="center"><img width="771" src="../images/3d_stacked_area_chart.png" alt="使用 Go 語言在 Excel 文檔中創建立體堆疊區域圖"></p>
+<p align="center"><img width="771" src="../images/3d_stacked_area_chart.png" alt="使用 Go 語言在 Excel 檔案中創建立體堆疊區域圖"></p>
 
 ```go
 package main

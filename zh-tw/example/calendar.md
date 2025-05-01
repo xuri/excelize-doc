@@ -2,9 +2,9 @@
 
 {{ book.info }}
 
-使用 Go 語言在 Excel 文檔中創建日曆：
+使用 Go 語言在 Excel 檔案中創建日曆：
 
-<p align="center"><img width="934" src="../images/example_calendar.png" alt="使用 Go 語言在 Excel 文檔中創建日曆"></p>
+<p align="center"><img width="934" src="../images/example_calendar.png" alt="使用 Go 語言在 Excel 檔案中創建日曆"></p>
 
 ```go
 package main

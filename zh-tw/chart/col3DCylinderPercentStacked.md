@@ -2,7 +2,7 @@
 
 例如，創建如下效果的立體百分比堆疊圓柱圖：
 
-<p align="center"><img width="770" src="../images/3d_cylinder_percent_stacked_column_chart.png" alt="使用 Go 語言在 Excel 文檔中創建立體百分比堆疊圓柱圖"></p>
+<p align="center"><img width="770" src="../images/3d_cylinder_percent_stacked_column_chart.png" alt="使用 Go 語言在 Excel 檔案中創建立體百分比堆疊圓柱圖"></p>
 
 ```go
 package main

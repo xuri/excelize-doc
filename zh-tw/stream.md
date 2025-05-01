@@ -40,7 +40,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 透過給定的工作表名稱返回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確保所寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中內存資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少內存使用，此時您無法獲取儲存格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
+NewStreamWriter 透過給定的工作表名稱返回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確保所寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中記憶體資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少記憶體使用，此時您無法獲取儲存格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
 
 ```go
 f := excelize.NewFile()
@@ -188,7 +188,7 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 ```
 
-透過給定的欄區域序號範圍和樣式索引設定欄樣式，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄樣式。例如設置工作表上 `H` 欄的樣式：
+透過給定的欄區域序號範圍和樣式索引設定欄樣式，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄樣式。例如設定工作表上 `H` 欄的樣式：
 
 ```go
 err := sw.SetColStyle(8, 8, style)

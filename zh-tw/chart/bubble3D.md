@@ -2,7 +2,7 @@
 
 例如，創建如下效果的立體泡泡圖：
 
-<p align="center"><img width="771" src="../images/3d_bubble_chart.png" alt="使用 Go 語言在 Excel 文檔中創建立體泡泡圖"></p>
+<p align="center"><img width="771" src="../images/3d_bubble_chart.png" alt="使用 Go 語言在 Excel 檔案中創建立體泡泡圖"></p>
 
 ```go
 package main

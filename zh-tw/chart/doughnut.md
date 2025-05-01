@@ -2,7 +2,7 @@
 
 例如，創建如下效果的環圈圖：
 
-<p align="center"><img width="770" src="../images/doughnut_chart.png" alt="使用 Go 語言在 Excel 文檔中創建環圈圖"></p>
+<p align="center"><img width="770" src="../images/doughnut_chart.png" alt="使用 Go 語言在 Excel 檔案中創建環圈圖"></p>
 
 ```go
 package main

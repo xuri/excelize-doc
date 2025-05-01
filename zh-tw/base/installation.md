@@ -37,9 +37,9 @@ go get github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2
 ```
 
-## 創建 Excel 文檔 {#NewFile}
+## 創建 Excel 檔案 {#NewFile}
 
-下面是一個創建 Excel 文檔的簡單例子：
+下面是一個創建 Excel 檔案的簡單例子：
 
 ```go
 package main
@@ -75,9 +75,9 @@ func main() {
 }
 ```
 
-## 讀取 Excel 文檔 {#read}
+## 讀取 Excel 檔案 {#read}
 
-下面是讀取 Excel 文檔的例子：
+下面是讀取 Excel 檔案的例子：
 
 ```go
 package main
@@ -121,11 +121,11 @@ func main() {
 }
 ```
 
-## 在 Excel 文檔中創建圖表 {#chart}
+## 在 Excel 檔案中創建圖表 {#chart}
 
 使用 Excelize 生成圖表十分簡單，僅需幾行代碼。您可以根據工作表中的已有資料構建圖表，或向工作表中添加資料並創建圖表。
 
-<p align="center"><img width="770" src="../images/base.png" alt="在 Excel 文檔中創建圖表"></p>
+<p align="center"><img width="770" src="../images/base.png" alt="在 Excel 檔案中創建圖表"></p>
 
 ```go
 package main
@@ -188,7 +188,7 @@ func main() {
 }
 ```
 
-## 向 Excel 文檔中插入圖片 {#image}
+## 向 Excel 檔案中插入圖片 {#image}
 
 ```go
 package main

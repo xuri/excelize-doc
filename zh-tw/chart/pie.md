@@ -2,7 +2,7 @@
 
 例如，創建如下效果的圓形圖：
 
-<p align="center"><img width="770" src="../images/pie_chart.png" alt="使用 Go 語言在 Excel 文檔中創建圓形圖"></p>
+<p align="center"><img width="770" src="../images/pie_chart.png" alt="使用 Go 語言在 Excel 檔案中創建圓形圖"></p>
 
 ```go
 package main
