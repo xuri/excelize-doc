@@ -339,6 +339,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+在電子錶格應用中，有四種"自訂縮放比例"預設選項。如果您需要使用這些縮放選項，請使用 [`SetSheetProps`](workbook.md#SetSheetProps) 和 [`SetPageLayout`](workbook.md#SetPageLayout) 函數來設定這四種縮放選項:
+
+1. 不變更比例（以實際大小列印工作表）:
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. 將工作表放入單一頁面（縮小列印成品，使其符合一頁大小）:
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. 將所有欄放入單一頁面（縮小列印成品，使其僅有一頁寬度）:
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. 將所有列放入單一頁面（縮小列印成品，使其僅有一頁高度）:
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## 獲取工作表屬性 {#GetSheetProps}
 
 ```go
