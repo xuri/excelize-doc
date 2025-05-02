@@ -339,6 +339,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+在电子表格应用中，有四种"自定义缩放"预设选项。如果您需要使用这些缩放选项，请使用 [`SetSheetProps`](workbook.md#SetSheetProps) 和 [`SetPageLayout`](workbook.md#SetPageLayout) 函数来设置这四种缩放选项:
+
+1. 不缩放（打印实际大小的工作表）:
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. 将工作表调整为一页（缩减打印输出以显示在一个页面上）:
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. 将所有列调整为一页（缩减打印输出使其只有一个页面宽）:
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. 将所有行调整为一页（缩减打印输出使其只有一个页面高）:
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## 获取工作表属性 {#GetSheetProps}
 
 ```go
