@@ -337,6 +337,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+There 4 kinds of presets "Custom Scaling Options" in the spreadsheet applications, if you need to set those kind of scaling options, please using the `SetSheetProps` and `SetPageLayout` functions to approach these 4 scaling options:
+
+1. No Scaling (Print sheets at their actual size):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Fit Sheet on One Page (Shrink the printout so that it fits on one page):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Fit All Columns on One Page (Shrink the printout so that it is one page wide):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Fit All Rows on One Page (Shrink the printout so that it is one page high):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## Get worksheet properties {#GetSheetProps}
 
 ```go
