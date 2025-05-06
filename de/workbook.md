@@ -337,6 +337,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+Es gibt 4 Arten von Voreinstellungen "Benutzerdefinierte Skalierungsoptionen" in den Tabellenkalkulationsanwendungen, wenn Sie diese Art von Skalierungsoptionen festlegen müssen, verwenden Sie bitte die Funktionen [`SetSheetProps`](workbook.md#SetSheetProps) und [`SetPageLayout`](workbook.md#SetPageLayout), um sich diesen 4 Skalierungsoptionen zu nähern:
+
+1. Keine Skalierung (Drucken Sie Blätter in ihrer tatsächlichen Größe):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Tabelle1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Blatt auf eine Seite anpassen (Verkleinern Sie den Ausdruck, sodass er auf eine Seite passt):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Tabelle1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Alle Spalten auf einer Seite einpassen (Verkleinern Sie den Ausdruck so, dass er eine Seite breit ist):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Tabelle1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Tabelle1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Alle Zeilen auf einer Seite einpassen (Verkleinern Sie den Ausdruck so, dass er eine Seite hoch ist):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Tabelle1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Tabelle1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## Abrufen von Blatteigenschaften {#GetSheetProps}
 
 ```go
