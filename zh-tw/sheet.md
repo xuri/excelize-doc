@@ -527,7 +527,7 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 func (f *File) SetSheetDimension(sheet string, rangeRef string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。
+根據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。在安卓（Android）作業系統中，某些版本的微信（WeChat）應用程式在打開 Excelize 生成的活頁簿後，僅顯示前 300 行數據，透過此函數設定工作表的已用區域可規避該缺陷。
 
 ## 獲取工作表已用區域 {#GetSheetDimension}
 

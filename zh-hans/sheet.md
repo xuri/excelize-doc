@@ -527,7 +527,7 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 func (f *File) SetSheetDimension(sheet string, rangeRef string) error
 ```
 
-根据给定的工作表名称和单元格坐标或单元格坐标区域设置或移除工作表的已用区域。使用的单元格包括具有公式、文本内容和单元格格式的单元格。例如 `A1:D5`。当给定的单元格坐标区域为空字符时，将移除工作表的已用区域。
+根据给定的工作表名称和单元格坐标或单元格坐标区域设置或移除工作表的已用区域。使用的单元格包括具有公式、文本内容和单元格格式的单元格。例如 `A1:D5`。当给定的单元格坐标区域为空字符时，将移除工作表的已用区域。在安卓（Android）操作系统中，某些版本的微信（WeChat）应用程序在打开 Excelize 生成的工作簿后，仅显示前 300 行数据，通过此函数设置工作表的已用区域可规避该缺陷。
 
 ## 获取工作表已用区域 {#GetSheetDimension}
 

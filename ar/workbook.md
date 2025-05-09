@@ -342,6 +342,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("المصنف1.xlsx")
 ```
 
+هناك 4 أنواع من الإعدادات المسبقة "خيارات التحجيم المخصصة" في تطبيقات جداول البيانات ، إذا كنت بحاجة إلى تعيين هذا النوع من خيارات القياس ، فيرجى استخدام وظائف [`SetSheetProps`](workbook.md#SetSheetProps) و [`SetPageLayout`](workbook.md#SetPageLayout) للتعامل مع خيارات القياس الأربعة هذه:
+
+1. لا تحجيم (طباعة الأوراق بحجمها الفعلي):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("ورقة1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. قم بتركيب الورقة على صفحة واحدة (تقليص النسخة المطبوعة بحيث تتناسب مع صفحة واحدة):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("ورقة1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. احتواء جميع الأعمدة في صفحة واحدة (تقليص النسخة المطبوعة بحيث تكون بعرض صفحة واحدة):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("ورقة1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("ورقة1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. احتواء جميع الصفوف في صفحة واحدة (تقليص النسخة المطبوعة بحيث تكون بارتفاع صفحة واحدة):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("ورقة1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("ورقة1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## الحصول على خصائص ورقة {#GetSheetProps}
 
 ```go
