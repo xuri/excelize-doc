@@ -6,14 +6,14 @@
 
 Excelize 버전 | 최소 Go 언어 버전 요구 사항
 ---|---
-master | 1.23
+v2.9.1 ~ master | 1.23.0
 v2.8.1 ~ v2.9.0 | 1.18
 v2.7.0 ~ v2.8.0 | 1.16
 v2.4.0 ~ v2.6.1 | 1.15
 v2.0.2 ~ v2.3.2 | 1.10
 v1.0.0 ~ v2.0.1 | 1.6
 
-최신 버전의 Excelize 라이브러리를 사용하려면 Go 버전 1.20 이상이 필요합니다. Go 1.21.0 에는 일부 [호환되지 않는 변경 사항](https://github.com/golang/go/issues/61881) 이 있습니다. 이 라이브러리는 해당 버전에서 작동할 수 없습니다. Go 1.21.x 를 사용하는 경우 Go 1.21.1 이상 버전으로 업그레이드하세요.
+최신 버전의 Excelize 라이브러리를 사용하려면 Go 버전 1.23.0 이상이 필요합니다. Go 1.21.0 에는 일부 [호환되지 않는 변경 사항](https://github.com/golang/go/issues/61881) 이 있습니다. 이 라이브러리는 해당 버전에서 작동할 수 없습니다. Go 1.21.x 를 사용하는 경우 Go 1.21.1 이상 버전으로 업그레이드하세요.
 
 - 설치 명령
 
@@ -29,10 +29,16 @@ go get github.com/xuri/excelize/v2
 
 ## 업데이트 {#update}
 
-- 업데이트 명령
+- 최신 안정 버전으로 업그레이드하세요
 
 ```bash
 go get -u github.com/xuri/excelize/v2
+```
+
+- 최신 develop 브랜치 코드로 업그레이드하세요
+
+```bash
+go get -u github.com/xuri/excelize/v2@master
 ```
 
 ## Excel 문서 만들기 {#NewFile}

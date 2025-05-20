@@ -8,14 +8,14 @@
 
 Excelize 版本 | 對 Go 語言版本的最低要求
 ---|---
-master | 1.23
+v2.9.1 ~ master | 1.23.0
 v2.8.1 ~ v2.9.0 | 1.18
 v2.7.0 ~ v2.8.0 | 1.16
 v2.4.0 ~ v2.6.1 | 1.15
 v2.0.2 ~ v2.3.2 | 1.10
 v1.0.0 ~ v2.0.1 | 1.6
 
-使用最新版本 Excelize 要求您使用的 Go 語言為 1.20 或更高版本。請注意，Go 1.21.0 中存在[不兼容的更改](https://github.com/golang/go/issues/61881)，導致 Excelize 基礎庫無法在該版本上正常工作，如果您使用的是 Go 1.21.x，請升級到 Go 1.21.1 及更高版本。
+使用最新版本 Excelize 要求您使用的 Go 語言為 1.23.0 或更高版本。請注意，Go 1.21.0 中存在[不兼容的更改](https://github.com/golang/go/issues/61881)，導致 Excelize 基礎庫無法在該版本上正常工作，如果您使用的是 Go 1.21.x 和 Excelize 的早期版本，請升級到 Go 1.21.1 及更高版本。
 
 - 安裝命令
 
@@ -31,10 +31,16 @@ go get github.com/xuri/excelize/v2
 
 ## 更新 {#update}
 
-- 更新命令
+- 更新到最新穩定版
 
 ```bash
 go get -u github.com/xuri/excelize/v2
+```
+
+- 更新到最新開發分支代碼
+
+```bash
+go get -u github.com/xuri/excelize/v2@master
 ```
 
 ## 創建 Excel 檔案 {#NewFile}

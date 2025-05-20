@@ -6,14 +6,14 @@ The following table shows the minimum requirements of Go language with each Exce
 
 Excelize Version | Minimum Go Language Version Requirements
 ---|---
-master | 1.23
+v2.9.1 ~ master | 1.23.0
 v2.8.1 ~ v2.9.0 | 1.18
 v2.7.0 ~ v2.8.0 | 1.16
 v2.4.0 ~ v2.6.1 | 1.15
 v2.0.2 ~ v2.3.2 | 1.10
 v1.0.0 ~ v2.0.1 | 1.6
 
-Using the latest version Excelize library require to Go version 1.20 or later. Note that, there are some [incompatible changes](https://github.com/golang/go/issues/61881) in the Go 1.21.0, the Excelize library can not working with that version normally, if you are using the Go 1.21.x, please upgrade to the Go 1.21.1 and later version.
+Using the latest version Excelize library require to Go version 1.23.0 or later. Note that, there are some [incompatible changes](https://github.com/golang/go/issues/61881) in the Go 1.21.0, the Excelize library can not working with that version normally, if you are using the Go 1.21.x with legacy version Excelize library, please upgrade to the Go 1.21.1 and later version.
 
 - Installation
 
@@ -29,10 +29,16 @@ go get github.com/xuri/excelize/v2
 
 ## Upgrade {#update}
 
-- Upgrade
+- Upgrade to latest released stable version
 
 ```bash
 go get -u github.com/xuri/excelize/v2
+```
+
+- Upgrade to latest develop branch code
+
+```bash
+go get -u github.com/xuri/excelize/v2@master
 ```
 
 ## Create Excel document {#NewFile}
