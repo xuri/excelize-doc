@@ -337,6 +337,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+Hay 4 tipos de ajustes preestablecidos "Opciones de escala personalizadas" en las aplicaciones de hojas de cálculo, si necesita establecer ese tipo de opciones de escala, utilice las funciones [`SetSheetProps`](workbook.md#SetSheetProps) y [`SetPageLayout`](workbook.md#SetPageLayout) para abordar estas 4 opciones de escala:
+
+1. Sin escala (imprima hojas a su tamaño real):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Hoja1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Ajustar la hoja en una página (reduzca la impresión para que quepa en una página):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Hoja1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Ajuste todas las columnas en una página (reduzca la impresión para que tenga una página de ancho):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Hoja1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Hoja1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Ajuste todas las filas en una página (reduzca la impresión para que tenga una página de altura):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Hoja1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Hoja1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## Obtener propiedades de la hoja {#GetSheetProps}
 
 ```go
