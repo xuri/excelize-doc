@@ -649,26 +649,26 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 - مثال 1 ،  تعيين الصيغة العادية `=SUM(A1,B1)` للخلية `A3` على `ورقة1`:
 
 ```go
-err := f.SetCellFormula("ورقة1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("ورقة1", "A3", "SUM(A1,B1)")
 ```
 
 - مثال 2 ،  تعيين صفيف ثابت عمودي أحادي الأبعاد (صفيف عمود) الصيغة `1;2;3` للخلية `A3` على `ورقة1`:
 
 ```go
-err := f.SetCellFormula("ورقة1", "A3", "={1;2;3}")
+err := f.SetCellFormula("ورقة1", "A3", "{1;2;3}")
 ```
 
 - مثال 3 ،  تعيين صفيف ثابت أفقي أحادي الأبعاد (صف صف الصفيف) الصيغة `"a","b","c"` للخلية `A3` على `ورقة1`:
 
 ```go
-err := f.SetCellFormula("ورقة1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("ورقة1", "A3", "{\"a\",\"b\",\"c\"}")
 ```
 
 - مثال 4 ،  تعيين صيغة صفيف ثابت ثنائي الأبعاد `{1,2;"a","b"}` للخلية `A3` على `ورقة1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("ورقة1", "A3", "={1,2;\"a\",\"b\"}",
+err := f.SetCellFormula("ورقة1", "A3", "{1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -676,7 +676,7 @@ err := f.SetCellFormula("ورقة1", "A3", "={1,2;\"a\",\"b\"}",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("ورقة1", "A3", "=A1:A2",
+err := f.SetCellFormula("ورقة1", "A3", "A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -684,7 +684,7 @@ err := f.SetCellFormula("ورقة1", "A3", "=A1:A2",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("ورقة1", "C1", "=A1+B1",
+err := f.SetCellFormula("ورقة1", "C1", "A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -726,7 +726,7 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("ورقة1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("ورقة1", "C2", "SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return

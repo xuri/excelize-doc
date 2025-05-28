@@ -643,26 +643,26 @@ SetCellFormula は、指定されたワークシート名およびセル式の�
 - 例1, `Sheet1` のセル `A3` に通常の数式 `=SUM(A1,B1)` を設定します：
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Sheet1", "A3", "SUM(A1,B1)")
 ```
 
 - 例2, `Sheet1` のセル `A3` に1次元の垂直定数配列式（列配列） `1;2;3` を設定します：
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Sheet1", "A3", "{1;2;3}")
 ```
 
 - 例3, `Sheet1` のセル `A3` に1次元の水平定数配列（行配列）の数式 `"a","b","c"` を設定します：
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Sheet1", "A3", "{\"a\",\"b\",\"c\"}")
 ```
 
 - 例4, `Sheet1` のセル `A3` に2次元定数配列数式 `{1,2;"a","b"}` を設定します：
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "{1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -670,7 +670,7 @@ err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("Sheet1", "A3", "A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -678,7 +678,7 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("Sheet1", "C1", "A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -716,7 +716,7 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Sheet1", "C2", "SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return

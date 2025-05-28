@@ -643,26 +643,26 @@ SetCellFormula 는 주어진 워크시트 이름 과 셀 수식 설정에 따라
 - 예 1, `Sheet1` 의 `A3` 셀에 대해 일반 수식 `=SUM(A1,B1)` 설정:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Sheet1", "A3", "SUM(A1,B1)")
 ```
 
 - 예 2, `Sheet1` 의 `A3` 셀에 대해 1차원 수직 상수 배열 (열 배열) 수식 `1;2;3` 을 설정합니다:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Sheet1", "A3", "{1;2;3}")
 ```
 
 - 예 3, `Sheet1` 의 `A3` 셀에 대해 1차원 수평 상수 배열 (행 배열) 수식 `"a","b","c"` 를 설정합니다:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Sheet1", "A3", "{\"a\",\"b\",\"c\"}")
 ```
 
 - 예 4, `Sheet1` 의 `A3` 셀에 대해 2차원 상수 배열 수식 `{1,2;"a","b"}` 을 설정합니다:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "{1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -670,7 +670,7 @@ err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("Sheet1", "A3", "A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -678,7 +678,7 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("Sheet1", "C1", "A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -716,7 +716,7 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Sheet1", "C2", "SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return

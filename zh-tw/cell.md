@@ -645,26 +645,26 @@ func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格設定普通公式 `=SUM(A1,B1)`：
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Sheet1", "A3", "SUM(A1,B1)")
 ```
 
 - 例2，為名為 `Sheet1` 的工作表 `A3` 儲存格設定一維縱向常量數組（欄數組）公式 `1;2;3`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Sheet1", "A3", "{1;2;3}")
 ```
 
 - 例3，為名為 `Sheet1` 的工作表 `A3` 儲存格設定一維橫向常量數組（列數組）公式 `"a","b","c"`:
 
 ```go
-err := f.SetCellFormula("Sheet1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Sheet1", "A3", "{\"a\",\"b\",\"c\"}")
 ```
 
 - 例4，為名為 `Sheet1` 的工作表 `A3` 儲存格設定二維常量數組公式 `{1,2;"a","b"}`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
+err := f.SetCellFormula("Sheet1", "A3", "{1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -672,7 +672,7 @@ err := f.SetCellFormula("Sheet1", "A3", "={1,2;\"a\",\"b\"}",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
+err := f.SetCellFormula("Sheet1", "A3", "A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -680,7 +680,7 @@ err := f.SetCellFormula("Sheet1", "A3", "=A1:A2",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Sheet1", "C1", "=A1+B1",
+err := f.SetCellFormula("Sheet1", "C1", "A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -718,7 +718,7 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Sheet1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Sheet1", "C2", "SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return

@@ -647,26 +647,26 @@ SetCellFormula fornisce una funzione per impostare la formula sulla cella in bas
 - Esempio 1, imposta la formula normale `=SUM(A1,B1)` per la cella `A3` su `Foglio1`:
 
 ```go
-err := f.SetCellFormula("Foglio1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Foglio1", "A3", "SUM(A1,B1)")
 ```
 
 - Esempio 2, imposta la formula `1;2;3` per un array costante verticale unidimensionale (array di colonne) per la cella `A3` su `Foglio1`:
 
 ```go
-err := f.SetCellFormula("Foglio1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Foglio1", "A3", "{1;2;3}")
 ```
 
 - Esempio 3, imposta la formula `"a","b","c"` di un array costante orizzontale unidimensionale (array di righe) per la cella `A3` su `Foglio1`:
 
 ```go
-err := f.SetCellFormula("Foglio1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Foglio1", "A3", "{\"a\",\"b\",\"c\"}")
 ```
 
 - Esempio 4, imposta la formula di matrice costante bidimensionale `{1,2;"a","b"}` per la cella `A3` su `Foglio1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Foglio1", "A3", "={1,2;\"a\",\"b\"}",
+err := f.SetCellFormula("Foglio1", "A3", "{1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -674,7 +674,7 @@ err := f.SetCellFormula("Foglio1", "A3", "={1,2;\"a\",\"b\"}",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Foglio1", "A3", "=A1:A2",
+err := f.SetCellFormula("Foglio1", "A3", "A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -682,7 +682,7 @@ err := f.SetCellFormula("Foglio1", "A3", "=A1:A2",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Foglio1", "C1", "=A1+B1",
+err := f.SetCellFormula("Foglio1", "C1", "A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -724,7 +724,7 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Foglio1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Foglio1", "C2", "SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return

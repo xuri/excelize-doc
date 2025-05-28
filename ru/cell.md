@@ -643,26 +643,26 @@ SetCellFormula предоставляет функцию для установк
 - Пример 1, установите обычную формулу `=SUM(A1,B1)` для ячейки `A3` на `Лист1`:
 
 ```go
-err := f.SetCellFormula("Лист1", "A3", "=SUM(A1,B1)")
+err := f.SetCellFormula("Лист1", "A3", "SUM(A1,B1)")
 ```
 
 - Пример 2, установить одномерный вертикальный постоянный массив (массив столбцов) формулой `1;2;3` для ячейки `A3` на `Лист1`:
 
 ```go
-err := f.SetCellFormula("Лист1", "A3", "={1;2;3}")
+err := f.SetCellFormula("Лист1", "A3", "{1;2;3}")
 ```
 
 - Пример 3, установить одномерный горизонтальный массив констант (массив строк) формулой `"a","b","c"` для ячейки `A3` на `Лист1`:
 
 ```go
-err := f.SetCellFormula("Лист1", "A3", "={\"a\",\"b\",\"c\"}")
+err := f.SetCellFormula("Лист1", "A3", "{\"a\",\"b\",\"c\"}")
 ```
 
 - Пример 4, установить двумерную формулу массива констант `{1,2;"a","b"}` для ячейки `A3` на `Лист1`:
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Лист1", "A3", "={1,2;\"a\",\"b\"}",
+err := f.SetCellFormula("Лист1", "A3", "{1,2;\"a\",\"b\"}",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -670,7 +670,7 @@ err := f.SetCellFormula("Лист1", "A3", "={1,2;\"a\",\"b\"}",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeArray, "A3:A3"
-err := f.SetCellFormula("Лист1", "A3", "=A1:A2",
+err := f.SetCellFormula("Лист1", "A3", "A1:A2",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -678,7 +678,7 @@ err := f.SetCellFormula("Лист1", "A3", "=A1:A2",
 
 ```go
 formulaType, ref := excelize.STCellFormulaTypeShared, "C1:C5"
-err := f.SetCellFormula("Лист1", "C1", "=A1+B1",
+err := f.SetCellFormula("Лист1", "C1", "A1+B1",
     excelize.FormulaOpts{Ref: &ref, Type: &formulaType})
 ```
 
@@ -720,7 +720,7 @@ func main() {
         return
     }
     formulaType := excelize.STCellFormulaTypeDataTable
-    if err := f.SetCellFormula("Лист1", "C2", "=SUM(Table1[[A]:[B]])",
+    if err := f.SetCellFormula("Лист1", "C2", "SUM(Table1[[A]:[B]])",
         excelize.FormulaOpts{Type: &formulaType}); err != nil {
         fmt.Println(err)
         return
