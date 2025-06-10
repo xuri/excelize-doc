@@ -1006,6 +1006,39 @@ func (f *File) GetDocProps() (*DocProperties, error)
 
 获取工作簿的核心属性。
 
+## 设置文档自定义属性 {#SetDocCustomProps}
+
+```go
+func (f *File) SetDocCustomProps(name string, value interface{}) error
+```
+
+设置工作簿的自定义属性，name 为 Key，value 为设置的具体值。value 支持的类型如下：
+
+类型           | 描述
+---|---
+float64        | 浮点型
+string         | 字符串
+bool           | 布尔型
+time.Time      | 时间类型
+
+例如：
+
+```go
+err := f.SetDocCustomProps("string", "v1.0.0")
+err := f.SetDocCustomProps("string", "v2.0.0")
+err := f.SetDocCustomProps("bool", true)
+err := f.SetDocCustomProps("float64", 1.0)
+err := f.SetDocCustomProps("date", time.Now())
+```
+
+## 获取文档自定义属性 {#GetDocCustomProps}
+
+```go
+props, err := f.GetDocCustomProps()
+```
+
+获取工作簿的所有自定义属性。props 类型为`map[string]interface{}`，其中 map 的 key 为自定义属性的名称，value 为自定义属性的值。
+
 ## 设置计算属性 {#SetCalcProps}
 
 ```go
