@@ -337,6 +337,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+スプレッドシートアプリケーションには、4 種類のプリセット「カスタムスケーリングオプション」があります。これらのスケーリングオプションを設定する必要がある場合は、[`SetSheetProps`](workbook.md#SetSheetProps) および [`SetPageLayout`](workbook.md#SetPageLayout) 関数を使用して、これらの4つのスケーリングオプションにアクセスしてください:
+
+1. スケーリングなし（印刷シートを実際のサイズで印刷する）:
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. 一枚のページにフィットするシート（印刷物を一枚のページに収まるように縮小する）:
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. すべての列を1ページに収める（印刷物を縮小して1ページの幅にする）:
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. すべての行を1ページに収める（印刷物を縮小して1ページの高さにする）:
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## ワークシートのプロパティを取得する {#GetSheetProps}
 
 ```go

@@ -337,6 +337,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+Il existe 4 types de préréglages "Options de mise à l'échelle personnalisées" dans les applications de tableur, si vous avez besoin de définir ce type d'options de mise à l'échelle, veuillez utiliser les fonctions [`SetSheetProps`](workbook.md#SetSheetProps) et [`SetPageLayout`](workbook.md#SetPageLayout) pour approcher ces 4 options de mise à l'échelle:
+
+1. Pas de mise à l'échelle (impression des feuilles à leur taille réelle):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Feuil1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Ajuster la feuille sur une page (Réduire la taille de l'impression pour qu'elle tienne sur une seule page):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Feuil1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Ajustez toutes les colonnes sur une seule page (réduisez l'impression pour qu'elle fasse une page de large):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Feuil1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Feuil1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Ajustez toutes les rangées sur une seule page (réduisez la taille de l'impression pour qu'elle fasse une page de haut):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Feuil1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Feuil1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## Obtenir les propriétés de la feuille de calcul {#GetSheetProps}
 
 ```go
