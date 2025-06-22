@@ -50,6 +50,15 @@ const (
 )
 ```
 
+`CustomProperty` directly maps the custom property of the workbook. The value date type may be one of the following: `int32`, `float64`, `string`, `bool`, `time.Time`, or `nil`.
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` defines the collection of properties the application uses to record calculation status and details.
 
 ```go
@@ -1003,6 +1012,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps provides a function to get document core properties.
+
+## Set custom properties {#SetCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+SetCustomProps provides a function to set custom file properties by given property name and value. If the property name already exists, it will be updated, otherwise a new property will be added. The value can be of type `int32`, `float64`, `bool`, `string`, `time.Time` or `nil`. The property will be delete if the value is `nil`. The function returns an error if the property value is not of the correct type.
+
+## Get custom properties {#GetCustomProps}
+
+GetCustomProps provides a function to get custom file properties.
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
 
 ## Set calculation properties {#SetCalcProps}
 

@@ -52,6 +52,15 @@ const (
 )
 ```
 
+`CustomProperty` 定义了设置工作簿自定义属性时的选项。自定义属性的值支持以下数据类型：`int32`、`float64`、`string`、`bool`、`time.Time` 和 `nil`。
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` 定义了设置工作簿计算属性时的选项。
 
 ```go
@@ -1006,38 +1015,19 @@ func (f *File) GetDocProps() (*DocProperties, error)
 
 获取工作簿的核心属性。
 
-## 设置文档自定义属性 {#SetDocCustomProps}
+## 设置自定义属性 {#SetDocCustomProps}
 
 ```go
-func (f *File) SetDocCustomProps(name string, value interface{}) error
+func (f *File) SetCustomProps(prop CustomProperty) error
 ```
 
-设置工作簿的自定义属性，name 为 Key，value 为设置的具体值。value 支持的类型如下：
+根据给定的属性名称和值设置工作簿的自定义属性。如果给定的属性名称已经存在，将会更新已存在属性的值，否则将添加新的属性。属性值支持的数据类型为 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。当设置属性的值为 `nil` 时，将删除指定的属性。当给定的属性值是不受支持的数据类型时，函数将会返回错误。
 
-类型           | 描述
----|---
-float64        | 浮点型
-string         | 字符串
-bool           | 布尔型
-time.Time      | 时间类型
-
-例如：
+## 获取自定义属性 {#GetDocCustomProps}
 
 ```go
-err := f.SetDocCustomProps("string", "v1.0.0")
-err := f.SetDocCustomProps("string", "v2.0.0")
-err := f.SetDocCustomProps("bool", true)
-err := f.SetDocCustomProps("float64", 1.0)
-err := f.SetDocCustomProps("date", time.Now())
+func (f *File) GetCustomProps() ([]CustomProperty, error)
 ```
-
-## 获取文档自定义属性 {#GetDocCustomProps}
-
-```go
-props, err := f.GetDocCustomProps()
-```
-
-获取工作簿的所有自定义属性。props 类型为`map[string]interface{}`，其中 map 的 key 为自定义属性的名称，value 为自定义属性的值。
 
 ## 设置计算属性 {#SetCalcProps}
 

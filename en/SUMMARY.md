@@ -45,6 +45,8 @@
   * [Get application properties](workbook.md#GetAppProps)
   * [Set document properties](workbook.md#SetDocProps)
   * [Get document properties](workbook.md#GetDocProps)
+  * [Set custom properties](workbook.md#SetCustomProps)
+  * [Get custom properties](workbook.md#GetCustomProps)
   * [Set calculation properties](workbook.md#SetCalcProps)
   * [Get calculation properties](workbook.md#GetCalcProps)
   * [Protect workbook](workbook.md#ProtectWorkbook)
