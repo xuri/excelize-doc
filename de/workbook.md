@@ -50,6 +50,15 @@ const (
 )
 ```
 
+`CustomProperty` bildet die benutzerdefinierte Eigenschaft der Arbeitsmappe direkt ab. Der Datumstyp des Werts kann einer der folgenden sein:  `int32`, `float64`, `string`, `bool`, `time.Time` oder `nil`.
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` definiert die Sammlung von Eigenschaften, die die Anwendung zum Aufzeichnen des Berechnungsstatus und von Berechnungsdetails verwendet.
 
 ```go
@@ -1003,6 +1012,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps bietet eine Funktion zum Abrufen der Eigenschaften des Dokumentkerns.
+
+## Festlegen benutzerdefinierter Eigenschaften {#SetCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+SetCustomProps bietet eine Funktion zum Festlegen benutzerdefinierter Dateieigenschaften anhand des angegebenen Eigenschaftsnamens und -werts. Existiert der Eigenschaftsname bereits, wird er aktualisiert, andernfalls wird eine neue Eigenschaft hinzugefügt. Der Wert kann vom Typ `int32`, `float64`, `bool`, `string`, `time.Time` oder `nil` sein. Bei einem Wert von `nil` wird die Eigenschaft gelöscht. Die Funktion gibt einen Fehler zurück, wenn der Eigenschaftswert nicht vom richtigen Typ ist.
+
+## Abrufen benutzerdefinierter Eigenschaften {#GetCustomProps}
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
+
+GetCustomProps bietet eine Funktion zum Abrufen benutzerdefinierter Dateieigenschaften.
 
 ## Festlegen von Berechnungseigenschaften {#SetCalcProps}
 

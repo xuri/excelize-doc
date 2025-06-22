@@ -45,6 +45,8 @@
   * [Anwendungseigenschaften abrufen](workbook.md#GetAppProps)
   * [Festlegen von Dokumenteigenschaften](workbook.md#SetDocProps)
   * [Abrufen von Dokumenteigenschaften](workbook.md#GetDocProps)
+  * [Festlegen benutzerdefinierter Eigenschaften](workbook.md#SetCustomProps)
+  * [Abrufen benutzerdefinierter Eigenschaften](workbook.md#GetCustomProps)
   * [Festlegen von Berechnungseigenschaften](workbook.md#SetCalcProps)
   * [Abrufen von Berechnungseigenschaften](workbook.md#GetCalcProps)
   * [Arbeitsbuch schützen](workbook.md#ProtectWorkbook)

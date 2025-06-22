@@ -50,6 +50,15 @@ const (
 )
 ```
 
+`CustomProperty` は、ワークブックのカスタムプロパティを直接マッピングします。値の日付型は、`int32`、`float64`、`string`、`bool`、`time.Time`、`nil` のいずれかになります。
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` は、計算の状態と詳細を記録するためにアプリケーションが使用するプロパティのコレクションを定義します。
 
 ```go
@@ -1003,6 +1012,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 ワークブックのコアとなるプロパティを取得してください。
+
+## カスタムプロパティを設定する {#SetCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+SetCustomPropsは、指定されたプロパティ名と値でカスタムファイルプロパティを設定する関数を提供します。プロパティ名が既に存在する場合は更新され、存在しない場合は新しいプロパティが追加されます。値の型は、`int32`、`float64`、`bool`、`string`、`time.Time`、または `nil` です。値が `nil` の場合、プロパティは削除されます。プロパティ値が正しい型でない場合、関数はエラーを返します。
+
+## カスタムプロパティを取得する {#GetCustomProps}
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
+
+GetCustomProps は、カスタム ファイル プロパティを取得する関数を提供します。
 
 ## 計算プロパティを設定する {#SetCalcProps}
 

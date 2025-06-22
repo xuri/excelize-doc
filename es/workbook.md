@@ -50,6 +50,15 @@ const (
 )
 ```
 
+`CustomProperty` asigna directamente la propiedad personalizada del libro. El tipo de fecha del valor puede ser uno de los siguientes: `int32`, `float64`, `string`, `bool`, `time.Time` o `nil`.
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` define la colección de propiedades que utiliza la aplicación para registrar el estado y los detalles del cálculo.
 
 ```go
@@ -1003,6 +1012,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 GetDocProps proporciona una función para obtener las propiedades principales del documento.
+
+## Establecer propiedades personalizadas {#SetCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+SetCustomProps proporciona una función para establecer propiedades de archivo personalizadas según el nombre y el valor de la propiedad. Si el nombre de la propiedad ya existe, se actualizará; de lo contrario, se añadirá una nueva. El valor puede ser de tipo `int32`, `float64`, `bool`, `string`, `time.Time` o `nil`. La propiedad se eliminará si el valor es `nil`. La función devuelve un error si el valor de la propiedad no es del tipo correcto.
+
+## Obtenga propiedades personalizadas {#GetCustomProps}
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
+
+GetCustomProps proporciona una función para obtener propiedades de archivos personalizadas.
 
 ## Establecer propiedades de cálculo {#SetCalcProps}
 

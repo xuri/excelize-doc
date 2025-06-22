@@ -45,6 +45,8 @@
   * [アプリケーションのプロパティを取得する](workbook.md#GetAppProps)
   * [ドキュメントのプロパティを設定する](workbook.md#SetDocProps)
   * [ドキュメントのプロパティを取得する](workbook.md#GetDocProps)
+  * [カスタムプロパティを設定する](workbook.md#SetCustomProps)
+  * [カスタムプロパティを取得する](workbook.md#GetCustomProps)
   * [計算プロパティを設定する](workbook.md#SetCalcProps)
   * [計算プロパティを取得する](workbook.md#GetCalcProps)
   * [ブックを保護する](workbook.md#ProtectWorkbook)
