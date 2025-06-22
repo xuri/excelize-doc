@@ -1023,11 +1023,11 @@ SetCustomProps provides a function to set custom file properties by given proper
 
 ## Get custom properties {#GetCustomProps}
 
-GetCustomProps provides a function to get custom file properties.
-
 ```go
 func (f *File) GetCustomProps() ([]CustomProperty, error)
 ```
+
+GetCustomProps provides a function to get custom file properties.
 
 ## Set calculation properties {#SetCalcProps}
 

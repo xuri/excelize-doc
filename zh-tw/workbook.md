@@ -52,6 +52,15 @@ const (
 )
 ```
 
+`CustomProperty` 定義了設定活頁簿自訂屬性時的選項。自訂屬性的值支持以下資料類型：`int32`、`float64`、`string`、`bool`、`time.Time` 和 `nil`。
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` 定義了設定活頁簿計算屬性時的選項。
 
 ```go
@@ -1005,6 +1014,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 獲取活頁簿的核心屬性。
+
+## 設定自訂屬性 {#SetDocCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函數將會返回錯誤。
+
+## 獲取自訂屬性 {#GetDocCustomProps}
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
+
+獲取全部自訂屬性。
 
 ## 設定計算屬性 {#SetCalcProps}
 

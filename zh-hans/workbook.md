@@ -1029,6 +1029,8 @@ func (f *File) SetCustomProps(prop CustomProperty) error
 func (f *File) GetCustomProps() ([]CustomProperty, error)
 ```
 
+获取全部自定义属性。
+
 ## 设置计算属性 {#SetCalcProps}
 
 ```go
