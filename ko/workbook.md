@@ -337,6 +337,62 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
+스프레드시트 애플리케이션에는 "사용자 지정 축소/확대 옵션" 이라는 4종의 사전 설정이 있습니다. 이러한 축소/확대 옵션을 설정해야 하는 경우, [`SetSheetProps`](workbook.md#SetSheetProps) 및 [`SetPageLayout`](workbook.md#SetPageLayout) 함수를 사용하여 이 4가지 축소/확대 옵션에 접근하시기 바랍니다:
+
+1. 크기 조정 없음 (인쇄 용지를 실제 크기로 인쇄하십시오):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. 한 페이지에 맞도록 인쇄물 축소하기:
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. 모든 열을 한 페이지에 맞추기 (출력물을 한 페이지 너비로 축소하기):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. 모든 행을 한 페이지에 맞추기 (출력물을 한 페이지 높이에 맞게 축소하기):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Sheet1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## 워크 시트 속성 가져 오기 {#GetSheetProps}
 
 ```go

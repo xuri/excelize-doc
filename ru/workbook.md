@@ -337,7 +337,63 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-## Получить свойства листа {#SetSheetProps}
+В электронных таблицах существуют 4 типа предварительно заданных "Настроек масштабирования". Если вам необходимо установить такие параметры масштабирования, пожалуйста, используйте функции [`SetSheetProps`](workbook.md#SetSheetProps) и [`SetPageLayout`](workbook.md#SetPageLayout) для работы с этими 4 параметрами масштабирования:
+
+1. Без масштабирования (Печать листов в их фактическом размере):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Лист1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Упаковка информации на одном листе (уменьшите распечатку так, чтобы она поместилась на одном листе):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Лист1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Вписать все столбцы на одной странице (уменьшить печать так, чтобы она умещалась на одной странице по ширине):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Лист1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Лист1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Поместите все строки на одной странице (уменьшите распечатку так, чтобы она занимала одну страницу по высоте):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Лист1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Лист1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+## Получить свойства листа {#GetSheetProps}
 
 ```go
 func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
