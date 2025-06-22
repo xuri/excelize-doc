@@ -341,6 +341,62 @@ if err := f.SetRowVisible("Foglio1", 10, true); err != nil {
 f.SaveAs("Cartel1.xlsx")
 ```
 
+Ci sono 4 tipi di preset "Opzioni di Scala Personalizzata" nelle applicazioni di fogli di calcolo. Se è necessario impostare tali opzioni di scala, si prega di utilizzare le funzioni [`SetSheetProps`](workbook.md#SetSheetProps) e [`SetPageLayout`](workbook.md#SetPageLayout) per accedere a queste 4 opzioni di scala:
+
+1. Nessuna scala (Stampare le schede alle loro dimensioni reali):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Foglio1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Scheda di adattamento su un'unica pagina (ridurre l'uscita stampata in modo che si adatti su un'unica pagina):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Foglio1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Adattare tutte le colonne su una sola pagina (ridurre la stampa in modo che sia larga una sola pagina):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Foglio1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Foglio1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Adattare tutte le righe su un'unica pagina (ridurre la stampa in modo che sia alta un'unica pagina):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Foglio1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Foglio1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## Ottieni le proprietà del foglio di lavoro {#GetSheetProps}
 
 ```go

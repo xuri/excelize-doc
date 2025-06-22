@@ -341,6 +341,62 @@ if err := f.SetRowVisible("Planilha1", 10, true); err != nil {
 f.SaveAs("Pasta1.xlsx")
 ```
 
+Existem 4 tipos de predefinições "Opções de Escalonamento Personalizado" nas aplicações de planilhas. Se você precisar definir esse tipo de opções de escalonamento, por favor, utilize as funções [`SetSheetProps`](workbook.md#SetSheetProps) e [`SetPageLayout`](workbook.md#SetPageLayout) para abordar essas 4 opções de escalonamento:
+
+1. Sem Redimensionamento (Imprimir folhas em seu tamanho real):
+
+    ```go
+    disable := false
+    if err := f.SetSheetProps("Planilha1", &excelize.SheetPropsOptions{
+        FitToPage: &disable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+2. Ajuste a Impressão para Caber em Uma Página (Reduza a impressão para que caiba em uma página):
+
+    ```go
+    enable := true
+    if err := f.SetSheetProps("Planilha1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+3. Ajustar todas as colunas em uma única página (reduzir a impressão para que ocupe uma única página de largura):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Planilha1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Planilha1", &excelize.PageLayoutOptions{
+        FitToHeight: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
+4. Ajustar todas as linhas em uma única página (reduzir a impressão de modo que ocupe apenas uma página de altura):
+
+    ```go
+    enable, zero := true, 0
+    if err := f.SetSheetProps("Planilha1", &excelize.SheetPropsOptions{
+        FitToPage: &enable,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    if err := f.SetPageLayout("Planilha1", &excelize.PageLayoutOptions{
+        FitToWidth: &zero,
+    }); err != nil {
+        fmt.Println(err)
+    }
+    ```
+
 ## Obtenha propriedades da planilha {#GetSheetProps}
 
 ```go
