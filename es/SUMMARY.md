@@ -45,6 +45,8 @@
   * [Obtener propiedades de la aplicación](workbook.md#GetAppProps)
   * [Establecer las propiedades del documento](workbook.md#SetDocProps)
   * [Obtener propiedades del documento](workbook.md#GetDocProps)
+  * [Establecer propiedades personalizadas](workbook.md#SetCustomProps)
+  * [Obtenga propiedades personalizadas](workbook.md#GetCustomProps)
   * [Establecer propiedades de cálculo](workbook.md#SetCalcProps)
   * [Obtener propiedades de cálculo](workbook.md#GetCalcProps)
   * [Proteger el libro de trabajo](workbook.md#ProtectWorkbook)

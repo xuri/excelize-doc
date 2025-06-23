@@ -45,6 +45,8 @@
   * [獲取活頁簿應用程式屬性](workbook.md#GetAppProps)
   * [設定檔案屬性](workbook.md#SetDocProps)
   * [獲取檔案屬性](workbook.md#GetDocProps)
+  * [設定自訂屬性](workbook.md#SetDocCustomProps)
+  * [獲取自訂屬性](workbook.md#GetDocCustomProps)
   * [設定計算屬性](workbook.md#SetCalcProps)
   * [獲取計算屬性](workbook.md#GetCalcProps)
   * [保護活頁簿](workbook.md#ProtectWorkbook)

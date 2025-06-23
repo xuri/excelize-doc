@@ -45,6 +45,8 @@
   * [获取工作簿应用程序属性](workbook.md#GetAppProps)
   * [设置文档属性](workbook.md#SetDocProps)
   * [获取文档属性](workbook.md#GetDocProps)
+  * [设置自定义属性](workbook.md#SetDocCustomProps)
+  * [获取自定义属性](workbook.md#GetDocCustomProps)
   * [设置计算属性](workbook.md#SetCalcProps)
   * [获取计算属性](workbook.md#GetCalcProps)
   * [保护工作簿](workbook.md#ProtectWorkbook)

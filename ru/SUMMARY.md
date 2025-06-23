@@ -45,6 +45,8 @@
   * [Получить свойства приложения](workbook.md#GetAppProps)
   * [Установить свойства документа](workbook.md#SetDocProps)
   * [Получить свойства документа](workbook.md#GetDocProps)
+  * [Установить пользовательские свойства](workbook.md#SetCustomProps)
+  * [Получить пользовательские свойства](workbook.md#GetCustomProps)
   * [Установить свойства расчета](workbook.md#SetCalcProps)
   * [Получить свойства расчета](workbook.md#GetCalcProps)
   * [Защитить книгу](workbook.md#ProtectWorkbook)

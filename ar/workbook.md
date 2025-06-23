@@ -50,6 +50,15 @@ const (
 )
 ```
 
+تُطابق `CustomProperty` مباشرةً الخاصية المخصصة للمصنف. قد يكون نوع تاريخ القيمة أحد الأنواع التالية: `int32`، `float64`، `string`، `bool`، `time.Time`، أو `nil`.
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 تعرف CalcPropsOptions مجموعة الخصائص التي تستخدمها التطبيق لتسجيل حالة الحساب والتفاصيل.
 
 ```go
@@ -1008,6 +1017,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 يوفر GetDocProps وظيفة للحصول على خصائص المستند الأساسية.
+
+## تعيين خصائص مخصصة {#SetCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+توفر دالة SetCustomProps دالة لتعيين خصائص ملف مخصصة باستخدام اسم وقيمة الخاصية المحددين. إذا كان اسم الخاصية موجودًا بالفعل، فسيتم تحديثه، وإلا فسيتم إضافة خاصية جديدة. يمكن أن تكون القيمة من نوع `int32`، أو `float64`، أو `bool`، أو `string`، أو `time.Time`، أو `nil`. سيتم حذف الخاصية إذا كانت قيمتها `nil`. تُرجع الدالة خطأً إذا لم تكن قيمة الخاصية من النوع الصحيح.
+
+## الحصول على خصائص مخصصة {#GetCustomProps}
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
+
+توفر GetCustomProps وظيفة للحصول على خصائص ملف مخصصة.
 
 ## تعيين خصائص الحساب {#SetCalcProps}
 

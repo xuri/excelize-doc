@@ -50,6 +50,15 @@ const (
 )
 ```
 
+`CustomProperty` 는 통합 문서의 사용자 지정 속성을 직접 매핑합니다. 값 날짜 유형은 `int32`, `float64`, `string`, `bool`, `time.Time` 또는 `nil` 중 하나일 수 있습니다.
+
+```go
+type CustomProperty struct {
+    Name  string
+    Value interface{}
+}
+```
+
 `CalcPropsOptions` 는 애플리케이션이 계산 상태와 세부 정보를 기록하는 데 사용하는 속성 컬렉션을 정의합니다.
 
 ```go
@@ -1003,6 +1012,22 @@ func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
 통합 문서의 핵심 속성을 가져옵니다.
+
+## 사용자 정의 속성 설정 {#SetCustomProps}
+
+```go
+func (f *File) SetCustomProps(prop CustomProperty) error
+```
+
+SetCustomProps 는 주어진 속성 이름과 값으로 사용자 지정 파일 속성을 설정하는 함수를 제공합니다. 속성 이름이 이미 존재하면 업데이트되고, 그렇지 않으면 새 속성이 추가됩니다. 값은 `int32`, `float64`, `bool`, `string`, `time.Time` 또는 `nil` 유형일 수 있습니다. 값이 `nil` 이면 속성은 삭제됩니다. 속성 값이 올바른 유형이 아니면 이 함수는 오류를 반환합니다.
+
+## 사용자 정의 속성 가져오기 {#GetCustomProps}
+
+```go
+func (f *File) GetCustomProps() ([]CustomProperty, error)
+```
+
+GetCustomProps 는 사용자 정의 파일 속성을 가져오는 함수를 제공합니다.
 
 ## 계산 속성 설정 {#SetCalcProps}
 
