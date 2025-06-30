@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel fornece uma função para obter o número do nível de estrutura de tópicos de uma única linha por meio do nome da planilha e do número da linha. Por exemplo, obtenha o número do contorno da linha 2 em `Planilha1`:
 
 ```go
-err := f.GetRowOutlineLevel("Planilha1", 2)
+level, err := f.GetRowOutlineLevel("Planilha1", 2)
 ```
 
 ## Obtenha o contorno da coluna {#GetColOutlineLevel}

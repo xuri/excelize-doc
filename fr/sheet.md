@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel fournit une fonction pour obtenir le numéro de niveau hiérarchique d'une seule ligne par nom de feuille de calcul donné et index de ligne. Par exemple, obtenez le numéro de contour de la ligne 2 dans `Feuil1`:
 
 ```go
-err := f.GetRowOutlineLevel("Feuil1", 2)
+level, err := f.GetRowOutlineLevel("Feuil1", 2)
 ```
 
 ## Obtenir le plan de la colonne {#GetColOutlineLevel}

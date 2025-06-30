@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 指定されたシート名と行インデックスに基づいてグループ化レベルを取得します。たとえば、`Sheet1` という名前のワークシートの行 2 のグループ化レベルを取得します。
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+level, err := f.GetRowOutlineLevel("Sheet1", 2)
 ```
 
 ## 列のアウトラインを取得 {#GetColOutlineLevel}

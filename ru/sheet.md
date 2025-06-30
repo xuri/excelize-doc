@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel предоставляет функцию, позволяющую получить общий уровень уровня одной строки с помощью заданного имени листа и индекса строки. Например, получите количество строк строки 2 в `Лист1`:
 
 ```go
-err := f.GetRowOutlineLevel("Лист1", 2)
+level, err := f.GetRowOutlineLevel("Лист1", 2)
 ```
 
 ## Получить контур колонны {#GetColOutlineLevel}

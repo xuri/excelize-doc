@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel 은 지정된 워크 시트 이름과 Excel 행 번호로 단일 행의 개요 수준 번호를 얻는 함수를 제공합니다. 예를 들어 `Sheet1` 에서 행 2 의 윤곽선 번호를 가져옵니다.
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+level, err := f.GetRowOutlineLevel("Sheet1", 2)
 ```
 
 ## 칼럼 개요 얻기 {#GetColOutlineLevel}

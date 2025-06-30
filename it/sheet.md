@@ -244,7 +244,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel fornisce una funzione per ottenere il numero del livello di struttura di una singola riga in base al nome del foglio di lavoro e al numero di riga di Excel. Ad esempio, ottieni il numero della struttura della riga 2 in `Foglio1`:
 
 ```go
-err := f.GetRowOutlineLevel("Foglio1", 2)
+level, err := f.GetRowOutlineLevel("Foglio1", 2)
 ```
 
 ## Ottieni il contorno della colonna {#GetColOutlineLevel}

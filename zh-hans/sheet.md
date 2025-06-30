@@ -247,7 +247,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 根据给定的工作表名称和行号获取分组级别。例如，获取名为 `Sheet1` 的工作表第 2 行的分组级别。
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+level, err := f.GetRowOutlineLevel("Sheet1", 2)
 ```
 
 ## 获取列的分级显示 {#GetColOutlineLevel}

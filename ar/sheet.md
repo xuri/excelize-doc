@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 يوفر GetRowOutlineLevel وظيفة للحصول على رقم مستوى المخطط التفصيلي لصف واحد عن طريق اسم ورقة العمل المعطى ورقم صف Excel. على سبيل المثال ، احصل على رقم المخطط التفصيلي للصف 2 في `ورقة1`:
 
 ```go
-err := f.GetRowOutlineLevel("ورقة1", 2)
+level, err := f.GetRowOutlineLevel("ورقة1", 2)
 ```
 
 ## الحصول على مخطط تفصيلي للعمود {#GetColOutlineLevel}

@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel proporciona una función para obtener el número de nivel de esquema de una sola fila por nombre de hoja de cálculo y número de fila de Excel. Por ejemplo, obtenga el número de esquema de la fila 2 en `Hoja1`:
 
 ```go
-err := f.GetRowOutlineLevel("Hoja1", 2)
+level, err := f.GetRowOutlineLevel("Hoja1", 2)
 ```
 
 ## Obtener esquema de columna {#GetColOutlineLevel}

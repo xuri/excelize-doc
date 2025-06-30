@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel bietet eine Funktion zum Abrufen der Gliederungsebenennummer einer einzelnen Zeile anhand des angegebenen Arbeitsblattnamens und der Excel-Zeilennummer. Erhalten Sie beispielsweise die Umrissnummer von Zeile 2 in `Tabelle1`:
 
 ```go
-err := f.GetRowOutlineLevel("Tabelle1", 2)
+level, err := f.GetRowOutlineLevel("Tabelle1", 2)
 ```
 
 ## Abrufen der Spaltenumrisslinie {#GetColOutlineLevel}

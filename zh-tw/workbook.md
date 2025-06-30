@@ -227,7 +227,7 @@ if err != nil {
     fmt.Println(err)
     return
 }
-err := f.CopySheet(1, index)
+err = f.CopySheet(0, index)
 ```
 
 ## 工作表分組 {#GroupSheets}

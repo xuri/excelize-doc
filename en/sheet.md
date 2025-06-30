@@ -214,7 +214,7 @@ Use this method with caution, which will affect changes in references such as fo
 func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
-SetRowOutlineLevel provides a function to set outline level number of a single row by given worksheet name and Excel row number. For example, outline row 2 in `Sheet1` to level 1:
+SetRowOutlineLevel provides a function to set outline level number of a single row by given worksheet name and row number. The range of parameter `level` value from 1 to 7. For example, outline row 2 in `Sheet1` to level 1:
 
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="Create row outline"></p>
 
@@ -245,7 +245,7 @@ func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 GetRowOutlineLevel provides a function to get the outline level number of a single row by given worksheet name and Excel row number. For example, get the outline number of row 2 in `Sheet1`:
 
 ```go
-err := f.GetRowOutlineLevel("Sheet1", 2)
+level, err := f.GetRowOutlineLevel("Sheet1", 2)
 ```
 
 ## Get column outline {#GetColOutlineLevel}
