@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` は、スプレッドシートを開いたときの解凍サイズの制限をバイト単位で指定します。この値は `UnzipXMLSizeLimit` 以上である必要があり、デフォルトのサイズ制限は 16GB です。
 
 `UnzipXMLSizeLimit` は、ワークシートと共有文字列テーブルを解凍する際のメモリ制限をバイト単位で指定します。ファイルサイズがこの値を超えると、ワークシートXMLがシステム一時ディレクトリに抽出されます。この値はデフォルトの `UnzipSizeLimit` 以下である必要があります。値は 16MB です。
+
+`TmpDir` は一時ファイルを作成するための一時ディレクトリを指定します。値が空の場合、システムのデフォルトの一時ディレクトリが使用されます。
 
 `ShortDatePattern` は、短い日付数値形式コードを指定します。スプレッドシート アプリケーションでは、日付形式により日付と時刻のシリアル番号が日付値として表示されます。アスタリスク (\*) で始まる日付形式は、オペレーティング システムに指定されている地域の日付と時刻の設定の変更に対応します。アスタリスクのない形式は、オペレーティング システムの設定の影響を受けません。に使用される `ShortDatePattern` は、アスタリスクで始まる適用日付形式を指定します。
 

@@ -124,7 +124,7 @@ Establezca la posición del área de trazado del gráfico por área de trazado. 
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Especifica los valores en el segundo gráfico para los gráficos `pieOfPie` y `barOfPie`.
+SecondPlotValues | `int`         | `0`     | Especifica los valores en el segundo gráfico para los gráficos `PieOfPie` y `BarOfPie`.
 ShowBubbleSize   | `bool`        | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
 ShowCatName      | `bool`        | `false` | Nombre de la categoría.
 ShowLeaderLines  | `bool`        | `false` | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos.

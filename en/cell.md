@@ -509,7 +509,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-The cell style index is obtained from the given worksheet name and cell reference, and the obtained index can be used as a parameter to call the `SetCellValue` function when copying the cell style.
+The cell style index is obtained from the given worksheet name and cell reference, and the obtained index can be used as a parameter to call the `SetCellStyle` function when copying the cell style.
 
 ## Merge cells {#MergeCell}
 

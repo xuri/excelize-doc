@@ -8,7 +8,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等），在对应的单元格上插入图片。此功能是并发安全的。
+根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等），在对应的单元格上插入图片。支持的图片格式：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。此功能是并发安全的。请注意，此功能目前仅支持将图片放置在单元格上方，不支持将图片嵌入在单元格内，也不支持创建 Kingsoft WPS Office 内嵌图片单元格。
 
 例如：
 
@@ -99,7 +99,7 @@ func main() {
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等）、图片描述、图片扩展名和 `[]byte` 类型的图片内容，在对应的单元格上插入图片。
+根据给定的工作表名称、单元格坐标、图片地址和图片格式（例如偏移、缩放和打印设置等）、图片描述、图片扩展名和 `[]byte` 类型的图片内容，在对应的单元格上插入图片。支持的图片格式：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。请注意，此功能目前仅支持将图片放置在单元格上方，不支持将图片嵌入在单元格内，也不支持创建 Kingsoft WPS Office 内嵌图片单元格。
 
 例如：
 

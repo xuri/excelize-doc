@@ -513,7 +513,7 @@ link, target, err := f.GetCellHyperLink("Planilha1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-O índice de estilo de célula é obtido a partir do nome da planilha e da referência de célula fornecidos, e o índice obtido pode ser usado como parâmetro para chamar a função `SetCellValue` ao copiar o estilo de célula.
+O índice de estilo de célula é obtido a partir do nome da planilha e da referência de célula fornecidos, e o índice obtido pode ser usado como parâmetro para chamar a função `SetCellStyle` ao copiar o estilo de célula.
 
 ## Mesclar células {#MergeCell}
 

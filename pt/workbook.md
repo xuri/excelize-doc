@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` especifica o limite de tamanho de descompactação em bytes ao abrir a planilha, este valor deve ser maior ou igual a `UnzipXMLSizeLimit`, o limite de tamanho padrão é 16GB.
 
 `UnzipXMLSizeLimit` especifica o limite de memória para descompactar a planilha e a tabela de strings compartilhadas em bytes, o XML da planilha será extraído para o diretório temporário do sistema quando o tamanho do arquivo ultrapassar esse valor, esse valor deve ser menor ou igual a `UnzipSizeLimit`, o padrão o valor é 16MB.
+
+`TmpDir` especifica o diretório temporário para criação de arquivos temporários. Se o valor estiver vazio, o diretório temporário padrão do sistema será usado.
 
 `ShortDatePattern` especifica o código de formato de número de data abreviada. Nos aplicativos de planilha, os formatos de data exibem números de série de data e hora como valores de data. Os formatos de data que começam com um asterisco (\*) respondem às alterações nas configurações regionais de data e hora especificadas para o sistema operacional. Os formatos sem asterisco não são afetados pelas configurações do sistema operacional. O `ShortDatePattern` usado para especifica a aplicação de formatos de data que começam com um asterisco.
 

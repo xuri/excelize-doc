@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` 은 스프레드시트를 열 때 압축 해제 크기 제한을 바이트 단위로 지정합니다. 이 값은 `UnzipXMLSizeLimit` 이상이어야 하며 기본 크기 제한은 16GB 입니다.
 
 `UnzipXMLSizeLimit` 은 압축 해제 워크시트 및 공유 문자열 테이블의 메모리 제한을 바이트 단위로 지정합니다. 파일 크기가 이 값을 초과하면 워크시트 XML이 시스템 임시 디렉토리로 추출됩니다. 이 값은 기본값인 `UnzipSizeLimit` 보다 작거나 같아야 합니다. 값은 16MB 입니다.
+
+`TmpDir` 은 임시 파일을 생성하기 위한 임시 디렉토리를 지정합니다. 값이 비어 있으면 시스템 기본 임시 디렉토리가 사용됩니다.
 
 `ShortDatePattern` 은 간단한 날짜 숫자 형식 코드를 지정합니다. 스프레드시트 애플리케이션에서 날짜 형식은 날짜 및 시간 일련 번호를 날짜 값으로 표시합니다. 별표 (\*) 로 시작하는 날짜 형식은 운영 체제에 지정된 지역 날짜 및 시간 설정의 변경 사항에 응답합니다. 별표가 없는 형식은 운영 체제 설정의 영향을 받지 않습니다. 별표로 시작하는 적용 날짜 형식을 지정하는 데 사용되는 `ShortDatePattern` 입니다.
 

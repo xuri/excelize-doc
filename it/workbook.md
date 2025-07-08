@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` specifica il limite di dimensione di decompressione in byte all'apertura del foglio di calcolo, questo valore deve essere maggiore o uguale a `UnzipXMLSizeLimit`, il limite di dimensione predefinito è 16GB.
 
 `UnzipXMLSizeLimit` specifica il limite di memoria per la decompressione del foglio di lavoro e della tabella di stringhe condivise in byte, il foglio di lavoro XML verrà estratto nella directory temporanea del sistema quando la dimensione del file supera questo valore, questo valore dovrebbe essere inferiore o uguale a `UnzipSizeLimit`, il valore predefinito il valore è 16MB.
+
+`TmpDir` specifica la directory temporanea per la creazione di file temporanei; se il valore è vuoto, verrà utilizzata la directory temporanea predefinita del sistema.
 
 `ShortDatePattern` specifica il codice del formato del numero della data breve. Nelle applicazioni per fogli di calcolo, i formati di data visualizzano i numeri di serie della data e dell'ora come valori di data. I formati di data che iniziano con un asterisco (\*) rispondono alle modifiche nelle impostazioni internazionali di data e ora specificate per il sistema operativo. I formati senza asterisco non sono influenzati dalle impostazioni del sistema operativo. Lo `ShortDatePattern` utilizzato per specifica i formati di data applicati che iniziano con un asterisco.
 

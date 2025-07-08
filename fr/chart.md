@@ -124,7 +124,7 @@ Définissez la position de la zone de tracé de graphique par plotarea. Les prop
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `pieOfPie` et `barOfPie`.
+SecondPlotValues | `int`         | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `PieOfPie` et `BarOfPie`.
 ShowBubbleSize   | `bool`        | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
 ShowCatName      | `bool`        | `false` | Nom de catégorie
 ShowLeaderLines  | `bool`        | `false` | Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.

@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` gibt die Entpack-Größenbeschränkung in Bytes beim Öffnen der Tabelle an. Dieser Wert sollte größer oder gleich `UnzipXMLSizeLimit` sein, die Standardgrößenbeschränkung beträgt 16GB.
 
 `UnzipXMLSizeLimit` gibt das Speicherlimit beim Entpacken des Arbeitsblatts und der freigegebenen Stringtabelle in Bytes an. Arbeitsblatt-XML wird in das temporäre Systemverzeichnis extrahiert, wenn die Dateigröße diesen Wert überschreitet. Dieser Wert sollte kleiner oder gleich `UnzipSizeLimit` sein, der Standardeinstellung Wert ist 16MB.
+
+`TmpDir` gibt das temporäre Verzeichnis zum Erstellen temporärer Dateien an. Wenn der Wert leer ist, wird das temporäre Standardverzeichnis des Systems verwendet.
 
 `ShortDatePattern` gibt den Formatcode für kurze Datumszahlen an. In den Tabellenkalkulationsanwendungen zeigen Datumsformate Datums- und Uhrzeitseriennummern als Datumswerte an. Datumsformate, die mit einem Sternchen (\*) beginnen, reagieren auf Änderungen der regionalen Datums- und Uhrzeiteinstellungen, die für das Betriebssystem angegeben sind. Formate ohne Sternchen werden von den Betriebssystemeinstellungen nicht beeinflusst. Das `ShortDatePattern`, das für verwendet wird, gibt Datumsformate an, die mit einem Sternchen beginnen.
 

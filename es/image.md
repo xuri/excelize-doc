@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture proporciona el método para agregar una imagen a una hoja de trabajo mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión) y la ruta del archivo. Esta función es segura para la simultaneidad.
+AddPicture permite agregar una imagen a una hoja de cálculo según el formato de imagen (como desplazamiento, escala, relación de aspecto y configuración de impresión) y la ruta de archivo. Los tipos de imagen admitidos son: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ. Esta función es compatible con concurrencia. Tenga en cuenta que, actualmente, esta función solo permite agregar imágenes sobre las celdas, no las imágenes dentro de las celdas ni crear celdas de imagen incrustadas en Kingsoft WPS Office.
 
 Por ejemplo:
 
@@ -98,7 +98,7 @@ El parámetro opcional `Positioning` define 3 tipos de posición de un objeto gr
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes proporciona el método para agregar una imagen en una hoja mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión), descripción de texto alternativo, nombre de extensión y contenido de archivo en el tipo `[]byte`.
+AddPictureFromBytes proporciona el método para agregar una imagen en una hoja mediante un conjunto de formato de imagen determinado (como desplazamiento, escala, configuración de relación de aspecto y configuración de impresión), descripción de texto alternativo, nombre de extensión y contenido de archivo en el tipo `[]byte`. Tipos de imagen compatibles: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ. Tenga en cuenta que esta función solo permite añadir imágenes sobre las celdas, no las insertadas en celdas ni crear celdas con imágenes incrustadas en Kingsoft WPS Office.
 
 Por ejemplo:
 

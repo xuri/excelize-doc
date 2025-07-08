@@ -8,7 +8,7 @@ func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 
 AddChart fornece o método para adicionar um gráfico em uma planilha por determinado conjunto de formato de gráfico (como deslocamento, escala, configuração de proporção de aspecto e configurações de impressão) e conjunto de propriedades.
 
-O seguinte mostra o `type` de gráfico suportado pelo Excelize:
+O seguinte mostra o `Type` de gráfico suportado pelo Excelize:
 
 ID|Enumeração|Gráfico
 ---|---|---
@@ -74,7 +74,7 @@ As opções de `Series` que podem ser definidas são:
 
 Parâmetro|Explicação
 ---|---
-Name              | Item de legenda (série), exibido na legenda do gráfico e na barra de fórmulas. O parâmetro `Name` é opcional. Se você não especificar esse valor, o padrão será `Series 1 .. n`. suporte `name` para representação de fórmula, por exemplo: `Planilha1!$A$1`.
+Name              | Item de legenda (série), exibido na legenda do gráfico e na barra de fórmulas. O parâmetro `Name` é opcional. Se você não especificar esse valor, o padrão será `Series 1 .. n`. suporte `Name` para representação de fórmula, por exemplo: `Planilha1!$A$1`.
 Categories        | Etiqueta do eixo horizontal (categoria). O parâmetro `Categories` é opcional na maioria dos tipos de gráficos, o padrão é uma sequência contígua no formato `1..n`.
 Values            | A área de dados do gráfico, que é o parâmetro mais importante em `Series`, também é o único parâmetro obrigatório ao criar um gráfico. Esta opção vincula o gráfico aos dados da planilha que ele exibe.
 Fill              | Isso define o formato do preenchimento da série de dados.
@@ -124,7 +124,7 @@ Defina a posição da área de plotagem do gráfico por área de plotagem. As pr
 
 Parâmetro|Tipo|Valores padrão|Explicação
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Especifica os valores no segundo gráfico para o gráfico `pieOfPie` e `barOfPie`.
+SecondPlotValues | `int`         | `0`     | Especifica os valores no segundo gráfico para o gráfico `PieOfPie` e `BarOfPie`.
 ShowBubbleSize   | `bool`        | `false` | Especifica que o tamanho da bolha deve ser mostrado em um rótulo de dados.
 ShowCatName      | `bool`        | `true`  | Nome da Categoria.
 ShowLeaderLines  | `bool`        | `false` | Especifica que o nome da categoria deve ser mostrado no rótulo de dados.

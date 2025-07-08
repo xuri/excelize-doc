@@ -124,7 +124,7 @@ zero | قيمة صفرية
 
 معامل|اكتب|إفتراضي|تفسير
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | يحدد القيم في المخطط الثاني للمخطط `pieOfPie` و `barOfPie`.
+SecondPlotValues | `int`         | `0`     | يحدد القيم في المخطط الثاني للمخطط `PieOfPie` و `BarOfPie`.
 ShowBubbleSize   | `bool`        | `false` | يحدد حجم الفقاعة الذي يجب أن يظهر في ملصق البيانات.
 ShowCatName      | `bool`        | `false` | اسم التصنيف
 ShowLeaderLines  | `bool`        | `false` | يحدد أن اسم الفئة يجب أن يظهر في تسمية البيانات.

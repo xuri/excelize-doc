@@ -124,7 +124,7 @@ zero | 0 값
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | `pieOfPie` 및 `barOfPie` 차트에 대한 두 번째 플롯의 값을 지정합니다.
+SecondPlotValues | `int`         | `0`     | `PieOfPie` 및 `BarOfPie` 차트에 대한 두 번째 플롯의 값을 지정합니다.
 ShowBubbleSize   | `bool`        | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
 ShowCatName      | `bool`        | `false` | 범주 이름
 ShowLeaderLines  | `bool`        | `false` | 범주 이름이 데이터 레이블에 표시되도록 지정합니다.

@@ -124,7 +124,7 @@ Imposta la posizione dell'area del grafico in base all'area del grafico. Le prop
 
 Parametro|Tipo|Predefinito|Spiegazione
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Specifica i valori nel secondo grafico per il grafico `pieOfPie` e `barOfPie`.
+SecondPlotValues | `int`         | `0`     | Specifica i valori nel secondo grafico per il grafico `PieOfPie` e `BarOfPie`.
 ShowBubbleSize   | `bool`        | `false` | Specifica che la dimensione della bolla deve essere mostrata in un'etichetta dati.
 ShowCatName      | `bool`        | `true`  | Nome della categoria.
 ShowLeaderLines  | `bool`        | `false` | Specifica che il nome della categoria deve essere mostrato nell'etichetta dati.

@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` specifies the unzip size limit in bytes on open the spreadsheet, this value should be greater than or equal to `UnzipXMLSizeLimit`, the default size limit is 16GB.
 
 `UnzipXMLSizeLimit` specifies the memory limit on unzipping worksheet and shared string table in bytes, worksheet XML will be extracted to system temporary directory when the file size is over this value, this value should be less than or equal to `UnzipSizeLimit`, the default value is 16MB.
+
+`TmpDir` specifies the temporary directory for creating temporary files, if the value is empty, the system default temporary directory will be used.
 
 `ShortDatePattern` specifies the short date number format code. In the spreadsheet applications, date formats display date and time serial numbers as date values. Date formats that begin with an asterisk (\*) respond to changes in regional date and time settings that are specified for the operating system. Formats without an asterisk are not affected by operating system settings. The `ShortDatePattern` used for specifies apply date formats that begin with an asterisk.
 

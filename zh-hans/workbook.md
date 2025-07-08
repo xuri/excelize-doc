@@ -11,6 +11,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -27,6 +28,8 @@ type Options struct {
 `UnzipSizeLimit` 用以指定打开电子表格文档时的解压缩大小限制（以字节为单位），该值应大于或等于 `UnzipXMLSizeLimit`，默认大小限制为 16GB。
 
 `UnzipXMLSizeLimit` 用以指定解压每个工作表以及共享字符表时的内存限制（以字节为单位），当大小超过此值时工作表 XML 文件将被解压至系统临时目录，该值应小于或等于 `UnzipSizeLimit`，默认大小限制为 16MB。
+
+`TmpDir` 用以指定创建临时文件的临时目录，如果值为空，则使用系统默认的临时目录。
 
 `ShortDatePattern` 用以指定短日期数字格式代码。在电子表格应用程序中，可以通过为单元格设置带有日期格式的数字格式，将日期和时间序列号显示为日期值。其中以星号 (\*) 开头的日期格式响应为操作系统指定的区域日期和时间设置的更改。没有星号的格式不受操作系统设置的影响。`ShortDatePattern` 用于指定读取以星号开头的日期格式时所应用的短日期数字格式代码。
 

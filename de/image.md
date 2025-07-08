@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture bietet die Methode zum Hinzufügen eines Bilds zu einem Arbeitsblatt anhand eines bestimmten Bildformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen) und des Dateipfads. Diese Funktion wird für die gleichzeitige Verwendung unterstützt.
+AddPicture ermöglicht das Hinzufügen eines Bildes zu einem Arbeitsblatt anhand des vorgegebenen Bildformats (z. B. Offset, Skalierung, Seitenverhältnis und Druckeinstellungen) und Dateipfads. Unterstützte Bildtypen: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ. Diese Funktion ist parallelitätssicher. Beachten Sie, dass diese Funktion nur das Hinzufügen von Bildern über den aktuell platzierten Zellen unterstützt. Das Hinzufügen von Bildern in Zellen oder das Erstellen eingebetteter Kingsoft WPS Office-Bildzellen ist nicht möglich.
 
 Zum Beispiel:
 
@@ -98,7 +98,7 @@ Der optionale Parameter `Positioning` definiert drei Arten der Position eines Di
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes bietet die Methode zum Hinzufügen eines Bilds zu einem Blatt anhand eines bestimmten Bildformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen), einer alternativen Textbeschreibung, eines Erweiterungsnamens und eines Dateiinhalts im Typ `[]byte`.
+AddPictureFromBytes bietet die Methode zum Hinzufügen eines Bilds zu einem Blatt anhand eines bestimmten Bildformatsatzes (z. B. Versatz, Skalierung, Seitenverhältniseinstellung und Druckeinstellungen), einer alternativen Textbeschreibung, eines Erweiterungsnamens und eines Dateiinhalts im Typ `[]byte`. Unterstützte Bildtypen: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ. Beachten Sie, dass diese Funktion nur das Hinzufügen von Bildern über den aktuellen Zellen unterstützt. Das Hinzufügen von Bildern in Zellen oder das Erstellen der in Kingsoft WPS Office eingebetteten Bildzellen ist nicht möglich.
 
 Zum Beispiel:
 

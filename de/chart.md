@@ -124,7 +124,7 @@ Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende 
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `pieOfPie` und `barOfPie` an.
+SecondPlotValues | `int`         | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `PieOfPie` und `BarOfPie` an.
 ShowBubbleSize   | `bool`        | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
 ShowCatName      | `bool`        | `false` | Kategoriename.
 ShowLeaderLines  | `bool`        | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.

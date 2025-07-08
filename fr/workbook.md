@@ -9,6 +9,7 @@ type Options struct {
     RawCellValue      bool
     UnzipSizeLimit    int64
     UnzipXMLSizeLimit int64
+    TmpDir            string
     ShortDatePattern  string
     LongDatePattern   string
     LongTimePattern   string
@@ -25,6 +26,8 @@ type Options struct {
 `UnzipSizeLimit` spécifie la taille limite de décompression en octets à l'ouverture de la feuille de calcul, cette valeur doit être supérieure ou égale à `UnzipXMLSizeLimit`, la taille limite par défaut est de 16Go.
 
 `UnzipXMLSizeLimit` spécifie la limite de mémoire pour décompresser la feuille de calcul et la table de chaînes partagée en octets, la feuille de calcul XML sera extraite dans le répertoire temporaire du système lorsque la taille du fichier dépasse cette valeur, cette valeur doit être inférieure ou égale à `UnzipSizeLimit`, la valeur par défaut la valeur est de 16 Mo.
+
+`TmpDir` spécifie le répertoire temporaire pour la création de fichiers temporaires, si la valeur est vide, le répertoire temporaire par défaut du système sera utilisé.
 
 `ShortDatePattern` spécifie le code de format de numéro de date court. Dans les applications de feuille de calcul, les formats de date affichent les numéros de série de date et d'heure sous forme de valeurs de date. Les formats de date commençant par un astérisque (\*) répondent aux modifications des paramètres de date et d'heure régionaux spécifiés pour le système d'exploitation. Les formats sans astérisque ne sont pas affectés par les paramètres du système d'exploitation. Le `ShortDatePattern` utilisé pour spécifie les formats de date à appliquer qui commencent par un astérisque.
 

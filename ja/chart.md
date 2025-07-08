@@ -124,7 +124,7 @@ zero | 0 値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | `pieOfPie` および `barOfPie` チャートの 2 番目のプロットの値を指定します。
+SecondPlotValues | `int`         | `0`     | `PieOfPie` および `BarOfPie` チャートの 2 番目のプロットの値を指定します。
 ShowBubbleSize   | `bool`        | `false` | バブルサイズ
 ShowCatName      | `bool`        | `false` | カテゴリ名
 ShowLeaderLines  | `bool`        | `false` | ブートラインの表示

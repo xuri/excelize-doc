@@ -8,7 +8,7 @@ func (f *File) AddChart(sheet, cell, opts string, combo ...string) error
 
 AddChart provides the method to add a chart in a worksheet by given chart format set (such as offset, scale, aspect ratio setting, and print settings) and properties set.
 
-The following shows the `type` of chart supported by excelize:
+The following shows the `Type` of chart supported by excelize:
 
 ID|Enumeration|Chart
 ---|---|---
@@ -74,7 +74,7 @@ The `Series` options that can be set are:
 
 Parameter|Explanation
 ---|---
-Name              | Legend item (series), displayed in the chart legend and formula bar. The `Name` parameter is optional. If you don't specify this value, the default will be `Series 1 .. n`. `name` support for formula representation, for example: `Sheet1!$A$1`.
+Name              | Legend item (series), displayed in the chart legend and formula bar. The `Name` parameter is optional. If you don't specify this value, the default will be `Series 1 .. n`. `Name` support for formula representation, for example: `Sheet1!$A$1`.
 Categories        | Horizontal (category) axis label. The `Categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
 Values            | The chart data area, which is the most important parameter in `Series`, is also the only required parameter when creating a chart. This option links the chart to the worksheet data it displays.
 Fill              | This sets the format for the data series fill.
@@ -124,7 +124,7 @@ Set the position of the chart plot area by plot area. The properties that can be
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Specifies the values in second plot for the `pieOfPie` and `barOfPie` chart.
+SecondPlotValues | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
 ShowBubbleSize   | `bool`        | `false` | Specifies the bubble size shall be shown in a data label.
 ShowCatName      | `bool`        | `true`  | Category name.
 ShowLeaderLines  | `bool`        | `false` | Specifies that the category name shall be shown in the data label.
