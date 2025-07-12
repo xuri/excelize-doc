@@ -80,6 +80,7 @@ Name              | 图例项（系列），在图表图例和公式栏中显示
 Categories        | 水平（分类）轴标签。在大多数图表类型中，`Categories` 属性是可选的，默认为形如 `1..n` 的连续序列。
 Values            | 图表数据区域，是 `Series` 中最重要的参数，也是创建图表时唯一的必选参数。该选项将图表与其显示的工作表数据链接起来。
 Fill              | 设置图表中每个数据系列的填充格式。
+Legend            | 设置指定数据系列所对应的图例项文本格式。`Legend` 属性是可选的。
 Line              | 设置折线图的折线格式。`Line` 属性是可选的，如果未指定该属性，则为默认样式。可以设置的选项是 `Width`，宽度范围是 0.25pt 至 999pt。如果 `Width` 的值超出范围，则线的默认宽度为 2pt。
 Marker            | 设置折线图和散点图的数据点标记格式。可选参数 `Size` 内置数据标记图形的大小，其取值范围是 2-72 (默认缺省值为 `5`)。线端类型可选参数 `Symbol` 的枚举值为 (默认缺省值为 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`.
 DataLabelPosition | 设置图表中每个数据系列数据标签的位置。
@@ -88,8 +89,9 @@ DataLabelPosition | 设置图表中每个数据系列数据标签的位置。
 
 参数|类型|含义
 ---|---|---
-Position        | `string` | 图例位置
-ShowLegendKey   | `bool`   | 指定是否在数据标签中显示图例项标示
+Position      | `string` | 图例位置
+ShowLegendKey | `bool`   | 指定是否在数据标签中显示图例项标示
+Font          | `Font`   | 设置图表图例项文本的字体格式。可设置的格式与用于单元格格式化的字体相同。包括字体名称、字号、颜色、粗体、斜体、下划线和删除线格式。
 
 其中参数 `Position` 默认值为 `right`。下面是该参数的可选值：
 
@@ -114,6 +116,8 @@ gap  | 空距
 span | 用直线连接数据点
 zero | 零值
 
+参数 `Legend` 用于为所有数据系列设置图表图例。该参数是可选的。
+
 参数 `BubbleSize` 用于设置气泡图和三维气泡图的气泡大小。该参数是可选的，其取值范围是 1-300 (默认缺省值为 `100`)
 
 参数 `HoleSize` 用于设置圆环图的圆环内径大小。该参数是可选的，其取值范围是 1-90 (默认缺省值为 `75`)
@@ -126,14 +130,16 @@ zero | 零值
 
 参数|类型|默认值|含义
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | 子母饼图和复合条饼图中第二绘图区域中的数据系列数量
-ShowBubbleSize   | `bool`        | `false` | 气泡大小
-ShowCatName      | `bool`        | `false` | 类别名称
-ShowLeaderLines  | `bool`        | `false` | 显示引导线
-ShowPercent      | `bool`        | `false` | 百分比
-ShowSerName      | `bool`        | `false` | 系列名称
-ShowVal          | `bool`        | `false` | 值
-NumFmt           | `ChartNumFmt` | N/A     | 设置数据标签的数字格式和链接到源
+SecondPlotValues  | `int`         | `0`     | 子母饼图和复合条饼图中第二绘图区域中的数据系列数量
+ShowBubbleSize    | `bool`        | `false` | 气泡大小
+ShowCatName       | `bool`        | `true`  | 用于指定类别名称是否显示在数据标签中
+ShowDataTable     | `bool`        | `false` | 用于在图表下添加数据表，取决于图表类型，仅适用于面积图、条形图、柱形图和折线系列类型图表
+ShowDataTableKeys | `bool`        | `false` | 用于在数据表中添加图例图例，仅在启用 `ShowDataTable` 时有效。`ShowDataTableKeys` 参数为可选参数
+ShowLeaderLines   | `bool`        | `false` | 指定是否显示数据标签的引导线
+ShowPercent       | `bool`        | `false` | 百分比
+ShowSerName       | `bool`        | `false` | 系列名称
+ShowVal           | `bool`        | `false` | 值
+NumFmt            | `ChartNumFmt` | N/A     | 设置数据标签的数字格式和链接到源
 
 通过参数 `XAxis` 和 `YAxis` 参数设置坐标轴选项。
 

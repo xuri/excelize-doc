@@ -78,6 +78,7 @@ Name              | Item de legenda (série), exibido na legenda do gráfico e n
 Categories        | Etiqueta do eixo horizontal (categoria). O parâmetro `Categories` é opcional na maioria dos tipos de gráficos, o padrão é uma sequência contígua no formato `1..n`.
 Values            | A área de dados do gráfico, que é o parâmetro mais importante em `Series`, também é o único parâmetro obrigatório ao criar um gráfico. Esta opção vincula o gráfico aos dados da planilha que ele exibe.
 Fill              | Isso define o formato do preenchimento da série de dados.
+Legend            | Isso define a fonte do texto da legenda para uma série de dados. A propriedade `Legend` é opcional.
 Line              | Isso define o formato da linha do gráfico de linhas. A propriedade `Line` é opcional e se não for fornecida será o estilo padrão. As opções que podem ser definidas são `Width`. O intervalo de `Width` é 0,25pt - 999pt. Se o valor da largura estiver fora do intervalo, a largura padrão da linha será 2pt.
 Marker            | Isso define o marcador do gráfico de linhas e do gráfico de dispersão. O intervalo do campo opcional `Size` é 2-72 (o valor padrão é `5`). O valor de enumeração do campo opcional `Symbol` é (o valor padrão é `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` e `auto`.
 DataLabelPosition | Isso define a posição do rótulo de dados da série do gráfico.
@@ -88,6 +89,7 @@ Parâmetro|Tipo|Explicação
 ---|---|---
 Position      | `string` | A posição da legenda do gráfico
 ShowLegendKey | `bool`   | Defina as chaves de legenda que serão mostradas nos rótulos de dados
+Font          | `Font`   | Defina as propriedades da fonte do texto da legenda do gráfico. As propriedades que podem ser definidas são as mesmas do objeto de fonte usado para formatação de células. As propriedades de família, tamanho, cor, negrito, itálico, sublinhado e tachado da fonte podem ser definidas
 
 Defina a `Position` da legenda do gráfico. A posição padrão da legenda é `right`. Este parâmetro só entra em vigor quando `none` é `false`. As vagas disponíveis são:
 
@@ -112,6 +114,8 @@ gap  | Espaço
 span | Conecte pontos de dados com linhas retas
 zero | Valor zero
 
+Defina a legenda do gráfico para todas as séries de dados pela propriedade `Legend`. A propriedade `Legend` é opcional.
+
 Defina o tamanho da bolha em todas as séries de dados para o gráfico de bolhas ou gráfico de bolhas 3D pela propriedade `BubbleSizes`. A propriedade `BubbleSizes` é opcional. A largura padrão é `100` e o valor deve ser maior que 0 e menor ou igual a 300.
 
 Defina o tamanho do furo de rosca em todas as séries de dados para o gráfico de rosca pela propriedade `HoleSize`. A propriedade `HoleSize` é opcional. A largura padrão é `75` e o valor deve ser maior que 0 e menor ou igual a 90.
@@ -124,14 +128,16 @@ Defina a posição da área de plotagem do gráfico por área de plotagem. As pr
 
 Parâmetro|Tipo|Valores padrão|Explicação
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Especifica os valores no segundo gráfico para o gráfico `PieOfPie` e `BarOfPie`.
-ShowBubbleSize   | `bool`        | `false` | Especifica que o tamanho da bolha deve ser mostrado em um rótulo de dados.
-ShowCatName      | `bool`        | `true`  | Nome da Categoria.
-ShowLeaderLines  | `bool`        | `false` | Especifica que o nome da categoria deve ser mostrado no rótulo de dados.
-ShowPercent      | `bool`        | `false` | Especifica que a porcentagem deve ser mostrada em um rótulo de dados.
-ShowSerName      | `bool`        | `false` | Especifica que o nome da série deve ser mostrado em um rótulo de dados.
-ShowVal          | `bool`        | `false` | Especifica que o valor deve ser mostrado em um rótulo de dados.
-NumFmt           | `ChartNumFmt` | N/D     | Especifica que se estiver vinculado à origem e definir o código de formato numérico personalizado para rótulos de dados. A propriedade `NumFmt` é opcional. O código de formato padrão é `General`.
+SecondPlotValues  | `int`         | `0`     | Especifica os valores no segundo gráfico para o gráfico `PieOfPie` e `BarOfPie`.
+ShowBubbleSize    | `bool`        | `false` | Especifica que o tamanho da bolha deve ser mostrado em um rótulo de dados.
+ShowCatName       | `bool`        | `true`  | Specifies that the category name shall be shown in the data label. The `ShowCatName` property is optional.
+ShowDataTable     | `bool`        | `false` | Usado para adicionar tabela de dados no gráfico, dependendo do tipo de gráfico, disponível somente para gráficos de área, barra, coluna e série de linhas.
+ShowDataTableKeys | `bool`        | `false` | Usado para adicionar chave de legenda na tabela de dados, funciona somente quando `ShowDataTable` está habilitado. A propriedade `ShowDataTableKeys` é opcional.
+ShowLeaderLines   | `bool`        | `false` | Especifica que as linhas de chamada devem ser exibidas para rótulos de dados. A propriedade `ShowLeaderLines` é opcional.
+ShowPercent       | `bool`        | `false` | E1specifica que a porcentagem deve ser mostrada em um rótulo de dados.
+ShowSerName       | `bool`        | `false` | Especifica que o nome da série deve ser mostrado em um rótulo de dados.
+ShowVal           | `bool`        | `false` | Especifica que o valor deve ser mostrado em um rótulo de dados.
+NumFmt            | `ChartNumFmt` | N/D     | Especifica que se estiver vinculado à origem e definir o código de formato numérico personalizado para rótulos de dados. A propriedade `NumFmt` é opcional. O código de formato padrão é `General`.
 
 Defina as opções primárias dos eixos horizontal e vertical por `XAxis` e `YAxis`.
 

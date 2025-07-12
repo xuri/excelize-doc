@@ -78,6 +78,7 @@ Name              | Legend item (series), displayed in the chart legend and form
 Categories        | Horizontal (category) axis label. The `Categories` parameter is optional in most chart types, the default is a contiguous sequence of the form `1..n`.
 Values            | The chart data area, which is the most important parameter in `Series`, is also the only required parameter when creating a chart. This option links the chart to the worksheet data it displays.
 Fill              | This sets the format for the data series fill.
+Legend            | This set the font of legend text for a data series. The `Legend` property is optional.
 Line              | This sets the line format of the line chart. The `Line` property is optional and if it isn't supplied it will default style. The options that can be set is `Width`. The range of `Width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
 Marker            | This sets the marker of the line chart and scatter chart. The range of the optional field `Size` is 2-72 (default value is `5`). The enumeration value of optional field `Symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
 DataLabelPosition | This sets the position of the chart series data label.
@@ -88,6 +89,7 @@ Parameter|Type|Explanation
 ---|---|---
 Position      | `string` | The position of the chart legend
 ShowLegendKey | `bool`   | Set the legend keys shall be shown in data labels
+Font          | `Font`   | Set the font properties of the chart legend text. The properties that can be set are the same as the font object that is used for cell formatting. The font family, size, color, bold, italic, underline, and strike properties can be set
 
 Set the `Position` of the chart legend. The default legend position is `right`. This parameter only takes effect when `none` is `false`. The available positions are:
 
@@ -112,6 +114,8 @@ gap  | Space
 span | Connect data points with straight lines
 zero | Zero value
 
+Set chart legend for all data series by `Legend` property. The `Legend` property is optional.
+
 Set the bubble size in all data series for the bubble chart or 3D bubble chart by `BubbleSizes` property. The `BubbleSizes` property is optional. The default width is `100`, and the value should be great than 0 and less or equal than 300.
 
 Set the doughnut hole size in all data series for the doughnut chart by `HoleSize` property. The `HoleSize` property is optional. The default width is `75`, and the value should be great than 0 and less or equal than 90.
@@ -124,14 +128,16 @@ Set the position of the chart plot area by plot area. The properties that can be
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
-ShowBubbleSize   | `bool`        | `false` | Specifies the bubble size shall be shown in a data label.
-ShowCatName      | `bool`        | `true`  | Category name.
-ShowLeaderLines  | `bool`        | `false` | Specifies that the category name shall be shown in the data label.
-ShowPercent      | `bool`        | `false` | Specifies that the percentage shall be shown in a data label.
-ShowSerName      | `bool`        | `false` | Specifies that the series name shall be shown in a data label.
-ShowVal          | `bool`        | `false` | Specifies that the value shall be shown in a data label.
-NumFmt           | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `NumFmt` property is optional. The default format code is `General`.
+SecondPlotValues  | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
+ShowBubbleSize    | `bool`        | `false` | Specifies the bubble size shall be shown in a data label.
+ShowCatName       | `bool`        | `true`  | Specifies that the category name shall be shown in the data label. The `ShowCatName` property is optional.
+ShowDataTable     | `bool`        | `false` | Used for add data table under chart, depending on the chart type, only available for area, bar, column and line series type charts.
+ShowDataTableKeys | `bool`        | `false` | Used for add legend key in data table, only works on `ShowDataTable` is enabled. The `ShowDataTableKeys` property is optional.
+ShowLeaderLines   | `bool`        | `false` | Specifies leader lines shall be shown for data labels. The `ShowLeaderLines` property is optional.
+ShowPercent       | `bool`        | `false` | Specifies that the percentage shall be shown in a data label.
+ShowSerName       | `bool`        | `false` | Specifies that the series name shall be shown in a data label.
+ShowVal           | `bool`        | `false` | Specifies that the value shall be shown in a data label.
+NumFmt            | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `NumFmt` property is optional. The default format code is `General`.
 
 Set the primary horizontal and vertical axis options by `XAxis` and `YAxis`.
 

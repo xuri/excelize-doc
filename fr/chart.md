@@ -77,6 +77,7 @@ Paramètre|Explication
 Name              | Élément de légende (série), affiché dans la légende du graphique et la barre de formule. Le paramètre `Name` est facultatif. Si vous ne spécifiez pas cette valeur, la valeur par défaut sera `Series 1 .. n`. Support `Name` pour la représentation de la formule, par exemple: `Sheet1!$A$1`.
 Categories        | Etiquette d'axe horizontal (catégorie). Le paramètre `Categories` est facultatif dans la plupart des types de graphiques, la valeur par défaut est une séquence contiguë de la forme `1..n`.
 Values            | La zone de données de graphique, qui est le paramètre le plus important dans `Series`, est également le seul paramètre requis lors de la création d'un graphique. Cette option lie le graphique aux données de la feuille de calcul qu'il affiche.
+Legend            | Cette propriété définit la police du texte de légende d'une série de données. La propriété `Legend` est facultative.
 Fill              | Ceci définit le format de remplissage de la série de données.
 Line              | Ceci définit le format de ligne du graphique en courbes. La propriété `Line` est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `Width`. La plage de `Width` est comprise entre 0.25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
 Marker            | Ceci définit le marqueur du graphique linéaire et du nuage de points. La plage du champ facultatif `Size` est comprise entre 2 et 72 (la valeur par défaut est `5`). La valeur d'énumération du champ facultatif `Symbol` est (la valeur par défaut est `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
@@ -86,8 +87,9 @@ Définir les propriétés de la légende du graphique. Les options qui peuvent �
 
 Paramètre|Type|Explication
 ---|---|---
-Position        | `string` | La position de la légende du graphique
-ShowLegendKey   | `bool`   | Définir les clés de légende doivent être affichées dans les étiquettes de données
+Position      | `string` | La position de la légende du graphique
+ShowLegendKey | `bool`   | Définir les clés de légende doivent être affichées dans les étiquettes de données
+Font          | `Font`   | Définissez les propriétés de police du texte de la légende du graphique. Les propriétés sont identiques à celles de l'objet police utilisé pour la mise en forme des cellules. Vous pouvez définir la famille de police, la taille, la couleur, le gras, l'italique, le soulignement et le barré
 
 Définissez la `Position` de la légende du graphique. La position par défaut de la légende est `right`. Les postes disponibles sont:
 
@@ -112,6 +114,8 @@ gap  | espace
 span | Connecter des points de données avec des lignes droites
 zero | zvaleur zéro
 
+Définissez la légende du graphique pour toutes les séries de données avec la propriété `Legend`. Cette propriété est facultative.
+
 Définissez la taille des bulles dans toutes les séries de données pour le graphique à bulles ou le graphique à bulles 3D par la propriété `BubbleSizes`. La propriété `BubbleSizes` est facultative. La largeur par défaut est `100` et la valeur doit être supérieure à 0 et inférieure ou égale à 300.
 
 Définissez la taille du trou du beignet dans toutes les séries de données pour le graphique en beignet par la propriété `HoleSize`. La propriété `HoleSize` est facultative. La largeur par défaut est `75` et la valeur doit être supérieure à 0 et inférieure ou égale à 90.
@@ -124,14 +128,16 @@ Définissez la position de la zone de tracé de graphique par plotarea. Les prop
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `PieOfPie` et `BarOfPie`.
-ShowBubbleSize   | `bool`        | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
-ShowCatName      | `bool`        | `false` | Nom de catégorie
-ShowLeaderLines  | `bool`        | `false` | Indique que le nom de la catégorie doit apparaître dans l'étiquette de données.
-ShowPercent      | `bool`        | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
-ShowSerName      | `bool`        | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
-ShowVal          | `bool`        | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
-NumFmt           | `ChartNumFmt` | N/A     | Spécifie cela s’il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
+SecondPlotValues  | `int`         | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `PieOfPie` et `BarOfPie`.
+ShowBubbleSize    | `bool`        | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
+ShowCatName       | `bool`        | `true`  | Indique que le nom de la catégorie doit être affiché dans l'étiquette de données. La propriété `ShowCatName` est facultative.
+ShowDataTable     | `bool`        | `false` | Utilisé pour ajouter un tableau de données sous le graphique, en fonction du type de graphique, disponible uniquement pour les graphiques de type zone, barre, colonne et ligne.
+ShowDataTableKeys | `bool`        | `false` | Utilisé pour ajouter une clé de légende dans une table de données. Fonctionne uniquement si l'option `ShowDataTable` est activée. La propriété `ShowDataTableKeys` est facultative.
+ShowLeaderLines   | `bool`        | `false` | Spécifie que les lignes de repère doivent être affichées pour les étiquettes de données. La propriété `ShowLeaderLines` est facultative.
+ShowPercent       | `bool`        | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
+ShowSerName       | `bool`        | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
+ShowVal           | `bool`        | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
+NumFmt            | `ChartNumFmt` | N/A     | Spécifie cela s’il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
 
 Définissez les options de l'axe horizontal et vertical principal par `XAxis` et `YAxis`.
 

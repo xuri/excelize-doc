@@ -78,6 +78,7 @@ Name              | Legendenelement (Serie), angezeigt in der Diagrammlegende un
 Categories        | Beschriftung der horizontalen Achse (Kategorie). Der Parameter `Categories` ist in den meisten Diagrammtypen optional. Der Standardwert ist eine zusammenhängende Folge der Form `1..n`.
 Values            | Der Diagrammdatenbereich, der der wichtigste Parameter in `Series` ist, ist auch der einzige erforderliche Parameter beim Erstellen eines Diagramms. Diese Option verknüpft das Diagramm mit den angezeigten Arbeitsblattdaten.
 Fill              | Dadurch wird das Format für die Datenreihenfüllung festgelegt.
+Legend            | Legt die Schriftart des Legendentextes einer Datenreihe fest. Die Eigenschaft `Legend` ist optional.
 Line              | Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `Line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `Width`. Der Bereich von `Width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
 Marker            | Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `Size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `Symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 DataLabelPosition | Dadurch wird die Position der Datenbeschriftung der Diagrammreihe festgelegt.
@@ -86,8 +87,9 @@ Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können 
 
 Parameter|Typ|Erläuterung
 ---|---|---
-Position        | `string` | Die Position der Diagrammlegende
-ShowLegendKey   | `bool`   | Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
+Position      | `string` | Die Position der Diagrammlegende
+ShowLegendKey | `bool`   | Stellen Sie die Legendenschlüssel ein, die in Datenbezeichnungen angezeigt werden sollen
+Font          | `Font`   | SLegen Sie die Schrifteigenschaften des Diagrammlegendentextes fest. Die einstellbaren Eigenschaften entsprechen denen des Schriftobjekts, das für die Zellenformatierung verwendet wird. Die Eigenschaften Schriftfamilie, Größe, Farbe, Fettdruck, Kursivdruck, Unterstrichenheit und Durchstreichung können festgelegt werden
 
 Stellen Sie die `Position` der Diagrammlegende ein. Die Standard-Legendenposition ist `right`. Die verfügbaren Positionen sind:
 
@@ -112,6 +114,8 @@ gap  | Leerzeichen
 span | Verbinden Sie Datenpunkte mit geraden Linien
 zero | Nullwert
 
+Legen Sie die Diagrammlegende für alle Datenreihen mit der Eigenschaft `Legend` fest. Die Eigenschaft `Legend` ist optional.
+
 Legen Sie die Blasengröße in allen Datenreihen für das Blasendiagramm oder 3D-Blasendiagramm mit der Eigenschaft `BubbleSizes` fest. Die Eigenschaft `BubbleSizes` ist optional. Die Standardbreite ist `100` und der Wert sollte größer als 0 und kleiner oder gleich 300 sein.
 
 Legen Sie die Donut-Lochgröße in allen Datenreihen für das Donut-Diagramm mit der Eigenschaft `HoleSize` fest. Die Eigenschaft `HoleSize` ist optional. Die Standardbreite ist `75` und der Wert sollte größer als 0 und kleiner oder gleich 90 sein.
@@ -124,14 +128,16 @@ Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende 
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `PieOfPie` und `BarOfPie` an.
-ShowBubbleSize   | `bool`        | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
-ShowCatName      | `bool`        | `false` | Kategoriename.
-ShowLeaderLines  | `bool`        | `false` | Gibt an, dass der Kategoriename auf dem Datenetikett angezeigt werden soll.
-ShowPercent      | `bool`        | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
-ShowSerName      | `bool`        | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
-ShowVal          | `bool`        | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
-NumFmt           | `ChartNumFmt` | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für Datenbeschriftungen festgelegt wird. Die Eigenschaft `NumFmt` ist optional. Der Standardformatcode ist `General`.
+SecondPlotValues  | `int`         | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `PieOfPie` und `BarOfPie` an.
+ShowBubbleSize    | `bool`        | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
+ShowCatName       | `bool`        | `true`  | Gibt an, dass der Kategoriename in der Datenbeschriftung angezeigt werden soll. Die Eigenschaft `ShowCatName` ist optional.
+ShowDataTable     | `bool`        | `false` | Wird zum Hinzufügen einer Datentabelle unter dem Diagramm verwendet und ist je nach Diagrammtyp nur für Diagramme vom Typ Flächen-, Balken-, Säulen- und Linienreihen verfügbar.
+ShowDataTableKeys | `bool`        | `false` | Wird zum Hinzufügen eines Legendenschlüssels in der Datentabelle verwendet. Funktioniert nur, wenn `ShowDataTable` aktiviert ist. Die Eigenschaft `ShowDataTableKeys` ist optional.
+ShowLeaderLines   | `bool`        | `false` | Gibt an, welche Führungslinien für Datenbeschriftungen angezeigt werden sollen. Die Eigenschaft `ShowLeaderLines` ist optional.
+ShowPercent       | `bool`        | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
+ShowSerName       | `bool`        | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
+ShowVal           | `bool`        | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
+NumFmt            | `ChartNumFmt` | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für Datenbeschriftungen festgelegt wird. Die Eigenschaft `NumFmt` ist optional. Der Standardformatcode ist `General`.
 
 Stellen Sie die primären Optionen für die horizontale und vertikale Achse auf `XAxis` und `YAxis` ein.
 

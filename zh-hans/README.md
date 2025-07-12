@@ -29,6 +29,10 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 ## 项目荣誉
 
+荣获 2025 上海开源创新菁英奖——[优秀开源项目奖](https://mp.weixin.qq.com/s/hmg_08mqyM5TcPIUehGj1g)
+
+<p align="center"><img width="330" src="../images/award2025.jpg" alt="Excelize 荣获 2025 上海开源创新菁英奖——优秀开源项目奖"></p>
+
 入选 2023 开源创新榜[优秀开源项目](https://cccst.org.cn/zxyw/tzgg/art/2023/art_748b3428e4184ccc825ea6de1a2d273f.html)
 
 <p align="center"><img width="330" src="../images/award2023.jpg" alt="Excelize 入选 2023 开源创新榜优秀开源项目"></p>

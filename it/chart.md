@@ -78,6 +78,7 @@ Name              | Elemento della legenda (serie), visualizzato nella legenda d
 Categories        | Etichetta dell'asse orizzontale (categoria). Il parametro `Categories` è facoltativo nella maggior parte dei tipi di grafici, il valore predefinito è una sequenza contigua nella forma `1..n`.
 Values            | L'area dati del grafico, che è il parametro più importante in `Series`, è anche l'unico parametro richiesto durante la creazione di un grafico. Questa opzione collega il grafico ai dati del foglio di lavoro visualizzato.
 Fill              | Imposta il formato per il riempimento delle serie di dati.
+Legend            | Imposta il carattere del testo della legenda per una serie di dati. La proprietà `Legend` è facoltativa.
 Line              | Imposta il formato della linea del grafico a linee. La proprietà `Line` è facoltativa e se non viene fornita avrà lo stile predefinito. L'opzione che può essere impostata è `Width`. L'intervallo di `Width` è compreso tra 0.25pt e 999pt. Se il valore della larghezza non è compreso nell'intervallo, la larghezza predefinita della linea è 2pt.
 Marker            | Imposta l'indicatore del grafico a linee e del grafico a dispersione. L'intervallo del campo facoltativo `Size` è compreso tra 2 e 72 (il valore predefinito è `5`). Il valore di enumerazione del campo opzionale `Symbol` è (il valore predefinito è `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` e `auto`.
 DataLabelPosition | Imposta la posizione dell'etichetta dati della serie di grafici.
@@ -88,6 +89,7 @@ Parametro|Tipo|Spiegazione
 ---|---|---
 Position      | `string` | La posizione della legenda del grafico
 ShowLegendKey | `bool`   | Impostare le chiavi della legenda che verranno visualizzate nelle etichette dati
+Font          | `Font`   | Imposta le proprietà del carattere del testo della legenda del grafico. Le proprietà che possono essere impostate sono le stesse dell'oggetto carattere utilizzato per la formattazione delle celle. È possibile impostare le proprietà relative a famiglia di caratteri, dimensione, colore, grassetto, corsivo, sottolineato e barrato
 
 Imposta la `Position` della legenda del grafico. La posizione predefinita della legenda è `right`. Questo parametro ha effetto solo quando `None` è `false`. Le posizioni disponibili sono:
 
@@ -112,6 +114,8 @@ gap  | Spazio
 span | Collega i punti dati con linee rette
 zero | Valore zero
 
+Imposta la legenda del grafico per tutte le serie di dati tramite la proprietà `Legend`. La proprietà `Legend` è facoltativa.
+
 Imposta la dimensione della bolla in tutte le serie di dati per il grafico a bolle o il grafico a bolle 3D tramite la proprietà `BubbleSizes`. La proprietà `BubbleSizes` è facoltativa. La larghezza predefinita è `100` e il valore deve essere maggiore di 0 e minore o uguale a 300.
 
 Imposta la dimensione del foro della ciambella in tutte le serie di dati per il grafico a ciambella tramite la proprietà `HoleSize`. La proprietà `HoleSize` è facoltativa. La larghezza predefinita è `75` e il valore deve essere maggiore di 0 e inferiore o uguale a 90.
@@ -124,14 +128,16 @@ Imposta la posizione dell'area del grafico in base all'area del grafico. Le prop
 
 Parametro|Tipo|Predefinito|Spiegazione
 ---|---|---|---
-SecondPlotValues | `int`         | `0`     | Specifica i valori nel secondo grafico per il grafico `PieOfPie` e `BarOfPie`.
-ShowBubbleSize   | `bool`        | `false` | Specifica che la dimensione della bolla deve essere mostrata in un'etichetta dati.
-ShowCatName      | `bool`        | `true`  | Nome della categoria.
-ShowLeaderLines  | `bool`        | `false` | Specifica che il nome della categoria deve essere mostrato nell'etichetta dati.
-ShowPercent      | `bool`        | `false` | Specifica che la percentuale deve essere mostrata in un'etichetta dati.
-ShowSerName      | `bool`        | `false` | Specifica che il nome della serie deve essere mostrato in un'etichetta dati.
-ShowVal          | `bool`        | `false` | Specifica che il valore deve essere mostrato in un'etichetta dati.
-NumFmt           | `ChartNumFmt` | N/A     | Specifica che se collegato all'origine e imposta il codice del formato numerico personalizzato per le etichette dati. La proprietà `NumFmt` è facoltativa. Il codice del formato predefinito è `General`.
+SecondPlotValues  | `int`         | `0`     | Specifica i valori nel secondo grafico per il grafico `PieOfPie` e `BarOfPie`.
+ShowBubbleSize    | `bool`        | `false` | Specifica che la dimensione della bolla deve essere mostrata in un'etichetta dati.
+ShowCatName       | `bool`        | `true`  | Specifica che il nome della categoria deve essere visualizzato nell'etichetta dati. La proprietà `ShowCatName` è facoltativa.
+ShowDataTable     | `bool`        | `false` | Utilizzato per aggiungere una tabella di dati sotto il grafico, a seconda del tipo di grafico, disponibile solo per grafici di tipo area, a barre, a colonne e a linee.
+ShowDataTableKeys | `bool`        | `false` | Utilizzato per aggiungere la chiave della legenda nella tabella dati, funziona solo se `ShowDataTable` è abilitato. La proprietà `ShowDataTableKeys` è facoltativa.
+ShowLeaderLines   | `bool`        | `false` | Specifica che le linee guida devono essere visualizzate per le etichette dati. La proprietà `ShowLeaderLines` è facoltativa.
+ShowPercent       | `bool`        | `false` | Specifica che la percentuale deve essere mostrata in un'etichetta dati.
+ShowSerName       | `bool`        | `false` | Specifica che il nome della serie deve essere mostrato in un'etichetta dati.
+ShowVal           | `bool`        | `false` | Specifica che il valore deve essere mostrato in un'etichetta dati.
+NumFmt            | `ChartNumFmt` | N/A     | Specifica che se collegato all'origine e imposta il codice del formato numerico personalizzato per le etichette dati. La proprietà `NumFmt` è facoltativa. Il codice del formato predefinito è `General`.
 
 Imposta le opzioni dell'asse orizzontale e verticale primario con `XAxis` e `YAxis`.
 
