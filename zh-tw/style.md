@@ -50,10 +50,11 @@ Fill 映射儲存格樣式填滿設定。
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -157,6 +158,10 @@ Excelize 中的 `Border.Style` 外框線型索引與 Office Excel 應用程式�
 7|!["圖樣填滿 7"](../images/style/pattern_07.png)|17|!["圖樣填滿 17"](../images/style/pattern_17.png)
 8|!["圖樣填滿 8"](../images/style/pattern_08.png)|18|!["圖樣填滿 18"](../images/style/pattern_18.png)
 9|!["圖樣填滿 9](../images/style/pattern_09.png)||
+
+### 透明度 {#transparency}
+
+選項 `Fill.Transparency` 僅用於設定圖表與形狀中的填滿透明度，而不用於設定存儲格填滿透明度。透明度的取值範圍是 0 至 100，代表 0% 至 100%，預設值為 0，表示完全不透明。
 
 ### 對齊方式 {#align}
 

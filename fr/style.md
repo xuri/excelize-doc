@@ -48,10 +48,11 @@ Fill mappe directement les paramètres de remplissage des cellules.
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ Index|Style|Index|Style
 7|!["Remplissage de motif 7"](../images/style/pattern_07.png)|17|!["Remplissage de motif 17"](../images/style/pattern_17.png)
 8|!["Remplissage de motif 8"](../images/style/pattern_08.png)|18|!["Remplissage de motif 18"](../images/style/pattern_18.png)
 9|!["Remplissage de motif 9](../images/style/pattern_09.png)||
+
+### Transparence {#transparency}
+
+La propriété `Fill.Transparency` sert uniquement à définir la transparence du graphique et de la forme, et non celle des cellules. La valeur doit être comprise entre 0 et 100, ce qui représente une plage de 0% à 100%. La valeur par défaut est 0, ce qui correspond à une opacité totale (non transparente).
 
 ### Aligner {#align}
 

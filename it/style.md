@@ -48,10 +48,11 @@ Riempi direttamente mappa le impostazioni di riempimento delle celle.
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ Indice|Stile|Indice|Stile
 7|!["Riempimento a motivo 7"](../images/style/pattern_07.png)|17|!["Riempimento a motivo 17"](../images/style/pattern_17.png)
 8|!["Riempimento a motivo 8"](../images/style/pattern_08.png)|18|!["Riempimento a motivo 18"](../images/style/pattern_18.png)
 9|!["Riempimento a motivo 9](../images/style/pattern_09.png)||
+
+### Trasparenza {#transparency}
+
+`Fill.Transparency` serve solo per impostare la trasparenza per grafici e forme, non per le celle. Il valore deve essere un numero compreso tra 0 e 100, che rappresenta lo 0% e il 100%. Il valore predefinito è 0, che rappresenta l'opacità completa (non la trasparenza).
 
 ### Allineare {#align}
 

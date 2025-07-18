@@ -183,6 +183,7 @@
   * [الحدود](style.md#border)
   * [تعبئة اللون](style.md#shading)
   * [تعبئة النقش](style.md#pattern)
+  * [الشفافية](style.md#transparency)
   * [محاذاه](style.md#align)
   * [تسطير الخط](style.md#underline)
   * [تنسيق الأرقام](style.md#number_format)

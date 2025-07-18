@@ -48,10 +48,11 @@ Fill 는 셀의 채우기 설정을 직접 매핑합니다.
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
 7|!["패턴 채우기 7"](../images/style/pattern_07.png)|17|!["패턴 채우기 17"](../images/style/pattern_17.png)
 8|!["패턴 채우기 8"](../images/style/pattern_08.png)|18|!["패턴 채우기 18"](../images/style/pattern_18.png)
 9|!["패턴 채우기 9](../images/style/pattern_09.png)||
+
+### 투명도 {#transparency}
+
+`Fill.Transparency` 는 차트와 도형의 투명도를 설정하는 데만 사용되며, 셀에는 사용되지 않습니다. 값은 0에서 100 사이의 숫자여야 하며, 0% 에서 100% 를 나타냅니다. 기본값은 0이며, 완전 불투명 (투명하지 않음) 을 나타냅니다.
 
 ### 정렬 {#align}
 

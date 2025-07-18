@@ -48,10 +48,11 @@ Fill напрямую отображает настройки заполнени
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ diagonalDown|Граница по диагонали вниз|diagonalUp|Гран
 7|!["заполнить шаблон 7"](../images/style/pattern_07.png)|17|!["заполнить шаблон 17"](../images/style/pattern_17.png)
 8|!["заполнить шаблон 8"](../images/style/pattern_08.png)|18|!["заполнить шаблон 18"](../images/style/pattern_18.png)
 9|!["заполнить шаблон 9](../images/style/pattern_09.png)||
+
+### Прозрачность {#transparency}
+
+Свойство `Fill.Transparency` используется только для настройки прозрачности диаграммы и фигуры, но не ячеек. Значение должно быть числом от 0 до 100, что соответствует диапазону от 0% до 100%. Значение по умолчанию — 0, что соответствует полной непрозрачности (непрозрачности).
 
 ### Выровнять {#align}
 

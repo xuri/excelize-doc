@@ -48,10 +48,11 @@ Fill はセルの塗りつぶし設定を直接マップします。
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ linearDown|斜め下の境界線|diagonalUp|斜め上の境界線
 7|!["パターンフィル 7"](../images/style/pattern_07.png)|17|!["パターンフィル 17"](../images/style/pattern_17.png)
 8|!["パターンフィル 8"](../images/style/pattern_08.png)|18|!["パターンフィル 18"](../images/style/pattern_18.png)
 9|!["パターンフィル 9](../images/style/pattern_09.png)||
+
+### 透明度 {#transparency}
+
+`Fill.Transparency` は、グラフと図形の透明度を設定するためにのみ使用し、セルには使用しません。値は 0 から 100 までの数値で、それぞれ 0% から 100% を表します。デフォルト値は 0 で、完全に不透明（透明ではない）を表します。
 
 ### アライメント {#align}
 

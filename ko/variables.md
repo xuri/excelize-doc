@@ -33,9 +33,9 @@ var (
     // ErrFontLength 는 글꼴 패밀리 이름 오버플로의 길이에 대한 오류 메시지를 정의했습니다
     ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize 는 글꼴 크기가 잘못되었다는 오류 메시지를 정의했습니다
-    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
+    ErrFontSize = fmt.Errorf("font size must be an integer from %d to %d points", MinFontSize, MaxFontSize)
     // ErrFormControlValue 는 스크롤 값이 제한을 초과하는 오류 메시지를 정의했습니다
-    ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
+    ErrFormControlValue = fmt.Errorf("scroll value must be an integer from 0 to %d", MaxFormControlValue)
     // ErrGroupSheets 가 그룹 시트에 오류 메시지를 정의했습니다
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrImgExt 는 지원되지 않는 이미지 확장자를 수신할 때 오류 메시지를 정의했습니다
@@ -55,7 +55,7 @@ var (
     // ErrOutlineLevel 은 잘못된 개요 수준 번호를 수신할 때 오류 메시지를 정의했습니다
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrPageSetupAdjustTo 는 페이지 설정 조정 값이 한도를 초과할 때의 오류 메시지를 정의했습니다
-    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be an integer from 0 to 400")
     // ErrParameterInvalid 는 잘못된 매개변수 수신 시 오류 메시지를 정의했습니다
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired 는 빈 매개변수 수신 시 오류 메시지를 정의했습니다
@@ -83,9 +83,9 @@ var (
     // ErrSparklineRange 는 누락된 스파크라인 'Range' 매개변수에 대한 오류 메시지를 정의했습니다
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // ErrSparklineStyle 은 잘못된 스파크라인 'Style' 매개변수 수신 시 오류 메시지를 정의했습니다
-    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType 이 잘못된 스파크라인 'Type' 매개변수 수신 시 오류 메시지를 정의했습니다
-    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
     // ErrStreamSetColStyle 은 스트림 쓰기 모드에서 열 스타일 설정에 대한 오류 메시지를 정의했습니다
     ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth 는 스트림 쓰기 모드에서 설정된 열 너비에 대한 오류 메시지를 정의했습니다
@@ -94,6 +94,8 @@ var (
     ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks 는 하이퍼링크 카운트 오버플로에 대한 오류 메시지를 정의했습니다
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
+    // ErrTransparency 는 투명도 값이 한도를 초과할 때의 오류 메시지를 정의했습니다
+    ErrTransparency = errors.New("transparency value must be an integer from 0 to 100")
     // ErrUnknownEncryptMechanism 이 지원되지 않는 암호화 메커니즘에 대한 오류 메시지를 정의했습니다
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnprotectSheet 는 워크시트의 오류 메시지가 보호를 설정하지 않음을 정의했습니다

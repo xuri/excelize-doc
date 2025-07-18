@@ -33,7 +33,7 @@ var (
     // ErrFontLength определил сообщение об ошибке о длине переполнения имени семейства шрифтов
     ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize определил сообщение об ошибке о недопустимом размере шрифта
-    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
+    ErrFontSize = fmt.Errorf("font size must be an integer from %d to %d points", MinFontSize, MaxFontSize)
     // ErrGroupSheets определила сообщение об ошибке на групповых листах
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrImgExt определил сообщение об ошибке при получении неподдерживаемого расширения изображения
@@ -51,11 +51,11 @@ var (
     // ErrOptionsUnzipSizeLimit определяет значение ошибки для получения UnzipSizeLimit и UnzipXMLSizeLimit без ограничений
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrFormControlValue определил сообщение об ошибке для получения значения прокрутки, превышающего лимит.
-    ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
+    ErrFormControlValue = fmt.Errorf("scroll value must be an integer from 0 to %d", MaxFormControlValue)
     // ErrOutlineLevel определил сообщение об ошибке при получении недопустимого номера уровня структуры
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrPageSetupAdjustTo определил сообщение об ошибке при получении корректировки параметров страницы, значение которой превышает предел
-    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be an integer from 0 to 400")
     // ErrParameterInvalid определяет сообщение об ошибке при получении недопустимого параметра
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired определяет сообщение об ошибке при получении пустого параметра
@@ -83,9 +83,9 @@ var (
     // ErrSparklineRange определил сообщение об ошибке при отсутствующих параметрах спарклайна 'Range'
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // ErrSparklineStyle определяет сообщение об ошибке при получении недопустимых параметров 'Style' спарклайна
-    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType определил сообщение об ошибке при получении недопустимых параметров спарклайна 'Type'
-    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
     // ErrStreamSetColStyle определяет сообщение об ошибке при установке стиля столбца в режиме потоковой записи
     ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth определяет сообщение об ошибке при установке ширины столбца в режиме записи потока
@@ -94,6 +94,8 @@ var (
     ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks определил сообщение об ошибке при переполнении счетчика гиперссылок
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
+    // ErrTransparency определил сообщение об ошибке при получении значения прозрачности, превышающего предел.
+    ErrTransparency = errors.New("transparency value must be an integer from 0 to 100")
     // ErrUnknownEncryptMechanism определил сообщение об ошибке для неподдерживаемого механизма шифрования
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnprotectSheet определил, что сообщение об ошибке на листе не имеет защиты

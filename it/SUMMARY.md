@@ -183,6 +183,7 @@
   * [Confine](style.md#border)
   * [Riempimento di colore](style.md#shading)
   * [Riempimento a motivo](style.md#pattern)
+  * [Trasparenza](style.md#transparency)
   * [Allineare](style.md#align)
   * [Sottolineatura del carattere](style.md#underline)
   * [Formato numero](style.md#number_format)

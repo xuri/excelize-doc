@@ -48,10 +48,11 @@ Fill directly maps the fill settings of the cells.
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ Index|Style|Index|Style
 7|!["Pattern fill 7"](../images/style/pattern_07.png)|17|!["Pattern fill 17"](../images/style/pattern_17.png)
 8|!["Pattern fill 8"](../images/style/pattern_08.png)|18|!["Pattern fill 18"](../images/style/pattern_18.png)
 9|!["Pattern fill 9](../images/style/pattern_09.png)||
+
+### Transparency {#transparency}
+
+The `Fill.Transparency` only use to set transparency for chart and shape, not used for cell. The value should be a number from 0 to 100, which represents 0% to 100%, The default value is 0, representing full opaque (not transparent).
 
 ### Align {#align}
 

@@ -183,6 +183,7 @@
   * [테두리](style.md#border)
   * [색상 채우기](style.md#shading)
   * [패턴 채우기](style.md#pattern)
+  * [투명도](style.md#transparency)
   * [정렬](style.md#align)
   * [글꼴 밑줄](style.md#underline)
   * [숫자 형식](style.md#number_format)

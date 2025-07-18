@@ -33,9 +33,9 @@ var (
     // ErrFontLength definiert die Fehlermeldung zur Länge des Überlaufs des Schriftfamiliennamens.
     ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize definiert die Fehlermeldung über die Größe der Schriftart ist ungültig.
-    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
+    ErrFontSize = fmt.Errorf("font size must be an integer from %d to %d points", MinFontSize, MaxFontSize)
     // ErrFormControlValue definierte die Fehlermeldung für den Empfang eines Bildlaufwerts, der den Grenzwert überschreitet.
-    ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
+    ErrFormControlValue = fmt.Errorf("scroll value must be an integer from 0 to %d", MaxFormControlValue)
     // ErrGroupSheets definierte die Fehlermeldung auf Gruppenblättern.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrImgExt hat die Fehlermeldung beim Empfang einer nicht unterstützten Bilderweiterung definiert.
@@ -55,7 +55,7 @@ var (
     // ErrOutlineLevel definierte die Fehlermeldung beim Empfang einer ungültigen Gliederungsebenennummer.
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrPageSetupAdjustTo definiert die Fehlermeldung beim Empfang einer Seiteneinrichtungsanpassung, wenn der Wert den Grenzwert überschreitet.
-    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be an integer from 0 to 400")
     // ErrParameterInvalid hat die Fehlermeldung beim Empfang des ungültigen Parameters definiert.
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired definiert die Fehlermeldung beim Empfang des leeren Parameters.
@@ -83,9 +83,9 @@ var (
     // ErrSparklineRange hat die Fehlermeldung bei fehlenden Sparkline-'Range'-Parametern definiert.
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // ErrSparklineStyle definiert die Fehlermeldung beim Empfang der ungültigen Sparkline-'Style'-Parameter.
-    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType definierte die Fehlermeldung beim Empfang der ungültigen Sparkline-'Type'-Parameter.
-    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
     // ErrStreamSetColStyle definierte die Fehlermeldung beim Festlegen des Spaltenstils im Stream-Schreibmodus.
     ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth definierte die Fehlermeldung beim Setzen der Spaltenbreite im Stream-Schreibmodus.
@@ -94,6 +94,8 @@ var (
     ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks definierte die Fehlermeldung zum Hyperlink-Zählerüberlauf.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
+    // ErrTransparency definiert die Fehlermeldung für den Empfang eines Transparenzwerts, der den Grenzwert überschreitet.
+    ErrTransparency = errors.New("transparency value must be an integer from 0 to 100")
     // ErrUnknownEncryptMechanism hat die Fehlermeldung zu einem nicht unterstützten Verschlüsselungsmechanismus definiert.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnprotectSheet definiert die Fehlermeldung auf dem Arbeitsblatt hat keinen Schutz gesetzt.

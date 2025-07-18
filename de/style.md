@@ -48,10 +48,11 @@ Fill ordnet die Fülleinstellungen der Zellen direkt zu.
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ Index|Stil|Index|Stil
 7|!["Muster füllen 7"](../images/style/pattern_07.png)|17|!["Muster füllen 17"](../images/style/pattern_17.png)
 8|!["Muster füllen 8"](../images/style/pattern_08.png)|18|!["Muster füllen 18"](../images/style/pattern_18.png)
 9|!["Muster füllen 9](../images/style/pattern_09.png)||
+
+### Transparenz {#transparency}
+
+`Fill.Transparency` dient nur zur Einstellung der Transparenz für Diagramme und Formen, nicht für Zellen. Der Wert sollte eine Zahl zwischen 0 und 100 sein, was 0% bis 100% entspricht. Der Standardwert ist 0 und steht für vollständig undurchsichtig (nicht transparent).
 
 ### Ausrichten {#align}
 

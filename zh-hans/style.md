@@ -50,10 +50,11 @@ Fill 映射单元格样式填充设置。
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -157,6 +158,10 @@ Excelize 中的 `Border.Style` 边框线型索引与 Office Excel 应用程序�
 7|!["图案填充 7"](../images/style/pattern_07.png)|17|!["图案填充 17"](../images/style/pattern_17.png)
 8|!["图案填充 8"](../images/style/pattern_08.png)|18|!["图案填充 18"](../images/style/pattern_18.png)
 9|!["图案填充 9](../images/style/pattern_09.png)||
+
+### 透明度 {#transparency}
+
+选项 `Fill.Transparency` 仅用于设置图表与形状中的填充透明度，而不用于设置单元格填充透明度。透明度的取值范围是 0 至 100，代表 0% 至 100%，默认值为 0，表示完全不透明。
 
 ### 对齐方式 {#align}
 

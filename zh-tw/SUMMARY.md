@@ -183,6 +183,7 @@
   * [外框](style.md#border)
   * [色彩填滿](style.md#shading)
   * [圖樣填滿](style.md#pattern)
+  * [透明度](style.md#transparency)
   * [對齊方式](style.md#align)
   * [字型底線](style.md#underline)
   * [自訂數字格式](style.md#number_format)

@@ -48,10 +48,11 @@ Fill mapeia diretamente as configurações de preenchimento das células.
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ A tabela a seguir mostra os estilos de padrão usados em `Fill.Pattern` suportad
 7|!["Preenchimento de padrão 7"](../images/style/pattern_07.png)|17|!["Preenchimento de padrão 17"](../images/style/pattern_17.png)
 8|!["Preenchimento de padrão 8"](../images/style/pattern_08.png)|18|!["Preenchimento de padrão 18"](../images/style/pattern_18.png)
 9|!["Preenchimento de padrão 9](../images/style/pattern_09.png)||
+
+### Transparência {#transparency}
+
+A função `Fill.Transparency` é usada apenas para definir a transparência do gráfico e da forma, não sendo usada para células. O valor deve ser um número de 0 a 100, que representa de 0% a 100%. O valor padrão é 0, representando opacidade total (não transparente).
 
 ### Alinhamento {#align}
 

@@ -183,6 +183,7 @@
   * [Border](style.md#border)
   * [Color fill](style.md#shading)
   * [Pattern fill](style.md#pattern)
+  * [Transparency](style.md#transparency)
   * [Align](style.md#align)
   * [Font underline](style.md#underline)
   * [Number format](style.md#number_format)

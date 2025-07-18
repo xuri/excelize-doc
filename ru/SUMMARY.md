@@ -183,6 +183,7 @@
   * [бордюр](style.md#border)
   * [Цвет заливки](style.md#shading)
   * [образец заливки](style.md#pattern)
+  * [Прозрачность](style.md#transparency)
   * [Выровнять](style.md#align)
   * [Подчеркивание шрифта](style.md#underline)
   * [Формат номера](style.md#number_format)

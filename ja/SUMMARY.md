@@ -183,6 +183,7 @@
   * [枠](style.md#border)
   * [色塗り](style.md#shading)
   * [パターン塗りつぶし](style.md#pattern)
+  * [透明度](style.md#transparency)
   * [アライメント](style.md#align)
   * [フォントの下線](style.md#underline)
   * [デジタルカスタムフォーマット](style.md#number_format)

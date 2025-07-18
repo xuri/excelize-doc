@@ -48,10 +48,11 @@ type Font struct {
 
 ```go
 type Fill struct {
-    Type    string
-    Pattern int
-    Color   []string
-    Shading int
+    Type         string
+    Pattern      int
+    Color        []string
+    Shading      int
+    Transparency int
 }
 ```
 
@@ -155,6 +156,10 @@ diagonalDown|حد سفلي قطري|diagonalUp|حد علوي قطري
 7|!["تعبئة النقش 7"](../images/style/pattern_07.png)|17|!["تعبئة النقش 17"](../images/style/pattern_17.png)
 8|!["تعبئة النقش 8"](../images/style/pattern_08.png)|18|!["تعبئة النقش 18"](../images/style/pattern_18.png)
 9|!["تعبئة النقش 9](../images/style/pattern_09.png)||
+
+### الشفافية {#transparency}
+
+يُستخدم `Fill.Transparency` فقط لضبط شفافية المخطط والشكل، ولا يُستخدم للخلايا. يجب أن تكون القيمة رقمًا من ٠ إلى ١٠٠، أي ما يعادل من ٠٪ إلى ١٠٠٪. القيمة الافتراضية هي ٠، أي ما يعادل شفافية كاملة.
 
 ### محاذاه {#align}
 

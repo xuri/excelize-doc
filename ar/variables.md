@@ -33,9 +33,9 @@ var (
     // حدد ErrFontLength رسالة الخطأ على طول تجاوز اسم عائلة الخط.
     ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // حدد ErrFontSize رسالة الخطأ على حجم الخط غير صالح.
-    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
+    ErrFontSize = fmt.Errorf("font size must be an integer from %d to %d points", MinFontSize, MaxFontSize)
     // حدد ErrFormControlValue رسالة الخطأ لتلقي قيمة تمرير تتجاوز الحد.
-    ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
+    ErrFormControlValue = fmt.Errorf("scroll value must be an integer from 0 to %d", MaxFormControlValue)
     // حدد ErrGroupSheets رسالة الخطأ في أوراق المجموعة.
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // حدد ErrImgExt رسالة الخطأ عند تلقي ملحق صورة غير مدعوم.
@@ -55,7 +55,7 @@ var (
     // حدد ErrOutlineLevel رسالة الخطأ عند تلقي رقم مستوى مخطط تفصيلي غير صالح.
     ErrOutlineLevel = errors.New("invalid outline level")
     // قام ErrPageSetupAdjustTo بتعريف رسالة الخطأ الخاصة باستلام ضبط إعداد الصفحة لقيمة تتجاوز الحد.
-    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be an integer from 0 to 400")
     // حدد ErrParameterInvalid رسالة الخطأ عند تلقي المعلمة غير الصالحة.
     ErrParameterInvalid = errors.New("parameter is invalid")
     // حدد ErrParameterRequired رسالة الخطأ عند تلقي المعلمة الفارغة.
@@ -83,9 +83,9 @@ var (
     // حدد ErrSparklineRange رسالة الخطأ على معلمات خط المؤشر المفقودة 'Range'.
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // حدد ErrSparklineStyle رسالة الخطأ عند تلقي معلمات خط المؤشر غير الصالحة 'Style'.
-    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // حدد ErrSparklineType رسالة الخطأ عند تلقي معلمات نوع خط المؤشر غير الصالحة.
-    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
     // قام ErrStreamSetColStyle بتعريف رسالة الخطأ عند تعيين نمط العمود في وضع الكتابة المتدفقة.
     ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // حدد ErrStreamSetColWidth رسالة الخطأ على عرض العمود المحدد في وضع كتابة الدفق.
@@ -94,6 +94,8 @@ var (
     ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // حدد ErrTotalSheetHyperlinks رسالة الخطأ على تجاوز عدد الارتباطات التشعبية.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
+    // قام ErrTransparency بتعريف رسالة الخطأ الخاصة باستلام قيمة شفافية تتجاوز الحد.
+    ErrTransparency = errors.New("transparency value must be an integer from 0 to 100")
     // حدد ErrUnknownEncryptMechanism رسالة الخطأ على آلية تشفير غير مدعومة.
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // حدد ErrUnprotectSheet رسالة الخطأ في ورقة العمل ولم تحدد أي حماية.

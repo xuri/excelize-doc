@@ -35,9 +35,9 @@ var (
     // ErrFontLength 定义了字体名称长度超出最大限制时的错误提示信息
     ErrFontLength = fmt.Errorf("the length of the font family name must be less than or equal to %d", MaxFontFamilyLength)
     // ErrFontSize 定义了收到无效字号时的错误提示信息
-    ErrFontSize = fmt.Errorf("font size must be between %d and %d points", MinFontSize, MaxFontSize)
+    ErrFontSize = fmt.Errorf("font size must be an integer from %d to %d points", MinFontSize, MaxFontSize)
     // ErrFormControlValue 定义了表单控件滚动值超过有效范围时的错误提示信息
-    ErrFormControlValue = fmt.Errorf("scroll value must be between 0 and %d", MaxFormControlValue)
+    ErrFormControlValue = fmt.Errorf("scroll value must be an integer from 0 to %d", MaxFormControlValue)
     // ErrGroupSheets 定义了工作表分组异常时的错误提示信息
     ErrGroupSheets = errors.New("group worksheet must contain an active worksheet")
     // ErrImgExt 定义了不受支持的图片扩展名的错误提示信息
@@ -57,7 +57,7 @@ var (
     // ErrOutlineLevel 定义了在数据分组时收到无效级别时的错误提示信息
     ErrOutlineLevel = errors.New("invalid outline level")
     // ErrPageSetupAdjustTo 定义了在设置工作表页面属性时页面缩放比例超出范围的错误提示信息
-    ErrPageSetupAdjustTo = errors.New("adjust to value must be between 10 and 400")
+    ErrPageSetupAdjustTo = errors.New("adjust to value must be an integer from 0 to 400")
     // ErrParameterInvalid 定义了收到无效参数时的错误提示信息
     ErrParameterInvalid = errors.New("parameter is invalid")
     // ErrParameterRequired 定义了必要参数为空时的错误提示信息
@@ -85,9 +85,9 @@ var (
     // ErrSparklineRange 定义了创建迷你图参数缺少 Range 字段时的错误提示信息
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // ErrSparklineStyle 定义了收到无效迷你图创建样式参数时的错误提示信息
-    ErrSparklineStyle = errors.New("parameter 'Style' must between 0-35")
+    ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType 定义了创建迷你图收到无效参数时的错误提示信息
-    ErrSparklineType = errors.New("parameter 'Type' must be 'line', 'column' or 'win_loss'")
+    ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
     // ErrStreamSetColStyle 定义了在流式写入模式下设置列样式时的错误提示信息
     ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
     // ErrStreamSetColWidth 定义了在流式写入模式下设置列宽度时的错误提示信息
@@ -96,6 +96,8 @@ var (
     ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks 定义了工作表包含的超链接总数超出最大限制时的错误提示信息
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
+    // ErrTransparency 定义了透明度超出取值范围时的错误提示信息
+    ErrTransparency = errors.New("transparency value must be an integer from 0 to 100")
     // ErrUnknownEncryptMechanism 定义了检测到未知加密机制时的错误提示信息
     ErrUnknownEncryptMechanism = errors.New("unknown encryption mechanism")
     // ErrUnprotectSheet 定义了取消保护工作表时的错误提示信息
