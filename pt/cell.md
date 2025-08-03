@@ -545,10 +545,20 @@ Atenção: as áreas sobrepostas também não serão mescladas.
 
 ## Obtenha células mescladas {#GetMergeCells}
 
-GetMergeCells fornece uma função para obter todas as células mescladas de uma planilha específica.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+GetMergeCells fornece uma função para obter todas as células mescladas de uma planilha específica. Se o parâmetro `withoutValues` for definido como `true`, ele não retornará os valores das células mescladas, apenas a referência do intervalo. Por exemplo, obtenha todas as células mescladas em `Sheet1`:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+Se você quiser obter células mescladas sem valores de célula, use o seguinte código:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### Obtenha o valor da célula mesclada

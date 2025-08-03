@@ -543,10 +543,20 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 
 ## 獲取合併儲存格 {#GetMergeCells}
 
-根據給定的工作表名獲取全部合併儲存格的坐標區域和值。
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+根據給定的工作表名獲取全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設置為 `true`，將僅解析合併儲存格的區域，而不會獲取合併儲存格的值。例如，獲取名為 `Sheet1` 的工作表中的全部合併儲存格：
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+如果你希望獲取合併儲存格時，不包含合併儲存格的值，可使用以下代碼：
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### 獲取合併儲存格的值

@@ -541,10 +541,20 @@ Attention: les zones qui se chevauchent seront également non fusionnées.
 
 ## Obtenir les cellules fusionnées {#GetMergeCells}
 
-GetMergeCells fournit une fonction pour obtenir toutes les cellules fusionnées à partir d'une feuille de calcul.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+GetMergeCells fournit une fonction permettant de récupérer toutes les cellules fusionnées d'une feuille de calcul spécifique. Si le paramètre `withoutValues` est défini sur `true`, les valeurs des cellules fusionnées ne seront pas renvoyées, seule la référence de la plage sera renvoyée. Par exemple, pour récupérer toutes les cellules fusionnées de la feuille `Sheet1`, procédez comme suit:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+Si vous souhaitez obtenir des cellules fusionnées sans valeurs de cellule, vous pouvez utiliser le code suivant:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### Obtenir la valeur de cellule fusionnée

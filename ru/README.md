@@ -9,7 +9,7 @@ EXCELIZE - это библиотека, написанная на чистом G
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Лицензии: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Последняя версия: [v2.9.1](https://github.com/xuri/excelize/releases/latest)
-- Время обновления документа: 18 Июль 2025 г.
+- Время обновления документа: 3 Август 2025 г.
 
 ## Миссия проекта
 
@@ -27,20 +27,20 @@ EXCELIZE - это библиотека, написанная на чистом G
 
 ## Сообщество
 
-- [Facebook Group](https://www.facebook.com/groups/excelize)
-- [Google Group](https://groups.google.com/g/excelize)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/excelize)
-- [Slack Channel](https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw)
+- [Группа в Фейсбуке](https://www.facebook.com/groups/excelize)
+- [Группа Google](https://groups.google.com/g/excelize)
+- [Переполнение стека](https://stackoverflow.com/questions/tagged/excelize)
+- [Slack-канал](https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw)
 - [Gitter](https://gitter.im/excelize/community)
-- [Community on Telegram](https://t.me/excelize)
-- [Community on Discord](https://discord.gg/MWV8MBQGtv)
-- [Excelize Community on Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)
-- [Line Community](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" title="Excelize Line Community" target="_blank">join via QR Code</a>
-- [DingTalk Group ID](https://qr.dingtalk.com/action/joingroup?code=v1,k1,6tmzbBbJuQkGezVdHJjsHz29CZI9F49xeW+cvOaECtk=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize DingTalk Group" target="_blank">join via QR Code</a>
-- QQ Group ID: `1302058237` (Verification info: Excelize) | <a href="../images/qq_group@2x.png" title="Excelize QQ Group ID" target="_blank">join via QR Code</a>
-- Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">join via QR Code</a>
-- WeCom Group (Verification info: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">join via QR Code</a>
-- Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>
+- [Сообщество в Telegram](https://t.me/excelize)
+- [Сообщество в Discord](https://discord.gg/MWV8MBQGtv)
+- [Сообщество Excelize в Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)
+- [Линия Сообщества](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" title="Excelize Line Community" target="_blank">присоединиться через QR-код</a>
+- [Идентификатор группы DingTalk](https://qr.dingtalk.com/action/joingroup?code=v1,k1,6tmzbBbJuQkGezVdHJjsHz29CZI9F49xeW+cvOaECtk=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize DingTalk Group" target="_blank">присоединиться через QR-код</a>
+- QQ Group ID: `1302058237` (Информация о проверке: Excelize) | <a href="../images/qq_group@2x.png" title="Excelize QQ Group ID" target="_blank">присоединиться через QR-код</a>
+- Excelize WeChat ID: `hixuri` (Информация о проверке: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">присоединиться через QR-код</a>
+- WeCom Group (Информация о проверке: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">присоединиться через QR-код</a>
+- Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">присоединиться через QR-код</a>
 
 ## Спонсор Excelize разработки
 

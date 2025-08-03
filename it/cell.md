@@ -545,10 +545,20 @@ Attenzione: anche le aree sovrapposte verranno separate.
 
 ## Ottieni unisci celle {#GetMergeCells}
 
-GetMergeCells fornisce una funzione per ottenere tutte le celle unite da un foglio di lavoro specifico.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+GetMergeCells fornisce una funzione per ottenere tutte le celle unite da un foglio di lavoro specifico. Se il parametro `withoutValues` è impostato su `true`, non restituirà i valori delle celle unite, ma solo il riferimento all'intervallo. Ad esempio, per ottenere tutte le celle unite su `Sheet1`:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+Se si desidera ottenere celle unite senza valori di cella, è possibile utilizzare il seguente codice:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### Ottieni il valore della cella unita

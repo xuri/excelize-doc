@@ -517,7 +517,7 @@ func (f *File) GetCellStyle(sheet, cell string) (int, error)
 func (f *File) MergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
-지정된 시트 이름 및 셀 좌표 범위를 기반으로 셀을 병합합니다. 병합 범위 내에서는 왼쪽 위 셀의 값만 유지되며 다른 셀의 값은 무시됩니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다.
+지정된 시트 이름 및 셀 좌표 범위를 기반으로 셀을 병합합니다. 병합 범위 내에서는 왼쪽 위 셀의 값만 유지되며 다른 셀의 값은 무시됩니다. 예를 들어 `Sheet1` 이라는 워크시트의 `D3:E9` 영역에서 셀을 병합합니다:
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -541,10 +541,20 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 
 ## 병합 셀 가져 오기 {#GetMergeCells}
 
-GetMergeCells 는 현재 워크 시트에서 병합 된 모든 셀을 얻을 수 있는 함수를 제공합니다.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+특정 워크시트에서 병합된 모든 셀을 가져옵니다. `withoutValues` 매개변수를 `true` 로 설정하면 병합된 셀의 셀 값은 반환되지 않고 범위 참조만 반환됩니다. 예를 들어 `Sheet1` 의 모든 병합된 셀을 가져오려면 다음과 같이 합니다:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+셀 값 없이 병합된 셀을 얻으려면 다음 코드를 사용하면 됩니다:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### 병합된 셀 값 가져오기

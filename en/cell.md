@@ -541,10 +541,20 @@ Attention: overlapped areas will also be unmerged.
 
 ## Get merge cells {#GetMergeCells}
 
-GetMergeCells provides a function to get all merged cells from a specific worksheet.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+GetMergeCells provides a function to get all merged cells from a specific worksheet. If the `withoutValues` parameter is set to `true`, it will not return the cell values of merged cells, only the range reference will be returned. For example get all merged cells on `Sheet1`:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+If you want to get merged cells without cell values, you can use the following code:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### Get merged cell value

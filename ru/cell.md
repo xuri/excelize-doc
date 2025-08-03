@@ -541,10 +541,20 @@ err := f.UnmergeCell("Лист1", "D3", "E9")
 
 ## Получить ячейки слияния {#GetMergeCells}
 
-GetMergeCells предоставляет функцию для получения всех объединенных ячеек из рабочего листа.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+Функция GetMergeCells предоставляет функцию для получения всех объединённых ячеек на определённом листе. Если параметр `withoutValues` установлен в `true`, функция не вернёт значения объединённых ячеек, а вернёт только ссылку на диапазон. Например, чтобы получить все объединённые ячейки на `Sheet1`:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+Если вы хотите получить объединенные ячейки без значений ячеек, вы можете использовать следующий код:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### Получить значение объединенной ячейки

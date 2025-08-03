@@ -541,10 +541,20 @@ Achtung: Überlappende Bereiche werden ebenfalls nicht zusammengeführt.
 
 ## Abrufen von Zusammenführungszellen {#GetMergeCells}
 
-GetMergeCells bietet eine Funktion zum Abrufen aller zusammengeführten Zellen aus einem aktuellen Arbeitsblatt.
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+GetMergeCells bietet eine Funktion zum Abrufen aller verbundenen Zellen aus einem bestimmten Arbeitsblatt. Wenn der Parameter `withoutValues` auf `true` gesetzt ist, werden nicht die Zellenwerte der verbundenen Zellen zurückgegeben, sondern nur der Bereichsbezug. Beispiel: Abrufen aller verbundenen Zellen in `Sheet1`:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+Wenn Sie verbundene Zellen ohne Zellenwerte erhalten möchten, können Sie den folgenden Code verwenden:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### Wert der zusammengeführten Zelle abrufen

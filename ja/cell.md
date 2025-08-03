@@ -541,10 +541,20 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 
 ## セルを結合する {#GetMergeCells}
 
-指定されたワークシート名に基づいて、すべての結合セルの座標領域と値を取得します。
+```go
+func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
+```
+
+GetMergeCells は、特定のワークシートからすべての結合セルを取得する関数を提供します。`withoutValues` パラメータを `true` に設定すると、結合セルのセル値は返されず、範囲参照のみが返されます。例えば、`Sheet1` のすべての結合セルを取得するには、次のようにします:
 
 ```go
-func (f *File) GetMergeCells(sheet string) ([]MergeCell, error)
+mergeCells, err := f.GetMergeCells("Sheet1")
+```
+
+セル値のない結合セルを取得する場合は、次のコードを使用できます:
+
+```go
+mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
 ### 結合されたセルの値を取得する
