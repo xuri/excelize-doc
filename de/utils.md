@@ -1,5 +1,15 @@
 # Dienstprogramme
 
+ZipWriter definiert eine Schnittstelle zum Schreiben von Dateien in ein ZIP-Archiv. Es bietet Methoden zum Erstellen neuer Dateien im Archiv, zum Hinzufügen von Dateien aus einem Dateisystem und zum Schließen des Archivs nach Abschluss des Schreibvorgangs.
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## Tabelle hinzufügen {#AddTable}
 
 ```go
@@ -1148,7 +1158,15 @@ ExcelDateToTime konvertiert eine Float-basierte Excel-Datumsdarstellung in eine 
 ## Zeichentranscoder {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder Legt die benutzerdefinierte Codepage-Transcoder-Funktion zum Öffnen der Tabelle mit Nicht-UTF-8-Codierung fest.
+
+## ZIP-Writer einstellen {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter legt eine benutzerdefinierte ZIP Writer-Funktion zum Speichern der Arbeitsmappe fest.

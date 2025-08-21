@@ -244,6 +244,7 @@
   * [VBA プロジェクトの追加](utils.md#AddVBAProject)
   * [Excel の日付を時刻に変換する](utils.md#ExcelDateToTime)
   * [文字トランスコーダー](utils.md#CharsetTranscoder)
+  * [ZIP ライターを設定する](utils.md#SetZipWriter)
 * より多くの例
   * [カレンダー](example/calendar.md)
   * [依存ドロップリスト](example/dependentDropList.md)

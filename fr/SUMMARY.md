@@ -244,6 +244,7 @@
   * [Ajouter VBA Project](utils.md#AddVBAProject)
   * [Convertir la date Excel en heure](utils.md#ExcelDateToTime)
   * [Transcodeur Charset](utils.md#CharsetTranscoder)
+  * [Définir le graveur ZIP](utils.md#SetZipWriter)
 * Exemples
   * [Calendrier](example/calendar.md)
   * [Liste de dépôt dépendante](example/dependentDropList.md)

@@ -244,6 +244,7 @@
   * [VBA 프로젝트 추가](utils.md#AddVBAProject)
   * [Excel 날짜를 시간으로 변환](utils.md#ExcelDateToTime)
   * [문자셋 트랜스 코더](utils.md#CharsetTranscoder)
+  * [ZIP 작성기 설정](utils.md#SetZipWriter)
 * 더 많은 예
   * [달력](example/calendar.md)
   * [종속 드롭 목록](example/dependentDropList.md)

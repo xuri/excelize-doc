@@ -1,5 +1,15 @@
 # Функция инструмента
 
+ZipWriter определяет интерфейс для записи файлов в ZIP-архив. Он предоставляет методы для создания новых файлов в архиве, добавления файлов из файловой системы и закрытия архива после завершения записи.
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## Добавить таблицу {#AddTable}
 
 ```go
@@ -1148,7 +1158,15 @@ ExcelDateToTime конвертирует представление даты в 
 ## Транскодер персонажа {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder Устанавливает пользовательскую функцию транскодера кодовой страницы для открытого XLSX из кодировки не UTF-8.
+
+## Установить ZIP-архиватор {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter устанавливает определяемую пользователем функцию записи ZIP-архива для сохранения рабочей книги.

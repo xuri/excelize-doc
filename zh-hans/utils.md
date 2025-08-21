@@ -2,6 +2,16 @@
 
 {{ book.info }}
 
+ZipWriter 定义了一个用于将文件写入 ZIP 压缩包的接口。它提供了在压缩包中创建新文件、从文件系统添加文件以及在写入完成后关闭压缩包的方法。
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## 创建表格 {#AddTable}
 
 ```go
@@ -1145,7 +1155,15 @@ ExcelDateToTime 将 Excel 中以 `float` 类型表示的日期转换为 `time.Ti
 ## 字符集转码器 {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder 为非 UTF-8 编码的电子表格文档设置用户提供指定自定义编码转换器支持。
+
+## 设置 ZIP 写入器 {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter 设置用于保存工作簿的用户自定义 ZIP 写入函数。

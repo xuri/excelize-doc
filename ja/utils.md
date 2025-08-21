@@ -1,5 +1,15 @@
 # ツール機能
 
+ZipWriter は、ZIP アーカイブにファイルを書き込むためのインターフェースを定義します。アーカイブ内に新しいファイルを作成したり、ファイルシステムからファイルを追加したり、書き込み完了時にアーカイブを閉じたりするメソッドを提供します。
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## テーブルの追加 {#AddTable}
 
 ```go
@@ -1148,7 +1158,15 @@ ExcelDateToTime は、`float` ベースの Excel 日付表現を `time.Time` に
 ## 文字トランスコーダー {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder 非 UTF-8 エンコーディングからオープン XLSX のユーザー定義コードページトランスコーダー関数を設定します。
+
+## ZIP ライターを設定する {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter は、ワークブックを保存するためのユーザー定義の ZIP ライター関数を設定します。

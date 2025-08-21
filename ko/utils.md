@@ -1,5 +1,15 @@
 # 유틸리티 기능
 
+ZipWriter 는 ZIP 아카이브에 파일을 쓰기 위한 인터페이스를 정의합니다. 아카이브 내에 새 파일을 생성하고, 파일 시스템에서 파일을 추가하고, 쓰기가 완료되면 아카이브를 닫는 메서드를 제공합니다.
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## 테이블 추가 {#AddTable}
 
 ```go
@@ -1148,7 +1158,15 @@ ExcelDateToTime 은 `float` 기반 Excel 날짜 표현을 `time.Time` 으로 변
 ## 문자셋 트랜스 코더 {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder UTF-8 이외의 인코딩에서 열린 XLSX에 대한 사용자 정의 코드 페이지 트랜스 코더 기능을 설정합니다.
+
+## ZIP 작성기 설정 {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter 는 통합 문서를 저장하기 위한 사용자 정의 ZIP 파일 작성기 기능을 설정합니다.

@@ -244,6 +244,7 @@
   * [嵌入 VBA 專案](utils.md#AddVBAProject)
   * [Excel 日期時間轉換](utils.md#ExcelDateToTime)
   * [字符集轉碼器](utils.md#CharsetTranscoder)
+  * [設定 ZIP 寫入器](utils.md#SetZipWriter)
 * 範例
   * [日曆](example/calendar.md)
   * [級聯列表](example/dependentDropList.md)

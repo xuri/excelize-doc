@@ -1,5 +1,15 @@
 # Utils
 
+ZipWriter defines an interface for writing files to a ZIP archive. It provides methods to create new files within the archive, add files from a filesystem, and close the archive when writing is complete.
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## Add table {#AddTable}
 
 ```go
@@ -1148,7 +1158,15 @@ ExcelDateToTime converts a float-based excel date representation to a `time.Time
 ## Charset transcoder {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder set user-defined codepage transcoder function for open the spreadsheet from non-UTF-8 encoding.
+
+## Set ZIP Writer {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter set user defined zip writer function for saving the workbook.

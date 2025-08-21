@@ -244,6 +244,7 @@
   * [Add VBA project](utils.md#AddVBAProject)
   * [Excel date to time](utils.md#ExcelDateToTime)
   * [Charset transcoder](utils.md#CharsetTranscoder)
+  * [Set ZIP writer](utils.md#SetZipWriter)
 * Examples
   * [Calendar](example/calendar.md)
   * [Dependent drop list](example/dependentDropList.md)

@@ -244,6 +244,7 @@
   * [Добавить проект VBA](utils.md#AddVBAProject)
   * [Преобразование даты Excel в то время](utils.md#ExcelDateToTime)
   * [Транскодер персонажа](utils.md#CharsetTranscoder)
+  * [Установить ZIP-архиватор](utils.md#SetZipWriter)
 * Примеры
   * [Календарь](example/calendar.md)
   * [Зависимый выпадающий список](example/dependentDropList.md)

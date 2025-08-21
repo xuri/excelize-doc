@@ -1,5 +1,15 @@
 # أدوات
 
+يُعرّف ZipWriter واجهةً لكتابة الملفات إلى أرشيف ZIP. يُوفر أساليب لإنشاء ملفات جديدة داخل الأرشيف، وإضافة ملفات من نظام الملفات، وإغلاق الأرشيف عند اكتمال الكتابة.
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## إضافة الطاولة {#AddTable}
 
 ```go
@@ -1168,7 +1178,15 @@ func ExcelDateToTime(excelDate float64, use1904Format bool) (time.Time, error)
 ## محول محارف {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder تعيين وظيفة محول الشفرة المعرفة من قبل المستخدم لجدول بيانات مفتوح من غير ترميز UTF-8.
+
+## تعيين كاتب ZIP {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+يقوم SetZipWriter بتعيين وظيفة كاتب ZIP المحددة من قبل المستخدم لحفظ المصنف.

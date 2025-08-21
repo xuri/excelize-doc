@@ -244,6 +244,7 @@
   * [Adicionar projeto VBA](utils.md#AddVBAProject)
   * [Excel de vez em quando](utils.md#ExcelDateToTime)
   * [Transcodificador de conjunto de caracteres](utils.md#CharsetTranscoder)
+  * [Definir gravador ZIP](utils.md#SetZipWriter)
 * Exemplos
   * [Calendário](example/calendar.md)
   * [Lista suspensa de dependentes](example/dependentDropList.md)

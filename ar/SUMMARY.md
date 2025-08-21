@@ -244,6 +244,7 @@
   * [أضف مشروع VBA](utils.md#AddVBAProject)
   * [تاريخ Excel إلى وقت](utils.md#ExcelDateToTime)
   * [محول محارف](utils.md#CharsetTranscoder)
+  * [تعيين كاتب ZIP](utils.md#SetZipWriter)
 * أمثلة
   * [التقويم](example/calendar.md)
   * [قائمة المنسدلة التابعة](example/dependentDropList.md)

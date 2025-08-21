@@ -1,5 +1,15 @@
 # Útil
 
+O ZipWriter define uma interface para gravar arquivos em um arquivo ZIP. Ele fornece métodos para criar novos arquivos dentro do arquivo, adicionar arquivos de um sistema de arquivos e fechar o arquivo quando a gravação for concluída.
+
+```go
+type ZipWriter interface {
+    Create(name string) (io.Writer, error)
+    AddFS(fsys fs.FS) error
+    Close() error
+}
+```
+
 ## Adicionar tabela {#AddTable}
 
 ```go
@@ -1152,7 +1162,15 @@ ExcelDateToTime converte uma representação de data do Excel baseada em flutua�
 ## Transcodificador de conjunto de caracteres {#CharsetTranscoder}
 
 ```go
-func (f *File) CharsetTranscoder(fn charsetTranscoderFn) *File
+func (f *File) CharsetTranscoder(fn func(charset string, input io.Reader) (rdr io.Reader, err error)) *File
 ```
 
 CharsetTranscoder define a função de transcodificador de página de código definida pelo usuário para abrir a planilha a partir de codificação não UTF-8.
+
+## Definir gravador ZIP {#SetZipWriter}
+
+```go
+func (f *File) SetZipWriter(fn func(io.Writer) ZipWriter) *File
+```
+
+SetZipWriter define a função de gravação ZIP definida pelo usuário para salvar a pasta de trabalho.

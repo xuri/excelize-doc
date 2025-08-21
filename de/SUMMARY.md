@@ -244,6 +244,7 @@
   * [VBA-Projekt hinzufügen](utils.md#AddVBAProject)
   * [Excel-Datum zur Uhrzeit](utils.md#ExcelDateToTime)
   * [Zeichentranscoder](utils.md#CharsetTranscoder)
+  * [ZIP-Writer einstellen](utils.md#SetZipWriter)
 * Beispiele
   * [Kalender](example/calendar.md)
   * [Abhängige Dropliste](example/dependentDropList.md)

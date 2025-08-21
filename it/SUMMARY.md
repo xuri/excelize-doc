@@ -244,6 +244,7 @@
   * [Aggiungi progetto VBA](utils.md#AddVBAProject)
   * [Excel aggiornato di volta in volta](utils.md#ExcelDateToTime)
   * [Transcodificatore del set di caratteri](utils.md#CharsetTranscoder)
+  * [Imposta ZIP Writer](utils.md#SetZipWriter)
 * Esempi
   * [Calendario](example/calendar.md)
   * [Elenco a discesa dipendente](example/dependentDropList.md)
