@@ -27,20 +27,20 @@ Wenn Ihr Unternehmen oder Produkt auch Excelize verwendet, begrüßen Sie <a hre
 
 ## Gemeinschaft
 
-- [Facebook Group](https://www.facebook.com/groups/excelize)
-- [Google Group](https://groups.google.com/g/excelize)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/excelize)
-- [Slack Channel](https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw)
+- [Facebook Gruppe](https://www.facebook.com/groups/excelize)
+- [Google Gruppe](https://groups.google.com/g/excelize)
+- [Stapelüberlauf](https://stackoverflow.com/questions/tagged/excelize)
+- [Slack-Kanal](https://join.slack.com/t/xuri/shared_invite/zt-eriqdkeo-wV04zcCdBiiZveFgY86Wzw)
 - [Gitter](https://gitter.im/excelize/community)
-- [Community on Telegram](https://t.me/excelize)
-- [Community on Discord](https://discord.gg/MWV8MBQGtv)
-- [Excelize Community on Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)
-- [Line Community](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" title="Excelize Line Community" target="_blank">join via QR Code</a>
-- [DingTalk Group ID](https://qr.dingtalk.com/action/joingroup?code=v1,k1,6tmzbBbJuQkGezVdHJjsHz29CZI9F49xeW+cvOaECtk=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize DingTalk Group" target="_blank">join via QR Code</a>
-- QQ Group ID: `1302058237` (Verification info: Excelize) | <a href="../images/qq_group@2x.png" title="Excelize QQ Group ID" target="_blank">join via QR Code</a>
-- Excelize WeChat ID: `hixuri` (Verification info: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">join via QR Code</a>
-- WeCom Group (Verification info: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom Group" target="_blank">join via QR Code</a>
-- Inflow Group ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow Group" target="_blank">join via QR Code</a>
+- [Community auf Telegram](https://t.me/excelize)
+- [Community auf Discord](https://discord.gg/MWV8MBQGtv)
+- [Excelize Community in Microsoft Teams](https://teams.live.com/l/invite/FBA8aHkflqEj5SNzQM)
+- [Line Community](http://line.me/ti/g/NFIjhfbP_g): <a href="../images/line_group@2x.png" title="Excelize Line Community" target="_blank">Teilnahme per QR-Code</a>
+- [DingTalk Gruppen ID](https://qr.dingtalk.com/action/joingroup?code=v1,k1,6tmzbBbJuQkGezVdHJjsHz29CZI9F49xeW+cvOaECtk=&_dt_no_comment=1&origin=11): `30047129` | <a href="../images/dingtalk_group@2x.png" title="Excelize DingTalk Group" target="_blank">Teilnahme per QR-Code</a>
+- QQ DingTalk ID: `1302058237` (Verifizierungsinformationen: Excelize) | <a href="../images/qq_group@2x.png" title="Excelize QQ DingTalk ID" target="_blank">Teilnahme per QR-Code</a>
+- Excelize WeChat ID: `hixuri` (Verifizierungsinformationen: Excelize) | <a href="../images/wechat_group@2x.png" title="Excelize WeChat Community" target="_blank">Teilnahme per QR-Code</a>
+- WeCom DingTalk (Verifizierungsinformationen: Excelize): <a href="../images/wecom_group@2x.png" title="Excelize WeCom DingTalk" target="_blank">Teilnahme per QR-Code</a>
+- Inflow DingTalk ID: `4375928` | <a href="../images/inflow_group@2x.png" title="Excelize Inflow DingTalk" target="_blank">Teilnahme per QR-Code</a>
 
 ## Sponsor Excelize Development
 
