@@ -785,6 +785,7 @@ MOYENNE                      | Renvoie la moyenne de ses arguments
 AVERAGEA                     | Renvoie la moyenne de ses arguments, y compris les nombres, le texte et les valeurs logiques
 MOYENNE.SI                   | Renvoie la moyenne (arithmétique) de toutes les cellules d'une plage respectant un critère donné
 AVERAGEIFS                   | Renvoie la moyenne (arithmétique) de toutes les cellules qui répondent à plusieurs critères
+BAHTTEXT                     | Convierte un número en texto tailandés y agrega un sufijo "Baht"
 BASE                         | Convertit un nombre en représentation textuelle avec la base spécifiée
 BESSELI                      | Renvoie la fonction de Bessel modifiée In(x)
 BESSELJ                      | Renvoie la fonction de Bessel Jn(x)

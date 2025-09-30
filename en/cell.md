@@ -781,6 +781,7 @@ AVERAGE                  | Returns the average of its arguments
 AVERAGEA                 | Returns the average of its arguments, including numbers, text, and logical values
 AVERAGEIF                | Returns the average (arithmetic mean) of all the cells in a range that meet a given criteria
 AVERAGEIFS               | Returns the average (arithmetic mean) of all cells that meet multiple criteria.
+BAHTTEXT                 | Converts a number to Thai text and adds a suffix of "Baht."
 BASE                     | Converts a number into a text representation with the given radix (base)
 BESSELI                  | Returns the modified Bessel function In(x)
 BESSELJ                  | Returns the Bessel function Jn(x)

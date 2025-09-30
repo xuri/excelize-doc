@@ -789,6 +789,7 @@ AVERAGE                  | Devolve a média dos respetivos argumentos
 AVERAGEA                 | Devolve uma média dos respetivos argumentos, incluindo números, texto e valores lógicos
 AVERAGEIF                | Devolve a média aritmética de todas as células num intervalo que cumprem determinado critério
 AVERAGEIFS               | Devolve a média aritmética de todas as células que cumprem múltiplos critérios
+TEXTO.BAHT               | Converte um número em texto tailandês e adiciona um sufixo "Baht"
 BASE                     | Converte um número numa representação de texto com a raiz (base) indicada
 BESSELI                  | Devolve a função de Bessel modificada In(x)
 BESSELJ                  | Devolve a função de Bessel Jn(x)

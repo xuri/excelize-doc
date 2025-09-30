@@ -785,6 +785,7 @@ MITTELWERT                | Gibt den Mittelwert der Argumente zurück
 MITTELWERTA               | Gibt den Mittelwert der Argumente zurück, die Zahlen, Text und Wahrheitswerte enthalten können
 MITTELWERTWENN            | Gibt den Mittelwert (arithmetisches Mittel) aller Zellen in einem Bereich zurück, die ein bestimmtes Kriterium erfüllen
 MITTELWERTWENNS           | Gibt den Mittelwert (arithmetisches Mittel) aller Zellen zurück, die mehrere Kriterien erfüllen
+BAHTTEXT                  | Wandelt eine Zahl in Thai-Text um und fügt ein Suffix "Baht" hinzu.
 BASIS                     | Konvertiert eine Zahl in eine Textdarstellung mit der angegebenen Basis
 BESSELI                   | Gibt die modifizierte Bessel-Funktion ln(x) zurück
 BESSELJ                   | Gibt die Bessel-Funktion Jn(x) zurück

@@ -67,6 +67,8 @@ ID|Aufzählung|Diagramm
 52 | WireframeContour            | wireframe-Konturdiagramm
 53 | Bubble                      | blasendiagramm
 54 | Bubble3D                    | 3D Blasendiagramm
+55 | StockHighLowClose           | Hoch-Tief-Schluss Aktienchart
+56 | StockOpenHighLowClose       | Öffnungs-Hoch-Tief-Schluss Aktienchart
 
 Im Office Excel-Diagrammdatenbereich gibt `Series` den Informationssatz an, für den Daten gezeichnet werden sollen, das Legendenelement (Serie) und die horizontale (Kategorie) Achsenbeschriftung.
 
@@ -128,16 +130,19 @@ Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende 
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `PieOfPie` und `BarOfPie` an.
-ShowBubbleSize    | `bool`        | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
-ShowCatName       | `bool`        | `true`  | Gibt an, dass der Kategoriename in der Datenbeschriftung angezeigt werden soll. Die Eigenschaft `ShowCatName` ist optional.
-ShowDataTable     | `bool`        | `false` | Wird zum Hinzufügen einer Datentabelle unter dem Diagramm verwendet und ist je nach Diagrammtyp nur für Diagramme vom Typ Flächen-, Balken-, Säulen- und Linienreihen verfügbar.
-ShowDataTableKeys | `bool`        | `false` | Wird zum Hinzufügen eines Legendenschlüssels in der Datentabelle verwendet. Funktioniert nur, wenn `ShowDataTable` aktiviert ist. Die Eigenschaft `ShowDataTableKeys` ist optional.
-ShowLeaderLines   | `bool`        | `false` | Gibt an, welche Führungslinien für Datenbeschriftungen angezeigt werden sollen. Die Eigenschaft `ShowLeaderLines` ist optional.
-ShowPercent       | `bool`        | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
-ShowSerName       | `bool`        | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
-ShowVal           | `bool`        | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
-NumFmt            | `ChartNumFmt` | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für Datenbeschriftungen festgelegt wird. Die Eigenschaft `NumFmt` ist optional. Der Standardformatcode ist `General`.
+SecondPlotValues  | `int`            | `0`     | Gibt die Werte im zweiten Diagramm für die Diagramme `PieOfPie` und `BarOfPie` an.
+ShowBubbleSize    | `bool`           | `false` | Gibt an, dass die Blasengröße auf einem Datenetikett angegeben werden soll.
+ShowCatName       | `bool`           | `true`  | Gibt an, dass der Kategoriename in der Datenbeschriftung angezeigt werden soll. Die Eigenschaft `ShowCatName` ist optional.
+ShowDataTable     | `bool`           | `false` | Wird zum Hinzufügen einer Datentabelle unter dem Diagramm verwendet und ist je nach Diagrammtyp nur für Diagramme vom Typ Flächen-, Balken-, Säulen- und Linienreihen verfügbar.
+ShowDataTableKeys | `bool`           | `false` | Wird zum Hinzufügen eines Legendenschlüssels in der Datentabelle verwendet. Funktioniert nur, wenn `ShowDataTable` aktiviert ist. Die Eigenschaft `ShowDataTableKeys` ist optional.
+ShowLeaderLines   | `bool`           | `false` | Gibt an, welche Führungslinien für Datenbeschriftungen angezeigt werden sollen. Die Eigenschaft `ShowLeaderLines` ist optional.
+ShowPercent       | `bool`           | `false` | Gibt an, dass der Prozentsatz auf einem Datenetikett angegeben werden soll.
+ShowSerName       | `bool`           | `false` | Gibt an, dass der Serienname auf einem Datenetikett angezeigt werden soll.
+ShowVal           | `bool`           | `false` | Gibt an, dass der Wert auf einem Datenetikett angezeigt werden soll.
+Fill              | `Fill`           | N/A     | Legen Sie die Füllfarbe des Diagramms fest.
+UpBars            | `ChartUpDownBar` | N/A     | Gibt das Format für Aufwärtsbalken in Aktiencharts an. Die Eigenschaft `UpBars` ist optional.
+DownBars          | `ChartUpDownBar` | N/A     | Gibt das Format für Downbars im Aktienchart an. Die Eigenschaft `DownBars` ist optional.
+NumFmt            | `ChartNumFmt`    | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für Datenbeschriftungen festgelegt wird. Die Eigenschaft `NumFmt` ist optional. Der Standardformatcode ist `General`.
 
 Stellen Sie die primären Optionen für die horizontale und vertikale Achse auf `XAxis` und `YAxis` ein.
 

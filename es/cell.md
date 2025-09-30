@@ -785,6 +785,7 @@ PROMEDIO                 | Devuelve el promedio de sus argumentos
 PROMEDIOA                | Devuelve el promedio de sus argumentos, incluidos números, texto y valores lógicos
 PROMEDIO.SI              | Devuelve el promedio (media aritmética) de todas las celdas de un intervalo que cumplan unos criterios dados
 AVERAGEIFS               | Devuelve el promedio (media aritmética) de todas las celdas que cumplen varios criterios
+TEXTOBAHT                | Convierte un número en texto tailandés y agrega un sufijo "Baht"
 BASE                     | Convierte un número en una representación de texto con la base dada
 BESSELI                  | Devuelve la función Bessel modificada In(x)
 BESSELJ                  | Devuelve la función Bessel Jn(x)

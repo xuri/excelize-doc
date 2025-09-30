@@ -67,6 +67,8 @@ ID|Énumération|Graphique
 52 | WireframeContour            | graphique de contour de trame de fil
 53 | Bubble                      | graphique à bulles
 54 | Bubble3D                    | 3D graphique à bulles
+55 | StockHighLowClose           | Graphique boursier Haut-Bas-Fermé
+56 | StockOpenHighLowClose       | Graphique boursier Open-Haut-Bas-Fermé
 
 Dans la zone de données de graphique Office Excel `Series` spécifie l'ensemble des informations pour lesquelles les données doivent être dessinées, l'élément de légende (série) et l'étiquette d'axe horizontal (catégorie).
 
@@ -128,16 +130,19 @@ Définissez la position de la zone de tracé de graphique par plotarea. Les prop
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `PieOfPie` et `BarOfPie`.
-ShowBubbleSize    | `bool`        | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
-ShowCatName       | `bool`        | `true`  | Indique que le nom de la catégorie doit être affiché dans l'étiquette de données. La propriété `ShowCatName` est facultative.
-ShowDataTable     | `bool`        | `false` | Utilisé pour ajouter un tableau de données sous le graphique, en fonction du type de graphique, disponible uniquement pour les graphiques de type zone, barre, colonne et ligne.
-ShowDataTableKeys | `bool`        | `false` | Utilisé pour ajouter une clé de légende dans une table de données. Fonctionne uniquement si l'option `ShowDataTable` est activée. La propriété `ShowDataTableKeys` est facultative.
-ShowLeaderLines   | `bool`        | `false` | Spécifie que les lignes de repère doivent être affichées pour les étiquettes de données. La propriété `ShowLeaderLines` est facultative.
-ShowPercent       | `bool`        | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
-ShowSerName       | `bool`        | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
-ShowVal           | `bool`        | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
-NumFmt            | `ChartNumFmt` | N/A     | Spécifie cela s’il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
+SecondPlotValues  | `int`            | `0`     | Spécifie les valeurs dans le deuxième tracé pour les graphiques `PieOfPie` et `BarOfPie`.
+ShowBubbleSize    | `bool`           | `false` | Spécifie que la taille de la bulle doit apparaître dans une étiquette de données.
+ShowCatName       | `bool`           | `true`  | Indique que le nom de la catégorie doit être affiché dans l'étiquette de données. La propriété `ShowCatName` est facultative.
+ShowDataTable     | `bool`           | `false` | Utilisé pour ajouter un tableau de données sous le graphique, en fonction du type de graphique, disponible uniquement pour les graphiques de type zone, barre, colonne et ligne.
+ShowDataTableKeys | `bool`           | `false` | Utilisé pour ajouter une clé de légende dans une table de données. Fonctionne uniquement si l'option `ShowDataTable` est activée. La propriété `ShowDataTableKeys` est facultative.
+ShowLeaderLines   | `bool`           | `false` | Spécifie que les lignes de repère doivent être affichées pour les étiquettes de données. La propriété `ShowLeaderLines` est facultative.
+ShowPercent       | `bool`           | `false` | Indique que le pourcentage doit être indiqué dans une étiquette de données.
+ShowSerName       | `bool`           | `false` | Indique que le nom de la série doit apparaître dans une étiquette de données.
+ShowVal           | `bool`           | `false` | Indique que la valeur doit apparaître dans une étiquette de données.
+Fill              | `Fill`           | N/A     | Définir la couleur de remplissage du graphique.
+UpBars            | `ChartUpDownBar` | N/A     | Spécifie le format pour les barres montantes du graphique des actions. La propriété `UpBars` est facultative.
+DownBars          | `ChartUpDownBar` | N/A     | Spécifie le format pour les barres baissières du graphique boursier. La propriété `DownBars` est optionnelle.
+NumFmt            | `ChartNumFmt`    | N/A     | Spécifie cela s’il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
 
 Définissez les options de l'axe horizontal et vertical principal par `XAxis` et `YAxis`.
 

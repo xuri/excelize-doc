@@ -781,6 +781,7 @@ AVERAGE                  | 인수의 평균을 반환합니다
 AVERAGEA                 | 인수의 평균 (숫자, 텍스트, 논리값 포함) 을 반환합니다
 AVERAGEIF                | 범위 내에서 주어진 조건에 맞는 모든 셀의 평균 (산술 평균) 을 반환합니다
 AVERAGEIFS               | 여러 조건에 맞는 모든 셀의 평균 (산술 방식) 을 반환합니다
+BAHTTEXT                 | 숫자를 태국어 텍스트로 변환하고 "Baht" 접미사를 추가합니다
 BASE                     | 숫자를 지정된 기수의 텍스트 표현으로 변환합니다
 BESSELI                  | 수정된 Bessel 함수 In(x) 값을 반환합니다
 BESSELJ                  | Bessel 함수 Jn(x) 을 반환합니다

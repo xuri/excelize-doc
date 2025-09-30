@@ -14,15 +14,15 @@ func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*Chart
 
 ID|列舉|圖表類別
 ---|---|---
-0  | Area                        | 二維區域圖
-1  | AreaStacked                 | 二維堆疊區域圖
-2  | AreaPercentStacked          | 二維百分比堆疊區域圖
+0  | Area                        | 平面區域圖
+1  | AreaStacked                 | 平面堆疊區域圖
+2  | AreaPercentStacked          | 平面百分比堆疊區域圖
 3  | Area3D                      | 立體區域圖
 4  | Area3DStacked               | 立體堆疊區域圖
 5  | Area3DPercentStacked        | 立體百分比堆疊區域圖
-6  | Bar                         | 二維群組條形圖
-7  | BarStacked                  | 二維堆疊條形圖
-8  | BarPercentStacked           | 二維百分比堆疊條形圖
+6  | Bar                         | 平面群組條形圖
+7  | BarStacked                  | 平面堆疊條形圖
+8  | BarPercentStacked           | 平面百分比堆疊條形圖
 9  | Bar3DClustered              | 立體群組條形圖
 10 | Bar3DStacked                | 立體堆疊條形圖
 11 | Bar3DPercentStacked         | 立體百分比堆疊條形圖
@@ -35,13 +35,13 @@ ID|列舉|圖表類別
 18 | Bar3DCylinderClustered      | 立體群組水平圓柱圖
 19 | Bar3DCylinderStacked        | 立體堆疊水平圓柱圖
 20 | Bar3DCylinderPercentStacked | 立體堆疊百分比水平圓柱圖
-21 | Col                         | 二維群組柱形圖
-22 | ColStacked                  | 二維堆疊柱形圖
-23 | ColPercentStacked           | 二維百分比堆疊柱形圖
-24 | Col3D                       | 立體柱形圖
-25 | Col3DClustered              | 立體群組柱形圖
-26 | Col3DStacked                | 立體堆疊柱形圖
-27 | Col3DPercentStacked         | 立體百分比堆疊柱形圖
+21 | Col                         | 平面群組直條圖
+22 | ColStacked                  | 平面堆疊直條圖
+23 | ColPercentStacked           | 平面百分比堆疊直條圖
+24 | Col3D                       | 立體直條圖
+25 | Col3DClustered              | 立體群組直條圖
+26 | Col3DStacked                | 立體堆疊直條圖
+27 | Col3DPercentStacked         | 立體百分比堆疊直條圖
 28 | Col3DCone                   | 立體圓錐圖
 29 | Col3DConeClustered          | 立體群組圓錐圖
 30 | Col3DConeStacked            | 立體堆疊圓錐圖
@@ -69,6 +69,8 @@ ID|列舉|圖表類別
 52 | WireframeContour            | 曲面圖（俯視、只顯示線條）
 53 | Bubble                      | 泡泡圖
 54 | Bubble3D                    | 立體泡泡圖
+55 | StockHighLowClose           | 最高價-最低價-收盤價股價圖
+56 | StockOpenHighLowClose       | 開盤價-最高價-最低價-收盤價股價圖
 
 在 Office Excel 中圖表資料區域 `Series` 指定了繪制哪些資料的信息集合、圖例項（系列）和水平（類別）軸標籤。
 
@@ -130,16 +132,19 @@ zero|零值
 
 參數|類別|默認值|含義
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | 子母圓形圖和圓形圖帶有子橫條圖中第二繪圖區域中的資料數列數量
-ShowBubbleSize    | `bool`        | `false` | 泡泡大小
-ShowCatName       | `bool`        | `true`  | 用於指定類別名稱是否顯示在數據標籤中
-ShowDataTable     | `bool`        | `false` | 用於在圖表下添加數據表，取決於圖表類型，僅適用於區域圖、條形圖、柱形圖和折線系列類型圖表
-ShowDataTableKeys | `bool`        | `false` | 用於在數據表中添加圖例圖例，僅在啓用 `ShowDataTable` 時有效。`ShowDataTableKeys` 參數為可選參數
-ShowLeaderLines   | `bool`        | `false` | 指定是否顯示數據標籤的引導線
-ShowPercent       | `bool`        | `false` | 百分比
-ShowSerName       | `bool`        | `false` | 系列名稱
-ShowVal           | `bool`        | `false` | 值
-NumFmt            | `ChartNumFmt` | N/A     | 設定資料標籤的數字格式和鏈接到源
+SecondPlotValues  | `int`            | `0`     | 子母圓形圖和圓形圖帶有子橫條圖中第二繪圖區域中的資料數列數量
+ShowBubbleSize    | `bool`           | `false` | 泡泡大小
+ShowCatName       | `bool`           | `true`  | 用於指定類別名稱是否顯示在數據標籤中
+ShowDataTable     | `bool`           | `false` | 用於在圖表下添加數據表，取決於圖表類型，僅適用於區域圖、條形圖、直條圖和折線系列類型圖表
+ShowDataTableKeys | `bool`           | `false` | 用於在數據表中添加圖例圖例，僅在啓用 `ShowDataTable` 時有效。`ShowDataTableKeys` 參數為可選參數
+ShowLeaderLines   | `bool`           | `false` | 指定是否顯示數據標籤的引導線
+ShowPercent       | `bool`           | `false` | 百分比
+ShowSerName       | `bool`           | `false` | 系列名稱
+ShowVal           | `bool`           | `false` | 值
+Fill              | `Fill`           | N/A     | 用於設定圖表繪圖區域的填滿色彩
+UpBars            | `ChartUpDownBar` | N/A     | 設定蠟燭圖上漲線（陽線）的填滿格式。`UpBars` 參數為可選參數
+DownBars          | `ChartUpDownBar` | N/A     | 設定蠟燭圖下跌線（陰線）的填滿格式。`DownBars` 參數為可選參數
+NumFmt            | `ChartNumFmt`    | N/A     | 設定資料標籤的數字格式和鏈接到源
 
 透過參數 `XAxis` 和 `YAxis` 參數設定坐標軸選項。
 
@@ -187,7 +192,7 @@ Title          | `[]RichTextRun` | N/A     | 設定旋轉過的主要縱坐標�
 Height | `uint` | 260 | 高度
 Width  | `uint` | 480 | 寬度
 
-參數 `combo` 用來指定創建組合圖表，該圖表將兩個或多個圖表類別組合在一個圖表中。例如，在 `Sheet1!$E$1:$L$15` 區域創建一個 群組柱形圖 - 折線圖：
+參數 `combo` 用來指定創建組合圖表，該圖表將兩個或多個圖表類別組合在一個圖表中。例如，在 `Sheet1!$E$1:$L$15` 區域創建一個 群組直條圖 - 折線圖：
 
 ```go
 package main
@@ -242,7 +247,7 @@ func main() {
         },
         Title: []excelize.RichTextRun{
             {
-                Text: "群組柱形圖 - 折線圖",
+                Text: "群組直條圖 - 折線圖",
             },
         },
         Legend: excelize.ChartLegend{

@@ -67,6 +67,8 @@ ID|열거|차트
 52 | WireframeContour            | 와이어프레임 윤곽 차트
 53 | Bubble                      | 버블 차트
 54 | Bubble3D                    | 3D 버블 차트
+55 | StockHighLowClose           | 고가-저가-종가 주식 차트
+56 | StockOpenHighLowClose       | 시가-고가-저가-종가 주식 차트
 
 Office Excel 차트 데이터 영역 `Series` 에서 데이터를 그릴 정보 집합, 범례 항목 (계열) 및 가로 (범주) 축 레이블을 지정합니다.
 
@@ -128,16 +130,19 @@ zero | 0 값
 
 매개 변수|유형|기본값|설명
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | `PieOfPie` 및 `BarOfPie` 차트에 대한 두 번째 플롯의 값을 지정합니다.
-ShowBubbleSize    | `bool`        | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
-ShowCatName       | `bool`        | `true`  | 데이터 레이블에 범주 이름을 표시하도록 지정합니다. `ShowCatName` 속성은 선택 사항입니다.
-ShowDataTable     | `bool`        | `false` | 차트 아래에 데이터 표를 추가하는 데 사용되며, 차트 유형에 따라 영역형, 막대형, 세로형 및 선형 계열 차트에만 사용할 수 있습니다.
-ShowDataTableKeys | `bool`        | `false` | 데이터 테이블에 범례 키를 추가하는 데 사용되며, `ShowDataTable` 이 활성화된 경우에만 작동합니다. `ShowDataTableKeys` 속성은 선택 사항입니다.
-ShowLeaderLines   | `bool`        | `false` | 데이터 레이블에 지시선을 표시할지 여부를 지정합니다. `ShowLeaderLines` 속성은 선택 사항입니다.
-ShowPercent       | `bool`        | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
-ShowSerName       | `bool`        | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
-ShowVal           | `bool`        | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
-NumFmt            | `ChartNumFmt` | N/A     | 소스에 연결된 경우 데이터 레이블에 대한 사용자 정의 숫자 형식 코드를 설정하도록 지정합니다. `NumFmt` 속성은 선택 사항입니다. 기본 형식 코드는 `General` 입니다.
+SecondPlotValues  | `int`            | `0`     | `PieOfPie` 및 `BarOfPie` 차트에 대한 두 번째 플롯의 값을 지정합니다.
+ShowBubbleSize    | `bool`           | `false` | 거품 크기를 지정하여 데이터 레이블에 표시해야 합니다.
+ShowCatName       | `bool`           | `true`  | 데이터 레이블에 범주 이름을 표시하도록 지정합니다. `ShowCatName` 속성은 선택 사항입니다.
+ShowDataTable     | `bool`           | `false` | 차트 아래에 데이터 표를 추가하는 데 사용되며, 차트 유형에 따라 영역형, 막대형, 세로형 및 선형 계열 차트에만 사용할 수 있습니다.
+ShowDataTableKeys | `bool`           | `false` | 데이터 테이블에 범례 키를 추가하는 데 사용되며, `ShowDataTable` 이 활성화된 경우에만 작동합니다. `ShowDataTableKeys` 속성은 선택 사항입니다.
+ShowLeaderLines   | `bool`           | `false` | 데이터 레이블에 지시선을 표시할지 여부를 지정합니다. `ShowLeaderLines` 속성은 선택 사항입니다.
+ShowPercent       | `bool`           | `false` | 백분율이 데이터 레이블에 표시되도록 지정합니다.
+ShowSerName       | `bool`           | `false` | 계열 이름이 데이터 레이블에 표시되도록 지정합니다.
+ShowVal           | `bool`           | `false` | 값이 데이터 레이블에 표시되도록 지정합니다.
+Fill              | `Fill`           | N/A     | 차트의 채우기 색상을 설정합니다.
+UpBars            | `ChartUpDownBar` | N/A     | 주식형 차트의 상향 막대 형식을 지정합니다. `UpBars` 속성은 선택 사항입니다.
+DownBars          | `ChartUpDownBar` | N/A     | 주식형 차트의 하향 막대 형식을 지정합니다. `DownBars` 속성은 선택 사항입니다.
+NumFmt            | `ChartNumFmt`    | N/A     | 소스에 연결된 경우 데이터 레이블에 대한 사용자 정의 숫자 형식 코드를 설정하도록 지정합니다. `NumFmt` 속성은 선택 사항입니다. 기본 형식 코드는 `General` 입니다.
 
 기본 수평 및 세로 축 옵션을 `XAxis` 및 `YAxis` 으로 설정합니다.
 

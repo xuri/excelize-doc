@@ -69,6 +69,8 @@ ID|枚举|图表类型
 52 | WireframeContour            | 曲面图（俯视框架图）
 53 | Bubble                      | 气泡图
 54 | Bubble3D                    | 三维气泡图
+55 | StockHighLowClose           | 最高价-最低价-收盘价股价图
+56 | StockOpenHighLowClose       | 开盘价-最高价-最低价-收盘价股价图
 
 在 Office Excel 中图表数据区域 `Series` 指定了绘制哪些数据的信息集合、图例项（系列）和水平（分类）轴标签。
 
@@ -130,16 +132,19 @@ zero | 零值
 
 参数|类型|默认值|含义
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | 子母饼图和复合条饼图中第二绘图区域中的数据系列数量
-ShowBubbleSize    | `bool`        | `false` | 气泡大小
-ShowCatName       | `bool`        | `true`  | 用于指定类别名称是否显示在数据标签中
-ShowDataTable     | `bool`        | `false` | 用于在图表下添加数据表，取决于图表类型，仅适用于面积图、条形图、柱形图和折线系列类型图表
-ShowDataTableKeys | `bool`        | `false` | 用于在数据表中添加图例图例，仅在启用 `ShowDataTable` 时有效。`ShowDataTableKeys` 参数为可选参数
-ShowLeaderLines   | `bool`        | `false` | 指定是否显示数据标签的引导线
-ShowPercent       | `bool`        | `false` | 百分比
-ShowSerName       | `bool`        | `false` | 系列名称
-ShowVal           | `bool`        | `false` | 值
-NumFmt            | `ChartNumFmt` | N/A     | 设置数据标签的数字格式和链接到源
+SecondPlotValues  | `int`            | `0`     | 子母饼图和复合条饼图中第二绘图区域中的数据系列数量
+ShowBubbleSize    | `bool`           | `false` | 气泡大小
+ShowCatName       | `bool`           | `true`  | 用于指定类别名称是否显示在数据标签中
+ShowDataTable     | `bool`           | `false` | 用于在图表下添加数据表，取决于图表类型，仅适用于面积图、条形图、柱形图和折线系列类型图表
+ShowDataTableKeys | `bool`           | `false` | 用于在数据表中添加图例图例，仅在启用 `ShowDataTable` 时有效。`ShowDataTableKeys` 参数为可选参数
+ShowLeaderLines   | `bool`           | `false` | 指定是否显示数据标签的引导线
+ShowPercent       | `bool`           | `false` | 百分比
+ShowSerName       | `bool`           | `false` | 系列名称
+ShowVal           | `bool`           | `false` | 值
+Fill              | `Fill`           | N/A     | 用于设置图表绘图区域的填充颜色
+UpBars            | `ChartUpDownBar` | N/A     | 设置蜡烛图上涨线（阳线）的填充格式。`UpBars` 参数为可选参数
+DownBars          | `ChartUpDownBar` | N/A     | 设置蜡烛图下跌线（阴线）的填充格式。`DownBars` 参数为可选参数
+NumFmt            | `ChartNumFmt`    | N/A     | 设置数据标签的数字格式和链接到源
 
 通过参数 `XAxis` 和 `YAxis` 参数设置坐标轴选项。
 

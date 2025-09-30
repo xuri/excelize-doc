@@ -67,6 +67,8 @@ ID|列挙|グラフの種類
 52 | WireframeContour            | ワイヤフレーム輪郭グラフ
 53 | Bubble                      | バブルチャート
 54 | Bubble3D                    | 3D バブル チャート
+55 | StockHighLowClose           | 株価チャート (高値-安値-終値)
+56 | StockOpenHighLowClose       | 株価チャート (始値-高値-安値-終値)
 
 Office Excel では、グラフデータ領域 `Series` は、データが描画される情報のセット、凡例專案 (系列)、および水平 (分類) 軸ラベルを指定します。
 
@@ -128,16 +130,19 @@ zero | 0 値
 
 パラメータ | タイプ | デフォルト値 | 意味
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | `PieOfPie` および `BarOfPie` チャートの 2 番目のプロットの値を指定します。
-ShowBubbleSize    | `bool`        | `false` | バブルサイズ
-ShowCatName       | `bool`        | `true`  | データラベルにカテゴリ名を表示することを指定します。`ShowCatName` プロパティはオプションです。
-ShowDataTable     | `bool`        | `false` | グラフの下にデータ テーブルを追加するために使用されます。グラフの種類に応じて、面グラフ、棒グラフ、列グラフ、折れ線グラフのシリーズ タイプのグラフでのみ使用できます。
-ShowDataTableKeys | `bool`        | `false` | データテーブルに凡例キーを追加するために使用されます。`ShowDataTable` が有効な場合にのみ機能します。`ShowDataTableKeys` プロパティはオプションです。
-ShowLeaderLines   | `bool`        | `false` | データラベルに引き出し線を表示するかどうかを指定します。`ShowLeaderLines` プロパティはオプションです。
-ShowPercent       | `bool`        | `false` | 割合
-ShowSerName       | `bool`        | `false` | 系列名
-ShowVal           | `bool`        | `false` | 値
-NumFmt            | `ChartNumFmt` | N/A     | ソースにリンクされている場合に指定し、データ ラベルのカスタム数値形式コードを設定します。`NumFmt` プロパティはオプションです。デフォルトのフォーマットコードは `General` です。
+SecondPlotValues  | `int`            | `0`     | `PieOfPie` および `BarOfPie` チャートの 2 番目のプロットの値を指定します。
+ShowBubbleSize    | `bool`           | `false` | バブルサイズ
+ShowCatName       | `bool`           | `true`  | データラベルにカテゴリ名を表示することを指定します。`ShowCatName` プロパティはオプションです。
+ShowDataTable     | `bool`           | `false` | グラフの下にデータ テーブルを追加するために使用されます。グラフの種類に応じて、面グラフ、棒グラフ、列グラフ、折れ線グラフのシリーズ タイプのグラフでのみ使用できます。
+ShowDataTableKeys | `bool`           | `false` | データテーブルに凡例キーを追加するために使用されます。`ShowDataTable` が有効な場合にのみ機能します。`ShowDataTableKeys` プロパティはオプションです。
+ShowLeaderLines   | `bool`           | `false` | データラベルに引き出し線を表示するかどうかを指定します。`ShowLeaderLines` プロパティはオプションです。
+ShowPercent       | `bool`           | `false` | 割合
+ShowSerName       | `bool`           | `false` | 系列名
+ShowVal           | `bool`           | `false` | 値
+Fill              | `Fill`           | N/A     | グラフの塗りつぶし色を設定します。
+UpBars            | `ChartUpDownBar` | N/A     | 株価チャートの上昇バーの形式を指定します。`UpBars` プロパティはオプションです。
+DownBars          | `ChartUpDownBar` | N/A     | 株価チャートの下降バーの形式を指定します。`DownBars` プロパティはオプションです。
+NumFmt            | `ChartNumFmt`    | N/A     | ソースにリンクされている場合に指定し、データ ラベルのカスタム数値形式コードを設定します。`NumFmt` プロパティはオプションです。デフォルトのフォーマットコードは `General` です。
 
 パラメータ `XAxis` と `YAxis` パラメータで軸オプションを設定します。
 

@@ -67,6 +67,8 @@ ID|Enumeração|Gráfico
 52 | WireframeContour            | Gráfico de contorno de wireframe
 53 | Bubble                      | Gráfico de bolhas
 54 | Bubble3D                    | Gráfico de bolhas 3D
+55 | StockHighLowClose           | Gráfico de ações de alta-baixa-fechamento
+56 | StockOpenHighLowClose       | Gráfico de ações Abertura-Máxima-Mínima-Fechamento
 
 No intervalo de dados do gráfico do Office Excel, `Series` especifica o conjunto de informações para os quais os dados serão desenhados, o item da legenda (série) e o rótulo do eixo horizontal (categoria).
 
@@ -128,16 +130,19 @@ Defina a posição da área de plotagem do gráfico por área de plotagem. As pr
 
 Parâmetro|Tipo|Valores padrão|Explicação
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | Especifica os valores no segundo gráfico para o gráfico `PieOfPie` e `BarOfPie`.
-ShowBubbleSize    | `bool`        | `false` | Especifica que o tamanho da bolha deve ser mostrado em um rótulo de dados.
-ShowCatName       | `bool`        | `true`  | Specifies that the category name shall be shown in the data label. The `ShowCatName` property is optional.
-ShowDataTable     | `bool`        | `false` | Usado para adicionar tabela de dados no gráfico, dependendo do tipo de gráfico, disponível somente para gráficos de área, barra, coluna e série de linhas.
-ShowDataTableKeys | `bool`        | `false` | Usado para adicionar chave de legenda na tabela de dados, funciona somente quando `ShowDataTable` está habilitado. A propriedade `ShowDataTableKeys` é opcional.
-ShowLeaderLines   | `bool`        | `false` | Especifica que as linhas de chamada devem ser exibidas para rótulos de dados. A propriedade `ShowLeaderLines` é opcional.
-ShowPercent       | `bool`        | `false` | E1specifica que a porcentagem deve ser mostrada em um rótulo de dados.
-ShowSerName       | `bool`        | `false` | Especifica que o nome da série deve ser mostrado em um rótulo de dados.
-ShowVal           | `bool`        | `false` | Especifica que o valor deve ser mostrado em um rótulo de dados.
-NumFmt            | `ChartNumFmt` | N/D     | Especifica que se estiver vinculado à origem e definir o código de formato numérico personalizado para rótulos de dados. A propriedade `NumFmt` é opcional. O código de formato padrão é `General`.
+SecondPlotValues  | `int`            | `0`     | Especifica os valores no segundo gráfico para o gráfico `PieOfPie` e `BarOfPie`.
+ShowBubbleSize    | `bool`           | `false` | Especifica que o tamanho da bolha deve ser mostrado em um rótulo de dados.
+ShowCatName       | `bool`           | `true`  | Specifies that the category name shall be shown in the data label. The `ShowCatName` property is optional.
+ShowDataTable     | `bool`           | `false` | Usado para adicionar tabela de dados no gráfico, dependendo do tipo de gráfico, disponível somente para gráficos de área, barra, coluna e série de linhas.
+ShowDataTableKeys | `bool`           | `false` | Usado para adicionar chave de legenda na tabela de dados, funciona somente quando `ShowDataTable` está habilitado. A propriedade `ShowDataTableKeys` é opcional.
+ShowLeaderLines   | `bool`           | `false` | Especifica que as linhas de chamada devem ser exibidas para rótulos de dados. A propriedade `ShowLeaderLines` é opcional.
+ShowPercent       | `bool`           | `false` | E1specifica que a porcentagem deve ser mostrada em um rótulo de dados.
+ShowSerName       | `bool`           | `false` | Especifica que o nome da série deve ser mostrado em um rótulo de dados.
+ShowVal           | `bool`           | `false` | Especifica que o valor deve ser mostrado em um rótulo de dados.
+Fill              | `Fill`           | N/A     | Defina a cor de preenchimento do gráfico.
+UpBars            | `ChartUpDownBar` | N/A     | Especifica o formato das barras ascendentes do gráfico de ações. A propriedade `UpBars` é opcional.
+DownBars          | `ChartUpDownBar` | N/A     | Especifica o formato das barras descendentes do gráfico de ações. A propriedade `DownBars` é opcional.
+NumFmt            | `ChartNumFmt`    | N/D     | Especifica que se estiver vinculado à origem e definir o código de formato numérico personalizado para rótulos de dados. A propriedade `NumFmt` é opcional. O código de formato padrão é `General`.
 
 Defina as opções primárias dos eixos horizontal e vertical por `XAxis` e `YAxis`.
 

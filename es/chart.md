@@ -67,6 +67,8 @@ ID|Enumeración|Gráfico
 52 | WireframeContour            | Gráfico de contorno de estructura alámbrica
 53 | Bubble                      | Gráfico de burbujas
 54 | Bubble3D                    | Gráfico de burbujas 3D
+55 | StockHighLowClose           | Gráfico de acciones de Alto-Bajo-Cierre
+56 | StockOpenHighLowClose       | Gráfico de acciones de Apertura-Alta-Baja-Cierre
 
 En el rango de datos del gráfico de Office Excel, `Series` especifica el conjunto de información para qué datos dibujar, el elemento de leyenda (serie) y la etiqueta del eje horizontal (categoría).
 
@@ -128,16 +130,19 @@ Establezca la posición del área de trazado del gráfico por área de trazado. 
 
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | Especifica los valores en el segundo gráfico para los gráficos `PieOfPie` y `BarOfPie`.
-ShowBubbleSize    | `bool`        | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
-ShowCatName       | `bool`        | `true`  | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos. La propiedad `ShowCatName` es opcional.
-ShowDataTable     | `bool`        | `false` | Se utiliza para agregar una tabla de datos debajo del gráfico, según el tipo de gráfico; solo está disponible para gráficos de series de tipo área, barras, columnas y líneas.
-ShowDataTableKeys | `bool`        | `false` | Se utiliza para agregar una clave de leyenda a una tabla de datos. Solo funciona si la opción `ShowDataTable` está habilitada. La propiedad `ShowDataTableKeys` es opcional.
-ShowLeaderLines   | `bool`        | `false` | Especifica que se mostrarán las líneas guía en las etiquetas de datos. La propiedad `ShowLeaderLines` es opcional.
-ShowPercent       | `bool`        | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
-ShowSerName       | `bool`        | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
-ShowVal           | `bool`        | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
-NumFmt            | `ChartNumFmt` | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para las etiquetas de datos. La propiedad `NumFmt` es opcional. El código de formato predeterminado es `General`.
+SecondPlotValues  | `int`            | `0`     | Especifica los valores en el segundo gráfico para los gráficos `PieOfPie` y `BarOfPie`.
+ShowBubbleSize    | `bool`           | `false` | Especifica que el tamaño de la burbuja se mostrará en una etiqueta de datos.
+ShowCatName       | `bool`           | `true`  | Especifica que el nombre de la categoría se mostrará en la etiqueta de datos. La propiedad `ShowCatName` es opcional.
+ShowDataTable     | `bool`           | `false` | Se utiliza para agregar una tabla de datos debajo del gráfico, según el tipo de gráfico; solo está disponible para gráficos de series de tipo área, barras, columnas y líneas.
+ShowDataTableKeys | `bool`           | `false` | Se utiliza para agregar una clave de leyenda a una tabla de datos. Solo funciona si la opción `ShowDataTable` está habilitada. La propiedad `ShowDataTableKeys` es opcional.
+ShowLeaderLines   | `bool`           | `false` | Especifica que se mostrarán las líneas guía en las etiquetas de datos. La propiedad `ShowLeaderLines` es opcional.
+ShowPercent       | `bool`           | `false` | Especifica que el porcentaje se mostrará en una etiqueta de datos.
+ShowSerName       | `bool`           | `false` | Especifica que el nombre de la serie se mostrará en una etiqueta de datos.
+ShowVal           | `bool`           | `false` | Especifica que el valor se mostrará en una etiqueta de datos.
+Fill              | `Fill`           | N/A     | Establecer el color de relleno del gráfico.
+UpBars            | `ChartUpDownBar` | N/A     | Especifica el formato de las barras ascendentes de los gráficos de acciones. La propiedad `UpBars` es opcional.
+DownBars          | `ChartUpDownBar` | N/A     | Especifica el formato de las barras descendentes del gráfico de acciones. La propiedad `DownBars` es opcional.
+NumFmt            | `ChartNumFmt`    | N/A     | Especifica que si está vinculado a la fuente y establece un código de formato de número personalizado para las etiquetas de datos. La propiedad `NumFmt` es opcional. El código de formato predeterminado es `General`.
 
 Establezca las opciones principales de eje horizontal y vertical por `XAxis` y `YAxis`.
 

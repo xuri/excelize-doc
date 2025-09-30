@@ -67,6 +67,8 @@ ID|Enumeration|Chart
 52 | WireframeContour            | wireframe contour chart
 53 | Bubble                      | bubble chart
 54 | Bubble3D                    | 3D bubble chart
+55 | StockHighLowClose           | High-Low-Close stock chart
+56 | StockOpenHighLowClose       | Open-High-Low-Close stock chart
 
 In the Office Excel chart data range, `Series` specifies the set of information for which data to draw, the legend item (series), and the horizontal (category) axis label.
 
@@ -128,16 +130,19 @@ Set the position of the chart plot area by plot area. The properties that can be
 
 Parameter|Type|Default|Explanation
 ---|---|---|---
-SecondPlotValues  | `int`         | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
-ShowBubbleSize    | `bool`        | `false` | Specifies the bubble size shall be shown in a data label.
-ShowCatName       | `bool`        | `true`  | Specifies that the category name shall be shown in the data label. The `ShowCatName` property is optional.
-ShowDataTable     | `bool`        | `false` | Used for add data table under chart, depending on the chart type, only available for area, bar, column and line series type charts.
-ShowDataTableKeys | `bool`        | `false` | Used for add legend key in data table, only works on `ShowDataTable` is enabled. The `ShowDataTableKeys` property is optional.
-ShowLeaderLines   | `bool`        | `false` | Specifies leader lines shall be shown for data labels. The `ShowLeaderLines` property is optional.
-ShowPercent       | `bool`        | `false` | Specifies that the percentage shall be shown in a data label.
-ShowSerName       | `bool`        | `false` | Specifies that the series name shall be shown in a data label.
-ShowVal           | `bool`        | `false` | Specifies that the value shall be shown in a data label.
-NumFmt            | `ChartNumFmt` | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `NumFmt` property is optional. The default format code is `General`.
+SecondPlotValues  | `int`            | `0`     | Specifies the values in second plot for the `PieOfPie` and `BarOfPie` chart.
+ShowBubbleSize    | `bool`           | `false` | Specifies the bubble size shall be shown in a data label.
+ShowCatName       | `bool`           | `true`  | Specifies that the category name shall be shown in the data label. The `ShowCatName` property is optional.
+ShowDataTable     | `bool`           | `false` | Used for add data table under chart, depending on the chart type, only available for area, bar, column and line series type charts.
+ShowDataTableKeys | `bool`           | `false` | Used for add legend key in data table, only works on `ShowDataTable` is enabled. The `ShowDataTableKeys` property is optional.
+ShowLeaderLines   | `bool`           | `false` | Specifies leader lines shall be shown for data labels. The `ShowLeaderLines` property is optional.
+ShowPercent       | `bool`           | `false` | Specifies that the percentage shall be shown in a data label.
+ShowSerName       | `bool`           | `false` | Specifies that the series name shall be shown in a data label.
+ShowVal           | `bool`           | `false` | Specifies that the value shall be shown in a data label.
+Fill              | `Fill`           | N/A     | Set fill color of the chart.
+UpBars            | `ChartUpDownBar` | N/A     | Specifies the format for stock chart up bars. The `UpBars` property is optional.
+DownBars          | `ChartUpDownBar` | N/A     | Specifies the format for stock chart down bars. The `DownBars` property is optional.
+NumFmt            | `ChartNumFmt`    | N/A     | Specifies that if linked to source and set custom number format code for data labels. The `NumFmt` property is optional. The default format code is `General`.
 
 Set the primary horizontal and vertical axis options by `XAxis` and `YAxis`.
 

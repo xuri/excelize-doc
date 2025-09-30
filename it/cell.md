@@ -789,6 +789,7 @@ MEDIA                       | Restituisce la media degli argomenti
 MEDIA.VALORI                | Restituisce la media degli argomenti, inclusi i numeri, il testo e i valori logici
 MEDIA.SE                    | Restituisce la media aritmetica di tutte le celle di un intervallo che soddisfano un criterio specificato
 MEDIA.PIÙ.SE                | Restituisce la media aritmetica di tutte le celle che soddisfano più criteri
+BAHTTESTO                   | Converte un numero in testo Thai e aggiunge il suffisso "Baht"
 BASE                        | Converte un numero in una rappresentazione in formato testo con la radice data (base)
 BESSEL.I                    | Restituisce la funzione di Bessel modificata In(x)
 BESSEL.J                    | Restituisce la funzione di Bessel Jn(x)
