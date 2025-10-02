@@ -32,7 +32,7 @@ err := f.AddSparkline("Sheet1", &excelize.SparklineOptions{
 ---|---
 Location    | 必須參數, 數目需要與 `Range` 保持一致
 Range       | 必須參數, 數目需要與 `Location` 保持一致
-Type        | 枚舉值: `line`, `column`, `win_loss`
+Type        | 列舉值: `line`, `column`, `win_loss`
 Style       | 用於設定走勢圖內建樣式，數值範圍: 0 - 35
 Hight       | 用於設定是否顯示走勢圖高點：醒目提示所選走勢圖組中資料的最高點
 Low         | 用於設定是否顯示走勢圖低點：醒目提示所選走勢圖組中資料的最低點

@@ -103,7 +103,7 @@ func (f *File) DeleteTable(name string) error
 func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標區域和條件式格式創建自動過濾器。电子表格中的自動過濾器可以對一些簡單的二維資料資料進列資料篩選。
+根據給定的工作表名稱、儲存格坐標區域和條件式格式創建自動過濾器。电子表格中的自動過濾器可以對一些簡單的平面資料資料進列資料篩選。
 
 例1，在名稱為 `Sheet1` 的工作表 `A1:D4` 區域創建自動過濾器：
 
@@ -931,7 +931,7 @@ func (f *File) SetPanes(sheet string, panes *Panes) error
 
 `ActivePane` 定義了活動窗格，下表為該屬性的可選值：
 
-枚舉值|描述
+列舉值|描述
 ---|---
 bottomLeft (Bottom Left Pane) |當應用垂直和水平分割時，位於左下方的窗格。<br><br>此值也適用於僅應用了水平分割的情況，將窗格分為上下兩個區域。在這種情況下，該值指定底部窗格。
 bottomRight (Bottom Right Pane) | 當垂直和水平時，位於底部右側的窗格。
@@ -940,7 +940,7 @@ topRight (Top Right Pane)|當應用垂直和水平分割時，位於右上方窗
 
 窗格狀態類別僅限於下表中當前列出的受支援的值：
 
-枚舉值|描述
+列舉值|描述
 ---|---
 frozen (Frozen)|窗格被凍結，但並不分裂。在此狀態下，當窗格被解除凍結然後再次解凍時，會生成單個窗格，而不會被分割。<br><br>在這種狀態下，分割條不可調節。
 split (Split)|窗格被分裂，但並不凍結。在此狀態下，用戶可以調整分割條。

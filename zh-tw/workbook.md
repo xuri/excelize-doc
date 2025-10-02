@@ -45,7 +45,7 @@ type Options struct {
 type HeaderFooterImagePositionType byte
 ```
 
-下面是工作表頁首和頁尾位置枚舉值。
+下面是工作表頁首和頁尾位置列舉值。
 
 ```go
 const (
@@ -433,7 +433,7 @@ ShowRowColHeaders | `*bool`    | 指定工作表是否顯示標題列和標題�
 ShowRuler         | `*bool`    | 指定是否在頁面配置檢視中顯示標尺，默認值為 `true`
 ShowZeros         | `*bool`    | 指定是否顯示儲存格的零值，默認值為 `true`，否則將顯示空白
 TopLeftCell       | `*string`  | 指定左上角可見儲存格的坐標
-View              | `*string`  | 指示工作表檢視類型，枚舉值為 `normal`，`pageBreakPreview` 和 `pageLayout`
+View              | `*string`  | 指示工作表檢視類型，列舉值為 `normal`，`pageBreakPreview` 和 `pageLayout`
 ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口縮放比例，區間範圍限於 10 ~ 400，默認值為 `100`
 
 ## 獲取工作表檢視屬性 {#GetSheetView}
@@ -1060,7 +1060,7 @@ func (f *File) GetCalcProps() (CalcPropsOptions, error)
 func (f *File) ProtectWorkbook(opts *WorkbookProtectionOptions) error
 ```
 
-使用密碼保護活頁簿的結構，以防止其他用戶查看隱藏的工作表，添加、移動或隱藏工作表以及重命名工作表，選字段 `AlgorithmName` 支援指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，使用密碼保護活頁簿結構：
+使用密碼保護活頁簿的結構，以防止其他用戶查看隱藏的工作表，添加、移動或隱藏工作表以及重命名工作表，選欄位 `AlgorithmName` 支援指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，使用密碼保護活頁簿結構：
 
 ```go
 err := f.ProtectWorkbook(&excelize.WorkbookProtectionOptions{

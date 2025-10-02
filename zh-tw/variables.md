@@ -80,9 +80,9 @@ var (
     ErrSheetNameSingleQuote = errors.New("the first or last character of the sheet name can not be a single quote")
     // ErrSparkline 定義了收到無效走勢圖創建參數時的錯誤提示信息
     ErrSparkline = errors.New("must have the same number of 'Location' and 'Range' parameters")
-    // ErrSparklineLocation 定義了創建走勢圖參數缺少 Location 字段時的錯誤提示信息
+    // ErrSparklineLocation 定義了創建走勢圖參數缺少 Location 欄位時的錯誤提示信息
     ErrSparklineLocation = errors.New("parameter 'Location' is required")
-    // ErrSparklineRange 定義了創建走勢圖參數缺少 Range 字段時的錯誤提示信息
+    // ErrSparklineRange 定義了創建走勢圖參數缺少 Range 欄位時的錯誤提示信息
     ErrSparklineRange = errors.New("parameter 'Range' is required")
     // ErrSparklineStyle 定義了收到無效走勢圖創建樣式參數時的錯誤提示信息
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")

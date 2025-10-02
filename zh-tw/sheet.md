@@ -407,7 +407,7 @@ result, err := f.SearchSheet("Sheet1", "[0-9]", true)
 func (f *File) ProtectSheet(sheet string, opts *SheetProtectionOptions) error
 ```
 
-防止其他用戶意外或有意更改、移動或刪除工作表中的資料。可選字段 `AlgorithmName` 支援指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，為名為 `Sheet1` 的工作表設定密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
+防止其他用戶意外或有意更改、移動或刪除工作表中的資料。可選欄位 `AlgorithmName` 支援指定哈希算法 XOR、MD4、MD5、SHA-1、SHA-256、SHA-384 或 SHA-512，如果未指定哈希算法，默認使用 XOR 算法。例如，為名為 `Sheet1` 的工作表設定密碼保護，但是允許選擇鎖定的儲存格、選擇未鎖定的儲存格、編輯方案：
 
 <p align="center"><img width="791" src="./images/protect_sheet.png" alt="保護工作表"></p>
 
@@ -527,7 +527,7 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 func (f *File) SetSheetDimension(sheet string, rangeRef string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。在安卓（Android）作業系統中，某些版本的微信（WeChat）應用程式在打開 Excelize 生成的活頁簿後，僅顯示前 300 行數據，透過此函數設定工作表的已用區域可規避該缺陷。
+根據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。在安卓（Android）作業系統中，某些版本的微信（WeChat）應用程式在開啓 Excelize 生成的活頁簿後，僅顯示前 300 行數據，透過此函數設定工作表的已用區域可規避該缺陷。
 
 ## 獲取工作表已用區域 {#GetSheetDimension}
 

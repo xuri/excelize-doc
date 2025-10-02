@@ -225,6 +225,6 @@ upDownArrowCallout | 批注：上下箭頭 | <p style="text-align: center;"><img
 uturnArrow | 箭頭：手杖形 | <p style="text-align: center;"><img src="../images/shapes/uturnArrow.svg" height="50" width="50"></p>
 verticalScroll | 卷形：垂直 | <p style="text-align: center;"><img src="../images/shapes/verticalScroll.svg" height="50" width="50"></p>
 wave | 波形 | <p style="text-align: center;"><img src="../images/shapes/wave.svg" height="50" width="50"></p>
-wedgeEllipseCallout | 對話氣泡：橢圓形 | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
-wedgeRectCallout | 對話氣泡：矩形 | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
-wedgeRoundRectCallout | 對話氣泡：圓角矩形 | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+wedgeEllipseCallout | 對話泡泡：橢圓形 | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
+wedgeRectCallout | 對話泡泡：矩形 | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
+wedgeRoundRectCallout | 對話泡泡：圓角矩形 | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>

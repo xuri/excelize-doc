@@ -261,7 +261,7 @@ const (
 )
 ```
 
-ColorMappingType 定義了色彩轉換枚舉類型：
+ColorMappingType 定義了色彩轉換列舉類型：
 
 ```go
 const (
