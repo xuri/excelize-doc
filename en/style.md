@@ -130,6 +130,10 @@ Index|Preview|Index|Preview
 3|!["Border 3"](../images/style/border_03.png)|5|!["Border 5"](../images/style/border_05.png)
 1|!["Border 1"](../images/style/border_01.png)|6|!["Border 6"](../images/style/border_06.png)
 
+### Fill type {#fill}
+
+The `Fill.Type` use to set fill type, supported types are `gradient` or `pattern`. When configuring a fill of type `gradient`, a valid `Fill.Shading` value must be provided, and `Fill.Color` must be an array containing exactly two valid color values. When configuring a fill of type `pattern`, a valid `Fill.Pattern` value must be provided, and `Fill.Color` must be an array containing exactly one valid color value. Please also reference examples in [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### Color fill {#shading}
 
 The following table shows the shading styles used in `Fill.Shading` supported by excelize index number:

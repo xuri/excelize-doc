@@ -181,6 +181,7 @@
 * [Stile](style.md)
   * [Crea stile](style.md#NewStyle)
   * [Confine](style.md#border)
+  * [Tipo di riempimento](style.md#fill)
   * [Riempimento di colore](style.md#shading)
   * [Riempimento a motivo](style.md#pattern)
   * [Trasparenza](style.md#transparency)

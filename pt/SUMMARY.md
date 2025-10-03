@@ -181,6 +181,7 @@
 * [Estilo](style.md)
   * [Criar estilo](style.md#NewStyle)
   * [Fronteira](style.md#border)
+  * [Tipo de preenchimento](style.md#fill)
   * [Preenchimento de cor](style.md#shading)
   * [Preenchimento de padrão](style.md#pattern)
   * [Transparência](style.md#transparency)

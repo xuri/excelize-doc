@@ -130,6 +130,10 @@ A tabela a seguir mostra os estilos de borda usados em `Border.Style` na ordem m
 3|!["Fronteira 3"](../images/style/border_03.png)|5|!["Fronteira 5"](../images/style/border_05.png)
 1|!["Fronteira 1"](../images/style/border_01.png)|6|!["Fronteira 6"](../images/style/border_06.png)
 
+### Tipo de preenchimento {#fill}
+
+O `Fill.Type` é usado para definir o tipo de preenchimento; os tipos suportados são `gradient` ou `pattern`. Ao configurar um preenchimento do tipo `gradient`, um valor válido de `Fill.Shading` deve ser fornecido, e `Fill.Color` deve ser uma matriz contendo exatamente dois valores de cor válidos. Ao configurar um preenchimento do tipo `pattern`, um valor válido de `Fill.Pattern` deve ser fornecido, e `Fill.Color` deve ser uma matriz contendo exatamente um valor de cor válido. Consulte também os exemplos em [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### Preenchimento de cor {#shading}
 
 A tabela a seguir mostra os estilos de sombreamento usados em `Fill.Shading` suportados pelo número de índice do Excelize:

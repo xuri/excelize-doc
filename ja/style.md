@@ -130,6 +130,10 @@ linearDown|斜め下の境界線|diagonalUp|斜め上の境界線
 3|!["ボーダー 3"](../images/style/border_03.png)|5|!["ボーダー 5"](../images/style/border_05.png)
 1|!["ボーダー 1"](../images/style/border_01.png)|6|!["ボーダー 6"](../images/style/border_06.png)
 
+### 塗りつぶしの種類 {#fill}
+
+`Fill.Type` は塗りつぶしの種類を設定するために使用します。サポートされている種類は `gradient` または `pattern` です。`gradient` の塗りつぶしを設定する場合、有効な `Fill.Shading` 値を指定し、`Fill.Color` は有効な色値を 2 つ含む配列である必要があります。`pattern` の塗りつぶしを設定する場合、有効な `Fill.Pattern` 値を指定し、`Fill.Color` は有効な色値を 1 つ含む配列である必要があります。[`SetCellStyle`](cell.md#SetCellStyle) の例も参照してください。
+
 ### 色塗り {#shading}
 
 次の表は、excelize インデックス番号でサポートされている `Fill.Shading` で使用されるシェーディング スタイルを示しています:

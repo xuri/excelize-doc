@@ -130,6 +130,10 @@ La siguiente tabla muestra los estilos de borde utilizados en `Border.Style` en 
 3|!["Frontera 3"](../images/style/border_03.png)|5|!["Frontera 5"](../images/style/border_05.png)
 1|!["Frontera 1"](../images/style/border_01.png)|6|!["Frontera 6"](../images/style/border_06.png)
 
+### Tipo de relleno {#fill}
+
+El `Fill.Type` se usa para establecer el tipo de relleno. Los tipos admitidos son `gradient` o `pattern`. Al configurar un relleno de tipo `gradient`, se debe proporcionar un valor válido para `Fill.Shading` y `Fill.Color` debe ser una matriz que contenga exactamente dos valores de color válidos. Al configurar un relleno de tipo `pattern`, se debe proporcionar un valor válido para `Fill.Pattern` y `Fill.Color` debe ser una matriz que contenga exactamente un valor de color válido. Consulte también los ejemplos en [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### Relleno de color {#shading}
 
 La siguiente tabla muestra los estilos de sombreado utilizados en `Fill.Shading` compatibles con el número de índice de Excelize:

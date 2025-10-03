@@ -181,6 +181,7 @@
 * [스타일](style.md)
   * [스타일 만들기](style.md#NewStyle)
   * [테두리](style.md#border)
+  * [채우기 유형](style.md#fill)
   * [색상 채우기](style.md#shading)
   * [패턴 채우기](style.md#pattern)
   * [투명도](style.md#transparency)

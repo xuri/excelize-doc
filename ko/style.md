@@ -130,6 +130,10 @@ diagonalDown|대각선 아래쪽 테두리|diagonalUp|대각선 위쪽 테두리
 3|!["국경 3"](../images/style/border_03.png)|5|!["국경 5"](../images/style/border_05.png)
 1|!["국경 1"](../images/style/border_01.png)|6|!["국경 6"](../images/style/border_06.png)
 
+### 채우기 유형 {#fill}
+
+`Fill.Type` 은 채우기 유형을 설정하는 데 사용되며, 지원되는 유형은 `gradient` 또는 `pattern` 입니다. `gradient` 유형의 채우기를 구성할 때는 유효한 `Fill.Shading` 값을 제공해야 하며, `Fill.Color` 는 유효한 색상 값 두 개를 포함하는 배열이어야 합니다. `pattern` 유형의 채우기를 구성할 때는 유효한 `Fill.Pattern` 값을 제공해야 하며, `Fill.Color` 는 유효한 색상 값 하나를 포함하는 배열이어야 합니다. [`SetCellStyle`](cell.md#SetCellStyle) 의 예시도 참조하세요.
+
 ### 색상 채우기 {#shading}
 
 다음 표는 excelize 인덱스 번호가 지원하는 `Fill.Shading` 에서 사용되는 음영 스타일을 보여줍니다:

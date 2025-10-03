@@ -181,6 +181,7 @@
 * [Style](style.md)
   * [Create style](style.md#NewStyle)
   * [Border](style.md#border)
+  * [Fill type](style.md#fill)
   * [Color fill](style.md#shading)
   * [Pattern fill](style.md#pattern)
   * [Transparency](style.md#transparency)

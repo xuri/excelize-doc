@@ -130,6 +130,10 @@ Index|Vorschau|Index|Vorschau
 3|!["Rand 3"](../images/style/border_03.png)|5|!["Rand 5"](../images/style/border_05.png)
 1|!["Rand 1"](../images/style/border_01.png)|6|!["Rand 6"](../images/style/border_06.png)
 
+### Fülltyp {#fill}
+
+Mit `Fill.Type` wird der Fülltyp festgelegt. Unterstützt werden die Typen `gradient` und `pattern`. Beim Konfigurieren einer Füllung vom Typ `gradient` muss ein gültiger `Fill.Shading`-Wert angegeben werden und `Fill.Color` muss ein Array mit genau zwei gültigen Farbwerten sein. Beim Konfigurieren einer Füllung vom Typ `pattern` muss ein gültiger `Fill.Pattern`-Wert angegeben werden und `Fill.Color` muss ein Array mit genau einem gültigen Farbwert sein. Siehe auch die Beispiele in [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### Farbfüllung {#shading}
 
 Die folgende Tabelle zeigt die in `Fill.Shading` verwendeten Schattierungsstile, die von der Excelize-Indexnummer unterstützt werden:

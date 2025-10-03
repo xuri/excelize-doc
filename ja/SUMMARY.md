@@ -181,6 +181,7 @@
 * [スタイル](style.md)
   * [スタイルの作成](style.md#NewStyle)
   * [枠](style.md#border)
+  * [塗りつぶしの種類](style.md#fill)
   * [色塗り](style.md#shading)
   * [パターン塗りつぶし](style.md#pattern)
   * [透明度](style.md#transparency)

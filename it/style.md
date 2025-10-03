@@ -130,6 +130,10 @@ Indice|Anteprima|Indice|Anteprima
 3|!["Confine 3"](../images/style/border_03.png)|5|!["Confine 5"](../images/style/border_05.png)
 1|!["Confine 1"](../images/style/border_01.png)|6|!["Confine 6"](../images/style/border_06.png)
 
+### Tipo di riempimento {#fill}
+
+`Fill.Type` serve a impostare il tipo di riempimento; i tipi supportati sono `gradient` o `pattern`. Quando si configura un riempimento di tipo `gradient`, è necessario fornire un valore valido per `Fill.Shading` e `Fill.Color` deve essere un array contenente esattamente due valori di colore validi. Quando si configura un riempimento di tipo `pattern`, è necessario fornire un valore valido per `Fill.Pattern` e `Fill.Color` deve essere un array contenente esattamente un valore di colore valido. Fare riferimento anche agli esempi in [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### Riempimento di colore {#shading}
 
 La tabella seguente mostra gli stili di ombreggiatura utilizzati in `Fill.Shading` supportati dal numero di indice Excelize:

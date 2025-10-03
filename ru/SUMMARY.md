@@ -181,6 +181,7 @@
 * [Стиль](style.md)
   * [Создать стиль](style.md#NewStyle)
   * [бордюр](style.md#border)
+  * [Тип заполнения](style.md#fill)
   * [Цвет заливки](style.md#shading)
   * [образец заливки](style.md#pattern)
   * [Прозрачность](style.md#transparency)

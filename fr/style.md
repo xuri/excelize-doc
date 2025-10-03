@@ -130,6 +130,10 @@ Index|Aperçu|Index|Aperçu
 3|!["Frontière 3"](../images/style/border_03.png)|5|!["Frontière 5"](../images/style/border_05.png)
 1|!["Frontière 1"](../images/style/border_01.png)|6|!["Frontière 6"](../images/style/border_06.png)
 
+### Type de remplissage {#fill}
+
+Le paramètre `Fill.Type` permet de définir le type de remplissage. Les types pris en charge sont `gradient` et `pattern`. Pour configurer un remplissage de type `gradient`, une valeur `Fill.Shading` valide doit être fournie et `Fill.Color` doit être un tableau contenant exactement deux valeurs de couleur valides. Pour configurer un remplissage de type `pattern`, une valeur `Fill.Pattern` valide doit être fournie et `Fill.Color` doit être un tableau contenant exactement une valeur de couleur valide. Consultez également les exemples dans [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### Couleur de remplissage {#shading}
 
 Le tableau suivant montre les styles d'ombrage utilisés dans `Fill.Shading` pris en charge par le numéro d'index Excelize:

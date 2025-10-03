@@ -130,6 +130,10 @@ diagonalDown|حد سفلي قطري|diagonalUp|حد علوي قطري
 3|!["الحدود 3"](../images/style/border_03.png)|5|!["الحدود 5"](../images/style/border_05.png)
 1|!["الحدود 1"](../images/style/border_01.png)|6|!["الحدود 6"](../images/style/border_06.png)
 
+### نوع التعبئة {#fill}
+
+يُستخدم `Fill.Type` لتعيين نوع التعبئة، والأنواع المدعومة هي `gradient` أو `pattern`. عند تكوين تعبئة من نوع `gradient`، يجب توفير قيمة `Fill.Shading` صالحة، ويجب أن يكون `Fill.Color` مصفوفة تحتوي على قيمتين لونيتين صالحتين فقط. عند تكوين تعبئة من نوع `pattern`، يجب توفير قيمة `Fill.Pattern` صالحة، ويجب أن يكون `Fill.Color` مصفوفة تحتوي على قيمة لونية واحدة فقط. يُرجى أيضًا الرجوع إلى الأمثلة في [`SetCellStyle`](cell.md#SetCellStyle).
+
 ### تعبئة اللون {#shading}
 
 يوضح الجدول التالي أنماط التظليل المستخدمة في `Fill.Shading` مدعومة برقم مؤشر excelize:

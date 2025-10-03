@@ -181,6 +181,7 @@
 * [نمط](style.md)
   * [إنشاء نمط](style.md#NewStyle)
   * [الحدود](style.md#border)
+  * [نوع التعبئة](style.md#fill)
   * [تعبئة اللون](style.md#shading)
   * [تعبئة النقش](style.md#pattern)
   * [الشفافية](style.md#transparency)

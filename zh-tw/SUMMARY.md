@@ -181,6 +181,7 @@
 * [樣式](style.md)
   * [創建樣式](style.md#NewStyle)
   * [外框](style.md#border)
+  * [填滿類型](style.md#fill)
   * [色彩填滿](style.md#shading)
   * [圖樣填滿](style.md#pattern)
   * [透明度](style.md#transparency)
