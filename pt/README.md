@@ -8,8 +8,8 @@ Excelize é uma biblioteca escrita em Go puro que fornece um conjunto de funçõ
 - Emitir: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenças: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- Última versão: [v2.9.1](https://github.com/xuri/excelize/releases/latest)
-- Hora de atualização do documento: outubro 6, 2025
+- Última versão: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
+- Hora de atualização do documento: 14 de outubro de 2025
 
 ## Missão do projeto
 
