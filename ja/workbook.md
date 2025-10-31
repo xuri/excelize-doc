@@ -847,10 +847,9 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "額",
     RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Comment:  "定義名コメント",
 })
 ```
 
@@ -897,6 +896,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+`RefersTo` 関数でもこの関数を使用できます。例えば：
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "カスタム範囲",
+    RefersTo: "Sheet1!$A$2+Sheet1!$D$5",
+    Scope:    "Sheet1",
+})
 ```
 
 ## 名前を取得する {#GetDefinedName}

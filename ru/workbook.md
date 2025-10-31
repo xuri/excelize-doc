@@ -847,10 +847,9 @@ SetDefinedName предоставляет функцию для установк
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Name:     "Количество",
+    RefersTo: "Лист1!$A$2:$D$5",
+    Comment:  "комментарий к определенному имени",
 })
 ```
 
@@ -861,15 +860,15 @@ err := f.SetDefinedName(&excelize.DefinedName{
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
-    RefersTo: "Sheet1!$A$1:$Z$100",
-    Scope:    "Sheet1",
+    RefersTo: "Лист1!$A$1:$Z$100",
+    Scope:    "Лист1",
 }); err != nil {
     fmt.Println(err)
 }
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "Лист1!$A:$A,Лист1!$1:$1",
+    Scope:    "Лист1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -880,8 +879,8 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A",
-    Scope:    "Sheet1",
+    RefersTo: "Лист1!$A:$A",
+    Scope:    "Лист1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -892,11 +891,21 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "Лист1!$1:$1",
+    Scope:    "Лист1",
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+Вы также можете использовать функцию в `RefersTo`. Например:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "ПользовательскийДиапазон",
+    RefersTo: "Лист1!$A$2+Лист1!$D$5",
+    Scope:    "Лист1",
+})
 ```
 
 ## Получить определенное имя {#GetDefinedName}
@@ -917,8 +926,8 @@ DeleteDefinedName предоставляет функцию для удален�
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    Scope:    "Sheet2",
+    Name:     "Количество",
+    Scope:    "Лист2",
 })
 ```
 

@@ -187,7 +187,7 @@ rect | 矩形 | <p style="text-align: center;"><img src="../images/shapes/rect.s
 ribbon | 帶形：前凸 | <p style="text-align: center;"><img src="../images/shapes/ribbon.svg" height="50" width="50"></p>
 ribbon2 | 帶形：上凸 | <p style="text-align: center;"><img src="../images/shapes/ribbon2.svg" height="50" width="50"></p>
 rightArrow | 箭頭：右 | <p style="text-align: center;"><img src="../images/shapes/rightArrow.svg" height="50" width="50"></p>
-rightArrowCallout | 批注：右箭頭 | <p style="text-align: center;"><img src="../images/shapes/rightArrowCallout.svg" height="50" width="50"></p>
+rightArrowCallout | 註解：右箭頭 | <p style="text-align: center;"><img src="../images/shapes/rightArrowCallout.svg" height="50" width="50"></p>
 rightBrace | 右中括號 | <p style="text-align: center;"><img src="../images/shapes/rightBrace.svg" height="50" width="50"></p>
 rightBracket | 右大括號 | <p style="text-align: center;"><img src="../images/shapes/rightBracket.svg" height="50" width="50"></p>
 round1Rect | 矩形：單圓角 | <p style="text-align: center;"><img src="../images/shapes/round1Rect.svg" height="50" width="50"></p>
@@ -219,9 +219,9 @@ teardrop | 淚滴形 | <p style="text-align: center;"><img src="../images/shapes
 trapezoid | 梯形 | <p style="text-align: center;"><img src="../images/shapes/trapezoid.svg" height="50" width="50"></p>
 triangle | 等腰三角形 | <p style="text-align: center;"><img src="../images/shapes/triangle.svg" height="50" width="50"></p>
 upArrow | 箭頭：上 | <p style="text-align: center;"><img src="../images/shapes/upArrow.svg" height="50" width="50"></p>
-upArrowCallout | 批注：上箭頭 | <p style="text-align: center;"><img src="../images/shapes/upArrowCallout.svg" height="50" width="50"></p>
+upArrowCallout | 註解：上箭頭 | <p style="text-align: center;"><img src="../images/shapes/upArrowCallout.svg" height="50" width="50"></p>
 upDownArrow | 箭頭：上下 | <p style="text-align: center;"><img src="../images/shapes/upDownArrow.svg" height="50" width="50"></p>
-upDownArrowCallout | 批注：上下箭頭 | <p style="text-align: center;"><img src="../images/shapes/upDownArrowCallout.svg" height="50" width="50"></p>
+upDownArrowCallout | 註解：上下箭頭 | <p style="text-align: center;"><img src="../images/shapes/upDownArrowCallout.svg" height="50" width="50"></p>
 uturnArrow | 箭頭：手杖形 | <p style="text-align: center;"><img src="../images/shapes/uturnArrow.svg" height="50" width="50"></p>
 verticalScroll | 卷形：垂直 | <p style="text-align: center;"><img src="../images/shapes/verticalScroll.svg" height="50" width="50"></p>
 wave | 波形 | <p style="text-align: center;"><img src="../images/shapes/wave.svg" height="50" width="50"></p>

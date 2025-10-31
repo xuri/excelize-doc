@@ -847,10 +847,9 @@ SetDefinedName proporciona una función para establecer los nombres definidos de
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "Cantidad",
     RefersTo: "Hoja1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Hoja2",
+    Comment:  "comentario de nombre definido",
 })
 ```
 
@@ -899,6 +898,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+También puedes usar la función en `RefersTo`. Por ejemplo:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "RangoPersonalizado",
+    RefersTo: "Hoja1!$A$2+Hoja1!$D$5",
+    Scope:    "Hoja1",
+})
+```
+
 ## Obtener el nombre definido {#GetDefinedName}
 
 ```go
@@ -917,7 +926,7 @@ DeleteDefinedName proporciona una función para eliminar los nombres definidos d
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "Cantidad",
     Scope:    "Hoja2",
 })
 ```

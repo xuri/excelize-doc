@@ -857,8 +857,7 @@ SetDefinedName fornece uma função para definir os nomes definidos da pasta de 
 err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Quantia",
     RefersTo: "Planilha1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Planilha2",
+    Comment:  "comentário de nome definido",
 })
 ```
 
@@ -905,6 +904,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+Você também pode usar a função em `RefersTo`. Por exemplo:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "IntervaloPersonalizado",
+    RefersTo: "Planilha1!$A$2+Planilha1!$D$5",
+    Scope:    "Planilha1",
+})
 ```
 
 ## Obter nome definido {#GetDefinedName}

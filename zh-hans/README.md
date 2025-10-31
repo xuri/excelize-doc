@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2025年10月14日
+- 文档更新: 2025年10月30日
 
 ## 项目使命
 

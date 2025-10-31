@@ -849,10 +849,9 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "數量",
     RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Comment:  "自訂名稱的註解",
 })
 ```
 
@@ -901,6 +900,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+在 `RefersTo` 選項中可以使用公式。例如：
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "自訂存儲格範圍",
+    RefersTo: "Sheet1!$A$2+Sheet1!$D$5",
+    Scope:    "Sheet1",
+})
+```
+
 ## 獲取名稱 {#GetDefinedName}
 
 ```go
@@ -919,7 +928,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "數量",
     Scope:    "Sheet2",
 })
 ```
@@ -936,7 +945,7 @@ func (f *File) SetAppProps(appProperties *AppProperties) error
 ---|---
 Application       | 創建此檔案的應用程式的名稱
 ScaleCrop         | 指定檔案縮略圖的顯示方式。設定為 `true` 指定將檔案縮略圖縮放顯示，設定為 `false` 指定將檔案縮略圖剪裁顯示
-DocSecurity       | 以數值表示的檔案安全級別。檔案安全定義為: <br>1 - 檔案受密碼保護<br>2 - 建議以只讀方式開啓檔案<br>3 - 強制以只讀方式開啓檔案<br>4 - 檔案批注被鎖定
+DocSecurity       | 以數值表示的檔案安全級別。檔案安全定義為: <br>1 - 檔案受密碼保護<br>2 - 建議以只讀方式開啓檔案<br>3 - 強制以只讀方式開啓檔案<br>4 - 檔案註解被鎖定
 Company           | 與檔案關聯的公司的名稱
 LinksUpToDate     | 設定檔案中的超鏈接是否是最新的。設定為 `true` 表示超鏈接已更新，設定為 `false` 表示超鏈接已過時
 HyperlinksChanged | 指定下一次開啓此檔案時是否應使用本部分中指定的新超鏈接更新超鏈接關係

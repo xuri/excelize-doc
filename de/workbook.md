@@ -847,10 +847,9 @@ SetDefinedName bietet eine Funktion zum Festlegen der definierten Namen der Arbe
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Name:     "Betrag",
+    RefersTo: "Tabelle1!$A$2:$D$5",
+    Comment:  "definierter Name Kommentar",
 })
 ```
 
@@ -861,15 +860,15 @@ Einstellungen für Druckbereich und Drucktitel für das Arbeitsblatt:
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
-    RefersTo: "Sheet1!$A$1:$Z$100",
-    Scope:    "Sheet1",
+    RefersTo: "Tabelle1!$A$1:$Z$100",
+    Scope:    "Tabelle1",
 }); err != nil {
     fmt.Println(err)
 }
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "Tabelle1!$A:$A,Tabelle1!$1:$1",
+    Scope:    "Tabelle1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -880,8 +879,8 @@ Wenn Sie die Eigenschaft `RefersTo` mit nur einem Spaltenbereich ohne Komma fül
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A",
-    Scope:    "Sheet1",
+    RefersTo: "Tabelle1!$A:$A",
+    Scope:    "Tabelle1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -892,11 +891,21 @@ Wenn Sie die Eigenschaft `RefersTo` mit nur einem Zeilenbereich ohne Komma füll
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "Tabelle1!$1:$1",
+    Scope:    "Tabelle1",
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+Sie können die Funktion auch in `RefersTo` verwenden. Zum Beispiel:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "Sondersortiment",
+    RefersTo: "Tabelle1!$A$2+Tabelle1!$D$5",
+    Scope:    "Tabelle1",
+})
 ```
 
 ## Definierten Namen abrufen {#GetDefinedName}
@@ -917,8 +926,8 @@ DeleteDefinedName bietet eine Funktion zum Löschen der definierten Namen der Ar
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    Scope:    "Sheet2",
+    Name:     "Betrag",
+    Scope:    "Tabelle2",
 })
 ```
 

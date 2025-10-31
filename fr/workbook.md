@@ -847,10 +847,9 @@ SetDefinedName fournit une fonction permettant de définir les noms définis du 
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "Montant",
     RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Comment:  "nom défini commentaire",
 })
 ```
 
@@ -861,15 +860,15 @@ Paramètres de la zone d'impression et des titres d'impression pour la feuille d
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
-    RefersTo: "Sheet1!$A$1:$Z$100",
-    Scope:    "Sheet1",
+    RefersTo: "Feuil1!$A$1:$Z$100",
+    Scope:    "Feuil1",
 }); err != nil {
     fmt.Println(err)
 }
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "Feuil1!$A:$A,Feuil1!$1:$1",
+    Scope:    "Feuil1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -880,8 +879,8 @@ Si vous remplissez la propriété `RefersTo` avec une seule plage de colonnes sa
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A",
-    Scope:    "Sheet1",
+    RefersTo: "Feuil1!$A:$A",
+    Scope:    "Feuil1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -892,11 +891,21 @@ Si vous remplissez la propriété `RefersTo` avec une seule plage de lignes sans
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "Feuil1!$1:$1",
+    Scope:    "Feuil1",
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+Vous pouvez également utiliser la fonction dans `RefersTo`. Par exemple:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "PlagePersonnalisée",
+    RefersTo: "Feuil1!$A$2+Feuil1!$D$5",
+    Scope:    "Feuil1",
+})
 ```
 
 ## Obtenir le nom défini {#GetDefinedName}
@@ -917,8 +926,8 @@ DeleteDefinedName fournit une fonction pour supprimer les noms définis du class
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    Scope:    "Sheet2",
+    Name:     "Montant",
+    Scope:    "Feuil1",
 })
 ```
 

@@ -849,10 +849,9 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "数量",
     RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Comment:  "自定义名称的批注",
 })
 ```
 
@@ -901,6 +900,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+在 `RefersTo` 选项中可以使用公式。例如：
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "自定义单元格范围",
+    RefersTo: "Sheet1!$A$2+Sheet1!$D$5",
+    Scope:    "Sheet1",
+})
+```
+
 ## 获取名称 {#GetDefinedName}
 
 ```go
@@ -919,7 +928,7 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "数量",
     Scope:    "Sheet2",
 })
 ```

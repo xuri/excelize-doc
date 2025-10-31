@@ -850,7 +850,6 @@ err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Amount",
     RefersTo: "Sheet1!$A$2:$D$5",
     Comment:  "defined name comment",
-    Scope:    "Sheet2",
 })
 ```
 
@@ -897,6 +896,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+You can also use the function in `RefersTo`. For example:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "CustomRange",
+    RefersTo: "Sheet1!$A$2+Sheet1!$D$5",
+    Scope:    "Sheet1",
+})
 ```
 
 ## Get defined name {#GetDefinedName}

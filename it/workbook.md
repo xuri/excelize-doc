@@ -858,7 +858,6 @@ err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "Quantità",
     RefersTo: "Foglio1!$A$2:$D$5",
     Comment:  "commento nome definito",
-    Scope:    "Foglio2",
 })
 ```
 
@@ -905,6 +904,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+È possibile utilizzare la funzione anche in `RefersTo`. Ad esempio:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "IntervalloPersonalizzato",
+    RefersTo: "Foglio1!$A$2+Foglio1!$D$5",
+    Scope:    "Foglio1",
+})
 ```
 
 ## Ottieni un nome definito {#GetDefinedName}

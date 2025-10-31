@@ -847,10 +847,9 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "금액",
     RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Comment:  "정의된 이름 주석",
 })
 ```
 
@@ -899,6 +898,16 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 }
 ```
 
+`RefersTo` 함수도 사용할 수 있습니다. 예:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "CustomRange",
+    RefersTo: "Sheet1!$A$2+Sheet1!$D$5",
+    Scope:    "Sheet1",
+})
+```
+
 ## 이름 가져 오기 {#GetDefinedName}
 
 ```go
@@ -917,7 +926,7 @@ DeleteDefinedName 은 통합 문서 또는 워크 시트의 정의 된 이름을
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
+    Name:     "금액",
     Scope:    "Sheet2",
 })
 ```

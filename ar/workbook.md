@@ -852,10 +852,9 @@ func (f *File) SetDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    RefersTo: "Sheet1!$A$2:$D$5",
-    Comment:  "defined name comment",
-    Scope:    "Sheet2",
+    Name:     "كمية",
+    RefersTo: "ورقة1!$A$2:$D$5",
+    Comment:  "تعليق على الاسم المحدد",
 })
 ```
 
@@ -866,15 +865,15 @@ err := f.SetDefinedName(&excelize.DefinedName{
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Area",
-    RefersTo: "Sheet1!$A$1:$Z$100",
-    Scope:    "Sheet1",
+    RefersTo: "ورقة1!$A$1:$Z$100",
+    Scope:    "ورقة1",
 }); err != nil {
     fmt.Println(err)
 }
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A,Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "ورقة1!$A:$A,ورقة1!$1:$1",
+    Scope:    "ورقة1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -885,8 +884,8 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$A:$A",
-    Scope:    "Sheet1",
+    RefersTo: "ورقة1!$A:$A",
+    Scope:    "ورقة1",
 }); err != nil {
     fmt.Println(err)
 }
@@ -897,11 +896,21 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 ```go
 if err := f.SetDefinedName(&excelize.DefinedName{
     Name:     "_xlnm.Print_Titles",
-    RefersTo: "Sheet1!$1:$1",
-    Scope:    "Sheet1",
+    RefersTo: "ورقة1!$1:$1",
+    Scope:    "ورقة1",
 }); err != nil {
     fmt.Println(err)
 }
+```
+
+يمكنك أيضًا استخدام الدالة في `RefersTo`. على سبيل المثال:
+
+```go
+err := f.SetDefinedName(&excelize.DefinedName{
+    Name:     "نطاق مخصص",
+    RefersTo: "ورقة1!$A$2+ورقة1!$D$5",
+    Scope:    "ورقة1",
+})
 ```
 
 ## احصل على اسم محدد {#GetDefinedName}
@@ -922,8 +931,8 @@ func (f *File) DeleteDefinedName(definedName *DefinedName) error
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
-    Name:     "Amount",
-    Scope:    "Sheet2",
+    Name:     "كمية",
+    Scope:    "ورقة2",
 })
 ```
 
