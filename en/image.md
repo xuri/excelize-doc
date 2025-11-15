@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture provides the method to add a picture to a worksheet by given picture format set (such as offset, scale, aspect ratio setting, and print settings) and file path, supported image types: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ. This function is concurrency safe. Note that this function only supports adding pictures placed over the cells currently, and doesn't support adding pictures placed in cells or creating the Kingsoft WPS Office embedded image cells.
+AddPicture provides the method to add a picture to a worksheet by given picture format set (such as offset, scale, aspect ratio setting, and print settings) and file path, supported image types: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ. This function is concurrency safe. Note that this function only supports adding pictures placed over the cells currently, and doesn't support adding pictures placed in cells or creating the Kingsoft WPS Office embedded image cells.
 
 For example:
 
@@ -97,7 +97,7 @@ The optional parameter `Positioning` defines 3 types of the position of a graph 
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes provides the method to add a picture in a sheet by given picture format set (such as offset, scale, aspect ratio setting and print settings), alt text description, extension name and file content in `[]byte` type. Supported image types: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ. Note that this function only supports adding pictures placed over the cells currently, and doesn't support adding pictures placed in cells or creating the Kingsoft WPS Office embedded image cells.
+AddPictureFromBytes provides the method to add a picture in a sheet by given picture format set (such as offset, scale, aspect ratio setting and print settings), alt text description, extension name and file content in `[]byte` type. Supported image types: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ. Note that this function only supports adding pictures placed over the cells currently, and doesn't support adding pictures placed in cells or creating the Kingsoft WPS Office embedded image cells.
 
 For example:
 

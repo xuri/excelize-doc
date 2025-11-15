@@ -253,13 +253,13 @@ UngroupSheets fornisce una funzione per separare i fogli di lavoro.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground fornisce una funzione per impostare l'immagine di sfondo in base al nome del foglio di lavoro e al percorso del file. Tipi di immagini supportati: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+SetSheetBackground fornisce una funzione per impostare l'immagine di sfondo in base al nome del foglio di lavoro e al percorso del file. Tipi di immagini supportati: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes fornisce una funzione per impostare l'immagine di sfondo in base al nome del foglio di lavoro, al nome dell'estensione e ai dati dell'immagine. Tipi di immagini supportati: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+SetSheetBackgroundFromBytes fornisce una funzione per impostare l'immagine di sfondo in base al nome del foglio di lavoro, al nome dell'estensione e ai dati dell'immagine. Tipi di immagini supportati: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ## Imposta il foglio di lavoro predefinito {#SetActiveSheet}
 
@@ -843,7 +843,7 @@ Questo esempio mostra:
 func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
 ```
 
-AddHeaderFooterImage fornisce un meccanismo per impostare la grafica a cui è possibile fare riferimento nelle definizioni di intestazione e piè di pagina tramite `&G`, tipi di immagine supportati: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+AddHeaderFooterImage fornisce un meccanismo per impostare la grafica a cui è possibile fare riferimento nelle definizioni di intestazione e piè di pagina tramite `&G`, tipi di immagine supportati: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ## Imposta il nome definito {#SetDefinedName}
 

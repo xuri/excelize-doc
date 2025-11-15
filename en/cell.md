@@ -595,7 +595,7 @@ GetPictureCells returns all picture cell references in a worksheet by a specific
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment provides the method to add comments in a sheet by given worksheet index, cell and format set (such as author and text). Note that the max author length is 255 and the max text length is 32512. For example, add a comment in `Sheet1!$A$3`:
+AddComment provides the method to add comments in a sheet by given worksheet index, cell and format set (such as author and text). Note that the max author length is 255 and the max text length is 32512, and each cell can only have one comment, an error will return if adding comment on a cell which already exist comment. For example, add a comment in `Sheet1!A3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Add a comment to an Excel document"></p>
 

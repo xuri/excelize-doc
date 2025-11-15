@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture 는 지정된 그림 형식(예: 오프셋, 크기 조절, 종횡비 설정, 인쇄 설정)과 파일 경로를 사용하여 워크시트에 그림을 추가하는 메서드를 제공합니다. 지원되는 이미지 형식은 BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, WMZ 입니다. 이 함수는 동시 실행 시 안전합니다. 단, 이 함수는 현재 셀 위에 배치된 그림 추가만 지원하며, 셀 안에 배치된 그림 추가나 Kingsoft WPS Office 내장 이미지 셀 생성은 지원하지 않습니다.
+AddPicture 는 지정된 그림 형식(예: 오프셋, 크기 조절, 종횡비 설정, 인쇄 설정)과 파일 경로를 사용하여 워크시트에 그림을 추가하는 메서드를 제공합니다. 지원되는 이미지 형식은 BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, WMZ 입니다. 이 함수는 동시 실행 시 안전합니다. 단, 이 함수는 현재 셀 위에 배치된 그림 추가만 지원하며, 셀 안에 배치된 그림 추가나 Kingsoft WPS Office 내장 이미지 셀 생성은 지원하지 않습니다.
 
 예를 들어:
 
@@ -97,7 +97,7 @@ func main() {
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes 는 주어진 그림 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정), 대체 텍스트 설명, 확장자 이름 및 파일 콘텐츠 (`[]byte` 유형) 를 사용하여 시트에 그림을 추가하는 방법을 제공합니다. 지원되는 이미지 유형: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, WMZ. 이 기능은 현재 셀 위에 배치된 그림 추가만 지원하며, 셀 안에 그림을 추가하거나 Kingsoft WPS Office 내장 이미지 셀을 생성하는 기능은 지원하지 않습니다.
+AddPictureFromBytes 는 주어진 그림 형식 집합 (예: 오프셋, 축척, 종횡비 설정 및 인쇄 설정), 대체 텍스트 설명, 확장자 이름 및 파일 콘텐츠 (`[]byte` 유형) 를 사용하여 시트에 그림을 추가하는 방법을 제공합니다. 지원되는 이미지 유형: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, WMZ. 이 기능은 현재 셀 위에 배치된 그림 추가만 지원하며, 셀 안에 그림을 추가하거나 Kingsoft WPS Office 내장 이미지 셀을 생성하는 기능은 지원하지 않습니다.
 
 예를 들어:
 

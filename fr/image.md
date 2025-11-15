@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture permet d'ajouter une image à une feuille de calcul selon un format d'image défini (décalage, échelle, rapport hauteur/largeur et paramètres d'impression) et un chemin d'accès au fichier. Les types d'image pris en charge sont: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ. Cette fonction est compatible avec les accès simultanés. Notez qu'elle ne prend en charge que l'ajout d'images placées sur les cellules actuelles, et non l'ajout d'images placées dans les cellules, ni la création de cellules d'image intégrées à Kingsoft WPS Office.
+AddPicture permet d'ajouter une image à une feuille de calcul selon un format d'image défini (décalage, échelle, rapport hauteur/largeur et paramètres d'impression) et un chemin d'accès au fichier. Les types d'image pris en charge sont: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ. Cette fonction est compatible avec les accès simultanés. Notez qu'elle ne prend en charge que l'ajout d'images placées sur les cellules actuelles, et non l'ajout d'images placées dans les cellules, ni la création de cellules d'image intégrées à Kingsoft WPS Office.
 
 Par exemple:
 
@@ -97,7 +97,7 @@ Le paramètre optionnel `Positioning` définit 3 types de position d'un objet gr
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes fournit la méthode pour ajouter une image dans une feuille selon le format d'image défini (décalage, échelle, paramètres de format et paramètres d'impression), la description textuelle, le nom de l'extension et le contenu du fichier dans le type `[]byte`. Types d'images pris en charge: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ. Veuillez noter que cette fonction ne prend en charge que l'ajout d'images placées sur les cellules actuelles, et non l'ajout d'images placées dans les cellules, ni la création de cellules d'images intégrées Kingsoft WPS Office.
+AddPictureFromBytes fournit la méthode pour ajouter une image dans une feuille selon le format d'image défini (décalage, échelle, paramètres de format et paramètres d'impression), la description textuelle, le nom de l'extension et le contenu du fichier dans le type `[]byte`. Types d'images pris en charge: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ. Veuillez noter que cette fonction ne prend en charge que l'ajout d'images placées sur les cellules actuelles, et non l'ajout d'images placées dans les cellules, ni la création de cellules d'images intégrées Kingsoft WPS Office.
 
 Par exemple:
 

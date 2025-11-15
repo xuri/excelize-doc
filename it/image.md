@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture fornisce il metodo per aggiungere un'immagine a un foglio di lavoro in base a un set di formati immagine (come offset, scala, impostazioni di proporzioni e impostazioni di stampa) e al percorso del file. I tipi di immagine supportati sono: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Questa funzione è sicura per la concorrenza. Si noti che questa funzione supporta solo l'aggiunta di immagini posizionate sopra le celle correnti e non supporta l'aggiunta di immagini posizionate nelle celle o la creazione di celle con immagini incorporate in Kingsoft WPS Office.
+AddPicture fornisce il metodo per aggiungere un'immagine a un foglio di lavoro in base a un set di formati immagine (come offset, scala, impostazioni di proporzioni e impostazioni di stampa) e al percorso del file. I tipi di immagine supportati sono: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Questa funzione è sicura per la concorrenza. Si noti che questa funzione supporta solo l'aggiunta di immagini posizionate sopra le celle correnti e non supporta l'aggiunta di immagini posizionate nelle celle o la creazione di celle con immagini incorporate in Kingsoft WPS Office.
 
 Per esempio:
 
@@ -38,7 +38,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Inserisci un'immagine in scala nella cella con il collegamento 
+    // Inserisci un'immagine in scala nella cella con il collegamento
     // ipertestuale della posizione.
     enable, disable := true, false
     if err := f.AddPicture("Foglio1", "D2", "image.jpg",
@@ -52,7 +52,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Inserisci un offset dell'immagine nella cella con collegamento 
+    // Inserisci un offset dell'immagine nella cella con collegamento
     // ipertestuale esterno, supporto per la stampa e il posizionamento.
     if err := f.AddPicture("Foglio1", "H2", "image.gif",
         &excelize.GraphicOptions{
@@ -103,7 +103,7 @@ Il parametro opzionale `Positioning` definisce 3 tipi di posizione di un oggetto
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes fornisce il metodo per aggiungere un'immagine in un foglio in base a un determinato formato immagine impostato (come offset, scala, impostazione delle proporzioni e impostazioni di stampa), descrizione del testo alternativo, nome dell'estensione e contenuto del file nel tipo `[]byte`. Tipi di immagine supportati: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Si noti che questa funzione supporta solo l'aggiunta di immagini posizionate sopra le celle e non supporta l'aggiunta di immagini posizionate nelle celle o la creazione di celle con immagini incorporate in Kingsoft WPS Office.
+AddPictureFromBytes fornisce il metodo per aggiungere un'immagine in un foglio in base a un determinato formato immagine impostato (come offset, scala, impostazione delle proporzioni e impostazioni di stampa), descrizione del testo alternativo, nome dell'estensione e contenuto del file nel tipo `[]byte`. Tipi di immagine supportati: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Si noti che questa funzione supporta solo l'aggiunta di immagini posizionate sopra le celle e non supporta l'aggiunta di immagini posizionate nelle celle o la creazione di celle con immagini incorporate in Kingsoft WPS Office.
 
 Per esempio:
 

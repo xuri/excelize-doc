@@ -253,13 +253,13 @@ UngroupSheets bietet eine Funktion zum Aufheben der Gruppierung von Arbeitsblät
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground bietet eine Funktion zum Festlegen eines Hintergrundbilds anhand des angegebenen Arbeitsblattnamens und Dateipfads. Unterstützte Bildtypen: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
+SetSheetBackground bietet eine Funktion zum Festlegen eines Hintergrundbilds anhand des angegebenen Arbeitsblattnamens und Dateipfads. Unterstützte Bildtypen: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes bietet eine Funktion zum Festlegen des Hintergrundbilds anhand des angegebenen Arbeitsblattnamens, Erweiterungsnamens und der Bilddaten. Unterstützte Bildtypen: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
+SetSheetBackgroundFromBytes bietet eine Funktion zum Festlegen des Hintergrundbilds anhand des angegebenen Arbeitsblattnamens, Erweiterungsnamens und der Bilddaten. Unterstützte Bildtypen: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
 
 ## Festlegen eines Standardarbeitsblatts {#SetActiveSheet}
 
@@ -835,7 +835,7 @@ Dieses Beispiel zeigt:
 func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
 ```
 
-AddHeaderFooterImage bietet einen Mechanismus zum Festlegen der Grafiken, auf die in den Kopf- und Fußzeilendefinitionen über `&G` verwiesen werden kann. Unterstützte Bildtypen: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
+AddHeaderFooterImage bietet einen Mechanismus zum Festlegen der Grafiken, auf die in den Kopf- und Fußzeilendefinitionen über `&G` verwiesen werden kann. Unterstützte Bildtypen: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
 
 ## Definierter Name festlegen {#SetDefinedName}
 

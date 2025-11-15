@@ -599,7 +599,7 @@ GetPictureCells retorna todas as referências de células de imagem em uma plani
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment fornece o método para adicionar comentários em uma planilha por determinado índice, célula e conjunto de formatos da planilha (como autor e texto). Observe que o comprimento máximo do autor é 255 e o comprimento máximo do texto é 32512. Por exemplo, adicione um comentário em `Planilha1!$A$3`:
+O método `AddComment` permite adicionar comentários em uma planilha, especificando o índice da planilha, a célula e o formato (como autor e texto). Observe que o comprimento máximo do autor é 255 e o comprimento máximo do texto é 32512, e cada célula pode conter apenas um comentário. Um erro será retornado se um comentário for adicionado a uma célula que já contenha um comentário. Por exemplo, para adicionar um comentário em `Planilha1!$A$3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Adicionar um comentário a uma planilha"></p>
 

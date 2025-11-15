@@ -599,7 +599,7 @@ GetPictureCells restituisce tutti i riferimenti alle celle dell'immagine in un f
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment fornisce il metodo per aggiungere commenti in un foglio in base all'indice del foglio di lavoro, alla cella e al formato impostato (come autore e testo). Tieni presente che la lunghezza massima dell'autore è 255 e la lunghezza massima del testo è 32512. Ad esempio, aggiungi un commento in `Foglio1!$A$3`:
+AddComment fornisce il metodo per aggiungere commenti in un foglio di lavoro in base all'indice del foglio di lavoro, alla cella e al formato specificato (ad esempio, autore e testo). Si noti che la lunghezza massima per l'autore è 255 e la lunghezza massima per il testo è 32512, e che ogni cella può contenere un solo commento. Verrà restituito un errore se si aggiunge un commento a una cella che ne ha già uno. Ad esempio, aggiungi un commento in `Foglio1!$A$3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Aggiungi un commento a un documento Excel"></p>
 

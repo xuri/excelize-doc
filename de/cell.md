@@ -595,7 +595,7 @@ GetPictureCells gibt alle Bildzellenverweise in einem Arbeitsblatt unter einem b
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment bietet die Methode zum Hinzufügen von Kommentaren zu einem Blatt anhand eines bestimmten Arbeitsblattindex, einer bestimmten Zelle und eines bestimmten Formatsatzes (z. B. Autor und Text). Beachten Sie, dass die maximale Autorenlänge 255 und die maximale Textlänge 32512 beträgt. Fügen Sie beispielsweise einen Kommentar in `Sheet1!A3` hinzu:
+Die Methode `AddComment` ermöglicht das Hinzufügen von Kommentaren in einem Tabellenblatt anhand des Tabellenblattindex, der Zelle und des Formats (z. B. Autor und Text). Beachten Sie, dass die maximale Autorenlänge 255 Zeichen und die maximale Textlänge 32512 Zeichen beträgt und jede Zelle nur einen Kommentar enthalten kann. Beim Hinzufügen eines Kommentars zu einer Zelle, die bereits einen Kommentar enthält, wird ein Fehler zurückgegeben. Beispiel: Hinzufügen eines Kommentars in `Sheet1!A3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Fügen Sie einem Excel-Dokument einen Kommentar hinzu"></p>
 

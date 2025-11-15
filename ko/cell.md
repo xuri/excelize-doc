@@ -595,7 +595,7 @@ GetPictureCells 는 특정 워크시트 이름으로 워크시트의 모든 그�
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment 는 지정된 워크 시트 인덱스, 셀 및 형식 집합 (예: 작성자 및 텍스트) 을 사용하여 시트에 주석을 추가하는 방법을 제공합니다. 최대 작성자 길이는 255 이고 최대 텍스트 길이는 32512 입니다. 예를 들어 `Sheet1!A3` 에 주석을 추가합니다:
+AddComment 는 지정된 워크시트 인덱스, 셀 및 서식 (예: 작성자 및 텍스트) 을 사용하여 시트에 메모를 추가하는 메서드를 제공합니다. 최대 작성자 길이는 255 자이고 최대 텍스트 길이는 32512 자이며, 각 셀에는 메모를 하나만 추가할 수 있습니다. 이미 메모가 있는 셀에 메모를 추가하면 오류가 발생합니다. 예를 들어, `Sheet1!A3` 에 메모를 추가해 보겠습니다:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Excel 문서에 주석 추가"></p>
 

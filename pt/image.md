@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture fornece o método para adicionar uma imagem a uma planilha com base em um conjunto de formatos de imagem (como deslocamento, escala, configuração de proporção e configurações de impressão) e caminho de arquivo, além dos tipos de imagem suportados: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Esta função é segura para concorrência. Observe que esta função suporta apenas a adição de imagens posicionadas sobre as células atuais e não suporta a adição de imagens posicionadas em células ou a criação de células de imagem incorporadas do Kingsoft WPS Office.
+AddPicture fornece o método para adicionar uma imagem a uma planilha com base em um conjunto de formatos de imagem (como deslocamento, escala, configuração de proporção e configurações de impressão) e caminho de arquivo, além dos tipos de imagem suportados: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Esta função é segura para concorrência. Observe que esta função suporta apenas a adição de imagens posicionadas sobre as células atuais e não suporta a adição de imagens posicionadas em células ou a criação de células de imagem incorporadas do Kingsoft WPS Office.
 
 Por exemplo:
 
@@ -101,7 +101,7 @@ O parâmetro opcional `Positioning` define 3 tipos de posição de um objeto gr�
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-AddPictureFromBytes fornece o método para adicionar uma imagem em uma planilha por determinado conjunto de formato de imagem (como deslocamento, escala, configuração de proporção e configurações de impressão), descrição de texto alternativo, nome de extensão e conteúdo do arquivo no tipo `[]byte`. Tipos de imagem suportados: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Observe que esta função suporta apenas a adição de imagens posicionadas sobre as células atuais e não suporta a adição de imagens posicionadas em células ou a criação de células de imagem incorporadas do Kingsoft WPS Office.
+AddPictureFromBytes fornece o método para adicionar uma imagem em uma planilha por determinado conjunto de formato de imagem (como deslocamento, escala, configuração de proporção e configurações de impressão), descrição de texto alternativo, nome de extensão e conteúdo do arquivo no tipo `[]byte`. Tipos de imagem suportados: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ. Observe que esta função suporta apenas a adição de imagens posicionadas sobre as células atuais e não suporta a adição de imagens posicionadas em células ou a criação de células de imagem incorporadas do Kingsoft WPS Office.
 
 Por exemplo:
 

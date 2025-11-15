@@ -6,7 +6,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-AddPicture は、画像フォーマット（オフセット、スケール、アスペクト比設定、印刷設定など）とファイルパスを指定して、ワークシートに画像を追加するメソッドを提供します。サポートされる画像形式は、BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ です。この関数は同時実行可能です。なお、この関数は現在、セル上に配置された画像の追加のみをサポートしており、セル内に配置された画像の追加や、Kingsoft WPS Office の埋め込み画像セルの作成はサポートしていません。
+AddPicture は、画像フォーマット（オフセット、スケール、アスペクト比設定、印刷設定など）とファイルパスを指定して、ワークシートに画像を追加するメソッドを提供します。サポートされる画像形式は、BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ です。この関数は同時実行可能です。なお、この関数は現在、セル上に配置された画像の追加のみをサポートしており、セル内に配置された画像の追加や、Kingsoft WPS Office の埋め込み画像セルの作成はサポートしていません。
 
 例えば：
 
@@ -97,7 +97,7 @@ func main() {
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-指定されたワークシート名、セル座標、ピクチャアドレス、およびピクチャ形式 (オフセット、ズーム、印刷設定など)、ピクチャの説明、画像の拡張子、および `[]byte` の種類のピクチャコンテンツに基づいて、対応するセルにピクチャを挿入します。サポートされている画像形式：EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ。この機能は現在、セル上に配置された画像の追加のみをサポートしており、セル内に配置された画像の追加や、Kingsoft WPS Office の埋め込み画像セルの作成はサポートしていません。
+指定されたワークシート名、セル座標、ピクチャアドレス、およびピクチャ形式 (オフセット、ズーム、印刷設定など)、ピクチャの説明、画像の拡張子、および `[]byte` の種類のピクチャコンテンツに基づいて、対応するセルにピクチャを挿入します。サポートされている画像形式：EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ。この機能は現在、セル上に配置された画像の追加のみをサポートしており、セル内に配置された画像の追加や、Kingsoft WPS Office の埋め込み画像セルの作成はサポートしていません。
 
 例えば：
 

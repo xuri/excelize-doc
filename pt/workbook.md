@@ -253,13 +253,13 @@ UngroupSheets fornece uma função para desagrupar planilhas.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground fornece uma função para definir a imagem de fundo por determinado nome de planilha e caminho de arquivo. Tipos de imagem suportados: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+SetSheetBackground fornece uma função para definir a imagem de fundo por determinado nome de planilha e caminho de arquivo. Tipos de imagem suportados: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes fornece uma função para definir a imagem de fundo por determinado nome de planilha, nome de extensão e dados de imagem. Tipos de imagem suportados: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+SetSheetBackgroundFromBytes fornece uma função para definir a imagem de fundo por determinado nome de planilha, nome de extensão e dados de imagem. Tipos de imagem suportados: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ## Definir planilha padrão {#SetActiveSheet}
 
@@ -843,7 +843,7 @@ Este exemplo mostra:
 func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
 ```
 
-AddHeaderFooterImage fornece um mecanismo para definir os gráficos que podem ser referenciados nas definições de cabeçalho e rodapé via `&G`, tipos de imagem suportados: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+AddHeaderFooterImage fornece um mecanismo para definir os gráficos que podem ser referenciados nas definições de cabeçalho e rodapé via `&G`, tipos de imagem suportados: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
 
 ## Definir nome definido {#SetDefinedName}
 

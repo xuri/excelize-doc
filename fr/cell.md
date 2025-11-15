@@ -595,8 +595,7 @@ GetPictureCells renvoie toutes les références de cellules d'image dans une feu
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment fournit la méthode pour ajouter un commentaire dans une feuille par index de feuille de calcul, cellule et ensemble de formats donnés (tels que l'auteur et le texte). Notez que la longueur maximale de l'auteur est 255 et la longueur maximale du texte est 32512. Par exemple, ajoutez un commentaire dans `Sheet1!A3`:
-
+La méthode AddComment permet d'ajouter des commentaires dans une feuille de calcul en spécifiant l'index de la feuille, la cellule et le format (auteur et texte, par exemple). Notez que la longueur maximale de l'auteur est de 255 caractères et celle du texte de 32512 caractères. Chaque cellule ne peut contenir qu'un seul commentaire; une erreur sera renvoyée si vous ajoutez un commentaire à une cellule déjà commentée. Par exemple, pour ajouter un commentaire dans la cellule `Sheet1!A3`:
 <p align="center"><img width="612" src="./images/comment.png" alt="Ajouter un commentaire à un document Excel"></p>
 
 ```go

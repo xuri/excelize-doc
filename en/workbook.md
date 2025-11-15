@@ -253,13 +253,13 @@ UngroupSheets provides a function to ungroup worksheets.
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground provides a function to set background picture by given worksheet name and file path. Supported image types: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ.
+SetSheetBackground provides a function to set background picture by given worksheet name and file path. Supported image types: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ.
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes provides a function to set background picture by given worksheet name, extension name and image data. Supported image types: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ.
+SetSheetBackgroundFromBytes provides a function to set background picture by given worksheet name, extension name and image data. Supported image types: BMP, EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ.
 
 ## Set default worksheet {#SetActiveSheet}
 
@@ -835,7 +835,7 @@ This example shows:
 func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
 ```
 
-AddHeaderFooterImage provides a mechanism to set the graphics that can be referenced in the header and footer definitions via `&G`, supported image types: EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF and WMZ.
+AddHeaderFooterImage provides a mechanism to set the graphics that can be referenced in the header and footer definitions via `&G`, supported image types: EMF, EMZ, GIF, ICO, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF and WMZ.
 
 ## Set defined name {#SetDefinedName}
 

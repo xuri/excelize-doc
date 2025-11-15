@@ -840,7 +840,7 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
 ```
 
-توفر AddHeaderFooterImage آلية لتعيين الرسومات التي يمكن الرجوع إليها في تعريفات الرأس والتذييل عبر `&G`، وأنواع الصور المدعومة: EMF، EMZ، GIF، JPEG، JPG، PNG، SVG، TIF، TIFF، WMF و WMZ.
+توفر AddHeaderFooterImage آلية لتعيين الرسومات التي يمكن الرجوع إليها في تعريفات الرأس والتذييل عبر `&G`، وأنواع الصور المدعومة: EMF، EMZ، GIF، ICO، JPEG، JPG، PNG، SVG، TIF، TIFF، WMF و WMZ.
 
 ## تعيين الاسم المحدد {#SetDefinedName}
 

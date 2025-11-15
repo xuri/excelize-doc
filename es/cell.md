@@ -595,7 +595,7 @@ GetPictureCells devuelve todas las referencias de celdas de imágenes en una hoj
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-AddComment proporciona el método para agregar comentarios en una hoja por índice de hoja de trabajo, celda y conjunto de formato dado (como autor y texto). Tenga en cuenta que la longitud máxima del autor es 255 y la longitud máxima del texto es 32512. Por ejemplo, agregue un comentario en `Sheet1!A3`:
+El método `AddComment` permite agregar comentarios a una hoja de cálculo especificando el índice, la celda y el formato (como autor y texto). La longitud máxima del autor es de 255 caracteres y la del texto es de 32512 caracteres. Cada celda solo puede contener un comentario; se producirá un error si se intenta agregar un comentario a una celda que ya contiene uno. Por ejemplo, para agregar un comentario a la celda `Sheet1!A3`:
 
 <p align="center"><img width="612" src="./images/comment.png" alt="Agregar un comentario a un documento de Excel"></p>
 

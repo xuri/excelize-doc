@@ -253,13 +253,13 @@ UngroupSheets は、ワークシートのグループ化を解除する機能を
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-SetSheetBackground は、ワークシート名とファイル パスを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: BPM、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
+SetSheetBackground は、ワークシート名とファイル パスを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: BPM、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-SetSheetBackgroundFromBytes は、ワークシート名、拡張子名、画像データを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: BPM、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
+SetSheetBackgroundFromBytes は、ワークシート名、拡張子名、画像データを指定して背景画像を設定する機能を提供します。サポートされている画像の種類: BPM、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、および WMZ。
 
 ## デフォルトワークシートを設定する {#SetActiveSheet}
 
@@ -835,7 +835,7 @@ err := f.SetHeaderFooter("Sheet1", &excelize.HeaderFooterOptions{
 func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions) error
 ```
 
-AddHeaderFooterImage は、`&G` を介してヘッダーとフッターの定義で参照できるグラフィックを設定するメカニズムを提供します。サポートされている画像タイプは、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ です。
+AddHeaderFooterImage は、`&G` を介してヘッダーとフッターの定義で参照できるグラフィックを設定するメカニズムを提供します。サポートされている画像タイプは、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ です。
 
 ### 名前を設定する {#SetDefinedName}
 
