@@ -84,6 +84,7 @@ Legend            | Establece la fuente del texto de la leyenda de una serie de 
 Line              | Esto establece el formato de línea del gráfico de líneas. La propiedad `Line` es opcional y, si no se proporciona, tendrá el estilo predeterminado. Las opciones que se pueden configurar son `Width`. El rango de `Width` es 0.25pt - 999pt. Si el valor del ancho está fuera del rango, el ancho predeterminado de la línea es 2 puntos.
 Marker            | Esto establece el marcador del gráfico de líneas y el gráfico de dispersión. El rango del campo opcional `Size` es 2-72 (el valor predeterminado es `5`). El valor de enumeración del campo opcional `Symbol` es (el valor predeterminado es `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 DataLabelPosition | Esto establece la posición de la etiqueta de datos de la serie del gráfico.
+DataPoint         | Esto define el formato de los puntos de datos individuales en una serie de gráficos de anillos, circulares o circulares 3D. La propiedad `DataPoint` es opcional.
 
 Establezca las propiedades de la leyenda del gráfico. Las opciones que se pueden configurar son:
 

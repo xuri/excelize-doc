@@ -84,6 +84,7 @@ Legend            | Isso define a fonte do texto da legenda para uma série de d
 Line              | Isso define o formato da linha do gráfico de linhas. A propriedade `Line` é opcional e se não for fornecida será o estilo padrão. As opções que podem ser definidas são `Width`. O intervalo de `Width` é 0,25pt - 999pt. Se o valor da largura estiver fora do intervalo, a largura padrão da linha será 2pt.
 Marker            | Isso define o marcador do gráfico de linhas e do gráfico de dispersão. O intervalo do campo opcional `Size` é 2-72 (o valor padrão é `5`). O valor de enumeração do campo opcional `Symbol` é (o valor padrão é `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` e `auto`.
 DataLabelPosition | Isso define a posição do rótulo de dados da série do gráfico.
+DataPoint         | Esta opção define o formato para pontos de dados individuais em uma série de gráficos de rosca, pizza ou pizza 3D. A propriedade `DataPoint` é opcional.
 
 Defina as propriedades da legenda do gráfico. As opções que podem ser definidas são:
 

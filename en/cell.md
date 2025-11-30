@@ -1182,6 +1182,7 @@ TTEST                    | Returns the probability associated with a Student's t
 TYPE                     | Returns a number indicating the data type of a value
 UNICHAR                  | Returns the Unicode character that is references by the given numeric value
 UNICODE                  | Returns the number (code point) that corresponds to the first character of the text
+UNIQUE                   | Returns a list of unique values in a list or range
 UPPER                    | Converts text to uppercase
 VALUE                    | Converts a text argument to a number
 VALUETOTEXT              | Returns text from any specified value

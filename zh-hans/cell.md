@@ -1182,6 +1182,7 @@ TTEST             | 返回与学生 t-检验相关的概率
 TYPE              | 返回表示值的数据类型的数字
 UNICHAR           | 返回给定数值引用的 Unicode 字符
 UNICODE           | 返回对应于文本的第一个字符的数字（代码点）
+UNIQUE            | 返回列表或范围中唯一值的列表
 UPPER             | 将文本转换为大写形式
 VALUE             | 将文本参数转换为数字
 VALUETOTEXT       | 从任意指定值中返回文本

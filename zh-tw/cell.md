@@ -1184,6 +1184,7 @@ TTEST            | 傳回與 Student T 檢定相關的機率
 TYPE             | 傳回數字，指出值的資料類型
 UNICHAR          | 傳回指定數值所參考的 Unicode 字元
 UNICODE          | 傳回對應至文字的第一個字元的數字 (字碼指標)
+UNIQUE           | 會傳回清單或範圍中的唯一值清單
 UPPER            | 將文字轉換為大寫
 VALUE            | 將文字引數轉換為數字
 VALUETOTEXT      | 傳回來自任何指定值的文字

@@ -1185,6 +1185,7 @@ TEST.STUDENT                 | Renvoie la probabilité associée à un test T de
 TYPE                         | Renvoie un nombre indiquant le type de données d'une valeur
 UNICHAR                      | Renvoie le caractère unicode référencé par la valeur numérique donnée
 UNICODE                      | Renvoie le nombre (point de code) qui correspond au premier caractère du texte
+UNIQUE                       | Renvoie une liste de valeurs uniques au sein d'une liste ou d'une plage
 UPPER                        | Convertit le texte en majuscules
 CNUM                         | Convertit un argument textuel en nombre
 VALEUR.EN.TEXTE              | Renvoie le texte de toute valeur spécifiée

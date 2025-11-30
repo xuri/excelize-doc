@@ -84,6 +84,7 @@ Fill              | Ceci définit le format de remplissage de la série de donn�
 Line              | Ceci définit le format de ligne du graphique en courbes. La propriété `Line` est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `Width`. La plage de `Width` est comprise entre 0.25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
 Marker            | Ceci définit le marqueur du graphique linéaire et du nuage de points. La plage du champ facultatif `Size` est comprise entre 2 et 72 (la valeur par défaut est `5`). La valeur d'énumération du champ facultatif `Symbol` est (la valeur par défaut est `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 DataLabelPosition | Ceci définit la position de l’étiquette de données de la série de graphiques.
+DataPoint         | Ceci définit le format des points de données individuels dans une série de graphiques en anneau, en secteur ou en secteur 3D. La propriété `DataPoint` est facultative.
 
 Définir les propriétés de la légende du graphique. Les options qui peuvent être définies sont:
 

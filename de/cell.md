@@ -1186,6 +1186,7 @@ TTEST                     | Gibt die Teststatistik eines (Student) t-Tests zurü
 TYP                       | Gibt eine Zahl zurück, die den Datentyp eines Werts angibt
 UNIZEICHEN                | Gibt das Unicode-Zeichen zurück, auf das durch den angegebenen Zahlenwert verwiesen wird
 UNICODE                   | Gibt die Zahl (Codepoint) zurück, die dem ersten Zeichen des Texts entspricht
+EINDEUTIG                 | Gibt eine Liste von eindeutigen Werten in einer Liste oder einem Bereich zurück
 GROSS                     | Wandelt Text in Großbuchstaben um
 WERT                      | Wandelt ein Textargument in eine Zahl um
 WERTZUTEXT                | Gibt Text aus einem beliebigen angegebenen Wert zurück

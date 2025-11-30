@@ -84,6 +84,7 @@ Legend            | Imposta il carattere del testo della legenda per una serie d
 Line              | Imposta il formato della linea del grafico a linee. La proprietà `Line` è facoltativa e se non viene fornita avrà lo stile predefinito. L'opzione che può essere impostata è `Width`. L'intervallo di `Width` è compreso tra 0.25pt e 999pt. Se il valore della larghezza non è compreso nell'intervallo, la larghezza predefinita della linea è 2pt.
 Marker            | Imposta l'indicatore del grafico a linee e del grafico a dispersione. L'intervallo del campo facoltativo `Size` è compreso tra 2 e 72 (il valore predefinito è `5`). Il valore di enumerazione del campo opzionale `Symbol` è (il valore predefinito è `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` e `auto`.
 DataLabelPosition | Imposta la posizione dell'etichetta dati della serie di grafici.
+DataPoint         | Imposta il formato per i singoli punti dati in una serie di grafici a ciambella, a torta o a torta 3D. La proprietà `DataPoint` è facoltativa.
 
 Imposta le proprietà della legenda del grafico. Le opzioni che è possibile impostare sono:
 

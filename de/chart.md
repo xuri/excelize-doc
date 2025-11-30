@@ -84,6 +84,7 @@ Legend            | Legt die Schriftart des Legendentextes einer Datenreihe fest
 Line              | Hiermit wird das Linienformat des Liniendiagramms festgelegt. Die Eigenschaft `Line` ist optional. Wenn sie nicht angegeben wird, wird der Standardstil verwendet. Die Optionen, die eingestellt werden können, sind `Width`. Der Bereich von `Width` beträgt 0.25pt - 999pt. Wenn der Wert für width außerhalb des Bereichs liegt, beträgt die Standardbreite der Linie 2pt.
 Marker            | Dies setzt die Markierung des Liniendiagramms und des Streudiagramms. Der Bereich des optionalen Feldes `Size` liegt zwischen 2 und 72 (Standardwert ist `5`). Der Aufzählungswert des optionalen Felds `Symbol` ist (Standardwert ist `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
 DataLabelPosition | Dadurch wird die Position der Datenbeschriftung der Diagrammreihe festgelegt.
+DataPoint         | Hiermit wird das Format für einzelne Datenpunkte in einer Kreis-, Torten- oder 3D-Tortendiagrammreihe festgelegt. Die `DataPoint` eigenschaft ist optional.
 
 Legen Sie die Eigenschaften der Diagrammlegende fest. Folgende Optionen können eingestellt werden:
 

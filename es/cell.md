@@ -1186,6 +1186,7 @@ TTEST                    | Devuelve la probabilidad asociada a una prueba t del 
 TYPE                     | Devuelve un número que indica el tipo de datos de un valor
 UNICAR                   | Devuelve el carácter Unicode al que hace referencia el valor numérico indicado
 UNICODE                  | Devuelve el número (punto de código) que corresponde con el primer carácter del texto
+UNIQUE                   | Devuelve una lista de valores únicos de una lista o rango
 UPPER                    | Convierte el texto en mayúsculas
 VALOR                    | Convierte un argumento de texto en un número
 VALORATEXTO              | Devuelve texto de cualquier valor especificado

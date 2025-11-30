@@ -1190,6 +1190,7 @@ TESTET                   | Retorna a probabilidade associada ao teste t de Stude
 TIPO                     | Retorna um número indicando o tipo de dados de um valor
 CARACTUNICODE            | Retorna o caractere Unicode referenciado por determinado valor numérico
 UNICODE                  | Devolve o número (ponto de código) correspondente ao primeiro caráter do texto
+EXCLUSIVOS               | Devolve uma lista de valores exclusivos numa lista ou intervalo
 MAIÚSCULA                | Converte texto em maiúsculas
 VALOR                    | Converte um argumento de texto em um número
 VALORPARATEXTO           | Devolve texto a partir de qualquer valor especificado

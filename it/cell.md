@@ -1190,6 +1190,7 @@ TEST.T                      | Restituisce la probabilità associata a un test t 
 TIPO                        | Restituisce un numero che indica il tipo di dati relativo a un valore
 CARATT.UNI                  | Restituisce il carattere Unicode a cui fa riferimento il valore numerico assegnato
 UNICODE                     | Restituisce il numero (punto di codice) corrispondente al primo carattere del testo
+UNICI                       | Restituisce un elenco di valori univoci in un elenco o un intervallo
 MAIUSC                      | Converte in maiuscolo il testo
 VALORE                      | Converte un argomento di testo in numero
 VALORE.A.TESTO              | Restituisce del testo da qualsiasi valore specificato

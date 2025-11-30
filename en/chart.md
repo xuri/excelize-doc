@@ -84,6 +84,7 @@ Legend            | This set the font of legend text for a data series. The `Leg
 Line              | This sets the line format of the line chart. The `Line` property is optional and if it isn't supplied it will default style. The options that can be set is `Width`. The range of `Width` is 0.25pt - 999pt. If the value of width is outside the range, the default width of the line is 2pt.
 Marker            | This sets the marker of the line chart and scatter chart. The range of the optional field `Size` is 2-72 (default value is `5`). The enumeration value of optional field `Symbol` are (default value is `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` and `auto`.
 DataLabelPosition | This sets the position of the chart series data label.
+DataPoint         | This sets the format for individual data points in a doughnut, pie or 3D pie chart series. The `DataPoint` property is optional.
 
 Set properties of the chart legend. The options that can be set are:
 
