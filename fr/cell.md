@@ -1133,7 +1133,8 @@ SLN                          | Renvoie l'amortissement linéaire d'une immobilis
 PENTE                        | Renvoie la pente d'une droite de régression linéaire
 PETITE.VALEUR                | Renvoie la k-ième plus petite valeur d'un jeu de données
 SQRT                         | Renvoie une racine carrée positive
-RACINE.PI                    | Renvoie la racine carrée de (nombre \* pi)
+TRIERPAR                     | La fonction TRIERPAR trie le contenu d'une plage ou une matrice en fonction des valeurs dans une plage ou une matrice correspondante
+RACINE.PI                    | Renvoie la racine carrée de (nombre * pi)
 STANDARDIZE                  | Renvoie une valeur normalisée
 ECARTYPE                     | Évalue l'écart type en fonction d'un échantillon
 ECARTYPE.PEARSON             | Calcule l'écart type en fonction de la population entière

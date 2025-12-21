@@ -1129,6 +1129,7 @@ SKEW.P                   | Returns the skewness of a distribution based on a pop
 SLN                      | Returns the straight-line depreciation of an asset for one period
 SLOPE                    | Returns the slope of the linear regression line
 SMALL                    | Returns the k-th smallest value in a data set
+SORTBY                   | Sorts the contents of a range or array based on the values in a corresponding range or array
 SQRT                     | Returns a positive square root
 SQRTPI                   | Returns the square root of (number * pi)
 STANDARDIZE              | Returns a normalized value

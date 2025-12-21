@@ -9,7 +9,7 @@ Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- 檔案更新: 2025年12月1日
+- 檔案更新: 2025年12月21日
 
 ## 專案使命
 
@@ -36,6 +36,10 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 榮膺 2025 年 GitCode [百大開源專案](https://gitcode.com/xuri/excelize)
 
 <p align="center"><img width="220" src="../images/award2025_gitcode.jpg" alt="Excelize 榮膺 2025 年 GitCode 百大開源專案"></p>
+
+榮獲 2025 [紅山開源明星項目三等獎](https://mp.weixin.qq.com/s/O2PkX36AXQWzfNIXwwgHtg)
+
+<p align="center"><img width="330" src="../images/award2025_osredm.jpg" alt="Excelize 榮獲 2025 紅山開源明星項目三等獎"></p>
 
 入選 2023 開源創新榜[優秀開源專案](https://cccst.org.cn/zxyw/tzgg/art/2023/art_748b3428e4184ccc825ea6de1a2d273f.html)
 

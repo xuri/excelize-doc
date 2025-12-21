@@ -1138,6 +1138,7 @@ AMMORT.COST                 | Restituisce l'ammortamento a quote costanti di un 
 PENDENZA                    | Restituisce la pendenza della retta di regressione lineare
 PICCOLO                     | Restituisce il k-esimo valore più piccolo di un set di dati
 RADQ                        | Restituisce una radice quadrata positiva
+DATI.ORDINA.PER             | La funzione DATI.ORDINA.PER che consente di ordinare il contenuto di un intervallo o di una matrice in base ai valori in un intervallo o una matrice corrispondente
 RADQ.PI.GRECO               | Restituisce la radice quadrata di (num * pi)
 NORMALIZZA                  | Restituisce un valore normalizzato
 DEV.ST                      | Stima la deviazione standard sulla base di un campione

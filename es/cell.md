@@ -1134,7 +1134,8 @@ SLN                      | Devuelve la depreciación por método directo de un b
 SLOPE                    | Devuelve la pendiente de la línea de regresión lineal
 K.ESIMO.MENOR            | Devuelve el valor k-ésimo menor de un conjunto de datos
 SQRT                     | Devuelve una raíz cuadrada positiva
-RAIZ2PI                  | Devuelve la raíz cuadrada de un número multiplicado por pi (número \* pi)
+ORDENARPOR               | La función ORDENARPOR ordena el contenido de un rango o matriz en función de los valores de un rango o matriz correspondiente
+RAIZ2PI                  | Devuelve la raíz cuadrada de un número multiplicado por pi (número * pi)
 STANDARDIZE              | Devuelve un valor normalizado
 STDEV                    | Calcula la desviación estándar en función de una muestra
 STDEV.P                  | Calcula la desviación estándar en función de toda la población

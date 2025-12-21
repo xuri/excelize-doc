@@ -1133,8 +1133,9 @@ SCHIEFE.P                 | Gibt die Schiefe einer Verteilung auf der Basis eine
 LIA                       | Gibt die lineare Abschreibung eines Vermögenswerts für einen Zeitraum zurück
 SLOPE                     | Gibt die Steigung der linearen Regressionsgeraden zurück
 KKLEINSTE                 | Gibt den k-kleinsten Wert innerhalb einer Datengruppe zurück
+SORTIERENNACH             | Die SORTIERENNACH-Funktion sortiert die Inhalte eines Bereichs oder einer Matrix anhand der Werte in einem entsprechenden Bereich oder einer Matrix
 WURZEL                    | Gibt die Quadratwurzel einer Zahl zurück
-WURZELPI                  | Gibt die Quadratwurzel von (Zahl \* Pi) zurück
+WURZELPI                  | Gibt die Quadratwurzel von (Zahl * Pi) zurück
 STANDARDISIERUNG          | Gibt einen standardisierten Wert zurück
 STDEV                     | Schätzt die Standardabweichung auf der Grundlage einer Stichprobe
 STABW.P                   | Berechnet die Standardabweichung anhand der Grundgesamtheit

@@ -1137,6 +1137,7 @@ DISTORÇÃO.P              | Retorna a inclinação de uma distribuição com ba
 DPD                      | Retorna a depreciação linear de um ativo para um período
 INCLINAÇÃO               | Retorna a inclinação da linha de regressão linear
 MENOR                    | Retorna o menor valor k-ésimo em um conjunto de dados
+ORDENARPOR               | A função ORDENARPOR ordena os conteúdos de um intervalo ou matriz com base nos valores num intervalo ou matriz correspondente
 RAIZ                     | Retorna uma raiz quadrada positiva
 RAIZPI                   | Retorna a raiz quadrada de (número* pi)
 PADRONIZAR               | Retorna um valor normalizado
