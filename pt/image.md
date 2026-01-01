@@ -87,9 +87,9 @@ O parâmetro opcional `OffsetX` especifica o deslocamento horizontal do objeto g
 
 O parâmetro opcional `OffsetY` especifica o deslocamento vertical do objeto gráfico com a célula, o valor padrão é 0.
 
-O parâmetro opcional `ScaleX` especifica a escala horizontal do objeto gráfico, o valor padrão é 1,0 que representa 100%.
+O parâmetro opcional `ScaleX` especifica a escala horizontal do objeto gráfico. O valor de `ScaleX` deve ser um número de ponto flutuante maior que 0 com precisão de duas casas decimais. O valor padrão é 1.0, que representa 100%.
 
-O parâmetro opcional `ScaleY` especifica a escala vertical do objeto gráfico, o valor padrão é 1,0 que representa 100%.
+O parâmetro opcional `ScaleY` especifica a escala vertical do objeto gráfico. O valor de `ScaleY` deve ser um número de ponto flutuante maior que 0 com precisão de duas casas decimais. O valor padrão é 1.0, que representa 100%.
 
 O parâmetro opcional `Hyperlink` especifica o hiperlink do objeto gráfico.
 
@@ -152,7 +152,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-GetPicture fornece uma função para obter o nome base da imagem e o conteúdo bruto incorporado em uma planilha por meio de uma determinada planilha e nome da célula. Esta função é segura para simultaneidade. Esta função retorna o nome do arquivo na planilha e o conteúdo do arquivo como tipos de dados `[]byte`.
+GetPicture fornece uma função para obter o nome base da imagem e o conteúdo bruto incorporado em uma planilha por meio de uma determinada planilha e nome da célula. Esta função é segura para simultaneidade. Esta função retorna o nome do arquivo na planilha e o conteúdo do arquivo como tipos de dados `[]byte`. Observe que esta função atualmente não suporta a recuperação de todas as propriedades da propriedade `Format` da imagem, e o valor das propriedades `ScaleX` e `ScaleY` é um número de ponto flutuante maior que 0 com precisão de duas casas decimais.
 
 Por exemplo:
 

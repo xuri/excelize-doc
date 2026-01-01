@@ -83,9 +83,9 @@ Le paramètre facultatif `OffsetX` spécifie le décalage horizontal de l'image 
 
 Le paramètre facultatif `OffsetY` spécifie le décalage vertical de l'image avec la cellule, la valeur par défaut est 0.
 
-Le paramètre facultatif `ScaleX` spécifie l'échelle horizontale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+Le paramètre optionnel `ScaleX` spécifie l'échelle horizontale du graphique. Sa valeur doit être un nombre à virgule flottante supérieur à 0, avec une précision de deux décimales. La valeur par défaut est 1.0, ce qui correspond à 100%.
 
-Le paramètre facultatif `ScaleY` spécifie l'échelle verticale des images, la valeur par défaut de celle-ci est 1.0 qui présente 100%.
+Le paramètre optionnel `ScaleY` spécifie l'échelle verticale du graphique. Sa valeur doit être un nombre à virgule flottante supérieur à 0, avec une précision de deux décimales. La valeur par défaut est 1.0, ce qui correspond à 100%.
 
 Le paramètre facultatif `Hyperlink` spécifie le lien hypertexte de l'image.
 
@@ -144,7 +144,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-GetPicture fournit une fonction permettant d'incorporer le nom de la base de l'image et le contenu brut dans XLSX en fonction de la feuille de calcul et du nom de la cellule. Cette fonction est sécurisée pour la concurrence. Cette fonction renvoie le nom du fichier dans XLSX et le contenu des fichiers sous la forme de types de données `[]byte`.
+GetPicture fournit une fonction permettant d'incorporer le nom de la base de l'image et le contenu brut dans XLSX en fonction de la feuille de calcul et du nom de la cellule. Cette fonction est sécurisée pour la concurrence. Cette fonction renvoie le nom du fichier dans XLSX et le contenu des fichiers sous la forme de types de données `[]byte`. Notez que cette fonction ne prend actuellement pas en charge la récupération de toutes les propriétés de la propriété `Format` de l'image, et que la valeur des propriétés `ScaleX` et `ScaleY` est un nombre à virgule flottante supérieur à 0 avec une précision de deux décimales.
 
 Par exemple:
 

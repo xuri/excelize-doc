@@ -89,9 +89,9 @@ Il parametro opzionale `OffsetX` specifica l'offset orizzontale dell'oggetto gra
 
 Il parametro opzionale `OffsetY` specifica l'offset verticale dell'oggetto grafico con la cella, il cui valore predefinito è 0.
 
-Il parametro opzionale `ScaleX` specifica la scala orizzontale dell'oggetto grafico, il cui valore predefinito è 1.0 che rappresenta il 100%.
+Il parametro opzionale `ScaleX` specifica la scala orizzontale dell'oggetto grafico. Il valore di `ScaleX` deve essere un numero in virgola mobile maggiore di 0 con una precisione di due cifre decimali. Il valore predefinito è 1.0, che rappresenta il 100%.
 
-Il parametro opzionale `ScaleY` specifica la scala verticale dell'oggetto grafico, il cui valore predefinito è 1.0 che rappresenta il 100%.
+Il parametro opzionale `ScaleY` specifica la scala verticale dell'oggetto grafico. Il valore di `ScaleY` deve essere un numero in virgola mobile maggiore di 0 con una precisione di due cifre decimali. Il valore predefinito è 1.0, che rappresenta il 100%.
 
 Il parametro opzionale `Hyperlink` specifica il collegamento ipertestuale dell'oggetto grafico.
 
@@ -154,7 +154,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-GetPicture fornisce una funzione per ottenere il nome base dell'immagine e il contenuto non elaborato incorporato in un foglio di calcolo in base al foglio di lavoro e al nome della cella specificati. Questa funzione è sicura per la concorrenza. Questa funzione restituisce il nome del file nel foglio di calcolo e il contenuto del file come tipi di dati `[]byte`.
+GetPicture fornisce una funzione per ottenere il nome base dell'immagine e il contenuto non elaborato incorporato in un foglio di calcolo in base al foglio di lavoro e al nome della cella specificati. Questa funzione è sicura per la concorrenza. Questa funzione restituisce il nome del file nel foglio di calcolo e il contenuto del file come tipi di dati `[]byte`. Si noti che questa funzione attualmente non supporta il recupero di tutte le proprietà dalla proprietà `Format` dell'immagine e il valore delle proprietà `ScaleX` e `ScaleY` è un numero in virgola mobile maggiore di 0 con una precisione di due cifre decimali.
 
 Per esempio:
 

@@ -83,9 +83,9 @@ The optional parameter `OffsetX` specifies the horizontal offset of the graph ob
 
 The optional parameter `OffsetY` specifies the vertical offset of the graph object with the cell, the default value of that is 0.
 
-The optional parameter `ScaleX` specifies the horizontal scale of graph object, the default value of that is 1.0 which presents 100%.
+The optional parameter `ScaleX` specifies the horizontal scale of graph object. The value of `ScaleX` must be a floating-point number greater than 0 with a precision of two decimal places. The default value of that is 1.0 which presents 100%.
 
-The optional parameter `ScaleY` specifies the vertical scale of graph object, the default value of that is 1.0 which presents 100%.
+The optional parameter `ScaleY` specifies the vertical scale of graph object. The value of `ScaleY` must be a floating-point number greater than 0 with a precision of two decimal places. The default value of that is 1.0 which presents 100%.
 
 The optional parameter `Hyperlink` specifies the hyperlink of the graph object.
 
@@ -144,7 +144,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-GetPicture provides a function to get picture base name and raw content embed in a spreadsheet by given worksheet and cell name. This function is concurrency safe. This function returns the file name in the spreadsheet and file contents as `[]byte` data types.
+GetPicture provides a function to get picture base name and raw content embed in a spreadsheet by given worksheet and cell name. This function is concurrency safe. This function returns the file name in the spreadsheet and file contents as `[]byte` data types. Note that this function currently does not support retrieving all properties from the image's `Format` property, and the value of the `ScaleX` and `ScaleY` property is a floating-point number greater than 0 with a precision of two decimal places.
 
 For example:
 

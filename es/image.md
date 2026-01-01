@@ -84,9 +84,9 @@ El parámetro opcional `OffsetX` especifica el desplazamiento horizontal de la i
 
 El parámetro opcional `OffsetY` especifica el desplazamiento vertical de la imagen con la celda, cuyo valor predeterminado es 0.
 
-El parámetro opcional `ScaleX` especifica la escala horizontal de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
+El parámetro opcional `ScaleX` especifica la escala horizontal del objeto gráfico. El valor de `ScaleX` debe ser un número de punto flotante mayor que 0 con una precisión de dos decimales. El valor predeterminado es 1.0, que representa el 100%.
 
-El parámetro opcional `ScaleY` especifica la escala vertical de las imágenes, el valor predeterminado de eso es 1.0 que presenta 100%.
+El parámetro opcional `ScaleY` especifica la escala vertical del objeto gráfico. El valor de `ScaleY` debe ser un número de punto flotante mayor que 0 con una precisión de dos decimales. El valor predeterminado es 1.0, que representa el 100%.
 
 El parámetro opcional `Hyperlink` especifica el hipervínculo de la imagen.
 
@@ -145,7 +145,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-GetPicture proporciona una función para obtener el nombre base de la imagen y el contenido sin procesar incrustado en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados. Esta función es segura para la simultaneidad. Esta función devuelve el nombre del archivo en la hoja de cálculo y el contenido del archivo como tipos de datos `[]byte`.
+GetPicture proporciona una función para obtener el nombre base de la imagen y el contenido sin procesar incrustado en una hoja de cálculo por la hoja de trabajo y el nombre de celda dados. Esta función es segura para la simultaneidad. Esta función devuelve el nombre del archivo en la hoja de cálculo y el contenido del archivo como tipos de datos `[]byte`. Tenga en cuenta que esta función actualmente no admite la recuperación de todas las propiedades de la propiedad `Format` de la imagen, y el valor de la propiedad `ScaleX` y `ScaleY` es un número de punto flotante mayor que 0 con una precisión de dos decimales.
 
 Por ejemplo:
 

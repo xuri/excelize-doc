@@ -84,9 +84,9 @@ Der optionale Parameter `OffsetX` gibt den horizontalen Versatz des Bildes mit d
 
 Der optionale Parameter `OffsetY` gibt den vertikalen Versatz des Bildes mit der Zelle an, der Standardwert davon ist 0.
 
-Der optionale Parameter `ScaleX` spezifiziert die horizontale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+Der optionale Parameter `ScaleX` legt die horizontale Skalierung des Diagrammobjekts fest. Der Wert von `ScaleX` muss eine Gleitkommazahl größer als 0 mit zwei Nachkommastellen sein. Der Standardwert ist 1.0, was 100 % entspricht.
 
-Der optionale Parameter `ScaleY` spezifiziert die vertikale Skalierung von Bildern, der Standardwert davon ist 1.0, was 100% darstellt.
+Der optionale Parameter `ScaleY` legt die vertikale Skalierung des Diagrammobjekts fest. Der Wert von `ScaleY` muss eine Gleitkommazahl größer als 0 mit zwei Nachkommastellen sein. Der Standardwert ist ebenfalls 1.0, was 100 % entspricht.
 
 Der optionale Parameter `Hyperlink` spezifiziert den Hyperlink des Bildes.
 
@@ -145,7 +145,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-GetPicture bietet eine Funktion, mit der der Name der Bildbasis und der Rohinhalt anhand des Arbeitsblatts und des Zellennamens in eine Tabelle eingebettet werden können. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Diese Funktion gibt den Dateinamen in der Tabelle und den Dateiinhalt als Datentypen `[]byte` zurück.
+GetPicture bietet eine Funktion, mit der der Name der Bildbasis und der Rohinhalt anhand des Arbeitsblatts und des Zellennamens in eine Tabelle eingebettet werden können. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Diese Funktion gibt den Dateinamen in der Tabelle und den Dateiinhalt als Datentypen `[]byte` zurück. Beachten Sie, dass diese Funktion derzeit nicht das Abrufen aller Eigenschaften aus der `Format`-Eigenschaft des Bildes unterstützt und dass der Wert der Eigenschaften `ScaleX` und `ScaleY` eine Gleitkommazahl größer als 0 mit einer Genauigkeit von zwei Dezimalstellen ist.
 
 Zum Beispiel:
 
