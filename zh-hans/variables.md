@@ -88,12 +88,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType 定义了创建迷你图收到无效参数时的错误提示信息
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // ErrStreamSetColStyle 定义了在流式写入模式下设置列样式时的错误提示信息
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // ErrStreamSetColWidth 定义了在流式写入模式下设置列宽度时的错误提示信息
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrStreamSetPanes 定义了在流式写入模式下设置窗格时的错误提示信息
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks 定义了工作表包含的超链接总数超出最大限制时的错误提示信息
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrTransparency 定义了透明度超出取值范围时的错误提示信息

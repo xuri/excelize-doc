@@ -86,12 +86,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType определил сообщение об ошибке при получении недопустимых параметров спарклайна 'Type'
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // ErrStreamSetColStyle определяет сообщение об ошибке при установке стиля столбца в режиме потоковой записи
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // ErrStreamSetColWidth определяет сообщение об ошибке при установке ширины столбца в режиме записи потока
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrStreamSetPanes определяет сообщение об ошибке на установленных панелях в режиме потоковой записи
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks определил сообщение об ошибке при переполнении счетчика гиперссылок
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrTransparency определил сообщение об ошибке при получении значения прозрачности, превышающего предел.

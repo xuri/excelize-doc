@@ -86,12 +86,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType definierte die Fehlermeldung beim Empfang der ungültigen Sparkline-'Type'-Parameter.
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // ErrStreamSetColStyle definierte die Fehlermeldung beim Festlegen des Spaltenstils im Stream-Schreibmodus.
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // ErrStreamSetColWidth definierte die Fehlermeldung beim Setzen der Spaltenbreite im Stream-Schreibmodus.
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrStreamSetPanes hat die Fehlermeldung für festgelegte Bereiche im Stream-Schreibmodus definiert.
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks definierte die Fehlermeldung zum Hyperlink-Zählerüberlauf.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrTransparency definiert die Fehlermeldung für den Empfang eines Transparenzwerts, der den Grenzwert überschreitet.

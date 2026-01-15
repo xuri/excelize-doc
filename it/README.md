@@ -9,7 +9,7 @@ Excelize è una libreria scritta in puro Go che fornisce una serie di funzioni c
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenze: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Ultima versione: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- Orario aggiornamento documento: gennaio 1, 2026
+- Orario aggiornamento documento: gennaio 15, 2026
 
 ## Missione del progetto
 
@@ -18,6 +18,10 @@ L'obiettivo di Excelize è creare e mantenere una versione in linguaggio Go dell
 ## Perché utilizzare Excelize
 
 In alcuni casi, dobbiamo manipolare i documenti Excel attraverso programmi, come: aprire per leggere il contenuto del documento Excel esistente, creare nuovi documenti Excel, generare nuovi documenti Excel basati su documenti esistenti (modelli), inserire immagini in documenti Excel, grafici Elementi come come tabelle e talvolta è necessario implementare queste operazioni su più piattaforme. Excelize può facilmente soddisfare queste esigenze.
+
+## Sponsor d'oro
+
+<a href="https://www.gravityclimate.com" alt="Gravity"><img width="165" src="../images/vendor/gravityclimate.com.svg" alt="Gravity"></a>
 
 ## Clienti famosi
 

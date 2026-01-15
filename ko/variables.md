@@ -86,12 +86,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType 이 잘못된 스파크라인 'Type' 매개변수 수신 시 오류 메시지를 정의했습니다
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // ErrStreamSetColStyle 은 스트림 쓰기 모드에서 열 스타일 설정에 대한 오류 메시지를 정의했습니다
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // ErrStreamSetColWidth 는 스트림 쓰기 모드에서 설정된 열 너비에 대한 오류 메시지를 정의했습니다
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrStreamSetPanes 는 스트림 쓰기 모드에서 설정 창에 대한 오류 메시지를 정의했습니다
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks 는 하이퍼링크 카운트 오버플로에 대한 오류 메시지를 정의했습니다
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrTransparency 는 투명도 값이 한도를 초과할 때의 오류 메시지를 정의했습니다

@@ -86,12 +86,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // حدد ErrSparklineType رسالة الخطأ عند تلقي معلمات نوع خط المؤشر غير الصالحة.
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // قام ErrStreamSetColStyle بتعريف رسالة الخطأ عند تعيين نمط العمود في وضع الكتابة المتدفقة.
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // حدد ErrStreamSetColWidth رسالة الخطأ على عرض العمود المحدد في وضع كتابة الدفق.
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // حدد ErrStreamSetPanes رسالة الخطأ في الأجزاء المحددة في وضع كتابة الدفق.
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // حدد ErrTotalSheetHyperlinks رسالة الخطأ على تجاوز عدد الارتباطات التشعبية.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // قام ErrTransparency بتعريف رسالة الخطأ الخاصة باستلام قيمة شفافية تتجاوز الحد.

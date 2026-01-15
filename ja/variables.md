@@ -86,12 +86,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType は、無効なスパークラインの Type パラメーターを受信したときのエラーメッセージを定義しました
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // ErrStreamSetColStyle は、ストリーム書き込みモードでの列スタイル設定に関するエラー メッセージを定義します
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // ErrStreamSetColWidth は、ストリーム書き込みモードでの列幅の設定に関するエラーメッセージを定義しました
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrStreamSetPanes は、ストリーム書き込みモードのセット ペインでのエラー メッセージを定義しました
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks は、ハイパーリンクカウントオーバーフローに関するエラーメッセージを定義しました
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrTransparency は、透明度の値が制限を超えた場合に送信されるエラー メッセージを定義します

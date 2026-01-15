@@ -9,7 +9,7 @@ Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- 檔案更新: 2026年1月1日
+- 檔案更新: 2026年1月15日
 
 ## 專案使命
 
@@ -57,6 +57,10 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 
 <p align="center"><img width="330" src="../images/gvp2018.jpg" alt="Excelize 入選 2018 年開源中國碼雲最有價值開源專案"></p>
 
+## 金牌贊助商
+
+<a href="https://www.gravityclimate.com" alt="Gravity"><img width="165" src="../images/vendor/gravityclimate.com.svg" alt="Gravity"></a>
+
 ## 知名企業用戶
 
 <img width="165" src="../images/vendor/360@2x.png" alt="奇虎 360 公司"> <img width="165" src="../images/vendor/baidu@2x.png" alt="百度"> ![合合信息](../images/vendor/intsig.com.png) <img width="165" src="../images/vendor/inke@2x.png" alt="映客直播"> <img width="165" src="../images/vendor/meituan@2x.png" alt="美團點評"> <img width="165" src="../images/vendor/netease@2x.png" alt="網易"> <img width="165" src="../images/vendor/bilibili@2x.png" alt="嗶哩嗶哩"> <img width="165" src="../images/vendor/qianxin.com@2x.png" alt="奇安信集團"> <img width="165" src="../images/vendor/alibabagroup@2x.png" alt="阿里巴巴集團"> <img width="165" src="../images/vendor/ele.me@2x.png" alt="餓了麼"> <img width="165" src="../images/vendor/huifu.com@2x.png" alt="匯付天下"> <img width="165" src="../images/vendor/dodoca.com@2x.png" alt="點點客"> <img width="165" src="../images/vendor/bytedance@2x.png" alt="字節跳動"> <img width="165" src="../images/vendor/flashexpress.com@2x.png" alt="閃電快車"> <img width="165" src="../images/vendor/jimengio.com@2x.png" alt="積夢智能"> <img width="165" src="../images/vendor/shannonai.com@2x.png" alt="香儂科技"> <img width="165" src="../images/vendor/ibm@2x.png" alt="IBM"> <img width="165" src="../images/vendor/basedig.com@2x.png" alt="Basedig"> <img width="165" src="../images/vendor/meitu.com@2x.png" alt="美圖"> <img width="165" src="../images/vendor/amazon@2x.png" alt="亞馬遜"> <img width="165" src="../images/vendor/deloitte@2x.png" alt="德勤"> <img width="165" src="../images/vendor/cisco@2x.png" alt="思科"> <img width="165" src="../images/vendor/nl-a.ru@2x.png" alt="Neuro Lab! Algorithms"> <img width="165" src="../images/vendor/58.com@2x.png" alt="58同城"> <img width="165" src="../images/vendor/ke.com@2x.png" alt="貝殼"> <img width="165" src="../images/vendor/microsoft@2x.png" alt="微軟"> <img width="165" src="../images/vendor/bytebase.com@2x.png" alt="ByteBase"> <img width="165" src="../images/vendor/intel@2x.png" alt="英特爾"> <img width="165" src="../images/vendor/icbc.com.cn@2x.png" alt="中國工商銀行"> <img width="165" src="../images/vendor/ccb.com@2x.png" alt="中國建設銀行"> <img width="165" src="../images/vendor/chinatelecom@2x.png" alt="中國電信"> <img width="165" src="../images/vendor/tencent@2x.png" alt="騰訊"> <img width="165" src="../images/vendor/mihoyo@2x.png" alt="米哈游"> <img width="165" src="../images/vendor/nsfocus@2x.png" alt="綠盟科技"> <img width="165" src="../images/vendor/gree.com@2x.png" alt="格力"> <img width="165" src="../images/vendor/jd.com@2x.png" alt="京東"> <img width="165" src="../images/vendor/zhiyitech.cn@2x.png" alt="知衣科技">
@@ -94,3 +98,13 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 在您的應用程式使用 Excelize 開發過程中提供技術支援，提供解決方案咨詢服務，並可以按小時為基礎加入您的團隊。
 
 請透過 <a href="mailto: xuri.me@gmail.com">E-mail</a> 與我們取得聯絡。
+
+### 贊助 Excelize 開發
+
+專案的發展離不開你的支援，請作者喝杯咖啡吧！Excelize 透過以下方式接受贊助：
+
+<a href="https://github.com/sponsors/xuri" title="GitHub Sponsor" target="_blank"><img width="170" src="../images/github_sponsor@2x.png" alt="GitHub Sponsor"></a>
+
+<a href="https://www.paypal.com/paypalme/xuri" title="贊助 Excelize 開發" target="_blank"><img width="710" src="./images/donate@2x.png" alt="贊助 Excelize 開發"></a>
+
+<a href="https://opencollective.com/excelize" title="成為 Excelize 贊助商" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="成為 Excelize 贊助商"></a> <a href="https://www.patreon.com/xuri" title="在 Patreon 上支援 Excelize" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="在 Patreon 上支援 Excelize"></a>

@@ -9,7 +9,7 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - التراخيص: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - الإصدار الأخير: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- وقت تحديث المستند: كانون الثاني 1, 2026
+- وقت تحديث المستند: كانون الثاني 15, 2026
 
 ## بعثة المشروع
 
@@ -18,6 +18,10 @@ Excelize هي مكتبة مكتوبة في الذهاب نقية توفير مج
 ## لماذا استخدام Excelize
 
 في بعض الحالات، نحن بحاجة إلى التعامل مع مستندات Excel من خلال برامج، مثل: فتح لقراءة محتوى مستند Excel الحالي، إنشاء مستندات Excel جديدة، إنشاء مستندات Excel جديدة استناداً إلى المستندات الموجودة (القوالب)، إدراج الصور في مستندات Excel، مخططات عناصر مثل الجداول، وأحيانا تحتاج إلى تنفيذ هذه العمليات عبر الأنظمة الأساسية. يمكن أن تلبي Excelize بسهولة هذه الاحتياجات.
+
+## الرعاة الذهبيون
+
+<a href="https://www.gravityclimate.com" alt="Gravity"><img width="165" src="../images/vendor/gravityclimate.com.svg" alt="Gravity"></a>
 
 ## العملاء المعروفين
 

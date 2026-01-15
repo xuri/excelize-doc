@@ -9,7 +9,7 @@ Excelize は、純粋な Go で記述されたライブラリで、XLAM / XLSM /
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 現在のバージョン: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- ドキュメントの更新：2026年1月1日
+- ドキュメントの更新：2026年1月15日
 
 ## プロジェクトミッション
 
@@ -18,6 +18,10 @@ Excelize の目的は、Office Open XML（OOXML）標準に準拠する xlsx フ
 ## Excelizeを使用する理由
 
 場合によっては、既存の Excel ドキュメントコンテンツの読み込み、新しい Excel ドキュメントの作成、既存のドキュメント（テンプレート）に基づく新しい Excel ドキュメントの生成、Excel ドキュメントへのイメージの挿入、チャートなどの Excel ドキュメントをプログラムで操作する必要があります。テーブルなどの要素。プラットフォーム間でこれらの操作を実装する必要がある場合があります。Excelize はこれらのニーズを容易に満たすことができます。
+
+## ゴールドスポンサー
+
+<a href="https://www.gravityclimate.com" alt="Gravity"><img width="165" src="../images/vendor/gravityclimate.com.svg" alt="Gravity"></a>
 
 ## 使用中の会社
 

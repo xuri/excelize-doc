@@ -86,12 +86,6 @@ var (
     ErrSparklineStyle = errors.New("parameter 'Style' value must be an integer from 0 to 35")
     // ErrSparklineType definió el mensaje de error al recibir los parámetros de tipo de minigráfico no válidos.
     ErrSparklineType = errors.New("parameter 'Type' value must be one of 'line', 'column' or 'win_loss'")
-    // ErrStreamSetColStyle definió el mensaje de error al establecer el estilo de columna en el modo de escritura de secuencia.
-    ErrStreamSetColStyle = errors.New("must call the SetColStyle function before the SetRow function")
-    // ErrStreamSetColWidth definió el mensaje de error en el ancho de columna establecido en el modo de escritura de flujo.
-    ErrStreamSetColWidth = errors.New("must call the SetColWidth function before the SetRow function")
-    // ErrStreamSetPanes definió el mensaje de error en los paneles establecidos en el modo de escritura de flujo.
-    ErrStreamSetPanes = errors.New("must call the SetPanes function before the SetRow function")
     // ErrTotalSheetHyperlinks definió el mensaje de error sobre el desbordamiento del recuento de hipervínculos.
     ErrTotalSheetHyperlinks = errors.New("over maximum limit hyperlinks in a worksheet")
     // ErrTransparency define el mensaje de error que se recibe cuando el valor de transparencia excede el límite.
