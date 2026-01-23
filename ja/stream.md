@@ -180,16 +180,46 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 指定されたセル座標範囲を使用してセルをストリーミングすると、現在、重なり合うセル以外のセルの結合のみがサポートされます。
 
+## ストリーム内の列のアウトラインを設定する {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+SetColOutlineLevel は、`StreamWriter` の単一列のアウトラインレベルを設定する関数を提供します。パラメータ `level` の値は 1～7 です。`SetColOutlineLevel` 関数は [`SetRow`](stream.md#SetRow) 関数の前に呼び出す必要があることに注意してください。例えば、列 `D` のアウトラインレベルを 2 に設定するには、次のようにします:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
+
 ## ストリームの列スタイルを設定する {#SetColStyle}
 
 ```go
 func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 ```
 
-SetColStyle は、`StreamWriter` の単一列または複数列のスタイルを設定する関数を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetColStyle` 関数を呼び出す必要があることに注意してください。たとえば、列 `H` のスタイルを設定するには、次のようにします。
+SetColStyle は、`StreamWriter` の単一列または複数列のスタイルを設定する関数を提供します。[`SetRow`](stream.md#SetRow) 関数の前に `SetColStyle` 関数を呼び出す必要があることに注意してください。たとえば、列 `H` のスタイルを設定するには、次のようにします:
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## ストリーム内の列の表示設定 {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+SetColVisible は、`StreamWriter` の単一列または複数列の可視性を設定する関数を提供します。`SetColVisible` 関数は [`SetRow`](stream.md#SetRow) 関数の前に呼び出す必要があることに注意してください。例えば、列`D`を非表示にするには次のようにします:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+`D` から `F` までの列 (含まれる) を非表示にします:
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## ストリームの列幅を設定する {#SetColWidth}

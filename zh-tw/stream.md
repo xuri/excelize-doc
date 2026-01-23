@@ -166,7 +166,7 @@ func (sw *StreamWriter) InsertPageBreak(cell string) error
 
 根據給定的儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
 
-## 流式设定窗格 {#SetPanes}
+## 流式設定窗格 {#SetPanes}
 
 ```go
 func (sw *StreamWriter) SetPanes(panes *Panes) error
@@ -182,6 +182,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 透過給定的儲存格坐標區域流式合併儲存格，當前僅支援合併非交疊區域儲存格。
 
+## 流式設定欄的分級顯示 {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+根據給定的欄編號和分級參數創建組，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄的分級顯示。參數 `level` 的取值範圍是 1 至 7。例如，在工作表的 `D` 欄創建 2 級分組：
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
+
 ## 流式設定欄樣式 {#SetColStyle}
 
 ```go
@@ -192,6 +204,24 @@ func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## 流式設定欄可見性 {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+根據給定欄範圍設定欄可見性，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄可見性。例如隱藏工作表中的 `D` 欄：
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+隱藏工作表中的 `D` 至 `F` 欄：
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## 流式設定欄寬度 {#SetColWidth}

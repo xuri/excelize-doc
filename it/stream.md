@@ -170,7 +170,7 @@ InsertPageBreak crea un'interruzione di pagina per determinare dove finisce la p
 func (sw *StreamWriter) SetPanes(panes *Panes) error
 ```
 
-SetPanes fornisce una funzione per creare e rimuovere riquadri bloccati e riquadri divisi fornendo opzioni di riquadri per `StreamWriter`. Tieni presente che devi chiamare la funzione [`SetPanes`](stream.md#SetRow) prima della funzione `SetRow`.
+SetPanes fornisce una funzione per creare e rimuovere riquadri bloccati e riquadri divisi fornendo opzioni di riquadri per `StreamWriter`. Tieni presente che devi chiamare la funzione [`SetRow`](stream.md#SetRow) prima della funzione `SetRow`.
 
 ## Unisci la cella allo streaming {#MergeCell}
 
@@ -179,6 +179,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
 MergeCell fornisce una funzione per unire le celle in base a un determinato intervallo di riferimento per `StreamWriter`. Non creare una cella unita che si sovrappone a un'altra cella unita esistente.
+
+## Imposta il contorno della colonna nel flusso {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+SetColOutlineLevel fornisce una funzione per impostare il livello di struttura di una singola colonna per StreamWriter. Il valore del parametro `level` è compreso tra 1 e 7. Si noti che è necessario chiamare la funzione `SetColOutlineLevel` prima della funzione [`SetRow`](stream.md#SetRow). Ad esempio, impostare il livello di struttura della colonna `D` a 2:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
 
 ## Imposta lo stile della colonna su streaming {#SetColStyle}
 
@@ -190,6 +202,24 @@ SetColStyle fornisce una funzione per impostare lo stile di una singola colonna 
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## Imposta la visibilità della colonna nel flusso {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+SetColVisible fornisce una funzione che imposta la visibilità di una singola colonna o di più colonne per `StreamWriter`. Si noti che è necessario chiamare la funzione `SetColVisible` prima della funzione [`SetRow`](stream.md#SetRow). Ad esempio, nascondere la colonna `D`:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+Nascondi le colonne da `D` a `F` (incluse):
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## Imposta la larghezza della colonna per lo streaming {#SetColWidth}

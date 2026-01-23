@@ -180,6 +180,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell provides a function to merge cells by a given range reference for the `StreamWriter`. Don't create a merged cell that overlaps with another existing merged cell.
 
+## Set column outline in stream {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+SetColOutlineLevel provides a function to set outline level of a single column for the StreamWriter. The value of parameter `level` is 1-7. Note that you must call the `SetColOutlineLevel` function before the [`SetRow`](stream.md#SetRow) function. For example, set outline level of column `D` to 2:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
+
 ## Set column style in stream {#SetColStyle}
 
 ```go
@@ -190,6 +202,24 @@ SetColStyle provides a function to set the style of a single column or multiple 
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## Set column visible in stream {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+SetColVisible provides a function set the visibility of a single column or multiple columns for the `StreamWriter`. Note that you must call the `SetColVisible` function before the [`SetRow`](stream.md#SetRow) function. For example hide column `D`:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+Hide the columns from `D` to `F` (included):
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## Set column width in stream {#SetColWidth}

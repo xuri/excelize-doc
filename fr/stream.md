@@ -154,7 +154,7 @@ err := sw.AddTable(&excelize.Table{
 })
 ```
 
-Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques. Actuellement, une seule table est autorisée pour un StreamWriter. [`AddTable`](stream.md#AddTable) doit être appelé après l'écriture des lignes mais avant `Flush`. Voir [`AddTable`](utils.md#AddTable) pour plus de détails sur le format de la table.
+Notez que le tableau doit comporter au moins deux lignes, y compris l'en-tête. Les cellules d'en-tête doivent contenir des chaînes et doivent être uniques. Actuellement, une seule table est autorisée pour un `StreamWriter`. [`AddTable`](stream.md#AddTable) doit être appelé après l'écriture des lignes mais avant `Flush`. Voir [`AddTable`](utils.md#AddTable) pour plus de détails sur le format de la table.
 
 ## Insérer un saut de page pour diffuser {#InsertPageBreak}
 
@@ -178,7 +178,19 @@ SetPanes fournit une fonction pour créer et supprimer des volets de gel et des 
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
-MergeCell fournit une fonction pour fusionner les cellules par une zone de coordonnées donnée pour StreamWriter. Ne créez pas de cellule fusionnée qui chevauche une autre cellule fusionnée existante.
+MergeCell fournit une fonction pour fusionner les cellules par une zone de coordonnées donnée pour `StreamWriter`. Ne créez pas de cellule fusionnée qui chevauche une autre cellule fusionnée existante.
+
+## Définir le contour des colonnes dans le flux {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+La fonction SetColOutlineLevel permet de définir le niveau de plan d'une colonne du `StreamWriter`. Le paramètre `level` peut prendre les valeurs de 1 à 7. Il est impératif d'appeler la fonction `SetColOutlineLevel` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, pour définir le niveau de plan de la colonne `D` à 2:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
 
 ## Définir le style de colonne dans le flux {#SetColStyle}
 
@@ -186,10 +198,28 @@ MergeCell fournit une fonction pour fusionner les cellules par une zone de coord
 func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 ```
 
-SetColStyle fournit une fonction permettant de définir le style d'une colonne unique ou de plusieurs colonnes pour `StreamWriter`. Notez que vous devez appeler la fonction `SetColStyle` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, définissez le style de la colonne `H` :
+SetColStyle fournit une fonction permettant de définir le style d'une colonne unique ou de plusieurs colonnes pour `StreamWriter`. Notez que vous devez appeler la fonction `SetColStyle` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, définissez le style de la colonne `H`:
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## Définir la visibilité des colonnes dans le flux {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+La fonction SetColVisible permet de définir la visibilité d'une ou plusieurs colonnes pour le `StreamWriter`. Notez qu'il est impératif d'appeler la fonction `SetColVisible` avant la fonction [`SetRow`](stream.md#SetRow). Par exemple, pour masquer la colonne `D`:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+Masquer les colonnes de `D` à `F` (incluses):
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## Définir la largeur de la colonne dans le flux {#SetColWidth}

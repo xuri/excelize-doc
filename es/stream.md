@@ -154,7 +154,7 @@ err := sw.AddTable(&excelize.Table{
 })
 ```
 
-Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas. Actualmente, solo se permite una tabla para StreamWriter. [`AddTable`](stream.md#AddTable) se debe llamar después de que se escriban las filas pero antes de `Flush`. Consulte [`AddTable`](utils.md#AddTable) para obtener detalles sobre el formato de la tabla.
+Tenga en cuenta que la tabla debe tener al menos dos líneas, incluido el encabezado. Las celdas del encabezado deben contener cadenas y deben ser únicas. Actualmente, solo se permite una tabla para `StreamWriter`. [`AddTable`](stream.md#AddTable) se debe llamar después de que se escriban las filas pero antes de `Flush`. Consulte [`AddTable`](utils.md#AddTable) para obtener detalles sobre el formato de la tabla.
 
 ## Insertar salto de página para transmitir {#InsertPageBreak}
 
@@ -178,7 +178,19 @@ SetPanes proporciona una función para crear y eliminar paneles congelados y pan
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
-MergeCell proporciona una función para fusionar celdas por un área de coordenadas determinada para StreamWriter. No cree una celda combinada que se superponga con otra celda combinada existente.
+MergeCell proporciona una función para fusionar celdas por un área de coordenadas determinada para `StreamWriter`. No cree una celda combinada que se superponga con otra celda combinada existente.
+
+## Establecer el contorno de la columna en la secuencia {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+SetColOutlineLevel proporciona una función para establecer el nivel de contorno de una sola columna para `StreamWriter`. El valor del parámetro `level` es de 1 a 7. Tenga en cuenta que debe llamar a la función `SetColOutlineLevel` antes de la función [`SetRow`](stream.md#SetRow). Por ejemplo, establezca el nivel de contorno de la columna `D` en 2:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
 
 ## Establecer el estilo de columna para transmitir {#SetColStyle}
 
@@ -190,6 +202,24 @@ SetColStyle proporciona una función para establecer el estilo de una sola colum
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## Establecer la visibilidad de la columna en la secuencia {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+SetColVisible proporciona una función que establece la visibilidad de una o varias columnas para `StreamWriter`. Tenga en cuenta que debe llamar a la función `SetColVisible` antes de la función [`SetRow`](stream.md#SetRow). Por ejemplo, oculte la columna `D`:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+Ocultar las columnas de `D` a `F` (incluidas):
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## Establecer el ancho de la columna para transmitir {#SetColWidth}

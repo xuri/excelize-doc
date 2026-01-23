@@ -185,6 +185,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 MergeCell fornece uma função para mesclar células por uma determinada referência de intervalo para o `StreamWriter`. Não crie uma célula mesclada que se sobreponha a outra célula mesclada existente.
 
+## Definir contorno da coluna no escoamento {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+A função SetColOutlineLevel define o nível de estrutura de tópicos de uma única coluna no `StreamWriter`. O valor do parâmetro `level` varia de 1 a 7. Note que a função `SetColOutlineLevel` deve ser chamada antes da função [`SetRow`](stream.md#SetRow). Por exemplo, para definir o nível de estrutura de tópicos da coluna `D` como 2:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
+
 ## Definir estilo de coluna no fluxo {#SetColStyle}
 
 ```go
@@ -195,6 +207,24 @@ SetColStyle fornece uma função para definir o estilo de uma única coluna ou d
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## Definir a visibilidade da coluna no fluxo {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+A função SetColVisible define a visibilidade de uma ou mais colunas do `StreamWriter`. Note que deve chamar a função `SetColVisible` antes da função [`SetRow`](stream.md#SetRow). Por exemplo, para ocultar a coluna `D`:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+Ocultar as colunas de `D` a `F` (inclusive):
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## Defina a largura da coluna para transmitir {#SetColWidth}

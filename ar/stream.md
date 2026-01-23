@@ -154,7 +154,7 @@ err := sw.AddTable(&excelize.Table{
 })
 ```
 
-لاحظ أن الجدول يجب أن يتكون من سطرين على الأقل بما في ذلك الرأس. يجب أن تحتوي خلايا الرأس على سلاسل ويجب أن تكون فريدة. حاليًا ، يُسمح بجدول واحد فقط لـ StreamWriter. يجب استدعاء [`AddTable`](stream.md#AddTable) بعد كتابة الصفوف ولكن قبل `Flush`. راجع [`AddTable`](utils.md#AddTable) للحصول على تفاصيل حول تنسيق الجدول.
+لاحظ أن الجدول يجب أن يتكون من سطرين على الأقل بما في ذلك الرأس. يجب أن تحتوي خلايا الرأس على سلاسل ويجب أن تكون فريدة. حاليًا ، يُسمح بجدول واحد فقط لـ `StreamWriter`. يجب استدعاء [`AddTable`](stream.md#AddTable) بعد كتابة الصفوف ولكن قبل `Flush`. راجع [`AddTable`](utils.md#AddTable) للحصول على تفاصيل حول تنسيق الجدول.
 
 ## إدراج فاصل صفحة للدفق {#InsertPageBreak}
 
@@ -178,7 +178,19 @@ func (sw *StreamWriter) SetPanes(panes *Panes) error
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
-يوفر MergeCell وظيفة لدمج الخلايا بواسطة منطقة إحداثيات معينة لـ StreamWriter. لا تقم بإنشاء خلية مدمجة تتداخل مع خلية مدمجة أخرى موجودة.
+يوفر MergeCell وظيفة لدمج الخلايا بواسطة منطقة إحداثيات معينة لـ `StreamWriter`. لا تقم بإنشاء خلية مدمجة تتداخل مع خلية مدمجة أخرى موجودة.
+
+## قم بتعيين مخطط العمود في التدفق {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+تُوفّر الدالة SetColOutlineLevel وظيفةً لضبط مستوى حدود عمود واحد في `StreamWriter`. تتراوح قيمة المعامل `level` بين 1 و7. يُرجى ملاحظة أنه يجب استدعاء الدالة `SetColOutlineLevel` قبل استدعاء الدالة [`SetRow`](stream.md#SetRow). على سبيل المثال، لضبط مستوى حدود العمود `D` إلى 2:
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
 
 ## تعيين نمط العمود في الدفق {#SetColStyle}
 
@@ -190,6 +202,24 @@ func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## قم بتعيين رؤية العمود في التدفق {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+تُتيح الدالة SetColVisible إمكانية إخفاء عمود واحد أو عدة أعمدة في كائن `StreamWriter`. يُرجى ملاحظة أنه يجب استدعاء الدالة `SetColVisible` قبل استدعاء الدالة [`SetRow`](stream.md#SetRow). على سبيل المثال، لإخفاء العمود `D`:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+إخفاء الأعمدة من `D` إلى `F` (مضمنة):
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## تعيين عرض العمود في الدفق {#SetColWidth}

@@ -182,6 +182,18 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 
 通过给定的单元格坐标区域流式合并单元格，当前仅支持合并非交叠区域单元格。
 
+## 流式设置列的分级显示 {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+根据给定的列编号和分级参数创建组，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置列的分级显示。参数 `level` 的取值范围是 1 至 7。例如，在工作表的 `D` 列创建 2 级分组：
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
+
 ## 流式设置列样式 {#SetColStyle}
 
 ```go
@@ -192,6 +204,24 @@ func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## 流式设置列可见性 {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+根据给定列范围设置列可见性，必须在调用 [`SetRow`](stream.md#SetRow) 之前调用该函数设置列可见性。例如隐藏工作表中的 `D` 列：
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+隐藏工作表中的 `D` 至 `F` 列：
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## 流式设置列宽度 {#SetColWidth}

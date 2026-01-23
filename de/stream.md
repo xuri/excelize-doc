@@ -154,7 +154,7 @@ err := sw.AddTable(&excelize.Table{
 })
 ```
 
-Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfzeile enthalten muss. Die Header-Zellen müssen Zeichenfolgen enthalten und eindeutig sein. Derzeit ist nur eine Tabelle für einen StreamWriter zulässig. [`AddTable`](stream.md#AddTable) muss aufgerufen werden, nachdem die Zeilen geschrieben wurden, jedoch vor `Flush`. Weitere Informationen zum Tabellenformat finden Sie unter [`AddTable`](utils.md#AddTable).
+Beachten Sie, dass die Tabelle mindestens zwei Zeilen einschließlich der Kopfzeile enthalten muss. Die Header-Zellen müssen Zeichenfolgen enthalten und eindeutig sein. Derzeit ist nur eine Tabelle für einen `StreamWriter` zulässig. [`AddTable`](stream.md#AddTable) muss aufgerufen werden, nachdem die Zeilen geschrieben wurden, jedoch vor `Flush`. Weitere Informationen zum Tabellenformat finden Sie unter [`AddTable`](utils.md#AddTable).
 
 ## Seitenumbruch zum Streamen einfügen {#InsertPageBreak}
 
@@ -178,7 +178,19 @@ SetPanes bietet eine Funktion zum Erstellen und Entfernen von Einfrierfenstern u
 func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 ```
 
-MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den StreamWriter. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.
+MergeCell bietet eine Funktion zum Zusammenführen von Zellen nach einem bestimmten Koordinatenbereich für den `StreamWriter`. Erstellen Sie keine zusammengeführte Zelle, die sich mit einer anderen vorhandenen zusammengeführten Zelle überschneidet.
+
+## Spaltenumriss im Stream festlegen {#SetColOutlineLevel}
+
+```go
+func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
+```
+
+Die Funktion SetColOutlineLevel dient zum Festlegen der Gliederungsebene einer einzelnen Spalte im `StreamWriter`. Der Parameter `level` kann Werte zwischen 1 und 7 annehmen. Beachten Sie, dass die Funktion `SetColOutlineLevel` vor der Funktion [`SetRow`](stream.md#SetRow) aufgerufen werden muss. Beispiel: Um die Gliederungsebene der Spalte `D` auf 2 zu setzen, verwenden Sie die Funktion `SetColOutlineLevel`.
+
+```go
+err := sw.SetColOutlineLevel(4, 2)
+```
 
 ## Spaltenstil auf Stream setzen {#SetColStyle}
 
@@ -190,6 +202,24 @@ SetColStyle bietet eine Funktion zum Festlegen des Stils einer einzelnen Spalte 
 
 ```go
 err := sw.SetColStyle(8, 8, style)
+```
+
+## Spaltensichtbarkeit im Stream festlegen {#SetColVisible}
+
+```go
+func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
+```
+
+Die Funktion SetColVisible legt die Sichtbarkeit einer oder mehrerer Spalten im `StreamWriter` fest. Beachten Sie, dass Sie die Funktion `SetColVisible` vor der Funktion [`SetRow`](stream.md#SetRow) aufrufen müssen. Beispiel, Spalte `D` ausblenden:
+
+```go
+err := sw.SetColVisible(4, 4, false)
+```
+
+Blenden Sie die Spalten von `D` bis `F` (einschließlich) aus:
+
+```go
+err := sw.SetColVisible(4, 6, false)
 ```
 
 ## Spaltenbreite auf Stream festlegen {#SetColWidth}
