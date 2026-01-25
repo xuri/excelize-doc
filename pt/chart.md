@@ -152,6 +152,8 @@ As propriedades de `XAxis` que podem ser definidas são:
 Parâmetro|Tipo|Valores padrão|Explicação
 ---|---|---|---
 None           | `bool`          | `false` | Desative eixos.
+DropLines      | `bool`          | `false` | Especifica linhas de derivação para gráficos de área e de linha 2D e 3D. As linhas de derivação são linhas verticais que conectam os pontos de dados em um gráfico ao eixo horizontal (de categoria). Elas são frequentemente usadas em gráficos de linha ou de área para facilitar a visualização da posição exata de cada ponto na categoria. A propriedade `DropLines` é opcional.
+HighLowLines   | `bool`          | `false` | Especifica as linhas de máxima e mínima para o gráfico de linhas 2D. As linhas de máxima e mínima são exibidas por padrão nos gráficos de ações. Elas se estendem do valor mais alto ao valor mais baixo em cada categoria. A propriedade `HighLowLines` é opcional.
 MajorGridLines | `bool`          | `false` | Especifica as principais linhas de grade.
 MinorGridLines | `bool`          | `false` | Especifica linhas de grade secundárias.
 TickLabelSkip  | `int`           | `1`     | Especifica quantos rótulos de escala devem ser ignorados entre os rótulos desenhados. A propriedade `TickLabelSkip` é opcional. O valor padrão é automático.

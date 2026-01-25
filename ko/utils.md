@@ -802,10 +802,12 @@ rightToLeft | 데이터 막대 방향은 왼쪽에서 오른쪽입니다.
 |3ArrowsGray    |
 |3Flags         |
 |3Signs         |
+|3Stars         |
 |3Symbols       |
 |3Symbols2      |
 |3TrafficLights1|
 |3TrafficLights2|
+|3Triangles     |
 |4Arrows        |
 |4ArrowsGray    |
 |4Rating        |
@@ -813,6 +815,7 @@ rightToLeft | 데이터 막대 방향은 왼쪽에서 오른쪽입니다.
 |4TrafficLights |
 |5Arrows        |
 |5ArrowsGray    |
+|5Boxes         |
 |5Quarters      |
 |5Rating        |
 

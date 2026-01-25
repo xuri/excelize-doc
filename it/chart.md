@@ -152,6 +152,8 @@ Le proprietà di `XAxis` che possono essere impostate sono:
 Parametro|Tipo|Predefinito|Spiegazione
 ---|---|---|---
 None           | `bool`          | `false` | Disabilitare gli assi.
+DropLines      | `bool`          | `false` | Specifica le linee di discesa per i grafici ad area e a linee 2D e 3D. Le linee di discesa sono linee verticali che collegano i punti dati in un grafico fino all'asse orizzontale (delle categorie). Sono spesso utilizzate nei grafici a linee o ad area per facilitare la visualizzazione dell'esatta posizione di categoria di ciascun punto. La proprietà `DropLines` è facoltativa.
+HighLowLines   | `bool`          | `false` | Specifica le linee di minimo e massimo per il grafico a linee 2D. Le linee di minimo e massimo vengono visualizzate per impostazione predefinita nei grafici azionari. Si estendono dal valore più alto al valore più basso in ogni categoria. La proprietà `HighLowLines` è facoltativa.
 MajorGridLines | `bool`          | `false` | Specifica le principali linee della griglia.
 MinorGridLines | `bool`          | `false` | Specifica le linee della griglia minori.
 TickLabelSkip  | `int`           | `1`     | Specifica quante etichette di spunta saltare tra l'etichetta disegnata. La proprietà `TickLabelSkip` è facoltativa. Il valore predefinito è automatico.

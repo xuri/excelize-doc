@@ -48,6 +48,10 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrNameLength определил сообщение об ошибке при получении определенного имени или длины имени таблицы, превышающей лимит
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrMaxGraphicAltTextLength определяет сообщение об ошибке, возникающее при получении графического элемента с текстом alt, длина которого превышает допустимый предел
+    ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
+    // ErrMaxGraphicNameLength определяет сообщение об ошибке, возникающее при получении сообщения о превышении лимита длины имени графического изображения
+    ErrMaxGraphicNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxGraphicNameLength)
     // ErrOptionsUnzipSizeLimit определяет значение ошибки для получения UnzipSizeLimit и UnzipXMLSizeLimit без ограничений
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrFormControlValue определил сообщение об ошибке для получения значения прокрутки, превышающего лимит.

@@ -152,6 +152,8 @@ Les propriétés de `XAxis` qui peuvent être définies sont:
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
 None           | `bool`          | `false` | Désactiver les axes.
+DropLines      | `bool`          | `false` | Spécifie les lignes de séparation pour les graphiques en aires et en lignes 2D et 3D. Ces lignes verticales relient les points de données à l'axe horizontal (axe des catégories). Elles sont souvent utilisées dans les graphiques en aires ou en lignes pour faciliter la visualisation de la catégorie exacte de chaque point. La propriété `DropLines` est facultative.
+HighLowLines   | `bool`          | `false` | Spécifie les lignes hautes et basses du graphique linéaire 2D. Ces lignes sont affichées par défaut sur les graphiques boursiers. Elles s'étendent de la valeur la plus élevée à la valeur la plus basse de chaque catégorie. La propriété `HighLowLines` est facultative.
 MajorGridLines | `bool`          | `false` | Spécifie les lignes de grille principales.
 MinorGridLines | `bool`          | `false` | Spécifie les lignes de grille mineures.
 TickLabelSkip  | `int`           | `1`     | Spécifie le nombre d'étiquettes de graduation à ignorer entre les étiquettes dessinées. La propriété `TickLabelSkip` est facultative. La valeur par défaut est auto.

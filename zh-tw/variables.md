@@ -52,6 +52,10 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrNameLength 定義了自訂名稱或表格名稱長度超出最大限制時的錯誤提示信息
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrMaxGraphicAltTextLength 定義了圖形對象替代文字長度超出最大限制時的錯誤提示信息
+    ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
+    // ErrMaxGraphicNameLength 定義了圖形對象名稱長度超出最大限制時的錯誤提示信息
+    ErrMaxGraphicNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxGraphicNameLength)
     // ErrOptionsUnzipSizeLimit 定義了開啓活頁簿時，「用以指定開啓電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的記憶體限制參數」產生衝突時的錯誤提示信息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel 定義了在數據分組時收到無效級別時的錯誤提示信息

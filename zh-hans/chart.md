@@ -154,6 +154,8 @@ NumFmt            | `ChartNumFmt`    | N/A     | 设置数据标签的数字格�
 参数|类型|默认值|含义
 ---|---|---|---
 None           | `bool`          | `false` | 隐藏坐标轴
+DropLines      | `bool`          | `false` | 设置适用于二维和三维面积图、折线图的垂直线。垂直线是连接图表中数据点到水平坐标轴的线，以便更清晰地显示每个点的确切位置。`DropLines` 属性是可选的
+HighLowLines   | `bool`          | `false` | 设置适用于二维折线图的高低点连接线。高低点连接线默认在股价图中开启，是连接同一类别下“最高值”和“最低值”的垂直线。`HighLowLines` 属性是可选的
 MajorGridLines | `bool`          | `false` | 主要网格线
 MinorGridLines | `bool`          | `false` | 次要网格线
 TickLabelSkip  | `int`           | `1`     | 指定标签间隔单位

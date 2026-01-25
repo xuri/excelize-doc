@@ -152,6 +152,8 @@ The properties of `XAxis` that can be set are:
 Parameter|Type|Default|Explanation
 ---|---|---|---
 None           | `bool`          | `false` | Disable axes.
+DropLines      | `bool`          | `false` | Specifies drop lines for the 2D and 3D area and line charts. Drop lines are vertical lines that connect data points in a chart down to the horizontal (category) axis. They are often used in line or area charts to make it easier to see the exact category position of each point. The `DropLines` property is optional.
+HighLowLines   | `bool`          | `false` | Specifies high low lines for the 2D line chart. High low lines displayed by default in stock charts. They extend from the highest value to the lowest value in each category. The `HighLowLines` property is optional.
 MajorGridLines | `bool`          | `false` | Specifies major grid lines.
 MinorGridLines | `bool`          | `false` | Specifies minor grid lines.
 TickLabelSkip  | `int`           | `1`     | Specifies how many tick labels to skip between label that is drawn. The `TickLabelSkip` property is optional. The default value is auto.

@@ -50,6 +50,10 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrNameLength definió el mensaje de error al recibir el nombre definido o la longitud del nombre de la tabla supera el límite.
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrMaxGraphicAltTextLength define el mensaje de error al recibir el texto alternativo del gráfico cuando la longitud excede el límite.
+    ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
+    // ErrMaxGraphicNameLength define el mensaje de error al recibir el nombre del gráfico cuando la longitud excede el límite.
+    ErrMaxGraphicNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxGraphicNameLength)
     // ErrOptionsUnzipSizeLimit definió el mensaje de error para recibir UnzipSizeLimit y UnzipXMLSizeLimit no válidos.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel definió el mensaje de error al recibir un número de nivel de esquema no válido.

@@ -802,10 +802,12 @@ rightToLeft | La direction de la barre de données est de gauche à droite.
 |3ArrowsGray    |
 |3Flags         |
 |3Signs         |
+|3Stars         |
 |3Symbols       |
 |3Symbols2      |
 |3TrafficLights1|
 |3TrafficLights2|
+|3Triangles     |
 |4Arrows        |
 |4ArrowsGray    |
 |4Rating        |
@@ -813,6 +815,7 @@ rightToLeft | La direction de la barre de données est de gauche à droite.
 |4TrafficLights |
 |5Arrows        |
 |5ArrowsGray    |
+|5Boxes         |
 |5Quarters      |
 |5Rating        |
 

@@ -152,6 +152,8 @@ Las propiedades de `XAxis` que se pueden configurar son:
 Parámetro|Tipo|Defecto|Explicación
 ---|---|---|---
 None           | `bool`          | `false` | Deshabilitar ejes.
+DropLines      | `bool`          | `false` | Especifica líneas de caída para gráficos de áreas y líneas 2D y 3D. Las líneas de caída son líneas verticales que conectan los puntos de datos de un gráfico con el eje horizontal (de categorías). Se suelen usar en gráficos de líneas o áreas para facilitar la visualización de la posición exacta de cada punto en la categoría. La propiedad `DropLines` es opcional.
+HighLowLines   | `bool`          | `false` | Especifica las líneas de máximos y mínimos para el gráfico de líneas 2D. Estas líneas se muestran por defecto en los gráficos de acciones. Se extienden desde el valor más alto hasta el más bajo de cada categoría. La propiedad `HighLowLines` es opcional.
 MajorGridLines | `bool`          | `false` | Especifica las principales líneas de cuadrícula.
 MinorGridLines | `bool`          | `false` | Especifica líneas de cuadrícula menores.
 TickLabelSkip  | `int`           | `1`     | Especifica cuántas etiquetas de marca se deben omitir entre una etiqueta dibujada. La propiedad `TickLabelSkip` es opcional. El valor predeterminado es automático.

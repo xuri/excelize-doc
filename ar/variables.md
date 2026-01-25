@@ -50,6 +50,10 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // حدد ErrNameLength رسالة الخطأ عند تلقي الاسم المحدد أو تجاوز طول اسم الجدول الحد.
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // تم تحديد رسالة الخطأ ErrMaxGraphicAltTextLength عند استلام رسالة خطأ تفيد بأن طول النص البديل للرسومات يتجاوز الحد المسموح به.
+    ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
+    // تم تحديد رسالة الخطأ ErrMaxGraphicNameLength عند استلام رسالة تفيد بأن طول اسم الرسم يتجاوز الحد المسموح به.
+    ErrMaxGraphicNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxGraphicNameLength)
     // حدد ErrOptionsUnzipSizeLimit رسالة الخطأ لتلقي UnzipSizeLimit و UnzipXMLSizeLimit غير صالحين.
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // حدد ErrOutlineLevel رسالة الخطأ عند تلقي رقم مستوى مخطط تفصيلي غير صالح.

@@ -50,6 +50,10 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrNameLength 는 정의된 이름 또는 테이블 이름 길이가 제한을 초과할 때 오류 메시지를 정의했습니다
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrMaxGraphicAltTextLength 는 그래픽 대체 텍스트 길이가 제한을 초과했을 때 표시되는 오류 메시지를 정의합니다
+    ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
+    // ErrMaxGraphicNameLength 는 그래픽 이름 길이가 제한을 초과했을 때 표시되는 오류 메시지를 정의합니다
+    ErrMaxGraphicNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxGraphicNameLength)
     // ErrOptionsUnzipSizeLimit 은 잘못된 UnzipSizeLimit 및 UnzipXMLSizeLimit 수신에 대한 오류 메시지를 정의했습니다
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")
     // ErrOutlineLevel 은 잘못된 개요 수준 번호를 수신할 때 오류 메시지를 정의했습니다

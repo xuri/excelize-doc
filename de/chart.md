@@ -152,6 +152,8 @@ Die Eigenschaften von `XAxis`, die eingestellt werden können, sind:
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---
 None           | `bool`          | `false` | Achsen deaktivieren.
+DropLines      | `bool`          | `false` | Legt Hilfslinien für 2D und 3D Flächen und Liniendiagramme fest. Hilfslinien sind vertikale Linien, die Datenpunkte in einem Diagramm mit der horizontalen (Kategorie-)Achse verbinden. Sie werden häufig in Linien- oder Flächendiagrammen verwendet, um die genaue Kategorieposition jedes Punktes besser sichtbar zu machen. Die Eigenschaft `DropLines` ist optional.
+HighLowLines   | `bool`          | `false` | Legt die Hoch-und Tiefstlinien für das 2D-Liniendiagramm fest. Diese Linien werden standardmäßig in Aktiencharts angezeigt und verlaufen vom höchsten zum niedrigsten Wert jeder Kategorie. Die Eigenschaft `HighLowLines` ist optional.
 MajorGridLines | `bool`          | `false` | Gibt die Hauptgitterlinien an.
 MinorGridLines | `bool`          | `false` | Gibt kleinere Gitterlinien an.
 TickLabelSkip  | `int`           | `1`     | Gibt an, wie viele Häkchen zwischen einem gezeichneten Etikett übersprungen werden sollen. Die Eigenschaft `TickLabelSkip` ist optional. Der Standardwert ist auto.

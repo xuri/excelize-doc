@@ -154,6 +154,8 @@ NumFmt            | `ChartNumFmt`    | N/A     | 設定資料標籤的數字格�
 參數|類別|默認值|含義
 ---|---|---|---
 None           | `bool`          | `false` | 隱藏坐標軸
+DropLines      | `bool`          | `false` | 設定適用於二維和三維面積圖、折線圖的垂直線。垂直線是連接圖表中數據點到水平坐標軸的線，以便更清晰地顯示每個點的確切位置。`DropLines` 屬性是可選的
+HighLowLines   | `bool`          | `false` | 設定適用於二維折線圖的高低點連接線。高低點連接線默認在股價圖中開啓，是連接同一類別下「最高值」和「最低值」的垂直線。`HighLowLines` 屬性是可選的
 MajorGridLines | `bool`          | `false` | 主要網格線
 MinorGridLines | `bool`          | `false` | 次要網格線
 TickLabelSkip  | `int`           | `1`     | 指定標籤間隔單位
