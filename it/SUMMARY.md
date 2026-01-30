@@ -78,6 +78,7 @@
   * [Foglio di ricerca](sheet.md#SearchSheet)
   * [Proteggi foglio](sheet.md#ProtectSheet)
   * [Rimuovi protezione foglio](sheet.md#UnprotectSheet)
+  * [Ottieni opzioni di protezione del foglio di lavoro](sheet.md#GetSheetProtection)
   * [Rimuovi colonna](sheet.md#RemoveCol)
   * [Rimuovi riga](sheet.md#RemoveRow)
   * [Imposta i valori delle colonne](sheet.md#SetSheetCol)

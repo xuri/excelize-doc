@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 UnprotectSheet предоставляет функцию для снятия защиты листа, указанного вторым необязательным параметром пароля для снятия защиты листа с проверкой пароля.
 
+## Получить параметры защиты листа {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+GetSheetProtection предоставляет функцию для получения настроек защиты рабочего листа по заданному имени листа. Обратите внимание, что пароль в результате выполнения функции всегда будет пустым.
+
 ## Удалить столбец {#RemoveCol}
 
 ```go

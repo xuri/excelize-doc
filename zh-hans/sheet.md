@@ -453,6 +453,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 根据给定的工作表名称取消保护该工作表，指定第二个可选密码参数以通过密码验证来取消工作表保护。
 
+## 获取保护工作表设置 {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+根据给定的工作表名称该工作表的保护设置。注意，该函数不会返回用于保护工作表的密码，返回结果中密码选项的值为空。
+
 ## 删除列 {#RemoveCol}
 
 ```go

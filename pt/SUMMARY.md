@@ -78,6 +78,7 @@
   * [Pesquisar na planilha](sheet.md#SearchSheet)
   * [Proteger planilha](sheet.md#ProtectSheet)
   * [Desproteger planilha](sheet.md#UnprotectSheet)
+  * [Obter opções de proteção da planilha](sheet.md#GetSheetProtection)
   * [Remover coluna](sheet.md#RemoveCol)
   * [Remover linha](sheet.md#RemoveRow)
   * [Definir valores de coluna](sheet.md#SetSheetCol)

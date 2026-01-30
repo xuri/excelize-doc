@@ -78,6 +78,7 @@
   * [ورقة البحث](sheet.md#SearchSheet)
   * [حماية الورقة](sheet.md#ProtectSheet)
   * [ورقة إلغاء الحماية](sheet.md#UnprotectSheet)
+  * [احصل على إعدادات حماية ورقة العمل](sheet.md#GetSheetProtection)
   * [إزالة عمود](sheet.md#RemoveCol)
   * [إزالة الصف](sheet.md#RemoveRow)
   * [قم بتعيين قيم العمود](sheet.md#SetSheetCol)

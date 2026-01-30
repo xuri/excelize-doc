@@ -78,6 +78,7 @@
   * [Hoja de búsqueda](sheet.md#SearchSheet)
   * [Hoja de protección](sheet.md#ProtectSheet)
   * [Desproteger hoja](sheet.md#UnprotectSheet)
+  * [Obtenga opciones de protección de hojas de trabajo](sheet.md#GetSheetProtection)
   * [Eliminar columna](sheet.md#RemoveCol)
   * [Eliminar fila](sheet.md#RemoveRow)
   * [Establecer valores de columna](sheet.md#SetSheetCol)

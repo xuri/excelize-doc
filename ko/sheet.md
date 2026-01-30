@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 UnprotectSheet 는 시트에 대한 보호를 제거하는 기능을 제공하며, 암호 확인으로 시트 보호를 제거하기 위해 두 번째 선택적 암호 매개변수를 지정했습니다.
 
+## 워크시트 보호 옵션 가져오기 {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+GetSheetProtection 은 지정된 워크시트 이름으로 워크시트 보호 설정을 가져오는 기능을 제공합니다. 함수 결과의 비밀번호는 항상 비어 있다는 점에 유의하시기 바랍니다.
+
 ## 열 삭제 {#RemoveCol}
 
 ```go

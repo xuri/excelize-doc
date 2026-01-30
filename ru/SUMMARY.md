@@ -78,6 +78,7 @@
   * [Поиск на листе](sheet.md#SearchSheet)
   * [Защитить лист](sheet.md#ProtectSheet)
   * [Снять защиту листа](sheet.md#UnprotectSheet)
+  * [Получить параметры защиты листа](sheet.md#GetSheetProtection)
   * [Удалить столбец](sheet.md#RemoveCol)
   * [Удалить строку](sheet.md#RemoveRow)
   * [Установка значений столбцов](sheet.md#SetSheetCol)

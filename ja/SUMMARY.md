@@ -78,6 +78,7 @@
   * [検索シート](sheet.md#SearchSheet)
   * [シートを保護する](sheet.md#ProtectSheet)
   * [無防備シート](sheet.md#UnprotectSheet)
+  * [ワークシートの保護オプションを取得](sheet.md#GetSheetProtection)
   * [列を削除](sheet.md#RemoveCol)
   * [行を削除](sheet.md#RemoveRow)
   * [列の値を設定する](sheet.md#SetSheetCol)

@@ -78,6 +78,7 @@
   * [在工作表中搜尋](sheet.md#SearchSheet)
   * [保護工作表](sheet.md#ProtectSheet)
   * [取消保護工作表](sheet.md#UnprotectSheet)
+  * [獲取保護工作表設定](sheet.md#GetSheetProtection)
   * [刪除欄](sheet.md#RemoveCol)
   * [刪除列](sheet.md#RemoveRow)
   * [按欄賦值](sheet.md#SetSheetCol)

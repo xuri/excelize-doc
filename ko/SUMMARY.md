@@ -78,6 +78,7 @@
   * [검색 시트](sheet.md#SearchSheet)
   * [보호 시트](sheet.md#ProtectSheet)
   * [보호되지 않은 시트](sheet.md#UnprotectSheet)
+  * [워크시트 보호 옵션 가져오기](sheet.md#GetSheetProtection)
   * [열 삭제](sheet.md#RemoveCol)
   * [행 삭제](sheet.md#RemoveRow)
   * [열 값 설정](sheet.md#SetSheetCol)

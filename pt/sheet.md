@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 UnprotectSheet fornece uma função para remover a proteção de uma planilha, especificando o segundo parâmetro de senha opcional para remover a proteção da planilha com verificação de senha.
 
+## Obter opções de proteção da planilha {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+GetSheetProtection fornece uma função para obter as configurações de proteção da planilha pelo nome da planilha fornecido. Observe que a senha no resultado da função estará sempre vazia.
+
 ## Remover coluna {#RemoveCol}
 
 ```go

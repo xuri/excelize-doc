@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 يوفر UnprotectSheet وظيفة لإزالة الحماية للورقة ، وحدد معلمة كلمة المرور الاختيارية الثانية لإزالة حماية الورقة باستخدام التحقق من كلمة المرور.
 
+## احصل على إعدادات حماية ورقة العمل {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+توفر دالة GetSheetProtection إمكانية الحصول على إعدادات حماية ورقة العمل باستخدام اسم ورقة العمل المُعطى. لاحظ أن كلمة المرور في نتيجة الدالة ستكون فارغة دائمًا.
+
 ## إزالة عمود {#RemoveCol}
 
 ```go

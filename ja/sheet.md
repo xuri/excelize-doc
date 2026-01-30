@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 UnprotectSheet は、シートの保護を削除する機能を提供し、パスワード検証でシート保護を削除するための 2 番目のオプションのパスワードパラメーターを指定しました。
 
+## ワークシートの保護オプションを取得 {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+GetSheetProtection は、指定したワークシート名でワークシートの保護設定を取得する機能を提供します。なお、関数の結果に含まれるパスワードは常に空になります。
+
 ## 列を削除 {#RemoveCol}
 
 ```go

@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 UnprotectSheet bietet eine Funktion zum Aufheben des Schutzes für ein Blatt, spezifiziert den zweiten optionalen Kennwortparameter, um den Blattschutz mit Kennwortüberprüfung zu entfernen.
 
+## Arbeitsblatt-Schutzoptionen abrufen {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+Die Funktion `GetSheetProtection` ruft die Einstellungen für den Blattschutz anhand des angegebenen Blattnamens ab. Beachten Sie, dass das Passwort im Funktionsergebnis immer leer ist.
+
 ## Spalte entfernen {#RemoveCol}
 
 ```go

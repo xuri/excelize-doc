@@ -78,6 +78,7 @@
   * [Search sheet](sheet.md#SearchSheet)
   * [Protect sheet](sheet.md#ProtectSheet)
   * [Unprotect sheet](sheet.md#UnprotectSheet)
+  * [Get sheet protection](sheet.md#GetSheetProtection)
   * [Remove column](sheet.md#RemoveCol)
   * [Remove row](sheet.md#RemoveRow)
   * [Set column values](sheet.md#SetSheetCol)

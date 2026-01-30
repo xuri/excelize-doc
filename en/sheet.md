@@ -451,6 +451,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 UnprotectSheet provides a function to remove protection for a sheet, specified the second optional password parameter to remove sheet protection with password verification.
 
+## Get sheet protection {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+GetSheetProtection provides a function to get worksheet protection settings by given worksheet name. Note that the password in the function result will always be empty.
+
 ## Remove column {#RemoveCol}
 
 ```go

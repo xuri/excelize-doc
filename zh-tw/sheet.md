@@ -453,6 +453,14 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 
 根據給定的工作表名稱取消保護該工作表，指定第二個可選密碼參數以透過密碼驗證來取消工作表保護。
 
+## 獲取保護工作表設定 {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+根據給定的工作表名稱該工作表的保護設定。注意，該函數不會返回用於保護工作表的密碼，返回結果中密碼選項的值為空。
+
 ## 刪除欄 {#RemoveCol}
 
 ```go

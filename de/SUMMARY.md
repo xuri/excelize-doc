@@ -78,6 +78,7 @@
   * [Suchblatt](sheet.md#SearchSheet)
   * [Arbeitsblatt schützen](sheet.md#ProtectSheet)
   * [Ungeschützt Arbeitsblatt](sheet.md#UnprotectSheet)
+  * [Arbeitsblatt-Schutzoptionen abrufen](sheet.md#GetSheetProtection)
   * [Spalte entfernen](sheet.md#RemoveCol)
   * [Zeile entfernen](sheet.md#RemoveRow)
   * [Festlegen von Spaltenwerten](sheet.md#SetSheetCol)

@@ -443,13 +443,21 @@ type SheetProtectionOptions struct {
 }
 ```
 
-## Ôter la protection de la feuille {#UnprotectedSheet}
+## Ôter la protection de la feuille {#UnprotectSheet}
 
 ```go
 func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
 UnprotectSheet fournit une fonction pour supprimer la protection d'une feuille, spécifié le deuxième paramètre de mot de passe facultatif pour supprimer la protection de la feuille avec vérification du mot de passe.
+
+## Obtenir les options de protection de la feuille {#GetSheetProtection}
+
+```go
+func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
+```
+
+La fonction GetSheetProtection permet d'obtenir les paramètres de protection d'une feuille de calcul à partir de son nom. Veuillez noter que le mot de passe renvoyé par la fonction sera toujours vide.
 
 ## Supprimer la colonne {#RemoveCol}
 
