@@ -103,6 +103,7 @@
   * [Получить тип данных ячейки](cell.md#GetCellType)
   * [Получить все значения ячейки по столбцам](cell.md#GetCols)
   * [Получить все значения ячеек по строкам](cell.md#GetRows)
+  * [Получить ячейки с гиперссылками](cell.md#GetHyperLinkCells)
   * [Получить гиперссылку](cell.md#GetCellHyperLink)
   * [Получить индекс стиля](cell.md#GetCellStyle)
   * [Объединить ячейки](cell.md#MergeCell)

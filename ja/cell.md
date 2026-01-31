@@ -489,6 +489,14 @@ for _, row := range rows {
 }
 ```
 
+## ハイパーリンクセルを取得 {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells は、指定されたワークシート名とリンクタイプでハイパーリンクを含むセル参照を返します。オプションのパラメータ `linkType` は特定のリンクタイプに使用され、オプションの値は `External`（ウェブサイトリンク用）、`Location`（このワークブック内のセルへの移動用）、`None`（リンクなし）です。`linkType` が空の場合、ワークシート内のすべてのハイパーリンクが返されます。
+
 ## ハイパーリンクを取得 {#GetCellHyperLink}
 
 ```go

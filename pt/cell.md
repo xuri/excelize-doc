@@ -493,6 +493,14 @@ for _, row := range rows {
 }
 ```
 
+## Obter células com hiperlink {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells retorna referências de células que contêm hiperlinks em um nome de planilha e tipo de link fornecidos. O parâmetro opcional `linkType` é usado para um tipo de link específico, os valores opcionais são `External` para links de sites, `Location` para mover para uma das células desta pasta de trabalho, `None` para nenhum link. Se `linkType` estiver vazio, ele retornará todos os hiperlinks na planilha.
+
 ## Obter hiperlink {#GetCellHyperLink}
 
 ```go

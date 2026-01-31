@@ -103,6 +103,7 @@
   * [获取单元格数据类型](cell.md#GetCellType)
   * [按列获取全部单元格的值](cell.md#GetCols)
   * [按行获取全部单元格的值](cell.md#GetRows)
+  * [获取超链接单元格](cell.md#GetHyperLinkCells)
   * [获取超链接](cell.md#GetCellHyperLink)
   * [获取样式索引](cell.md#GetCellStyle)
   * [合并单元格](cell.md#MergeCell)

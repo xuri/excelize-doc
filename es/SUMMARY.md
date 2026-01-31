@@ -103,6 +103,7 @@
   * [Obtener el tipo de datos de la celda](cell.md#GetCellType)
   * [Obtener todo el valor de celda por columnas](cell.md#GetCols)
   * [Obtener todo el valor de celda por filas](cell.md#GetRows)
+  * [Obtener celdas con hipervínculo](cell.md#GetHyperLinkCells)
   * [Obtener hipervínculo](cell.md#GetCellHyperLink)
   * [Obtener índice de estilo](cell.md#GetCellStyle)
   * [Combinar celdas](cell.md#MergeCell)

@@ -103,6 +103,7 @@
   * [Obtenha o tipo de célula](cell.md#GetCellType)
   * [Obtenha todos os valores das células por colunas](cell.md#GetCols)
   * [Obtenha todos os valores das células por linhas](cell.md#GetRows)
+  * [Obter células com hiperlink](cell.md#GetHyperLinkCells)
   * [Obter hiperlink](cell.md#GetCellHyperLink)
   * [Obtenha índice de estilo](cell.md#GetCellStyle)
   * [Mesclar células](cell.md#MergeCell)

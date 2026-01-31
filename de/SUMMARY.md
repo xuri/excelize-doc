@@ -103,6 +103,7 @@
   * [Holen Sie sich den Zellendatentyp](cell.md#GetCellType)
   * [Abrufen des gesamten Zellenwerts nach Spalten](cell.md#GetCols)
   * [Abrufen des gesamten Zellenwerts nach Zeilen](cell.md#GetRows)
+  * [Hyperlink-Zellen abrufen](cell.md#GetHyperLinkCells)
   * [Abrufen von Hyperlinks](cell.md#GetCellHyperLink)
   * [Stilindex abrufen](cell.md#GetCellStyle)
   * [Zusammenführen von Zellen](cell.md#MergeCell)

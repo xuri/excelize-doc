@@ -103,6 +103,7 @@
   * [Obtenir le type de cellule](cell.md#GetCellType)
   * [Obtenir toutes les valeurs des cellules par colonnes](cell.md#GetCols)
   * [Obtenir toutes les valeurs de la cellule par des lignes](cell.md#GetRows)
+  * [Obtenir les cellules avec lien hypertexte](cell.md#GetHyperLinkCells)
   * [Obtenir un lien hypertexte](cell.md#GetCellHyperLink)
   * [Obtenir l'index de style](cell.md#GetCellStyle)
   * [Fusionner les cellules](cell.md#MergeCell)

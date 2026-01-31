@@ -103,6 +103,7 @@
   * [セルタイプを取得します](cell.md#GetCellType)
   * [列ごとにすべてのセル値を取得する](cell.md#GetCols)
   * [行ごとにすべてのセル値を取得する](cell.md#GetRows)
+  * [ハイパーリンクセルを取得](cell.md#GetHyperLinkCells)
   * [ハイパーリンクを取得](cell.md#GetCellHyperLink)
   * [スタイルインデックスの取得](cell.md#GetCellStyle)
   * [セルを結合](cell.md#MergeCell)

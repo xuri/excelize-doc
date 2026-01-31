@@ -103,6 +103,7 @@
   * [셀 유형 가져오기](cell.md#GetCellType)
   * [열로 모든 셀 값 가져 오기](cell.md#GetCols)
   * [행으로 모든 셀 값 가져 오기](cell.md#GetRows)
+  * [하이퍼링크 셀 가져오기](cell.md#GetHyperLinkCells)
   * [하이퍼 링크 가져 오기](cell.md#GetCellHyperLink)
   * [스타일 색인 가져 오기](cell.md#GetCellStyle)
   * [셀 병합](cell.md#MergeCell)

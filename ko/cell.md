@@ -489,6 +489,14 @@ for _, row := range rows {
 }
 ```
 
+## 하이퍼링크 셀 가져오기 {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells 는 지정된 워크시트 이름과 링크 유형에서 하이퍼링크가 포함된 셀 참조를 반환합니다. 선택적 매개변수 `linkType` 은 특정 링크 유형에 사용되며, 선택적 값은 웹사이트 링크의 경우 `External`, 이 통합 문서의 셀 중 하나로 이동하는 경우 `Location`, 링크가 없는 경우 `None` 입니다. `linkType` 이 비어 있으면 워크시트의 모든 하이퍼링크가 반환됩니다.
+
 ## 하이퍼 링크 가져 오기 {#GetCellHyperLink}
 
 ```go

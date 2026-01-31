@@ -489,6 +489,14 @@ for _, row := range rows {
 }
 ```
 
+## Obtenir les cellules avec lien hypertexte {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells renvoie les références de cellules contenant des liens hypertexte dans un nom de feuille de calcul et un type de lien donnés. Le paramètre optionnel `linkType` est utilisé pour un type de lien spécifique, les valeurs optionnelles sont `External` pour les liens de sites Web, `Location` pour passer à l'une des cellules de ce classeur, `None` pour aucun lien. Si `linkType` est vide, il renverra tous les liens hypertexte de la feuille de calcul.
+
 ## Obtenir un lien hypertexte {#GetCellHyperLink}
 
 ```go

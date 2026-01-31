@@ -103,6 +103,7 @@
   * [獲取儲存格數據類型](cell.md#GetCellType)
   * [按欄獲取全部儲存格的值](cell.md#GetCols)
   * [按列獲取全部儲存格的值](cell.md#GetRows)
+  * [獲取超鏈接存儲格](cell.md#GetHyperLinkCells)
   * [獲取超鏈接](cell.md#GetCellHyperLink)
   * [獲取樣式索引](cell.md#GetCellStyle)
   * [合併儲存格](cell.md#MergeCell)

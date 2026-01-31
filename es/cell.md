@@ -489,6 +489,14 @@ for _, row := range rows {
 }
 ```
 
+## Obtener celdas con hipervínculo {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells devuelve las referencias de celdas que contienen hipervínculos en un nombre de hoja de trabajo y tipo de enlace dados. El parámetro opcional `linkType` se utiliza para un tipo de enlace específico, los valores opcionales son `External` para enlaces de sitios web, `Location` para moverse a una de las celdas en este libro de trabajo, `None` para ningún enlace. Si `linkType` está vacío, devolverá todos los hipervínculos en la hoja de trabajo.
+
 ## Obtener hipervínculo {#GetCellHyperLink}
 
 ```go

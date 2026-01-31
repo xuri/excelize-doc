@@ -491,6 +491,14 @@ for _, row := range rows {
 }
 ```
 
+## 獲取超鏈接存儲格 {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+根據給定的工作表名和資源類型獲取超鏈接存儲格坐標。可選參數 `linkType` 用於指定超鏈接的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超鏈接的 `None`。如果 `linkType` 的值為空，該函式將返回工作表中全部超鏈接存儲格的坐標。
+
 ## 獲取超鏈接 {#GetCellHyperLink}
 
 ```go

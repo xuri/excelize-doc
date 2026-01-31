@@ -103,6 +103,7 @@
   * [Get cell type](cell.md#GetCellType)
   * [Get all cell value by columns](cell.md#GetCols)
   * [Get all cell value by rows](cell.md#GetRows)
+  * [Get hyperlink cells](cell.md#GetHyperLinkCells)
   * [Get hyperlink](cell.md#GetCellHyperLink)
   * [Get style index](cell.md#GetCellStyle)
   * [Merge cells](cell.md#MergeCell)

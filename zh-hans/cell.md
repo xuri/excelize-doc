@@ -491,6 +491,14 @@ for _, row := range rows {
 }
 ```
 
+## 获取超链接单元格 {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+根据给定的工作表名和资源类型获取超链接单元格坐标。可选参数 `linkType` 用于指定超链接的类型，可选值为用于表示外部链接地址的 `External`、工作簿内部位置链接的 `Location`，和表示无超链接的 `None`。如果 `linkType` 的值为空，函数将返回工作表中全部超链接单元格的坐标。
+
 ## 获取超链接 {#GetCellHyperLink}
 
 ```go

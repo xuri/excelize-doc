@@ -489,6 +489,14 @@ for _, row := range rows {
 }
 ```
 
+## Hyperlink-Zellen abrufen {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells gibt Zellreferenzen zurück, die Hyperlinks in einem bestimmten Arbeitsblattnamen und Linktyp enthalten. Der optionale Parameter `linkType` wird für einen bestimmten Linktyp verwendet. Die optionalen Werte sind `External` für Website-Links, `Location` für das Verschieben zu einer Zelle in dieser Arbeitsmappe und `None` für keine Links. Wenn `linkType` leer ist, werden alle Hyperlinks im Arbeitsblatt zurückgegeben.
+
 ## Abrufen von Hyperlinks {#GetCellHyperLink}
 
 ```go

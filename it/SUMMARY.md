@@ -103,6 +103,7 @@
   * [Ottieni il tipo di cella](cell.md#GetCellType)
   * [Ottieni tutto il valore della cella in base alle colonne](cell.md#GetCols)
   * [Ottieni tutto il valore della cella per righe](cell.md#GetRows)
+  * [Ottieni celle con collegamento ipertestuale](cell.md#GetHyperLinkCells)
   * [Ottieni il collegamento ipertestuale](cell.md#GetCellHyperLink)
   * [Ottieni l'indice di stile](cell.md#GetCellStyle)
   * [Unire le celle](cell.md#MergeCell)

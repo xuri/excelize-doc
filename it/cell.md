@@ -493,6 +493,14 @@ for _, row := range rows {
 }
 ```
 
+## Ottieni celle con collegamento ipertestuale {#GetHyperLinkCells}
+
+```go
+func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
+```
+
+GetHyperLinkCells restituisce i riferimenti delle celle che contengono collegamenti ipertestuali in un nome del foglio di lavoro e un tipo di collegamento specificati. Il parametro opzionale `linkType` viene utilizzato per un tipo di collegamento specifico, i valori opzionali sono `External` per i collegamenti a siti Web, `Location` per spostarsi su una delle celle in questa cartella di lavoro, `None` per nessun collegamento. Se `linkType` è vuoto, verranno restituiti tutti i collegamenti ipertestuali nel foglio di lavoro.
+
 ## Ottieni il collegamento ipertestuale {#GetCellHyperLink}
 
 ```go

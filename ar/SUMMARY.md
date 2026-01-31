@@ -103,6 +103,7 @@
   * [احصل على نوع الخلية](cell.md#GetCellType)
   * [الحصول على كل قيمة الخلية حسب الأعمدة](cell.md#GetCols)
   * [الحصول على كل قيمة الخلية بالصفوف](cell.md#GetRows)
+  * [احصل على خلايا الارتباط التشعبي](cell.md#GetHyperLinkCells)
   * [الحصول على ارتباط تشعبي](cell.md#GetCellHyperLink)
   * [الحصول على فهرس النمط](cell.md#GetCellStyle)
   * [دمج الخلايا](cell.md#MergeCell)
