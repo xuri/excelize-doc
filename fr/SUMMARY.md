@@ -263,6 +263,7 @@
 * [Performance](performance.md)
 * [Contribution](contribution.md)
 * Versions publiées
+  * [v2.10.1](releases/v2.10.1.md)
   * [v2.10.0 (2025-10-14)](releases/v2.10.0.md)
   * [v2.9.1 (2025-05-13)](releases/v2.9.1.md)
   * [v2.9.0 (2024-10-15)](releases/v2.9.0.md)
