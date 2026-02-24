@@ -8,8 +8,8 @@ Excelize は、純粋な Go で記述されたライブラリで、XLAM / XLSM /
 - 問題: [github.com/xuri/excelize/issues](https://github.com/xuri/excelize/issues)
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - ライセンス契約: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
-- 現在のバージョン: [v2.10.0](https://github.com/xuri/excelize/releases/latest)
-- ドキュメントの更新：2026年1月31日
+- 現在のバージョン: [v2.10.1](https://github.com/xuri/excelize/releases/latest)
+- ドキュメントの更新：2026年2月25日
 
 ## プロジェクトミッション
 
