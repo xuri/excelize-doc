@@ -18,6 +18,24 @@ Hide the columns from `D` to `F` (included):
 err := f.SetColVisible("Sheet1", "D:F", false)
 ```
 
+## Auto fit column width {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+AutoFitColWidth provides a function to auto fit columns width according to their text content with font format. Not that this function calculates the width of the text approximately based on the font format, currently does not support merged cells. the actual width may be different when you open the workbook in Office applications. This process can be relatively slow on large worksheets, so this should normally only be called once per column, at the end of your processing. For example, auto fit column width for column `D` on `Sheet1`:
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D")
+```
+
+Auto fit column width for columns `D` to `F` on `Sheet1`:
+
+```go
+err := f.AutoFitColWidth("Sheet1", "C:F")
+```
+
 ## Set column width {#SetColWidth}
 
 ```go

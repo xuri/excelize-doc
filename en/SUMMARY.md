@@ -53,6 +53,7 @@
   * [Unprotect workbook](workbook.md#UnprotectWorkbook)
 * [Worksheet](sheet.md)
   * [Set column visibility](sheet.md#SetColVisible)
+  * [Auto fit column width](sheet.md#AutoFitColWidth)
   * [Set column width](sheet.md#SetColWidth)
   * [Set row height](sheet.md#SetRowHeight)
   * [Set row visibility](sheet.md#SetRowVisible)
