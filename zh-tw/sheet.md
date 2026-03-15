@@ -20,13 +20,27 @@ err := f.SetColVisible("Sheet1", "D", false)
 err := f.SetColVisible("Sheet1", "D:F", false)
 ```
 
+## 自動調整欄寬 {#SetColVisible}
+
+根據欄內單元格文字內容、字體格式自動調整欄寬。如果選取區域包含隱藏欄且這些欄有內容，此函數會將隱藏欄取消隱藏。請注意，此函數會根據字體格式近似計算文字寬度，目前不支援合併儲存格。在 Office 應用程式中開啟工作簿時，實際寬度可能有所不同。如果工作表中包含大量單元格，此過程可能比較慢，因此通常應在處理結束時，僅對每欄調用一次該函數。例如，自動調整名為 `Sheet1` 工作表中 `D` 欄的寬度：
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D")
+```
+
+自動調整名為 `Sheet1` 工作表中的 `D` 至 `F` 欄寬度：
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D:F")
+```
+
 ## 設定欄寬度 {#SetColWidth}
 
 ```go
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-根據給定的工作表名稱、列範圍和寬度值設定單個或多個列的寬度。此功能是併發安全的。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
+根據給定的工作表名稱、欄範圍和寬度值設定單個或多個欄的寬度。此功能是併發安全的。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
 
 ```go
 f := excelize.NewFile()
