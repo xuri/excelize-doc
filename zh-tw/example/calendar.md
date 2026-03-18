@@ -202,7 +202,7 @@ func main() {
     }
     // 重命名工作表
     f.SetSheetName(sheet, "五月 20")
-    // 保存活頁簿
+    // 存儲活頁簿
     if err = f.SaveAs("日曆.xlsx"); err != nil {
         fmt.Println(err)
     }

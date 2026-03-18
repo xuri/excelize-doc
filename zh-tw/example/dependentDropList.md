@@ -43,7 +43,7 @@ func main() {
             return
         }
     }
-    // 設定數據驗證
+    // 設定資料驗證
     dvRange1 := excelize.NewDataValidation(true)
     dvRange1.Sqref = "D3:D3"
     dvRange1.SetSqrefDropList("$A$1:$B$1")
@@ -132,7 +132,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 保存活頁簿
+    // 存儲活頁簿
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }

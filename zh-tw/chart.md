@@ -94,7 +94,7 @@ DataPoint         | 設定環圈圖、圓形圖或立體圓形圖系列中各個
 ---|---|---
 Position      | `string` | 圖例位置
 ShowLegendKey | `bool`   | 指定是否在數據標籤中顯示圖例項標示
-Font          | `Font`   | 設定圖表圖例項文本的字體格式。可設定的格式與用於存儲格格式化的字體相同。包括字體名稱、字號、顏色、粗體、斜體、下划線和刪除線格式。
+Font          | `Font`   | 設定圖表圖例項文本的字型格式。可設定的格式與用於存儲格格式化的字型相同。包括字型名稱、字號、顏色、粗體、斜體、下划線和刪除線格式。
 
 其中參數 `Position` 默認值為 `right`。下面是該參數的可選值：
 
@@ -162,7 +162,7 @@ TickLabelSkip  | `int`           | `1`     | 指定標籤間隔單位
 ReverseOrder   | `bool`          | `false` | 逆序刻度值
 Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自動
 Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
-Alignment      | `Alignment`     | N/A     | 設定水平坐標軸刻度字體對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
+Alignment      | `Alignment`     | N/A     | 設定水平坐標軸刻度字型對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
 Font           | `Font`          | N/A     | 設定水平坐標軸刻度字型格式
 NumFmt         | `ChartNumFmt`   | N/A     | 設定水平坐標軸數字格式和鏈接到源
 Title          | `[]RichTextRun` | N/A     | 設定位於坐標軸下方的主要橫坐標軸標題，並調整圖表大小
@@ -178,7 +178,7 @@ MajorUnit      | `float64`       | `0`     | 坐標軸主要刻度單位，`Majo
 ReverseOrder   | `bool`          | `false` | 逆序刻度值
 Maximum        | `*float64`      | `0`     | 最大值，`0` 代表自動
 Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
-Alignment      | `Alignment`     | N/A     | 設定垂直坐標軸刻度字體對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
+Alignment      | `Alignment`     | N/A     | 設定垂直坐標軸刻度字型對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
 Font           | `Font`          | N/A     | 設定垂直坐標軸刻度字型格式
 LogBase        | `float64`       | N/A     | 設定垂直坐標軸對數刻度的基底
 NumFmt         | `ChartNumFmt`   | N/A     | 設定垂直坐標軸數字格式和鏈接到源

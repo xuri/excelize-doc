@@ -11,7 +11,7 @@ type RichTextRun struct {
 }
 ```
 
-`HyperlinkOpts` 用來指定可選的超鏈接屬性，例如要顯示的文字與屏幕提示文字。
+`HyperlinkOpts` 用來指定可選的超鏈接屬性，例如要顯示的文字與螢幕提示文字。
 
 ```go
 type HyperlinkOpts struct {
@@ -497,7 +497,7 @@ for _, row := range rows {
 func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
 ```
 
-根據給定的工作表名和資源類型獲取超鏈接存儲格坐標。可選參數 `linkType` 用於指定超鏈接的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超鏈接的 `None`。如果 `linkType` 的值為空，該函式將返回工作表中全部超鏈接存儲格的坐標。
+根據給定的工作表名和資源類型獲取超鏈接存儲格坐標。可選參數 `linkType` 用於指定超鏈接的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超鏈接的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超鏈接存儲格的坐標。
 
 ## 獲取超鏈接 {#GetCellHyperLink}
 
@@ -555,7 +555,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-根據給定的工作表名獲取全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設置為 `true`，將僅解析合併儲存格的區域，而不會獲取合併儲存格的值。例如，獲取名為 `Sheet1` 的工作表中的全部合併儲存格：
+根據給定的工作表名獲取全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設定為 `true`，將僅解析合併儲存格的區域，而不會獲取合併儲存格的值。例如，獲取名為 `Sheet1` 的工作表中的全部合併儲存格：
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1")
@@ -573,7 +573,7 @@ mergeCells, err := f.GetMergeCells("Sheet1", true)
 func (m *MergeCell) GetCellValue() string
 ```
 
-GetCellValue 返回合併儲存格的值。
+GetCellValue 傳回合併儲存格的值。
 
 ### 獲取合併儲存格區域左上角儲存格坐標
 
@@ -581,7 +581,7 @@ GetCellValue 返回合併儲存格的值。
 func (m *MergeCell) GetStartAxis() string
 ```
 
-GetStartAxis 返回合併儲存格區域左上角儲存格的坐標，例如：`C2`。
+GetStartAxis 傳回合併儲存格區域左上角儲存格的坐標，例如：`C2`。
 
 ### 獲取合併儲存格區域右下角儲存格坐標
 
@@ -589,7 +589,7 @@ GetStartAxis 返回合併儲存格區域左上角儲存格的坐標，例如：`
 func (m *MergeCell) GetEndAxis() string
 ```
 
-GetEndAxis 返回合併儲存格區域右下角儲存格的坐標，例如：`D4`。
+GetEndAxis 傳回合併儲存格區域右下角儲存格的坐標，例如：`D4`。
 
 ## 獲取圖片儲存格 {#GetPictureCells}
 
@@ -605,7 +605,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過，並且每個存儲格僅能有一個註解，如果向已存在註解的存儲格添加註解，則會返回錯誤。例如，為 `Sheet1!A3` 儲存格添加註解：
+根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本信息）添加註解。作者信息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過，並且每個存儲格僅能有一個註解，如果向已存在註解的存儲格添加註解，則會傳回錯誤。例如，為 `Sheet1!A3` 儲存格添加註解：
 
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 檔案中添加註解"></p>
 

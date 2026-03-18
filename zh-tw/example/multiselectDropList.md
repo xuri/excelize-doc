@@ -67,7 +67,7 @@ func main() {
             return
         }
     }
-    // 設定數據驗證
+    // 設定資料驗證
     dv := excelize.NewDataValidation(true)
     dv.SetSqref("D2:D2")
     dv.SetSqrefDropList("$B$2:$B$5")
@@ -93,7 +93,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 保存活頁簿
+    // 存儲活頁簿
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }

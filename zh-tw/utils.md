@@ -121,7 +121,7 @@ err := f.AutoFilter("Sheet1", "A1:D4", []excelize.AutoFilterOptions{
 })
 ```
 
-參數 `Column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支援自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見性。
+參數 `Column` 指定了自動過濾器在過濾範圍內的基準欄。Excelize 暫不支援自動過濾器的計算，在設定過濾條件後，如果需要隱藏任何不符合過濾條件的列，可以使用 [`SetRowVisible()`](sheet.md#SetRowVisible) 設定列的可見度。
 
 為欄設定過濾條件，參數 `Expression` 用於指定過濾條件運算，支援下列運算符：
 
@@ -820,7 +820,7 @@ rightToLeft | 從左向右
 
 `IconsOnly` - 用於設定是否隱藏儲存格中的值，僅顯示圖示。
 
-`StopIfTrue` - 用於設定是否「如果 True 則停止」，當一個條件式格式規則套用至一個或多個儲存格時，如果開啓此設定，一旦找到匹配規則的一個儲存格，將不會繼續查找後續儲存格是否匹配。
+`StopIfTrue` - 用於設定是否「如果 True 則停止」，當一個條件式格式規則套用至一個或多個儲存格時，如果開啓此設定，一旦找到匹配規則的一個儲存格，將不會繼續尋找後續儲存格是否匹配。
 
 例如，為名為 `Sheet1` 的工作表中，透過設定條件式格式高亮 `A1:D4` 區域儲存格中的最大值與最小值:
 
@@ -1028,7 +1028,7 @@ func (f *File) GetPanes(sheet string) (Panes, error)
 func (f *File) GetBaseColor(hexColor string, indexedColor int, themeColor *int) string
 ```
 
-透過給定的十六進制色彩代碼、索引色彩和主題色彩返回首選的十六進制色彩代碼。
+透過給定的十六進制色彩代碼、索引色彩和主題色彩傳回首選的十六進制色彩代碼。
 
 ```go
 func ThemeColor(baseColor string, tint float64) string

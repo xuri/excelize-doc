@@ -20,9 +20,9 @@ var (
     ErrCoordinates = errors.New("coordinates length must be 4")
     // ErrCustomNumFmt 定義了指定自訂數字格式表達式為空時的錯誤提示信息
     ErrCustomNumFmt = errors.New("custom number format can not be empty")
-    // ErrDataValidationFormulaLength 定義了數據驗證公式長度超出最大限制時錯誤提示信息
+    // ErrDataValidationFormulaLength 定義了資料驗證公式長度超出最大限制時錯誤提示信息
     ErrDataValidationFormulaLength = fmt.Errorf("data validation must be 0-%d characters", MaxFieldLength)
-    // ErrDataValidationRange 定義了指定數據驗證小數範圍無效時的錯誤提示信息
+    // ErrDataValidationRange 定義了指定資料驗證小數範圍無效時的錯誤提示信息
     ErrDataValidationRange = errors.New("data validation range exceeds limit")
     // ErrDefinedNameDuplicate 定義了在給定範圍內已經存在相同指定名稱時的錯誤提示信息
     ErrDefinedNameDuplicate = errors.New("the same name already exists on the scope")
@@ -70,7 +70,7 @@ var (
     ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrPivotTableClassicLayout 定義了同時開啓 ClassicLayout 與 CompactData 選項創建樞紐分析表時的錯誤提示信息
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
-    // ErrSave 定義了保存活頁簿時的錯誤提示信息
+    // ErrSave 定義了存儲活頁簿時的錯誤提示信息
     ErrSave = errors.New("no path defined for file, consider File.WriteTo or File.Write")
     // ErrSheetIdx 定義了收到了無效工作表索引時的錯誤提示信息
     ErrSheetIdx = errors.New("invalid worksheet index")

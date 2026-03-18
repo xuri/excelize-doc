@@ -46,13 +46,13 @@ Microsoft Excel&trade; 2007 版本後支援基於 XML 的文檔格式 OOXML (Off
 **`go version` 命令輸出的信息：**
 
 ```text
-（將輸出信息粘貼在此即可）
+（將輸出信息在此貼上即可）
 ```
 
 **使用的 Excelize 版本或者 commit ID：**
 
 ```text
-（粘貼在此即可）
+（在此貼上即可）
 ```
 
 **運行環境詳情 (作業系統, Microsoft Excel&trade; 版本, 物理機器配置等)：**

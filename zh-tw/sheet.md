@@ -2,13 +2,13 @@
 
 {{ book.info }}
 
-## 設定欄可見性 {#SetColVisible}
+## 設定欄可見度 {#SetColVisible}
 
 ```go
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-根據給定的工作表名稱和欄名稱設定欄可見性。此功能是併發安全的。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
+根據給定的工作表名稱和欄名稱設定欄可見度。此功能是併發安全的。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -22,7 +22,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 
 ## 自動調整欄寬 {#SetColVisible}
 
-根據欄內單元格文字內容、字體格式自動調整欄寬。如果選取區域包含隱藏欄且這些欄有內容，此函數會將隱藏欄取消隱藏。請注意，此函數會根據字體格式近似計算文字寬度，目前不支援合併儲存格。在 Office 應用程式中開啟工作簿時，實際寬度可能有所不同。如果工作表中包含大量單元格，此過程可能比較慢，因此通常應在處理結束時，僅對每欄調用一次該函數。例如，自動調整名為 `Sheet1` 工作表中 `D` 欄的寬度：
+根據欄內存儲格文字內容、字型格式自動調整欄寬。如果選取區域包含隱藏欄且這些欄有內容，此函數會將隱藏欄取消隱藏。請注意，此函數會根據字型格式近似計算文字寬度，目前不支援合併儲存格。在 Office 應用程式中開啟活頁簿時，實際寬度可能有所不同。如果工作表中包含大量存儲格，此過程可能比較慢，因此通常應在處理結束時，僅對每欄調用一次該函數。例如，自動調整名為 `Sheet1` 工作表中 `D` 欄的寬度：
 
 ```go
 err := f.AutoFitColWidth("Sheet1", "D")
@@ -59,13 +59,13 @@ func (f *File) SetRowHeight(sheet string, row int, height float64) error
 err := f.SetRowHeight("Sheet1", 1, 50)
 ```
 
-## 設定列可見性 {#SetRowVisible}
+## 設定列可見度 {#SetRowVisible}
 
 ```go
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-根據給定的工作表名稱和列號設定列可見性。例如隱藏名為 `Sheet1` 工作表上第二列：
+根據給定的工作表名稱和列號設定列可見度。例如隱藏名為 `Sheet1` 工作表上第二列：
 
 ```go
 err := f.SetRowVisible("Sheet1", 2, false)
@@ -79,13 +79,13 @@ func (f *File) GetSheetName(index int) string
 
 根據給定的工作表索引獲取工作表名稱，如果工作表不存在將傳回空字符。
 
-## 獲取欄可見性 {#GetColVisible}
+## 獲取欄可見度 {#GetColVisible}
 
 ```go
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-根據給定的工作表名稱和列名獲取工作表中指定列的可見性，可見傳回值為 `true`，否則為 `false`。此功能是併發安全的。例如，獲取名為 `Sheet1` 的工作表上 `D` 欄的可見性：
+根據給定的工作表名稱和列名獲取工作表中指定列的可見度，可見傳回值為 `true`，否則為 `false`。此功能是併發安全的。例如，獲取名為 `Sheet1` 的工作表上 `D` 欄的可見度：
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -111,13 +111,13 @@ func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 height, err := f.GetRowHeight("Sheet1", 1)
 ```
 
-## 獲取列可見性 {#GetRowVisible}
+## 獲取列可見度 {#GetRowVisible}
 
 ```go
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-根據給定的工作表名稱和列號獲取工作表中指定列的可見性。例如，獲取名為 `Sheet1` 的工作表第 2 列的可見性：
+根據給定的工作表名稱和列號獲取工作表中指定列的可見度。例如，獲取名為 `Sheet1` 的工作表第 2 列的可見度：
 
 ```go
 visible, err := f.GetRowVisible("Sheet1", 2)
@@ -308,7 +308,7 @@ for cols.Next() {
 func (cols *Cols) Rows(opts ...Options) ([]string, error)
 ```
 
-返回當前欄所有列的值。
+傳回當前欄所有列的值。
 
 ### 欄迭代器 - 遍歷操作
 
@@ -316,7 +316,7 @@ func (cols *Cols) Rows(opts ...Options) ([]string, error)
 func (cols *Cols) Next() bool
 ```
 
-如果下一欄有值存在將返回 `true`。
+如果下一欄有值存在將傳回 `true`。
 
 ### 欄迭代器 - 錯誤處理
 
@@ -324,7 +324,7 @@ func (cols *Cols) Next() bool
 func (cols *Cols) Error() error
 ```
 
-當查找下一欄出現錯誤時將返回 `error`。
+當尋找下一欄出現錯誤時將傳回 `error`。
 
 ## 列迭代器 {#Rows}
 
@@ -377,7 +377,7 @@ func (rows *Rows) Next() bool
 func (rows *Rows) Error() error
 ```
 
-當查找下一列出現錯誤時將傳回 `error`。
+當尋找下一列出現錯誤時將傳回 `error`。
 
 ### 列迭代器 - 讀取列屬性
 
@@ -385,7 +385,7 @@ func (rows *Rows) Error() error
 func (rows *Rows) GetRowOpts() RowOpts
 ```
 
-返回當前列的列高、可見性和樣式 ID 屬性。
+傳回當前列的列高、可見度和樣式 ID 屬性。
 
 ### 列迭代器 - 關閉數據流
 
@@ -473,7 +473,7 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
 ```
 
-根據給定的工作表名稱該工作表的保護設定。注意，該函數不會返回用於保護工作表的密碼，返回結果中密碼選項的值為空。
+根據給定的工作表名稱該工作表的保護設定。注意，該函數不會傳回用於保護工作表的密碼，傳回結果中密碼選項的值為空。
 
 ## 刪除欄 {#RemoveCol}
 

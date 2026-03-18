@@ -146,7 +146,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 檔案中的圖片。此功能是併發安全的。請注意，此函式目前不支持返回圖片的所有 `Format` 屬性，`ScaleX` 和 `ScaleY` 屬性的值是大於 0 的浮點數，精度為小數點後兩位。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
+根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 檔案中的圖片。此功能是併發安全的。請注意，此函式目前不支持傳回圖片的所有 `Format` 屬性，`ScaleX` 和 `ScaleY` 屬性的值是大於 0 的浮點數，精度為小數點後兩位。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")

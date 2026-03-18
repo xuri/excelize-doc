@@ -40,7 +40,7 @@ type RowOpts struct {
 func (f *File) NewStreamWriter(sheet string) (*StreamWriter, error)
 ```
 
-NewStreamWriter 透過給定的工作表名稱返回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確保所寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中記憶體資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少記憶體使用，此時您無法獲取儲存格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
+NewStreamWriter 透過給定的工作表名稱傳回流式寫入器，用於向已存在的空白工作表寫入大規模數據。請注意透過此方法按列向工作表寫入資料後，必須調用 [`Flush`](stream.md#Flush) 函式來結束流式寫入過程，並需要確保所寫入的列號是遞增的，普通函式不能與流式函式混合使用在工作表中寫入資料。寫入過程中記憶體資料超過 16MB 時，流寫入器將嘗試使用磁盤上的臨時文件來減少記憶體使用，此時您無法獲取儲存格值。例如，向工作表流式按列寫入 `102400` 列 x `50` 欄帶有樣式的資料：
 
 ```go
 f := excelize.NewFile()
@@ -206,13 +206,13 @@ func (sw *StreamWriter) SetColStyle(minVal, maxVal, styleID int) error
 err := sw.SetColStyle(8, 8, style)
 ```
 
-## 流式設定欄可見性 {#SetColVisible}
+## 流式設定欄可見度 {#SetColVisible}
 
 ```go
 func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
 ```
 
-根據給定欄範圍設定欄可見性，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄可見性。例如隱藏工作表中的 `D` 欄：
+根據給定欄範圍設定欄可見度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄可見度。例如隱藏工作表中的 `D` 欄：
 
 ```go
 err := sw.SetColVisible(4, 4, false)

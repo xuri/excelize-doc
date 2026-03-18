@@ -117,7 +117,7 @@ func OpenReader(r io.Reader, opts ...Options) (*File, error)
 
 OpenReader 從 `io.Reader` 讀取數據流。
 
-下面的例子中，我們創建一個簡單的 HTTP 服務器接收上傳的電子錶格檔案，向接收到的電子錶格檔案添加新工作表，並返回下載響應:
+下面的例子中，我們創建一個簡單的 HTTP 服務器接收上傳的電子錶格檔案，向接收到的電子錶格檔案添加新工作表，並傳回下載響應:
 
 ```go
 package main
@@ -171,7 +171,7 @@ func (f *File) Save(opts ...Options) error
 
 使用 `Save` 儲存對 Excel 檔案的編輯。
 
-## 另存為 {#SaveAs}
+## 另存新檔 {#SaveAs}
 
 ```go
 func (f *File) SaveAs(name string, opts ...Options) error
@@ -193,7 +193,7 @@ func (f *File) Close() error
 func (f *File) NewSheet(sheet string) (int, error)
 ```
 
-根據給定的工作表名稱來創建新工作表，並返回工作表在活頁簿中的索引。請注意，在創建新的活頁簿時，將包含名為 `Sheet1` 的默認工作表。
+根據給定的工作表名稱來創建新工作表，並傳回工作表在活頁簿中的索引。請注意，在創建新的活頁簿時，將包含名為 `Sheet1` 的默認工作表。
 
 ## 刪除工作表 {#DeleteSheet}
 
@@ -221,7 +221,7 @@ err := f.MoveSheet("Sheet2", "Sheet1")
 func (f *File) CopySheet(from, to int) error
 ```
 
-根據給定的被複製工作表與目標工作表索引複製工作表，目標工作表索引需要開發者自行確認是否已經存在。目前支援僅包含儲存格值和公式的工作表間的複製，不支援包含表格、圖片、圖表和透視表等元素的工作表之間的複製。
+根據給定的被複製工作表與目標工作表索引複製工作表，目標工作表索引需要開發者自行確認是否已經存在。目前支援僅包含儲存格值和公式的工作表間的複製，不支援包含表格、圖片、圖表和樞紐分析表等元素的工作表之間的複製。
 
 ```go
 // 名稱為 Sheet1 的工作表已經存在 ...
@@ -279,13 +279,13 @@ func (f *File) GetActiveSheetIndex() int
 
 獲取默認工作表的索引，如果沒有找到默認工作表將傳回 `0`。
 
-## 設定工作表可見性 {#SetSheetVisible}
+## 設定工作表可見度 {#SetSheetVisible}
 
 ```go
 func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-根據給定的工作表名稱和可見性參數設定工作表的可見性。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見性設定無效。第三個可選參數 `veryHidden` 僅在 `visible` 參數值為 `false` 時有效。
+根據給定的工作表名稱和可見度參數設定工作表的可見度。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見度設定無效。第三個可選參數 `veryHidden` 僅在 `visible` 參數值為 `false` 時有效。
 
 例如，隱藏名為 `Sheet1` 的工作表：
 
@@ -293,13 +293,13 @@ func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) e
 err := f.SetSheetVisible("Sheet1", false)
 ```
 
-## 獲取工作表可見性 {#GetSheetVisible}
+## 獲取工作表可見度 {#GetSheetVisible}
 
 ```go
 func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
-根據給定的工作表名稱獲取工作表可見性設定。例如，獲取名為 `Sheet1` 的工作表可見性設定:
+根據給定的工作表名稱獲取工作表可見度設定。例如，獲取名為 `Sheet1` 的工作表可見度設定:
 
 ```go
 visible, err := f.GetSheetVisible("Sheet1")
@@ -1033,7 +1033,7 @@ func (f *File) GetDocProps() (*DocProperties, error)
 func (f *File) SetCustomProps(prop CustomProperty) error
 ```
 
-根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函數將會返回錯誤。
+根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函數將會傳回錯誤。
 
 ## 獲取自訂屬性 {#GetDocCustomProps}
 
