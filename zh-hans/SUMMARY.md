@@ -53,6 +53,7 @@
   * [取消保护工作簿](workbook.md#UnprotectWorkbook)
 * [工作表](sheet.md)
   * [设置列可见性](sheet.md#SetColVisible)
+  * [自动调整列宽](sheet.md#AutoFitColWidth)
   * [设置列宽度](sheet.md#SetColWidth)
   * [设置行高度](sheet.md#SetRowHeight)
   * [设置行可见性](sheet.md#SetRowVisible)

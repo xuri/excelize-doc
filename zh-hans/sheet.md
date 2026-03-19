@@ -20,6 +20,20 @@ err := f.SetColVisible("Sheet1", "D", false)
 err := f.SetColVisible("Sheet1", "D:F", false)
 ```
 
+## 自动调整列宽 {#AutoFitColWidth}
+
+根据列内单元格文字内容、字体格式自动调整列宽。如果选取区域包含隐藏列且这些列有内容，此函数会将隐藏列取消隐藏。请注意，此函数会根据字体格式近似计算文字宽度，目前不支持合并单元格。在 Office 应用程序中打开工作簿时，实际宽度可能有所不同。如果工作表中包含大量单元格，此过程可能比较慢，因此通常应在处理结束时，仅对每列调用一次该函数。例如，自动调整名为 `Sheet1` 工作表中 `D` 列的宽度：
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D")
+```
+
+自动调整名为 `Sheet1` 工作表中的 `D` 至 `F` 列宽度：
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D:F")
+```
+
 ## 设置列宽度 {#SetColWidth}
 
 ```go
