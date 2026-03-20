@@ -53,6 +53,7 @@
   * [Schutz der Arbeitsmappe aufheben](workbook.md#UnprotectWorkbook)
 * [Arbeitsblatt](sheet.md)
   * [Festlegen der Spaltensichtbarkeit](sheet.md#SetColVisible)
+  * [Spaltenbreite automatisch anpassen](sheet.md#AutoFitColWidth)
   * [Spaltenbreite festlegen](sheet.md#SetColWidth)
   * [Zeilenhöhe festlegen](sheet.md#SetRowHeight)
   * [Festlegen der Zeilensichtbarkeit](sheet.md#SetRowVisible)

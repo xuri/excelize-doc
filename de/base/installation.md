@@ -6,7 +6,8 @@ Die folgende Tabelle zeigt die Mindestanforderungen der Go-Sprache für jede ver
 
 Excelize-Version | Mindestanforderungen für die Go-Sprachversion
 ---|---
-v2.10.0 ~ master | 1.24.0
+master | 1.25.0
+v2.10.0 ~ v2.10.1 | 1.24.0
 v2.9.1 | 1.23.0
 v2.8.1 ~ v2.9.0 | 1.18
 v2.7.0 ~ v2.8.0 | 1.16

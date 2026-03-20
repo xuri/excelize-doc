@@ -18,6 +18,24 @@ Blenden Sie die Spalten von `D` bis `F` aus (enthalten):
 err := f.SetColVisible("Tabelle1", "D:F", false)
 ```
 
+## Spaltenbreite automatisch anpassen {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+AutoFitColWidth passt die Spaltenbreite automatisch an den Textinhalt und dessen Format an. Enthält der ausgewählte Bereich ausgeblendete Spalten mit Inhalt, blendet diese Funktion die ausgeblendeten Spalten ein. Beachten Sie, dass die Funktion die Textbreite anhand des Schriftformats nur annähernd berechnet und derzeit keine verbundenen Zellen unterstützt. Die tatsächliche Breite kann beim Öffnen der Arbeitsmappe in Office-Anwendungen abweichen. Dieser Vorgang kann bei großen Arbeitsblättern relativ lange dauern. Daher sollte die Funktion normalerweise nur einmal pro Spalte am Ende der Verarbeitung aufgerufen werden. Beispiel: Spaltenbreite für Spalte `D` auf `Tabelle1` automatisch anpassen.
+
+```go
+err := f.AutoFitColWidth("Tabelle1", "D")
+```
+
+Automatische Spaltenbreitenanpassung für die Spalten `D` bis `F` in `Tabelle1`:
+
+```go
+err := f.AutoFitColWidth("Tabelle1", "D:F")
+```
+
 ## Spaltenbreite festlegen {#SetColWidth}
 
 ```go
