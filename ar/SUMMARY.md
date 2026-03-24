@@ -53,6 +53,7 @@
   * [إلغاء حماية المصنف](workbook.md#UnprotectWorkbook)
 * [ورقة عمل](sheet.md)
   * [تعيين رؤية العمود](sheet.md#SetColVisible)
+  * [ضبط عرض العمود تلقائيًا](sheet.md#AutoFitColWidth)
   * [تعيين عرض العمود](sheet.md#SetColWidth)
   * [تعيين ارتفاع الصف](sheet.md#SetRowHeight)
   * [تعيين رؤية الصف](sheet.md#SetRowVisible)

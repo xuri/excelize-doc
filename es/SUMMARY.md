@@ -53,6 +53,7 @@
   * [Desproteger libro de trabajo](workbook.md#UnprotectWorkbook)
 * [Hoja de trabajo](sheet.md)
   * [Establecer visibilidad de columna](sheet.md#SetColVisible)
+  * [Ancho de columna de ajuste automático](sheet.md#AutoFitColWidth)
   * [Establecer el ancho de la columna](sheet.md#SetColWidth)
   * [Establecer la altura de la fila](sheet.md#SetRowHeight)
   * [Establecer visibilidad de fila](sheet.md#SetRowVisible)

@@ -53,6 +53,7 @@
   * [통합 문서 보호 해제](workbook.md#UnprotectWorkbook)
 * [워크 시트](sheet.md)
   * [열 가시성 설정](sheet.md#SetColVisible)
+  * [자동 맞춤 열 너비](sheet.md#AutoFitColWidth)
   * [열 너비 설정](sheet.md#SetColWidth)
   * [행 높이 설정](sheet.md#SetRowHeight)
   * [행 가시성 설정](sheet.md#SetRowVisible)

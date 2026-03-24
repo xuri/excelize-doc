@@ -18,6 +18,24 @@ err := f.SetColVisible("Sheet1", "D", false)
 err := f.SetColVisible("Sheet1", "D:F", false)
 ```
 
+## 자동 맞춤 열 너비 {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+AutoFitColWidth 함수는 글꼴 서식을 포함한 텍스트 내용에 따라 열 너비를 자동으로 조정합니다. 선택한 범위에 숨겨진 열이 있고 해당 열에 내용이 있는 경우, 이 함수는 숨겨진 열을 표시합니다. 이 함수는 글꼴 서식을 기반으로 텍스트 너비를 대략적으로 계산하며, 현재 병합된 셀은 지원하지 않습니다. 따라서 Office 응용 프로그램에서 통합 문서를 열었을 때 실제 너비가 다를 수 있습니다. 이 과정은 큰 워크시트에서 상대적으로 느릴 수 있으므로 일반적으로 처리의 마지막에 열당 한 번만 호출해야 합니다. 예를 들어, `Sheet1` 의 `D` 열에 대해 열 너비를 자동으로 조정하려면 다음과 같이 합니다:
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D")
+```
+
+`Sheet1` 의 `D` 부터 `F` 열까지의 열 너비를 자동으로 맞춤 설정합니다:
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D:F")
+```
+
 ## 열 너비 설정 {#SetColWidth}
 
 ```go

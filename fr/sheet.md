@@ -18,6 +18,24 @@ Masquez les colonnes de `D` à `F` (incluses):
 err := f.SetColVisible("Feuil1", "D:F", false)
 ```
 
+## Largeur de colonne automatique {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+La fonction AutoFitColWidth ajuste automatiquement la largeur des colonnes en fonction de leur contenu textuel et de la mise en forme de la police. Si la plage sélectionnée contient des colonnes masquées et que celles-ci contiennent du texte, cette fonction les affichera. Notez que cette fonction calcule la largeur du texte approximativement en fonction de la mise en forme de la police et ne prend pas en charge les cellules fusionnées. La largeur réelle peut différer lorsque vous ouvrez le classeur dans une application Office. Ce processus peut être relativement lent sur les grandes feuilles de calcul; il est donc généralement conseillé de n'appeler cette fonction qu'une seule fois par colonne, à la fin du traitement. Par exemple, pour ajuster automatiquement la largeur de la colonne `D` de la `Feuil1`:
+
+```go
+err := f.AutoFitColWidth("Feuil1", "D")
+```
+
+Ajustement automatique de la largeur des colonnes `D` à `F` sur `Feuil1`:
+
+```go
+err := f.AutoFitColWidth("Feuil1", "D:F")
+```
+
 ## Définir la largeur de la colonne {#SetColWidth}
 
 ```go

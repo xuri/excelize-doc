@@ -9,7 +9,7 @@ Excelize è una libreria scritta in puro Go che fornisce una serie di funzioni c
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenze: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Ultima versione: [v2.10.1](https://github.com/xuri/excelize/releases/latest)
-- Orario aggiornamento documento: Febbraio 25, 2026
+- Orario aggiornamento documento: marzo 11, 2026
 
 ## Missione del progetto
 

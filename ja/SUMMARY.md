@@ -53,6 +53,7 @@
   * [ブックの保護を解除する](workbook.md#UnprotectWorkbook)
 * [ワークシート](sheet.md)
   * [列の可視性設定](sheet.md#SetColVisible)
+  * [列幅を自動調整](sheet.md#AutoFitColWidth)
   * [列幅の設定](sheet.md#SetColWidth)
   * [行の高さを設定](sheet.md#SetRowHeight)
   * [行の表示設定](sheet.md#SetRowVisible)

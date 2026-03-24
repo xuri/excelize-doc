@@ -53,6 +53,7 @@
   * [Déprotéger le classeur](workbook.md#UnprotectWorkbook)
 * [Feuille de travail](sheet.md)
   * [Définir la visibilité de la colonne](sheet.md#SetColVisible)
+  * [Largeur de colonne automatique](sheet.md#AutoFitColWidth)
   * [Définir la largeur de la colonne](sheet.md#SetColWidth)
   * [Définir la hauteur de ligne](sheet.md#SetRowHeight)
   * [Définir la visibilité de la ligne](sheet.md#SetRowVisible)

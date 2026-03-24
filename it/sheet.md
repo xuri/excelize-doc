@@ -18,6 +18,24 @@ Nascondi le colonne da `D` a `F` (incluse):
 err := f.SetColVisible("Foglio1", "D:F", false)
 ```
 
+## Larghezza colonna Autofit {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+La funzione AutoFitColWidth adatta automaticamente la larghezza delle colonne in base al contenuto testuale e alla formattazione del carattere. Se l'intervallo selezionato contiene colonne nascoste e queste hanno del contenuto, la funzione le renderà visibili. Si noti che questa funzione calcola la larghezza del testo in modo approssimativo in base alla formattazione del carattere e attualmente non supporta le celle unite. La larghezza effettiva potrebbe essere diversa quando si apre la cartella di lavoro nelle applicazioni di Office. Questo processo può essere relativamente lento su fogli di lavoro di grandi dimensioni, quindi in genere dovrebbe essere richiamato solo una volta per colonna, al termine dell'elaborazione. Ad esempio, adatta automaticamente la larghezza della colonna `D` nel foglio `Sheet1`:
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D")
+```
+
+Adatta automaticamente la larghezza delle colonne da `D` a `F` nel foglio `Sheet1`:
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D:F")
+```
+
 ## Imposta la larghezza della colonna {#SetColWidth}
 
 ```go

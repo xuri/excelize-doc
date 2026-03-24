@@ -53,6 +53,7 @@
   * [Снять защиту с книги](workbook.md#UnprotectWorkbook)
 * [Рабочий лист](sheet.md)
   * [Установить видимость столбца](sheet.md#SetColVisible)
+  * [Автоматическая подгонка ширины столбца](sheet.md#AutoFitColWidth)
   * [Установить ширину столбца](sheet.md#SetColWidth)
   * [Установить высоту строки](sheet.md#SetRowHeight)
   * [Установить видимость линии](sheet.md#SetRowVisible)

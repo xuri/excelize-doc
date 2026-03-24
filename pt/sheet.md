@@ -18,6 +18,24 @@ Oculte as colunas de `D` a `F` (incluídas):
 err := f.SetColVisible("Planilha1", "D:F", false)
 ```
 
+## Ajuste automático da largura da coluna {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+A função AutoFitColWidth ajusta automaticamente a largura das colunas de acordo com o conteúdo do texto e a formatação da fonte. Se o intervalo selecionado contiver colunas ocultas com conteúdo, essa função exibirá as colunas ocultas. Observe que essa função calcula a largura do texto aproximadamente com base na formatação da fonte e, atualmente, não oferece suporte a células mescladas. A largura real pode ser diferente ao abrir a pasta de trabalho em aplicativos do Office. Esse processo pode ser relativamente lento em planilhas grandes, portanto, normalmente deve ser chamado apenas uma vez por coluna, ao final do processamento. Por exemplo, ajuste automático da largura da coluna `D` na `Planilha1`:
+
+```go
+err := f.AutoFitColWidth("Planilha1", "D")
+```
+
+Ajustar automaticamente a largura da coluna para as colunas `D` a `F` em `Planilha1`:
+
+```go
+err := f.AutoFitColWidth("Planilha1", "D:F")
+```
+
 ## Definir largura da coluna {#SetColWidth}
 
 ```go

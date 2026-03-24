@@ -53,6 +53,7 @@
   * [Desproteger pasta de trabalho](workbook.md#UnprotectWorkbook)
 * [Planilha](sheet.md)
   * [Definir visibilidade da coluna](sheet.md#SetColVisible)
+  * [Ajuste automático da largura da coluna](sheet.md#AutoFitColWidth)
   * [Definir largura da coluna](sheet.md#SetColWidth)
   * [Definir altura da linha](sheet.md#SetRowHeight)
   * [Definir visibilidade da linha](sheet.md#SetRowVisible)

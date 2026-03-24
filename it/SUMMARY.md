@@ -53,6 +53,7 @@
   * [Rimuovere la protezione della cartella di lavoro](workbook.md#UnprotectWorkbook)
 * [Foglio di lavoro](sheet.md)
   * [Imposta la visibilità della colonna](sheet.md#SetColVisible)
+  * [Larghezza colonna Autofit](sheet.md#AutoFitColWidth)
   * [Imposta la larghezza della colonna](sheet.md#SetColWidth)
   * [Imposta l'altezza della riga](sheet.md#SetRowHeight)
   * [Imposta la visibilità della riga](sheet.md#SetRowVisible)

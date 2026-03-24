@@ -18,6 +18,24 @@ err := f.SetColVisible("Sheet1", "D", false)
 err := f.SetColVisible("Sheet1", "D:F", false)
 ```
 
+## 列幅を自動調整 {#AutoFitColWidth}
+
+```go
+func (f *File) AutoFitColWidth(sheet, columns string) error
+```
+
+AutoFitColWidth 関数は、テキストの内容とフォント形式に基づいて列幅を自動調整する機能を提供します。選択範囲に非表示の列があり、それらの列に内容がある場合、この関数は非表示の列を表示します。この関数はフォント形式に基づいてテキストの幅を概算しますが、現在、結合セルはサポートしていません。Office アプリケーションでワークブックを開くと、実際の幅が異なる場合があります。この処理は大きなワークシートでは比較的時間がかかるため、通常は処理の最後に列ごとに 1 回だけ呼び出すようにしてください。たとえば、`Sheet1` の列 `D` の列幅を自動調整するには、次のようにします：
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D")
+```
+
+シート1の列 `D` から列 `F` の幅を自動調整する：
+
+```go
+err := f.AutoFitColWidth("Sheet1", "D:F")
+```
+
 ## 列幅の設定 {#SetColWidth}
 
 ```go
