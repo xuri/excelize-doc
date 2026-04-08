@@ -80,24 +80,28 @@ DeleteDataValidation delete data validation by given worksheet name and referenc
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` specifies the slicer name, should be an existing field name of the given table or pivot table, this setting is required.
 
-`Table` specifies the name of the table or pivot table, this setting is required.
-
 `Cell` specifies the left top cell coordinates the position for inserting the slicer, this setting is required.
+
+`TableSheet` specifies the worksheet name of the table or pivot table, this setting is required.
+
+`TableName` specifies the name of the table or pivot table, this setting is required.
 
 `Caption` specifies the caption of the slicer, this setting is optional.
 
@@ -112,6 +116,8 @@ type SlicerOptions struct {
 `ItemDesc` specifies descending (Z-A) item sorting, this setting is optional, and the default setting is `false` (represents ascending).
 
 `Format` specifies the format of the slicer, this setting is optional.
+
+`SelectedItems` option is used to specify the default selected items in a slicer. It is currently only supported for slicers in pivot tables. The selected items must fall within the range of items selected in the pivot table. If the pivot table is created using the [`AddPivotTable`](pivot.md#AddPivotTable) function, the same field must also have its selected item range specified at the time the pivot table is created.
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error

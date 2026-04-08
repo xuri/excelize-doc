@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,10 @@ type PivotTableField struct {
 
 `Name` specifies the name of the data field. Maximum `255` characters are allowed in data field name, excess characters will be truncated.
 
+`SelectedItems` option is used to specify the default selected items in a pivot table field. The selected items must fall within the range of items selected in the pivot table.
+
+`SelectedItems` specifies the default selected items in a pivot table field. The selected items must be values within the cell range referenced by that field.
+
 ## Create pivot table {#AddPivotTable}
 
 ```go
@@ -84,16 +89,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable provides the method to add pivot table by given pivot table options.
 
-For example, create a pivot table on the `Sheet1!$G$2:$M$34` area with the region `Sheet1!$A$1:$E$31` as the data source, summarize by sum for sales:
+For example, create a pivot table on the `Sheet1!G4:M31` area with the region `Sheet1!A1:E31` as the data source, summarize by sum for sales:
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="create pivot table with excelize using Go"></p>
+<p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="create pivot table with excelize using Go"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -105,31 +109,40 @@ func main() {
             fmt.Println(err)
         }
     }()
-    // Create some data in a sheet
+ Create some data in a sheet
     month := []string{"Jan", "Feb", "Mar", "Apr", "May",
         "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
     year := []int{2017, 2018, 2019}
     types := []string{"Meat", "Dairy", "Beverages", "Produce"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
     region := []string{"East", "West", "North", "South"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"Month", "Year", "Type", "Sales", "Region"})
+    if err := f.SetSheetRow(
+        "Sheet1", "A1", &[]string{"Month", "Year", "Type", "Revenue", "Region"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        PivotTableRange: "Sheet1!G4:M31",
         Rows: []excelize.PivotTableField{
-            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"}},
+            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"},
+        },
         Filter: []excelize.PivotTableField{
             {Data: "Region"}},
         Columns: []excelize.PivotTableField{
-            {Data: "Type", DefaultSubtotal: true}},
+            {Data: "Type", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+            {Data: "Revenue", Name: "Summarize", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,
