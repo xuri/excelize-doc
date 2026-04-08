@@ -24,16 +24,16 @@ err := f.SetColVisible("Hoja1", "D:F", false)
 func (f *File) AutoFitColWidth(sheet, columns string) error
 ```
 
-AutoFitColWidth proporciona una función para ajustar automáticamente el ancho de las columnas según su contenido de texto y formato de fuente. Si el rango seleccionado contiene columnas ocultas y estas tienen contenido, esta función las mostrará. Tenga en cuenta que esta función calcula el ancho del texto de forma aproximada según el formato de fuente y actualmente no admite celdas combinadas. El ancho real puede variar al abrir el libro de trabajo en aplicaciones de Office. Este proceso puede ser relativamente lento en hojas de cálculo grandes, por lo que normalmente solo debe llamarse una vez por columna, al final del procesamiento. Por ejemplo, ajuste automático del ancho de la columna `D` en `Hoja1`:
+AutoFitColWidth proporciona una función para ajustar automáticamente el ancho de las columnas según su contenido de texto y formato de fuente. Si el rango seleccionado contiene columnas ocultas y estas poseen contenido, esta función las hará visibles. Tenga en cuenta que esta función calcula el ancho del texto de forma aproximada basándose en el formato de fuente; actualmente no admite celdas combinadas, por lo que el ancho real podría diferir al abrir el libro de trabajo en aplicaciones de Office. Este proceso puede resultar relativamente lento en hojas de cálculo extensas; por ello, lo habitual es invocar esta función una sola vez por columna, al finalizar el procesamiento. Por ejemplo, para ajustar automáticamente el ancho de la columna `D` en la `Hoja1`:
 
 ```go
-err := f.AutoFitColWidth("Sheet1", "D")
+err := f.AutoFitColWidth("Hoja1", "D")
 ```
 
 Ajustar automáticamente el ancho de las columnas `D` a `F` en la `Hoja1`:
 
 ```go
-err := f.AutoFitColWidth("Sheet1", "D:F")
+err := f.AutoFitColWidth("Hoja1", "D:F")
 ```
 
 ## Establecer el ancho de la columna {#SetColWidth}

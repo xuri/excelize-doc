@@ -24,16 +24,16 @@ err := f.SetColVisible("Foglio1", "D:F", false)
 func (f *File) AutoFitColWidth(sheet, columns string) error
 ```
 
-La funzione AutoFitColWidth adatta automaticamente la larghezza delle colonne in base al contenuto testuale e alla formattazione del carattere. Se l'intervallo selezionato contiene colonne nascoste e queste hanno del contenuto, la funzione le renderà visibili. Si noti che questa funzione calcola la larghezza del testo in modo approssimativo in base alla formattazione del carattere e attualmente non supporta le celle unite. La larghezza effettiva potrebbe essere diversa quando si apre la cartella di lavoro nelle applicazioni di Office. Questo processo può essere relativamente lento su fogli di lavoro di grandi dimensioni, quindi in genere dovrebbe essere richiamato solo una volta per colonna, al termine dell'elaborazione. Ad esempio, adatta automaticamente la larghezza della colonna `D` nel foglio `Sheet1`:
+AutoFitColWidth fornisce una funzione per adattare automaticamente la larghezza delle colonne in base al loro contenuto testuale e alla relativa formattazione del carattere. Se l'intervallo selezionato include colonne nascoste che contengono dati, questa funzione renderà nuovamente visibili tali colonne. Si noti che questa funzione calcola la larghezza del testo in modo approssimativo, basandosi sulla formattazione del carattere; attualmente non supporta le celle unite e la larghezza effettiva potrebbe risultare diversa all'apertura della cartella di lavoro nelle applicazioni Office. Questo processo può risultare relativamente lento su fogli di lavoro di grandi dimensioni; pertanto, si raccomanda di richiamare questa funzione, di norma, una sola volta per colonna, al termine delle operazioni di elaborazione. Ad esempio, per adattare automaticamente la larghezza della colonna `D` nel foglio `Foglio1`:
 
 ```go
-err := f.AutoFitColWidth("Sheet1", "D")
+err := f.AutoFitColWidth("Foglio1", "D")
 ```
 
-Adatta automaticamente la larghezza delle colonne da `D` a `F` nel foglio `Sheet1`:
+Adatta automaticamente la larghezza delle colonne da `D` a `F` nel foglio `Foglio1`:
 
 ```go
-err := f.AutoFitColWidth("Sheet1", "D:F")
+err := f.AutoFitColWidth("Foglio1", "D:F")
 ```
 
 ## Imposta la larghezza della colonna {#SetColWidth}
