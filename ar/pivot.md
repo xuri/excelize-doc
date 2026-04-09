@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 يحدد `Name` اسم حقل البيانات. الحد الأقصى المسموح به `255` حرفًا في اسم حقل البيانات ، وسيتم قطع الأحرف الزائدة.
 
+يُحدد حقل `SelectedItems` العناصر المحددة افتراضيًا في حقل جدول محوري. يجب أن تكون العناصر المحددة قيمًا ضمن نطاق الخلايا المشار إليه بواسطة هذا الحقل.
+
 ## إنشاء جدول محوري {#AddPivotTable}
 
 ```go
@@ -84,7 +87,7 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 يوفر AddPivotTable طريقة لإضافة جدول محوري من خلال خيارات الجدول المحوري المحددة.
 
-على سبيل المثال ، أنشئ جدولاً محوريًا في منطقة `Sheet1!$G$2:$M$34` مع المنطقة `Sheet1!$A$1:$E$31` كمصدر للبيانات ، ولخص بالمجموع للمبيعات:
+على سبيل المثال ، أنشئ جدولاً محوريًا في منطقة `ورقة1!G4:M31` مع المنطقة `ورقة1!A1:E31` كمصدر للبيانات ، ولخص بالمجموع للمبيعات:
 
 <p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="إنشاء جدول محوري باستخدام excelize باستخدام Go"></p>
 
@@ -93,7 +96,6 @@ package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -105,8 +107,12 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "ورقة1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     enable := true
-    if err := f.SetSheetView("Sheet1", -1, &excelize.ViewOptions{
+    if err := f.SetSheetView("ورقة1", -1, &excelize.ViewOptions{
         RightToLeft: &enable,
     }); err != nil {
         fmt.Println(err)
@@ -117,26 +123,35 @@ func main() {
         "يونيو", "يوليو", "أغسطس", "سبتمبر", "اكتوبر", "شهر نوفمبر", "ديسمبر"}
     year := []int{2017, 2018, 2019}
     types := []string{"اللحوم", "الألبان", "المشروبات", "الإنتاج"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
     region := []string{"الشرق", "الغرب", "شمال", "جنوب"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"شهر", "عام", "اكتب", "مبيعات", "منطقة"})
+    if err := f.SetSheetRow(
+        "ورقة1", "A1", &[]string{"شهر", "عام", "اكتب", "الإيرادات", "منطقة"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("ورقة1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("ورقة1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("ورقة1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("ورقة1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("ورقة1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
-        DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        DataRange:       "ورقة1!A1:E31",
+        PivotTableRange: "ورقة1!G4:M31",
         Rows: []excelize.PivotTableField{
-            {Data: "شهر", DefaultSubtotal: true}, {Data: "عام"}},
+            {Data: "شهر", DefaultSubtotal: true}, {Data: "عام"},
+        },
         Filter: []excelize.PivotTableField{
             {Data: "منطقة"}},
         Columns: []excelize.PivotTableField{
-            {Data: "اكتب", DefaultSubtotal: true}},
+            {Data: "اكتب", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "مبيعات", Name: "لخص", Subtotal: "Sum"}},
+            {Data: "الإيرادات", Name: "لخص", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,
