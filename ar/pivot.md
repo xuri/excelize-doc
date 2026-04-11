@@ -87,7 +87,7 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 يوفر AddPivotTable طريقة لإضافة جدول محوري من خلال خيارات الجدول المحوري المحددة.
 
-على سبيل المثال ، أنشئ جدولاً محوريًا في منطقة `ورقة1!G4:M31` مع المنطقة `ورقة1!A1:E31` كمصدر للبيانات ، ولخص بالمجموع للمبيعات:
+على سبيل المثال ، أنشئ جدولاً محوريًا في منطقة `ورقة1!G4:M30` مع المنطقة `ورقة1!A1:E31` كمصدر للبيانات ، ولخص بالمجموع للمبيعات:
 
 <p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="إنشاء جدول محوري باستخدام excelize باستخدام Go"></p>
 
@@ -140,7 +140,7 @@ func main() {
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "ورقة1!A1:E31",
-        PivotTableRange: "ورقة1!G4:M31",
+        PivotTableRange: "ورقة1!G4:M30",
         Rows: []excelize.PivotTableField{
             {Data: "شهر", DefaultSubtotal: true}, {Data: "عام"},
         },

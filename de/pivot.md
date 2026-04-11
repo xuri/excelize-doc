@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 `Name` gibt den Namen des Datenfelds an. Im Namen des Datenfelds sind maximal `255` Zeichen zulässig, überschüssige Zeichen werden abgeschnitten.
 
+`SelectedItems` legt die standardmäßig ausgewählten Elemente in einem PivotTable-Feld fest. Die ausgewählten Elemente müssen Werte innerhalb des Zellbereichs sein, auf den dieses Feld verweist.
+
 ## Erstellen einer Pivot-Tabelle {#AddPivotTable}
 
 ```go
@@ -84,16 +87,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable bietet die Methode zum Hinzufügen einer Pivot-Tabelle anhand der angegebenen Pivot-Tabellenoptionen.
 
-Erstellen Sie beispielsweise eine Pivot-Tabelle im Bereich `Sheet1!$G$2:$M$34` mit der Region `Sheet1!$A$1:$E$31` als Datenquelle, zusammengefasst nach Umsatzsumme:
+Erstellen Sie beispielsweise eine Pivot-Tabelle im Bereich `Sheet1!G4:M30` mit der Region `Sheet1!A1:E31` als Datenquelle, zusammengefasst nach Umsatzsumme:
 
-<p align="center"><img width="1139" src="./images/pivot_table_01.png" alt="Erstellen Sie eine Pivot-Tabelle mit Excelize mit Go"></p>
+<p align="center"><img width="1119" src="./images/pivot_table_01.png" alt="Erstellen Sie eine Pivot-Tabelle mit Excelize mit Go"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -105,31 +107,45 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Tabelle1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     // Erstellen Sie einige Daten in einem Arbeitsblatt
     month := []string{"Januar", "Februar", "März", "April", "Kann",
         "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"}
     year := []int{2017, 2018, 2019}
     types := []string{"Fleisch", "Molkerei", "Beverages", "Getränke"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
     region := []string{"Osten", "Westen", "Norden", "Süden"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"Monat", "Jahr", "Art", "Der Umsatz", "Region"})
+    if err := f.SetSheetRow(
+        "Tabelle1", "A1", &[]string{"Monat", "Jahr", "Art", "Einnahmen", "Region"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Tabelle1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Tabelle1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Tabelle1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Tabelle1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Tabelle1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
-        DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        DataRange:       "Tabelle1!A1:E31",
+        PivotTableRange: "Tabelle1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Monat", DefaultSubtotal: true}, {Data: "Jahr"}},
+            {Data: "Monat", DefaultSubtotal: true}, {Data: "Jahr"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Region"}},
+            {Data: "Region"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Type", DefaultSubtotal: true}},
+            {Data: "Art", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Der Umsatz", Name: "Zusammenfassen", Subtotal: "Sum"}},
+            {Data: "Einnahmen", Name: "Zusammenfassen", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,

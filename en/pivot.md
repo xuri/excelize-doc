@@ -89,7 +89,7 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable provides the method to add pivot table by given pivot table options.
 
-For example, create a pivot table on the `Sheet1!G4:M31` area with the region `Sheet1!A1:E31` as the data source, summarize by sum for sales:
+For example, create a pivot table on the `Sheet1!G4:M30` area with the region `Sheet1!A1:E31` as the data source, summarize by sum for sales:
 
 <p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="create pivot table with excelize using Go"></p>
 
@@ -131,7 +131,7 @@ func main() {
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G4:M31",
+        PivotTableRange: "Sheet1!G4:M30",
         Rows: []excelize.PivotTableField{
             {Data: "Month", DefaultSubtotal: true}, {Data: "Year"},
         },

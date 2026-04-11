@@ -80,24 +80,28 @@ DeleteDataValidation Löscht die Datenvalidierung anhand des angegebenen Arbeits
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` gibt den Slicer-Namen an. Es sollte ein vorhandener Feldname der angegebenen Tabelle oder Pivot-Tabelle sein. Diese Einstellung ist erforderlich.
 
-`Table` gibt den Namen der Tabelle oder Pivot-Tabelle an, diese Einstellung ist erforderlich.
-
 `Cell` gibt die linken oberen Zellkoordinaten und die Position zum Einfügen des Slicers an. Diese Einstellung ist erforderlich.
+
+`TableSheet` gibt den Namen des Tabellenblatts bzw. der Pivot-Tabelle an. Diese Einstellung ist erforderlich.
+
+`TableName` gibt den Namen der Tabelle bzw. Pivot-Tabelle an. Diese Einstellung ist erforderlich.
 
 `Caption` gibt die Beschriftung des Slicers an, diese Einstellung ist optional.
 
@@ -112,6 +116,8 @@ type SlicerOptions struct {
 `ItemDesc` gibt die absteigende Sortierung (Z-A) der Elemente an. Diese Einstellung ist optional und die Standardeinstellung ist `false` (steht für aufsteigend).
 
 `Format` gibt das Format des Slicers an, diese Einstellung ist optional.
+
+`SelectedItems` dient zur Festlegung der standardmäßig ausgewählten Elemente in einem Datenschnitt. Sie wird derzeit nur für Datenschnitte in Pivot-Tabellen unterstützt. Die ausgewählten Elemente müssen innerhalb des Bereichs der in der Pivot-Tabelle ausgewählten Elemente liegen. Wird die Pivot-Tabelle mit der Funktion [`AddPivotTable`](pivot.md#AddPivotTable) erstellt, muss für dasselbe Feld der Bereich der ausgewählten Elemente ebenfalls beim Erstellen der Pivot-Tabelle angegeben werden.
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
