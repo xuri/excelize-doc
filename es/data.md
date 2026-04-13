@@ -80,24 +80,28 @@ DeleteDataValidation elimina la validación de datos por el nombre de la hoja de
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` especifica el nombre de la segmentación de datos; debe ser un nombre de campo existente de la tabla o tabla dinámica dada; esta configuración es obligatoria.
 
-`Table` especifica el nombre de la tabla o tabla dinámica; esta configuración es obligatoria.
-
 `Cell` especifica que la celda superior izquierda coordina la posición para insertar la segmentación; esta configuración es obligatoria.
+
+`TableSheet` especifica el nombre de la hoja de cálculo de la tabla o tabla dinámica; esta configuración es obligatoria.
+
+`TableName` especifica el nombre de la tabla o tabla dinámica; esta configuración es obligatoria.
 
 `Caption` especifica el título de la segmentación de datos; esta configuración es opcional.
 
@@ -112,6 +116,8 @@ type SlicerOptions struct {
 `ItemDesc` especifica la clasificación de elementos descendente (Z-A), esta configuración es opcional y la configuración predeterminada es `false` (representa ascendente).
 
 `Format` especifica el formato de la segmentación, esta configuración es opcional.
+
+`SelectedItems` se utiliza para especificar los elementos seleccionados por defecto en un segmentador de datos. Actualmente, solo es compatible con segmentadores de datos en tablas dinámicas. Los elementos seleccionados deben estar dentro del rango de elementos seleccionados en la tabla dinámica. Si la tabla dinámica se crea mediante la función [`AddPivotTable`](pivot.md#AddPivotTable), también se debe especificar el rango de elementos seleccionados para ese mismo campo al crear la tabla dinámica.
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
