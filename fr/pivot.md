@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 `Name` spécifie le nom du champ de données. Un maximum de `255` caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
 
+`SelectedItems` spécifie les éléments sélectionnés par défaut dans un champ de tableau croisé dynamique. Les éléments sélectionnés doivent être des valeurs comprises dans la plage de cellules référencée par ce champ.
+
 ## Créer un tableau croisé dynamique {#AddPivotTable}
 
 ```go
@@ -84,16 +87,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable fournit la méthode pour ajouter un tableau croisé dynamique en fonction des options de tableau croisé dynamique données.
 
-Par exemple, créez un tableau croisé dynamique dans la zone `Sheet1!$G$2:$M$34` avec la région `Sheet1!$A$1:$E$31` comme source de données, récapitulez par somme pour les ventes:
+Par exemple, créez un tableau croisé dynamique dans la zone `Feuil1!G4:M30` avec la région `Feuil1!A1:E31` comme source de données, récapitulez par somme pour les ventes:
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="créer un tableau croisé dynamique avec excelize en utilisant Go"></p>
+<p align="center"><img width="1130" src="./images/pivot_table_01.png" alt="créer un tableau croisé dynamique avec excelize en utilisant Go"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -105,34 +107,48 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Feuil1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     // Créer des données dans une feuille
-    month := []string{"Jan", "Feb", "Mar", "Apr", "May",
-        "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    month := []string{"janvier", "février", "mars", "avril", "mai", "juin",
+        "juillet", "août", "septembre", "octobre", "novembre", "décembre"}
     year := []int{2017, 2018, 2019}
-    types := []string{"Meat", "Dairy", "Beverages", "Produce"}
-    region := []string{"East", "West", "North", "South"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"Month", "Year", "Type", "Sales", "Region"})
+    types := []string{"Viande", "Produits laitiers", "Boissons", "Fruits et légumes"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
+    region := []string{"Est", "Ouest", "Nord", "Sud"}
+    if err := f.SetSheetRow(
+        "Feuil1", "A1", &[]string{"Mois", "Année", "Type", "Revenu", "Région"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Feuil1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Feuil1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Feuil1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Feuil1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Feuil1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
-        DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        DataRange:       "Feuil1!A1:E31",
+        PivotTableRange: "Feuil1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"}},
+            {Data: "Mois", DefaultSubtotal: true}, {Data: "Année"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Region"}},
+            {Data: "Région"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Type", DefaultSubtotal: true}},
+            {Data: "Type", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+            {Data: "Revenu", Name: "Résumer", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
-        ShowDrill:      true,
+        ShowDrill:      false,
         ShowRowHeaders: true,
         ShowColHeaders: true,
         ShowLastColumn: true,
@@ -140,7 +156,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Classeur1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }

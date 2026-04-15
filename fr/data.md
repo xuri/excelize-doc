@@ -80,24 +80,28 @@ DeleteDataValidation supprimer la validation des données par le nom de feuille 
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` spécifie le nom du slicer, doit être un nom de champ existant de la table ou du tableau croisé dynamique donné, ce paramètre est obligatoire.
 
-`Table` spécifie le nom du tableau ou du tableau croisé dynamique, ce paramètre est obligatoire.
-
 `Cell` spécifie la cellule supérieure gauche coordonne la position d'insertion du slicer, ce paramètre est obligatoire.
+
+`TableSheet` spécifie le nom de la feuille de calcul contenant le tableau ou le tableau croisé dynamique，ce paramètre est obligatoire.
+
+`TableName` spécifie le nom du tableau ou du tableau croisé dynamique，ce paramètre est obligatoire.
 
 `Caption` spécifie la légende du slicer, ce paramètre est facultatif.
 
@@ -112,6 +116,8 @@ type SlicerOptions struct {
 `ItemDesc` spécifie le tri des éléments décroissant (Z-A), ce paramètre est facultatif et le paramètre par défaut est `false` (représente un ordre croissant).
 
 `Format` spécifie le format du slicer, ce paramètre est facultatif.
+
+`SelectedItems` permet de spécifier les éléments sélectionnés par défaut dans un segment. Elle est actuellement prise en charge uniquement pour les segments des tableaux croisés dynamiques. Les éléments sélectionnés doivent appartenir à la plage d'éléments sélectionnés dans le tableau croisé dynamique. Si le tableau croisé dynamique est créé à l'aide de la fonction [`AddPivotTable`](pivot.md#AddPivotTable), la plage d'éléments sélectionnés du même champ doit également être spécifiée lors de la création du tableau croisé dynamique.
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error

@@ -111,7 +111,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // Erstellen Sie einige Daten in einem Arbeitsblatt
+    // Crea algunos datos en una hoja de trabajo
     month := []string{"enero", "febrero", "marzo", "abril", "Mayo", "junio",
         "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"}
     year := []int{2017, 2018, 2019}
