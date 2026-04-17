@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 `Name` specifica il nome del campo dati. Nel nome del campo dati sono consentiti al massimo `255` caratteri, i caratteri in eccesso verranno troncati.
 
+`SelectedItems` specifica gli elementi selezionati di default in un campo di una tabella pivot. Gli elementi selezionati devono essere valori compresi nell'intervallo di celle a cui fa riferimento tale campo.
+
 ## Crea tabella pivot {#AddPivotTable}
 
 ```go
@@ -84,16 +87,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable fornisce il metodo per aggiungere una tabella pivot in base alle opzioni della tabella pivot.
 
-Ad esempio, crea una tabella pivot nell'area `Foglio1!$G$2:$M$34` con la regione `Foglio1!$A$1:$E$31` come origine dati, riepiloga per somma per le vendite:
+Ad esempio, crea una tabella pivot nell'area `Foglio1!G4:M30` con la regione `Foglio1!$A1:E31` come origine dati, riepiloga per somma per le vendite:
 
-<p align="center"><img width="1164" src="./images/pivot_table_01.png" alt="creare una tabella pivot con Excelize utilizzando Go"></p>
+<p align="center"><img width="1132" src="./images/pivot_table_01.png" alt="creare una tabella pivot con Excelize utilizzando Go"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -114,29 +116,39 @@ func main() {
         "Giugno", "luglio", "Ag.", "Sett.", "Ott.", "Nov.", "Dic."}
     year := []int{2017, 2018, 2019}
     types := []string{"Carne", "Latticini", "Bevande", "Produrre"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
     region := []string{"Est", "Ovest", "Nord", "Sud"}
-    f.SetSheetRow("Foglio1", "A1", &[]string{"Mese", "Anno", "Tipo", "Saldi", "Regione"})
+    if err := f.SetSheetRow(
+        "Foglio1", "A1", &[]string{"Mese", "Anno", "Tipo", "Entrate", "Regione"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Foglio1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Foglio1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Foglio1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Foglio1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Foglio1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Foglio1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Foglio1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Foglio1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Foglio1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Foglio1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Foglio1!A1:E31",
-        PivotTableRange: "Foglio1!G2:M34",
+        PivotTableRange: "Foglio1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Mese", DefaultSubtotal: true}, {Data: "Anno"}},
+            {Data: "Mese", DefaultSubtotal: true}, {Data: "Anno"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Regione"}},
+            {Data: "Regione"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Tipo", DefaultSubtotal: true}},
+            {Data: "Tipo", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Saldi", Name: "Riassumere", Subtotal: "Sum"}},
+            {Data: "Entrate", Name: "Riassumere", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
-        ShowDrill:      true,
+        ShowDrill:      false,
         ShowRowHeaders: true,
         ShowColHeaders: true,
         ShowLastColumn: true,

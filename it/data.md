@@ -80,24 +80,28 @@ DeleteDataValidation elimina la convalida dei dati in base al nome del foglio di
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` specifica il nome dell'affettatrice, dovrebbe essere un nome di campo esistente della tabella o tabella pivot specificata, questa impostazione è obbligatoria.
 
-`Table` specifica il nome della tabella o della tabella pivot, questa impostazione è obbligatoria.
-
 `Cell` specifica le coordinate della cella in alto a sinistra la posizione per l'inserimento dell'affettatrice, questa impostazione è obbligatoria.
+
+`TableSheet` specifica il nome del foglio di lavoro della tabella o della tabella pivot, questa impostazione è obbligatoria.
+
+`TableName` specifica il nome della tabella o della tabella pivot, questa impostazione è obbligatoria.
 
 `Caption` specifica la didascalia dell'affettatrice, questa impostazione è facoltativa.
 
@@ -109,9 +113,11 @@ type SlicerOptions struct {
 
 `DisplayHeader` specifica se visualizzare l'intestazione dell'affettatrice, questa impostazione è facoltativa, l'impostazione predefinita è display.
 
-`ItemDesc` specifica l'ordinamento degli elementi discendente (Z-A), questa impostazione è facoltativa e l'impostazione predefinita è "false" (rappresenta ascendente).
+`ItemDesc` specifica l'ordinamento degli elementi discendente (Z-A), questa impostazione è facoltativa e l'impostazione predefinita è `false` (rappresenta ascendente).
 
 `Format` specifica il formato dell'affettatrice, questa impostazione è facoltativa.
+
+`SelectedItems` viene utilizzata per specificare gli elementi selezionati di default in un filtro dati. Attualmente è supportata solo per i filtri dati nelle tabelle pivot. Gli elementi selezionati devono rientrare nell'intervallo di elementi selezionati nella tabella pivot. Se la tabella pivot viene creata utilizzando la funzione [`AddPivotTable`](pivot.md#AddPivotTable), lo stesso campo deve avere anche l'intervallo di elementi selezionati specificato al momento della creazione della tabella pivot.
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
