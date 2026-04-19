@@ -89,7 +89,7 @@ AddPivotTable fornisce il metodo per aggiungere una tabella pivot in base alle o
 
 Ad esempio, crea una tabella pivot nell'area `Foglio1!G4:M30` con la regione `Foglio1!$A1:E31` come origine dati, riepiloga per somma per le vendite:
 
-<p align="center"><img width="1132" src="./images/pivot_table_01.png" alt="creare una tabella pivot con Excelize utilizzando Go"></p>
+<p align="center"><img width="1133" src="./images/pivot_table_01.png" alt="creare una tabella pivot con Excelize utilizzando Go"></p>
 
 ```go
 package main
@@ -148,7 +148,7 @@ func main() {
         },
         RowGrandTotals: true,
         ColGrandTotals: true,
-        ShowDrill:      false,
+        ShowDrill:      true,
         ShowRowHeaders: true,
         ShowColHeaders: true,
         ShowLastColumn: true,

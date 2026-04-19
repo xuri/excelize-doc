@@ -148,7 +148,7 @@ func main() {
         },
         RowGrandTotals: true,
         ColGrandTotals: true,
-        ShowDrill:      false,
+        ShowDrill:      true,
         ShowRowHeaders: true,
         ShowColHeaders: true,
         ShowLastColumn: true,
