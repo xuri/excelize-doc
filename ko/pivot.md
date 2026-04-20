@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 `Name` 은 데이터 필드의 이름을 지정합니다. 데이터 필드 이름에 최대 `255` 자를 사용할 수 있으며 초과 문자는 잘립니다.
 
+`SelectedItems` 는 피벗 테이블 필드에서 기본적으로 선택되는 항목을 지정합니다. 선택되는 항목은 해당 필드에서 참조하는 셀 범위 내의 값이어야 합니다.
+
 ## 피벗 테이블 만들기 {#AddPivotTable}
 
 ```go
@@ -84,16 +87,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable 은 지정된 피벗 테이블 옵션으로 피벗 테이블을 추가하는 방법을 제공합니다.
 
-예를 들어, `Sheet1!$G$2:$M$34` 영역에 데이터 소스가 `Sheet1!$A$1:$E$31` 인 피벗 테이블을 작성하십시오.
+예를 들어, `Sheet1!G4:M30` 영역에 데이터 소스가 `Sheet1!A1:E31` 인 피벗 테이블을 작성하십시오.
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="Go 를 사용하여 excelize 로 피벗 테이블 만들기"></p>
+<p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="Go 를 사용하여 excelize 로 피벗 테이블 만들기"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -106,30 +108,40 @@ func main() {
         }
     }()
     // 시트에 일부 데이터 생성
-    month := []string{"Jan", "Feb", "Mar", "Apr", "May",
-        "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    month := []string{"1월", "2월", "3월", "4월", "5월", "6월",
+        "7월", "8월", "9월", "10월", "11월", "12월"}
     year := []int{2017, 2018, 2019}
-    types := []string{"Meat", "Dairy", "Beverages", "Produce"}
-    region := []string{"East", "West", "North", "South"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"Month", "Year", "Type", "Sales", "Region"})
+    types := []string{"육류", "유제품", "음료", "농산물"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
+    region := []string{"동쪽", "서쪽", "북쪽", "남쪽"}
+    if err := f.SetSheetRow(
+        "Sheet1", "A1", &[]string{"월", "년", "유형", "수익", "지역"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        PivotTableRange: "Sheet1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"}},
+            {Data: "월", DefaultSubtotal: true}, {Data: "년"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Region"}},
+            {Data: "지역"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Type", DefaultSubtotal: true}},
+            {Data: "유형", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+            {Data: "수익", Name: "요약하다", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,
@@ -140,7 +152,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("통합 문서1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
