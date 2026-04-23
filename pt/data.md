@@ -80,24 +80,28 @@ DeleteDataValidation exclui a validação de dados por determinado nome de plani
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` especifica o nome do slicer, deve ser um nome de campo existente da tabela ou tabela dinâmica fornecida, esta configuração é obrigatória.
 
-`Table` especifica o nome da tabela ou tabela dinâmica, esta configuração é obrigatória.
-
 `Cell` especifica que a célula superior esquerda coordena a posição para inserir a segmentação de dados; esta configuração é obrigatória.
+
+`TableSheet` especifica o nome da planilha da tabela ou tabela dinâmica; essa configuração é obrigatória.
+
+`TableName` especifica o nome da tabela ou tabela dinâmica; essa configuração também é obrigatória.
 
 `Caption` especifica a legenda da segmentação de dados, esta configuração é opcional.
 
@@ -112,6 +116,8 @@ type SlicerOptions struct {
 `ItemDesc` especifica a classificação decrescente de itens (Z-A), esta configuração é opcional e a configuração padrão é `false` (representa crescente).
 
 `Format` especifica o formato da segmentação de dados, esta configuração é opcional.
+
+`SelectedItems` é usada para especificar os itens selecionados por padrão em um segmentador de dados. Atualmente, ela é compatível apenas com segmentadores de dados em tabelas dinâmicas. Os itens selecionados devem estar dentro do intervalo de itens selecionados na tabela dinâmica. Se a tabela dinâmica for criada usando a função [`AddPivotTable`](pivot.md#AddPivotTable), o mesmo campo também deverá ter seu intervalo de itens selecionados especificado no momento da criação da tabela dinâmica.
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error

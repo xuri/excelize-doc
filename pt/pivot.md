@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 `Name` especifica o nome do campo de dados. São permitidos no máximo `255` caracteres no nome do campo de dados; os caracteres em excesso serão truncados.
 
+`SelectedItems` especifica os itens selecionados por padrão em um campo de tabela dinâmica. Os itens selecionados devem ser valores dentro do intervalo de células referenciado por esse campo.
+
 ## Criar tabela dinâmica {#AddPivotTable}
 
 ```go
@@ -84,7 +87,7 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable fornece o método para adicionar tabela dinâmica por meio de determinadas opções de tabela dinâmica.
 
-Por exemplo, crie uma tabela dinâmica na área `Planilha1!$G$2:$M$34` com a região `Planilha1!$A$1:$E$31` como fonte de dados, resumindo por soma para vendas:
+Por exemplo, crie uma tabela dinâmica na área `Planilha1!G4:M30` com a região `Planilha1!$A1:E31` como fonte de dados, resumindo por soma para vendas:
 
 <p align="center"><img width="1138" src="./images/pivot_table_01.png" alt="criar tabela dinâmica com Excelize usando Go"></p>
 
@@ -93,7 +96,6 @@ package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -114,26 +116,36 @@ func main() {
         "junho", "julho", "agosto", "set.", "out.", "nov.", "dez."}
     year := []int{2017, 2018, 2019}
     types := []string{"Carne", "Laticínios", "Bebidas", "Produtos"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
     region := []string{"Leste", "Oeste", "Norte", "Sul"}
-    f.SetSheetRow("Planilha1", "A1", &[]string{"Mês", "Ano", "Tipo", "Vendas", "Região"})
+    if err := f.SetSheetRow(
+        "Planilha1", "A1", &[]string{"Mês", "Ano", "Tipo", "Receita", "Região"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Planilha1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Planilha1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Planilha1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Planilha1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Planilha1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Planilha1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Planilha1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Planilha1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Planilha1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Planilha1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Planilha1!A1:E31",
-        PivotTableRange: "Planilha1!G2:M34",
+        PivotTableRange: "Planilha1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Mês", DefaultSubtotal: true}, {Data: "Ano"}},
+            {Data: "Mês", DefaultSubtotal: true}, {Data: "Ano"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Região"}},
+            {Data: "Região"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Tipo", DefaultSubtotal: true}},
+            {Data: "Tipo", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Vendas", Name: "Resumir", Subtotal: "Sum"}},
+            {Data: "Receita", Name: "Resumir", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,
