@@ -55,6 +55,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -76,6 +77,8 @@ type PivotTableField struct {
 
 `Name` указывает имя поля данных. В имени поля данных допускается максимум `255` символов, лишние символы будут обрезаны.
 
+Параметр `SelectedItems` задает элементы, выбранные по умолчанию в поле сводной таблицы. Выбранные элементы должны быть значениями в диапазоне ячеек, на который ссылается это поле.
+
 ## Создать сводную таблицу {#AddPivotTable}
 
 ```go
@@ -84,16 +87,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 AddPivotTable предоставляет метод для добавления сводной таблицы с помощью заданных опций сводной таблицы.
 
-Например, создайте сводную таблицу в области `Sheet1!$G$2:$M$34` с регионом `Sheet1!$A$1:$E$31` в качестве источника данных, суммируйте по сумме продаж:
+Например, создайте сводную таблицу в области `Лист1!G4:M30` с регионом `Лист1!A1:E31` в качестве источника данных, суммируйте по сумме продаж:
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="создать сводную таблицу с Excelize с помощью Go"></p>
+<p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="создать сводную таблицу с Excelize с помощью Go"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -105,31 +107,45 @@ func main() {
             fmt.Println(err)
         }
     }()
+    if err := f.SetSheetName("Sheet1", "Лист1"); err != nil {
+        fmt.Println(err)
+        return
+    }
     // Создать некоторые данные на листе
-    month := []string{"Jan", "Feb", "Mar", "Apr", "May",
-        "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    month := []string{"январь", "февраль", "март", "апрель", "май", "июнь",
+        "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"}
     year := []int{2017, 2018, 2019}
-    types := []string{"Meat", "Dairy", "Beverages", "Produce"}
-    region := []string{"East", "West", "North", "South"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"Month", "Year", "Type", "Sales", "Region"})
+    types := []string{"Мясо", "Молочные продукты", "Напитки", "Продукты питания"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
+    region := []string{"Восток", "Запад", "Север", "Юг"}
+    if err := f.SetSheetRow(
+        "Лист1", "A1", &[]string{"Месяц", "Год", "Тип", "Доход", "Регион"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Лист1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Лист1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Лист1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Лист1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Лист1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
-        DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        DataRange:       "Лист1!A1:E31",
+        PivotTableRange: "Лист1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"}},
+            {Data: "Месяц", DefaultSubtotal: true}, {Data: "Год"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Region"}},
+            {Data: "Регион"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Type", DefaultSubtotal: true}},
+            {Data: "Тип", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+            {Data: "Доход", Name: "Подведите итоги", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,
@@ -140,7 +156,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    if err := f.SaveAs("Book1.xlsx"); err != nil {
+    if err := f.SaveAs("Книга1.xlsx"); err != nil {
         fmt.Println(err)
     }
 }
