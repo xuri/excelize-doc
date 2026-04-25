@@ -57,6 +57,7 @@ type PivotTableField struct {
     Subtotal        string
     DefaultSubtotal bool
     NumFmt          int
+    SelectedItems   []string
 }
 ```
 
@@ -78,6 +79,8 @@ type PivotTableField struct {
 
 `Name` 用以指定数值字段的名称，最大长度为 `255` 个字符，超出部分的字符将不会被保留。
 
+`SelectedItems` 用以指定透视表字段中的默认选中项，选中项必须是该字段所引用的单元格范围内的值。
+
 ## 创建数据透视表 {#AddPivotTable}
 
 ```go
@@ -86,16 +89,15 @@ func (f *File) AddPivotTable(opts *PivotTableOptions) error
 
 根据给定的属性创建数据透视表。
 
-例如，以 `Sheet1!$G$2:$M$34` 作为数据源，在 `Sheet1!$A$1:$E$31` 选区创建数据透视表，并按照销售数据汇总求和:
+例如，以 `Sheet1!G4:M30` 作为数据源，在 `Sheet1!A1:E31` 选区创建数据透视表，并按照销售数据汇总求和:
 
-<p align="center"><img width="1117" src="./images/pivot_table_01.png" alt="使用 Go 语言通过 Excelize 创建数据透视表"></p>
+<p align="center"><img width="1118" src="./images/pivot_table_01.png" alt="使用 Go 语言通过 Excelize 创建数据透视表"></p>
 
 ```go
 package main
 
 import (
     "fmt"
-    "math/rand"
 
     "github.com/xuri/excelize/v2"
 )
@@ -108,30 +110,40 @@ func main() {
         }
     }()
     // 在工作表中添加数据
-    month := []string{"Jan", "Feb", "Mar", "Apr", "May",
-        "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+    month := []string{"1月", "2月", "3月", "4月", "5月", "6月",
+        "7月", "8月", "9月", "10月", "11月", "12月"}
     year := []int{2017, 2018, 2019}
-    types := []string{"Meat", "Dairy", "Beverages", "Produce"}
-    region := []string{"East", "West", "North", "South"}
-    f.SetSheetRow("Sheet1", "A1", &[]string{"Month", "Year", "Type", "Sales", "Region"})
+    types := []string{"肉类", "乳制品", "饮料", "农产品"}
+    revenue := []int{3217, 4512, 3891, 4738, 3054, 4265, 3643, 4901, 3378, 4126}
+    region := []string{"东部", "西部", "北部", "南部"}
+    if err := f.SetSheetRow(
+        "Sheet1", "A1", &[]string{"月份", "年份", "类型", "收入", "地区"},
+    ); err != nil {
+        fmt.Println(err)
+        return
+    }
     for row := 2; row < 32; row++ {
-        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[rand.Intn(12)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[rand.Intn(3)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[rand.Intn(4)])
-        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), rand.Intn(5000))
-        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[rand.Intn(4)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("A%d", row), month[(row-2)%len(month)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("B%d", row), year[(row-2)%len(year)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("C%d", row), types[(row-2)%len(types)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("D%d", row), revenue[(row-2)%len(revenue)])
+        f.SetCellValue("Sheet1", fmt.Sprintf("E%d", row), region[(row-2)%len(region)])
     }
     if err := f.AddPivotTable(&excelize.PivotTableOptions{
         DataRange:       "Sheet1!A1:E31",
-        PivotTableRange: "Sheet1!G2:M34",
+        PivotTableRange: "Sheet1!G4:M30",
         Rows: []excelize.PivotTableField{
-            {Data: "Month", DefaultSubtotal: true}, {Data: "Year"}},
+            {Data: "月份", DefaultSubtotal: true}, {Data: "年份"},
+        },
         Filter: []excelize.PivotTableField{
-            {Data: "Region"}},
+            {Data: "地区"},
+        },
         Columns: []excelize.PivotTableField{
-            {Data: "Type", DefaultSubtotal: true}},
+            {Data: "类型", DefaultSubtotal: true},
+        },
         Data: []excelize.PivotTableField{
-            {Data: "Sales", Name: "Summarize", Subtotal: "Sum"}},
+            {Data: "收入", Name: "合计", Subtotal: "Sum"},
+        },
         RowGrandTotals: true,
         ColGrandTotals: true,
         ShowDrill:      true,

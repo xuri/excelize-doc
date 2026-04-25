@@ -82,24 +82,28 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` 为必选参数，用于设置切片器的名称，必须是工作表中已有表格或数据透视表中字段名称。
 
-`Table` 为必选参数，用于设置切片器关联的表格或数据透视表名称。
-
 `Cell` 为必选参数，用于设置切片器左上角单元格坐标位置。
+
+`TableSheet` 为必选参数，用于设置切片器关联的工作表名称。
+
+`TableName` 为必选参数，用于设置切片器关联的表格或数据透视表名称。
 
 `Caption` 为可选参数，用于设置切片器的标题。
 
@@ -114,6 +118,8 @@ type SlicerOptions struct {
 `ItemDesc` 为可选参数，用于设置使用降序 (Z-A) 为切片器项目排序，默认设置为 `false`（表示使用升序）。
 
 `Format` 为可选参数，用于设置切片器的格式（大小和属性）。
+
+`SelectedItems` 为可选参数，用于指定切片器中的默认选中项。目前，该选项仅支持在透视表中切片器中使用，并且选中项必须位于透视表中已选中项的范围内。如果透视表是使用 [`AddPivotTable`](pivot.md#AddPivotTable) 函数创建的，则在创建透视表时，也必须为同一字段指定选中项范围。
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
