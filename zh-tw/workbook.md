@@ -351,7 +351,7 @@ if err := f.SetRowVisible("Sheet1", 10, true); err != nil {
 f.SaveAs("Book1.xlsx")
 ```
 
-在電子錶格應用中，有四種"自訂縮放比例"預設選項。如果您需要使用這些縮放選項，請使用 [`SetSheetProps`](workbook.md#SetSheetProps) 和 [`SetPageLayout`](workbook.md#SetPageLayout) 函數來設定這四種縮放選項:
+在電子錶格應用中，有四種"自訂縮放比例"預設選項。如果您需要使用這些縮放選項，請使用 [`SetSheetProps`](workbook.md#SetSheetProps) 和 [`SetPageLayout`](workbook.md#SetPageLayout) 函式來設定這四種縮放選項:
 
 1. 不變更比例（以實際大小列印工作表）:
 
@@ -1033,7 +1033,7 @@ func (f *File) GetDocProps() (*DocProperties, error)
 func (f *File) SetCustomProps(prop CustomProperty) error
 ```
 
-根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函數將會傳回錯誤。
+根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函式將會傳回錯誤。
 
 ## 獲取自訂屬性 {#GetDocCustomProps}
 

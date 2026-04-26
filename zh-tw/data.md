@@ -45,7 +45,7 @@ dv.SetDropList([]string{"1", "2", "3"})
 f.AddDataValidation("Sheet1", dv)
 ```
 
-如果您在序列中設定的項目超過限制累計 255 個字符的限制，請使用另一種方式設定：在工作表儲存格中設定允許的值，並使用 `SetSqrefDropList` 函數設定序列中引用儲存格的範圍。
+如果您在序列中設定的項目超過限制累計 255 個字符的限制，請使用另一種方式設定：在工作表儲存格中設定允許的值，並使用 `SetSqrefDropList` 函式設定序列中引用儲存格的範圍。
 
 例4，為 `Sheet1!A7:B8` 設定以 `Sheet1!E1:E3` 為來源的驗證條件，略過空值並提供下拉箭頭:
 
@@ -82,24 +82,28 @@ func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 
 ```go
 type SlicerOptions struct {
-    Name          string
-    Table         string
-    Cell          string
-    Caption       string
-    Macro         string
-    Width         uint
-    Height        uint
-    DisplayHeader *bool
-    ItemDesc      bool
-    Format        GraphicOptions
+    Name            string
+    Cell            string
+    TableSheet      string
+    TableName       string
+    Caption         string
+    Macro           string
+    Width           uint
+    Height          uint
+    DisplayHeader   *bool
+    ItemDesc        bool
+    Format          GraphicOptions
+    SelectedItems   []string
 }
 ```
 
 `Name` 為必選參數，用於設定交叉分析篩選器的名稱，必須是工作表中已有表格或樞紐分析表中欄位名稱。
 
-`Table` 為必選參數，用於設定交叉分析篩選器關聯的表格或樞紐分析表名稱。
-
 `Cell` 為必選參數，用於設定交叉分析篩選器左上角儲存格坐標位置。
+
+`TableSheet` 為必選參數，用於設定交叉分析篩選器關聯的工作表名稱。
+
+`TableName` 為必選參數，用於設定交叉分析篩選器關聯的表格或樞紐分析表名稱。
 
 `Caption` 為可選參數，用於設定交叉分析篩選器的標題。
 
@@ -114,6 +118,8 @@ type SlicerOptions struct {
 `ItemDesc` 為可選參數，用於設定使用遞減 (Z-A) 為交叉分析篩選器項目排序，默認設定為 `false`（表示使用遞增）。
 
 `Format` 為可選參數，用於設定交叉分析篩選器的格式（大小和屬性）。
+
+`SelectedItems` 為可選參數，用於指定交叉分析篩選器中的默認選中項。目前，該選項僅支持在樞紐分析表中交叉分析篩選器中使用，並且選中項必須位於樞紐分析表中已選中項的範圍內。如果樞紐分析表是使用 [`AddPivotTable`](pivot.md#AddPivotTable) 函式創建的，則在創建樞紐分析表時，也必須為同一字段指定選中項範圍。
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error
@@ -133,13 +139,13 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
 })
 ```
 
-## 获取交叉分析篩選器 {#GetSlicers}
+## 獲取交叉分析篩選器 {#GetSlicers}
 
 ```go
 func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
 ```
 
-透過給定的工作表名稱獲取指定工作表中的全部交叉分析篩選器。注意，該函數目前尚未支援獲取交叉分析篩選器的高度、寬度和圖形屬性。
+透過給定的工作表名稱獲取指定工作表中的全部交叉分析篩選器。注意，該函式目前尚未支援獲取交叉分析篩選器的高度、寬度和圖形屬性。
 
 ## 刪除交叉分析篩選器 {#DeleteSlicer}
 
