@@ -66,9 +66,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "مخطط مساحي مكدس بنسبة 100٪ ثنائي الأبعاد",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "مخطط مساحي مكدس بنسبة 100٪ ثنائي الأبعاد",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

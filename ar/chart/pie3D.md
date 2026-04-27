@@ -55,9 +55,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "مخطط دائري ثلاثي الأبعاد",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "مخطط دائري ثلاثي الأبعاد",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

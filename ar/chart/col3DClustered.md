@@ -67,9 +67,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "مخطط عمودي ثلاثي الأبعاد متفاوت",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "مخطط عمودي ثلاثي الأبعاد متفاوت",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

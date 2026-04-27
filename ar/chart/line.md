@@ -78,9 +78,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "مخطط خطي",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "مخطط خطي",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

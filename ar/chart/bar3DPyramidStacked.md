@@ -69,9 +69,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "الرسم البياني الشريطي ثلاثي الأبعاد المكدس بالهرم",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "الرسم البياني الشريطي ثلاثي الأبعاد المكدس بالهرم",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
