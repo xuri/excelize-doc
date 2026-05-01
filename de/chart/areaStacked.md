@@ -63,9 +63,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "2D gestapeltes Flächendiagramm",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "2D gestapeltes Flächendiagramm",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

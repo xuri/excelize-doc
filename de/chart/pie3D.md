@@ -51,9 +51,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D Kreisdiagramm",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D Kreisdiagramm",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

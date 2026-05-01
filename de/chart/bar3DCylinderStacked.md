@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D Zylinder gestapeltes Balkendiagramm",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D Zylinder gestapeltes Balkendiagramm",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

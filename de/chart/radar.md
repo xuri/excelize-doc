@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Netzdiagramm",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Netzdiagramm",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

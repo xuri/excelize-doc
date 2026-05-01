@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D 100% Pyramide gestapelt Säulendiagramm",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D 100% Pyramide gestapelt Säulendiagramm",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

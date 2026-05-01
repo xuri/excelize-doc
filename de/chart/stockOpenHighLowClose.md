@@ -83,8 +83,12 @@ func main() {
             },
         },
         Legend: excelize.ChartLegend{Position: "none"},
-        Title: []excelize.RichTextRun{
-            {Text: "Öffnungs-Hoch-Tief-Schluss Aktienchart"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Öffnungs-Hoch-Tief-Schluss Aktienchart",
+                },
+            },
         },
         XAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "yyyy-mm-dd"},
