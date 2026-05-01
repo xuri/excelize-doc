@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D Bar Cone Percent Stacked Chart",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D Bar Cone Percent Stacked Chart",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

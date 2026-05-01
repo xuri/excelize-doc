@@ -50,9 +50,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "right",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Fruit Doughnut Chart",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Fruit Doughnut Chart",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

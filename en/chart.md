@@ -246,9 +246,11 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Clustered Column - Line Chart",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Clustered Column - Line Chart",
+                },
             },
         },
         Legend: excelize.ChartLegend{

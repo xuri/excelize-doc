@@ -59,9 +59,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "2D 100% Stacked Area Chart",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "2D 100% Stacked Area Chart",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
