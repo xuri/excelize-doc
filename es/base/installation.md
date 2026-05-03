@@ -178,9 +178,11 @@ func main() {
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$4:$D$4",
             }},
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Gráfico de columnas agrupadas 3D",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Gráfico de columnas agrupadas 3D",
+                },
             },
         },
     }); err != nil {
