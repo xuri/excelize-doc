@@ -250,9 +250,11 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Colonne raggruppate - Grafico a linee",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Colonne raggruppate - Grafico a linee",
+                },
             },
         },
         Legend: excelize.ChartLegend{

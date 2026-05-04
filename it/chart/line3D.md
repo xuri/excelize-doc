@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Grafico a linee 3D",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Grafico a linee 3D",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

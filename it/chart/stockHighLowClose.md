@@ -78,8 +78,12 @@ func main() {
             },
         },
         Legend: excelize.ChartLegend{Position: "none"},
-        Title: []excelize.RichTextRun{
-            {Text: "Grafico azionario Alto-Basso-Chiusura"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Grafico azionario Alto-Basso-Chiusura",
+                },
+            },
         },
         XAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "yyyy-mm-dd"},

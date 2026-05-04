@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Grafico in pila percentuale cono a barra 3D",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Grafico in pila percentuale cono a barra 3D",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
