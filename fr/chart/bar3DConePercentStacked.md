@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D graphique à barres cône",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D graphique à barres cône",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

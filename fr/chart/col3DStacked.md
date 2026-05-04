@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D graphique à colonnes empilées",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D graphique à colonnes empilées",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

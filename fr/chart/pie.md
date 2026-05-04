@@ -47,9 +47,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Graphique tarte",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Graphique tarte",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

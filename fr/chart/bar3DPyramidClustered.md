@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D graphique à barres groupée pyramide",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D graphique à barres groupée pyramide",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

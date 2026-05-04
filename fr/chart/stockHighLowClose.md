@@ -78,8 +78,12 @@ func main() {
             },
         },
         Legend: excelize.ChartLegend{Position: "none"},
-        Title: []excelize.RichTextRun{
-            {Text: "Graphique boursier Haut-Bas-Fermé"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Graphique boursier Haut-Bas-Fermé",
+                },
+            },
         },
         XAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "yyyy-mm-dd"},

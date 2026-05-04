@@ -73,8 +73,12 @@ func main() {
         YAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "#,##0"},
         },
-        Title: []excelize.RichTextRun{
-            {Text: "Graphique boursier Volume-Ouverture-Haut-Bas-Clôture"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Graphique boursier Volume-Ouverture-Haut-Bas-Clôture",
+                },
+            },
         },
     }, &excelize.Chart{
         Type: excelize.StockOpenHighLowClose,
