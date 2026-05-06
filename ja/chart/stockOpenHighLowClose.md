@@ -79,8 +79,12 @@ func main() {
             },
         },
         Legend: excelize.ChartLegend{Position: "none"},
-        Title: []excelize.RichTextRun{
-            {Text: "株価チャート (始値-高値-安値-終値)"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "株価チャート (始値-高値-安値-終値)",
+                },
+            },
         },
         XAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "yyyy-mm-dd"},
