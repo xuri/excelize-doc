@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D 실린더 클러스터된 열 차트",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D 실린더 클러스터된 열 차트",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

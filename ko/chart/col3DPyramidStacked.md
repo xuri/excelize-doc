@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D 피라미드 누적 열 차트",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D 피라미드 누적 열 차트",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

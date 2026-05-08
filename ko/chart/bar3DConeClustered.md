@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D 원뿔 클러스터된 막대 차트",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D 원뿔 클러스터된 막대 차트",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

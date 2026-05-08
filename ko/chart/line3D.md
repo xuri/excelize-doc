@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D 꺾은선형 차트",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D 꺾은선형 차트",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

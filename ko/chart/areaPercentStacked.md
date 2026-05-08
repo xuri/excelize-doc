@@ -59,9 +59,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "2D 100% 스택 영역 차트",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "2D 100% 스택 영역 차트",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
