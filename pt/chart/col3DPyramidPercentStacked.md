@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Gráfico de colunas empilhadas em pirâmide 3D 100%",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Gráfico de colunas empilhadas em pirâmide 3D 100%",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

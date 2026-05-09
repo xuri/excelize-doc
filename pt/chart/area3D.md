@@ -63,9 +63,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Gráfico de área 3D de frutas",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Gráfico de área 3D de frutas",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
