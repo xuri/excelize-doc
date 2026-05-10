@@ -51,9 +51,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "круговая диаграмма",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "круговая диаграмма",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

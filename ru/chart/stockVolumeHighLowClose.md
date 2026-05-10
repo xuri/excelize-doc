@@ -73,8 +73,12 @@ func main() {
         YAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "#,##0"},
         },
-        Title: []excelize.RichTextRun{
-            {Text: "График акций объема-максимума-минимума-закрытия"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "График акций объема-максимума-минимума-закрытия",
+                },
+            },
         },
     }, &excelize.Chart{
         Type: excelize.StockHighLowClose,

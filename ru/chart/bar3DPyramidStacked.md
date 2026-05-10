@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D пирамиды сложены диаграммы бар",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D пирамиды сложены диаграммы бар",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

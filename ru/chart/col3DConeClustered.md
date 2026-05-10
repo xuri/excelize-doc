@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D конус кластерных диаграмма столбца",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D конус кластерных диаграмма столбца",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

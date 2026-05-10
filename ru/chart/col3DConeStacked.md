@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "3D конус штабелироваться диаграммы колонки",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "3D конус штабелироваться диаграммы колонки",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

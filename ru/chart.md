@@ -250,9 +250,11 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "2D группированная диаграмма столбцов - линейный график",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "2D группированная диаграмма столбцов - линейный график",
+                },
             },
         },
         Legend: excelize.ChartLegend{

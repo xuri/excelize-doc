@@ -66,9 +66,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Трехмерная линейная диаграмма",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Трехмерная линейная диаграмма",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
