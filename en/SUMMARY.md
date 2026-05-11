@@ -118,6 +118,8 @@
   * [Set cell formula](cell.md#SetCellFormula)
   * [Get cell formula](cell.md#GetCellFormula)
   * [Calculate cell value](cell.md#CalcCellValue)
+  * [Recalculate formula cell](cell.md#RecalcCell)
+  * [Recalculate workbook](cell.md#Recalc)
 * [Chart](chart.md)
   * [Add chart](chart.md#AddChart)
   * [Add chart sheet](chart.md#AddChartSheet)
