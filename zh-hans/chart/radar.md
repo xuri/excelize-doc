@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Fruit Radar Chart",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Fruit Radar Chart",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "Fruit 2D Stacked 100% Bar Chart",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "Fruit 2D Stacked 100% Bar Chart",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

@@ -248,9 +248,11 @@ func main() {
             LockAspectRatio: false,
             Locked:          &disable,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "簇状柱形图 - 折线图",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "簇状柱形图 - 折线图",
+                },
             },
         },
         Legend: excelize.ChartLegend{

@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "三维百分比堆积柱形图",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "三维百分比堆积柱形图",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
