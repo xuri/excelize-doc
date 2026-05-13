@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "left",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "立體堆疊圓柱圖",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "立體堆疊圓柱圖",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

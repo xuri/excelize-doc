@@ -69,8 +69,12 @@ func main() {
         YAxis: excelize.ChartAxis{
             NumFmt: excelize.ChartNumFmt{CustomNumFmt: "#,##0"},
         },
-        Title: []excelize.RichTextRun{
-            {Text: "成交量-開盤價-最高價-最低價-收盤價股價圖"},
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "成交量-開盤價-最高價-最低價-收盤價股價圖",
+                },
+            },
         },
     }, &excelize.Chart{
         Type: excelize.StockOpenHighLowClose,

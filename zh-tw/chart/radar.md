@@ -62,9 +62,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "top",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "雷達圖",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "雷達圖",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

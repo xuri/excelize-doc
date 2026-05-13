@@ -60,9 +60,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "立體群組直條圖",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "立體群組直條圖",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

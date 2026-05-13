@@ -47,9 +47,11 @@ func main() {
             OffsetX: 15,
             OffsetY: 10,
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "圓形圖",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "圓形圖",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{

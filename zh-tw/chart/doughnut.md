@@ -50,9 +50,11 @@ func main() {
         Legend: excelize.ChartLegend{
             Position: "right",
         },
-        Title: []excelize.RichTextRun{
-            {
-                Text: "環圈圖",
+        Title: excelize.ChartTitle{
+            Paragraph: []excelize.RichTextRun{
+                {
+                    Text: "環圈圖",
+                },
             },
         },
         PlotArea: excelize.ChartPlotArea{
