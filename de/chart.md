@@ -107,7 +107,20 @@ top_right | Oben rechts
 
 Der Parametersatz `ShowLegendKey`  der Legendenschlüssel soll in Datenbeschriftungen angezeigt werden. Der Standardwert ist `false`.
 
-Der Diagrammtitel wird durch Auswahl des Parameters `Name` des Objekts `Title` festgelegt. Der Titel wird über dem Diagramm angezeigt. Der Parameter `Name` unterstützt die Verwendung von Formeldarstellungen wie `Sheet1!$A$1`. Wenn Sie keinen Symboltitel angeben, ist der Standardwert null.
+Die Eigenschaften des Diagrammtitels werden über das Feld `Title` mit dem Datentyp `ChartTitle` festgelegt. Folgende Eigenschaften können festgelegt werden:
+
+Parameter|Typ|Erläuterung
+---|---|---
+Fill      | `Fill`          | Legen Sie die Füllfarbe des Diagrammtitels fest. Die `Fill`-Eigenschaft ist optional.
+Border    | `LineOptions`   | Legen Sie den Rahmen für den Diagrammtitel fest. Die einstellbaren Eigenschaften entsprechen denen des Rahmenobjekts, das für die Zellenformatierung verwendet wird. Die Eigenschaft `Border` ist optional.
+Paragraph | `[]RichTextRun` | Legen Sie den formatierten Text für den Diagrammtitel fest. Die Eigenschaft `Paragraph` ist optional und kann nicht gleichzeitig mit der Eigenschaft `Formula` festgelegt werden.
+Font      | `*Font`         | Legen Sie die Schriftarteigenschaften des Formeltextes im Diagrammtitel fest. Die Eigenschaft `Font` ist optional.
+Formula   | `string`        | Legen Sie die Formel für den Diagrammtitel fest. Beispiel: Sheet1!$A$1. Die Eigenschaft `Formula` ist optional und kann nicht gleichzeitig mit der Eigenschaft `Paragraph` festgelegt werden.
+OffsetX   | `int`           | Legen Sie den horizontalen Versatz des Diagrammtitels fest. Die Eigenschaft `OffsetX` ist optional. Der Standardwert ist 0, und der Wert von `OffsetX` muss eine ganze Zahl zwischen 0 und 100 sein.
+OffsetY   | `int`           | Legen Sie den vertikalen Versatz des Diagrammtitels fest. Die Eigenschaft `OffsetY` ist optional. Der Standardwert ist 0, und der Wert von `OffsetY` muss eine ganze Zahl zwischen 0 und 100 sein.
+Width     | `int`           | Legen Sie die Breite des Diagrammtitels fest. Die Eigenschaft `Width` ist optional. Der Standardwert ist 0, und der Wert von `Width` muss eine ganze Zahl zwischen 0 und 100 sein.
+Height    | `int`           | Legen Sie die Höhe des Diagrammtitels fest. Die Eigenschaft `Height` ist optional. Der Standardwert ist 0, und der Wert von `Height` muss eine ganze Zahl zwischen 0 und 100 sein.
+Overlay   | `bool`          | Legen Sie fest, dass der Diagrammtitel über dem Diagramm angezeigt werden soll. Die Eigenschaft `Overlay` ist optional. Der Standardwert ist `false`.
 
 Der Parameter `ShowBlanksAs` liefert die Einstellung "Zellen ausblenden und leeren". Der Standardwert ist: `gap`. In der Excel-Anwendung wird "leere Zelle als" angezeigt: "Leerzeichen". Die folgenden Werte sind für diesen Parameter optional:
 
@@ -127,7 +140,7 @@ Gibt an, dass jede Datenpunktmarkierung in der Reihe eine andere Farbe durch `Va
 
 Der Parameter `Format` bietet Einstellungen für Parameter wie Diagrammversatz, Skalierung, Seitenverhältniseinstellungen und Druckeigenschaften sowie für die in der Funktion [`AddPicture`](image.md#AddPicture) verwendeten.
 
-Legen Sie die Position des Diagrammplotbereichs nach Plotbereich fest. Folgende Eigenschaften können festgelegt werden:
+Die Eigenschaften des Diagrammbereichs werden über das Feld `PlotArea` mit dem Datentyp `ChartPlotArea` festgelegt. Folgende Eigenschaften können festgelegt werden:
 
 Parameter|Typ|Standard|Erläuterung
 ---|---|---|---

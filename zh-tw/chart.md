@@ -109,7 +109,20 @@ top_right|右上
 
 其中參數 `ShowLegendKey`  默認值為 `false`。
 
-透過可選 `Title` 對象的 `Name` 參數設定圖表標題，標題將會在圖表上方顯示。參數 `Name` 支援使用公式表示，例如 `Sheet1!$A$1`，圖表標題的默認值為空。
+透過資料類型為 `ChartTitle` 的 `Title` 字段設定圖表標題的屬性。可設定的屬性包括：
+
+參數|類型|含義
+---|---|---
+Fill      | `Fill`          | 設定圖表標題的填滿色彩。`Fill` 屬性是可選的。
+Border    | `LineOptions`   | 設定圖表標題的邊框，可設定的屬性與單元格格式中使用的邊框相同。`Border` 屬性是可選的。
+Paragraph | `[]RichTextRun` | 設定圖表富文本標題。`Paragraph` 屬性是可選的，不能與 `Formula` 屬性同時設定。
+Font      | `*Font`         | 設定圖表標題公式文本的字體屬性。`Font` 屬性是可選的。
+Formula   | `string`        | 設定圖表標題文本的公式。例如：Sheet1!$A$1。`Formula` 屬性是可選的，不能與 `Paragraph` 屬性同時設定。
+OffsetX   | `int`           | 設定圖表標題的水平偏移。`OffsetX` 屬性是可選的。默認值為 0，其取值範圍是 0 到 100 範圍內的整數。
+OffsetY   | `int`           | 設定圖表標題的垂直偏移。`OffsetY` 屬性是可選的。默認值為 0，其取值範圍是 0 到 100 範圍內的整數。
+Width     | `int`           | 設定圖表標題的寬度。`Width` 屬性是可選的。默認值為 0，其取值範圍是 0 到 100 範圍內的整數。
+Height    | `int`           | 設定圖表標題的高度。`Height` 屬性是可選的。默認值為 0，其取值範圍是 0 到 100 範圍內的整數。
+Overlay   | `bool`          | 設定圖表標題是否疊加在圖表上。`Overlay` 屬性是可選的。默認值為 `false`。
 
 參數 `ShowBlanksAs` 提供「隱藏和清空儲存格」設定，默認值為：`gap` 即「空儲存格顯示為」：「空距」。下面是該參數的可選值：
 
@@ -129,7 +142,7 @@ zero|零值
 
 參數 `Format` 提供對圖表偏移、縮放、高寬比設定和列印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函式中所使用的相同。
 
-透過可選 `PlotArea` 對象設定資料標籤格式，可選參數如下：
+透過資料類型為 `ChartPlotArea` 的 `PlotArea` 字段設定圖表繪圖區域的屬性。可設定的屬性包括：
 
 參數|類別|默認值|含義
 ---|---|---|---

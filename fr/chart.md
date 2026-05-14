@@ -83,7 +83,7 @@ Legend            | Cette propriété définit la police du texte de légende d'
 Fill              | Ceci définit le format de remplissage de la série de données.
 Line              | Ceci définit le format de ligne du graphique en courbes. La propriété `Line` est facultative et si elle n'est pas fournie, le style par défaut. Les options pouvant être définies sont `Width`. La plage de `Width` est comprise entre 0.25 et 999 pt. Si la valeur de width est en dehors de la plage, la largeur par défaut de la ligne est de 2 pt.
 Marker            | Ceci définit le marqueur du graphique linéaire et du nuage de points. La plage du champ facultatif `Size` est comprise entre 2 et 72 (la valeur par défaut est `5`). La valeur d'énumération du champ facultatif `Symbol` est (la valeur par défaut est `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x`, `auto`.
-DataLabelPosition | Ceci définit la position de l’étiquette de données de la série de graphiques.
+DataLabelPosition | Ceci définit la position de l'étiquette de données de la série de graphiques.
 DataPoint         | Ceci définit le format des points de données individuels dans une série de graphiques en anneau, en secteur ou en secteur 3D. La propriété `DataPoint` est facultative.
 
 Définir les propriétés de la légende du graphique. Les options qui peuvent être définies sont:
@@ -107,7 +107,20 @@ top_right | En haut à droite
 
 Le paramètre `ShowLegendKey`  défini les clés de légende doit être affiché dans les étiquettes de données. La valeur par défaut est `false`.
 
-Le titre du graphique est défini en sélectionnant le paramètre `Name` de l'objet `Title` et le titre sera affiché au-dessus du graphique. Le paramètre `Name` prend en charge l'utilisation de représentations de formules, telles que `Sheet1!$A$1`, si vous ne spécifiez pas de titre d'icône, la valeur par défaut est null.
+Définissez les propriétés du titre du graphique à l'aide du champ `Title` de type `ChartTitle`. Les propriétés configurables sont:
+
+Paramètre|Type|Explication
+---|---|---
+Fill      | `Fill`          | Définissez la couleur de remplissage du titre du graphique. La propriété `Fill` est facultative.
+Border    | `LineOptions`   | Définissez la bordure du titre du graphique; les propriétés configurables sont identiques à celles de l'objet de bordure utilisé pour la mise en forme des cellules. La propriété `Border` est facultative.
+Paragraph | `[]RichTextRun` | Définissez le format de texte enrichi du titre du graphique. La propriété `Paragraph` est facultative et ne peut pas être définie simultanément avec la propriété `Formula`.
+Font      | `*Font`         | Définissez les propriétés de police du texte de la formule du titre du graphique. La propriété `Font` est facultative.
+Formula   | `string`        | Définissez la formule du texte du titre du graphique. Par exemple: Sheet1!$A$1. La propriété `Formula` est facultative et ne peut pas être définie simultanément avec la propriété `Paragraph`.
+OffsetX   | `int`           | Définissez le décalage horizontal du titre du graphique. La propriété `OffsetX` est facultative. Sa valeur par défaut est 0 et elle doit être un entier compris entre 0 et 100.
+OffsetY   | `int`           | Définissez le décalage vertical du titre du graphique. La propriété `OffsetY` est facultative. Sa valeur par défaut est 0 et elle doit être un entier compris entre 0 et 100.
+Width     | `int`           | Définissez la largeur du titre du graphique. La propriété `Width` est facultative. Sa valeur par défaut est 0 et elle doit être un entier compris entre 0 et 100.
+Height    | `int`           | Définissez la hauteur du titre du graphique. La propriété `Height` est facultative. Sa valeur par défaut est 0 et elle doit être un entier compris entre 0 et 100.
+Overlay   | `bool`          | Afficher le titre du graphique en surimpression. La propriété `Overlay` est facultative. Sa valeur par défaut est `false`.
 
 Le paramètre `ShowBlanksAs` fournit le paramètre "Hide and empty cells". La valeur par défaut est: `gap`. Dans l'application Excel "cellule vide est affiché comme": "espace". Les valeurs suivantes sont des valeurs facultatives pour ce paramètre:
 
@@ -127,7 +140,7 @@ Spécifie que chaque marqueur de données de la série a une couleur différente
 
 Le paramètre `Format` fournit des paramètres pour des paramètres tels que le décalage de diagramme, l'échelle, les paramètres de format et les propriétés d'impression, ainsi que ceux utilisés dans la fonction [`AddPicture`](image.md#AddPicture).
 
-Définissez la position de la zone de tracé de graphique par plotarea. Les propriétés qui peuvent être définies sont:
+Définissez les propriétés de la zone de tracé du graphique à l'aide du champ `PlotArea` de type `ChartPlotArea`. Les propriétés configurables sont:
 
 Paramètre|Type|Défaut|Explication
 ---|---|---|---
@@ -143,7 +156,7 @@ ShowVal           | `bool`           | `false` | Indique que la valeur doit appa
 Fill              | `Fill`           | N/A     | Définir la couleur de remplissage du graphique.
 UpBars            | `ChartUpDownBar` | N/A     | Spécifie le format pour les barres montantes du graphique des actions. La propriété `UpBars` est facultative.
 DownBars          | `ChartUpDownBar` | N/A     | Spécifie le format pour les barres baissières du graphique boursier. La propriété `DownBars` est optionnelle.
-NumFmt            | `ChartNumFmt`    | N/A     | Spécifie cela s’il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
+NumFmt            | `ChartNumFmt`    | N/A     | Spécifie cela s'il est lié à la source et définit un code de format numérique personnalisé pour les étiquettes de données. La propriété `NumFmt` est facultative. Le code de format par défaut est `General`.
 
 Définissez les options de l'axe horizontal et vertical principal par `XAxis` et `YAxis`.
 

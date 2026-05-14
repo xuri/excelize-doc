@@ -107,7 +107,20 @@ top_right | On top right
 
 O parâmetro `ShowLegendKey` define as chaves de legenda que serão mostradas nos rótulos de dados. O valor padrão é `false`.
 
-O título do gráfico é definido selecionando o parâmetro `Name` do objeto `Title`, e o título será exibido acima do gráfico. O parâmetro `Name` suporta o uso de representações de fórmulas, como `Planilha1!$A$1`, se você não especificar um título de ícone, o valor padrão é nulo.
+Defina as propriedades do título do gráfico pelo campo `Title` com o tipo de dados `ChartTitle`. As propriedades que podem ser definidas são:
+
+Parâmetro|Tipo|Explicação
+---|---|---
+Fill      | `Fill`          | Defina a cor de preenchimento do título do gráfico. A propriedade `Fill` é opcional.
+Border    | `LineOptions`   | Defina a borda do título do gráfico; as propriedades que podem ser definidas são as mesmas do objeto de borda usado para formatação de células. A propriedade `Border` é opcional.
+Paragraph | `[]RichTextRun` | Defina o texto formatado do título do gráfico. A propriedade `Paragraph` é opcional e não pode ser definida simultaneamente com a propriedade `Formula`.
+Font      | `*Font`         | Defina as propriedades da fonte do texto da fórmula do título do gráfico. A propriedade `Font` é opcional.
+Formula   | `string`        | Defina a fórmula do texto do título do gráfico. Por exemplo: Planilha1!$A$1. A propriedade `Formula` é opcional e não pode ser definida simultaneamente com a propriedade `Paragraph`.
+OffsetX   | `int`           | Defina o deslocamento horizontal do título do gráfico. A propriedade `OffsetX` é opcional. O valor padrão é 0 e o valor de `OffsetX` deve ser um número inteiro de 0 a 100.
+OffsetY   | `int`           | Defina o deslocamento vertical do título do gráfico. A propriedade `OffsetY` é opcional. O valor padrão é 0 e o valor de `OffsetY` deve ser um número inteiro de 0 a 100.
+Width     | `int`           | Defina a largura do título do gráfico. A propriedade `Width` é opcional. O valor padrão é 0 e o valor de `Width` deve ser um número inteiro de 0 a 100.
+Height    | `int`           | Defina a altura do título do gráfico. A propriedade `Height` é opcional. O valor padrão é 0 e o valor de `Height` deve ser um número inteiro de 0 a 100.
+Overlay   | `bool`          | Defina se o título do gráfico deve ser sobreposto ao gráfico. A propriedade `Overlay` é opcional. O valor padrão é `false`.
 
 O parâmetro `ShowBlanksAs` fornece a configuração "Ocultar e esvaziar células". O valor padrão é: `gap`. No aplicativo Excel, "a célula vazia é exibida como": "espaço". A seguir estão os valores opcionais para este parâmetro:
 
@@ -125,9 +138,9 @@ Defina o tamanho do furo de rosca em todas as séries de dados para o gráfico d
 
 Especifica que cada marcador de dados na série possui uma cor diferente por `VaryColors`. O valor padrão é `true`.
 
-O parâmetro `Formato` fornece configurações para parâmetros como deslocamento do gráfico, escala, configurações de proporção e propriedades de impressão, bem como aqueles usados na função X [`AddPicture`](image.md#AddPicture).
+O parâmetro `Format` fornece configurações para parâmetros como deslocamento do gráfico, escala, configurações de proporção e propriedades de impressão, bem como aqueles usados na função [`AddPicture`](image.md#AddPicture).
 
-Defina a posição da área de plotagem do gráfico por área de plotagem. As propriedades que podem ser definidas são:
+Defina as propriedades da área de plotagem do gráfico pelo campo `PlotArea` com o tipo de dados `ChartPlotArea`. As propriedades que podem ser definidas são:
 
 Parâmetro|Tipo|Valores padrão|Explicação
 ---|---|---|---

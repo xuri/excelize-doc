@@ -109,7 +109,20 @@ top_right | 右上
 
 其中参数 `ShowLegendKey`  默认值为 `false`。
 
-通过可选 `Title` 对象的 `Name` 参数设置图表标题，标题将会在图表上方显示。参数 `Name` 支持使用公式表示，例如 `Sheet1!$A$1`，图表标题的默认值为空。
+通过数据类型为 `ChartTitle` 的 `Title` 字段设置图表标题的属性。可设置的属性包括：
+
+参数|类型|含义
+---|---|---
+Fill      | `Fill`          | 设置图表标题的填充颜色。`Fill` 属性是可选的。
+Border    | `LineOptions`   | 设置图表标题的边框，可设置的属性与单元格格式中使用的边框相同。`Border` 属性是可选的。
+Paragraph | `[]RichTextRun` | 设置图表富文本标题。`Paragraph` 属性是可选的，不能与 `Formula` 属性同时设置。
+Font      | `*Font`         | 设置图表标题公式文本的字体属性。`Font` 属性是可选的。
+Formula   | `string`        | 设置图表标题文本的公式。例如：Sheet1!$A$1。`Formula` 属性是可选的，不能与 `Paragraph` 属性同时设置。
+OffsetX   | `int`           | 设置图表标题的水平偏移。`OffsetX` 属性是可选的。默认值为 0，其取值范围是 0 到 100 范围内的整数。
+OffsetY   | `int`           | 设置图表标题的垂直偏移。`OffsetY` 属性是可选的。默认值为 0，其取值范围是 0 到 100 范围内的整数。
+Width     | `int`           | 设置图表标题的宽度。`Width` 属性是可选的。默认值为 0，其取值范围是 0 到 100 范围内的整数。
+Height    | `int`           | 设置图表标题的高度。`Height` 属性是可选的。默认值为 0，其取值范围是 0 到 100 范围内的整数。
+Overlay   | `bool`          | 设置图表标题是否叠加在图表上。`Overlay` 属性是可选的。默认值为 `false`。
 
 参数 `ShowBlanksAs` 提供“隐藏和清空单元格”设置，默认值为：`gap` 即“空单元格显示为”：“空距”。下面是该参数的可选值：
 
@@ -129,7 +142,7 @@ zero | 零值
 
 参数 `Format` 提供对图表偏移、缩放、高宽比设置和打印属性等参数的设置，其参数与在 [`AddPicture`](image.md#AddPicture) 函数中所使用的相同。
 
-通过可选 `PlotArea` 对象设置绘图区域格式，可选参数如下：
+通过数据类型为 `ChartPlotArea` 的 `PlotArea` 字段设置图表绘图区域的属性。可设置的属性包括：
 
 参数|类型|默认值|含义
 ---|---|---|---

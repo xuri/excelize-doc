@@ -107,7 +107,20 @@ top_right | On top right
 
 The `ShowLegendKey` parameter set the legend keys shall be shown in data labels. The default value is `false`.
 
-The chart title is set by selecting the `Name` parameter of the `Title` object, and the title will be displayed above the chart. The parameter `Name` supports the use of formula representations, such as `Sheet1!$A$1`, if you do not specify an icon title, the default value is null.
+Set properties of the chart title by `Title` field with `ChartTitle` data type. The properties that can be set are:
+
+Parameter|Type|Explanation
+---|---|---
+Fill      | `Fill`          | Set fill color of the chart title. The `Fill` property is optional.
+Border    | `LineOptions`   | Set border of the chart title, the properties that can be set are the same as the border object that is used for cell formatting. The `Border` property is optional.
+Paragraph | `[]RichTextRun` | Set the rich text of the chart title text. The `Paragraph` property is optional, and can not be set at the same time with `Formula` property.
+Font      | `*Font`         | Set the font properties of the chart title formula text. The `Font` property is optional.
+Formula   | `string`        | Set the formula of the chart title text. For example: Sheet1!$A$1. The `Formula` property is optional, and can not be set at the same time with `Paragraph` property.
+OffsetX   | `int`           | Set the horizontal offset of the chart title. The `OffsetX` property is optional. The default value is 0, and the value of `OffsetX` must be an integer from 0 to 100.
+OffsetY   | `int`           | Set the vertical offset of the chart title. The `OffsetY` property is optional. The default value is 0, and the value of `OffsetY` must be an integer from 0 to 100.
+Width     | `int`           | Set the width of the chart title. The `Width` property is optional. The default value is 0, and the value of `Width` must be an integer from 0 to 100.
+Height    | `int`           | Set the height of the chart title. The `Height` property is optional. The default value is 0, and the value of `Height` must be an integer from 0 to 100.
+Overlay   | `bool`          | Set the chart title shall be overlaid on the chart. The `Overlay` property is optional. The default value is `false`.
 
 The parameter `ShowBlanksAs` provides the "Hide and empty cells" setting. The default value is: `gap`. In the Excel application "empty cell is displayed as": "space". The following are optional values for this parameter:
 
@@ -127,7 +140,7 @@ Specifies that each data marker in the series has a different color by `VaryColo
 
 The parameter `Format` provides settings for parameters such as chart offset, scale, aspect ratio settings, and print properties, as well as those used in the [`AddPicture`](image.md#AddPicture) function.
 
-Set the position of the chart plot area by plot area. The properties that can be set are:
+Set the properties of the chart plot area by `PlotArea` field with `ChartPlotArea` data type. The properties that can be set are:
 
 Parameter|Type|Default|Explanation
 ---|---|---|---

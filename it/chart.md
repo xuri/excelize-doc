@@ -107,7 +107,20 @@ top_right | In alto a destra
 
 Il parametro `ShowLegendKey` imposta le chiavi della legenda devono essere mostrate nelle etichette dei dati. Il valore predefinito è `false`.
 
-Il titolo del grafico viene impostato selezionando il parametro `Name` dell'oggetto `Title` e il titolo verrà visualizzato sopra il grafico. Il parametro `Name` supporta l'uso di rappresentazioni di formule, come `Foglio1!$A$1`, se non specifichi il titolo di un'icona, il valore predefinito è null.
+Set properties of the chart title by `Title` field with `ChartTitle` data type. The properties that can be set are:
+
+Parametro|Tipo|Spiegazione
+---|---|---
+Fill      | `Fill`          | Imposta il colore di riempimento del titolo del grafico. La proprietà `Fill` è facoltativa.
+Border    | `LineOptions`   | Imposta il bordo del titolo del grafico; le proprietà che possono essere impostate sono le stesse dell'oggetto bordo utilizzato per la formattazione delle celle. La proprietà `Border` è facoltativa.
+Paragraph | `[]RichTextRun` | Imposta il testo formattato del titolo del grafico. La proprietà `Paragraph` è facoltativa e non può essere impostata contemporaneamente alla proprietà `Formula`.
+Font      | `*Font`         | Imposta le proprietà del carattere del testo della formula del titolo del grafico. La proprietà `Font` è facoltativa.
+Formula   | `string`        | Imposta la formula del testo del titolo del grafico. Ad esempio: Foglio1!$A$1. La proprietà `Formula` è facoltativa e non può essere impostata contemporaneamente alla proprietà `Paragraph`.
+OffsetX   | `int`           | Imposta l'offset orizzontale del titolo del grafico. La proprietà `OffsetX` è facoltativa. Il valore predefinito è 0 e il valore di `OffsetX` deve essere un numero intero compreso tra 0 e 100.
+OffsetY   | `int`           | Imposta l'offset verticale del titolo del grafico. La proprietà `OffsetY` è facoltativa. Il valore predefinito è 0 e il valore di `OffsetY` deve essere un numero intero compreso tra 0 e 100.
+Width     | `int`           | Imposta la larghezza del titolo del grafico. La proprietà `Width` è facoltativa. Il valore predefinito è 0 e il valore di `Width` deve essere un numero intero compreso tra 0 e 100.
+Height    | `int`           | Imposta l'altezza del titolo del grafico. La proprietà `Height` è facoltativa. Il valore predefinito è 0 e il valore di `Height` deve essere un numero intero compreso tra 0 e 100.
+Overlay   | `bool`          | Imposta il titolo del grafico che verrà sovrapposto al grafico stesso. La proprietà `Overlay` è facoltativa. Il valore predefinito è `false`.
 
 Il parametro `ShowBlanksAs` fornisce l'impostazione "Nascondi e svuota celle". Il valore predefinito è: `gap`. Nell'applicazione Excel "la cella vuota viene visualizzata come": "spazio". I seguenti sono valori facoltativi per questo parametro:
 
@@ -127,7 +140,7 @@ Specifica che ciascun indicatore di dati nella serie ha un colore diverso da `Va
 
 Il parametro `Format` fornisce impostazioni per parametri quali offset del grafico, scala, impostazioni del rapporto d'aspetto e proprietà di stampa, nonché quelli utilizzati nella funzione [`AddPicture`](image.md#AddPicture).
 
-Imposta la posizione dell'area del grafico in base all'area del grafico. Le proprietà che è possibile impostare sono:
+Imposta le proprietà dell'area del grafico tramite il campo `PlotArea` con tipo di dati `ChartPlotArea`. Le proprietà che possono essere impostate sono:
 
 Parametro|Tipo|Predefinito|Spiegazione
 ---|---|---|---
