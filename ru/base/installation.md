@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## Удаление {#uninstall}
+
+- Удалите библиотеку Excelize с помощью следующей команды
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Создать документ Excel {#NewFile}
 
 Вот минимальный пример использования, который будет создавать файл XLSX:

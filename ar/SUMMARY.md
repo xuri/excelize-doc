@@ -4,6 +4,7 @@
 * [الاستخدام الأساسي](base/installation.md)
   * [التركيب](base/installation.md#install)
   * [ترقيه](base/installation.md#update)
+  * [إلغاء التثبيت](base/installation.md#uninstall)
   * [قم بإنشاء مستند جدول بيانات](base/installation.md#NewFile)
   * [قراءة وثيقة إكسل](base/installation.md#read)
   * [أضف مخططًا إلى جدول بيانات](base/installation.md#chart)

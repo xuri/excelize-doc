@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## Deinstallation {#uninstall}
+
+- Deinstallieren Sie die Excelize-Bibliothek mit dem folgenden Befehl
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Erstellen einer Kalkulationstabelle {#NewFile}
 
 Hier ist eine minimale Beispielverwendung, die eine Tabellenkalkulationsdatei erstellt:

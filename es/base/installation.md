@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## Desinstalar {#uninstall}
+
+- Desinstale la biblioteca Excelize con el siguiente comando
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Crear una hoja de cálculo {#NewFile}
 
 Este es un uso mínimo de ejemplo que creará un archivo de hoja de cálculo:

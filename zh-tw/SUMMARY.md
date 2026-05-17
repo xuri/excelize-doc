@@ -4,6 +4,7 @@
 * [快速開始](base/installation.md)
   * [安裝](base/installation.md#install)
   * [更新](base/installation.md#update)
+  * [解除安裝](base/installation.md#uninstall)
   * [創建 Excel 檔案](base/installation.md#NewFile)
   * [讀取 Excel 檔案](base/installation.md#read)
   * [在 Excel 檔案中創建圖表](base/installation.md#chart)

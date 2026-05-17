@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## إلغاء التثبيت {#uninstall}
+
+- قم بإلغاء تثبيت مكتبة Excelize باستخدام الأمر التالي
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## قم بإنشاء مستند جدول بيانات {#NewFile}
 
 هنا هو الحد الأدنى من الاستخدام الأمثلة التي من شأنها أن تخلق ملف جدول البيانات:

@@ -4,6 +4,7 @@
 * [基本的な使い方](base/installation.md)
   * [インストール](base/installation.md#install)
   * [アップグレード](base/installation.md#update)
+  * [アンインストール](base/installation.md#uninstall)
   * [Excel 文書を作成する](base/installation.md#NewFile)
   * [Excel 文書を読む](base/installation.md#read)
   * [Excel 文書にチャートを追加する](base/installation.md#chart)

@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## Disinstallazione {#uninstall}
+
+- Disinstallare la libreria Excelize con il seguente comando
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Crea un documento Excel {#NewFile}
 
 Ecco un esempio minimo di utilizzo che creerà un file di foglio di calcolo:

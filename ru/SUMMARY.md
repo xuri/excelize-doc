@@ -4,6 +4,7 @@
 * [Основное использование](base/installation.md)
   * [Установка](base/installation.md#install)
   * [Обновление](base/installation.md#update)
+  * [Удаление](base/installation.md#uninstall)
   * [Создать документ Excel](base/installation.md#NewFile)
   * [Чтение документа Excel](base/installation.md#read)
   * [Добавить диаграмму в документ Excel](base/installation.md#chart)

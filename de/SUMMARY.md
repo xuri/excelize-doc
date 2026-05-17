@@ -4,6 +4,7 @@
 * [Grundlegende Nutzung](base/installation.md)
   * [Installation](base/installation.md#install)
   * [Upgrade](base/installation.md#update)
+  * [Deinstallation](base/installation.md#uninstall)
   * [Erstellen einer Kalkulationstabelle](base/installation.md#NewFile)
   * [Tabellenkalkulation lesen](base/installation.md#read)
   * [Hinzufügen eines Diagramms zur Tabellenkalkulation](base/installation.md#chart)

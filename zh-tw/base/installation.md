@@ -45,6 +45,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## 解除安裝 {#uninstall}
+
+- 使用以下命令解除安裝 Excelize 基礎庫
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## 創建 Excel 檔案 {#NewFile}
 
 下面是一個創建 Excel 檔案的簡單例子：

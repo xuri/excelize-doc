@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## アンインストール {#uninstall}
+
+- 次のコマンドで Excelize ライブラリをアンインストールします
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Excel 文書を作成する {#NewFile}
 
 これは、Excel ドキュメントを作成する簡単な例です。

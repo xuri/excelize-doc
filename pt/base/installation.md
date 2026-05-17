@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## Desinstalação {#uninstall}
+
+- Desinstale a biblioteca Excelize com o seguinte comando
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Crie uma planilha {#NewFile}
 
 Aqui está um exemplo mínimo de uso que criará um arquivo de planilha:

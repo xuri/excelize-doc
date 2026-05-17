@@ -4,6 +4,7 @@
 * [Uso Básico](base/installation.md)
   * [Instalação](base/installation.md#install)
   * [Atualização](base/installation.md#update)
+  * [Desinstalação](base/installation.md#uninstall)
   * [Crie uma planilha](base/installation.md#NewFile)
   * [Lendo uma planilha](base/installation.md#read)
   * [Crie um gráfico em uma planilha](base/installation.md#chart)

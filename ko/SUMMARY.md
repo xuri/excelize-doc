@@ -4,6 +4,7 @@
 * [빠르게 시작 하기](base/installation.md)
   * [설치](base/installation.md#install)
   * [업데이트](base/installation.md#update)
+  * [제거](base/installation.md#uninstall)
   * [Excel 문서 만들기](base/installation.md#NewFile)
   * [Excel 문서 읽기](기본/installation.md#read)
   * [Excel 문서에 차트 추가](base/installation.md#chart)

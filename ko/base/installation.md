@@ -43,6 +43,15 @@ go get -u github.com/xuri/excelize/v2
 go get -u github.com/xuri/excelize/v2@master
 ```
 
+## 제거 {#uninstall}
+
+- 다음 명령으로 Excelize 라이브러리를 제거합니다
+
+```bash
+go mod edit -droprequire github.com/xuri/excelize/v2
+go mod tidy
+```
+
 ## Excel 문서 만들기 {#NewFile}
 
 다음은 Excel 문서를 만드는 간단한 예제입니다：
