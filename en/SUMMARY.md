@@ -4,6 +4,7 @@
 * [Basic Usage](base/installation.md)
   * [Installation](base/installation.md#install)
   * [Upgrade](base/installation.md#update)
+  * [Uninstall](base/installation.md#uninstall)
   * [Create Excel document](base/installation.md#NewFile)
   * [Reading Excel document](base/installation.md#read)
   * [Add chart to Excel document](base/installation.md#chart)

@@ -198,7 +198,8 @@ func main() {
                 Name:       "Sheet1!$A$4",
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$4:$D$4",
-            }},
+            },
+        },
         Title: excelize.ChartTitle{
             Paragraph: []excelize.RichTextRun{
                 {
