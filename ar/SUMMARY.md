@@ -265,6 +265,7 @@
 * [أداء](performance.md)
 * [إسهام](contribution.md)
 * الإصدارات الصادرة
+  * [v2.11.0](releases/v2.11.0.md)
   * [v2.10.1 (2026-02-25)](releases/v2.10.1.md)
   * [v2.10.0 (2025-10-14)](releases/v2.10.0.md)
   * [v2.9.1 (2025-05-13)](releases/v2.9.1.md)
