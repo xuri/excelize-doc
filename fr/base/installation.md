@@ -6,7 +6,7 @@ Le tableau suivant indique les exigences minimales du langage Go avec chaque ver
 
 Version Excelize | Configuration minimale requise pour la version de la langue Go
 ---|---
-master | 1.25.0
+v2.11.0 ~ master | 1.25.0
 v2.10.0 ~ v2.10.1 | 1.24.0
 v2.9.1 | 1.23.0
 v2.8.1 ~ v2.9.0 | 1.18
@@ -15,7 +15,7 @@ v2.4.0 ~ v2.6.1 | 1.15
 v2.0.2 ~ v2.3.2 | 1.10
 v1.0.0 ~ v2.0.1 | 1.6
 
-L'utilisation de la dernière version de la bibliothèque Excelize nécessite Go version 1.24.0 ou ultérieure. Notez qu'il y a des [modifications incompatibles](https://github.com/golang/go/issues/61881) dans Go 1.21.0, cette bibliothèque ne peut pas fonctionner avec cette version, si vous utilisez Go 1.21.x, veuillez passer à Go 1.21.1 et version ultérieure.
+L'utilisation de la dernière version de la bibliothèque Excelize nécessite Go version 1.25.0 ou ultérieure. Notez qu'il y a des [modifications incompatibles](https://github.com/golang/go/issues/61881) dans Go 1.21.0, cette bibliothèque ne peut pas fonctionner avec cette version, si vous utilisez Go 1.21.x, veuillez passer à Go 1.21.1 et version ultérieure.
 
 - Installation
 
