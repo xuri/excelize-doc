@@ -42,6 +42,44 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
+`PivotTableShowValuesAsType` est le type de calcul pour afficher les valeurs dans un tableau croisé dynamique.
+
+```go
+type PivotTableShowValuesAsType byte
+```
+
+`PivotTableShowValuesAsType` définit l'énumération des types de calcul.
+
+```go
+const (
+    PivotTableShowValuesAsNoCalculation PivotTableShowValuesAsType = iota
+    PivotTableShowValuesAsPercentOfGrandTotal
+    PivotTableShowValuesAsPercentOfColumnTotal
+    PivotTableShowValuesAsPercentOfRowTotal
+    PivotTableShowValuesAsPercentOf
+    PivotTableShowValuesAsPercentOfParentRowTotal
+    PivotTableShowValuesAsPercentOfParentColumnTotal
+    PivotTableShowValuesAsPercentOfParentTotal
+    PivotTableShowValuesAsDifferenceFrom
+    PivotTableShowValuesAsPercentDifferenceFrom
+    PivotTableShowValuesAsRunningTotalIn
+    PivotTableShowValuesAsPercentRunningTotalIn
+    PivotTableShowValuesAsRankSmallestToLargest
+    PivotTableShowValuesAsRankLargestToSmallest
+    PivotTableShowValuesAsIndex
+)
+```
+
+`PivotTableShowValuesAs` mappe directement les paramètres d'affichage des valeurs du tableau croisé dynamique.
+
+```go
+type PivotTableShowValuesAs struct {
+    Type      PivotTableShowValuesAsType
+    BaseField string
+    BaseItem  string
+}
+```
+
 `PivotTableField` mappe directement les paramètres de champ du tableau croisé dynamique.
 
 ```go
@@ -56,6 +94,7 @@ type PivotTableField struct {
     DefaultSubtotal bool
     NumFmt          int
     SelectedItems   []string
+    ShowValuesAs    PivotTableShowValuesAs
 }
 ```
 
@@ -78,6 +117,46 @@ type PivotTableField struct {
 `Name` spécifie le nom du champ de données. Un maximum de `255` caractères est autorisé dans le nom du champ de données, les caractères en excès seront tronqués.
 
 `SelectedItems` spécifie les éléments sélectionnés par défaut dans un champ de tableau croisé dynamique. Les éléments sélectionnés doivent être des valeurs comprises dans la plage de cellules référencée par ce champ.
+
+`ShowValuesAs` spécifie le type de calcul pour l'affichage des valeurs dans les champs de valeurs d'un tableau croisé dynamique. Les valeurs possibles pour le champ `Type` de `ShowValuesAs` sont :
+
+|Valeur optionnelle|
+|---|
+|PivotTableShowValuesAsPercentOfGrandTotal       |
+|PivotTableShowValuesAsPercentOfColumnTotal      |
+|PivotTableShowValuesAsPercentOfRowTotal         |
+|PivotTableShowValuesAsPercentOf                 |
+|PivotTableShowValuesAsPercentOfParentRowTotal   |
+|PivotTableShowValuesAsPercentOfParentColumnTotal|
+|PivotTableShowValuesAsPercentOfParentTotal      |
+|PivotTableShowValuesAsDifferenceFrom            |
+|PivotTableShowValuesAsPercentDifferenceFrom     |
+|PivotTableShowValuesAsRunningTotalIn            |
+|PivotTableShowValuesAsPercentRunningTotalIn     |
+|PivotTableShowValuesAsRankSmallestToLargest     |
+|PivotTableShowValuesAsRankLargestToSmallest     |
+|PivotTableShowValuesAsIndex                     |
+
+Notez que les paramètres du champ de base et de l'élément de base de `ShowValuesAs` ne sont requis que pour certains types de calcul. Les types de calcul nécessitant des paramètres de champ de base sont :
+
+|Types de calcul|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsPercentOfParentTotal |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
+|PivotTableShowValuesAsRunningTotalIn       |
+|PivotTableShowValuesAsPercentRunningTotalIn|
+|PivotTableShowValuesAsRankSmallestToLargest|
+|PivotTableShowValuesAsRankLargestToSmallest|
+
+Les types de calcul pris en charge nécessitant des paramètres d'élément de base sont :
+
+|Types de calcul|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
 
 ## Créer un tableau croisé dynamique {#AddPivotTable}
 

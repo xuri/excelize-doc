@@ -42,7 +42,45 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-يقوم `PivotTableField` بتعيين الإعدادات الميدانية للجدول المحوري مباشرةً.
+`PivotTableShowValuesAsType` هو نوع الحساب لعرض القيم في جدول محوري.
+
+```go
+type PivotTableShowValuesAsType byte
+```
+
+يحدد `PivotTableShowValuesAsType` تعداد نوع الحساب.
+
+```go
+const (
+    PivotTableShowValuesAsNoCalculation PivotTableShowValuesAsType = iota
+    PivotTableShowValuesAsPercentOfGrandTotal
+    PivotTableShowValuesAsPercentOfColumnTotal
+    PivotTableShowValuesAsPercentOfRowTotal
+    PivotTableShowValuesAsPercentOf
+    PivotTableShowValuesAsPercentOfParentRowTotal
+    PivotTableShowValuesAsPercentOfParentColumnTotal
+    PivotTableShowValuesAsPercentOfParentTotal
+    PivotTableShowValuesAsDifferenceFrom
+    PivotTableShowValuesAsPercentDifferenceFrom
+    PivotTableShowValuesAsRunningTotalIn
+    PivotTableShowValuesAsPercentRunningTotalIn
+    PivotTableShowValuesAsRankSmallestToLargest
+    PivotTableShowValuesAsRankLargestToSmallest
+    PivotTableShowValuesAsIndex
+)
+```
+
+يُعيِّن `PivotTableShowValuesAs` مباشرةً إعدادات عرض القيم في الجدول المحوري.
+
+```go
+type PivotTableShowValuesAs struct {
+    Type      PivotTableShowValuesAsType
+    BaseField string
+    BaseItem  string
+}
+```
+
+`PivotTableField` بتعيين الإعدادات الميدانية للجدول المحوري مباشرةً.
 
 ```go
 type PivotTableField struct {
@@ -56,6 +94,7 @@ type PivotTableField struct {
     DefaultSubtotal bool
     NumFmt          int
     SelectedItems   []string
+    ShowValuesAs    PivotTableShowValuesAs
 }
 ```
 
@@ -78,6 +117,46 @@ type PivotTableField struct {
 يحدد `Name` اسم حقل البيانات. الحد الأقصى المسموح به `255` حرفًا في اسم حقل البيانات ، وسيتم قطع الأحرف الزائدة.
 
 يُحدد حقل `SelectedItems` العناصر المحددة افتراضيًا في حقل جدول محوري. يجب أن تكون العناصر المحددة قيمًا ضمن نطاق الخلايا المشار إليه بواسطة هذا الحقل.
+
+يحدد `ShowValuesAs` نوع الحساب لعرض القيم في حقول قيم الجدول المحوري. القيم المحتملة لحقل `Type` الخاص بـ `ShowValuesAs` هي:
+
+|القيمة الاختيارية|
+|---|
+|PivotTableShowValuesAsPercentOfGrandTotal       |
+|PivotTableShowValuesAsPercentOfColumnTotal      |
+|PivotTableShowValuesAsPercentOfRowTotal         |
+|PivotTableShowValuesAsPercentOf                 |
+|PivotTableShowValuesAsPercentOfParentRowTotal   |
+|PivotTableShowValuesAsPercentOfParentColumnTotal|
+|PivotTableShowValuesAsPercentOfParentTotal      |
+|PivotTableShowValuesAsDifferenceFrom            |
+|PivotTableShowValuesAsPercentDifferenceFrom     |
+|PivotTableShowValuesAsRunningTotalIn            |
+|PivotTableShowValuesAsPercentRunningTotalIn     |
+|PivotTableShowValuesAsRankSmallestToLargest     |
+|PivotTableShowValuesAsRankLargestToSmallest     |
+|PivotTableShowValuesAsIndex                     |
+
+تجدر الإشارة إلى أن إعدادات الحقل الأساسي والعنصر الأساسي في `ShowValuesAs` مطلوبة فقط لبعض أنواع الحسابات، وأنواع الحسابات التي تتطلب إعدادات الحقل الأساسي هي:
+
+|أنواع الحسابات|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsPercentOfParentTotal |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
+|PivotTableShowValuesAsRunningTotalIn       |
+|PivotTableShowValuesAsPercentRunningTotalIn|
+|PivotTableShowValuesAsRankSmallestToLargest|
+|PivotTableShowValuesAsRankLargestToSmallest|
+
+أنواع الحسابات المدعومة التي تتطلب إعدادات العنصر الأساسي هي:
+
+|أنواع الحسابات|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
 
 ## إنشاء جدول محوري {#AddPivotTable}
 

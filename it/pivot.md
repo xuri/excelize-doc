@@ -42,6 +42,44 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
+`PivotTableShowValuesAsType` è il tipo di calcolo per la visualizzazione dei valori in una tabella pivot.
+
+```go
+type PivotTableShowValuesAsType byte
+```
+
+`PivotTableShowValuesAsType` definisce l'enumerazione del tipo di calcolo.
+
+```go
+const (
+    PivotTableShowValuesAsNoCalculation PivotTableShowValuesAsType = iota
+    PivotTableShowValuesAsPercentOfGrandTotal
+    PivotTableShowValuesAsPercentOfColumnTotal
+    PivotTableShowValuesAsPercentOfRowTotal
+    PivotTableShowValuesAsPercentOf
+    PivotTableShowValuesAsPercentOfParentRowTotal
+    PivotTableShowValuesAsPercentOfParentColumnTotal
+    PivotTableShowValuesAsPercentOfParentTotal
+    PivotTableShowValuesAsDifferenceFrom
+    PivotTableShowValuesAsPercentDifferenceFrom
+    PivotTableShowValuesAsRunningTotalIn
+    PivotTableShowValuesAsPercentRunningTotalIn
+    PivotTableShowValuesAsRankSmallestToLargest
+    PivotTableShowValuesAsRankLargestToSmallest
+    PivotTableShowValuesAsIndex
+)
+```
+
+`PivotTableShowValuesAs` associa direttamente le impostazioni di visualizzazione dei valori della tabella pivot.
+
+```go
+type PivotTableShowValuesAs struct {
+    Type      PivotTableShowValuesAsType
+    BaseField string
+    BaseItem  string
+}
+```
+
 `PivotTableField` mappa direttamente le impostazioni del campo della tabella pivot.
 
 ```go
@@ -56,6 +94,7 @@ type PivotTableField struct {
     DefaultSubtotal bool
     NumFmt          int
     SelectedItems   []string
+    ShowValuesAs    PivotTableShowValuesAs
 }
 ```
 
@@ -78,6 +117,46 @@ type PivotTableField struct {
 `Name` specifica il nome del campo dati. Nel nome del campo dati sono consentiti al massimo `255` caratteri, i caratteri in eccesso verranno troncati.
 
 `SelectedItems` specifica gli elementi selezionati di default in un campo di una tabella pivot. Gli elementi selezionati devono essere valori compresi nell'intervallo di celle a cui fa riferimento tale campo.
+
+`ShowValuesAs` specifica il tipo di calcolo per la visualizzazione dei valori nei campi dei valori di una tabella pivot. I valori possibili per il campo `Type` di `ShowValuesAs` sono:
+
+|Valore opzionale|
+|---|
+|PivotTableShowValuesAsPercentOfGrandTotal       |
+|PivotTableShowValuesAsPercentOfColumnTotal      |
+|PivotTableShowValuesAsPercentOfRowTotal         |
+|PivotTableShowValuesAsPercentOf                 |
+|PivotTableShowValuesAsPercentOfParentRowTotal   |
+|PivotTableShowValuesAsPercentOfParentColumnTotal|
+|PivotTableShowValuesAsPercentOfParentTotal      |
+|PivotTableShowValuesAsDifferenceFrom            |
+|PivotTableShowValuesAsPercentDifferenceFrom     |
+|PivotTableShowValuesAsRunningTotalIn            |
+|PivotTableShowValuesAsPercentRunningTotalIn     |
+|PivotTableShowValuesAsRankSmallestToLargest     |
+|PivotTableShowValuesAsRankLargestToSmallest     |
+|PivotTableShowValuesAsIndex                     |
+
+Si noti che le impostazioni del campo base e dell'elemento base di `ShowValuesAs` sono richieste solo per alcuni tipi di calcolo. I tipi di calcolo che richiedono le impostazioni del campo base sono:
+
+|Tipi di calcolo|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsPercentOfParentTotal |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
+|PivotTableShowValuesAsRunningTotalIn       |
+|PivotTableShowValuesAsPercentRunningTotalIn|
+|PivotTableShowValuesAsRankSmallestToLargest|
+|PivotTableShowValuesAsRankLargestToSmallest|
+
+I tipi di calcolo supportati che richiedono le impostazioni dell'elemento base sono:
+
+|Tipi di calcolo|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
 
 ## Crea tabella pivot {#AddPivotTable}
 

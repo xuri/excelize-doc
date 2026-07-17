@@ -42,6 +42,44 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
+`PivotTableShowValuesAsType` はピボットテーブルで値を表示するための計算のタイプです。
+
+```go
+type PivotTableShowValuesAsType byte
+```
+
+`PivotTableShowValuesAsType` は計算タイプの列挙を定義します。
+
+```go
+const (
+    PivotTableShowValuesAsNoCalculation PivotTableShowValuesAsType = iota
+    PivotTableShowValuesAsPercentOfGrandTotal
+    PivotTableShowValuesAsPercentOfColumnTotal
+    PivotTableShowValuesAsPercentOfRowTotal
+    PivotTableShowValuesAsPercentOf
+    PivotTableShowValuesAsPercentOfParentRowTotal
+    PivotTableShowValuesAsPercentOfParentColumnTotal
+    PivotTableShowValuesAsPercentOfParentTotal
+    PivotTableShowValuesAsDifferenceFrom
+    PivotTableShowValuesAsPercentDifferenceFrom
+    PivotTableShowValuesAsRunningTotalIn
+    PivotTableShowValuesAsPercentRunningTotalIn
+    PivotTableShowValuesAsRankSmallestToLargest
+    PivotTableShowValuesAsRankLargestToSmallest
+    PivotTableShowValuesAsIndex
+)
+```
+
+`PivotTableShowValuesAs` はピボットテーブルの値の表示方式の設定を直接マッピングします。
+
+```go
+type PivotTableShowValuesAs struct {
+    Type      PivotTableShowValuesAsType
+    BaseField string
+    BaseItem  string
+}
+```
+
 `PivotTableField` は、ピボットテーブルのフィールド設定を直接マップします。
 
 ```go
@@ -56,6 +94,7 @@ type PivotTableField struct {
     DefaultSubtotal bool
     NumFmt          int
     SelectedItems   []string
+    ShowValuesAs    PivotTableShowValuesAs
 }
 ```
 
@@ -78,6 +117,46 @@ type PivotTableField struct {
 `Name` は、データフィールドの名前を指定します。データフィールド名には最大 `255` 文字を使用できますが、余分な文字は切り捨てられます。
 
 `SelectedItems` は、ピボットテーブルフィールドでデフォルトで選択される項目を指定します。選択される項目は、そのフィールドが参照するセル範囲内の値である必要があります。
+
+`ShowValuesAs` は、ピボットテーブルの値フィールドに値を表示するための計算の種類を指定します。`ShowValuesAs` の `Type` フィールドに指定できる値は次のとおりです:
+
+|オプション値|
+|---|
+|PivotTableShowValuesAsPercentOfGrandTotal       |
+|PivotTableShowValuesAsPercentOfColumnTotal      |
+|PivotTableShowValuesAsPercentOfRowTotal         |
+|PivotTableShowValuesAsPercentOf                 |
+|PivotTableShowValuesAsPercentOfParentRowTotal   |
+|PivotTableShowValuesAsPercentOfParentColumnTotal|
+|PivotTableShowValuesAsPercentOfParentTotal      |
+|PivotTableShowValuesAsDifferenceFrom            |
+|PivotTableShowValuesAsPercentDifferenceFrom     |
+|PivotTableShowValuesAsRunningTotalIn            |
+|PivotTableShowValuesAsPercentRunningTotalIn     |
+|PivotTableShowValuesAsRankSmallestToLargest     |
+|PivotTableShowValuesAsRankLargestToSmallest     |
+|PivotTableShowValuesAsIndex                     |
+
+`ShowValuesAs` の基準フィールドおよび基準アイテムの設定は、一部の計算の種類にのみ必要であることに注意してください。基準フィールドの設定が必要な計算の種類は次のとおりです:
+
+|計算の種類|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsPercentOfParentTotal |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
+|PivotTableShowValuesAsRunningTotalIn       |
+|PivotTableShowValuesAsPercentRunningTotalIn|
+|PivotTableShowValuesAsRankSmallestToLargest|
+|PivotTableShowValuesAsRankLargestToSmallest|
+
+基準アイテムの設定が必要なサポートされている計算の種類は次のとおりです:
+
+|計算の種類|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
 
 ## ピボットテーブルを作成する {#AddPivotTable}
 

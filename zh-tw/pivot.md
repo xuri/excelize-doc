@@ -44,6 +44,44 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
+`PivotTableShowValuesAsType` 定义了樞紐分析表数据字段中「值顯示方式」的计算类型。
+
+```go
+type PivotTableShowValuesAsType byte
+```
+
+`PivotTableShowValuesAsType` 定义了樞紐分析表数据字段中「值顯示方式」的计算类型列舉。
+
+```go
+const (
+    PivotTableShowValuesAsNoCalculation PivotTableShowValuesAsType = iota
+    PivotTableShowValuesAsPercentOfGrandTotal
+    PivotTableShowValuesAsPercentOfColumnTotal
+    PivotTableShowValuesAsPercentOfRowTotal
+    PivotTableShowValuesAsPercentOf
+    PivotTableShowValuesAsPercentOfParentRowTotal
+    PivotTableShowValuesAsPercentOfParentColumnTotal
+    PivotTableShowValuesAsPercentOfParentTotal
+    PivotTableShowValuesAsDifferenceFrom
+    PivotTableShowValuesAsPercentDifferenceFrom
+    PivotTableShowValuesAsRunningTotalIn
+    PivotTableShowValuesAsPercentRunningTotalIn
+    PivotTableShowValuesAsRankSmallestToLargest
+    PivotTableShowValuesAsRankLargestToSmallest
+    PivotTableShowValuesAsIndex
+)
+```
+
+`PivotTableShowValuesAs` 定义了樞紐分析表数据字段中「值顯示方式」的設定。
+
+```go
+type PivotTableShowValuesAs struct {
+    Type      PivotTableShowValuesAsType
+    BaseField string
+    BaseItem  string
+}
+```
+
 `PivotTableField` 定義了樞紐分析表的欄位屬性。
 
 ```go
@@ -58,6 +96,7 @@ type PivotTableField struct {
     DefaultSubtotal bool
     NumFmt          int
     SelectedItems   []string
+    ShowValuesAs    PivotTableShowValuesAs
 }
 ```
 
@@ -80,6 +119,46 @@ type PivotTableField struct {
 `Name` 用以指定數值欄位的名稱，最大長度為 `255` 個字符，超出部分的字符將不會被保留。
 
 `SelectedItems` 用以指定樞紐分析表字段中的默認選中項，選中項必須是該字段所引用的存儲格範圍內的值。
+
+`ShowValuesAs` 用以指定樞紐分析表值欄位中顯示値的計算類型。`ShowValuesAs` 的 `Type` 欄位的可選値如下：
+
+|可選値|
+|---|
+|PivotTableShowValuesAsPercentOfGrandTotal       |
+|PivotTableShowValuesAsPercentOfColumnTotal      |
+|PivotTableShowValuesAsPercentOfRowTotal         |
+|PivotTableShowValuesAsPercentOf                 |
+|PivotTableShowValuesAsPercentOfParentRowTotal   |
+|PivotTableShowValuesAsPercentOfParentColumnTotal|
+|PivotTableShowValuesAsPercentOfParentTotal      |
+|PivotTableShowValuesAsDifferenceFrom            |
+|PivotTableShowValuesAsPercentDifferenceFrom     |
+|PivotTableShowValuesAsRunningTotalIn            |
+|PivotTableShowValuesAsPercentRunningTotalIn     |
+|PivotTableShowValuesAsRankSmallestToLargest     |
+|PivotTableShowValuesAsRankLargestToSmallest     |
+|PivotTableShowValuesAsIndex                     |
+
+請注意，`ShowValuesAs` 的基準欄位和基準項設定僅對部分計算類型是必需的。需要基準欄位設定的計算類型如下：
+
+|計算類型|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsPercentOfParentTotal |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
+|PivotTableShowValuesAsRunningTotalIn       |
+|PivotTableShowValuesAsPercentRunningTotalIn|
+|PivotTableShowValuesAsRankSmallestToLargest|
+|PivotTableShowValuesAsRankLargestToSmallest|
+
+需要基準項設定的計算類型如下：
+
+|計算類型|
+|---|
+|PivotTableShowValuesAsPercentOf            |
+|PivotTableShowValuesAsDifferenceFrom       |
+|PivotTableShowValuesAsPercentDifferenceFrom|
 
 ## 創建樞紐分析表 {#AddPivotTable}
 
