@@ -68,6 +68,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid 定義了密碼長度超出限制時的錯誤提示信息
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableShowValuesAsBaseField 定義了啓用樞紐分析表個值的“顯示資料為”，但未指定“基本欄位”時的錯誤提示信息
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // ErrPivotTableShowValuesAsBaseItem 定義了啓用樞紐分析表個值的“顯示資料為”及“基本欄位”，但未指定“基本項目”時的錯誤提示信息
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // ErrPivotTableClassicLayout 定義了同時開啓 ClassicLayout 與 CompactData 選項創建樞紐分析表時的錯誤提示信息
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave 定義了存儲活頁簿時的錯誤提示信息
@@ -112,6 +116,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // ErrUnsupportedNumberFormat 定義了檢測到不受支援的數字格式時的錯誤提示信息
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrUnsupportedPivotTableShowValuesAsType 定義了檢測到不受支援的樞紐分析表個值“顯示資料為”類型時的錯誤提示信息
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // ErrWorkbookFileFormat 定義了不受支援的活頁簿文件類型的錯誤提示信息
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword 定義了開啓活頁簿時密碼驗證失敗的錯誤提示信息

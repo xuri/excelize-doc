@@ -68,6 +68,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid 定义了密码长度超出限制时的错误提示信息
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableShowValuesAsBaseField 定义了启用数据透视表数据字段的“值显示方式”，但未指定“基本字段”时的错误提示信息
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // ErrPivotTableShowValuesAsBaseItem 定义了启用数据透视表数据字段的“值显示方式”及“基本字段”，但未指定“基本项”时的错误提示信息
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // ErrPivotTableClassicLayout 定义了同时开启 ClassicLayout 与 CompactData 选项创建数据透视表时的错误提示信息
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave 定义了保存工作簿时的错误提示信息
@@ -112,6 +116,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // ErrUnsupportedNumberFormat 定义了检测到不受支持的数字格式时的错误提示信息
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrUnsupportedPivotTableShowValuesAsType 定义了检测到不受支持的数据透视表数据字段“值显示方式”类型时的错误提示信息
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // ErrWorkbookFileFormat 定义了不受支持的工作簿文件类型的错误提示信息
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword 定义了打开工作簿时密码验证失败的错误提示信息
