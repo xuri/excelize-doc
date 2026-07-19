@@ -66,6 +66,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid definiu a mensagem de erro sobre comprimento de senha inválido.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableShowValuesAsBaseField definiu a mensagem de erro quando um tipo "mostrar valores como" é definido para um campo de dados de tabela dinâmica, mas nenhum campo base é especificado.
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // ErrPivotTableShowValuesAsBaseItem definiu a mensagem de erro ao habilitar um tipo "mostrar valores como" e campo base para um campo de dados de tabela dinâmica sem especificar um item base.
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // ErrPivotTableClassicLayout definiu a mensagem de erro ao ativar o ClassicLayout e o CompactData ao mesmo tempo.
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave definiu a mensagem de erro para salvar o arquivo.
@@ -110,6 +114,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // ErrUnsupportedNumberFormat definiu a mensagem de erro na expressão de formato de número não suportada.
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrUnsupportedPivotTableShowValuesAsType definiu a mensagem de erro ao receber um tipo "mostrar valores como" não suportado para um campo de dados de tabela dinâmica.
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // ErrWorkbookFileFormat definiu a mensagem de erro ao receber um formato de arquivo de pasta de trabalho não suportado.
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword definiu a mensagem de erro ao receber a senha incorreta da pasta de trabalho.

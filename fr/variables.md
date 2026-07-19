@@ -66,6 +66,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid a défini le message d'erreur sur la longueur du mot de passe non valide.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableShowValuesAsBaseField a défini le message d'erreur lorsqu'un type "afficher les valeurs en tant que" est défini pour un champ de données de tableau croisé dynamique mais qu'aucun champ de base n'est spécifié.
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // ErrPivotTableShowValuesAsBaseItem a défini le message d'erreur lors de l'activation d'un type "afficher les valeurs en tant que" et d'un champ de base pour un champ de données de tableau croisé dynamique sans spécifier d'élément de base.
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // ErrPivotTableClassicLayout a défini le message d'erreur lors de l'activation simultanée de ClassicLayout et CompactData.
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave a défini le message d'erreur pour l'enregistrement du fichier.
@@ -110,6 +114,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // ErrUnsupportedNumberFormat a défini le message d'erreur sur l'expression de format numérique non prise en charge.
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrUnsupportedPivotTableShowValuesAsType a défini le message d'erreur lors de la réception d'un type "afficher les valeurs en tant que" non pris en charge pour un champ de données de tableau croisé dynamique.
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // ErrWorkbookFileFormat a défini le message d'erreur lors de la réception d'un format de fichier de classeur non pris en charge.
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword a défini le message d'erreur lors de la réception du mot de passe de classeur incorrect.

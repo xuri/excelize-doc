@@ -66,6 +66,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid は、無効なパスワードの長さに関するエラーメッセージを定義しました
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableShowValuesAsBaseField は、ピボットテーブルデータフィールドに「値の表示形式」タイプが設定されているが、基本フィールドが指定されていない場合のエラーメッセージを定義しました
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // ErrPivotTableShowValuesAsBaseItem は、ピボットテーブルデータフィールドに「値の表示形式」タイプと基本フィールドを有効にしたが、基本アイテムが指定されていない場合のエラーメッセージを定義しました
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // ErrPivotTableClassicLayout は、ClassicLayout と CompactData を同時に有効にした場合のエラーメッセージを定義しました
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave は、ファイルを保存するためのエラーメッセージを定義しました
@@ -110,6 +114,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // ErrUnsupportedNumberFormat は、サポートされていない数値形式式に関するエラーメッセージを定義しました
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrUnsupportedPivotTableShowValuesAsType は、サポートされていないピボットテーブルデータフィールドの「値の表示形式」タイプを受信した場合のエラーメッセージを定義しました
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // ErrWorkbookFileFormat は、サポートされていないワークブックファイル形式を受信したときのエラーメッセージを定義しました
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword は、誤ったブックパスワードを受信したときのエラーメッセージを定義しました

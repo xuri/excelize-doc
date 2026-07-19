@@ -66,6 +66,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // ErrPasswordLengthInvalid определяет сообщение об ошибке при неверной длине пароля
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // ErrPivotTableShowValuesAsBaseField определил сообщение об ошибке, когда для поля данных сводной таблицы задан тип "показать значения как", но базовое поле не указано
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // ErrPivotTableShowValuesAsBaseItem определил сообщение об ошибке при включении типа "показать значения как" и базового поля для поля данных сводной таблицы без указания базового элемента
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // ErrPivotTableClassicLayout определил сообщение об ошибке при одновременном включении ClassicLayout и CompactData
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave определил сообщение об ошибке для сохранения файла
@@ -110,6 +114,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // ErrUnsupportedNumberFormat определяет сообщение об ошибке в неподдерживаемом выражении числового формата
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // ErrUnsupportedPivotTableShowValuesAsType определил сообщение об ошибке при получении неподдерживаемого типа "показать значения как" для поля данных сводной таблицы
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // ErrWorkbookFileFormat определил сообщение об ошибке при получении неподдерживаемого формата файла рабочей книги
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword определил сообщение об ошибке при получении неправильного пароля рабочей книги

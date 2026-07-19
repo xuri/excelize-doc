@@ -66,6 +66,10 @@ var (
     ErrParameterRequired = errors.New("parameter is required")
     // حدد ErrPasswordLengthInvalid رسالة الخطأ بطول كلمة المرور غير الصالحة.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
+    // حدد ErrPivotTableShowValuesAsBaseField رسالة الخطأ عند تعيين نوع "إظهار القيم كـ" لحقل بيانات جدول محوري دون تحديد حقل أساسي.
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    // حدد ErrPivotTableShowValuesAsBaseItem رسالة الخطأ عند تمكين نوع "إظهار القيم كـ" وحقل أساسي لحقل بيانات جدول محوري دون تحديد عنصر أساسي.
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
     // قام ErrPivotTableClassicLayout بتعريف رسالة الخطأ عند تمكين ClassicLayout و CompactData في نفس الوقت.
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // حدد ErrSave رسالة الخطأ لحفظ الملف.
@@ -110,6 +114,8 @@ var (
     ErrUnsupportedHashAlgorithm = errors.New("unsupported hash algorithm")
     // حدد ErrUnsupportedNumberFormat رسالة الخطأ على تعبير تنسيق رقم غير مدعوم.
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
+    // حدد ErrUnsupportedPivotTableShowValuesAsType رسالة الخطأ عند استلام نوع "إظهار القيم كـ" غير مدعوم لحقل بيانات جدول محوري.
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
     // حدد ErrWorkbookFileFormat رسالة الخطأ عند تلقي تنسيق ملف مصنف غير معتمد.
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // حدد ErrWorkbookPassword رسالة الخطأ عند تلقي كلمة مرور المصنف غير الصحيحة.

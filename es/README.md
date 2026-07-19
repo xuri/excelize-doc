@@ -9,7 +9,7 @@ Excelize es una biblioteca escrita en Go puro que proporciona un conjunto de fun
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licencias: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Ultima versión: [v2.11.0](https://github.com/xuri/excelize/releases/latest)
-- Tiempo de actualización del documento: 7 de julio de 2026
+- Tiempo de actualización del documento: 19 de julio de 2026
 
 ## Misión del proyecto
 
