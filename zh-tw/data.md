@@ -119,7 +119,7 @@ type SlicerOptions struct {
 
 `Format` 為可選參數，用於設定交叉分析篩選器的格式（大小和屬性）。
 
-`SelectedItems` 為可選參數，用於指定交叉分析篩選器中的默認選中項。目前，該選項僅支持在樞紐分析表中交叉分析篩選器中使用，並且選中項必須位於樞紐分析表中已選中項的範圍內。如果樞紐分析表是使用 [`AddPivotTable`](pivot.md#AddPivotTable) 函式創建的，則在創建樞紐分析表時，也必須為同一字段指定選中項範圍。
+`SelectedItems` 為可選參數，用於指定交叉分析篩選器中的默認選中項。目前，該選項僅支持在樞紐分析表中交叉分析篩選器中使用，並且選中項必須位於樞紐分析表中已選中項的範圍內。如果樞紐分析表是使用 [`AddPivotTable`](pivot.md#AddPivotTable) 函式創建的，則在創建樞紐分析表時，也必須為同一欄位指定選中項範圍。
 
 ```go
 func (f *File) AddSlicer(sheet string, opts *SlicerOptions) error

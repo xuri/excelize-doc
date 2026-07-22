@@ -36,7 +36,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 插入帶有縮放比例和超鏈接的圖片
+    // 插入帶有縮放比例和超連結的圖片
     enable, disable := true, false
     if err := f.AddPicture("Sheet1", "D2", "image.jpg",
         &excelize.GraphicOptions{
@@ -49,7 +49,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 插入圖片，並設定圖片的外部超鏈接、列印和位置屬性
+    // 插入圖片，並設定圖片的外部超連結、列印和位置屬性
     if err := f.AddPicture("Sheet1", "H2", "image.gif",
         &excelize.GraphicOptions{
             OffsetX:         15,
@@ -89,9 +89,9 @@ func main() {
 
 可選參數 `ScaleY` 設定圖形對象的垂直縮放比例。`ScaleY` 的值必須是大於 0 的浮點數，精度為小數點後兩位。其缺省值為 1.0，表示 100%。
 
-可選參數 `Hyperlink` 用以設定圖形對象的超鏈接。
+可選參數 `Hyperlink` 用以設定圖形對象的超連結。
 
-可選參數 `HyperlinkType` 設定圖形對象超鏈接的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
+可選參數 `HyperlinkType` 設定圖形對象超連結的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
 
 可選參數 `Positioning` 定義了電子錶格中圖形對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨儲存格改變）、`twoCell`（大小和位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設定此參數時，默認屬性為大小、位置隨儲存格改變。
 

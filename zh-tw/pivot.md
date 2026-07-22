@@ -44,13 +44,13 @@ PivotStyleMedium1 - PivotStyleMedium28
 PivotStyleDark1 - PivotStyleDark28
 ```
 
-`PivotTableShowValuesAsType` 定义了樞紐分析表数据字段中「值顯示方式」的计算类型。
+`PivotTableShowValuesAsType` 定义了樞紐分析表個值「顯示資料為」的类型。
 
 ```go
 type PivotTableShowValuesAsType byte
 ```
 
-`PivotTableShowValuesAsType` 定义了樞紐分析表数据字段中「值顯示方式」的计算类型列舉。
+`PivotTableShowValuesAsType` 定义了樞紐分析表個值「顯示資料為」的类型列舉。
 
 ```go
 const (
@@ -72,7 +72,7 @@ const (
 )
 ```
 
-`PivotTableShowValuesAs` 定义了樞紐分析表数据字段中「值顯示方式」的設定。
+`PivotTableShowValuesAs` 定义了樞紐分析表個值「顯示資料為」的設定。
 
 ```go
 type PivotTableShowValuesAs struct {
@@ -100,7 +100,7 @@ type PivotTableField struct {
 }
 ```
 
-`Subtotal` 指定適用於數值欄位的聚合函式。默認值為 `Sum`。該屬性的可選值如下：
+`Subtotal` 指定適用於個值的聚合函式。默認值為 `Sum`。該屬性的可選值如下：
 
 |可選值|
 |---|
@@ -116,11 +116,11 @@ type PivotTableField struct {
 |Var|
 |Varp|
 
-`Name` 用以指定數值欄位的名稱，最大長度為 `255` 個字符，超出部分的字符將不會被保留。
+`Name` 用以指定個值的名稱，最大長度為 `255` 個字符，超出部分的字符將不會被保留。
 
-`SelectedItems` 用以指定樞紐分析表字段中的默認選中項，選中項必須是該字段所引用的存儲格範圍內的值。
+`SelectedItems` 用以指定樞紐分析表欄位中的默認選中項，選中項必須是該欄位所引用的存儲格範圍內的值。
 
-`ShowValuesAs` 用以指定樞紐分析表值欄位中顯示値的計算類型。`ShowValuesAs` 的 `Type` 欄位的可選値如下：
+`ShowValuesAs` 用以指定樞紐分析表個值「顯示資料為」。`ShowValuesAs` 的 `Type` 欄位的可選値如下：
 
 |可選値|
 |---|
@@ -139,7 +139,7 @@ type PivotTableField struct {
 |PivotTableShowValuesAsRankLargestToSmallest     |
 |PivotTableShowValuesAsIndex                     |
 
-請注意，`ShowValuesAs` 的基準欄位和基準項設定僅對部分計算類型是必需的。需要基準欄位設定的計算類型如下：
+請注意，`ShowValuesAs` 的「基本欄位」和「基本項目」設定僅對部分計算類型是必需的。需要「基本欄位」設定的計算類型如下：
 
 |計算類型|
 |---|
@@ -152,7 +152,7 @@ type PivotTableField struct {
 |PivotTableShowValuesAsRankSmallestToLargest|
 |PivotTableShowValuesAsRankLargestToSmallest|
 
-需要基準項設定的計算類型如下：
+需要「基本項目」設定的計算類型如下：
 
 |計算類型|
 |---|

@@ -109,7 +109,7 @@ top_right|右上
 
 其中參數 `ShowLegendKey`  默認值為 `false`。
 
-透過資料類型為 `ChartTitle` 的 `Title` 字段設定圖表標題的屬性。可設定的屬性包括：
+透過資料類型為 `ChartTitle` 的 `Title` 欄位設定圖表標題的屬性。可設定的屬性包括：
 
 參數|類型|含義
 ---|---|---
@@ -142,7 +142,7 @@ zero|零值
 
 參數 `Format` 提供對圖表偏移、縮放、高寬比設定和列印屬性等參數的設定，其參數與在 [`AddPicture`](image.md#AddPicture) 函式中所使用的相同。
 
-透過資料類型為 `ChartPlotArea` 的 `PlotArea` 字段設定圖表繪圖區域的屬性。可設定的屬性包括：
+透過資料類型為 `ChartPlotArea` 的 `PlotArea` 欄位設定圖表繪圖區域的屬性。可設定的屬性包括：
 
 參數|類別|默認值|含義
 ---|---|---|---

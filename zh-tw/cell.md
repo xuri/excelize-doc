@@ -11,7 +11,7 @@ type RichTextRun struct {
 }
 ```
 
-`HyperlinkOpts` 用來指定可選的超鏈接屬性，例如要顯示的文字與螢幕提示文字。
+`HyperlinkOpts` 用來指定可選的超連結屬性，例如要顯示的文字與螢幕提示文字。
 
 ```go
 type HyperlinkOpts struct {
@@ -250,13 +250,13 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 要鎖定儲存格或隱藏公式，請保護工作表。在「審閱」選項卡上，單擊「保護工作表」。
 
-## 設定超鏈接 {#SetCellHyperLink}
+## 設定超連結 {#SetCellHyperLink}
 
 ```go
 func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
-根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超鏈接。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超鏈接限制為 `65530` 個。該方法僅設定儲存格的超鏈接而不影響儲存格的值，若需設定儲存格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
+根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超連結。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超連結限制為 `65530` 個。該方法僅設定儲存格的超連結而不影響儲存格的值，若需設定儲存格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
@@ -491,23 +491,23 @@ for _, row := range rows {
 }
 ```
 
-## 獲取超鏈接存儲格 {#GetHyperLinkCells}
+## 獲取超連結存儲格 {#GetHyperLinkCells}
 
 ```go
 func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
 ```
 
-根據給定的工作表名和資源類型獲取超鏈接存儲格坐標。可選參數 `linkType` 用於指定超鏈接的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超鏈接的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超鏈接存儲格的坐標。
+根據給定的工作表名和資源類型獲取超連結存儲格坐標。可選參數 `linkType` 用於指定超連結的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超連結的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超連結存儲格的坐標。
 
-## 獲取超鏈接 {#GetCellHyperLink}
+## 獲取超連結 {#GetCellHyperLink}
 
 ```go
 func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
-根據給定的工作表名和儲存格坐標獲取儲存格超鏈接，如果該儲存格存在超鏈接，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
+根據給定的工作表名和儲存格坐標獲取儲存格超連結，如果該儲存格存在超連結，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
 
-例如，獲取名為 `Sheet1` 的工作表上坐標為 `H6` 儲存格的超鏈接：
+例如，獲取名為 `Sheet1` 的工作表上坐標為 `H6` 儲存格的超連結：
 
 ```go
 link, target, err := f.GetCellHyperLink("Sheet1", "H6")
