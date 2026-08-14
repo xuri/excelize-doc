@@ -574,7 +574,7 @@ format3, err := f.NewConditionalStyle(
 type: `MinValue` - 최소 매개변수는 `Criteria` 가 `between` 또는 `not between` 일 때 하한 값을 설정하는 데 사용됩니다.
 
 ```go
-// Highlight cells rules: between...
+// 셀 강조 표시 규칙: 값 사이...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {
@@ -593,7 +593,7 @@ type: `MaxValue` - `maximum` 매개변수는 기준이 `between` 또는 `not bet
 type: `average` - `average` 형식은 Office Excel 의 "Average" 스타일 조건부 형식을 지정하는 데 사용됩니다.
 
 ```go
-// Top/Bottom rules: Above Average...
+// 상위/하위 규칙: 평균 이상...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {
@@ -605,7 +605,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
     },
 )
 
-// Top/Bottom rules: Below Average...
+// 최고/최저 규칙: 평균 이하...
 err := f.SetConditionalFormat("Sheet1", "B1:B10",
     []excelize.ConditionalFormatOptions{
         {
@@ -621,7 +621,7 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 type: `duplicate` - `duplicate` 유형은 범위의 중복 셀을 강조 표시하는 데 사용됩니다:
 
 ```go
-// Highlight cells rules: Duplicate Values...
+// 셀 강조 표시 규칙: 중복 값...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {Type: "duplicate", Criteria: "=", Format: &format},
@@ -632,7 +632,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 type: `unique` - 고유 유형은 범위의 고유한 셀을 강조 표시하는 데 사용됩니다:
 
 ```go
-// Highlight cells rules: Not Equal To...
+// 셀 강조 표시 규칙: 같지 않음...
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {Type: "unique", Criteria: "=", Format: &format},
@@ -643,7 +643,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 type: `top` - `top` 형식은 범위의 숫자 또는 백분율로 상위 n 값을 지정하는 데 사용됩니다:
 
 ```go
-// Top/Bottom rules: Top 10.
+// 상위/하위 규칙: 상위 6명.
 err := f.SetConditionalFormat("Sheet1", "H1:H10",
     []excelize.ConditionalFormatOptions{
         {
@@ -675,7 +675,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 type: `2_color_scale` - `2_color_scale` 형식은 Excel의 "2 색 배율" 스타일 조건부 형식을 지정하는 데 사용됩니다:
 
 ```go
-// Color scales: 2 color.
+// 색상 스케일: 2 색.
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {
@@ -683,8 +683,8 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -695,7 +695,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 type: `3_color_scale` - `3_color_scale` 형식은 Excel 의 "3 색 배율" 스타일 조건부 형식을 지정하는 데 사용됩니다:
 
 ```go
-// Color scales: 3 color.
+// 색상 스케일: 3 색.
 err := f.SetConditionalFormat("Sheet1", "A1:A10",
     []excelize.ConditionalFormatOptions{
         {
@@ -704,9 +704,9 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -719,7 +719,7 @@ type: `data_bar` - `data_bar` 형식은 Excel 의 "Data Bar" 스타일 조건부
 `MinType` - `MinType` 및 `MaxType` 속성은 조건부 서식 지정 유형이 `2_color_scale`, `3_color_scale` 또는 `data_bar` 인 경우에 사용할 수 있습니다. `MidType` 은 `3_color_scale` 에서 사용할 수 있습니다. 속성은 다음과 같이 사용됩니다:
 
 ```go
-// Data Bars: Gradient Fill.
+// 데이터 막대: 그라데이션 채우기.
 err := f.SetConditionalFormat("Sheet1", "K1:K10",
     []excelize.ConditionalFormatOptions{
         {
@@ -727,7 +727,7 @@ err := f.SetConditionalFormat("Sheet1", "K1:K10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            BarColor: "#638EC6",
+            BarColor: "638EC6",
         },
     },
 )
@@ -757,7 +757,7 @@ max|MaxValue (for `MaxType` only)
 `MinColor` - 조건부 서식 지정 유형이 `2_color_scale`, `3_color_scale` 또는 `data_bar` 인 경우 `MinColor` 및 `MaxColor` 속성을 사용할 수 있습니다. `MidColor` 는 `3_color_scale` 에서 사용할 수 있습니다. 속성은 다음과 같이 사용됩니다.
 
 ```go
-// Color scales: 3 color.
+// 색상 스케일: 3 색.
 err := f.SetConditionalFormat("Sheet1", "B1:B10",
     []excelize.ConditionalFormatOptions{
         {
@@ -766,9 +766,9 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )

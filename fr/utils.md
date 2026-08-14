@@ -643,7 +643,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 type: `top` - Le type `top` est utilisé pour spécifier les n premières valeurs en nombre ou en pourcentage dans une plage:
 
 ```go
-// THaut/Bas règles: Top 10.
+// THaut/Bas règles: Top 6.
 err := f.SetConditionalFormat("Sheet1", "H1:H10",
     []excelize.ConditionalFormatOptions{
         {
@@ -683,8 +683,8 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -704,9 +704,9 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -727,7 +727,7 @@ err := f.SetConditionalFormat("Sheet1", "K1:K10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            BarColor: "#638EC6",
+            BarColor: "638EC6",
         },
     },
 )
@@ -766,9 +766,9 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )

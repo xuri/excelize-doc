@@ -640,7 +640,7 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
 类型：`top` -  用于设置“最前最后规则”中的“前 10 项...”或“前 10% ...”：
 
 ```go
-// 最前最后规则： 前 10 项...
+// 最前最后规则： 前 6 项...
 err := f.SetConditionalFormat("Sheet1", "H1:H10",
     []excelize.ConditionalFormatOptions{
         {
@@ -680,8 +680,8 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -701,9 +701,9 @@ err := f.SetConditionalFormat("Sheet1", "A1:A10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -724,7 +724,7 @@ err := f.SetConditionalFormat("Sheet1", "K1:K10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            BarColor: "#638EC6",
+            BarColor: "638EC6",
         },
     },
 )
@@ -763,9 +763,9 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )

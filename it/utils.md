@@ -640,10 +640,10 @@ err := f.SetConditionalFormat("Foglio1", "A1:A10",
 )
 ```
 
-type: `top` - The `top` type is used to specify the top n values by number or percentage in a range:
+tipo: `top` - Il tipo `top` viene utilizzato per specificare i primi n valori in base al numero o alla percentuale in un intervallo:
 
 ```go
-// Regole Alto/Basso: Primi 10.
+// Regole Alto/Basso: Primi 6.
 err := f.SetConditionalFormat("Foglio1", "H1:H10",
     []excelize.ConditionalFormatOptions{
         {
@@ -683,8 +683,8 @@ err := f.SetConditionalFormat("Foglio1", "A1:A10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -704,9 +704,9 @@ err := f.SetConditionalFormat("Foglio1", "A1:A10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )
@@ -727,7 +727,7 @@ err := f.SetConditionalFormat("Foglio1", "K1:K10",
             Criteria: "=",
             MinType:  "min",
             MaxType:  "max",
-            BarColor: "#638EC6",
+            BarColor: "638EC6",
         },
     },
 )
@@ -766,9 +766,9 @@ err := f.SetConditionalFormat("Foglio1", "B1:B10",
             MinType:  "min",
             MidType:  "percentile",
             MaxType:  "max",
-            MinColor: "#F8696B",
-            MidColor: "#FFEB84",
-            MaxColor: "#63BE7B",
+            MinColor: "F8696B",
+            MidColor: "FFEB84",
+            MaxColor: "63BE7B",
         },
     },
 )
