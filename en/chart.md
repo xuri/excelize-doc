@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | Specifies that the fixed minimum, 0
 Alignment      | `Alignment`     | N/A     | Specifies that the alignment of the horizontal and vertical axis. The properties of font that can be set are: `TextRotation` and `Vertical`
 Font           | `Font`          | N/A     | Specifies that the font of the horizontal axis.
 NumFmt         | `ChartNumFmt`   | N/A     | Specifies that if linked to source and set custom number format code for axis.
-Title          | `[]RichTextRun` | N/A     | Specifies that the primary horizontal axis title and resize chart.
+Title          | `ChartTitle`    | N/A     | Specifies that the primary horizontal axis title and resize chart.
 
 The properties of `YAxis` that can be set are:
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/A     | Specifies that the alignment of the
 Font           | `Font`          | N/A     | Specifies that the font of the vertical axis.
 LogBase        | `float64`       | N/A     | Specifies logarithmic scale base number of the vertical axis.
 NumFmt         | `ChartNumFmt`   | N/A     | Specifies that if linked to source and set custom number format code for axis.
-Title          | `[]RichTextRun` | N/A     | Specifies that the primary vertical axis title and resize chart.
+Title          | `ChartTitle`    | N/A     | Specifies that the primary vertical axis title and resize chart.
 
 The value of `TextRotation` that can be set from -90 to 90.
 

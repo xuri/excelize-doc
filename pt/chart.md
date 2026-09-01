@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | Especifica que o mínimo fixo, 0, �
 Alignment      | `Alignment`     | N/D     | Especifica o alinhamento dos eixos horizontal e vertical. As propriedades de fonte que podem ser definidas são: `TextRotation` e `Vertical`
 Font           | `Font`          | N/D     | Especifica a fonte do eixo horizontal.
 NumFmt         | `ChartNumFmt`   | N/D     | Especifica que se estiver vinculado à origem e definir o código de formato numérico personalizado para o eixo.
-Title          | `[]RichTextRun` | N/D     | Especifica que o título do eixo horizontal primário e o gráfico de redimensionamento.
+Title          | `ChartTitle`    | N/D     | Especifica que o título do eixo horizontal primário e o gráfico de redimensionamento.
 
 As propriedades de `YAxis` que podem ser definidas são:
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/D     | Especifica o alinhamento dos eixos 
 Font           | `Font`          | N/D     | Especifica a fonte do eixo vertical.
 LogBase        | `float64`       | N/D     | Especifica o número base da escala logarítmica do eixo vertical.
 NumFmt         | `ChartNumFmt`   | N/D     | Especifica que se estiver vinculado à origem e definir o código de formato numérico personalizado para o eixo.
-Title          | `[]RichTextRun` | N/D     | Especifica que o título do eixo vertical principal e o gráfico de redimensionamento.
+Title          | `ChartTitle`    | N/D     | Especifica que o título do eixo vertical principal e o gráfico de redimensionamento.
 
 O valor de `TextRotation` que pode ser definido de -90 a 90.
 

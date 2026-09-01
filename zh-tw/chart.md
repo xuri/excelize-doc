@@ -178,7 +178,7 @@ Minimum        | `*float64`      | `0`     | 最小值，`0` 代表自動
 Alignment      | `Alignment`     | N/A     | 設定水平坐標軸刻度字型對齊格式，支援設定屬性為：`TextRotation` 和 `Vertical`
 Font           | `Font`          | N/A     | 設定水平坐標軸刻度字型格式
 NumFmt         | `ChartNumFmt`   | N/A     | 設定水平坐標軸數字格式和鏈接到源
-Title          | `[]RichTextRun` | N/A     | 設定位於坐標軸下方的主要橫坐標軸標題，並調整圖表大小
+Title          | `ChartTitle`    | N/A     | 設定位於坐標軸下方的主要橫坐標軸標題，並調整圖表大小
 
 下面是 `YAxis` 參數的可選值：
 
@@ -195,7 +195,7 @@ Alignment      | `Alignment`     | N/A     | 設定垂直坐標軸刻度字型�
 Font           | `Font`          | N/A     | 設定垂直坐標軸刻度字型格式
 LogBase        | `float64`       | N/A     | 設定垂直坐標軸對數刻度的基底
 NumFmt         | `ChartNumFmt`   | N/A     | 設定垂直坐標軸數字格式和鏈接到源
-Title          | `[]RichTextRun` | N/A     | 設定旋轉過的主要縱坐標軸標題，並調整圖表大小
+Title          | `ChartTitle`    | N/A     | 設定旋轉過的主要縱坐標軸標題，並調整圖表大小
 
 可選參數 `TextRotation` 的取值範圍是 -90 至 90。
 

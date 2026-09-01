@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | 最小値、`0` は自動
 Alignment      | `Alignment`     | N/A     | 水平軸と垂直軸の配置を指定します。設定できるフォントのプロパティは、`TextRotation` と `Vertical` です
 Font           | `Font`          | N/A     | 横軸のフォントを指定します
 NumFmt         | `ChartNumFmt`   | N/A     | ソースにリンクされている場合に指定し、軸のカスタム数値形式コードを設定します
-Title          | `[]RichTextRun` | N/A     | グラフの主な横軸のタイトルとサイズ変更を指定します
+Title          | `ChartTitle`    | N/A     | グラフの主な横軸のタイトルとサイズ変更を指定します
 
 設定できる `YAxis` のプロパティは次のとおりです。
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/A     | 水平軸と垂直軸の配置を�
 Font           | `Font`          | N/A     | 縦軸のフォントを指定します
 LogBase        | `float64`       | N/A     | 縦軸の対数スケールの底番号を指定します
 NumFmt         | `ChartNumFmt`   | N/A     | ソースにリンクされている場合に指定し、軸のカスタム数値形式コードを設定します
-Title          | `[]RichTextRun` | N/A     | グラフの主な縦軸のタイトルとサイズ変更を指定します
+Title          | `ChartTitle`    | N/A     | グラフの主な縦軸のタイトルとサイズ変更を指定します
 
 -90 から 90 まで設定できる `TextRotation` の値。
 

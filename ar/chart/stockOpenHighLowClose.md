@@ -101,13 +101,13 @@ func main() {
         },
         PlotArea: excelize.ChartPlotArea{
             UpBars: excelize.ChartUpDownBar{
-                Border: excelize.ChartLine{Type: excelize.ChartLineNone},
+                Border: excelize.LineOptions{Type: excelize.LineOptionsNone},
                 Fill: excelize.Fill{
                     Type: "pattern", Color: []string{"00B050"}, Pattern: 1,
                 },
             },
             DownBars: excelize.ChartUpDownBar{
-                Border: excelize.ChartLine{Type: excelize.ChartLineNone},
+                Border: excelize.LineOptions{Type: excelize.LineOptionsNone},
                 Fill: excelize.Fill{
                     Type: "pattern", Color: []string{"FF0000"}, Pattern: 1,
                 },

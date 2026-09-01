@@ -16,7 +16,7 @@ err := f.AddShape("Sheet1",
     &excelize.Shape{
         Cell: "G6",
         Type: "rect",
-        Line: excelize.ShapeLine{Color: "4286F4", Width: &lineWidth},
+        Line: excelize.LineOptions{Color: "4286F4", Width: &lineWidth},
         Fill: excelize.Fill{Color: []string{"8EB9FF"}},
         Paragraph: []excelize.RichTextRun{
             {

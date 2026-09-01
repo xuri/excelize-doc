@@ -43,7 +43,7 @@ func main() {
                 Name:       "Sheet1!$A$2",
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$2:$D$2",
-                Line: excelize.ChartLine{
+                Line: excelize.LineOptions{
                     Smooth: true,
                 },
             },
@@ -51,7 +51,7 @@ func main() {
                 Name:       "Sheet1!$A$3",
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$3:$D$3",
-                Line: excelize.ChartLine{
+                Line: excelize.LineOptions{
                     Smooth: true,
                 },
             },
@@ -59,7 +59,7 @@ func main() {
                 Name:       "Sheet1!$A$4",
                 Categories: "Sheet1!$B$1:$D$1",
                 Values:     "Sheet1!$B$4:$D$4",
-                Line: excelize.ChartLine{
+                Line: excelize.LineOptions{
                     Smooth: true,
                 },
             },

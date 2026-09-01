@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | 고정 된 최소, 0 은 자동 지
 Alignment      | `Alignment`     | N/A     | 수평 및 수직 축의 정렬을 지정합니다. 설정할 수 있는 글꼴 속성은 다음과 같습니다. `TextRotation` 및 `Vertical`
 Font           | `Font`          | N/A     | 가로축의 글꼴을 지정합니다.
 NumFmt         | `ChartNumFmt`   | N/A     | 소스에 연결된 경우를 지정하고 축에 대한 사용자 지정 숫자 형식 코드를 설정합니다.
-Title          | `[]RichTextRun` | N/A     | 기본 가로 축 제목 및 차트 크기 조정을 지정합니다.
+Title          | `ChartTitle`    | N/A     | 기본 가로 축 제목 및 차트 크기 조정을 지정합니다.
 
 설정할 수있는 `YAxis` 의 속성은 다음과 같습니다:
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/A     | 수평 및 수직 축의 정렬을 
 Font           | `Font`          | N/A     | 세로축의 글꼴을 지정합니다.
 LogBase        | `float64`       | N/A     | 세로축의 대수 눈금 밑수를 지정합니다.
 NumFmt         | `ChartNumFmt`   | N/A     | 소스에 연결된 경우를 지정하고 축에 대한 사용자 지정 숫자 형식 코드를 설정합니다.
-Title          | `[]RichTextRun` | N/A     | 기본 세로 축 제목 및 차트 크기 조정을 지정합니다.
+Title          | `ChartTitle`    | N/A     | 기본 세로 축 제목 및 차트 크기 조정을 지정합니다.
 
 -90 에서 90 까지 설정할 수 있는 `TextRotation` 값입니다.
 

@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | Gibt an, dass das feste Minimum 0 a
 Alignment      | `Alignment`     | N/A     | Gibt die Ausrichtung der horizontalen und vertikalen Achse an. Die Eigenschaften der Schriftart, die festgelegt werden können, sind `TextRotation` und `Vertical`
 Font           | `Font`          | N/A     | Gibt die Schriftart der horizontalen Achse an.
 NumFmt         | `ChartNumFmt`   | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für die Achse festgelegt wird.
-Title          | `[]RichTextRun` | N/A     | Gibt den Titel der primären horizontalen Achse und die Größenänderung des Diagramms an.
+Title          | `ChartTitle`    | N/A     | Gibt den Titel der primären horizontalen Achse und die Größenänderung des Diagramms an.
 
 Die Eigenschaften von `YAxis`, die eingestellt werden können, sind:
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/A     | Gibt die Ausrichtung der horizontal
 Font           | `Font`          | N/A     | Gibt die Schriftart der vertikalen Achse an.
 LogBase        | `float64`       | N/A     | Gibt die Basiszahl der logarithmischen Skala der vertikalen Achse an.
 NumFmt         | `ChartNumFmt`   | N/A     | Gibt an, dass bei Verknüpfung mit der Quelle ein benutzerdefinierter Zahlenformatcode für die Achse festgelegt wird.
-Title          | `[]RichTextRun` | N/A     | Gibt den Titel der primären vertikalen Achse und die Größenänderung des Diagramms an.
+Title          | `ChartTitle`    | N/A     | Gibt den Titel der primären vertikalen Achse und die Größenänderung des Diagramms an.
 
 Der Wert von `TextRotation` kann von -90 bis 90 eingestellt werden.
 

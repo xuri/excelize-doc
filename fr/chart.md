@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | Spécifie que le minimum fixé, 0 e
 Alignment      | `Alignment`     | N/A     | Spécifie l'alignement des axes horizontaux et verticaux. Les propriétés de police qui peuvent être définies sont: `TextRotation` et `Vertical`
 Font           | `Font`          | N/A     | Spécifie que la police de l'axe horizontal.
 NumFmt         | `ChartNumFmt`   | N/A     | Spécifie que s'il est lié à la source et définit le code de format de nombre personnalisé pour l'axe.
-Title          | `[]RichTextRun` | N/A     | Spécifie que le titre de l'axe horizontal principal et le graphique de redimensionnement.
+Title          | `ChartTitle`    | N/A     | Spécifie que le titre de l'axe horizontal principal et le graphique de redimensionnement.
 
 Les propriétés de `YAxis` qui peuvent être définies sont:
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/A     | Spécifie l'alignement des axes hor
 Font           | `Font`          | N/A     | Spécifie que la police de l'axe vertical.
 LogBase        | `float64`       | N/A     | Spécifie le numéro de base de l'échelle logarithmique de l'axe vertical.
 NumFmt         | `ChartNumFmt`   | N/A     | Spécifie que s'il est lié à la source et définit le code de format de nombre personnalisé pour l'axe.
-Title          | `[]RichTextRun` | N/A     | Spécifie que le titre de l'axe vertical principal et le graphique de redimensionnement.
+Title          | `ChartTitle`    | N/A     | Spécifie que le titre de l'axe vertical principal et le graphique de redimensionnement.
 
 La valeur de `TextRotation` peut être définie de -90 à 90.
 

@@ -176,7 +176,7 @@ Minimum        | `*float64`      | `0`     | Specifica che il minimo fisso, 0, �
 Alignment      | `Alignment`     | N/A     | Specifica l'allineamento dell'asse orizzontale e verticale. Le proprietà del font che possono essere impostate sono: `TextRotation` e `Vertical`
 Font           | `Font`          | N/A     | Specifica il carattere dell'asse orizzontale.
 NumFmt         | `ChartNumFmt`   | N/A     | Specifica che se collegato all'origine e imposta il codice del formato numerico personalizzato per l'asse.
-Title          | `[]RichTextRun` | N/A     | Specifica il titolo dell'asse orizzontale primario e il ridimensionamento del grafico.
+Title          | `ChartTitle`    | N/A     | Specifica il titolo dell'asse orizzontale primario e il ridimensionamento del grafico.
 
 Le proprietà di `YAxis` che possono essere impostate sono:
 
@@ -193,7 +193,7 @@ Alignment      | `Alignment`     | N/A     | Specifica l'allineamento dell'asse 
 Font           | `Font`          | N/A     | Specifica il carattere dell'asse verticale.
 LogBase        | `float64`       | N/A     | Specifica il numero di base della scala logaritmica dell'asse verticale.
 NumFmt         | `ChartNumFmt`   | N/A     | Specifica che se collegato all'origine e imposta il codice del formato numerico personalizzato per l'asse.
-Title          | `[]RichTextRun` | N/A     | Specifica il titolo dell'asse verticale primario e il ridimensionamento del grafico.
+Title          | `ChartTitle`    | N/A     | Specifica il titolo dell'asse verticale primario e il ridimensionamento del grafico.
 
 Il valore di `TextRotation` può essere impostato da -90 a 90.
 
