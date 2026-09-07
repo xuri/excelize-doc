@@ -48,6 +48,8 @@ var (
     ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrMaxRows 는 최대 제한을 초과하는 행 번호를 수신할 때 오류 메시지를 정의했습니다
     ErrMaxRows = errors.New("row number exceeds maximum limit")
+    // ErrMaxSpinCount 는 암호화 정보에서 스핀 카운트가 최대 한도를 초과했을 때 표시되는 오류 메시지를 정의합니다
+    ErrMaxSpinCount = errors.New("spin count exceeds maximum limit")
     // ErrNameLength 는 정의된 이름 또는 테이블 이름 길이가 제한을 초과할 때 오류 메시지를 정의했습니다
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // ErrMaxGraphicAltTextLength 는 그래픽 대체 텍스트 길이가 제한을 초과했을 때 표시되는 오류 메시지를 정의합니다

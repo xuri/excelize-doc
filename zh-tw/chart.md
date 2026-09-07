@@ -72,7 +72,7 @@ ID|列舉|圖表類別
 55 | StockHighLowClose           | 最高價-最低價-收盤價股價圖
 56 | StockOpenHighLowClose       | 開盤價-最高價-最低價-收盤價股價圖
 
-在 Office Excel 中圖表資料區域 `Series` 指定了繪制哪些資料的信息集合、圖例項（系列）和水平（類別）軸標籤。
+在 Office Excel 中圖表資料區域 `Series` 指定了繪制哪些資料的訊息集合、圖例項（系列）和水平（類別）軸標籤。
 
 下面是 Excelize 中 `Series` 的可選參數：
 

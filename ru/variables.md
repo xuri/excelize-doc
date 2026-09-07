@@ -46,6 +46,8 @@ var (
     ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrMaxRows определил сообщение об ошибке при получении номера строки, превышающей максимальный предел
     ErrMaxRows = errors.New("row number exceeds maximum limit")
+    // ErrMaxSpinCount определяет сообщение об ошибке, возникающее при получении данных о количестве спинов в информации шифрования, превышающем максимальный предел
+    ErrMaxSpinCount = errors.New("spin count exceeds maximum limit")
     // ErrNameLength определил сообщение об ошибке при получении определенного имени или длины имени таблицы, превышающей лимит
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // ErrMaxGraphicAltTextLength определяет сообщение об ошибке, возникающее при получении графического элемента с текстом alt, длина которого превышает допустимый предел

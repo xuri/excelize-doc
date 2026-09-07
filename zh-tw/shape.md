@@ -55,7 +55,7 @@ actionButtonEnd | 動作按鈕：轉到結尾 | <p style="text-align: center;"><
 actionButtonForwardNext | 動作按鈕：前進或下一項 | <p style="text-align: center;"><img src="../images/shapes/actionButtonForwardNext.svg" height="50" width="50"></p>
 actionButtonHelp | 動作按鈕：幫助 | <p style="text-align: center;"><img src="../images/shapes/actionButtonHelp.svg" height="50" width="50"></p>
 actionButtonHome | 動作按鈕：轉到主頁 | <p style="text-align: center;"><img src="../images/shapes/actionButtonHome.svg" height="50" width="50"></p>
-actionButtonInformation | 動作按鈕：獲取信息 | <p style="text-align: center;"><img src="../images/shapes/actionButtonInformation.svg" height="50" width="50"></p>
+actionButtonInformation | 動作按鈕：獲取訊息 | <p style="text-align: center;"><img src="../images/shapes/actionButtonInformation.svg" height="50" width="50"></p>
 actionButtonMovie | 動作按鈕：視頻 | <p style="text-align: center;"><img src="../images/shapes/actionButtonMovie.svg" height="50" width="50"></p>
 actionButtonReturn | 動作按鈕：上一張 | <p style="text-align: center;"><img src="../images/shapes/actionButtonReturn.svg" height="50" width="50"></p>
 actionButtonSound | 動作按鈕：聲音 | <p style="text-align: center;"><img src="../images/shapes/actionButtonSound.svg" height="50" width="50"></p>

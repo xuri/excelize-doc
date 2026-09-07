@@ -48,6 +48,8 @@ var (
     ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // حدد ErrMaxRows رسالة الخطأ عند تلقي رقم صف يتجاوز الحد الأقصى.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
+    // تم تعريف رسالة الخطأ ErrMaxSpinCount عند تلقي عدد دورات يتجاوز الحد الأقصى في معلومات التشفير.
+    ErrMaxSpinCount = errors.New("spin count exceeds maximum limit")
     // حدد ErrNameLength رسالة الخطأ عند تلقي الاسم المحدد أو تجاوز طول اسم الجدول الحد.
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // تم تحديد رسالة الخطأ ErrMaxGraphicAltTextLength عند استلام رسالة خطأ تفيد بأن طول النص البديل للرسومات يتجاوز الحد المسموح به.

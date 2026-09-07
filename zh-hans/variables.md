@@ -52,6 +52,8 @@ var (
     ErrMaxRows = errors.New("row number exceeds maximum limit")
     // ErrNameLength 定义了自定义名称或表格名称长度超出最大限制时的错误提示信息
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
+    // ErrMaxSpinCount 定义了当加密信息中的自旋计数超过最大限制时的错误提示信息
+    ErrMaxSpinCount = errors.New("spin count exceeds maximum limit")
     // ErrMaxGraphicAltTextLength 定义了图形对象可选文字长度超出最大限制时的错误提示信息
     ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
     // ErrMaxGraphicNameLength 定义了图形对象名称长度超出最大限制时的错误提示信息

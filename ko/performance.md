@@ -6,6 +6,6 @@
 
 ## 유사한 라이브러리의 성능 비교
 
-다음 그래프는 Go, Python, Java, PHP 와 NodeJS 를 포함한 개인용 컴퓨터의 주요 오픈 소스 Excel libs 에 의한 세대 `102400*50` 일반 텍스트 매트릭스의 성능 비교를 보여줍니다 (2.6 GHz 6-Core Intel Core i7, 16 GB 2667 MHz DDR4, 500GB SSD, macOS Monterey 12.3.1).
+다음 그래프는 Go, Python, Java, PHP 와 NodeJS 를 포함한 개인용 컴퓨터의 주요 오픈 소스 Excel libs 에 의한 세대 `102400*50` 일반 텍스트 매트릭스의 성능 비교를 보여줍니다 (10 Core Apple M4, 16GB DDR5, 500GB SSD, darwin/arm64, macOS Tahoe 26.6.2).
 
 <p align="center"><img width="800" src="https://xuri.me/wp-content/uploads/2016/08/excelize-golang-library-for-reading-and-writing-xlsx-files-3.svg" alt="Excel 유사한 라이브러리의 성능 비교"></p>

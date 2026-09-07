@@ -659,7 +659,7 @@ SetWorkbookProps 用於設定活頁簿的屬性。支援設定的活頁簿屬性
 屬性 | 類別 | 描述
 ---|---|---
 Date1904      | `*bool`   | 指示活頁簿是否使用 1904 日期系統
-FilterPrivacy | `*bool`   | 篩選器隱私，指示應用程式是否檢查活頁簿中的個人識別信息
+FilterPrivacy | `*bool`   | 篩選器隱私，指示應用程式是否檢查活頁簿中的個人識別訊息
 CodeName      | `*string` | 代碼名
 
 ## 獲取活頁簿屬性 {#GetWorkbookPrOptions}

@@ -48,6 +48,8 @@ var (
     ErrMaxRowHeight = fmt.Errorf("the height of the row must be less than or equal to %d points", MaxRowHeight)
     // ErrMaxRows definiu a mensagem de erro ao receber um número de linha que excede o limite máximo.
     ErrMaxRows = errors.New("row number exceeds maximum limit")
+    // ErrMaxSpinCount define a mensagem de erro ao receber uma contagem de rotações nas informações de criptografia que excede o limite máximo.
+    ErrMaxSpinCount = errors.New("spin count exceeds maximum limit")
     // ErrNameLength definiu a mensagem de erro ao receber o nome definido ou o comprimento do nome da tabela excede o limite.
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // ErrMaxGraphicAltTextLength define a mensagem de erro que ocorre quando o comprimento do texto alternativo da imagem excede o limite.
