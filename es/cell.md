@@ -208,7 +208,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Establecer el formato de hora para la celda"></p>
 
-La celda `D7` se establece en el formato de hora. Tenga en cuenta que cuando el ancho de celda con el formato de hora aplicado es demasiado estrecho para mostrarse por completo, se mostrará como `####`, puede arrastrar y soltar el ancho de la columna o establecer la columna en el tamaño apropiado llamando al Función `SetColWidth` para que sea una visualización normal.
+La celda `D7` se establece en el formato de hora. Tenga en cuenta que cuando el ancho de celda con el formato de hora aplicado es demasiado estrecho para mostrarse por completo, se mostrará como `####`, puede arrastrar y soltar el ancho de la columna o establecer la columna en el tamaño apropiado llamando al Función [`SetColWidth`](sheet.md#SetColWidth) para que sea una visualización normal.
 
 - Ejemplo 6, configuración de la fuente, tamaño de fuente, color y estilo sesgado para la celda de la hoja de trabajo `D7` denominada `Sheet1`:
 
