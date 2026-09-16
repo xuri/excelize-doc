@@ -208,7 +208,7 @@ err = f.SetCellStyle("Foglio1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Imposta il formato dell'ora per la cella"></p>
 
-La cella `D7` è impostata sul formato ora. Tieni presente che quando la larghezza della cella con il formato dell'ora applicato è troppo stretta per essere visualizzata completamente, verrà visualizzata come `####`, puoi trascinare e rilasciare la larghezza della colonna o impostare la colonna sulla dimensione appropriata chiamando il comando Funzione `SetColWidth` per renderla visualizzazione normale.
+La cella `D7` è impostata sul formato ora. Tieni presente che quando la larghezza della cella con il formato dell'ora applicato è troppo stretta per essere visualizzata completamente, verrà visualizzata come `####`, puoi trascinare e rilasciare la larghezza della colonna o impostare la colonna sulla dimensione appropriata chiamando il comando Funzione [`SetColWidth`](sheet.md#SetColWidth) per renderla visualizzazione normale.
 
 - Esempio 6, impostazione del carattere, della dimensione del carattere, del colore e dello stile di inclinazione per la cella del foglio di lavoro `D7` denominata `Foglio1`:
 

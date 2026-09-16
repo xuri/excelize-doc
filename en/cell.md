@@ -208,7 +208,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Set the time format for the cell"></p>
 
-The cell `D7` is set to the time format. Note that when the cell width with the time format applied is too narrow to be fully displayed, it will be displayed as `####`, you can drag and drop the column width or set the column to the appropriate size by calling the `SetColWidth` function to make it normal display.
+The cell `D7` is set to the time format. Note that when the cell width with the time format applied is too narrow to be fully displayed, it will be displayed as `####`, you can drag and drop the column width or set the column to the appropriate size by calling the [`SetColWidth`](sheet.md#SetColWidth) function to make it normal display.
 
 - Example 6, setting the font, font size, color, and skew style for the worksheet `D7` cell named `Sheet1`:
 

@@ -208,7 +208,7 @@ err = f.SetCellStyle("Planilha1", "D7", "D7", style)
 
 <p align="center"><img width="612" src="./images/SetCellStyle_05.png" alt="Defina o formato de hora para a célula"></p>
 
-A célula `D7` está definida para o formato de hora. Observe que quando a largura da célula com o formato de hora aplicado for muito estreita para ser totalmente exibida, ela será exibida como `####`, você pode arrastar e soltar a largura da coluna ou definir a coluna para o tamanho apropriado chamando o comando Função `SetColWidth` para torná-la exibição normal.
+A célula `D7` está definida para o formato de hora. Observe que quando a largura da célula com o formato de hora aplicado for muito estreita para ser totalmente exibida, ela será exibida como `####`, você pode arrastar e soltar a largura da coluna ou definir a coluna para o tamanho apropriado chamando o comando Função [`SetColWidth`](sheet.md#SetColWidth) para torná-la exibição normal.
 
 - Exemplo 6, definindo a fonte, o tamanho da fonte, a cor e o estilo de inclinação para a célula da planilha `D7` chamada `Planilha1`:
 
