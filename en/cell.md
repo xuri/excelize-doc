@@ -27,6 +27,15 @@ type FormulaOpts struct {
 }
 ```
 
+`RecalcOptions` can be passed to [`Recalc`](cell.md#Recalc) to narrow the recalculation to a specific worksheet or an A1-style range.
+
+```go
+type RecalcOptions struct {
+    Sheet string // Limit recalc to a single worksheet when non-empty
+    Ref   string // Limit recalc to the given A1-style range (requires Sheet)
+}
+```
+
 ## Set cell value {#SetCellValue}
 
 ```go
@@ -761,6 +770,8 @@ func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error
 
 CalcCellValue provides a function to get calculated cell value. This feature is currently in working processing. Iterative calculation, implicit intersection, explicit intersection, array formula, table formula and some other formulas are not supported currently.
 
+3D references across a contiguous workbook-order range of worksheets are supported for the unquoted-name shape, for example `SUM(Jan:Mar!A1)` or `SUM(Jänner:Dezember!$M$40)`. The aggregates `SUM`, `AVERAGE`, `MIN`, `MAX`, `COUNT`, `COUNTA`, and `PRODUCT` consume the expanded matrix. A reversed or missing sheet name in the 3D range resolves to `#REF!`.
+
 Supported formulas:
 
 Function name | Description
@@ -1220,3 +1231,39 @@ YIELDDISC                | Returns the annual yield for a discounted security; f
 YIELDMAT                 | Returns the annual yield of a security that pays interest at maturity
 Z.TEST                   | Returns the one-tailed probability-value of a z-test
 ZTEST                    | Returns the one-tailed probability-value of a z-test
+
+## Recalculate formula cell {#RecalcCell}
+
+```go
+func (f *File) RecalcCell(sheet, cell string) error
+```
+
+RecalcCell evaluates the formula in the given cell and persists the typed result into the cell's cached `<v>`/`<t>` pair without touching `<f>` or any shared-formula grouping (`ref`, `si`). Downstream readers that rely on the cached value without recomputing the formula themselves (for example LibreOffice headless or Apple Numbers) will see the up-to-date result after a round trip through the library.
+
+Dependency resolution uses the same recursive evaluator as [`CalcCellValue`](cell.md#CalcCellValue), so a single call converges a chain of formulas that feed the target. Circular references are bounded by the workbook's `MaxCalcIterations` option.
+
+Returns `ErrCellNoFormula` when the target cell does not hold a formula.
+
+## Recalculate workbook {#Recalc}
+
+```go
+func (f *File) Recalc(opts ...RecalcOptions) error
+```
+
+Recalc evaluates every formula in scope and persists each result into the cell's cached `<v>`/`<t>` via [`RecalcCell`](cell.md#RecalcCell). The `<f>` element and any shared-formula grouping are preserved. The typical use is the open-mutate-save round trip:
+
+```go
+f, _ := excelize.OpenFile("book.xlsx")
+defer func() { _ = f.Close() }()
+_ = f.Recalc()
+_ = f.Save()
+```
+
+The default (no options) walks the whole workbook. Pass a [`RecalcOptions`](cell.md) value to narrow the sweep: `Sheet` limits recalc to one worksheet; `Ref` (which requires `Sheet`) limits it further to an A1-style range such as `B2:D10`.
+
+```go
+_ = f.Recalc(excelize.RecalcOptions{Sheet: "Summary"})
+_ = f.Recalc(excelize.RecalcOptions{Sheet: "Summary", Ref: "B2:D10"})
+```
+
+When any formula cannot be evaluated, Recalc continues with the remaining cells and returns `errors.Join` over per-cell failures wrapped as `fmt.Errorf("<sheet>!<cell>: %w", cause)`. Use `errors.Is` or `errors.As` to descend into the underlying causes. Cells that did compute are still persisted.
