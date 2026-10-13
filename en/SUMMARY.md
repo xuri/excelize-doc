@@ -265,6 +265,7 @@
 * [Performance](performance.md)
 * [Contribution](contribution.md)
 * Released Versions
+  * [v2.11.1](releases/v2.11.1.md)
   * [v2.11.0 (2026-07-07)](releases/v2.11.0.md)
   * [v2.10.1 (2026-02-25)](releases/v2.10.1.md)
   * [v2.10.0 (2025-10-14)](releases/v2.10.0.md)

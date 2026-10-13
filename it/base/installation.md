@@ -6,7 +6,8 @@ La tabella seguente mostra i requisiti minimi del linguaggio Go con ciascuna ver
 
 Versione Excel | Requisiti minimi della versione in lingua Go
 ---|---
-v2.11.0 ~ master | 1.25.0
+master | 1.26.0
+v2.11.0 | 1.25.0
 v2.10.0 ~ v2.10.1 | 1.24.0
 v2.9.1 | 1.23.0
 v2.8.1 ~ v2.9.0 | 1.18
