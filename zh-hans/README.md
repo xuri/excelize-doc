@@ -117,7 +117,7 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 ### 赞助 Excelize 开发
 
-项目的发展离不开你的支持，请作者喝杯咖啡吧！Excelize 通过以下方式接受赞助：
+项目的发展离不开您的支持，请作者喝杯咖啡吧！Excelize 通过以下方式接受赞助：
 
 <a href="https://github.com/sponsors/xuri" title="GitHub Sponsor" target="_blank"><img width="170" src="../images/github_sponsor@2x.png" alt="GitHub Sponsor"></a>
 

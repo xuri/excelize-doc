@@ -561,7 +561,7 @@ func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, 
 mergeCells, err := f.GetMergeCells("Sheet1")
 ```
 
-如果你希望获取合并单元格时，不包含合并单元格的值，可使用以下代码：
+如果您希望获取合并单元格时，不包含合并单元格的值，可使用以下代码：
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1", true)
@@ -1173,7 +1173,7 @@ TDIST             | 返回学生 t-分布
 TEXT              | 设置数字格式并将其转换为文本
 TEXTAFTER         | 返回在给定字符或字符串之后发生的文本
 TEXTBEFORE        | 返回在给定字符或字符串之前发生的文本
-TEXTJOIN          | 将多个区域和/或字符串的文本组合起来，并包括你在要组合的各文本值之间指定的分隔符。 如果分隔符是空的文本字符串，则此函数将有效连接这些区域
+TEXTJOIN          | 将多个区域和/或字符串的文本组合起来，并包括您在要组合的各文本值之间指定的分隔符。 如果分隔符是空的文本字符串，则此函数将有效连接这些区域
 TIME              | 返回特定时间的序列号
 TIMEVALUE         | 将文本格式的时间转换为序列号
 T.INV             | 返回作为概率和自由度函数的学生 t 分布的 t 值
