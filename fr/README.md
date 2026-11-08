@@ -9,7 +9,7 @@ Excelize est une bibliothèque écrite en pure Go fournissant un ensemble de fon
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - Licenses: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - Dernière version: [v2.11.1](https://github.com/xuri/excelize/releases/latest)
-- Heure de mise à jour du document: 2 novembre 2026
+- Heure de mise à jour du document: 8 novembre 2026
 
 ## Mission du projet
 
@@ -22,6 +22,10 @@ Dans certains cas, nous devons manipuler des documents Excel à travers des prog
 ## Sponsors or
 
 <a href="https://www.gravityclimate.com" alt="Gravity"><img width="165" src="../images/vendor/gravityclimate.com.svg" alt="Gravity"></a>
+
+## Sponsors Argent
+
+<a href="https://freispace.com" alt="freispace"><img width="165" src="../images/vendor/freispace.com@2x.png" alt="freispace"></a>
 
 ## Des clients connus
 

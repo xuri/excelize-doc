@@ -9,7 +9,7 @@ Excelize 是 Go 语言编写的用于操作 Office Excel 文档基础库，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 许可协议: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 当前版本: [v2.11.1](https://github.com/xuri/excelize/releases/latest)
-- 文档更新: 2026年11月2日
+- 文档更新: 2026年11月8日
 
 ## 项目使命
 
@@ -64,6 +64,10 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 ## 金牌赞助商
 
 <a href="https://www.gravityclimate.com" alt="Gravity"><img width="165" src="../images/vendor/gravityclimate.com.svg" alt="Gravity"></a>
+
+## 银牌赞助商
+
+<a href="https://freispace.com" alt="freispace"><img width="165" src="../images/vendor/freispace.com@2x.png" alt="freispace"></a>
 
 ## 知名企业用户
 
@@ -123,8 +127,6 @@ Excelize 的目标是创建并维护一个 Go 语言版本的 Excel 文档 API�
 
 项目的发展离不开您的支持，请作者喝杯咖啡吧！Excelize 通过以下方式接受赞助：
 
-<a href="https://github.com/sponsors/xuri" title="GitHub Sponsor" target="_blank"><img width="170" src="../images/github_sponsor@2x.png" alt="GitHub Sponsor"></a>
+<a href="https://github.com/sponsors/xuri" title="GitHub Sponsor" target="_blank"><img width="170" src="../images/github_sponsor@2x.png" alt="GitHub Sponsor"></a> <a href="https://opencollective.com/excelize" title="成为 Excelize 赞助商" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="成为 Excelize 赞助商"></a> <a href="https://www.patreon.com/xuri" title="在 Patreon 上支持 Excelize" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="在 Patreon 上支持 Excelize"></a>
 
 <a href="https://www.paypal.com/paypalme/xuri" title="赞助 Excelize 开发" target="_blank"><img width="710" src="./images/donate@2x.png" alt="赞助 Excelize 开发"></a>
-
-<a href="https://opencollective.com/excelize" title="成为 Excelize 赞助商" target="_blank"><img height="61" src="../images/opencollective.com@2x.png" alt="成为 Excelize 赞助商"></a> <a href="https://www.patreon.com/xuri" title="在 Patreon 上支持 Excelize" target="_blank"><img height="61" src="../images/patreon.com@2x.png" alt="在 Patreon 上支持 Excelize"></a>
