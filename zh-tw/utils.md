@@ -81,13 +81,13 @@ TableStyleDark5|<img src="../images/table_style/dark/5.png" width="61">|TableSty
 TableStyleDark8|<img src="../images/table_style/dark/8.png" width="61">|TableStyleDark9|<img src="../images/table_style/dark/9.png" width="61">|TableStyleDark10|<img src="../images/table_style/dark/10.png" width="61">
 TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 
-## 獲取表格 {#GetTables}
+## 取得表格 {#GetTables}
 
 ```go
 func (f *File) GetTables(sheet string) ([]Table, error)
 ```
 
-根據給定的工作表名稱獲取指定工作表中的全部表格。
+根據給定的工作表名稱取得指定工作表中的全部表格。
 
 ## 刪除表格 {#DeleteTable}
 
@@ -282,13 +282,13 @@ func (f *File) NewConditionalStyle(style *Style) (int, error)
 
 透過給定樣式為條件式格式創建樣式，樣式參數與 [`NewStyle`](style.md#NewStyle) 函式的相同。請注意，使用 RGB 色域色彩代碼時，目前僅支援設定字型、填滿、對齊和外框的色彩。
 
-## 獲取條件式格式樣式 {#GetConditionalStyle}
+## 取得條件式格式樣式 {#GetConditionalStyle}
 
 ```go
 func (f *File) GetConditionalStyle(idx int) (*Style, error)
 ```
 
-根據給定的條件式格式樣式索引獲取條件式格式樣式定義。
+根據給定的條件式格式樣式索引取得條件式格式樣式定義。
 
 ## 設定條件式格式 {#SetConditionalFormat}
 
@@ -908,13 +908,13 @@ func main() {
 }
 ```
 
-## 獲取條件式格式 {#GetConditionalFormats}
+## 取得條件式格式 {#GetConditionalFormats}
 
 ```go
 func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
-根據給定的工作表名稱獲取該工作表中全部儲存格坐標區域和條件式格式參數。
+根據給定的工作表名稱取得該工作表中全部儲存格坐標區域和條件式格式參數。
 
 ## 刪除條件式格式 {#UnsetConditionalFormat}
 
@@ -1014,13 +1014,13 @@ err := f.SetPanes("Sheet1", &excelize.Panes{
 err := f.SetPanes("Sheet1", &excelize.Panes{Freeze: false, Split: false})
 ```
 
-## 獲取窗格 {#GetPanes}
+## 取得窗格 {#GetPanes}
 
 ```go
 func (f *File) GetPanes(sheet string) (Panes, error)
 ```
 
-透過給定的工作表名稱獲取帶有凍結窗格或拆分窗格的窗格格式。
+透過給定的工作表名稱取得帶有凍結窗格或拆分窗格的窗格格式。
 
 ## 色值計算 {#ThemeColor}
 
@@ -1036,7 +1036,7 @@ func ThemeColor(baseColor string, tint float64) string
 
 透過給定的十六進制色彩代碼與色調參數，計算出最終色彩。
 
-電子錶格文檔中的文本有 3 種色彩：十六進制色彩、索引色彩和主題色彩。這些色彩的優先級為：十六進制色彩優先於主題色彩、主題色彩優先於索引色彩。另外，色彩還支援基於十六進制色彩應用色調值，因此可使用 ThemeColor 函式為首選色彩應用色調，以獲取計算出的實際十六進制色彩值。例如，獲取名為 `Sheet1` 的工作表 `A1` 儲存格的富文本中的文字色彩：
+電子錶格文檔中的文本有 3 種色彩：十六進制色彩、索引色彩和主題色彩。這些色彩的優先級為：十六進制色彩優先於主題色彩、主題色彩優先於索引色彩。另外，色彩還支援基於十六進制色彩應用色調值，因此可使用 ThemeColor 函式為首選色彩應用色調，以取得計算出的實際十六進制色彩值。例如，取得名為 `Sheet1` 的工作表 `A1` 儲存格的富文本中的文字色彩：
 
 ```go
 package main
@@ -1114,7 +1114,7 @@ func (f *File) WriteTo(w io.Writer, opts ...Options) (int64, error)
 func (f *File) WriteToBuffer() (*bytes.Buffer, error)
 ```
 
-該函式提供獲取當前檔案內容 `*bytes.Buffer` 的方法。
+該函式提供取得當前檔案內容 `*bytes.Buffer` 的方法。
 
 ## 嵌入 VBA 專案 {#AddVBAProject}
 

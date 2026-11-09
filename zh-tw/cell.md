@@ -114,7 +114,7 @@ func (f *File) SetCellStr(sheet, cell, value string) error
 func (f *File) SetCellStyle(sheet, topLeftCell, bottomRightCell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式獲取。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋儲存格的已有樣式，而不會將樣式與已有樣式疊加或合併。
+根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式取得。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋儲存格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 - 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定外框樣式：
 
@@ -419,39 +419,39 @@ func main() {
 }
 ```
 
-## 獲取富文本格式 {#GetCellRichText}
+## 取得富文本格式 {#GetCellRichText}
 
 ```go
 func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
-根據給定的工作表、儲存格坐標獲取指定儲存格的富文本格式。
+根據給定的工作表、儲存格坐標取得指定儲存格的富文本格式。
 
-## 獲取儲存格的值 {#GetCellValue}
+## 取得儲存格的值 {#GetCellValue}
 
 ```go
 func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表和儲存格坐標獲取儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
+根據給定的工作表和儲存格坐標取得儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
 
-## 獲取儲存格數據類型 {#GetCellType}
+## 取得儲存格數據類型 {#GetCellType}
 
 ```go
 func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
-根據給定的工作表、儲存格坐標獲取指定儲存格的數據類型。
+根據給定的工作表、儲存格坐標取得指定儲存格的數據類型。
 
-## 按欄獲取全部儲存格的值 {#GetCols}
+## 按欄取得全部儲存格的值 {#GetCols}
 
 ```go
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名按欄獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
+根據給定的工作表名按欄取得該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
 
-例如，按欄獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
+例如，按欄取得並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
 ```go
 cols, err := f.GetCols("Sheet1")
@@ -467,15 +467,15 @@ for _, col := range cols {
 }
 ```
 
-## 按列獲取全部儲存格的值 {#GetRows}
+## 按列取得全部儲存格的值 {#GetRows}
 
 ```go
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名按列獲取該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 獲取帶有值或公式儲存格的列，列尾連續為空的儲存格將被跳過，每列中的儲存格數目可能不同。
+根據給定的工作表名按列取得該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 取得帶有值或公式儲存格的列，列尾連續為空的儲存格將被跳過，每列中的儲存格數目可能不同。
 
-例如，按列獲取並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
+例如，按列取得並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
 ```go
 rows, err := f.GetRows("Sheet1")
@@ -491,35 +491,35 @@ for _, row := range rows {
 }
 ```
 
-## 獲取超連結存儲格 {#GetHyperLinkCells}
+## 取得超連結儲存格 {#GetHyperLinkCells}
 
 ```go
 func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
 ```
 
-根據給定的工作表名和資源類型獲取超連結存儲格坐標。可選參數 `linkType` 用於指定超連結的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超連結的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超連結存儲格的坐標。
+根據給定的工作表名和資源類型取得超連結儲存格坐標。可選參數 `linkType` 用於指定超連結的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超連結的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超連結儲存格的坐標。
 
-## 獲取超連結 {#GetCellHyperLink}
+## 取得超連結 {#GetCellHyperLink}
 
 ```go
 func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
-根據給定的工作表名和儲存格坐標獲取儲存格超連結，如果該儲存格存在超連結，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
+根據給定的工作表名和儲存格坐標取得儲存格超連結，如果該儲存格存在超連結，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
 
-例如，獲取名為 `Sheet1` 的工作表上坐標為 `H6` 儲存格的超連結：
+例如，取得名為 `Sheet1` 的工作表上坐標為 `H6` 儲存格的超連結：
 
 ```go
 link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 ```
 
-## 獲取樣式索引 {#GetCellStyle}
+## 取得樣式索引 {#GetCellStyle}
 
 ```go
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-根據給定的工作表名和儲存格坐標獲取儲存格樣式索引，獲取到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函式的參數使用。
+根據給定的工作表名和儲存格坐標取得儲存格樣式索引，取得到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函式的參數使用。
 
 ## 合併儲存格 {#MergeCell}
 
@@ -549,25 +549,25 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 
 如果給定的儲存格坐標區域包含多個合併儲存格，則全部合併儲存格都將被取消合併。
 
-## 獲取合併儲存格 {#GetMergeCells}
+## 取得合併儲存格 {#GetMergeCells}
 
 ```go
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-根據給定的工作表名獲取全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設定為 `true`，將僅解析合併儲存格的區域，而不會獲取合併儲存格的值。例如，獲取名為 `Sheet1` 的工作表中的全部合併儲存格：
+根據給定的工作表名取得全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設定為 `true`，將僅解析合併儲存格的區域，而不會取得合併儲存格的值。例如，取得名為 `Sheet1` 的工作表中的全部合併儲存格：
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1")
 ```
 
-如果你希望獲取合併儲存格時，不包含合併儲存格的值，可使用以下代碼：
+如果你希望取得合併儲存格時，不包含合併儲存格的值，可使用以下代碼：
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1", true)
 ```
 
-### 獲取合併儲存格的值
+### 取得合併儲存格的值
 
 ```go
 func (m *MergeCell) GetCellValue() string
@@ -575,7 +575,7 @@ func (m *MergeCell) GetCellValue() string
 
 GetCellValue 傳回合併儲存格的值。
 
-### 獲取合併儲存格區域左上角儲存格坐標
+### 取得合併儲存格區域左上角儲存格坐標
 
 ```go
 func (m *MergeCell) GetStartAxis() string
@@ -583,7 +583,7 @@ func (m *MergeCell) GetStartAxis() string
 
 GetStartAxis 傳回合併儲存格區域左上角儲存格的坐標，例如：`C2`。
 
-### 獲取合併儲存格區域右下角儲存格坐標
+### 取得合併儲存格區域右下角儲存格坐標
 
 ```go
 func (m *MergeCell) GetEndAxis() string
@@ -591,13 +591,13 @@ func (m *MergeCell) GetEndAxis() string
 
 GetEndAxis 傳回合併儲存格區域右下角儲存格的坐標，例如：`D4`。
 
-## 獲取圖片儲存格 {#GetPictureCells}
+## 取得圖片儲存格 {#GetPictureCells}
 
 ```go
 func (f *File) GetPictureCells(sheet string) ([]string, error)
 ```
 
-根據給定的工作表名稱獲取該工作表中，包含圖片的全部儲存格坐標。
+根據給定的工作表名稱取得該工作表中，包含圖片的全部儲存格坐標。
 
 ## 添加註解 {#AddComment}
 
@@ -605,7 +605,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本訊息）添加註解。作者訊息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過，並且每個存儲格僅能有一個註解，如果向已存在註解的存儲格添加註解，則會傳回錯誤。例如，為 `Sheet1!A3` 儲存格添加註解：
+根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本訊息）添加註解。作者訊息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過，並且每個儲存格僅能有一個註解，如果向已存在註解的儲存格添加註解，則會傳回錯誤。例如，為 `Sheet1!A3` 儲存格添加註解：
 
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 檔案中添加註解"></p>
 
@@ -620,13 +620,13 @@ err := f.AddComment("Sheet1", excelize.Comment{
 })
 ```
 
-## 獲取註解 {#GetComments}
+## 取得註解 {#GetComments}
 
 ```go
 func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-根據給定的工作表名稱獲取工作表中的所有儲存格註解。
+根據給定的工作表名稱取得工作表中的所有儲存格註解。
 
 ## 刪除註解 {#DeleteComment}
 
@@ -747,13 +747,13 @@ func main() {
 }
 ```
 
-## 獲取公式 {#GetCellFormula}
+## 取得公式 {#GetCellFormula}
 
 ```go
 func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
-根據給定的工作表名和儲存格坐標獲取該儲存格上的公式。
+根據給定的工作表名和儲存格坐標取得該儲存格上的公式。
 
 ## 計算儲存格的值 {#CalcCellValue}
 

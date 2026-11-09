@@ -1,6 +1,22 @@
 # Form
 
-## Form hinzufügen
+`Shape` bildet die Formateinstellungen der Form direkt ab.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## Form hinzufügen {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | Vertical Scroll Shape | <p style="text-align: center;"><img src="../image
 wedgeEllipseCallout | Callout-Keilellipsenform | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | Beschriftungskeil-Rechteckform | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | Callout Keil runde Rechteckform | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## Formen abrufen {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes stellt eine Methode bereit, um anhand des angegebenen Arbeitsblattnamens alle Formen in einem Arbeitsblatt abzurufen.

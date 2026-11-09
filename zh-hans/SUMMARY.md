@@ -185,6 +185,8 @@
   * [获取图片](image.md#GetPicture)
   * [删除图片](image.md#DeletePicture)
 * [形状](shape.md)
+  * [添加形状](shape.md#AddShape)
+  * [获取形状](shape.md#GetShapes)
 * [迷你图](sparklines.md)
 * [样式](style.md)
   * [创建样式](style.md#NewStyle)

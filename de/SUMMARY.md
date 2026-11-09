@@ -185,6 +185,8 @@
   * [Holen Sie sich ein Bild](image.md#GetPicture)
   * [Bild löschen](image.md#DeletePicture)
 * [Form](shape.md)
+  * [Form hinzufügen](shape.md#AddShape)
+  * [Formen abrufen](shape.md#GetShapes)
 * [Sparklines](sparklines.md)
 * [Stil](style.md)
   * [Erstellen eines Stils](style.md#NewStyle)

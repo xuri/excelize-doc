@@ -1,6 +1,22 @@
 # Forme
 
-## Ajouter une forme
+`Shape` correspond directement aux paramètres de mise en forme de la forme.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## Ajouter une forme {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | Forme de vague | <p style="text-align: center;"><img src="../images/shape
 wedgeEllipseCallout | Forme de légende coins Ellipse | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | Forme de légende triangle Rectangle | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | Légende des coins arrondis forme Rectangle | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## Obtenir les formes {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes fournit la méthode permettant d'obtenir toutes les formes d'une feuille de calcul à partir du nom de la feuille donné.

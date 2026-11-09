@@ -23,7 +23,7 @@ type Options struct {
 
 `Password` 以明文形式指定開啓和儲存活頁簿時所使用的密碼，默認值為空。
 
-`RawCellValue` 用以指定讀取儲存格值時是否獲取原始值，默認值為 `false`（應用數字格式）。
+`RawCellValue` 用以指定讀取儲存格值時是否取得原始值，默認值為 `false`（應用數字格式）。
 
 `UnzipSizeLimit` 用以指定開啓電子錶格檔案時的解壓縮大小限制（以位元組為單位），該值應大於或等於 `UnzipXMLSizeLimit`，默認大小限制為 16GB。
 
@@ -271,13 +271,13 @@ func (f *File) SetActiveSheet(index int)
 
 根據給定的索引值設定默認工作表，索引的值應該大於等於 `0` 且小於活頁簿所包含的累積工作表總數。
 
-## 獲取默認工作表索引 {#GetActiveSheetIndex}
+## 取得默認工作表索引 {#GetActiveSheetIndex}
 
 ```go
 func (f *File) GetActiveSheetIndex() int
 ```
 
-獲取默認工作表的索引，如果沒有找到默認工作表將傳回 `0`。
+取得默認工作表的索引，如果沒有找到默認工作表將傳回 `0`。
 
 ## 設定工作表可見度 {#SetSheetVisible}
 
@@ -293,13 +293,13 @@ func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) e
 err := f.SetSheetVisible("Sheet1", false)
 ```
 
-## 獲取工作表可見度 {#GetSheetVisible}
+## 取得工作表可見度 {#GetSheetVisible}
 
 ```go
 func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
-根據給定的工作表名稱獲取工作表可見度設定。例如，獲取名為 `Sheet1` 的工作表可見度設定:
+根據給定的工作表名稱取得工作表可見度設定。例如，取得名為 `Sheet1` 的工作表可見度設定:
 
 ```go
 visible, err := f.GetSheetVisible("Sheet1")
@@ -407,13 +407,13 @@ f.SaveAs("Book1.xlsx")
     }
     ```
 
-## 獲取工作表屬性 {#GetSheetProps}
+## 取得工作表屬性 {#GetSheetProps}
 
 ```go
 func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-根據給定的工作表名稱獲取工作表屬性。
+根據給定的工作表名稱取得工作表屬性。
 
 ## 設定工作表檢視屬性 {#SetSheetView}
 
@@ -436,13 +436,13 @@ TopLeftCell       | `*string`  | 指定左上角可見儲存格的坐標
 View              | `*string`  | 指示工作表檢視類型，列舉值為 `normal`，`pageBreakPreview` 和 `pageLayout`
 ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口縮放比例，區間範圍限於 10 ~ 400，默認值為 `100`
 
-## 獲取工作表檢視屬性 {#GetSheetView}
+## 取得工作表檢視屬性 {#GetSheetView}
 
 ```go
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-根據給定的工作表名稱和檢視索引獲取工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
+根據給定的工作表名稱和檢視索引取得工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
 
 ## 設定工作表頁面配置 {#SetPageLayout}
 
@@ -613,13 +613,13 @@ if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
 }
 ```
 
-## 獲取工作表頁面配置 {#GetPageLayout}
+## 取得工作表頁面配置 {#GetPageLayout}
 
 ```go
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-根據給定的工作表名稱和頁面配置參數獲取工作表的頁面配置屬性。
+根據給定的工作表名稱和頁面配置參數取得工作表的頁面配置屬性。
 
 ## 設定工作表頁邊界 {#SetPageMargins}
 
@@ -640,13 +640,13 @@ Top          | `*float64` | 頂端
 Horizontally | `*bool`    | 頁面置中方式：水平置中
 Vertically   | `*bool`    | 頁面置中方式：垂直置中
 
-## 獲取工作表頁邊界 {#GetPageMargins}
+## 取得工作表頁邊界 {#GetPageMargins}
 
 ```go
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-根據給定的工作表名稱和頁邊界參數獲取工作表的頁邊界。
+根據給定的工作表名稱和頁邊界參數取得工作表的頁邊界。
 
 ## 設定活頁簿屬性 {#SetWorkbookProps}
 
@@ -662,13 +662,13 @@ Date1904      | `*bool`   | 指示活頁簿是否使用 1904 日期系統
 FilterPrivacy | `*bool`   | 篩選器隱私，指示應用程式是否檢查活頁簿中的個人識別訊息
 CodeName      | `*string` | 代碼名
 
-## 獲取活頁簿屬性 {#GetWorkbookPrOptions}
+## 取得活頁簿屬性 {#GetWorkbookPrOptions}
 
 ```go
 func (f *File) GetWorkbookProps() (WorkbookPropsOptions, error)
 ```
 
-GetWorkbookProps 用於獲取活頁簿的屬性。
+GetWorkbookProps 用於取得活頁簿的屬性。
 
 ## 設定頁首和頁尾 {#SetHeaderFooter}
 
@@ -904,19 +904,19 @@ if err := f.SetDefinedName(&excelize.DefinedName{
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
-    Name:     "自訂存儲格範圍",
+    Name:     "自訂儲存格範圍",
     RefersTo: "Sheet1!$A$2+Sheet1!$D$5",
     Scope:    "Sheet1",
 })
 ```
 
-## 獲取名稱 {#GetDefinedName}
+## 取得名稱 {#GetDefinedName}
 
 ```go
 func (f *File) GetDefinedName() []DefinedName
 ```
 
-獲取作用範圍內的活頁簿和工作表的名稱列表。
+取得作用範圍內的活頁簿和工作表的名稱列表。
 
 ## 刪除名稱 {#DeleteDefinedName}
 
@@ -965,13 +965,13 @@ err := f.SetAppProps(&excelize.AppProperties{
 })
 ```
 
-## 獲取活頁簿應用程式屬性 {#GetAppProps}
+## 取得活頁簿應用程式屬性 {#GetAppProps}
 
 ```go
 func (f *File) GetAppProps() (*AppProperties, error)
 ```
 
-獲取活頁簿的應用程式屬性。
+取得活頁簿的應用程式屬性。
 
 ## 設定檔案屬性 {#SetDocProps}
 
@@ -1019,13 +1019,13 @@ err := f.SetDocProps(&excelize.DocProperties{
 })
 ```
 
-## 獲取檔案屬性 {#GetDocProps}
+## 取得檔案屬性 {#GetDocProps}
 
 ```go
 func (f *File) GetDocProps() (*DocProperties, error)
 ```
 
-獲取活頁簿的核心屬性。
+取得活頁簿的核心屬性。
 
 ## 設定自訂屬性 {#SetDocCustomProps}
 
@@ -1035,13 +1035,13 @@ func (f *File) SetCustomProps(prop CustomProperty) error
 
 根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函式將會傳回錯誤。
 
-## 獲取自訂屬性 {#GetDocCustomProps}
+## 取得自訂屬性 {#GetDocCustomProps}
 
 ```go
 func (f *File) GetCustomProps() ([]CustomProperty, error)
 ```
 
-獲取全部自訂屬性。
+取得全部自訂屬性。
 
 ## 設定計算屬性 {#SetCalcProps}
 
@@ -1055,13 +1055,13 @@ func (f *File) SetCalcProps(opts *CalcPropsOptions) error
 
 可選屬性 `RefMode` 的有效值為：`A1` 或 `R1C1`。
 
-## 獲取計算屬性 {#GetCalcProps}
+## 取得計算屬性 {#GetCalcProps}
 
 ```go
 func (f *File) GetCalcProps() (CalcPropsOptions, error)
 ```
 
-獲取活頁簿的計算屬性。
+取得活頁簿的計算屬性。
 
 ## 保護活頁簿 {#ProtectWorkbook}
 

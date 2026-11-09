@@ -54,9 +54,9 @@ var (
     ErrNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxFieldLength)
     // ErrMaxSpinCount 定義了當加密訊息中的自旋計數超過最大限制時的錯誤提示訊息
     ErrMaxSpinCount = errors.New("spin count exceeds maximum limit")
-    // ErrMaxGraphicAltTextLength 定義了圖形對象替代文字長度超出最大限制時的錯誤提示訊息
+    // ErrMaxGraphicAltTextLength 定義了圖案對象替代文字長度超出最大限制時的錯誤提示訊息
     ErrMaxGraphicAltTextLength = fmt.Errorf("the alt text length exceeds the %d characters limit", MaxGraphicAltTextLength)
-    // ErrMaxGraphicNameLength 定義了圖形對象名稱長度超出最大限制時的錯誤提示訊息
+    // ErrMaxGraphicNameLength 定義了圖案對象名稱長度超出最大限制時的錯誤提示訊息
     ErrMaxGraphicNameLength = fmt.Errorf("the name length exceeds the %d characters limit", MaxGraphicNameLength)
     // ErrOptionsUnzipSizeLimit 定義了開啓活頁簿時，「用以指定開啓電子錶格檔案時的解壓縮大小限制參數」和「用以指定解壓每個工作表時的記憶體限制參數」產生衝突時的錯誤提示訊息
     ErrOptionsUnzipSizeLimit = errors.New("the value of UnzipSizeLimit should be greater than or equal to UnzipXMLSizeLimit")

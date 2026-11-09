@@ -1,6 +1,22 @@
-# 形状
+# 図形
 
-## 図形を追加する
+`Shape` は、図形の書式設定に直接対応します。
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## 図形を追加 {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -37,7 +53,7 @@ err := f.AddShape("Sheet1",
 
 Excelize でサポートされているすべての図形を次に示します：
 
-名前|形状|スタイル
+名前|図形|スタイル
 ---|---|---
 accentBorderCallout1 | 枠とアクセント図形 1 で引き出しです | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout1.svg" height="50" width="50"></p>
 accentBorderCallout2 | 2 枠付きで、アクセントの図形です | <p style="text-align: center;"><img src="../images/shapes/accentBorderCallout2.svg" height="50" width="50"></p>
@@ -83,7 +99,7 @@ chord | 弦の図形です | <p style="text-align: center;"><img src="../images/
 circularArrow | 環状矢印図形です | <p style="text-align: center;"><img src="../images/shapes/circularArrow.svg" height="50" width="50"></p>
 cloud | クラウドの図形です | <p style="text-align: center;"><img src="../images/shapes/cloud.svg" height="50" width="50"></p>
 cloudCallout | クラウド図形の引き出し線です | <p style="text-align: center;"><img src="../images/shapes/cloudCallout.svg" height="50" width="50"></p>
-corner | 角の形状です | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
+corner | 角の図形です | <p style="text-align: center;"><img src="../images/shapes/corner.svg" height="50" width="50"></p>
 cornerTabs | 隅のタブの図形です | <p style="text-align: center;"><img src="../images/shapes/cornerTabs.svg" height="50" width="50"></p>
 cube | 立方体の図形です | <p style="text-align: center;"><img src="../images/shapes/cube.svg" height="50" width="50"></p>
 curvedConnector2 | 曲線コネクタ 2 の図形です | <p style="text-align: center;"><img src="../images/shapes/curvedConnector2.svg" height="50" width="50"></p>
@@ -134,7 +150,7 @@ flowChartPunchedTape | せん孔テープ フロー図形です | <p style="text
 flowChartSort | フロー図形をソートします | <p style="text-align: center;"><img src="../images/shapes/flowChartSort.svg" height="50" width="50"></p>
 flowChartSummingJunction | 分岐フロー] 図形を合計します | <p style="text-align: center;"><img src="../images/shapes/flowChartSummingJunction.svg" height="50" width="50"></p>
 flowChartTerminator | フロー図形の終端文字です | <p style="text-align: center;"><img src="../images/shapes/flowChartTerminator.svg" height="50" width="50"></p>
-foldedCorner | 2 つ折り角の形状です | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
+foldedCorner | 2 つ折り角の図形です | <p style="text-align: center;"><img src="../images/shapes/foldedCorner.svg" height="50" width="50"></p>
 frame | 枠の形です | <p style="text-align: center;"><img src="../images/shapes/frame.svg" height="50" width="50"></p>
 funnel | 図形を送る | <p style="text-align: center;"><img src="../images/shapes/funnel.svg" height="50" width="50"></p>
 gear6 | 6 歯車にします | <p style="text-align: center;"><img src="../images/shapes/gear6.svg" height="50" width="50"></p>
@@ -159,7 +175,7 @@ leftRightRibbon | 右の左のリボンの形です | <p style="text-align: cent
 leftRightUpArrow | 矢印図形を右のままにします | <p style="text-align: center;"><img src="../images/shapes/leftRightUpArrow.svg" height="50" width="50"></p>
 leftUpArrow | 矢印図形を左です | <p style="text-align: center;"><img src="../images/shapes/leftUpArrow.svg" height="50" width="50"></p>
 lightningBolt | ライトニング ボルトの図形です | <p style="text-align: center;"><img src="../images/shapes/lightningBolt.svg" height="50" width="50"></p>
-line | ライン形状 | <p style="text-align: center;"><img src="../images/shapes/line.svg" height="50" width="50"></p>
+line | ライン図形 | <p style="text-align: center;"><img src="../images/shapes/line.svg" height="50" width="50"></p>
 lineInv | 反転図形の線です | <p style="text-align: center;"><img src="../images/shapes/lineInv.svg" height="50" width="50"></p>
 mathDivide | 数学の図形を分割します | <p style="text-align: center;"><img src="../images/shapes/mathDivide.svg" height="50" width="50"></p>
 mathEqual | 等しい数学図形です | <p style="text-align: center;"><img src="../images/shapes/mathEqual.svg" height="50" width="50"></p>
@@ -173,7 +189,7 @@ noSmoking | 禁煙区域など図形がありません | <p style="text-align: c
 notchedRightArrow | ある切り込みのついた右矢印図形です | <p style="text-align: center;"><img src="../images/shapes/notchedRightArrow.svg" height="50" width="50"></p>
 octagon | 八角形の図形です | <p style="text-align: center;"><img src="../images/shapes/octagon.svg" height="50" width="50"></p>
 parallelogram | 平行四辺形の図形です | <p style="text-align: center;"><img src="../images/shapes/parallelogram.svg" height="50" width="50"></p>
-pentagon | 五角形の形状です | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
+pentagon | 五角形の図形です | <p style="text-align: center;"><img src="../images/shapes/pentagon.svg" height="50" width="50"></p>
 pie | 円の図形です | <p style="text-align: center;"><img src="../images/shapes/pie.svg" height="50" width="50"></p>
 pieWedge | 扇形のウェッジです | <p style="text-align: center;"><img src="../images/shapes/pieWedge.svg" height="50" width="50"></p>
 plaque | ブローチ形です | <p style="text-align: center;"><img src="../images/shapes/plaque.svg" height="50" width="50"></p>
@@ -213,7 +229,7 @@ straightConnector1 | 直線コネクタ 1 の図形です | <p style="text-align
 stripedRightArrow | 右矢印図形をストライプ化します | <p style="text-align: center;"><img src="../images/shapes/stripedRightArrow.svg" height="50" width="50"></p>
 sun | Sun の図形です | <p style="text-align: center;"><img src="../images/shapes/sun.svg" height="50" width="50"></p>
 swooshArrow | 矢印図形を swoosh します | <p style="text-align: center;"><img src="../images/shapes/swooshArrow.svg" height="50" width="50"></p>
-teardrop | ティア ドロップ形状 | <p style="text-align: center;"><img src="../images/shapes/teardrop.svg" height="50" width="50"></p>
+teardrop | ティア ドロップ図形 | <p style="text-align: center;"><img src="../images/shapes/teardrop.svg" height="50" width="50"></p>
 trapezoid | 台形の形です | <p style="text-align: center;"><img src="../images/shapes/trapezoid.svg" height="50" width="50"></p>
 triangle | 三角形の図形です | <p style="text-align: center;"><img src="../images/shapes/triangle.svg" height="50" width="50"></p>
 upArrow | 矢印図形です | <p style="text-align: center;"><img src="../images/shapes/upArrow.svg" height="50" width="50"></p>
@@ -226,3 +242,11 @@ wave | 波形です | <p style="text-align: center;"><img src="../images/shapes/
 wedgeEllipseCallout | ウェッジ楕円図形の引き出し線です | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | ウェッジ四角形の図形の引き出し線です | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | 円形の四角形の図形の引き出し線ウェッジです | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## 図形を取得 {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes は、指定されたワークシート名に基づいて、シート内のすべての図形を取得するメソッドを提供します。

@@ -1,6 +1,22 @@
 # 도형
 
-## 셰이프 추가
+`Shape` 는 도형의 서식 설정에 직접 대응합니다.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## 도형 추가 {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | 웨이브 셰이프 | <p style="text-align: center;"><img src="../images/
 wedgeEllipseCallout | 설명선 웨지 타원 모양 | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | 설명선 웨지 직사각형 모양 | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | 설명선 웨지 원형 직사각형 모양 | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## 도형 가져오기 {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes 는 지정한 워크시트 이름으로 시트의 모든 도형을 가져오는 메서드를 제공합니다.

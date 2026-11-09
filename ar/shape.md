@@ -1,6 +1,22 @@
 # الشكل
 
-## أضف الشكل
+يرتبط `Shape` مباشرةً بإعدادات تنسيق الشكل.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## أضف الشكل {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | شكل متموج | <p style="text-align: center;"><img src="../images/sh
 wedgeEllipseCallout | وسيلة شرح إسفين الشكل البيضاوي | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | وسيلة شرح مستطيل إسفين الشكل | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | وسيلة شرح إسفين مستدير الشكل  | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## الحصول على الأشكال {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+توفر GetShapes طريقة للحصول على جميع الأشكال في ورقة عمل وفقًا لاسم ورقة العمل المحدد.

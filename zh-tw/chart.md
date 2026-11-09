@@ -84,7 +84,7 @@ Values            | 圖表資料區域，是 `Series` 中最重要的參數，�
 Fill              | 設定圖表中每個資料數列的填滿格式。
 Legend            | 設定指定數據系列所對應的圖例項文本格式。`Legend` 屬性是可選的。
 Line              | 設定折線圖的折線格式。`Line` 屬性是可選的，如果未指定該屬性，則為默認樣式。可以設定的選項是 `Width`，寬度範圍是 0.25pt 至 999pt。如果 `Width` 的值超出範圍，則線的默認寬度為 2pt。
-Marker            | 設定折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖形的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
+Marker            | 設定折線圖和散點圖的數據點標記格式。可選參數 `Size` 內置數據標記圖案的大小，其取值範圍是 2-72 (默認缺省值為 `5`)。線端類型可選參數 `Symbol` 的列舉值為(默認缺省值為 `auto`): `circle`, `dash`, `diamond`, `dot`, `none`, `picture`, `plus`, `square`, `star`, `triangle`, `x` 和 `auto`。
 DataLabelPosition | 設定圖表中每個數據數列資料標籤的位置。
 DataPoint         | 設定環圈圖、圓形圖或立體圓形圖系列中各個資料點的格式。`DataPoint` 屬性是可選的。
 
@@ -94,7 +94,7 @@ DataPoint         | 設定環圈圖、圓形圖或立體圓形圖系列中各個
 ---|---|---
 Position      | `string` | 圖例位置
 ShowLegendKey | `bool`   | 指定是否在數據標籤中顯示圖例項標示
-Font          | `Font`   | 設定圖表圖例項文本的字型格式。可設定的格式與用於存儲格格式化的字型相同。包括字型名稱、字號、顏色、粗體、斜體、下划線和刪除線格式。
+Font          | `Font`   | 設定圖表圖例項文本的字型格式。可設定的格式與用於儲存格格式化的字型相同。包括字型名稱、字號、顏色、粗體、斜體、下划線和刪除線格式。
 
 其中參數 `Position` 默認值為 `right`。下面是該參數的可選值：
 
@@ -114,7 +114,7 @@ top_right|右上
 參數|類型|含義
 ---|---|---
 Fill      | `Fill`          | 設定圖表標題的填滿色彩。`Fill` 屬性是可選的。
-Border    | `LineOptions`   | 設定圖表標題的邊框，可設定的屬性與單元格格式中使用的邊框相同。`Border` 屬性是可選的。
+Border    | `LineOptions`   | 設定圖表標題的邊框，可設定的屬性與儲存格格式中使用的邊框相同。`Border` 屬性是可選的。
 Paragraph | `[]RichTextRun` | 設定圖表富文本標題。`Paragraph` 屬性是可選的，不能與 `Formula` 屬性同時設定。
 Font      | `*Font`         | 設定圖表標題公式文本的字體屬性。`Font` 屬性是可選的。
 Formula   | `string`        | 設定圖表標題文本的公式。例如：Sheet1!$A$1。`Formula` 屬性是可選的，不能與 `Paragraph` 屬性同時設定。

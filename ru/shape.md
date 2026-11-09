@@ -1,6 +1,22 @@
-# форма
+# Фигура
 
-## Добавить форму
+`Shape` напрямую соответствует параметрам форматирования фигуры.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## Добавление фигуры {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | Фигура звукового файла | <p style="text-align: center
 wedgeEllipseCallout | Выноска сектору эллипс фигуры | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | Фигура прямоугольника сектору выноски | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | Выноска сектору кругового прямоугольник | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## Получение фигур {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes предоставляет метод для получения всех фигур на листе по заданному имени листа.

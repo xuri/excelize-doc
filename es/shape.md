@@ -1,6 +1,22 @@
 # Forma
 
-## Agregar forma
+`Shape` se corresponde directamente con la configuración de formato de la forma.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## Agregar forma {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | Forma de onda | <p style="text-align: center;"><img src="../images/shapes
 wedgeEllipseCallout | Forma de elipse de cuña de llamada | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | Forma de rectángulo de cuña de llamada | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | Forma de rectángulo redondo de cuña de llamada | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## Obtener formas {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes proporciona el método para obtener todas las formas de una hoja de cálculo a partir del nombre de la hoja indicado.

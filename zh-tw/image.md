@@ -8,7 +8,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等），在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。此功能是併發安全的。請注意，此函式目前僅支援將圖片放置在存儲格上方，不支援將圖片嵌入在存儲格內，也不支援創建 Kingsoft WPS Office 內嵌圖片存儲格。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等），在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。此功能是併發安全的。請注意，此函式目前僅支援將圖片放置在儲存格上方，不支援將圖片嵌入在儲存格內，也不支援創建 Kingsoft WPS Office 內嵌圖片儲存格。
 
 例如：
 
@@ -71,35 +71,35 @@ func main() {
 }
 ```
 
-可選參數 `AltText` 設定圖形對象的可選文字。
+可選參數 `AltText` 設定圖案對象的可選文字。
 
-可選參數 `PrintObject` 設定列印工作表時是否列印圖形對象，其缺省值為 `true`。
+可選參數 `PrintObject` 設定列印工作表時是否列印圖案對象，其缺省值為 `true`。
 
-可選參數 `Locked` 設定是否鎖定圖形對象。除非工作表受到保護，否則鎖定對象無效。
+可選參數 `Locked` 設定是否鎖定圖案對象。除非工作表受到保護，否則鎖定對象無效。
 
-可選參數 `LockAspectRatio` 設定是否鎖定圖形對象的縱橫比，其缺省值為 `false`。
+可選參數 `LockAspectRatio` 設定是否鎖定圖案對象的縱橫比，其缺省值為 `false`。
 
-可選參數 `AutoFit` 設定是否使圖形對象尺寸自動適合儲存格，其缺省值為 `false`。
+可選參數 `AutoFit` 設定是否使圖案對象尺寸自動適合儲存格，其缺省值為 `false`。
 
-可選參數 `OffsetX` 設定圖形對象與插入儲存格的水平偏移量，其缺省值為 0。
+可選參數 `OffsetX` 設定圖案對象與插入儲存格的水平偏移量，其缺省值為 0。
 
-可選參數 `OffsetY` 設定圖形對象與插入儲存格的垂直偏移量，缺省值為 0。
+可選參數 `OffsetY` 設定圖案對象與插入儲存格的垂直偏移量，缺省值為 0。
 
-可選參數 `ScaleX` 設定圖形對象的水平縮放比例。`ScaleX` 的值必須是大於 0 的浮點數，精度為小數點後兩位。其缺省值為 1.0，表示 100%。
+可選參數 `ScaleX` 設定圖案對象的水平縮放比例。`ScaleX` 的值必須是大於 0 的浮點數，精度為小數點後兩位。其缺省值為 1.0，表示 100%。
 
-可選參數 `ScaleY` 設定圖形對象的垂直縮放比例。`ScaleY` 的值必須是大於 0 的浮點數，精度為小數點後兩位。其缺省值為 1.0，表示 100%。
+可選參數 `ScaleY` 設定圖案對象的垂直縮放比例。`ScaleY` 的值必須是大於 0 的浮點數，精度為小數點後兩位。其缺省值為 1.0，表示 100%。
 
-可選參數 `Hyperlink` 用以設定圖形對象的超連結。
+可選參數 `Hyperlink` 用以設定圖案對象的超連結。
 
-可選參數 `HyperlinkType` 設定圖形對象超連結的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
+可選參數 `HyperlinkType` 設定圖案對象超連結的類型，支援外部鏈接 `External` 和內部鏈接 `Location` 兩種類型，當使用 `Location` 連接到儲存格位置時，坐標需要以 `#` 開始。
 
-可選參數 `Positioning` 定義了電子錶格中圖形對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨儲存格改變）、`twoCell`（大小和位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設定此參數時，默認屬性為大小、位置隨儲存格改變。
+可選參數 `Positioning` 定義了電子錶格中圖案對象位置屬性的 3 種類型：`oneCell`（大小固定，位置隨儲存格改變）、`twoCell`（大小和位置隨儲存格改變）和 `absolute` （大小、位置均固定）兩種類型，當不設定此參數時，默認屬性為大小、位置隨儲存格改變。
 
 ```go
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。請注意，此函式目前僅支援將圖片放置在存儲格上方，不支援將圖片嵌入在存儲格內，也不支援創建 Kingsoft WPS Office 內嵌圖片存儲格。
+根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。請注意，此函式目前僅支援將圖片放置在儲存格上方，不支援將圖片嵌入在儲存格內，也不支援創建 Kingsoft WPS Office 內嵌圖片儲存格。
 
 例如：
 
@@ -140,13 +140,13 @@ func main() {
 }
 ```
 
-## 獲取圖片 {#GetPicture}
+## 取得圖片 {#GetPicture}
 
 ```go
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-根據給定的工作表名稱和儲存格坐標獲取活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 檔案中的圖片。此功能是併發安全的。請注意，此函式目前不支持傳回圖片的所有 `Format` 屬性，`ScaleX` 和 `ScaleY` 屬性的值是大於 0 的浮點數，精度為小數點後兩位。例如，獲取名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
+根據給定的工作表名稱和儲存格坐標取得活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 檔案中的圖片。此功能是併發安全的。請注意，此函式目前不支持傳回圖片的所有 `Format` 屬性，`ScaleX` 和 `ScaleY` 屬性的值是大於 0 的浮點數，精度為小數點後兩位。例如，取得名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")

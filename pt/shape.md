@@ -1,6 +1,22 @@
 # Formas
 
-## Adicionar formas
+`Shape` mapeia diretamente as configurações de formatação da forma.
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## Adicionar forma {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
@@ -226,3 +242,11 @@ wave | Forma de onda | <p style="text-align: center;"><img src="../images/shapes
 wedgeEllipseCallout | Forma de elipse de cunha de texto explicativo | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | Forma retangular de cunha de texto explicativo | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | Forma de retângulo redondo de cunha de texto explicativo | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## Obter formas {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes fornece o método para obter todas as formas de uma planilha a partir do nome da planilha informado.

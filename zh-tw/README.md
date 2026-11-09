@@ -9,7 +9,7 @@ Excelize 是 Go 語言編寫的用於操作 Office Excel 檔案基礎庫，基�
 - go.dev: [pkg.go.dev/github.com/xuri/excelize/v2](https://pkg.go.dev/github.com/xuri/excelize/v2)
 - 許可協議: [BSD 3-Clause](https://opensource.org/licenses/BSD-3-Clause)
 - 當前版本: [v2.11.1](https://github.com/xuri/excelize/releases/latest)
-- 檔案更新: 2026年11月8日
+- 檔案更新: 2026年11月9日
 
 ## 專案使命
 
@@ -23,7 +23,7 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 
 <p align="center"><img width="240" src="../images/book.png" alt="人民郵電出版社《Excelize 權威指南》"></p>
 
-本書基於 Excelize 基礎庫，從 Office 辦公檔案格式國際標準出發，以源代碼為基礎，結合大量直觀的配圖，循序漸進地講解 Excelize 中的模塊實現，詳細解讀技術標準內容和基礎庫的設計。主要內容包括 Excelize 開發環境準備、檔案格式國際標準解讀、檔案數據結構建模、活頁簿、工作表、儲存格和列欄的相關操作、複雜樣式解析、圖表、圖片與圖形的相關操作、資料驗證與篩選、樞紐分析表、流式讀寫技術以及一個綜合實踐應用。閱讀本書，具有一定 Go 語言基礎，想入門 Excelize 的開發人員能夠進一步系統理解 Excelize 基礎庫的實現細節，不具備 Go 語言開發經驗的開發人員也能夠快速掌握 Excelize 的設計原理。
+本書基於 Excelize 基礎庫，從 Office 辦公檔案格式國際標準出發，以源代碼為基礎，結合大量直觀的配圖，循序漸進地講解 Excelize 中的模塊實現，詳細解讀技術標準內容和基礎庫的設計。主要內容包括 Excelize 開發環境準備、檔案格式國際標準解讀、檔案數據結構建模、活頁簿、工作表、儲存格和列欄的相關操作、複雜樣式解析、圖表、圖片與圖案的相關操作、資料驗證與篩選、樞紐分析表、流式讀寫技術以及一個綜合實踐應用。閱讀本書，具有一定 Go 語言基礎，想入門 Excelize 的開發人員能夠進一步系統理解 Excelize 基礎庫的實現細節，不具備 Go 語言開發經驗的開發人員也能夠快速掌握 Excelize 的設計原理。
 
 網路購買方式：<a href="https://www.ptpress.com.cn/shopping/buy?bookId=18a2d850-6271-4727-abfe-440b4cc7b645" title="在人民郵電出版社官方網站購買《Excelize 權威指南》圖書" target="_blank">人民郵電出版社</a> | <a href="https://www.epubit.com/bookDetails?id=UB88d55b2b00d26" title="在異步社區購買《Excelize 權威指南》圖書" target="_blank">異步社區</a> | <a href="https://detail.tmall.com/item.htm?id=818853544894" title="在天貓商城購買《Excelize 權威指南》圖書" target="_blank">天貓</a> | <a href="https://item.jd.com/14710146.html" title="在京東購買《Excelize 權威指南》圖書" target="_blank">京東</a> | <a href="https://product.dangdang.com/29760497.html" title="在當當網購買《Excelize 權威指南》圖書" target="_blank">當當</a> | <a href="https://www.amazon.com/Excelize权威指南-续日/dp/7115636478" title="在亞馬遜購買《Excelize 權威指南》圖書" target="_blank">亞馬遜</a> | <a href="https://j.youzan.com/AYJQXF" title="在微店購買《Excelize 權威指南》圖書" target="_blank">微店</a> | <a href="https://v.douyin.com/iMmtmks2" title="在抖音商城購買《Excelize 權威指南》圖書" target="_blank">抖音</a>
 
@@ -99,7 +99,7 @@ Excelize 的目標是創建並維護一個 Go 語言版本的 Excel 檔案 API�
 
 - 優先考慮您的問題
 
-有急需解決的問題或新功能需求嗎？Excelize 很樂意根據商業支援為您提供優先服務，請與 Excelize 聯繫以獲取更多詳細訊息。
+有急需解決的問題或新功能需求嗎？Excelize 很樂意根據商業支援為您提供優先服務，請與 Excelize 聯繫以取得更多詳細資訊。
 
 - 專業技術咨詢服務
 

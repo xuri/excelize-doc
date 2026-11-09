@@ -60,13 +60,13 @@ f.AddDataValidation("Sheet1", dv)
 
 資料驗證下拉列表中顯示的項目數量有限制：該列表最多可以顯示 32768 個項目。如果您需要更多項目，可以透過級聯列表將項目分類。
 
-## 獲取資料驗證 {#GetDataValidations}
+## 取得資料驗證 {#GetDataValidations}
 
 ```go
 func (f *File) GetDataValidations(sheet string) ([]*DataValidation, error)
 ```
 
-根據給定的工作表名獲取改工作表中全部資料驗證區域和資料驗證規則。
+根據給定的工作表名取得改工作表中全部資料驗證區域和資料驗證規則。
 
 ## 刪除資料驗證 {#DeleteDataValidation}
 
@@ -139,13 +139,13 @@ err := f.AddSlicer("Sheet1", &excelize.SlicerOptions{
 })
 ```
 
-## 獲取交叉分析篩選器 {#GetSlicers}
+## 取得交叉分析篩選器 {#GetSlicers}
 
 ```go
 func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
 ```
 
-透過給定的工作表名稱獲取指定工作表中的全部交叉分析篩選器。注意，該函式目前尚未支援獲取交叉分析篩選器的高度、寬度和圖形屬性。
+透過給定的工作表名稱取得指定工作表中的全部交叉分析篩選器。注意，該函式目前尚未支援取得交叉分析篩選器的高度、寬度和圖案屬性。
 
 ## 刪除交叉分析篩選器 {#DeleteSlicer}
 

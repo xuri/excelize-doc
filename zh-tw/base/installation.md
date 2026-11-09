@@ -117,14 +117,14 @@ func main() {
             fmt.Println(err)
         }
     }()
-    // 獲取工作表中指定儲存格的值
+    // 取得工作表中指定儲存格的值
     cell, err := f.GetCellValue("Sheet1", "B2")
     if err != nil {
         fmt.Println(err)
         return
     }
     fmt.Println(cell)
-    // 獲取 Sheet1 上所有儲存格
+    // 取得 Sheet1 上所有儲存格
     rows, err := f.GetRows("Sheet1")
     if err != nil {
         fmt.Println(err)

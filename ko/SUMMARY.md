@@ -185,6 +185,8 @@
   * [사진 가져 오기](image.md#GetPicture)
   * [삭제 이미지](image.md#DeletePicture)
 * [도형](shape.md)
+  * [도형 추가](shape.md#AddShape)
+  * [도형 가져오기](shape.md#GetShapes)
 * [스파크라인](sparklines.md)
 * [스타일](style.md)
   * [스타일 만들기](style.md#NewStyle)

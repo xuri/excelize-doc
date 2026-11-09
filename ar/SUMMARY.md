@@ -185,6 +185,8 @@
   * [احصل على صورة](image.md#GetPicture)
   * [حذف الصورة](image.md#DeletePicture)
 * [الشكل](shape.md)
+  * [إضافة شكل](shape.md#AddShape)
+  * [الحصول على الأشكال](shape.md#GetShapes)
 * [سباركلاين](sparklines.md)
 * [نمط](style.md)
   * [إنشاء نمط](style.md#NewStyle)

@@ -165,7 +165,7 @@ Excelize 中的 `Border.Style` 外框線型索引與 Office Excel 應用程式�
 
 ### 透明度 {#transparency}
 
-選項 `Fill.Transparency` 僅用於設定圖表與圖形中的填滿透明度，而不用於設定存儲格填滿透明度。透明度的取值範圍是 0 至 100，代表 0% 至 100%，預設值為 0，表示完全不透明。
+選項 `Fill.Transparency` 僅用於設定圖表與圖案中的填滿透明度，而不用於設定儲存格填滿透明度。透明度的取值範圍是 0 至 100，代表 0% 至 100%，預設值為 0，表示完全不透明。
 
 ### 對齊方式 {#align}
 
@@ -401,7 +401,7 @@ double|雙線
 
 ### 貨幣格式
 
-Excelize 目前支援的貨幣格式索引如下表所示，索引號僅用於標記，不在 Office Excel 檔案中使用，目前無法透過函式 [`GetCellValue`](cell.md#GetCellValue) 獲取格式化值後的值。
+Excelize 目前支援的貨幣格式索引如下表所示，索引號僅用於標記，不在 Office Excel 檔案中使用，目前無法透過函式 [`GetCellValue`](cell.md#GetCellValue) 取得格式化值後的值。
 
 索引|貨幣格式
 ---|---
@@ -903,13 +903,13 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 
 儲存格 `Sheet1!A6` 在 Office Excel 應用程式中將會被格式化為：`martes, 04 de Julio de 2017`
 
-## 獲取樣式 {#GetStyle}
+## 取得樣式 {#GetStyle}
 
 ```go
 func (f *File) GetStyle(idx int) (*Style, error)
 ```
 
-根據給定的樣式索引獲取樣式定義。
+根據給定的樣式索引取得樣式定義。
 
 ## 設定欄樣式 {#SetColStyle}
 
@@ -931,13 +931,13 @@ err = f.SetColStyle("Sheet1", "H", style)
 err = f.SetColStyle("Sheet1", "C:F", style)
 ```
 
-## 獲取欄樣式 {#GetColStyle}
+## 取得欄樣式 {#GetColStyle}
 
 ```go
 func (f *File) GetColStyle(sheet, col string) (int, error)
 ```
 
-根據給定的工作表名稱和欄名稱獲取欄的樣式索引。此功能是併發安全的。
+根據給定的工作表名稱和欄名稱取得欄的樣式索引。此功能是併發安全的。
 
 ## 設定列樣式 {#SetRowStyle}
 
@@ -967,10 +967,10 @@ func (f *File) SetDefaultFont(fontName string)
 
 根據給定的字型名稱為活頁簿設定默認字型。
 
-## 獲取默認字型 {#GetDefaultFont}
+## 取得默認字型 {#GetDefaultFont}
 
 ```go
 func (f *File) GetDefaultFont() string
 ```
 
-獲取當前活頁簿的默認字型名稱。透過 Excelize 創建的活頁簿默認字型為 Calibri。
+取得當前活頁簿的默認字型名稱。透過 Excelize 創建的活頁簿默認字型為 Calibri。

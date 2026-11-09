@@ -118,7 +118,7 @@ type PivotTableField struct {
 
 `Name` 用以指定個值的名稱，最大長度為 `255` 個字符，超出部分的字符將不會被保留。
 
-`SelectedItems` 用以指定樞紐分析表欄位中的默認選中項，選中項必須是該欄位所引用的存儲格範圍內的值。
+`SelectedItems` 用以指定樞紐分析表欄位中的默認選中項，選中項必須是該欄位所引用的儲存格範圍內的值。
 
 `ShowValuesAs` 用以指定樞紐分析表個值「顯示資料為」。`ShowValuesAs` 的 `Type` 欄位的可選値如下：
 
@@ -239,7 +239,7 @@ func main() {
 }
 ```
 
-## 獲取樞紐分析表 {#GetPivotTables}
+## 取得樞紐分析表 {#GetPivotTables}
 
 ```go
 func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)

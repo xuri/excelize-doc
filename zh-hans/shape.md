@@ -2,13 +2,29 @@
 
 {{ book.info }}
 
-## 添加形状
+`Shape` 定义了形状的属性。
+
+```go
+type Shape struct {
+    Cell      string
+    Type      string
+    Macro     string
+    Width     uint
+    Height    uint
+    Format    GraphicOptions
+    Fill      Fill
+    Line      LineOptions
+    Paragraph []RichTextRun
+}
+```
+
+## 添加形状 {#AddShape}
 
 ```go
 func (f *File) AddShape(sheet string, opts *Shape) error
 ```
 
-根据给定的工作表名、单元格坐标和样式（包括偏移、缩放、拉伸、宽高比和打印属性等）在指定单元格添加形状。例如，在名为 `Sheet1` 的工作表上添加文本框（矩形）：
+根据给定的工作表名称、单元格坐标和样式（包括偏移、缩放、拉伸、宽高比和打印属性等）在指定单元格添加形状。例如，在名为 `Sheet1` 的工作表上添加文本框（矩形）：
 
 ```go
 lineWidth := 1.2
@@ -228,3 +244,11 @@ wave | 波形 | <p style="text-align: center;"><img src="../images/shapes/wave.s
 wedgeEllipseCallout | 对话气泡：椭圆形 | <p style="text-align: center;"><img src="../images/shapes/wedgeEllipseCallout.svg" height="50" width="50"></p>
 wedgeRectCallout | 对话气泡：矩形 | <p style="text-align: center;"><img src="../images/shapes/wedgeRectCallout.svg" height="50" width="50"></p>
 wedgeRoundRectCallout | 对话气泡：圆角矩形 | <p style="text-align: center;"><img src="../images/shapes/wedgeRoundRectCallout.svg" height="50" width="50"></p>
+
+## 获取形状 {#GetShapes}
+
+```go
+func (f *File) GetShapes(sheet string) ([]Shape, error)
+```
+
+GetShapes 根据给定的工作表名称，获取工作表上指定单元格中的所有形状。
