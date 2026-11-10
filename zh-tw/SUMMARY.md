@@ -115,6 +115,8 @@
   * [添加註解](cell.md#AddComment)
   * [取得註解](cell.md#GetComments)
   * [刪除註解](cell.md#DeleteComment)
+  * [新增內嵌物件](sheet.md#AddEmbeddedObject)
+  * [取得內嵌物件](sheet.md#GetEmbeddedObjects)
   * [添加略過錯誤](cell.md#AddIgnoredErrors)
   * [設定公式](cell.md#SetCellFormula)
   * [取得公式](cell.md#GetCellFormula)

@@ -638,6 +638,22 @@ DeleteComment proporciona el método para eliminar comentarios en una hoja por h
 err := f.DeleteComment("Hoja1", "A30")
 ```
 
+## Agregar objeto incrustado {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects proporciona una función para agregar un objeto incrustado a una hoja de cálculo a partir del nombre de la hoja, la referencia de celda y las opciones del objeto incrustado indicados. El objeto incrustado se muestra como un icono en la hoja de cálculo. La imagen del icono debe ser proporcionada por el usuario. Tipos de imagen admitidos: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF y WMZ.
+
+## Obtener objetos incrustados {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects proporciona un método para obtener todos los objetos incrustados de una hoja de cálculo a partir del nombre de la hoja indicado.
+
 ## Agregar errores ignorados {#AddIgnoredErrors}
 
 ```go

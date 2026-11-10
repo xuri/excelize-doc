@@ -642,6 +642,22 @@ EliminaComment fornisce il metodo per eliminare il commento in un foglio in base
 err := f.DeleteComment("Foglio1", "A30")
 ```
 
+## Aggiungere un oggetto incorporato {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects fornisce una funzione per aggiungere un oggetto incorporato a un foglio di lavoro in base al nome del foglio, al riferimento di cella e alle opzioni dell'oggetto incorporato indicati. L'oggetto incorporato viene visualizzato come icona nel foglio di lavoro. L'immagine dell'icona deve essere fornita dall'utente. Tipi di immagine supportati: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+
+## Ottenere gli oggetti incorporati {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects fornisce un metodo per ottenere tutti gli oggetti incorporati in un foglio di lavoro in base al nome del foglio indicato.
+
 ## Aggiungi errori ignorati {#AddIgnoredErrors}
 
 ```go

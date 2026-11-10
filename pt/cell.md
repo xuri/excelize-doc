@@ -642,6 +642,22 @@ DeleteComment fornece o método para excluir comentários em uma planilha por de
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## Adicionar objeto incorporado {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects fornece uma função para adicionar um objeto incorporado a uma planilha a partir do nome da planilha, da referência de célula e das opções do objeto incorporado informados. O objeto incorporado é exibido como um ícone na planilha. A imagem do ícone deve ser fornecida pelo usuário. Tipos de imagem compatíveis: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF e WMZ.
+
+## Obter objetos incorporados {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects fornece um método para obter todos os objetos incorporados de uma planilha a partir do nome da planilha informado.
+
 ## Adicionar erros ignorados {#AddIgnoredErrors}
 
 ```go

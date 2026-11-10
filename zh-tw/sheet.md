@@ -8,7 +8,7 @@
 func (f *File) SetColVisible(sheet, col string, visible bool) error
 ```
 
-根據給定的工作表名稱和欄名稱設定欄可見度。此功能是併發安全的。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
+依據給定的工作表名稱和欄名稱設定欄可見度。此功能是併發安全的。例如隱藏名為 `Sheet1` 工作表上的 `D` 欄：
 
 ```go
 err := f.SetColVisible("Sheet1", "D", false)
@@ -22,7 +22,7 @@ err := f.SetColVisible("Sheet1", "D:F", false)
 
 ## 自動調整欄寬 {#SetColVisible}
 
-根據欄內儲存格文字內容、字型格式自動調整欄寬。如果選取區域包含隱藏欄且這些欄有內容，此函式會將隱藏欄取消隱藏。請注意，此函式會根據字型格式近似計算文字寬度，目前不支援合併儲存格。在 Office 應用程式中開啟活頁簿時，實際寬度可能有所不同。如果工作表中包含大量儲存格，此過程可能比較慢，因此通常應在處理結束時，僅對每欄調用一次該函式。例如，自動調整名為 `Sheet1` 工作表中 `D` 欄的寬度：
+依據欄內儲存格文字內容、字型格式自動調整欄寬。如果選取區域包含隱藏欄且這些欄有內容，此函式會將隱藏欄取消隱藏。請注意，此函式會依據字型格式近似計算文字寬度，目前不支援合併儲存格。在 Office 應用程式中開啟活頁簿時，實際寬度可能有所不同。如果工作表中包含大量儲存格，此過程可能比較慢，因此通常應在處理結束時，僅對每欄調用一次該函式。例如，自動調整名為 `Sheet1` 工作表中 `D` 欄的寬度：
 
 ```go
 err := f.AutoFitColWidth("Sheet1", "D")
@@ -40,7 +40,7 @@ err := f.AutoFitColWidth("Sheet1", "D:F")
 func (f *File) SetColWidth(sheet, startCol, endCol string, width float64) error
 ```
 
-根據給定的工作表名稱、欄範圍和寬度值設定單個或多個欄的寬度。此功能是併發安全的。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
+依據給定的工作表名稱、欄範圍和寬度值設定單個或多個欄的寬度。此功能是併發安全的。例如設定名為 `Sheet1` 工作表上 `A` 到 `H` 欄的寬度為 `20`：
 
 ```go
 f := excelize.NewFile()
@@ -53,7 +53,7 @@ err := f.SetColWidth("Sheet1", "A", "H", 20)
 func (f *File) SetRowHeight(sheet string, row int, height float64) error
 ```
 
-根據給定的工作表名稱、列號和高度值設定單行高度，如果將高度的值設定為 `0` 將隱藏指定的列，如果將高度的值設定為 `-1` 將清除自訂列高。例如將工作表 `Sheet1` 首列的高度設定為 `50`：
+依據給定的工作表名稱、列號和高度值設定單行高度，如果將高度的值設定為 `0` 將隱藏指定的列，如果將高度的值設定為 `-1` 將清除自訂列高。例如將工作表 `Sheet1` 首列的高度設定為 `50`：
 
 ```go
 err := f.SetRowHeight("Sheet1", 1, 50)
@@ -65,7 +65,7 @@ err := f.SetRowHeight("Sheet1", 1, 50)
 func (f *File) SetRowVisible(sheet string, row int, visible bool) error
 ```
 
-根據給定的工作表名稱和列號設定列可見度。例如隱藏名為 `Sheet1` 工作表上第二列：
+依據給定的工作表名稱和列號設定列可見度。例如隱藏名為 `Sheet1` 工作表上第二列：
 
 ```go
 err := f.SetRowVisible("Sheet1", 2, false)
@@ -77,7 +77,7 @@ err := f.SetRowVisible("Sheet1", 2, false)
 func (f *File) GetSheetName(index int) string
 ```
 
-根據給定的工作表索引取得工作表名稱，如果工作表不存在將傳回空字符。
+依據給定的工作表索引取得工作表名稱，如果工作表不存在將傳回空字符。
 
 ## 取得欄可見度 {#GetColVisible}
 
@@ -85,7 +85,7 @@ func (f *File) GetSheetName(index int) string
 func (f *File) GetColVisible(sheet, column string) (bool, error)
 ```
 
-根據給定的工作表名稱和列名取得工作表中指定列的可見度，可見傳回值為 `true`，否則為 `false`。此功能是併發安全的。例如，取得名為 `Sheet1` 的工作表上 `D` 欄的可見度：
+依據給定的工作表名稱和列名取得工作表中指定列的可見度，可見傳回值為 `true`，否則為 `false`。此功能是併發安全的。例如，取得名為 `Sheet1` 的工作表上 `D` 欄的可見度：
 
 ```go
 visible, err := f.GetColVisible("Sheet1", "D")
@@ -97,7 +97,7 @@ visible, err := f.GetColVisible("Sheet1", "D")
 func (f *File) GetColWidth(sheet, col string) (float64, error)
 ```
 
-根據給定的工作表和列名取得工作表中指定列的寬度。此功能是併發安全的。
+依據給定的工作表和列名取得工作表中指定列的寬度。此功能是併發安全的。
 
 ## 取得列高度 {#GetRowHeight}
 
@@ -105,7 +105,7 @@ func (f *File) GetColWidth(sheet, col string) (float64, error)
 func (f *File) GetRowHeight(sheet string, row int) (float64, error)
 ```
 
-根據給定的工作表名稱和列號取得工作表中指定列的高度。例如，取得名為 `Sheet1` 的工作表首列的高度：
+依據給定的工作表名稱和列號取得工作表中指定列的高度。例如，取得名為 `Sheet1` 的工作表首列的高度：
 
 ```go
 height, err := f.GetRowHeight("Sheet1", 1)
@@ -117,7 +117,7 @@ height, err := f.GetRowHeight("Sheet1", 1)
 func (f *File) GetRowVisible(sheet string, row int) (bool, error)
 ```
 
-根據給定的工作表名稱和列號取得工作表中指定列的可見度。例如，取得名為 `Sheet1` 的工作表第 2 列的可見度：
+依據給定的工作表名稱和列號取得工作表中指定列的可見度。例如，取得名為 `Sheet1` 的工作表第 2 列的可見度：
 
 ```go
 visible, err := f.GetRowVisible("Sheet1", 2)
@@ -129,7 +129,7 @@ visible, err := f.GetRowVisible("Sheet1", 2)
 func (f *File) GetSheetIndex(sheet string) (int, error)
 ```
 
-根據給定的工作表名稱取得該工作表的索引，如果工作表不存在將傳回 `-1`。
+依據給定的工作表名稱取得該工作表的索引，如果工作表不存在將傳回 `-1`。
 
 取得到的索引可以在設定活頁簿默認工作表時，作為調用 [`SetActiveSheet()`](workbook.md#SetActiveSheet) 函式的參數使用。
 
@@ -170,7 +170,7 @@ func (f *File) GetSheetList() []string
 func (f *File) SetSheetName(source, target string) error
 ```
 
-根據給定的新舊工作表名稱重命名工作表。工作表名稱最多允許使用 31 個字符，此功能僅更改工作表的名稱，而不會更新與儲存格關聯的公式或引用中的工作表名稱。因此使用此功能重命名工作表後可能導致公式錯誤或參考引用問題。
+依據給定的新舊工作表名稱重命名工作表。工作表名稱最多允許使用 31 個字符，此功能僅更改工作表的名稱，而不會更新與儲存格關聯的公式或引用中的工作表名稱。因此使用此功能重命名工作表後可能導致公式錯誤或參考引用問題。
 
 ## 插入欄 {#InsertCols}
 
@@ -178,7 +178,7 @@ func (f *File) SetSheetName(source, target string) error
 func (f *File) InsertCols(sheet, col string, n int) error
 ```
 
-根據給定的工作表名稱、欄名稱和要插入的欄數，在指定列前插入空白欄。例如，在名為 `Sheet1` 的工作表的 `C` 欄前插入 2 欄空白欄：
+依據給定的工作表名稱、欄名稱和要插入的欄數，在指定列前插入空白欄。例如，在名為 `Sheet1` 的工作表的 `C` 欄前插入 2 欄空白欄：
 
 ```go
 err := f.InsertCols("Sheet1", "C", 2)
@@ -190,7 +190,7 @@ err := f.InsertCols("Sheet1", "C", 2)
 func (f *File) InsertRows(sheet string, row, n int) error
 ```
 
-根據給定的工作表名稱、列號和要插入的列數，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的第 3 列前插入 2 列空白列：
+依據給定的工作表名稱、列號和要插入的列數，在指定列前插入空白列。例如，在名為 `Sheet1` 的工作表的第 3 列前插入 2 列空白列：
 
 ```go
 err := f.InsertRows("Sheet1", 3, 2)
@@ -202,7 +202,7 @@ err := f.InsertRows("Sheet1", 3, 2)
 func (f *File) DuplicateRow(sheet string, row int) error
 ```
 
-根據給定的工作表名稱和列號，在該列後追加複製。例如，將名為 `Sheet1` 的工作表的第 2 列複製到第 3 列：
+依據給定的工作表名稱和列號，在該列後追加複製。例如，將名為 `Sheet1` 的工作表的第 2 列複製到第 3 列：
 
 ```go
 err := f.DuplicateRow("Sheet1", 2)
@@ -216,7 +216,7 @@ err := f.DuplicateRow("Sheet1", 2)
 func (f *File) DuplicateRowTo(sheet string, row, row2 int) error
 ```
 
-根據給定的工作表名稱和列號，在指定列後複製該列。例如，將名為 `Sheet1` 的工作表的第 2 列後複製到第 7 列：
+依據給定的工作表名稱和列號，在指定列後複製該列。例如，將名為 `Sheet1` 的工作表的第 2 列後複製到第 7 列：
 
 ```go
 err := f.DuplicateRowTo("Sheet1", 2, 7)
@@ -230,7 +230,7 @@ err := f.DuplicateRowTo("Sheet1", 2, 7)
 func (f *File) SetRowOutlineLevel(sheet string, row int, level uint8) error
 ```
 
-根據給定的工作表名稱、列號和分級參數創建組。例如，在名為 `Sheet1` 的工作表的第 2 列創建 1 級分組。
+依據給定的工作表名稱、列號和分級參數創建組。例如，在名為 `Sheet1` 的工作表的第 2 列創建 1 級分組。
 
 <p align="center"><img width="612" src="./images/row_outline_level.png" alt="創建列的分級顯示"></p>
 
@@ -244,7 +244,7 @@ err := f.SetRowOutlineLevel("Sheet1", 2, 1)
 func (f *File) SetColOutlineLevel(sheet, col string, level uint8) error
 ```
 
-根據給定的工作表名稱、列名稱和分級參數創建組。例如，在名為 `Sheet1` 的工作表的 `D` 欄創建 2 級分組。
+依據給定的工作表名稱、列名稱和分級參數創建組。例如，在名為 `Sheet1` 的工作表的 `D` 欄創建 2 級分組。
 
 <p align="center"><img width="612" src="./images/col_outline_level.png" alt="創建列的分級顯示"></p>
 
@@ -258,7 +258,7 @@ err := f.SetColOutlineLevel("Sheet1", "D", 2)
 func (f *File) GetRowOutlineLevel(sheet string, row int) (uint8, error)
 ```
 
-根據給定的工作表名稱和列號取得分組級別。例如，取得名為 `Sheet1` 的工作表第 2 列的分組級別。
+依據給定的工作表名稱和列號取得分組級別。例如，取得名為 `Sheet1` 的工作表第 2 列的分組級別。
 
 ```go
 level, err := f.GetRowOutlineLevel("Sheet1", 2)
@@ -270,7 +270,7 @@ level, err := f.GetRowOutlineLevel("Sheet1", 2)
 func (f *File) GetColOutlineLevel(sheet, col string) (uint8, error)
 ```
 
-根據給定的工作表名稱和列名稱取得分組分級。例如，取得名為 `Sheet1` 的工作表的 `D` 欄的分組級別。
+依據給定的工作表名稱和列名稱取得分組分級。例如，取得名為 `Sheet1` 的工作表的 `D` 欄的分組級別。
 
 ```go
 level, err := f.GetColOutlineLevel("Sheet1", "D")
@@ -282,7 +282,7 @@ level, err := f.GetColOutlineLevel("Sheet1", "D")
 func (f *File) Cols(sheet string) (*Cols, error)
 ```
 
-根據給定的工作表名稱取得該工作表的欄迭代器。此功能是併發安全的。使用欄迭代器進行流式讀取遍歷儲存格：
+依據給定的工作表名稱取得該工作表的欄迭代器。此功能是併發安全的。使用欄迭代器進行流式讀取遍歷儲存格：
 
 ```go
 cols, err := f.Cols("Sheet1")
@@ -332,7 +332,7 @@ func (cols *Cols) Error() error
 func (f *File) Rows(sheet string) (*Rows, error)
 ```
 
-根據給定的工作表名稱取得該工作表的列迭代器。此功能是併發安全的。使用列迭代器進行流式讀取遍歷儲存格：
+依據給定的工作表名稱取得該工作表的列迭代器。此功能是併發安全的。使用列迭代器進行流式讀取遍歷儲存格：
 
 ```go
 rows, err := f.Rows("Sheet1")
@@ -401,7 +401,7 @@ func (rows *Rows) Close() error
 func (f *File) SearchSheet(sheet, value string, reg ...bool) ([]string, error)
 ```
 
-根據給定的工作表名稱，儲存格值或正則表達式來取得坐標。此函式僅支援字符串和數字的完全匹配，不支援公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
+依據給定的工作表名稱，儲存格值或正則表達式來取得坐標。此函式僅支援字符串和數字的完全匹配，不支援公式計算後的結果、格式化數字和條件搜尋。如果搜尋結果是合併的儲存格，將傳回合併區域左上角的坐標。
 
 例如，在名為 `Sheet1` 的工作表中搜尋值 `100` 的坐標:
 
@@ -465,7 +465,7 @@ type SheetProtectionOptions struct {
 func (f *File) UnprotectSheet(sheet string, password ...string) error
 ```
 
-根據給定的工作表名稱取消保護該工作表，指定第二個可選密碼參數以透過密碼驗證來取消工作表保護。
+依據給定的工作表名稱取消保護該工作表，指定第二個可選密碼參數以透過密碼驗證來取消工作表保護。
 
 ## 取得保護工作表設定 {#GetSheetProtection}
 
@@ -473,7 +473,7 @@ func (f *File) UnprotectSheet(sheet string, password ...string) error
 func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
 ```
 
-根據給定的工作表名稱該工作表的保護設定。注意，該函式不會傳回用於保護工作表的密碼，傳回結果中密碼選項的值為空。
+依據給定的工作表名稱該工作表的保護設定。注意，該函式不會傳回用於保護工作表的密碼，傳回結果中密碼選項的值為空。
 
 ## 刪除欄 {#RemoveCol}
 
@@ -481,7 +481,7 @@ func (f *File) GetSheetProtection(sheet string) (SheetProtectionOptions, error)
 func (f *File) RemoveCol(sheet, col string) error
 ```
 
-根據給定的工作表名稱和欄名稱刪除指定欄。例如，刪除名為 `Sheet1` 的 `C` 欄：
+依據給定的工作表名稱和欄名稱刪除指定欄。例如，刪除名為 `Sheet1` 的 `C` 欄：
 
 ```go
 err := f.RemoveCol("Sheet1", "C")
@@ -495,7 +495,7 @@ err := f.RemoveCol("Sheet1", "C")
 func (f *File) RemoveRow(sheet string, row int) error
 ```
 
-根據給定的工作表名稱和列號刪除指定列。例如，刪除名為 `Sheet1` 的第 `3` 列：
+依據給定的工作表名稱和列號刪除指定列。例如，刪除名為 `Sheet1` 的第 `3` 列：
 
 ```go
 err := f.RemoveRow("Sheet1", 3)
@@ -509,7 +509,7 @@ err := f.RemoveRow("Sheet1", 3)
 func (f *File) SetSheetCol(sheet, cell string, slice interface{}) error
 ```
 
-根據給定的工作表名稱、起始坐標和 `slice` 類型引用按欄賦值。例如，在名為 `Sheet1` 的工作表 `B` 欄上，以 `B6` 儲存格作為起始坐標按欄賦值：
+依據給定的工作表名稱、起始坐標和 `slice` 類型引用按欄賦值。例如，在名為 `Sheet1` 的工作表 `B` 欄上，以 `B6` 儲存格作為起始坐標按欄賦值：
 
 ```go
 err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
@@ -521,7 +521,7 @@ err := f.SetSheetCol("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) SetSheetRow(sheet, cell string, slice interface{}) error
 ```
 
-根據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。此功能是併發安全的。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 儲存格作為起始坐標按列賦值：
+依據給定的工作表名稱、起始坐標和 `slice` 類型引用按列賦值。此功能是併發安全的。例如，在名為 `Sheet1` 的工作表第 `6` 列上，以 `B6` 儲存格作為起始坐標按列賦值：
 
 ```go
 err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
@@ -533,7 +533,7 @@ err := f.SetSheetRow("Sheet1", "B6", &[]interface{}{"1", nil, 2})
 func (f *File) InsertPageBreak(sheet, cell string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
+依據給定的工作表名稱和儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
 
 ## 刪除分頁符 {#RemovePageBreak}
 
@@ -541,7 +541,7 @@ func (f *File) InsertPageBreak(sheet, cell string) error
 func (f *File) RemovePageBreak(sheet, cell string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標刪除分頁符。
+依據給定的工作表名稱和儲存格坐標刪除分頁符。
 
 ## 設定工作表已用區域 {#SetSheetDimension}
 
@@ -549,7 +549,7 @@ func (f *File) RemovePageBreak(sheet, cell string) error
 func (f *File) SetSheetDimension(sheet string, rangeRef string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。在安卓（Android）作業系統中，某些版本的微信（WeChat）應用程式在開啓 Excelize 生成的活頁簿後，僅顯示前 300 行數據，透過此函式設定工作表的已用區域可規避該缺陷。
+依據給定的工作表名稱和儲存格坐標或儲存格坐標區域設定或移除工作表的已用區域。使用的儲存格包括具有公式、文本內容和儲存格格式的儲存格。例如 `A1:D5`。當給定的儲存格坐標區域為空字符時，將移除工作表的已用區域。在安卓（Android）作業系統中，某些版本的微信（WeChat）應用程式在開啓 Excelize 生成的活頁簿後，僅顯示前 300 行數據，透過此函式設定工作表的已用區域可規避該缺陷。
 
 ## 取得工作表已用區域 {#GetSheetDimension}
 
@@ -557,4 +557,4 @@ func (f *File) SetSheetDimension(sheet string, rangeRef string) error
 func (f *File) GetSheetDimension(sheet string) (string, error)
 ```
 
-根據給定的工作表名稱取得指定工作表的已用區域。
+依據給定的工作表名稱取得指定工作表的已用區域。

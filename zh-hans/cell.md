@@ -640,6 +640,22 @@ func (f *File) DeleteComment(sheet, cell string) error
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 添加嵌入对象 {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+根据给定的工作表名称和嵌入对象属性，向工作表中的指定单元格添加嵌入对象。嵌入对象在工作表中以图标形式显示，图标图片必须由用户提供，支持的图片格式：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+
+## 获取嵌入对象 {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+根据给定的工作表名称获取工作表中所有嵌入对象。
+
 ## 添加忽略错误 {#AddIgnoredErrors}
 
 ```go

@@ -115,6 +115,8 @@
   * [Añadir comentario](cell.md#AddComment)
   * [Obtener comentarios](cell.md#GetComments)
   * [Eliminar comentario](cell.md#DeleteComment)
+  * [Agregar objeto incrustado](sheet.md#AddEmbeddedObject)
+  * [Obtener objetos incrustados](sheet.md#GetEmbeddedObjects)
   * [Agregar errores ignorados](cell.md#AddIgnoredErrors)
   * [Establecer fórmula de celda](cell.md#SetCellFormula)
   * [Obtener fórmula celular](cell.md#GetCellFormula)

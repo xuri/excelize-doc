@@ -8,7 +8,7 @@
 func (f *File) AddPicture(sheet, cell, picture string, opts *GraphicOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等），在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。此功能是併發安全的。請注意，此函式目前僅支援將圖片放置在儲存格上方，不支援將圖片嵌入在儲存格內，也不支援創建 Kingsoft WPS Office 內嵌圖片儲存格。
+依據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等），在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。此功能是併發安全的。請注意，此函式目前僅支援將圖片放置在儲存格上方，不支援將圖片嵌入在儲存格內，也不支援創建 Kingsoft WPS Office 內嵌圖片儲存格。
 
 例如：
 
@@ -99,7 +99,7 @@ func main() {
 func (f *File) AddPictureFromBytes(sheet, cell string, pic *Picture) error
 ```
 
-根據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。請注意，此函式目前僅支援將圖片放置在儲存格上方，不支援將圖片嵌入在儲存格內，也不支援創建 Kingsoft WPS Office 內嵌圖片儲存格。
+依據給定的工作表名稱、儲存格坐標、圖片地址和圖片格式（例如偏移、縮放和列印設定等）、圖片描述、圖片擴展名和 `[]byte` 類別的圖片內容，在對應的儲存格上插入圖片。支援的圖片格式：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。請注意，此函式目前僅支援將圖片放置在儲存格上方，不支援將圖片嵌入在儲存格內，也不支援創建 Kingsoft WPS Office 內嵌圖片儲存格。
 
 例如：
 
@@ -146,7 +146,7 @@ func main() {
 func (f *File) GetPictures(sheet, cell string) ([]Picture, error)
 ```
 
-根據給定的工作表名稱和儲存格坐標取得活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 檔案中的圖片。此功能是併發安全的。請注意，此函式目前不支持傳回圖片的所有 `Format` 屬性，`ScaleX` 和 `ScaleY` 屬性的值是大於 0 的浮點數，精度為小數點後兩位。例如，取得名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
+依據給定的工作表名稱和儲存格坐標取得活頁簿上的圖片，將以 `[]byte` 類別傳回嵌入在 Excel 檔案中的圖片。此功能是併發安全的。請注意，此函式目前不支持傳回圖片的所有 `Format` 屬性，`ScaleX` 和 `ScaleY` 屬性的值是大於 0 的浮點數，精度為小數點後兩位。例如，取得名為 `Sheet1` 的工作表上 `A2` 儲存格上的圖片：
 
 ```go
 f, err := excelize.OpenFile("Book1.xlsx")
@@ -177,4 +177,4 @@ for idx, pic := range pics {
 func (f *File) DeletePicture(sheet, cell string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標，刪除對應儲存格上的圖片。
+依據給定的工作表名稱和儲存格坐標，刪除對應儲存格上的圖片。

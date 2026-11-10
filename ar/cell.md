@@ -644,6 +644,22 @@ func (f *File) DeleteComment(sheet, cell string) error
 err := f.DeleteComment("ورقة1", "A30")
 ```
 
+## إضافة كائن مضمّن {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+توفر AddEmbeddedObjects دالة لإضافة كائن مضمّن إلى ورقة عمل وفقًا لاسم ورقة العمل المحدد ومرجع الخلية وخيارات الكائن المضمّن. يُعرض الكائن المضمّن على هيئة أيقونة في ورقة العمل. يجب على المستخدم توفير صورة الأيقونة. أنواع الصور المدعومة: BMP وEMF وEMZ وGIF وJPEG وJPG وPNG وSVG وTIF وTIFF وWMF وWMZ.
+
+## الحصول على الكائنات المضمّنة {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+توفر GetEmbeddedObjects طريقة للحصول على جميع الكائنات المضمّنة في ورقة عمل وفقًا لاسم ورقة العمل المحدد.
+
 ## إضافة الأخطاء المتجاهلة {#AddIgnoredErrors}
 
 ```go

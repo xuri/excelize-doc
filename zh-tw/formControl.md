@@ -134,7 +134,7 @@ err := f.AddFormControl("Sheet1", excelize.FormControl{
 func (f *File) GetFormControls(sheet string) ([]FormControl, error)
 ```
 
-根據給定的工作表名稱取得工作表中的全部表單控制項。注意，該函式目前尚未支援取得表單控制項的寬高。
+依據給定的工作表名稱取得工作表中的全部表單控制項。注意，該函式目前尚未支援取得表單控制項的寬高。
 
 ## 刪除表單控制項 {#DeleteFormControl}
 

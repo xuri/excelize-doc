@@ -208,7 +208,7 @@ distributed|分散對齊
 
 值|描述
 ---|---
-0 | 根據內容，透過儲存格文本中的第一個非空白字符來確定最終的閱讀順序文字方向：如果它是一個從右到左的強字符，則閱讀順序是從右到左；否則，閱讀順序為從左到右
+0 | 依據內容，透過儲存格文本中的第一個非空白字符來確定最終的閱讀順序文字方向：如果它是一個從右到左的強字符，則閱讀順序是從右到左；否則，閱讀順序為從左到右
 1 | 總是從左到右: 閱讀順序在儲存格中是從左到右的，例如漢語、英語
 2 | 總是從右到左: 閱讀順序在儲存格中是從右到左的，例如希伯來語
 
@@ -909,7 +909,7 @@ err = f.SetCellStyle("Sheet1", "A6", "A6", style)
 func (f *File) GetStyle(idx int) (*Style, error)
 ```
 
-根據給定的樣式索引取得樣式定義。
+依據給定的樣式索引取得樣式定義。
 
 ## 設定欄樣式 {#SetColStyle}
 
@@ -917,7 +917,7 @@ func (f *File) GetStyle(idx int) (*Style, error)
 func (f *File) SetColStyle(sheet, columns string, styleID int) error
 ```
 
-根據給定的工作表名稱、欄區域和樣式索引設定欄樣式。此功能是併發安全的。請注意，這將覆蓋欄的已有樣式，而不會將樣式與已有樣式疊加或合併。
+依據給定的工作表名稱、欄區域和樣式索引設定欄樣式。此功能是併發安全的。請注意，這將覆蓋欄的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 例1，為名稱為 `Sheet1` 的工作表中的 `H` 欄設定樣式：
 
@@ -937,7 +937,7 @@ err = f.SetColStyle("Sheet1", "C:F", style)
 func (f *File) GetColStyle(sheet, col string) (int, error)
 ```
 
-根據給定的工作表名稱和欄名稱取得欄的樣式索引。此功能是併發安全的。
+依據給定的工作表名稱和欄名稱取得欄的樣式索引。此功能是併發安全的。
 
 ## 設定列樣式 {#SetRowStyle}
 
@@ -945,7 +945,7 @@ func (f *File) GetColStyle(sheet, col string) (int, error)
 func (f *File) SetRowStyle(sheet string, start, end, styleID int) error
 ```
 
-根據給定的工作表名稱、列區域和樣式索引設定列樣式。請注意，這將覆蓋列的已有樣式，而不會將樣式與已有樣式疊加或合併。
+依據給定的工作表名稱、列區域和樣式索引設定列樣式。請注意，這將覆蓋列的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 例1，為名稱為 `Sheet1` 的工作表的第 1 列設定樣式:
 
@@ -965,7 +965,7 @@ err := f.SetRowStyle("Sheet1", 1, 10, styleID)
 func (f *File) SetDefaultFont(fontName string)
 ```
 
-根據給定的字型名稱為活頁簿設定默認字型。
+依據給定的字型名稱為活頁簿設定默認字型。
 
 ## 取得默認字型 {#GetDefaultFont}
 

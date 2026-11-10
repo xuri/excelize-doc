@@ -115,6 +115,8 @@
   * [Ajouter un commentaire](cell.md#AddComment)
   * [Obtenir un commentaire](cell.md#GetComments)
   * [Supprimer le commentaire](cell.md#DeleteComment)
+  * [Ajouter un objet incorporé](sheet.md#AddEmbeddedObject)
+  * [Obtenir les objets incorporés](sheet.md#GetEmbeddedObjects)
   * [Ajouter les erreurs ignorées](cell.md#AddIgnoredErrors)
   * [Formule de définition de cellule](cell.md#SetCellFormula)
   * [Obtenir la formule cellulaire](cell.md#GetCellFormula)

@@ -637,6 +637,22 @@ DeleteComment fournit la méthode pour supprimer un commentaire dans une feuille
 err := f.DeleteComment("Feuil1", "A30")
 ```
 
+## Ajouter un objet incorporé {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects fournit une fonction permettant d'ajouter un objet incorporé à une feuille de calcul à partir du nom de la feuille, de la référence de cellule et des options de l'objet incorporé donnés. L'objet incorporé est affiché sous forme d'icône dans la feuille de calcul. L'image de l'icône doit être fournie par l'utilisateur. Types d'image pris en charge : BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
+
+## Obtenir les objets incorporés {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects fournit une méthode permettant d'obtenir tous les objets incorporés d'une feuille de calcul à partir du nom de la feuille donné.
+
 ## Ajouter les erreurs ignorées {#AddIgnoredErrors}
 
 ```go

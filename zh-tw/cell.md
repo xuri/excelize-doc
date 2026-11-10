@@ -35,7 +35,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-根據給定的工作表名和儲存格坐標設定儲存格的值。此功能是併發安全的。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
+依據給定的工作表名和儲存格坐標設定儲存格的值。此功能是併發安全的。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
 
 |支援的資料類別|
 |---|
@@ -66,7 +66,7 @@ func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 func (f *File) SetCellBool(sheet, cell string, value bool) error
 ```
 
-根據給定的工作表名和儲存格坐標設定布林型儲存格的值。
+依據給定的工作表名和儲存格坐標設定布林型儲存格的值。
 
 ## 設定默認字符型值 {#SetCellDefault}
 
@@ -74,7 +74,7 @@ func (f *File) SetCellBool(sheet, cell string, value bool) error
 func (f *File) SetCellDefault(sheet, cell, value string) error
 ```
 
-根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將不會進行特殊字符過濾。
+依據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將不會進行特殊字符過濾。
 
 ## 設定整數 {#SetCellInt}
 
@@ -82,7 +82,7 @@ func (f *File) SetCellDefault(sheet, cell, value string) error
 func (f *File) SetCellInt(sheet, cell string, value int64) error
 ```
 
-根據給定的工作表名和儲存格坐標設定整數儲存格的值。
+依據給定的工作表名和儲存格坐標設定整數儲存格的值。
 
 ## 設定無符號整型值 {#SetCellUint}
 
@@ -90,7 +90,7 @@ func (f *File) SetCellInt(sheet, cell string, value int64) error
 func (f *File) SetCellUint(sheet, cell string, value uint64) error
 ```
 
-根據給定的工作表名和儲存格坐標設定無符號整型儲存格的值。
+依據給定的工作表名和儲存格坐標設定無符號整型儲存格的值。
 
 ## 設定浮點數 {#SetCellFloat}
 
@@ -98,7 +98,7 @@ func (f *File) SetCellUint(sheet, cell string, value uint64) error
 func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSize int) error
 ```
 
-根據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型儲存格的值。
+依據給定的工作表名、儲存格坐標、浮點數、浮點數尾數部分精度和浮點數類型設定浮點型儲存格的值。
 
 ## 設定字符型值 {#SetCellStr}
 
@@ -106,7 +106,7 @@ func (f *File) SetCellFloat(sheet, cell string, value float64, precision, bitSiz
 func (f *File) SetCellStr(sheet, cell, value string) error
 ```
 
-根據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被略過。
+依據給定的工作表名和儲存格坐標設定字符型儲存格的值，字符將會進行特殊字符過濾，並且字符串的累計長度應不超過 `32767`，多餘的字符將會被略過。
 
 ## 設定儲存格樣式 {#SetCellStyle}
 
@@ -114,7 +114,7 @@ func (f *File) SetCellStr(sheet, cell, value string) error
 func (f *File) SetCellStyle(sheet, topLeftCell, bottomRightCell string, styleID int) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式取得。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋儲存格的已有樣式，而不會將樣式與已有樣式疊加或合併。
+依據給定的工作表名、儲存格坐標區域和樣式索引設定儲存格的值。此功能是併發安全的。樣式索引可以透過 [`NewStyle`](style.md#NewStyle) 函式取得。注意，在同一個坐標區域內的 `diagonalDown` 和 `diagonalUp` 需要保持色彩一致。SetCellStyle 將覆蓋儲存格的已有樣式，而不會將樣式與已有樣式疊加或合併。
 
 - 例1，為名為 `Sheet1` 的工作表 `D7` 儲存格設定外框樣式：
 
@@ -256,7 +256,7 @@ err = f.SetCellStyle("Sheet1", "D7", "D7", style)
 func (f *File) SetCellHyperLink(sheet, cell, link, linkType string, opts ...HyperlinkOpts) error
 ```
 
-根據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超連結。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超連結限制為 `65530` 個。該方法僅設定儲存格的超連結而不影響儲存格的值，若需設定儲存格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
+依據給定的工作表、儲存格坐標、鏈接資源和資源類別設定儲存格的超連結。資源類別分為外部鏈接地址 `External` 和活頁簿內部位置鏈接 `Location` 兩種。每個工作表中的包含最大超連結限制為 `65530` 個。該方法僅設定儲存格的超連結而不影響儲存格的值，若需設定儲存格的值，請透過 [`SetCellStyle`](cell.md#SetCellStyle) 或 [`SetSheetRow`](sheet.md#SetSheetRow) 等函式另行設定。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格添加外部鏈接：
 
@@ -291,7 +291,7 @@ err := f.SetCellHyperLink("Sheet1", "A3", "Sheet1!A40", "Location")
 func (f *File) SetCellRichText(sheet, cell string, runs []RichTextRun) error
 ```
 
-根據給定的工作表、儲存格坐標和富文本格式為指定儲存格設定富文本。
+依據給定的工作表、儲存格坐標和富文本格式為指定儲存格設定富文本。
 
 例如，在名為 `Sheet1` 的工作表 `A1` 儲存格設定富文本格式：
 
@@ -425,7 +425,7 @@ func main() {
 func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 ```
 
-根據給定的工作表、儲存格坐標取得指定儲存格的富文本格式。
+依據給定的工作表、儲存格坐標取得指定儲存格的富文本格式。
 
 ## 取得儲存格的值 {#GetCellValue}
 
@@ -433,7 +433,7 @@ func (f *File) GetCellRichText(sheet, cell string) ([]RichTextRun, error)
 func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表和儲存格坐標取得儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
+依據給定的工作表和儲存格坐標取得儲存格的值，傳回值將轉換為 `string` 類別。此功能是併發安全的。如果可以將儲存格格式應用於儲存格的值，將傳回應用後的值，否則將傳回原始值。合併區域內所有儲存格的值都相同。
 
 ## 取得儲存格數據類型 {#GetCellType}
 
@@ -441,7 +441,7 @@ func (f *File) GetCellValue(sheet, cell string, opts ...Options) (string, error)
 func (f *File) GetCellType(sheet, cell string) (CellType, error)
 ```
 
-根據給定的工作表、儲存格坐標取得指定儲存格的數據類型。
+依據給定的工作表、儲存格坐標取得指定儲存格的數據類型。
 
 ## 按欄取得全部儲存格的值 {#GetCols}
 
@@ -449,7 +449,7 @@ func (f *File) GetCellType(sheet, cell string) (CellType, error)
 func (f *File) GetCols(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名按欄取得該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
+依據給定的工作表名按欄取得該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。
 
 例如，按欄取得並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
@@ -473,7 +473,7 @@ for _, col := range cols {
 func (f *File) GetRows(sheet string, opts ...Options) ([][]string, error)
 ```
 
-根據給定的工作表名按列取得該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 取得帶有值或公式儲存格的列，列尾連續為空的儲存格將被跳過，每列中的儲存格數目可能不同。
+依據給定的工作表名按列取得該工作表上全部儲存格的值，以二維數組形式傳回，其中儲存格的值將轉換為 `string` 類別。如果可以將儲存格格式應用於儲存格的值，將使用應用後的值，否則將使用原始值。GetRows 取得帶有值或公式儲存格的列，列尾連續為空的儲存格將被跳過，每列中的儲存格數目可能不同。
 
 例如，按列取得並遍歷輸出名為 `Sheet1` 的工作表上的所有儲存格的值：
 
@@ -497,7 +497,7 @@ for _, row := range rows {
 func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
 ```
 
-根據給定的工作表名和資源類型取得超連結儲存格坐標。可選參數 `linkType` 用於指定超連結的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超連結的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超連結儲存格的坐標。
+依據給定的工作表名和資源類型取得超連結儲存格坐標。可選參數 `linkType` 用於指定超連結的類型，可選值為用於表示外部鏈接地址的 `External`、活頁簿內部位置鏈接的 `Location`，和表示無超連結的 `None`。如果 `linkType` 的值為空，該函式將傳回工作表中全部超連結儲存格的坐標。
 
 ## 取得超連結 {#GetCellHyperLink}
 
@@ -505,7 +505,7 @@ func (f *File) GetHyperLinkCells(sheet, linkType string) ([]string, error)
 func (f *File) GetCellHyperLink(sheet, cell string) (bool, string, error)
 ```
 
-根據給定的工作表名和儲存格坐標取得儲存格超連結，如果該儲存格存在超連結，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
+依據給定的工作表名和儲存格坐標取得儲存格超連結，如果該儲存格存在超連結，將傳回 `true` 和鏈接地址，否則將傳回 `false` 和空的鏈接地址。
 
 例如，取得名為 `Sheet1` 的工作表上坐標為 `H6` 儲存格的超連結：
 
@@ -519,7 +519,7 @@ link, target, err := f.GetCellHyperLink("Sheet1", "H6")
 func (f *File) GetCellStyle(sheet, cell string) (int, error)
 ```
 
-根據給定的工作表名和儲存格坐標取得儲存格樣式索引，取得到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函式的參數使用。
+依據給定的工作表名和儲存格坐標取得儲存格樣式索引，取得到的索引可以在設定儲存格樣式時，作為調用 `SetCellStyle` 函式的參數使用。
 
 ## 合併儲存格 {#MergeCell}
 
@@ -527,7 +527,7 @@ func (f *File) GetCellStyle(sheet, cell string) (int, error)
 func (f *File) MergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
-根據給定的工作表名和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被略過。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
+依據給定的工作表名和儲存格坐標區域合併儲存格。合併區域內僅保留左上角儲存格的值，其他儲存格的值將被略過。例如，合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
 
 ```go
 err := f.MergeCell("Sheet1", "D3", "E9")
@@ -541,7 +541,7 @@ err := f.MergeCell("Sheet1", "D3", "E9")
 func (f *File) UnmergeCell(sheet, topLeftCell, bottomRightCell string) error
 ```
 
-根據給定的工作表名和儲存格坐標區域取消合併儲存格。例如，取消合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
+依據給定的工作表名和儲存格坐標區域取消合併儲存格。例如，取消合併名為 `Sheet1` 的工作表上 `D3:E9` 區域內的儲存格：
 
 ```go
 err := f.UnmergeCell("Sheet1", "D3", "E9")
@@ -555,7 +555,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-根據給定的工作表名取得全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設定為 `true`，將僅解析合併儲存格的區域，而不會取得合併儲存格的值。例如，取得名為 `Sheet1` 的工作表中的全部合併儲存格：
+依據給定的工作表名取得全部合併儲存格的坐標區域和值。如果將可選參數 `withoutValues` 的值設定為 `true`，將僅解析合併儲存格的區域，而不會取得合併儲存格的值。例如，取得名為 `Sheet1` 的工作表中的全部合併儲存格：
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1")
@@ -597,7 +597,7 @@ GetEndAxis 傳回合併儲存格區域右下角儲存格的坐標，例如：`D4
 func (f *File) GetPictureCells(sheet string) ([]string, error)
 ```
 
-根據給定的工作表名稱取得該工作表中，包含圖片的全部儲存格坐標。
+依據給定的工作表名稱取得該工作表中，包含圖片的全部儲存格坐標。
 
 ## 添加註解 {#AddComment}
 
@@ -605,7 +605,7 @@ func (f *File) GetPictureCells(sheet string) ([]string, error)
 func (f *File) AddComment(sheet string, comment Comment) error
 ```
 
-根據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本訊息）添加註解。作者訊息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過，並且每個儲存格僅能有一個註解，如果向已存在註解的儲存格添加註解，則會傳回錯誤。例如，為 `Sheet1!A3` 儲存格添加註解：
+依據給定的工作表名稱、儲存格坐標和樣式參數（作者與文本訊息）添加註解。作者訊息最大長度為 255 個字符，最大文本內容長度為 32512 個字符，超出該範圍的字符將會被略過，並且每個儲存格僅能有一個註解，如果向已存在註解的儲存格添加註解，則會傳回錯誤。例如，為 `Sheet1!A3` 儲存格添加註解：
 
 <p align="center"><img width="612" src="./images/comment.png" alt="在 Excel 檔案中添加註解"></p>
 
@@ -626,7 +626,7 @@ err := f.AddComment("Sheet1", excelize.Comment{
 func (f *File) GetComments(sheet string) ([]Comment, error)
 ```
 
-根據給定的工作表名稱取得工作表中的所有儲存格註解。
+依據給定的工作表名稱取得工作表中的所有儲存格註解。
 
 ## 刪除註解 {#DeleteComment}
 
@@ -634,11 +634,27 @@ func (f *File) GetComments(sheet string) ([]Comment, error)
 func (f *File) DeleteComment(sheet, cell string) error
 ```
 
-根據給定的工作表名稱、儲存格坐標刪除註解。例如，刪除 `Sheet1!A30` 儲存格註解：
+依據給定的工作表名稱、儲存格坐標刪除註解。例如，刪除 `Sheet1!A30` 儲存格註解：
 
 ```go
 err := f.DeleteComment("Sheet1", "A30")
 ```
+
+## 新增內嵌物件 {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+依據指定的工作表名稱和內嵌物件屬性，向工作表中的指定儲存格新增內嵌物件。內嵌物件在工作表中以圖示形式顯示，圖示圖片必須由使用者提供，支援的圖片格式：BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+
+## 取得內嵌物件 {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+依據指定的工作表名稱取得工作表中所有內嵌物件。
 
 ## 添加略過錯誤 {#AddIgnoredErrors}
 
@@ -646,7 +662,7 @@ err := f.DeleteComment("Sheet1", "A30")
 func (f *File) AddIgnoredErrors(sheet, rangeRef string, ignoredErrorsType IgnoredErrorsType) error
 ```
 
-根據給定的工作表名稱、儲存格坐標範圍和錯誤類型略過指定範圍內儲存格中的錯誤。例如，略過 `Sheet1` 工作表中 `D15 C18:D19` 範圍內儲存格中「數值儲存成文字」錯誤：
+依據給定的工作表名稱、儲存格坐標範圍和錯誤類型略過指定範圍內儲存格中的錯誤。例如，略過 `Sheet1` 工作表中 `D15 C18:D19` 範圍內儲存格中「數值儲存成文字」錯誤：
 
 ```go
 err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberStoredAsText)
@@ -658,7 +674,7 @@ err := f.AddIgnoredErrors("Sheet1", "D15 C18:D19", excelize.IgnoredErrorsNumberS
 func (f *File) SetCellFormula(sheet, cell, formula string, opts ...FormulaOpts) error
 ```
 
-根據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式開啓時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算儲存格的值。若 Excel 應用程式開啓活頁簿後未對設定的儲存格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除儲存格緩存。
+依據給定的工作表名和儲存格坐標設定該儲存格上的公式。公式的結果會在工作表被 Office Excel 應用程式開啓時計算，或透過 [CalcCellValue](cell.md#CalcCellValue) 函式計算儲存格的值。若 Excel 應用程式開啓活頁簿後未對設定的儲存格公式進行計算，請在設定公式後調用 [UpdateLinkedValue](utils.md#UpdateLinkedValue) 清除儲存格緩存。
 
 - 例1，為名為 `Sheet1` 的工作表 `A3` 儲存格設定普通公式 `=SUM(A1,B1)`：
 
@@ -753,7 +769,7 @@ func main() {
 func (f *File) GetCellFormula(sheet, cell string) (string, error)
 ```
 
-根據給定的工作表名和儲存格坐標取得該儲存格上的公式。
+依據給定的工作表名和儲存格坐標取得該儲存格上的公式。
 
 ## 計算儲存格的值 {#CalcCellValue}
 
@@ -761,7 +777,7 @@ func (f *File) GetCellFormula(sheet, cell string) (string, error)
 func (f *File) CalcCellValue(sheet, cell string, opts ...Options) (string, error)
 ```
 
-根據給定的工作表名和儲存格坐標計算包含公式儲存格的值。該方法目前正在開發中，尚未支援反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
+依據給定的工作表名和儲存格坐標計算包含公式儲存格的值。該方法目前正在開發中，尚未支援反覆運算、隱式交集、顯式交集、數組函式、數組函式、表格函式和其他部分函式。
 
 支援的公式函式列表如下：
 
@@ -869,7 +885,7 @@ DATEVALUE        | 將文字形式的日期轉換為序列值
 DAVERAGE         | 傳回選取資料庫項目的平均值
 DAY              | 將序列值轉換為一月中的某日
 DAYS             | 傳回兩個日期之間的天數
-DAYS360          | 根據一年 360 天計算兩個日期之間的天數
+DAYS360          | 依據一年 360 天計算兩個日期之間的天數
 DB               | 傳回資產在指定期間內使用定率餘額遞減法所計算的折舊
 DCOUNT           | 計算資料庫中包含數字的儲存格
 DCOUNTA          | 計算資料庫中非空白的儲存格
@@ -889,12 +905,12 @@ DOLLAR           | 使用貨幣格式將數位轉換成文字，並將小數四�
 DOLLARDE         | 將以分數表示的價格轉換為以小數表示
 DOLLARFR         | 將以小數表示的價格轉換為以分數表示
 DPRODUCT         | 將符合資料庫中準則的特定記錄欄位中的值相乘
-DSTDEV           | 根據選取的資料庫項目的樣本來估計標準差
-DSTDEVP          | 根據選取的資料庫項目的整體母體計算標準差
+DSTDEV           | 依據選取的資料庫項目的樣本來估計標準差
+DSTDEVP          | 依據選取的資料庫項目的整體母體計算標準差
 DSUM             | 將資料庫中符合準則的記錄欄位資料行中的數字相加
 DURATION         | 傳回定期支付利息的債券每年持續時間
-DVAR             | 根據所選資料庫項目的樣本來估計變異數
-DVARP            | 根據選取的資料庫項目的整體母體計算差異
+DVAR             | 依據所選資料庫項目的樣本來估計變異數
+DVARP            | 依據選取的資料庫項目的整體母體計算差異
 EDATE            | 傳回開始日期之前或之後的指定月數的日期序列值
 EFFECT           | 傳回有效年利率
 ENCODEURL        | 傳回 URL 編碼字串
@@ -1140,15 +1156,15 @@ SLN              | 傳回某項固定資產按直線折舊法所計算的每期�
 SLOPE            | 傳回線性迴歸線的斜率
 SMALL            | 傳回資料集中第 k 最小的值
 SORT             | 排序範圍或陣列的內容
-SORTBY           | 根據在對應範圍或陣列中的值來排序範圍或陣列的內容
+SORTBY           | 依據在對應範圍或陣列中的值來排序範圍或陣列的內容
 SQRTPI           | 傳回 (number * pi) 的平方根
 STANDARDIZE      | 傳回標準化的值
-STDEV            | 根據樣本估計標準差
-STDEV.P          | 根據整體母體計算標準差
-STDEV.S          | 根據樣本估計標準差
-STDEVA           | 根據樣本，包括數字、文字和邏輯值來估計標準差
-STDEVP           | 根據整體母體計算標準差
-STDEVPA          | 根據整體母體，包括數字、文字和邏輯值來計算標準差
+STDEV            | 依據樣本估計標準差
+STDEV.P          | 依據整體母體計算標準差
+STDEV.S          | 依據樣本估計標準差
+STDEVA           | 依據樣本，包括數字、文字和邏輯值來估計標準差
+STDEVP           | 依據整體母體計算標準差
+STDEVPA          | 依據整體母體，包括數字、文字和邏輯值來計算標準差
 STEYX            | 傳回迴歸分析中為每個 x 所預測之 y 值的標準誤差
 SUBSTITUTE       | 用新文字取代文字字串中的舊文字
 SUBTOTAL         | 傳回清單或資料庫中的小計
@@ -1160,7 +1176,7 @@ SUMSQ            | 傳回引數的平方和
 SUMX2MY2         | 傳回兩個陣列中對應值之平方差的總和
 SUMX2PY2         | 傳回兩個陣列中對應值之平方和的總和
 SUMXMY2          | 傳回兩個陣列中對應值之差的平方和
-SWITCH           | 根據值清單評估運算式，並傳回對應到第一個相符值的結果。如果沒有相符的值，可能傳回選用的預設值
+SWITCH           | 依據值清單評估運算式，並傳回對應到第一個相符值的結果。如果沒有相符的值，可能傳回選用的預設值
 SYD              | 按年數合計法計算，傳回某固定資產在某一指定期間的折舊金額
 T                | 將其引數轉換為文字
 TAN              | 傳回數字的正切
@@ -1197,17 +1213,17 @@ UNIQUE           | 會傳回清單或範圍中的唯一值清單
 UPPER            | 將文字轉換為大寫
 VALUE            | 將文字引數轉換為數字
 VALUETOTEXT      | 傳回來自任何指定值的文字
-VAR              | 根據樣本來估計變異數
-VAR.P            | 根據整體母體計算變異數
-VAR.S            | 根據樣本來估計變異數
-VARA             | 根據樣本，包括數字、文字和邏輯值來估計變異數
-VARP             | 根據整體母體計算變異數
-VARPA            | 根據整體母體，包括數字、文字和邏輯值來計算變異數
+VAR              | 依據樣本來估計變異數
+VAR.P            | 依據整體母體計算變異數
+VAR.S            | 依據樣本來估計變異數
+VARA             | 依據樣本，包括數字、文字和邏輯值來估計變異數
+VARP             | 依據整體母體計算變異數
+VARPA            | 依據整體母體，包括數字、文字和邏輯值來計算變異數
 VDB              | 傳回資產在指定或部分期間內使用餘額遞減法所計算的折舊
 VLOOKUP          | 在陣列的第一欄尋找某一列，並傳回該列之儲存格中的數值
 WEEKDAY          | 將序列值轉換為一週中的某日天
 WEEKNUM          | 將序列值轉換為數字，表示週數上落在年份的位置
-WEIBULL          | 根據整體母體，包括數字、文字和邏輯值來計算變異數
+WEIBULL          | 依據整體母體，包括數字、文字和邏輯值來計算變異數
 WEIBULL.DIST     | 傳回 Weibull 分佈
 WORKDAY          | 傳回指定的工作日數目之前或之後，日期的數列數字
 WORKDAY.INTL     | 使用參數傳回指定的工作日數目之前或之後的日期的數列數字，指出有哪些天以及有幾天是週末

@@ -115,6 +115,8 @@
   * [Kommentar hinzufügen](cell.md#AddComment)
   * [Kommentar abrufen](cell.md#GetComments)
   * [Kommentar löschen](cell.md#DeleteComment)
+  * [Eingebettetes Objekt hinzufügen](sheet.md#AddEmbeddedObject)
+  * [Eingebettete Objekte abrufen](sheet.md#GetEmbeddedObjects)
   * [Ignorierte Fehler hinzufügen](cell.md#AddIgnoredErrors)
   * [Festlegen der Zellenformel](cell.md#SetCellFormula)
   * [Abrufen der Zellenformel](cell.md#GetCellFormula)

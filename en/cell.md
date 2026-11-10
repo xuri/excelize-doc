@@ -638,6 +638,22 @@ DeleteComment provides the method to delete comment in a sheet by given workshee
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## Add embedded object {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects provides a function to add an embedded object to a worksheet by given worksheet name, cell reference and embedded object options. The embedded object is displayed as an icon in the worksheet. The icon image must be provided by the user. Supported image types: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, and WMZ.
+
+## Get embedded objects {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects provides a method to get all embedded objects in a worksheet by given worksheet name.
+
 ## Add ignored errors {#AddIgnoredErrors}
 
 ```go

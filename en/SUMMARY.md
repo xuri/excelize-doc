@@ -115,6 +115,8 @@
   * [Add comment](cell.md#AddComment)
   * [Get comment](cell.md#GetComments)
   * [Delete comment](cell.md#DeleteComment)
+  * [Add embedded object](sheet.md#AddEmbeddedObject)
+  * [Get embedded objects](sheet.md#GetEmbeddedObjects)
   * [Add ignored errors](cell.md#AddIgnoredErrors)
   * [Set cell formula](cell.md#SetCellFormula)
   * [Get cell formula](cell.md#GetCellFormula)

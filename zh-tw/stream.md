@@ -133,7 +133,7 @@ SetRow 透過給定的起始坐標和指向數組類別「切片」的指針將�
 func (sw *StreamWriter) AddTable(table *Table) error
 ```
 
-根據給定的儲存格坐標區域和條件式格式流式創建表格。
+依據給定的儲存格坐標區域和條件式格式流式創建表格。
 
 例1，在 `A1:D5` 區域流式創建表格：
 
@@ -164,7 +164,7 @@ err := sw.AddTable(&excelize.Table{
 func (sw *StreamWriter) InsertPageBreak(cell string) error
 ```
 
-根據給定的儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
+依據給定的儲存格坐標插入分頁符。分頁符是將工作表分成單獨的頁面以便列印的分隔線。
 
 ## 流式設定窗格 {#SetPanes}
 
@@ -188,7 +188,7 @@ func (sw *StreamWriter) MergeCell(topLeftCell, bottomRightCell string) error
 func (sw *StreamWriter) SetColOutlineLevel(col int, level uint8) error
 ```
 
-根據給定的欄編號和分級參數創建組，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄的分級顯示。參數 `level` 的取值範圍是 1 至 7。例如，在工作表的 `D` 欄創建 2 級分組：
+依據給定的欄編號和分級參數創建組，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄的分級顯示。參數 `level` 的取值範圍是 1 至 7。例如，在工作表的 `D` 欄創建 2 級分組：
 
 ```go
 err := sw.SetColOutlineLevel(4, 2)
@@ -212,7 +212,7 @@ err := sw.SetColStyle(8, 8, style)
 func (sw *StreamWriter) SetColVisible(minVal, maxVal int, visible bool) error
 ```
 
-根據給定欄範圍設定欄可見度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄可見度。例如隱藏工作表中的 `D` 欄：
+依據給定欄範圍設定欄可見度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄可見度。例如隱藏工作表中的 `D` 欄：
 
 ```go
 err := sw.SetColVisible(4, 4, false)
@@ -230,7 +230,7 @@ err := sw.SetColVisible(4, 6, false)
 func (sw *StreamWriter) SetColWidth(min, max int, width float64) error
 ```
 
-根據給定的欄範圍和寬度值設定單個或多個欄的寬度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄寬度。例如設定工作表上 `B` 到 `C` 欄的寬度為 `20`：
+依據給定的欄範圍和寬度值設定單個或多個欄的寬度，必須在調用 [`SetRow`](stream.md#SetRow) 之前調用該函式設定欄寬度。例如設定工作表上 `B` 到 `C` 欄的寬度為 `20`：
 
 ```go
 err := sw.SetColWidth(2, 3, 20)

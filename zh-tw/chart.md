@@ -8,7 +8,7 @@
 func (f *File) AddChart(sheet, cell string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標和圖表樣式屬性插入圖表。
+依據給定的工作表名稱、儲存格坐標和圖表樣式屬性插入圖表。
 
 下面是 Excelize 支援創建的圖表類別 `Type`：
 
@@ -326,7 +326,7 @@ func main() {
 func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartOptions) error
 ```
 
-根據給定的工作表名稱和圖表樣式屬性創建圖表工作表，圖表樣式屬性的定義與 [AddChart](chart.md#AddChart) 函式相同。Excel 中的圖表工作表是僅包含圖表的工作表。
+依據給定的工作表名稱和圖表樣式屬性創建圖表工作表，圖表樣式屬性的定義與 [AddChart](chart.md#AddChart) 函式相同。Excel 中的圖表工作表是僅包含圖表的工作表。
 
 ## 刪除圖表 {#DeleteChart}
 
@@ -334,4 +334,4 @@ func (f *File) AddChartSheet(sheet string, chart *ChartOptions, combo ...*ChartO
 func (f *File) DeleteChart(sheet, cell string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標刪除圖表。
+依據給定的工作表名稱和儲存格坐標刪除圖表。

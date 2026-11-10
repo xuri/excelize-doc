@@ -8,7 +8,7 @@
 func (f *File) AddDataValidation(sheet string, dv *DataValidation)
 ```
 
-根據給定的工作表名和資料驗證對象設定資料驗證規則，資料驗證對象可透過 `NewDataValidation` 函式創建，資料驗證類別和條件參考[常量](constants.md)中的定義。
+依據給定的工作表名和資料驗證對象設定資料驗證規則，資料驗證對象可透過 `NewDataValidation` 函式創建，資料驗證類別和條件參考[常量](constants.md)中的定義。
 
 例1，為 `Sheet1!A1:B2` 設定包含驗證條件為允許介於整數 10 到 20 的資料驗證規則，輸入無效資料時顯示出錯警告，標題為: "error title"，錯誤訊息 "error body":
 
@@ -66,7 +66,7 @@ f.AddDataValidation("Sheet1", dv)
 func (f *File) GetDataValidations(sheet string) ([]*DataValidation, error)
 ```
 
-根據給定的工作表名取得改工作表中全部資料驗證區域和資料驗證規則。
+依據給定的工作表名取得改工作表中全部資料驗證區域和資料驗證規則。
 
 ## 刪除資料驗證 {#DeleteDataValidation}
 
@@ -74,7 +74,7 @@ func (f *File) GetDataValidations(sheet string) ([]*DataValidation, error)
 func (f *File) DeleteDataValidation(sheet string, sqref ...string) error
 ```
 
-根據給定的工作表名和資料驗證區域刪除資料驗證規則。若未指定資料驗證區域，將刪除給定工作表中全部資料驗證區規則。
+依據給定的工作表名和資料驗證區域刪除資料驗證規則。若未指定資料驗證區域，將刪除給定工作表中全部資料驗證區規則。
 
 ## 添加交叉分析篩選器 {#AddSlicer}
 
@@ -153,4 +153,4 @@ func (f *File) GetSlicers(sheet string) ([]SlicerOptions, error)
 func (f *File) DeleteSlicer(name string) error
 ```
 
-根據給定的交叉分析篩選器名稱刪除指定交叉分析篩選器。
+依據給定的交叉分析篩選器名稱刪除指定交叉分析篩選器。

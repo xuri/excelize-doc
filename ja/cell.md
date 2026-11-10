@@ -638,6 +638,22 @@ DeleteComment は、特定のワークシートでシート内のコメントを
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 埋め込みオブジェクトを追加 {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects は、指定されたワークシート名、セル参照、および埋め込みオブジェクトのオプションに基づいて、ワークシートに埋め込みオブジェクトを追加する関数を提供します。埋め込みオブジェクトは、ワークシート上にアイコンとして表示されます。アイコンの画像はユーザーが用意する必要があります。サポートされている画像形式: BMP、EMF、EMZ、GIF、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF、WMZ。
+
+## 埋め込みオブジェクトを取得 {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects は、指定されたワークシート名に基づいて、ワークシート内のすべての埋め込みオブジェクトを取得するメソッドを提供します。
+
 ## 無視されたエラーを追加する {#AddIgnoredErrors}
 
 ```go

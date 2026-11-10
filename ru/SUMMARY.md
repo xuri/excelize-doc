@@ -115,6 +115,8 @@
   * [Добавить комментарий](cell.md#AddComment)
   * [Получить комментарий](cell.md#GetComments)
   * [Удалить комментарий](cell.md#DeleteComment)
+  * [Добавление внедрённого объекта](sheet.md#AddEmbeddedObject)
+  * [Получение внедрённых объектов](sheet.md#GetEmbeddedObjects)
   * [Добавить проигнорированные ошибки](cell.md#AddIgnoredErrors)
   * [Установить формулу ячейки](cell.md#SetCellFormula)
   * [Получить формулу ячейки](cell.md#GetCellFormula)

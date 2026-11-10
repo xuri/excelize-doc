@@ -638,6 +638,22 @@ DeleteComment bietet die Methode zum Löschen von Kommentaren in einem Blatt nac
 err := f.DeleteComment("Tabelle1", "A30")
 ```
 
+## Eingebettetes Objekt hinzufügen {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects stellt eine Funktion bereit, um einem Arbeitsblatt anhand des angegebenen Arbeitsblattnamens, des Zellbezugs und der Optionen für das eingebettete Objekt ein eingebettetes Objekt hinzuzufügen. Das eingebettete Objekt wird im Arbeitsblatt als Symbol angezeigt. Das Symbolbild muss vom Benutzer bereitgestellt werden. Unterstützte Bildtypen: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF und WMZ.
+
+## Eingebettete Objekte abrufen {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects stellt eine Methode bereit, um anhand des angegebenen Arbeitsblattnamens alle eingebetteten Objekte in einem Arbeitsblatt abzurufen.
+
 ## Ignorierte Fehler hinzufügen {#AddIgnoredErrors}
 
 ```go

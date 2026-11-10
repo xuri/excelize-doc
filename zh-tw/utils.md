@@ -18,7 +18,7 @@ type ZipWriter interface {
 func (f *File) AddTable(sheet string, table *Table) error
 ```
 
-根據給定的工作表名、儲存格坐標區域和條件式格式創建表格。
+依據給定的工作表名、儲存格坐標區域和條件式格式創建表格。
 
 - 例1，在名為 `Sheet1` 的工作表 `A1:D5` 區域創建表格：
 
@@ -87,7 +87,7 @@ TableStyleDark11|<img src="../images/table_style/dark/11.png" width="61">||||
 func (f *File) GetTables(sheet string) ([]Table, error)
 ```
 
-根據給定的工作表名稱取得指定工作表中的全部表格。
+依據給定的工作表名稱取得指定工作表中的全部表格。
 
 ## 刪除表格 {#DeleteTable}
 
@@ -95,7 +95,7 @@ func (f *File) GetTables(sheet string) ([]Table, error)
 func (f *File) DeleteTable(name string) error
 ```
 
-根據給定的表格名稱刪除表格。
+依據給定的表格名稱刪除表格。
 
 ## 自動過濾器 {#AutoFilter}
 
@@ -103,7 +103,7 @@ func (f *File) DeleteTable(name string) error
 func (f *File) AutoFilter(sheet, rangeRef string, opts []AutoFilterOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標區域和條件式格式創建自動過濾器。电子表格中的自動過濾器可以對一些簡單的平面資料資料進列資料篩選。
+依據給定的工作表名稱、儲存格坐標區域和條件式格式創建自動過濾器。电子表格中的自動過濾器可以對一些簡單的平面資料資料進列資料篩選。
 
 例1，在名稱為 `Sheet1` 的工作表 `A1:D4` 區域創建自動過濾器：
 
@@ -288,7 +288,7 @@ func (f *File) NewConditionalStyle(style *Style) (int, error)
 func (f *File) GetConditionalStyle(idx int) (*Style, error)
 ```
 
-根據給定的條件式格式樣式索引取得條件式格式樣式定義。
+依據給定的條件式格式樣式索引取得條件式格式樣式定義。
 
 ## 設定條件式格式 {#SetConditionalFormat}
 
@@ -296,7 +296,7 @@ func (f *File) GetConditionalStyle(idx int) (*Style, error)
 func (f *File) SetConditionalFormat(sheet, rangeRef string, opts []ConditionalFormatOptions) error
 ```
 
-根據給定的工作表名稱、儲存格坐標區域和格式參數，為儲存格值創建條件式格式設定規則。條件式格式是 Office Excel 的一項功能，它允許您根據特定條件將格式應用於儲存格或一系列儲存格。
+依據給定的工作表名稱、儲存格坐標區域和格式參數，為儲存格值創建條件式格式設定規則。條件式格式是 Office Excel 的一項功能，它允許您依據特定條件將格式應用於儲存格或一系列儲存格。
 
 格式參數 `Type` 選項是必需的參數，它沒有默認值。允許的類別值及其相關參數是：
 
@@ -783,7 +783,7 @@ err := f.SetConditionalFormat("Sheet1", "B1:B10",
 
 可選值|說明
 ---|---
-context     | 資料橫條方向根據電子錶格中數據上下文顯示
+context     | 資料橫條方向依據電子錶格中數據上下文顯示
 leftToRight | 從右向左
 rightToLeft | 從左向右
 
@@ -914,7 +914,7 @@ func main() {
 func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalFormatOptions, error)
 ```
 
-根據給定的工作表名稱取得該工作表中全部儲存格坐標區域和條件式格式參數。
+依據給定的工作表名稱取得該工作表中全部儲存格坐標區域和條件式格式參數。
 
 ## 刪除條件式格式 {#UnsetConditionalFormat}
 
@@ -922,7 +922,7 @@ func (f *File) GetConditionalFormats(sheet string) (map[string][]ConditionalForm
 func (f *File) UnsetConditionalFormat(sheet, rangeRef string) error
 ```
 
-根據給定的工作表名稱和儲存格坐標區域刪除條件式格式。
+依據給定的工作表名稱和儲存格坐標區域刪除條件式格式。
 
 ## 設定窗格 {#SetPanes}
 

@@ -638,6 +638,22 @@ DeleteComment предоставляет метод для удаления ко
 err := f.DeleteComment("Лист1", "A30")
 ```
 
+## Добавление внедрённого объекта {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects предоставляет функцию для добавления внедрённого объекта на лист по заданному имени листа, ссылке на ячейку и параметрам внедрённого объекта. Внедрённый объект отображается на листе в виде значка. Изображение значка должно быть предоставлено пользователем. Поддерживаемые типы изображений: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF и WMZ.
+
+## Получение внедрённых объектов {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects предоставляет метод для получения всех внедрённых объектов на листе по заданному имени листа.
+
 ## Добавить проигнорированные ошибки {#AddIgnoredErrors}
 
 ```go

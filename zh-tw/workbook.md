@@ -193,7 +193,7 @@ func (f *File) Close() error
 func (f *File) NewSheet(sheet string) (int, error)
 ```
 
-根據給定的工作表名稱來創建新工作表，並傳回工作表在活頁簿中的索引。請注意，在創建新的活頁簿時，將包含名為 `Sheet1` 的默認工作表。
+依據給定的工作表名稱來創建新工作表，並傳回工作表在活頁簿中的索引。請注意，在創建新的活頁簿時，將包含名為 `Sheet1` 的默認工作表。
 
 ## 刪除工作表 {#DeleteSheet}
 
@@ -201,7 +201,7 @@ func (f *File) NewSheet(sheet string) (int, error)
 func (f *File) DeleteSheet(sheet string) error
 ```
 
-根據給定的工作表名稱刪除指定工作表，謹慎使用此方法，這將會影響到與被刪除工作表相關聯的公式、引用、圖表等元素。如果有其他組件引用了被刪除工作表上的值，將會引發錯誤提示，甚至將會導致開啓活頁簿失敗。當活頁簿中僅包含一個工作表時，調用此方法無效。
+依據給定的工作表名稱刪除指定工作表，謹慎使用此方法，這將會影響到與被刪除工作表相關聯的公式、引用、圖表等元素。如果有其他組件引用了被刪除工作表上的值，將會引發錯誤提示，甚至將會導致開啓活頁簿失敗。當活頁簿中僅包含一個工作表時，調用此方法無效。
 
 ## 移動工作表 {#MoveSheet}
 
@@ -209,7 +209,7 @@ func (f *File) DeleteSheet(sheet string) error
 func (f *File) MoveSheet(source, target string) error
 ```
 
-將工作表移動到活頁簿中的指定位置。根據給定的被移動工作表名稱和目標工作表名稱，將工作表移動至目標工作表之前。移動後，其他工作表的位置將向左或向右移動，如果工作表已經在目標位置，則該函式不會執行任何操作。請注意，該函式在移動工作表後將取消所有工作表分組。例如，將名為 `Sheet2` 的工作表移動至工作表 `Sheet1` 之前：
+將工作表移動到活頁簿中的指定位置。依據給定的被移動工作表名稱和目標工作表名稱，將工作表移動至目標工作表之前。移動後，其他工作表的位置將向左或向右移動，如果工作表已經在目標位置，則該函式不會執行任何操作。請注意，該函式在移動工作表後將取消所有工作表分組。例如，將名為 `Sheet2` 的工作表移動至工作表 `Sheet1` 之前：
 
 ```go
 err := f.MoveSheet("Sheet2", "Sheet1")
@@ -221,7 +221,7 @@ err := f.MoveSheet("Sheet2", "Sheet1")
 func (f *File) CopySheet(from, to int) error
 ```
 
-根據給定的被複製工作表與目標工作表索引複製工作表，目標工作表索引需要開發者自行確認是否已經存在。目前支援僅包含儲存格值和公式的工作表間的複製，不支援包含表格、圖片、圖表和樞紐分析表等元素的工作表之間的複製。
+依據給定的被複製工作表與目標工作表索引複製工作表，目標工作表索引需要開發者自行確認是否已經存在。目前支援僅包含儲存格值和公式的工作表間的複製，不支援包含表格、圖片、圖表和樞紐分析表等元素的工作表之間的複製。
 
 ```go
 // 名稱為 Sheet1 的工作表已經存在 ...
@@ -239,7 +239,7 @@ err = f.CopySheet(0, index)
 func (f *File) GroupSheets(sheets []string) error
 ```
 
-根據給定的工作表名稱對工作表進行分組，給定的工作表中需包含默認工作表。
+依據給定的工作表名稱對工作表進行分組，給定的工作表中需包含默認工作表。
 
 ## 取消工作表分組 {#UngroupSheets}
 
@@ -255,13 +255,13 @@ func (f *File) UngroupSheets() error
 func (f *File) SetSheetBackground(sheet, picture string) error
 ```
 
-根據給定的工作表名稱和圖片檔案路徑為指定的工作表設定平鋪效果的背景圖片。支援的圖片檔案格式為：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+依據給定的工作表名稱和圖片檔案路徑為指定的工作表設定平鋪效果的背景圖片。支援的圖片檔案格式為：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ```go
 func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []byte) error
 ```
 
-根據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支援的圖片檔案格式為：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
+依據給定的工作表名稱、圖片格式擴展名和圖片格式數據為指定的工作表設定平鋪效果的背景圖片。支援的圖片檔案格式為：BMP、EMF、EMZ、GIF、ICO、JPEG、JPG、PNG、SVG、TIF、TIFF、WMF 和 WMZ。
 
 ## 設定默認工作表 {#SetActiveSheet}
 
@@ -269,7 +269,7 @@ func (f *File) SetSheetBackgroundFromBytes(sheet, extension string, picture []by
 func (f *File) SetActiveSheet(index int)
 ```
 
-根據給定的索引值設定默認工作表，索引的值應該大於等於 `0` 且小於活頁簿所包含的累積工作表總數。
+依據給定的索引值設定默認工作表，索引的值應該大於等於 `0` 且小於活頁簿所包含的累積工作表總數。
 
 ## 取得默認工作表索引 {#GetActiveSheetIndex}
 
@@ -285,7 +285,7 @@ func (f *File) GetActiveSheetIndex() int
 func (f *File) SetSheetVisible(sheet string, visible bool, veryHidden ...bool) error
 ```
 
-根據給定的工作表名稱和可見度參數設定工作表的可見度。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見度設定無效。第三個可選參數 `veryHidden` 僅在 `visible` 參數值為 `false` 時有效。
+依據給定的工作表名稱和可見度參數設定工作表的可見度。一個活頁簿中至少包含一個可見工作表。如果給定的工作表為默認工作表，則對其可見度設定無效。第三個可選參數 `veryHidden` 僅在 `visible` 參數值為 `false` 時有效。
 
 例如，隱藏名為 `Sheet1` 的工作表：
 
@@ -299,7 +299,7 @@ err := f.SetSheetVisible("Sheet1", false)
 func (f *File) GetSheetVisible(sheet string) (bool, error)
 ```
 
-根據給定的工作表名稱取得工作表可見度設定。例如，取得名為 `Sheet1` 的工作表可見度設定:
+依據給定的工作表名稱取得工作表可見度設定。例如，取得名為 `Sheet1` 的工作表可見度設定:
 
 ```go
 visible, err := f.GetSheetVisible("Sheet1")
@@ -311,7 +311,7 @@ visible, err := f.GetSheetVisible("Sheet1")
 func (f *File) SetSheetProps(sheet string, opts *SheetPropsOptions) error
 ```
 
-根據給定的工作表名稱和屬性參數設定工作表屬性。支援設定的工作表屬性選項：
+依據給定的工作表名稱和屬性參數設定工作表屬性。支援設定的工作表屬性選項：
 
 屬性 | 類型 | 描述
 ---|---|---
@@ -413,7 +413,7 @@ f.SaveAs("Book1.xlsx")
 func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 ```
 
-根據給定的工作表名稱取得工作表屬性。
+依據給定的工作表名稱取得工作表屬性。
 
 ## 設定工作表檢視屬性 {#SetSheetView}
 
@@ -421,7 +421,7 @@ func (f *File) GetSheetProps(sheet string) (SheetPropsOptions, error)
 func (f *File) SetSheetView(sheet string, viewIndex int, opts *ViewOptions) error
 ```
 
-根據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支援設定的工作表檢視屬性選項：
+依據給定的工作表名稱、檢視索引和檢視參數設定工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。支援設定的工作表檢視屬性選項：
 
 屬性 | 類型 | 描述
 ---|---|---
@@ -442,7 +442,7 @@ ZoomScale         | `*float64` | 以百分比表示的當前檢視顯示窗口�
 func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 ```
 
-根據給定的工作表名稱和檢視索引取得工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
+依據給定的工作表名稱和檢視索引取得工作表檢視屬性，`viewIndex` 可以是負數，如果是這樣，則向後計數（`-1` 代表最後一個檢視）。
 
 ## 設定工作表頁面配置 {#SetPageLayout}
 
@@ -450,7 +450,7 @@ func (f *File) GetSheetView(sheet string, viewIndex int) (ViewOptions, error)
 func (f *File) SetPageLayout(sheet string, opts *PageLayoutOptions) error
 ```
 
-根據給定的工作表名稱和頁面配置參數設定工作表的頁面配置屬性。目前支援設定的頁面配置屬性：
+依據給定的工作表名稱和頁面配置參數設定工作表的頁面配置屬性。目前支援設定的頁面配置屬性：
 
 `Size` 屬性用以設定頁面紙張大小，默認頁面配置大小為「信紙 (8½ 英吋 × 11 英吋)」。下面的表格是 Excelize 中頁面配置大小和索引 `Size` 參數的關係對照：
 
@@ -619,7 +619,7 @@ if err := f.SetPageLayout("Sheet1", &excelize.PageLayoutOptions{
 func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 ```
 
-根據給定的工作表名稱和頁面配置參數取得工作表的頁面配置屬性。
+依據給定的工作表名稱和頁面配置參數取得工作表的頁面配置屬性。
 
 ## 設定工作表頁邊界 {#SetPageMargins}
 
@@ -627,7 +627,7 @@ func (f *File) GetPageLayout(sheet string) (PageLayoutOptions, error)
 func (f *File) SetPageMargins(sheet string, opts *PageLayoutMarginsOptions) error
 ```
 
-根據給定的工作表名稱和頁邊界參數設定工作表的頁邊界。支援設定的頁邊界選項：
+依據給定的工作表名稱和頁邊界參數設定工作表的頁邊界。支援設定的頁邊界選項：
 
 選項 | 類別 | 描述
 ---|---|---
@@ -646,7 +646,7 @@ Vertically   | `*bool`    | 頁面置中方式：垂直置中
 func (f *File) GetPageMargins(sheet string) (PageLayoutMarginsOptions, error)
 ```
 
-根據給定的工作表名稱和頁邊界參數取得工作表的頁邊界。
+依據給定的工作表名稱和頁邊界參數取得工作表的頁邊界。
 
 ## 設定活頁簿屬性 {#SetWorkbookProps}
 
@@ -676,7 +676,7 @@ GetWorkbookProps 用於取得活頁簿的屬性。
 func (f *File) SetHeaderFooter(sheet string, opts *HeaderFooterOptions) error
 ```
 
-根據給定的工作表名稱和控制字符設定工作表的頁首和頁尾。
+依據給定的工作表名稱和控制字符設定工作表的頁首和頁尾。
 
 頁首和頁尾包含如下欄位：
 
@@ -845,7 +845,7 @@ func (f *File) AddHeaderFooterImage(sheet string, opts *HeaderFooterImageOptions
 func (f *File) SetDefinedName(definedName *DefinedName) error
 ```
 
-根據給定的名稱和引用區域設定名稱，默認範圍是活頁簿。例如：
+依據給定的名稱和引用區域設定名稱，默認範圍是活頁簿。例如：
 
 ```go
 err := f.SetDefinedName(&excelize.DefinedName{
@@ -924,7 +924,7 @@ func (f *File) GetDefinedName() []DefinedName
 func (f *File) DeleteDefinedName(definedName *DefinedName) error
 ```
 
-根據給定的名稱和名稱作用範圍刪除已定義的名稱，默認名稱的作用範圍為活頁簿。例如：
+依據給定的名稱和名稱作用範圍刪除已定義的名稱，默認名稱的作用範圍為活頁簿。例如：
 
 ```go
 err := f.DeleteDefinedName(&excelize.DefinedName{
@@ -1033,7 +1033,7 @@ func (f *File) GetDocProps() (*DocProperties, error)
 func (f *File) SetCustomProps(prop CustomProperty) error
 ```
 
-根據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函式將會傳回錯誤。
+依據給定的屬性名稱和值設定活頁簿的自訂屬性。如果給定的屬性名稱已經存在，將會更新已存在屬性的值，否則將添加新的屬性。屬性值支持的資料類型為 `int32`、`float64`、`bool`、`string`、`time.Time` 或 `nil`。當設定屬性的值為 `nil` 時，將刪除指定的屬性。當給定的屬性值是不受支持的資料類型時，函式將會傳回錯誤。
 
 ## 取得自訂屬性 {#GetDocCustomProps}
 

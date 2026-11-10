@@ -638,6 +638,22 @@ DeleteComment 는 주어진 워크시트에 의해 시트의 주석을 삭제하
 err := f.DeleteComment("Sheet1", "A30")
 ```
 
+## 포함된 개체 추가 {#AddEmbeddedObject}
+
+```go
+func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
+```
+
+AddEmbeddedObjects 는 지정한 워크시트 이름, 셀 참조 및 포함된 개체 옵션으로 워크시트에 포함된 개체를 추가하는 함수를 제공합니다. 포함된 개체는 워크시트에 아이콘으로 표시됩니다. 아이콘 이미지는 사용자가 직접 제공해야 합니다. 지원되는 이미지 형식: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF, WMZ.
+
+## 포함된 개체 가져오기 {#GetEmbeddedObjects}
+
+```go
+func (f *File) GetEmbeddedObjects(sheet string) ([]EmbeddedObject, error)
+```
+
+GetEmbeddedObjects 는 지정한 워크시트 이름으로 워크시트의 모든 포함된 개체를 가져오는 메서드를 제공합니다.
+
 ## 무시된 오류 추가 {#AddIgnoredErrors}
 
 ```go

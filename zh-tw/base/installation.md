@@ -86,7 +86,7 @@ func main() {
     f.SetCellValue("Sheet1", "B2", 100)
     // 設定活頁簿的默認工作表
     f.SetActiveSheet(index)
-    // 根據指定路徑儲存檔案
+    // 依據指定路徑儲存檔案
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }
@@ -141,7 +141,7 @@ func main() {
 
 ## 在 Excel 檔案中創建圖表 {#chart}
 
-使用 Excelize 生成圖表十分簡單，僅需幾行代碼。您可以根據工作表中的已有資料構建圖表，或向工作表中添加資料並創建圖表。
+使用 Excelize 生成圖表十分簡單，僅需幾行代碼。您可以依據工作表中的已有資料構建圖表，或向工作表中添加資料並創建圖表。
 
 <p align="center"><img width="770" src="../images/base.png" alt="在 Excel 檔案中創建圖表"></p>
 
@@ -202,7 +202,7 @@ func main() {
         fmt.Println(err)
         return
     }
-    // 根據指定路徑儲存檔案
+    // 依據指定路徑儲存檔案
     if err := f.SaveAs("Book1.xlsx"); err != nil {
         fmt.Println(err)
     }

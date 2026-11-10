@@ -166,7 +166,7 @@ type PivotTableField struct {
 func (f *File) AddPivotTable(opts *PivotTableOptions) error
 ```
 
-根據給定的屬性創建樞紐分析表。
+依據給定的屬性創建樞紐分析表。
 
 例如，以 `Sheet1!G4:M30` 作為資料源，在 `Sheet1!A1:E31` 選區創建樞紐分析表，並按照銷售資料匯總加總:
 
@@ -245,7 +245,7 @@ func main() {
 func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 ```
 
-根據給定的工作表名稱傳回該工作表中的全部樞紐分析表屬性。
+依據給定的工作表名稱傳回該工作表中的全部樞紐分析表屬性。
 
 ## 刪除樞紐分析表 {#DeletePivotTable}
 
@@ -253,4 +253,4 @@ func (f *File) GetPivotTables(sheet string) ([]PivotTableOptions, error)
 func (f *File) DeletePivotTable(sheet, name string) error
 ```
 
-根據給定的工作表名稱和樞紐分析表名稱刪除指定樞紐分析表。請注意，該函式不會清除樞紐分析表區域內儲存格的值。
+依據給定的工作表名稱和樞紐分析表名稱刪除指定樞紐分析表。請注意，該函式不會清除樞紐分析表區域內儲存格的值。
