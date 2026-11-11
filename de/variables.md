@@ -69,9 +69,9 @@ var (
     // ErrPasswordLengthInvalid definiert die Fehlermeldung bei ungültiger Passwortlänge.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrPivotTableShowValuesAsBaseField definierte die Fehlermeldung, wenn für ein Pivot-Tabellen-Datenfeld ein "Werte anzeigen als"-Typ festgelegt wurde, aber kein Basisfeld angegeben wurde.
-    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show values as type requires a base field")
     // ErrPivotTableShowValuesAsBaseItem definierte die Fehlermeldung, wenn ein "Werte anzeigen als"-Typ und ein Basisfeld für ein Pivot-Tabellen-Datenfeld aktiviert wurden, ohne ein Basiselement anzugeben.
-    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show values as type and base field requires a base item")
     // ErrPivotTableClassicLayout definierte die Fehlermeldung beim gleichzeitigen Aktivieren von ClassicLayout und CompactData.
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave definiert die Fehlermeldung zum Speichern der Datei.
@@ -117,7 +117,7 @@ var (
     // ErrUnsupportedNumberFormat hat die Fehlermeldung für einen nicht unterstützten Zahlenformatausdruck definiert.
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
     // ErrUnsupportedPivotTableShowValuesAsType definierte die Fehlermeldung für den Empfang eines nicht unterstützten "Werte anzeigen als"-Typs für ein Pivot-Tabellen-Datenfeld.
-    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show values as type")
     // ErrWorkbookFileFormat definiert die Fehlermeldung beim Empfang eines nicht unterstützten Arbeitsmappendateiformats.
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword definiert die Fehlermeldung beim Erhalt des falschen Arbeitsmappenpassworts.

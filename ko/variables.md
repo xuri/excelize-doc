@@ -69,9 +69,9 @@ var (
     // ErrPasswordLengthInvalid 가 잘못된 암호 길이에 대한 오류 메시지를 정의했습니다
     ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrPivotTableShowValuesAsBaseField 는 피벗 테이블 데이터 필드에 "다음으로 값 표시" 유형이 설정되었지만 기본 필드가 지정되지 않은 경우 오류 메시지를 정의했습니다
-    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show values as type requires a base field")
     // ErrPivotTableShowValuesAsBaseItem 은 기본 항목을 지정하지 않고 피벗 테이블 데이터 필드에 "다음으로 값 표시" 유형 및 기본 필드를 활성화할 때 오류 메시지를 정의했습니다
-    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show values as type and base field requires a base item")
     // ErrPivotTableClassicLayout 은 ClassicLayout 과 CompactData 를 동시에 활성화할 때 오류 메시지를 정의했습니다
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave 는 파일 저장에 대한 오류 메시지를 정의했습니다
@@ -117,7 +117,7 @@ var (
     // ErrUnsupportedNumberFormat 이 지원되지 않는 숫자 형식 표현식에 대한 오류 메시지를 정의했습니다
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
     // ErrUnsupportedPivotTableShowValuesAsType 은 지원되지 않는 피벗 테이블 데이터 필드 "다음으로 값 표시" 유형을 수신할 때 오류 메시지를 정의했습니다
-    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show values as type")
     // ErrWorkbookFileFormat 은 지원되지 않는 통합 문서 파일 형식을 수신할 때 오류 메시지를 정의했습니다
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword 는 잘못된 통합 문서 암호 수신 시 오류 메시지를 정의했습니다

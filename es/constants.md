@@ -190,6 +190,7 @@ Especificaciones y límites de Excel:
 
 ```go
 const (
+    EMU                     = 9525
     MaxCellStyles           = 65430
     MaxCFBStreamSizeV3      = 1<<31 - 1
     MaxCFBStreamSizeV4      = 0xFFFFFFFA000

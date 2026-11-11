@@ -69,9 +69,9 @@ var (
     // ErrPasswordLengthInvalid defined the error message on invalid password length.
     ErrPasswordLengthInvalid = errors.New("password length invalid")
     // ErrPivotTableShowValuesAsBaseField defined the error message when a "show values as" type is set for a pivot table data field but no base field is specified.
-    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show value as type requires a base field")
+    ErrPivotTableShowValuesAsBaseField = errors.New("this kind of show values as type requires a base field")
     // ErrPivotTableShowValuesAsBaseItem defined the error message on enabling a "show values as" type and base field for a pivot table data field without specifying a base item.
-    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show value as type and base field requires a base item")
+    ErrPivotTableShowValuesAsBaseItem = errors.New("this kind of show values as type and base field requires a base item")
     // ErrPivotTableClassicLayout defined the error message on enable ClassicLayout and CompactData in the same time
     ErrPivotTableClassicLayout = errors.New("cannot enable ClassicLayout and CompactData in the same time")
     // ErrSave defined the error message for saving file.
@@ -117,7 +117,7 @@ var (
     // ErrUnsupportedNumberFormat defined the error message on unsupported number format expression.
     ErrUnsupportedNumberFormat = errors.New("unsupported number format token")
     // ErrUnsupportedPivotTableShowValuesAsType defined the error message on receiving an unsupported pivot table data field "show values as" type.
-    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show value as type")
+    ErrUnsupportedPivotTableShowValuesAsType = errors.New("unsupported pivot table show values as type")
     // ErrWorkbookFileFormat defined the error message on receive an unsupported workbook file format.
     ErrWorkbookFileFormat = errors.New("unsupported workbook file format")
     // ErrWorkbookPassword defined the error message on receiving the incorrect workbook password.
