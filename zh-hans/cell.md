@@ -35,7 +35,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-根据给定的工作表名和单元格坐标设置单元格的值。此功能是并发安全的。指定的坐标不应在表格的第一行范围，使用字符文本设置复数。
+根据给定的工作表名和单元格坐标设置单元格的值。此功能是并发安全的。指定的单元格坐标不能位于 Excel 表格（例如通过 [`AddTable`](utils.md#AddTable) 函数创建的表格）的标题行中。如需设置复数，需要使用字符文本进行设置。下面是支持的数据类型：
 
 |支持的数据类型|
 |---|

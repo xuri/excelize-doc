@@ -35,7 +35,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-依據給定的工作表名和儲存格坐標設定儲存格的值。此功能是併發安全的。指定的坐標不應在表格的第一列範圍，使用字符文本設定複數。
+依據給定的工作表名稱與儲存格座標設定儲存格的值。此功能是併發安全的。指定的儲存格座標不得位於 Excel 表格（例如透過 [`AddTable`](utils.md#AddTable) 函式建立的表格）的標題列中。若要設定複數，需以字串形式提供。支援以下資料型別：
 
 |支援的資料類別|
 |---|

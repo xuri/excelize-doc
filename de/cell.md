@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-SetCellValue bietet eine Funktion zum Festlegen des Werts einer Zelle. Diese Funktion wird für die gleichzeitige Verwendung unterstützt. Die angegebenen Koordinaten sollten sich nicht in der ersten Zeile der Tabelle befinden. Im Folgenden werden die unterstützten Datentypen angezeigt:
+SetCellValue stellt eine Funktion zum Festlegen des Werts einer Zelle bereit. Diese Funktion ist threadsicher. Die angegebene Zelle darf sich nicht in der Kopfzeile einer Excel-Tabelle befinden (zum Beispiel einer Tabelle, die mit der Funktion [`AddTable`](utils.md#AddTable) erstellt wurde). Komplexe Zahlen können als Zeichenketten übergeben werden. Die folgenden Datentypen werden unterstützt:
 
 |Unterstützte Datentypen|
 |---|

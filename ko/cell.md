@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-SetCellValue 셀값을 설정하는 함수를 제공합니다. 지정된 좌표는 테이블의 첫 번째 행에 없어야합니다. 이 기능은 동시성 안전에 사용될 수 있습니다. 다음은 지원되는 데이터 형식을 보여 주며:
+SetCellValue 는 셀의 값을 설정하는 함수를 제공합니다. 이 함수는 동시성에 안전합니다. 지정한 셀은 Excel 테이블(예: [`AddTable`](utils.md#AddTable) 함수로 만든 테이블)의 머리글 행에 있으면 안 됩니다. 복소수는 문자열로 전달할 수 있습니다. 지원되는 데이터 형식은 다음과 같습니다:
 
 |지원되는 데이터 유형|
 |---|

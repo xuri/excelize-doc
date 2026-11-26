@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-SetCellValue proporciona una función para establecer el valor de una celda. Esta función es segura para la simultaneidad. Las coordenadas especificadas no deben estar en la primera fila de la tabla. A continuación, se muestran los tipos de datos admitidos:
+SetCellValue proporciona una función para establecer el valor de una celda. Esta función es segura para la concurrencia. La celda especificada no debe estar en la fila de encabezado de una tabla de Excel (por ejemplo, una tabla creada con la función [`AddTable`](utils.md#AddTable)). Los números complejos se pueden proporcionar como cadenas de texto. Se admiten los siguientes tipos de datos:
 
 |Tipos de datos admitidos|
 |---|

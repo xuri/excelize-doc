@@ -33,7 +33,7 @@ type FormulaOpts struct {
 func (f *File) SetCellValue(sheet, cell string, value interface{}) error
 ```
 
-指定されたワークシート名とセル座標に基づいて、セルの値を設定します。この関数は、同時実行セーフをサポートします。指定された座標は、テーブルの最初の行にあるべきではありません。
+SetCellValue は、セルの値を設定する関数です。この関数は並行処理に対して安全です。指定するセルは、Excel テーブル（たとえば [`AddTable`](utils.md#AddTable) 関数で作成したテーブル）のヘッダー行に含めないでください。複素数は文字列として指定できます。サポートされているデータ型は次のとおりです:
 
 |サポートされているデータ型|
 |---|
