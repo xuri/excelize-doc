@@ -555,7 +555,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-根据给定的工作表名获取全部合并单元格的坐标区域和值。如果将可选参数 `withoutValues` 的值设置为 `true`，将仅解析合并单元格的区域，而不会获取合并单元格的值。例如，获取名为 `Sheet1` 的工作表中的全部合并单元格：
+根据给定的工作表名获取全部合并单元格的坐标区域和值。此功能是并发安全的。如果将可选参数 `withoutValues` 的值设置为 `true`，将仅解析合并单元格的区域，而不会获取合并单元格的值。例如，获取名为 `Sheet1` 的工作表中的全部合并单元格：
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1")

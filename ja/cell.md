@@ -553,7 +553,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-GetMergeCells は、特定のワークシートからすべての結合セルを取得する関数を提供します。`withoutValues` パラメータを `true` に設定すると、結合セルのセル値は返されず、範囲参照のみが返されます。例えば、`Sheet1` のすべての結合セルを取得するには、次のようにします:
+GetMergeCells は、指定したワークシートからすべての結合セルを取得する関数を提供します。この関数は並行処理に対して安全です。`withoutValues` パラメーターを `true` に設定すると、結合セルのセル値は返されず、範囲の参照のみが返されます。たとえば、`Sheet1` 上のすべての結合セルを取得するには、次のようにします:
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1")

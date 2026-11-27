@@ -559,16 +559,16 @@ err := f.UnmergeCell("ورقة1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-توفر GetMergeCells دالةً للحصول على جميع الخلايا المدمجة من ورقة عمل محددة. إذا تم ضبط معامل `withoutValues` على `true`، فلن تُرجع قيم الخلايا المدمجة، بل مرجع النطاق فقط. على سبيل المثال، للحصول على جميع الخلايا المدمجة في `Sheet1`:
+توفر GetMergeCells دالة للحصول على جميع الخلايا المدمجة من ورقة عمل محددة. هذه الدالة آمنة في بيئات التزامن. إذا تم تعيين المعامل `withoutValues` إلى `true`، فلن يتم إرجاع قيم الخلايا المدمجة، وإنما سيتم إرجاع مرجع النطاق فقط. على سبيل المثال، للحصول على جميع الخلايا المدمجة في `ورقة1`:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1")
+mergeCells, err := f.GetMergeCells("ورقة1")
 ```
 
 إذا كنت تريد الحصول على خلايا مدمجة بدون قيم الخلايا، يمكنك استخدام الكود التالي:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1", true)
+mergeCells, err := f.GetMergeCells("ورقة1", true)
 ```
 
 ### احصل على قيمة خلية مدمجة

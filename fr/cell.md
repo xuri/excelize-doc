@@ -553,16 +553,16 @@ Attention: les zones qui se chevauchent seront également non fusionnées.
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-GetMergeCells fournit une fonction permettant de récupérer toutes les cellules fusionnées d'une feuille de calcul spécifique. Si le paramètre `withoutValues` est défini sur `true`, les valeurs des cellules fusionnées ne seront pas renvoyées, seule la référence de la plage sera renvoyée. Par exemple, pour récupérer toutes les cellules fusionnées de la feuille `Sheet1`, procédez comme suit:
+GetMergeCells fournit une fonction permettant de récupérer toutes les cellules fusionnées d'une feuille de calcul spécifique. Cette fonction est sûre en environnement concurrent. Si le paramètre `withoutValues` est défini sur `true`, les valeurs des cellules fusionnées ne seront pas renvoyées ; seule la référence de plage le sera. Par exemple, pour récupérer toutes les cellules fusionnées de `Feuil1` :
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1")
+mergeCells, err := f.GetMergeCells("Feuil1")
 ```
 
 Si vous souhaitez obtenir des cellules fusionnées sans valeurs de cellule, vous pouvez utiliser le code suivant:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1", true)
+mergeCells, err := f.GetMergeCells("Feuil1", true)
 ```
 
 ### Obtenir la valeur de cellule fusionnée
@@ -643,7 +643,7 @@ err := f.DeleteComment("Feuil1", "A30")
 func (f *File) AddEmbeddedObjects(sheet string, opts *EmbeddedObject) error
 ```
 
-AddEmbeddedObjects fournit une fonction permettant d'ajouter un objet incorporé à une feuille de calcul à partir du nom de la feuille, de la référence de cellule et des options de l'objet incorporé donnés. L'objet incorporé est affiché sous forme d'icône dans la feuille de calcul. L'image de l'icône doit être fournie par l'utilisateur. Types d'image pris en charge : BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
+AddEmbeddedObjects fournit une fonction permettant d'ajouter un objet incorporé à une feuille de calcul à partir du nom de la feuille, de la référence de cellule et des options de l'objet incorporé donnés. L'objet incorporé est affiché sous forme d'icône dans la feuille de calcul. L'image de l'icône doit être fournie par l'utilisateur. Types d'image pris en charge: BMP, EMF, EMZ, GIF, JPEG, JPG, PNG, SVG, TIF, TIFF, WMF et WMZ.
 
 ## Obtenir les objets incorporés {#GetEmbeddedObjects}
 

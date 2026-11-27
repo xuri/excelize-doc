@@ -553,16 +553,16 @@ Atención: las áreas superpuestas tampoco se fusionarán.
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-GetMergeCells proporciona una función para obtener todas las celdas fusionadas de una hoja de cálculo específica. Si el parámetro `withoutValues` se establece en `true`, no se devolverán los valores de las celdas fusionadas, sino solo la referencia del rango. Por ejemplo, obtener todas las celdas fusionadas en `Sheet1`:
+GetMergeCells proporciona una función para obtener todas las celdas combinadas de una hoja de cálculo específica. Esta función es segura para la concurrencia. Si el parámetro `withoutValues` se establece en `true`, no se devolverán los valores de las celdas combinadas, solo la referencia del rango. Por ejemplo, para obtener todas las celdas combinadas de `Hoja1`:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1")
+mergeCells, err := f.GetMergeCells("Hoja1")
 ```
 
 Si desea obtener celdas fusionadas sin valores de celda, puede usar el siguiente código:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1", true)
+mergeCells, err := f.GetMergeCells("Hoja1", true)
 ```
 
 ### Obtener valor de celda combinada

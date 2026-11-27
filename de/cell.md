@@ -553,16 +553,16 @@ Achtung: Überlappende Bereiche werden ebenfalls nicht zusammengeführt.
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-GetMergeCells bietet eine Funktion zum Abrufen aller verbundenen Zellen aus einem bestimmten Arbeitsblatt. Wenn der Parameter `withoutValues` auf `true` gesetzt ist, werden nicht die Zellenwerte der verbundenen Zellen zurückgegeben, sondern nur der Bereichsbezug. Beispiel: Abrufen aller verbundenen Zellen in `Sheet1`:
+GetMergeCells stellt eine Funktion bereit, um alle verbundenen Zellen aus einem bestimmten Arbeitsblatt abzurufen. Diese Funktion ist threadsicher. Wenn der Parameter `withoutValues` auf `true` gesetzt ist, werden die Zellwerte der verbundenen Zellen nicht zurückgegeben, sondern nur der Bereichsverweis. Zum Beispiel, um alle verbundenen Zellen in `Tabelle1` abzurufen:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1")
+mergeCells, err := f.GetMergeCells("Tabelle1")
 ```
 
 Wenn Sie verbundene Zellen ohne Zellenwerte erhalten möchten, können Sie den folgenden Code verwenden:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1", true)
+mergeCells, err := f.GetMergeCells("Tabelle1", true)
 ```
 
 ### Wert der zusammengeführten Zelle abrufen

@@ -546,7 +546,7 @@ func (f *File) UnmergeCell(sheet, topLeftCell, bottomRightCell string) error
 UnmergeCell fornisce una funzione per separare un dato intervallo di riferimento. Ad esempio, separa l'area `D3:E9` dal `Foglio1`:
 
 ```go
-err := f.UnmergeCell("Sheet1", "D3", "E9")
+err := f.UnmergeCell("Foglio1", "D3", "E9")
 ```
 
 Attenzione: anche le aree sovrapposte verranno separate.
@@ -557,16 +557,16 @@ Attenzione: anche le aree sovrapposte verranno separate.
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-GetMergeCells fornisce una funzione per ottenere tutte le celle unite da un foglio di lavoro specifico. Se il parametro `withoutValues` è impostato su `true`, non restituirà i valori delle celle unite, ma solo il riferimento all'intervallo. Ad esempio, per ottenere tutte le celle unite su `Sheet1`:
+GetMergeCells fornisce una funzione per ottenere tutte le celle unite di un foglio di lavoro specifico. Questa funzione è sicura per la concorrenza. Se il parametro `withoutValues` è impostato su `true`, non verranno restituiti i valori delle celle unite, ma solo il riferimento all'intervallo. Ad esempio, per ottenere tutte le celle unite in `Foglio1`:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1")
+mergeCells, err := f.GetMergeCells("Foglio1")
 ```
 
 Se si desidera ottenere celle unite senza valori di cella, è possibile utilizzare il seguente codice:
 
 ```go
-mergeCells, err := f.GetMergeCells("Sheet1", true)
+mergeCells, err := f.GetMergeCells("Foglio1", true)
 ```
 
 ### Ottieni il valore della cella unita

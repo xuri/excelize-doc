@@ -553,7 +553,7 @@ err := f.UnmergeCell("Sheet1", "D3", "E9")
 func (f *File) GetMergeCells(sheet string, withoutValues ...bool) ([]MergeCell, error)
 ```
 
-특정 워크시트에서 병합된 모든 셀을 가져옵니다. `withoutValues` 매개변수를 `true` 로 설정하면 병합된 셀의 셀 값은 반환되지 않고 범위 참조만 반환됩니다. 예를 들어 `Sheet1` 의 모든 병합된 셀을 가져오려면 다음과 같이 합니다:
+GetMergeCells 는 특정 워크시트에서 병합된 모든 셀을 가져오는 함수를 제공합니다. 이 함수는 동시성에 안전합니다. `withoutValues` 매개변수를 `true` 로 설정하면 병합된 셀의 값은 반환되지 않고 범위 참조만 반환됩니다. 예를 들어 `Sheet1` 의 병합된 모든 셀을 가져오려면 다음과 같이 합니다:
 
 ```go
 mergeCells, err := f.GetMergeCells("Sheet1")
